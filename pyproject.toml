@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nfl-player-value"
+version = "0.1.0"
+description = "Reproducible NFL Context-Adjusted Value Above Average research"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Aryan Parte"}]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/AryanParte/nfl-player-value"
+
+[tool.setuptools.packages.find]
+where = ["src"]
