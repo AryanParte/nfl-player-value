@@ -9,9 +9,14 @@ Target release: **November 7, 2026**. Research and design were approved on Octob
 - Add CI, engineering instructions, status notes, and a learning log.
 - Open the first reviewable PR; configure the separate authorized development automation.
 
-These are bootstrap tasks, not evidence that the player-value model works. The current project-status record tracks what is actually complete.
+Completed in [PR #1](https://github.com/AryanParte/nfl-player-value/pull/1), merged by the owner. These contracts are not evidence that the player-value model works.
 
 ## October 19–23: data contracts and transparent baseline
+
+October 19 progress: immutable capture, source audit, and offline replay now work
+for real 2026 PBP, rosters, and depth charts. Completed-game/status reconciliation,
+historical roster stints, normalized first-unit membership, model fitting, and the
+defensive information-loss experiment remain open. See [ingestion](docs/INGESTION.md).
 
 - Build content-addressed ingestion for 2026 play-by-play, player identifiers, rosters, depth-chart snapshots, and game status.
 - Audit historical seasons and current-year schemas before fitting; record source coverage at the game and position level.

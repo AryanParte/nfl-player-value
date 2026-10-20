@@ -1,0 +1,207 @@
+{
+  "audit_date": "2026-10-19",
+  "purpose": "Source receipt verification; not a ranking release",
+  "sources": [
+    {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.csv.gz",
+        "digest": "sha256:be65623c6898746a35c49da1aced55460a7c472cfdde250976bf02e6d3d37054",
+        "id": 656789487,
+        "name": "play_by_play_2026.csv.gz",
+        "size": 6370287,
+        "updated_at": "2026-10-19T16:28:25Z"
+      },
+      "code_revision": "c54bb063a7ec0ea3fb7b6c11c92df2533f8b5834",
+      "decoded_bytes": 32543234,
+      "decoded_sha256": "d067cd216280b3120a376e2ebb9993cf5976f2b1326a3085b30834fbdc1c0734",
+      "depth_timestamps": {
+        "count": 0,
+        "first": null,
+        "last": null
+      },
+      "games": 92,
+      "games_by_week": {
+        "1": 16,
+        "2": 16,
+        "3": 16,
+        "4": 16,
+        "5": 15,
+        "6": 13
+      },
+      "games_with_end_marker": 92,
+      "invalid_fields": {},
+      "kind": "pbp",
+      "missing_fields": {
+        "epa": 184
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "be65623c6898746a35c49da1aced55460a7c472cfdde250976bf02e6d3d37054",
+        "release_metadata": "6b15e838e6c1aa2756adb09237896f2e39b9755c3c512270deb92aaf46d29150"
+      },
+      "ranking_ready": false,
+      "receipt_id": "97a023a58fca46cc0fb4190e59e8d71e5cda2ae0e4e80aedec8dc0ea7972c7bd",
+      "retrieval": {
+        "data": "2026-10-20T00:56:41.639045+00:00",
+        "license": "2026-10-20T00:56:42.380236+00:00",
+        "metadata": "2026-10-20T00:56:41.007964+00:00"
+      },
+      "rows": 16212,
+      "schema_version": "pbp-csv-v1",
+      "season": 2026,
+      "teams": []
+    },
+    {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2026.csv.gz",
+        "digest": "sha256:bc4446aed1d7c37ee7df0e26752c9cb0de15d63317c30b22c13639e1b6607664",
+        "id": 656535517,
+        "name": "roster_2026.csv.gz",
+        "size": 376992,
+        "updated_at": "2026-10-19T14:38:59Z"
+      },
+      "code_revision": "c54bb063a7ec0ea3fb7b6c11c92df2533f8b5834",
+      "decoded_bytes": 974626,
+      "decoded_sha256": "3c03175740338d372d0d55c6a7df1a5253848ce1248fe619b5f4b78f1bcca717",
+      "depth_timestamps": {
+        "count": 0,
+        "first": null,
+        "last": null
+      },
+      "games": 0,
+      "games_by_week": {},
+      "games_with_end_marker": 0,
+      "invalid_fields": {},
+      "kind": "rosters",
+      "missing_fields": {
+        "gsis_id": 1
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "bc4446aed1d7c37ee7df0e26752c9cb0de15d63317c30b22c13639e1b6607664",
+        "release_metadata": "5246a887013fb1d51141d74e8b9b472b030d3a61f479db8a28952dc509992c17"
+      },
+      "ranking_ready": false,
+      "receipt_id": "ceb435dccca777b12ec703065e1fb0e2bce82bc04805ae7dc81858a39bcb131d",
+      "retrieval": {
+        "data": "2026-10-20T00:56:43.203706+00:00",
+        "license": "2026-10-20T00:56:43.277517+00:00",
+        "metadata": "2026-10-20T00:56:42.945503+00:00"
+      },
+      "rows": 3043,
+      "schema_version": "rosters-csv-v1",
+      "season": 2026,
+      "teams": [
+        "ARI",
+        "ATL",
+        "BAL",
+        "BUF",
+        "CAR",
+        "CHI",
+        "CIN",
+        "CLE",
+        "DAL",
+        "DEN",
+        "DET",
+        "GB",
+        "HOU",
+        "IND",
+        "JAX",
+        "KC",
+        "LA",
+        "LAC",
+        "LV",
+        "MIA",
+        "MIN",
+        "NE",
+        "NO",
+        "NYG",
+        "NYJ",
+        "PHI",
+        "PIT",
+        "SEA",
+        "SF",
+        "TB",
+        "TEN",
+        "WAS"
+      ]
+    },
+    {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.csv.gz",
+        "digest": "sha256:2fb52793121c577aad2944709993cf66a5d1dca1e417fcfda280f788b162afab",
+        "id": 656528211,
+        "name": "depth_charts_2026.csv.gz",
+        "size": 13070912,
+        "updated_at": "2026-10-19T14:35:47Z"
+      },
+      "code_revision": "c54bb063a7ec0ea3fb7b6c11c92df2533f8b5834",
+      "decoded_bytes": 64125857,
+      "decoded_sha256": "4084fa8f753b64fe74fdd02f0e594fc00403bd9815a903d6e61662b34a9a2d3e",
+      "depth_timestamps": {
+        "count": 246,
+        "first": "2026-03-22T06:38:42Z",
+        "last": "2026-10-19T14:35:37Z"
+      },
+      "games": 0,
+      "games_by_week": {},
+      "games_with_end_marker": 0,
+      "invalid_fields": {
+        "noncanonical_gsis_id": 1019
+      },
+      "kind": "depth_charts",
+      "missing_fields": {
+        "gsis_id": 25063
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "2fb52793121c577aad2944709993cf66a5d1dca1e417fcfda280f788b162afab",
+        "release_metadata": "a9d97f4688027767698650b2b9940f1f01b5319d130cd5a6e75f239baa466a74"
+      },
+      "ranking_ready": false,
+      "receipt_id": "802740a9afa46a1aa5519c569a24192cda223fbf20ad8a546efc72f0ac1cad1f",
+      "retrieval": {
+        "data": "2026-10-20T00:56:44.146931+00:00",
+        "license": "2026-10-20T00:56:47.362040+00:00",
+        "metadata": "2026-10-20T00:56:43.676193+00:00"
+      },
+      "rows": 673227,
+      "schema_version": "depth-2025-csv-v1",
+      "season": 2026,
+      "teams": [
+        "ARI",
+        "ATL",
+        "BAL",
+        "BUF",
+        "CAR",
+        "CHI",
+        "CIN",
+        "CLE",
+        "DAL",
+        "DEN",
+        "DET",
+        "GB",
+        "HOU",
+        "IND",
+        "JAX",
+        "KC",
+        "LA",
+        "LAC",
+        "LV",
+        "MIA",
+        "MIN",
+        "NE",
+        "NO",
+        "NYG",
+        "NYJ",
+        "PHI",
+        "PIT",
+        "SEA",
+        "SF",
+        "TB",
+        "TEN",
+        "WAS"
+      ]
+    }
+  ]
+}

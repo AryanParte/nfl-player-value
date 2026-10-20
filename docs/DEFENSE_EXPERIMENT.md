@@ -1,5 +1,17 @@
 # Required defensive workstream
 
+October 19 inventory check: the public participation release contains 2016–2025
+assets and no 2026 asset. The 2025 CSV candidate is asset `353763509`, 49,094,943
+bytes, updated `2026-02-10T18:54:08Z`, SHA-256
+`59069adfee7b0f464befba8a5e8be331e523633cc6a7ab403d37bcbcdfbe66ac`.
+This is verified release metadata, not a completed row-level audit or experiment.
+The [participation loader documentation](https://nflreadr.nflverse.com/reference/load_participation.html)
+specifies post-season availability from 2023 and CC-BY-SA-4.0 attribution to
+FTN Data via nflverse. Its source-specific terms override the ordinary archive
+license; the three-source ingestion registry deliberately does not include it yet.
+Next: add a dedicated historical participation adapter, verify joins/lineups,
+and resolve snap-source use rights before the degraded-information comparison.
+
 Defense is part of the product objective and the implementation roadmap. Public live 2026 data do not currently establish the same assignment-level coverage as historical tracking or full participation data. This workstream tests how much that loss prevents individual attribution.
 
 ## Research question
