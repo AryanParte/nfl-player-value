@@ -14,9 +14,21 @@ Completed in [PR #1](https://github.com/AryanParte/nfl-player-value/pull/1), mer
 ## October 19–23: data contracts and transparent baseline
 
 October 19 progress: immutable capture, source audit, and offline replay now work
-for real 2026 PBP, rosters, and depth charts. Completed-game/status reconciliation,
-historical roster stints, normalized first-unit membership, model fitting, and the
-defensive information-loss experiment remain open. See [ingestion](docs/INGESTION.md).
+for real 2026 PBP, rosters, and depth charts. See [ingestion](docs/INGESTION.md).
+
+October 20 progress: schedule capture, terminal-PBP/score reconciliation,
+formation-aware pregame first-unit selection, and immutable offline derived
+reports now work. Fresh data reconcile 93 games through Week 6. The audit retains
+11 blocked cohort issues and flags retrospective availability; no score is
+published. See [pregame inputs](docs/PREGAME_INPUTS.md).
+
+October 21 priority: dedicated historical participation ingestion with its own
+CC-BY-SA terms, verified identity/lineup joins, and the input audit for the required
+defensive information-loss experiment. October 22–23: normalized opportunities
+and roster/stint evidence, followed by the transparent regularized baseline.
+Model fitting and the actual information-loss experiment remain unfinished;
+reserve October 24–27 for their measured comparison and context work rather than
+adding optional features. Capture/selection coverage is not model validation.
 
 - Build content-addressed ingestion for 2026 play-by-play, player identifiers, rosters, depth-chart snapshots, and game status.
 - Audit historical seasons and current-year schemas before fitting; record source coverage at the game and position level.
