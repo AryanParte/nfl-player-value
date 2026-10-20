@@ -2,6 +2,16 @@
 
 Research audit date: **October 18, 2026**. Availability findings are observations at that date, not continuing guarantees. The production pipeline must verify every selected release, schema, game set, and license. Some row-level checks below were made on October 17 and may lag subsequent source updates.
 
+**October 19 implementation audit:** real PBP, season-roster, and depth-chart
+snapshots were archived with exact published/observed hashes and replayed offline.
+The [machine-readable audit](audits/2026-10-19-sources.json) contains source asset
+identities, timestamps, code revision and coverage. PBP contains 16,212 rows and
+92 games with end markers, not a certified complete Week 6 release. Rosters contain
+3,043 rows, including one missing GSIS ID. Across 246 depth-chart timestamps,
+673,227 rows include 25,063 missing-ID rows and 1,019 legacy-format-ID rows.
+These are row counts across repeated snapshots, not counts of distinct players.
+See [INGESTION.md](INGESTION.md) for why these sources are not yet ranking-ready.
+
 ## Public-source launch plan
 
 | Source | Historical/current availability observed | Intended use and limitation |

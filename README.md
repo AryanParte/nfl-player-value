@@ -6,7 +6,7 @@ The target is a usable 2026 season-to-date leaderboard and interactive website b
 
 ## Current status
 
-The initial engineering unit establishes benchmark and participation-qualification contracts, tests, and the project documentation. It does **not** produce player-value estimates or real 2026 rankings. Live ingestion, statistical fitting, defensive experiments, and the dashboard are planned work. Synthetic test fixtures are not football findings.
+Benchmark and participation-qualification contracts are implemented, with tested immutable ingestion and offline audit replay for 2026 play-by-play, rosters, and depth charts. Three real source snapshots have been captured and replayed. The system does **not** produce player-value estimates or real rankings yet. Completed-game reconciliation, normalized model inputs, statistical fitting, defensive experiments, and the dashboard remain planned work. Synthetic test fixtures are not football findings.
 
 The all-position objective remains explicit. An unsupported position receives no invented score. A narrower published board must identify its supported scope; it cannot be presented as a validated ranking of every NFL player.
 
@@ -30,12 +30,14 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Methodology](docs/METHODOLOGY.md) | Estimand, benchmarks, participation, and attribution rules |
 | [Architecture](docs/ARCHITECTURE.md) | Offline Python pipeline, versioned outputs, and React dashboard |
 | [Data sources](docs/DATA_SOURCES.md) | Coverage, freshness, provenance, and licensing constraints |
+| [Ingestion](docs/INGESTION.md) | Exact-byte capture commands, offline replay, and failure behavior |
 | [Evaluation](docs/EVALUATION.md) | Predictive and attribution checks, sensitivity, and admission criteria |
 | [Defense experiment](docs/DEFENSE_EXPERIMENT.md) | Required defensive research design and explorer scope |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
 | [Project status](STATUS.md) | Completed work, active limitations, and next task |
 | [Daily workflow](docs/DAILY_WORKFLOW.md) | Independent development runs, locking, verification, and PR rules |
 | [First learning report](docs/learning/2026-10-18.md) | Foundation decisions, statistical concepts, verification, and remaining work |
+| [October 19 learning report](docs/learning/2026-10-19.md) | Live snapshots, source quality, and replay verification |
 
 ## Run the foundation checks
 
