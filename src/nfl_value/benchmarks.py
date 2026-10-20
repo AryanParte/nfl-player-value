@@ -54,6 +54,9 @@ class CompletedTeamGame:
 
     The season-specific schedule remains authoritative for whether an otherwise
     valid week exists (for example, older seasons with only 17 regular weeks).
+    completed_at is a conservative known-complete-by bound when an exact finish
+    time is unavailable. The ingestion report must identify that time semantics;
+    never backdate the bound to an invented final-whistle time.
     """
 
     game_id: str
