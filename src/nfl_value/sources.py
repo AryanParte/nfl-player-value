@@ -30,6 +30,7 @@ def source_spec(kind: str, season: int) -> SourceSpec:
         "pbp": ("pbp", f"play_by_play_{season}.csv.gz", "pbp-csv-v1"),
         "rosters": ("rosters", f"roster_{season}.csv.gz", "rosters-csv-v1"),
         "depth_charts": ("depth_charts", f"depth_charts_{season}.csv.gz", "depth-2025-csv-v1"),
+        "schedules": ("schedules", "games.csv.gz", "schedules-csv-v1"),
     }
     if kind not in choices:
         raise ValueError(f"unreviewed source: {kind!r}")
@@ -39,5 +40,5 @@ def source_spec(kind: str, season: int) -> SourceSpec:
     return SourceSpec(
         kind, season, tag, filename, schema, "CC-BY-4.0",
         "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
-        "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "Lee Sharpe (nfldata) via nflverse" if kind == "schedules" else "nflverse contributors; source-specific upstream credits retained with source metadata",
     )

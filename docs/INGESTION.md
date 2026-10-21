@@ -1,9 +1,10 @@
 # Immutable source snapshots
 
 The source layer captures the exact public nflverse CSV.gz assets for play-by-play,
-season rosters, and timestamped depth charts. It audits their structure and preserves
-the bytes for offline replay. It does not produce normalized model opportunities,
-first-unit assignments, eligibility decisions, or rankings yet.
+season rosters, timestamped depth charts, and schedules. It audits their structure
+and preserves the bytes for offline replay. The separate [pregame input layer](PREGAME_INPUTS.md)
+reconciles schedule/PBP completion evidence and selects first-unit chart members.
+Neither layer produces model opportunities, eligibility decisions, or rankings.
 
 ## Run and replay
 
@@ -16,6 +17,7 @@ or installed copy, so each receipt can identify its executing Git revision.
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture pbp --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture rosters --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture depth_charts --season 2026
+PYTHONPATH=src python3 -m nfl_value.ingest_cli capture schedules --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli replay RECEIPT_SHA256
 ```
 
@@ -71,12 +73,13 @@ admission to modeling are separate steps.
 PBP `END_GAME` markers are counted as source evidence. They are not independently
 verified final status or precise completion timestamps. A remaining game clock of
 zero is also not a sufficient completion rule, especially in overtime. A separate
-schedule/status reconciliation must establish the expected completed regular-season
-game universe and identify missing games before publication.
+schedule/PBP reconciliation now requires terminal markers and matching scores,
+with conservative observed-complete-by timestamps. This is cross-file evidence,
+not an independent live status feed; see [the policy](PREGAME_INPUTS.md).
 
 Season-roster rows are not historical roster stints. Depth `dt` values indicate
-source loading; latest pre-kickoff snapshot selection, role mapping, freshness,
-and required team-game coverage still need normalization. Archives can contain
+source loading; the pregame layer handles latest pre-kickoff selection, reviewed
+role mappings, freshness and required team-game coverage. Archives can contain
 later corrections, so an old row timestamp does not independently prove what was
 known at a historical cutoff. Every audit in this unit sets `ranking_ready=false`.
 

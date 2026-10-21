@@ -30,7 +30,11 @@ React / TypeScript static dashboard
 - **Publication:** validate a complete output bundle before atomically advancing the public latest pointer. Keep the last valid release on failure.
 - **Presentation:** display values, intervals, model/benchmark labels, source freshness, scope limitations, and weekly histories. Numerical explanations originate in recorded model outputs, not LLM-generated scores.
 
-The first engineering unit concerns benchmark and qualification contracts. The remaining boundaries describe planned implementation, not existing services.
+Implemented boundaries now include benchmark/qualification contracts, immutable
+source receipts, and offline [pregame inputs](PREGAME_INPUTS.md). The latter retain
+the whole schedule/PBP reconciliation, formation-aware memberships, coverage
+failures and retrospective-availability labels in a content-addressed diagnostic
+report. Modeling, evaluation, publication and presentation remain unimplemented.
 
 ## Snapshot and release contract
 

@@ -1,0 +1,309 @@
+{
+  "audit_date": "2026-10-20",
+  "code_revision": "c683f7113a57c269e760e6a2637d9747e03832b6",
+  "current_report": {
+    "candidate_assignment_counts": {
+      "C": 186,
+      "CB": 558,
+      "EDGE": 372,
+      "IDL": 466,
+      "K": 186,
+      "KR": 186,
+      "LB": 446,
+      "LS": 185,
+      "OG": 372,
+      "OT": 372,
+      "P": 186,
+      "PR": 186,
+      "QB": 186,
+      "RB": 186,
+      "S": 372,
+      "TE": 186,
+      "WR": 558
+    },
+    "cutoff": "2026-10-20T23:48:27.503974+00:00",
+    "first_unit_issues": 11,
+    "game_coverage_complete": true,
+    "historical_availability": {
+      "team_games_using_retrospectively_retrieved_depth": 186,
+      "team_games_with_depth_retrieved_before_kickoff": 0
+    },
+    "issues": [
+      {
+        "game_id": "2026_01_DEN_KC",
+        "reason": "missing_or_ambiguous_first_unit_slot",
+        "role": "LS",
+        "slot": 6,
+        "team_id": "DEN"
+      },
+      {
+        "game_id": "2026_01_WAS_PHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_02_PHI_TEN",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_03_PHI_CHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_04_LA_PHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_05_PHI_JAX",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_05_TB_DAL",
+        "reason": "ambiguous_unit_role",
+        "role": "CB",
+        "slot": null,
+        "team_id": "DAL"
+      },
+      {
+        "game_id": "2026_05_TB_DAL",
+        "reason": "ambiguous_unit_role",
+        "role": "S",
+        "slot": null,
+        "team_id": "DAL"
+      },
+      {
+        "game_id": "2026_06_CAR_PHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_06_DAL_GB",
+        "reason": "ambiguous_unit_role",
+        "role": "CB",
+        "slot": null,
+        "team_id": "DAL"
+      },
+      {
+        "game_id": "2026_06_DAL_GB",
+        "reason": "ambiguous_unit_role",
+        "role": "S",
+        "slot": null,
+        "team_id": "DAL"
+      }
+    ],
+    "matched_games": 93,
+    "max_snapshot_age_hours": 12.553888888888888,
+    "offline_network_guard": true,
+    "ranking_ready": false,
+    "replay_seconds_observed": 5.868,
+    "report_id": "eed5f528e32e427dfd47f0f06ab4619b59cc59257e8167558732979c4ffeefeb",
+    "role_coverage_complete": {
+      "C": true,
+      "CB": false,
+      "EDGE": true,
+      "IDL": false,
+      "K": true,
+      "KR": true,
+      "LB": true,
+      "LS": false,
+      "OG": true,
+      "OT": true,
+      "P": true,
+      "PR": true,
+      "QB": true,
+      "RB": true,
+      "S": false,
+      "TE": true,
+      "WR": true
+    },
+    "season": 2026,
+    "team_game_cells": 186,
+    "unresolved_games": [],
+    "weeks": {
+      "1": 16,
+      "2": 16,
+      "3": 16,
+      "4": 16,
+      "5": 15,
+      "6": 14
+    }
+  },
+  "cutoff": "2026-10-20T23:48:27.503974+00:00",
+  "limitations": [
+    "Completion uses terminal PBP markers plus schedule agreement, not an independent live final-status feed.",
+    "Scheduled kickoff is conservative selection context, not verified actual kickoff.",
+    "Historical depth row times may contain later corrections; this does not prove vintage pregame availability.",
+    "Chart roles do not establish participation, roster stints, eligibility denominators or defensive assignments on plays.",
+    "Defensive roles are formation proxies; nickel is included as an additional chart role and duplicate CB identities are counted once.",
+    "Fullback and holder are not silently assigned to running back or punter benchmarks.",
+    "No individual attribution, cross-position comparability or CAVAA ranking has been validated.",
+    "All raw snapshots and full derived reports remain local; durable off-machine retention is still required before production."
+  ],
+  "previous_pbp_control": {
+    "benchmark_guard_error": "incomplete schedule/PBP game coverage",
+    "cutoff": "2026-10-20T23:48:27.503974+00:00",
+    "first_unit_issues": 11,
+    "game_coverage_complete": false,
+    "historical_availability": {
+      "team_games_using_retrospectively_retrieved_depth": 184,
+      "team_games_with_depth_retrieved_before_kickoff": 0
+    },
+    "matched_games": 92,
+    "offline_network_guard": true,
+    "ranking_ready": false,
+    "replay_seconds_observed": 6.135,
+    "report_id": "d0d65ecb31adb35b1a2c51616078cca1673a16c212e3928aac0caf3c378c3c7c",
+    "role_coverage_complete": {
+      "C": true,
+      "CB": false,
+      "EDGE": true,
+      "IDL": false,
+      "K": true,
+      "KR": true,
+      "LB": true,
+      "LS": false,
+      "OG": true,
+      "OT": true,
+      "P": true,
+      "PR": true,
+      "QB": true,
+      "RB": true,
+      "S": false,
+      "TE": true,
+      "WR": true
+    },
+    "season": 2026,
+    "unresolved_games": [
+      {
+        "game_id": "2026_06_WAS_SF",
+        "reason": "missing_pbp"
+      }
+    ]
+  },
+  "source_snapshots": {
+    "depth_charts": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.csv.gz",
+        "digest": "sha256:f8843edd5634baa2f5df808c45ff34b2d34c500c57549ec188fb47a0759ee8be",
+        "id": 659304036,
+        "name": "depth_charts_2026.csv.gz",
+        "size": 13159002,
+        "updated_at": "2026-10-20T12:41:55Z"
+      },
+      "depth_timestamps": {
+        "count": 248,
+        "first": "2026-03-22T06:38:42Z",
+        "last": "2026-10-20T12:41:41Z"
+      },
+      "invalid_fields": {
+        "noncanonical_gsis_id": 1021
+      },
+      "missing_fields": {
+        "gsis_id": 25075
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "f8843edd5634baa2f5df808c45ff34b2d34c500c57549ec188fb47a0759ee8be",
+        "release_metadata": "3e4182bd4f526f806243350fe44b0c97c3a866cd3632322d7707f7fa26a1627b"
+      },
+      "receipt_id": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b",
+      "retrieval": {
+        "data": "2026-10-20T23:47:42.370021+00:00",
+        "license": "2026-10-20T23:47:45.613021+00:00",
+        "metadata": "2026-10-20T23:47:41.964073+00:00"
+      },
+      "rows": 677875,
+      "source": {
+        "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "filename": "depth_charts_2026.csv.gz",
+        "kind": "depth_charts",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "schema_version": "depth-2025-csv-v1",
+        "season": 2026,
+        "tag": "depth_charts"
+      }
+    },
+    "pbp": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.csv.gz",
+        "digest": "sha256:14d0b7edddc5df64d96fef8b2f2ec93a815d10e6d265f4b4622d6dcae5e38a98",
+        "id": 659527615,
+        "name": "play_by_play_2026.csv.gz",
+        "size": 6436955,
+        "updated_at": "2026-10-20T14:18:50Z"
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "14d0b7edddc5df64d96fef8b2f2ec93a815d10e6d265f4b4622d6dcae5e38a98",
+        "release_metadata": "7e6641df0de0f27f4e9f3a026723c1da9df77d2d903f71e5a077fd8ae0d99351"
+      },
+      "receipt_id": "03fca0bd054db939e6dcc01bbebf40f4b14dc4f20782b0bdac1b636a8199b853",
+      "retrieval": {
+        "data": "2026-10-20T23:47:40.924447+00:00",
+        "license": "2026-10-20T23:47:41.592070+00:00",
+        "metadata": "2026-10-20T23:47:40.660827+00:00"
+      },
+      "rows": 16380,
+      "source": {
+        "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "filename": "play_by_play_2026.csv.gz",
+        "kind": "pbp",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "schema_version": "pbp-csv-v1",
+        "season": 2026,
+        "tag": "pbp"
+      }
+    },
+    "schedules": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv.gz",
+        "digest": "sha256:0682f07104f894379ac28d0cfb4c18f9c18f7b7647a4f816750b124e0c62cfe6",
+        "id": 660793259,
+        "name": "games.csv.gz",
+        "size": 515410,
+        "updated_at": "2026-10-20T23:36:29Z"
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "0682f07104f894379ac28d0cfb4c18f9c18f7b7647a4f816750b124e0c62cfe6",
+        "release_metadata": "6f39774da486bb07136baf56d0d528498a7f71300076390b31bf7d0880be6834"
+      },
+      "receipt_id": "e53356ba0ce3d9c1bd6db1cdae751b9d96263222a20ef301218d85cbb59f4adf",
+      "retrieval": {
+        "data": "2026-10-20T23:47:39.912492+00:00",
+        "license": "2026-10-20T23:47:40.198665+00:00",
+        "metadata": "2026-10-20T23:47:39.541253+00:00"
+      },
+      "rows": 7548,
+      "selected_season_rows": 272,
+      "source": {
+        "attribution": "Lee Sharpe (nfldata) via nflverse",
+        "filename": "games.csv.gz",
+        "kind": "schedules",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "schema_version": "schedules-csv-v1",
+        "season": 2026,
+        "tag": "schedules"
+      }
+    }
+  }
+}

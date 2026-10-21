@@ -12,11 +12,22 @@ identities, timestamps, code revision and coverage. PBP contains 16,212 rows and
 These are row counts across repeated snapshots, not counts of distinct players.
 See [INGESTION.md](INGESTION.md) for why these sources are not yet ranking-ready.
 
+**October 20 implementation audit:** the [versioned input report](audits/2026-10-20-pregame-inputs.json)
+identifies fresh schedule, PBP and depth receipts. The schedule contains 272
+regular-season games for 2026; 93 due games through Week 6 have terminal PBP
+markers and matching scores. The previous PBP receipt fails reconciliation for
+Monday's Washington–San Francisco game, demonstrating why file freshness and
+season existence cannot substitute for game coverage. First-unit selection covers
+186 team-game cells, with 11 issues blocking IDL, CB, S and LS cohorts. Every
+selected chart was retrieved retrospectively; the report does not certify vintage
+pregame availability. See [PREGAME_INPUTS.md](PREGAME_INPUTS.md).
+
 ## Public-source launch plan
 
 | Source | Historical/current availability observed | Intended use and limitation |
 | --- | --- | --- |
 | nflverse play-by-play | Since 1999; a 2026 release asset was present | EPA and game/play context. A present file does not establish complete or corrected game coverage. |
+| nflverse schedules, maintained by Lee Sharpe | All-season release; 272 regular-season 2026 games captured October 20 | Scheduled kickoff and game inventory. Scores require terminal PBP corroboration; no exact final-whistle time or independent final-status flag. Declared archive terms: CC-BY-4.0. |
 | Rosters and player identifiers | 2026 assets present; historical fields vary | Stable IDs, team stints, and roles; audit merges and position changes. |
 | Depth charts | Historical loader support; 2026 timestamped snapshots present | Pregame first-unit membership. Since 2025, timestamps replace a simple week index; reconstruct as-of membership. |
 | Snap counts | Since 2012; 2026 game-level records present | Offensive, defensive, and special-teams workload. These are not play-level lineups. |

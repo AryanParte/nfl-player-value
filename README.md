@@ -6,7 +6,7 @@ The target is a usable 2026 season-to-date leaderboard and interactive website b
 
 ## Current status
 
-Benchmark and participation-qualification contracts are implemented, with tested immutable ingestion and offline audit replay for 2026 play-by-play, rosters, and depth charts. Three real source snapshots have been captured and replayed. The system does **not** produce player-value estimates or real rankings yet. Completed-game reconciliation, normalized model inputs, statistical fitting, defensive experiments, and the dashboard remain planned work. Synthetic test fixtures are not football findings.
+Benchmark and participation-qualification contracts, immutable ingestion, schedule/PBP completion checks, and pregame first-unit selection are implemented. The October 20 audit reconciles 93 games through Week 6 and 186 team-game cells; all seven offensive chart cohorts have complete coverage. Eleven issues block IDL, CB, S and LS cohorts. These are input-coverage findings, not evidence of player contribution. The system does **not** produce player-value estimates or real rankings yet. Opportunity/stint normalization, statistical fitting, the defensive information-loss experiment, and the dashboard remain open. Synthetic test fixtures are not football findings.
 
 The all-position objective remains explicit. An unsupported position receives no invented score. A narrower published board must identify its supported scope; it cannot be presented as a validated ranking of every NFL player.
 
@@ -31,6 +31,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Architecture](docs/ARCHITECTURE.md) | Offline Python pipeline, versioned outputs, and React dashboard |
 | [Data sources](docs/DATA_SOURCES.md) | Coverage, freshness, provenance, and licensing constraints |
 | [Ingestion](docs/INGESTION.md) | Exact-byte capture commands, offline replay, and failure behavior |
+| [Pregame inputs](docs/PREGAME_INPUTS.md) | Completed-game evidence, formation-aware first-unit selection, and historical availability |
 | [Evaluation](docs/EVALUATION.md) | Predictive and attribution checks, sensitivity, and admission criteria |
 | [Defense experiment](docs/DEFENSE_EXPERIMENT.md) | Required defensive research design and explorer scope |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
@@ -38,6 +39,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Daily workflow](docs/DAILY_WORKFLOW.md) | Independent development runs, locking, verification, and PR rules |
 | [First learning report](docs/learning/2026-10-18.md) | Foundation decisions, statistical concepts, verification, and remaining work |
 | [October 19 learning report](docs/learning/2026-10-19.md) | Live snapshots, source quality, and replay verification |
+| [October 20 learning report](docs/learning/2026-10-20.md) | Receiver slot semantics, game completeness, and benchmark coverage |
 
 ## Run the foundation checks
 
