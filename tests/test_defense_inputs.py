@@ -36,7 +36,7 @@ def part(**changes):
 def play(**changes):
     row = {"game_id": GAME, "play_id": "1", "season": "2025", "season_type": "REG", "week": "1",
            "play_type": "pass", "play_type_nfl": "PASS", "posteam": "ATL", "defteam": "TB", "epa": "1.5",
-           "down": "1", "ydstogo": "10", "yardline_100": "75", "game_seconds_remaining": "3500", "qtr": "1",
+           "down": "1", "ydstogo": "10", "yardline_100": "75", "game_seconds_remaining": "3500", "qtr": "1", "quarter_seconds_remaining": "800",
            "score_differential": "0", "qb_kneel": "0", "qb_spike": "0", "two_point_attempt": "0",
            "home_team": "TB", "away_team": "ATL", "total_home_score": "7", "total_away_score": "3"}
     return {**row, **changes}
@@ -253,7 +253,7 @@ class BundleTests(unittest.TestCase):
         self.raw = SnapshotStore(Path(temp.name) / "raw")
         self.derived = SnapshotStore(Path(temp.name) / "derived")
         self.ids = {}
-        fixtures = {"pbp": fixture.plays + [play(play_id="99", play_type="", play_type_nfl="END_GAME", epa="")],
+        fixtures = {"pbp": fixture.plays + [play(play_id="99", play_type="", play_type_nfl="END_GAME", epa="", qtr="4", quarter_seconds_remaining="0")],
                     "participation": fixture.parts, "schedules": [schedule()]}
         for kind, rows in fixtures.items():
             source = Source(kind, rows)

@@ -32,7 +32,7 @@ def schedule(**changes):
 
 
 def plays():
-    return [play(home_team="TB", away_team="ATL", total_home_score="7", total_away_score="10"), play(play_id="2", play_type_nfl="END_GAME", epa="", home_team="TB", away_team="ATL", total_home_score="7", total_away_score="10")]
+    return [play(home_team="TB", away_team="ATL", total_home_score="7", total_away_score="10", qtr="4", quarter_seconds_remaining="30"), play(play_id="2", play_type_nfl="END_GAME", epa="", home_team="TB", away_team="ATL", total_home_score="7", total_away_score="10", qtr="4", quarter_seconds_remaining="0")]
 
 
 def game(team="ATL", game_id="2026_01_ATL_TB", kickoff="2026-09-13T17:00:00+00:00"):

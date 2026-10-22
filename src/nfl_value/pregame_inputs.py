@@ -10,7 +10,7 @@ import re
 from nfl_value.benchmarks import CompletedTeamGame
 from nfl_value.first_unit import require_role_assignments, select_first_units
 from nfl_value.ingestion import SnapshotStore, replay
-from nfl_value.schedules import reconcile_game_coverage
+from nfl_value.schedules import CLOCK_COLUMNS, CLOCK_COMPLETION, LEGACY_COMPLETION, reconcile_game_coverage
 from nfl_value.source_audit import aware_time
 
 
@@ -29,12 +29,14 @@ def _team_games(coverage: dict) -> list[CompletedTeamGame]:
     ]
 
 
-def build_inputs(store: SnapshotStore, *, schedules: str, pbp: str, depth_charts: str, cutoff: datetime, code_revision: str) -> dict:
+def build_inputs(store: SnapshotStore, *, schedules: str, pbp: str, depth_charts: str, cutoff: datetime, code_revision: str, report_version: int = 2) -> dict:
     """Verify every receipt first; derive deterministic diagnostic inputs locally."""
     if not re.fullmatch(r"[0-9a-f]{40}", code_revision):
         raise ValueError("code_revision must be a full Git SHA")
     if cutoff.utcoffset() is None:
         raise ValueError("cutoff must be timezone-aware")
+    if type(report_version) is not int or report_version not in {1, 2}:
+        raise ValueError("unsupported pregame input report version")
     receipt_ids = {"schedules": schedules, "pbp": pbp, "depth_charts": depth_charts}
     receipts = {kind: replay(store, rid) for kind, rid in receipt_ids.items()}
     if any(r["source"]["kind"] != kind for kind, r in receipts.items()):
@@ -47,8 +49,9 @@ def build_inputs(store: SnapshotStore, *, schedules: str, pbp: str, depth_charts
     observed_at = max(aware_time(receipts[k]["retrieval"]["data"]) for k in ("schedules", "pbp"))
     games = reconcile_game_coverage(
         receipts["schedules"]["audit"]["games"],
-        _rows(store.read(receipts["pbp"]["objects"]["raw"]), {"home_team", "away_team", "total_home_score", "total_away_score"}),
+        _rows(store.read(receipts["pbp"]["objects"]["raw"]), {"home_team", "away_team", "total_home_score", "total_away_score"} | (CLOCK_COLUMNS if report_version == 2 else set())),
         cutoff=cutoff, observed_at=observed_at,
+        policy_version=CLOCK_COMPLETION if report_version == 2 else LEGACY_COMPLETION,
     )
     team_games = _team_games(games)
     first_unit = select_first_units(
@@ -56,7 +59,7 @@ def build_inputs(store: SnapshotStore, *, schedules: str, pbp: str, depth_charts
     ) if team_games else None
     depth_observed = aware_time(receipts["depth_charts"]["retrieval"]["data"])
     return {
-        "report_version": 1, "code_revision": code_revision, "season": seasons.pop(),
+        "report_version": report_version, "code_revision": code_revision, "season": seasons.pop(),
         "cutoff": cutoff.isoformat(), "source_receipts": receipt_ids,
         "season_team_ids": receipts["schedules"]["audit"]["teams"],
         "game_coverage": games, "first_unit": first_unit,
@@ -100,9 +103,9 @@ def require_benchmark_inputs(report: dict, role: str, *, allow_retrospective: bo
 
 def replay_inputs(raw_store: SnapshotStore, derived_store: SnapshotStore, report_id: str) -> dict:
     saved = json.loads(derived_store.read(report_id, manifest=True))
-    if saved["report_version"] != 1:
+    if saved["report_version"] not in {1, 2}:
         raise ValueError("unsupported pregame input report version")
-    reproduced = build_inputs(raw_store, **saved["source_receipts"], cutoff=aware_time(saved["cutoff"]), code_revision=saved["code_revision"])
+    reproduced = build_inputs(raw_store, **saved["source_receipts"], cutoff=aware_time(saved["cutoff"]), code_revision=saved["code_revision"], report_version=saved["report_version"])
     if reproduced != saved:
         raise ValueError("input replay differs; use the recorded code revision")
     return reproduced
