@@ -6,6 +6,12 @@ and preserves the bytes for offline replay. The separate [pregame input layer](P
 reconciles schedule/PBP completion evidence and selects first-unit chart members.
 Neither layer produces model opportunities, eligibility decisions, or rankings.
 
+The dedicated [historical defensive layer](DEFENSE_INPUTS.md) additionally captures
+uncompressed FTN participation CSVs for 2023–2025 with CC-BY-SA terms and the
+source's attribution declaration. Its derived research cohort is separate from
+leaderboard eligibility and first-unit benchmark membership. The first row-level
+audit covers 2025; other historical seasons need their own audit before fitting.
+
 ## Run and replay
 
 Use the repository root, Python 3.11+, and the development lease described in
@@ -18,6 +24,7 @@ PYTHONPATH=src python3 -m nfl_value.ingest_cli capture pbp --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture rosters --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture depth_charts --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture schedules --season 2026
+PYTHONPATH=src python3 -m nfl_value.ingest_cli capture participation --season 2025
 PYTHONPATH=src python3 -m nfl_value.ingest_cli replay RECEIPT_SHA256
 ```
 
@@ -33,11 +40,14 @@ For each explicitly selected asset, capture saves:
 
 - The GitHub release metadata bytes, asset ID, exact filename/URL, published
   SHA-256, byte size, and upstream update timestamp.
-- Original compressed data bytes plus a decoded-content hash and size.
+- Original data bytes (compressed when supplied) plus a decoded-content hash and size.
 - Retrieval timestamps, selected HTTP headers, schema/columns, row and coverage
   counts, missing/invalid ID counts, and the executing code commit.
 - The source's declared data license, attribution reference, and exact license
   text bytes. This is separate from the repository's MIT software license.
+- For FTN participation, the archived nflreadr declaration, its URL, hash and
+  retrieval time as well as the CC-BY-SA legal text. Receipt version 2 requires
+  both; existing version 1 source receipts remain unchanged.
 
 Objects live at `objects/SHA256`; receipts at `manifests/SHA256.json`. Temporary
 files are fully written before atomic, non-overwriting publication. Existing
@@ -61,7 +71,7 @@ publication. Redownloading a mutable source URL is not an archival strategy.
 Capture rejects missing/ambiguous assets, absent published hashes, unexpected URLs,
 size/hash mismatches, malformed CSV, missing required columns, duplicate declared
 row keys, invalid seasons/weeks, and future or timezone-free depth timestamps.
-Reads are bounded to 128 MiB compressed and 512 MiB decoded. New source columns are
+Reads are bounded to 128 MiB downloaded and 512 MiB decoded. New source columns are
 preserved in the schema record; they are not automatically modeling features.
 
 Missing GSIS IDs and noncanonical legacy-format IDs remain visible in the raw

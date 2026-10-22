@@ -1,0 +1,565 @@
+{
+  "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
+  "audit_version": 1,
+  "code_revision": "ac2078763ed6c2f59471cd8a178b1e0bd3f81023",
+  "cohort_sha256": "c0c34c6c3a5368e73580511f210142010d2163662675c4ff99b2627f43f3090e",
+  "completion_policy_review": {
+    "2025_05_KC_JAX": "END_GAME ID 4227 at clock 0 followed by higher-ID TIMEOUT 4243 at clock 3; matching final scores.",
+    "2025_16_NE_BAL": "END_GAME ID 4238 at clock 0 followed by higher-ID kneel 4254 at clock 33; matching final scores.",
+    "action": "Keep v1 exclusions in this receipt. Version and test chronological completion evidence before baseline admission; numeric play IDs are not guaranteed event order."
+  },
+  "cutoff": "2026-10-22T00:14:02.583978+00:00",
+  "derived_objects": {
+    "degraded": "e983d44be668b1ef83250fa9dcbb1ac30fe5029cc8e53e145d7d853c8da39be8",
+    "rich": "e7d848a6d9f0aa1105965b541f69fe192def75b07088112489ee59fdcd8d4775"
+  },
+  "derived_participation_license": "CC-BY-SA-4.0",
+  "derived_report_id": "72f0095848187dc07529deea05a75076c6d8c7193a34398d33485d5e64366a4d",
+  "distinct_ids_on_defensive_side": 1026,
+  "engineering_date": "2026-10-21",
+  "excluded_paired_games": {
+    "2025_01_ARI_NO": {
+      "candidate_plays": 128,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 127,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_01_LV_NE": {
+      "candidate_plays": 128,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 120,
+      "paired": false,
+      "rejected": {
+        "n_offense:not_11": 8,
+        "offense_players:not_11_players": 8,
+        "players_on_play:not_22_players": 8
+      }
+    },
+    "2025_02_ATL_MIN": {
+      "candidate_plays": 108,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 107,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_02_BUF_NYJ": {
+      "candidate_plays": 114,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 113,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_02_JAX_CIN": {
+      "candidate_plays": 135,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 134,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_02_NE_MIA": {
+      "candidate_plays": 104,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 103,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_03_HOU_JAX": {
+      "candidate_plays": 122,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 121,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_04_CIN_DEN": {
+      "candidate_plays": 119,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 118,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_04_IND_LA": {
+      "candidate_plays": 122,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 121,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_06_CLE_PIT": {
+      "candidate_plays": 130,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 129,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_06_DEN_NYJ": {
+      "candidate_plays": 112,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 111,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_06_DET_KC": {
+      "candidate_plays": 111,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 110,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_06_SF_TB": {
+      "candidate_plays": 116,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 115,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_07_ATL_SF": {
+      "candidate_plays": 124,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 123,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_07_IND_LAC": {
+      "candidate_plays": 128,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 127,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_07_NE_TEN": {
+      "candidate_plays": 113,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 112,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_08_DAL_DEN": {
+      "candidate_plays": 123,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 122,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_08_MIA_ATL": {
+      "candidate_plays": 113,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 112,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_11_CIN_PIT": {
+      "candidate_plays": 121,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 119,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 2,
+        "n_defense:not_11": 2,
+        "players_on_play:not_22_players": 2
+      }
+    },
+    "2025_13_DEN_WAS": {
+      "candidate_plays": 153,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 152,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_13_GB_DET": {
+      "candidate_plays": 117,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 116,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_13_KC_DAL": {
+      "candidate_plays": 122,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 121,
+      "paired": false,
+      "rejected": {
+        "n_offense:not_11": 1,
+        "offense_players:not_11_players": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_14_TEN_CLE": {
+      "candidate_plays": 128,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 127,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_15_CAR_NO": {
+      "candidate_plays": 117,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 116,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_16_PHI_WAS": {
+      "candidate_plays": 114,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 113,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_17_DAL_WAS": {
+      "candidate_plays": 127,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 126,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_17_NE_NYJ": {
+      "candidate_plays": 123,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 122,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_17_NO_TEN": {
+      "candidate_plays": 123,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 122,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    },
+    "2025_18_ARI_LA": {
+      "candidate_plays": 121,
+      "exclusion_reason": "invalid_or_unmatched_candidate_plays",
+      "matched_plays": 120,
+      "paired": false,
+      "rejected": {
+        "defense_players:not_11_players": 1,
+        "n_defense:not_11": 1,
+        "players_on_play:not_22_players": 1
+      }
+    }
+  },
+  "experiment_run": false,
+  "game_coverage_complete": false,
+  "join_summary": {
+    "candidate_plays": 32575,
+    "excluded_pbp_counts": {
+      "game_not_reconciled_complete": 335,
+      "kneel_spike_or_two_point": 127,
+      "not_pass_or_run": 13415,
+      "postseason": 2319
+    },
+    "matched_plays_before_whole_game_gate": 32538,
+    "matched_plays_removed_by_whole_game_gate": 3479,
+    "paired_games": 241,
+    "paired_plays": 29059,
+    "participation_rows": 45184,
+    "participation_without_pbp": [],
+    "pbp_rows": 48771,
+    "pbp_without_participation_rows": 3587,
+    "rejection_counts": {
+      "defense_players:not_11_players": 28,
+      "n_defense:not_11": 28,
+      "n_offense:not_11": 9,
+      "offense_players:not_11_players": 9,
+      "players_on_play:not_22_players": 37
+    }
+  },
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+  "limitations": [
+    "No fitted effects, causal attribution or cross-position comparability is established.",
+    "Complete-case game selection may bias results; audit excluded games before fitting.",
+    "Degraded fractions measure accepted pass/run appearances, not official defensive snaps or pass-rush opportunities.",
+    "This controlled reduction does not establish permitted live-2026 workload availability or emulate all its missingness.",
+    "Preplay context and aggregate game outcomes describe observed exposure; they are not pregame prediction features.",
+    "No player positions, coverage assignments, pressure adjustment or target deterrence are inferred.",
+    "Only 2025 audited; full-season game coverage is false under the existing conservative completion policy.",
+    "Raw and derived objects are locally archived; durable off-machine retention remains required."
+  ],
+  "offline_verification": {
+    "network_construction_blocked": true,
+    "observed_replay_seconds": 6.94,
+    "previous_2026_source_and_pregame_reports_replayed_unchanged": true,
+    "raw_receipts_and_both_views_replayed": true
+  },
+  "paired_games_by_team": {
+    "ARI": 15,
+    "ATL": 14,
+    "BAL": 16,
+    "BUF": 16,
+    "CAR": 16,
+    "CHI": 17,
+    "CIN": 14,
+    "CLE": 15,
+    "DAL": 14,
+    "DEN": 13,
+    "DET": 15,
+    "GB": 16,
+    "HOU": 16,
+    "IND": 15,
+    "JAX": 14,
+    "KC": 14,
+    "LA": 15,
+    "LAC": 16,
+    "LV": 16,
+    "MIA": 15,
+    "MIN": 16,
+    "NE": 12,
+    "NO": 14,
+    "NYG": 17,
+    "NYJ": 14,
+    "PHI": 16,
+    "PIT": 15,
+    "SEA": 17,
+    "SF": 15,
+    "TB": 16,
+    "TEN": 14,
+    "WAS": 14
+  },
+  "paired_games_by_week": {
+    "1": 14,
+    "10": 14,
+    "11": 14,
+    "12": 14,
+    "13": 13,
+    "14": 13,
+    "15": 15,
+    "16": 14,
+    "17": 13,
+    "18": 15,
+    "2": 12,
+    "3": 15,
+    "4": 14,
+    "5": 13,
+    "6": 11,
+    "7": 12,
+    "8": 11,
+    "9": 14
+  },
+  "paired_team_games": 482,
+  "policy": "complete-game-reg-pass-run-v1",
+  "ranking_ready": false,
+  "reconciled_games": 270,
+  "schedule_regular_season_games": 272,
+  "season": 2025,
+  "sources": {
+    "participation": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_2025.csv",
+        "digest": "sha256:59069adfee7b0f464befba8a5e8be331e523633cc6a7ab403d37bcbcdfbe66ac",
+        "id": 353763509,
+        "name": "pbp_participation_2025.csv",
+        "size": 49094943,
+        "updated_at": "2026-02-10T18:54:08Z"
+      },
+      "license_declaration_url": "https://raw.githubusercontent.com/nflverse/nflreadr/main/R/load_participation.R",
+      "lineup_issue_counts": {
+        "defense_players:duplicate_id": 1,
+        "defense_players:not_11_players": 159,
+        "n_defense:not_11": 159,
+        "n_offense:not_11": 22,
+        "offense_players:not_11_players": 22,
+        "players_on_play:duplicate_id": 1,
+        "players_on_play:not_22_players": 177
+      },
+      "objects": {
+        "license": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+        "license_declaration": "60a1497380a3c9271d72841f8f6e7e57c20b82d4611b9ee8b268606090fe2b9f",
+        "raw": "59069adfee7b0f464befba8a5e8be331e523633cc6a7ab403d37bcbcdfbe66ac",
+        "release_metadata": "ebff0633475fe4961e13d449c87e2ccd82d1dff4c8f4fe5fca205b55bff9eda8"
+      },
+      "receipt_id": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+      "retrieval": {
+        "data": "2026-10-22T00:13:42.016868+00:00",
+        "license": "2026-10-22T00:13:43.279637+00:00",
+        "license_declaration": "2026-10-22T00:13:43.559943+00:00",
+        "metadata": "2026-10-22T00:13:40.057832+00:00"
+      },
+      "rows": 45184,
+      "source": {
+        "attribution": "FTN Data via nflverse",
+        "filename": "pbp_participation_2025.csv",
+        "kind": "participation",
+        "license_id": "CC-BY-SA-4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+        "schema_version": "ftn-participation-csv-v1",
+        "season": 2025,
+        "tag": "pbp_participation"
+      },
+      "valid_lineup_rows": 45005
+    },
+    "pbp": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2025.csv.gz",
+        "digest": "sha256:2f135887790a013fd004e609e37096bb4816d5cc80b9f19122e1bad478961978",
+        "id": 512957609,
+        "name": "play_by_play_2025.csv.gz",
+        "size": 19105296,
+        "updated_at": "2026-08-13T12:26:09Z"
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "2f135887790a013fd004e609e37096bb4816d5cc80b9f19122e1bad478961978",
+        "release_metadata": "c30984ea0881a680da6b36cecd6836cacfa7c91f73608685c4dc2139a9e8c57f"
+      },
+      "receipt_id": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+      "retrieval": {
+        "data": "2026-10-22T00:13:45.676135+00:00",
+        "license": "2026-10-22T00:13:47.590106+00:00",
+        "metadata": "2026-10-22T00:13:44.566909+00:00"
+      },
+      "rows": 48771,
+      "source": {
+        "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "filename": "play_by_play_2025.csv.gz",
+        "kind": "pbp",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "schema_version": "pbp-csv-v1",
+        "season": 2025,
+        "tag": "pbp"
+      }
+    },
+    "schedules": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv.gz",
+        "digest": "sha256:7147671cd4978150482a812395dda682a0e6786247cab0ff33951e462a5457e6",
+        "id": 664122822,
+        "name": "games.csv.gz",
+        "size": 515553,
+        "updated_at": "2026-10-21T23:47:24Z"
+      },
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "7147671cd4978150482a812395dda682a0e6786247cab0ff33951e462a5457e6",
+        "release_metadata": "697960bc6f90e7639bfbf12c4e35a6368eedc82d94a83ac338c7c03648bf0ed3"
+      },
+      "receipt_id": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b",
+      "retrieval": {
+        "data": "2026-10-22T00:13:48.553938+00:00",
+        "license": "2026-10-22T00:13:48.762267+00:00",
+        "metadata": "2026-10-22T00:13:47.991648+00:00"
+      },
+      "rows": 7548,
+      "source": {
+        "attribution": "Lee Sharpe (nfldata) via nflverse",
+        "filename": "games.csv.gz",
+        "kind": "schedules",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "schema_version": "schedules-csv-v1",
+        "season": 2025,
+        "tag": "schedules"
+      }
+    }
+  },
+  "unresolved_games": [
+    {
+      "game_id": "2025_05_KC_JAX",
+      "reason": "missing_or_nonterminal_end_marker"
+    },
+    {
+      "game_id": "2025_16_NE_BAL",
+      "reason": "missing_or_nonterminal_end_marker"
+    }
+  ]
+}

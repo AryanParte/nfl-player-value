@@ -15,6 +15,12 @@ class SourceSpec:
     attribution: str
 
     @property
+    def license_declaration_url(self) -> str | None:
+        if self.kind == "participation":
+            return "https://raw.githubusercontent.com/nflverse/nflreadr/main/R/load_participation.R"
+        return None
+
+    @property
     def metadata_url(self) -> str:
         return f"https://api.github.com/repos/nflverse/nflverse-data/releases/tags/{self.tag}"
 
@@ -26,6 +32,15 @@ class SourceSpec:
 def source_spec(kind: str, season: int) -> SourceSpec:
     if type(season) is not int or not 1999 <= season <= 2100:
         raise ValueError("season must be an integer from 1999 through 2100")
+    if kind == "participation":
+        if not 2023 <= season <= 2025:
+            raise ValueError("reviewed FTN participation is historical 2023–2025 only")
+        return SourceSpec(
+            kind, season, "pbp_participation", f"pbp_participation_{season}.csv",
+            "ftn-participation-csv-v1", "CC-BY-SA-4.0",
+            "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+            "FTN Data via nflverse",
+        )
     choices = {
         "pbp": ("pbp", f"play_by_play_{season}.csv.gz", "pbp-csv-v1"),
         "rosters": ("rosters", f"roster_{season}.csv.gz", "rosters-csv-v1"),

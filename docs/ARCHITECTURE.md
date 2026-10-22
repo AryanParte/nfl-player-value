@@ -34,7 +34,11 @@ Implemented boundaries now include benchmark/qualification contracts, immutable
 source receipts, and offline [pregame inputs](PREGAME_INPUTS.md). The latter retain
 the whole schedule/PBP reconciliation, formation-aware memberships, coverage
 failures and retrospective-availability labels in a content-addressed diagnostic
-report. Modeling, evaluation, publication and presentation remain unimplemented.
+report. The [defensive input layer](DEFENSE_INPUTS.md) now adds source-specific FTN
+license provenance and paired rich-play/degraded-team-game objects with a common
+cohort hash. All derivation/replay is offline; reports retain exclusions and
+`ranking_ready=false`. No new runtime dependency was needed. Model fitting,
+information-loss comparisons, publication and presentation remain unimplemented.
 
 ## Snapshot and release contract
 

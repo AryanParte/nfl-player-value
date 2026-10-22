@@ -8,9 +8,7 @@ This is verified release metadata, not a completed row-level audit or experiment
 The [participation loader documentation](https://nflreadr.nflverse.com/reference/load_participation.html)
 specifies post-season availability from 2023 and CC-BY-SA-4.0 attribution to
 FTN Data via nflverse. Its source-specific terms override the ordinary archive
-license; the general ingestion registry deliberately does not include it yet.
-Next: add a dedicated historical participation adapter, verify joins/lineups,
-and resolve snap-source use rights before the degraded-information comparison.
+license. At that inventory date the dedicated adapter was not yet implemented.
 
 October 20 implementation: formation-aware defensive first-unit chart inputs now
 exist. The live 186-team-game audit flags six PHI IDL identity failures and four
@@ -18,6 +16,18 @@ DAL CB/S ambiguity issues. Complete EDGE/LB chart cells still do not establish
 defensive attribution or play-level participation. The information-loss experiment
 has **not run**; its dedicated historical ingestion and join audit are the next
 priority, not replaced by depth-chart mapping. See [the input audit](audits/2026-10-20-pregame-inputs.json).
+
+October 21 implementation: the dedicated adapter and [paired-input builder](DEFENSE_INPUTS.md)
+now work. The [2025 audit](audits/2026-10-21-defense-inputs.json) archives 45,184
+participation rows and retains 29,059 plays from 241 games in both views. It
+records all excluded games and deliberately labels reduced fractions as eligible
+pass/run appearances, not official defensive snap fractions. The experiment's
+**model fitting and comparison have not run**. Before fitting, correct/version the
+completion rule's numeric-ID ordering assumption, assess whole-game selection
+loss, verify positional identity crosswalks, and audit additional seasons for
+held-out-season testing. Resolve a permitted live workload source and reproduce
+its actual missingness before interpreting reduced-model results as live-2026
+feasibility. Defense Explorer remains required and unimplemented.
 
 Defense is part of the product objective and the implementation roadmap. Public live 2026 data do not currently establish the same assignment-level coverage as historical tracking or full participation data. This workstream tests how much that loss prevents individual attribution.
 

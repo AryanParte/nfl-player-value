@@ -27,7 +27,7 @@ def main(argv=None) -> int:
     parser.add_argument("--store", type=Path, default=Path("data/raw/source-snapshots"))
     commands = parser.add_subparsers(dest="command", required=True)
     online = commands.add_parser("capture", help="download and audit one selected public source")
-    online.add_argument("source", choices=("pbp", "rosters", "depth_charts", "schedules"))
+    online.add_argument("source", choices=("pbp", "rosters", "depth_charts", "schedules", "participation"))
     online.add_argument("--season", type=int, required=True)
     offline = commands.add_parser("replay", help="verify a receipt using local bytes only")
     offline.add_argument("receipt_id")
