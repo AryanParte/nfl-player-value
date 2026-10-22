@@ -17,7 +17,7 @@ from nfl_value.sources import SourceSpec, source_spec
 
 MAX_DOWNLOAD_BYTES = 128 * 1024 * 1024
 HASH = re.compile(r"[0-9a-f]{64}")
-ALLOWED_HOSTS = {"api.github.com", "github.com", "raw.githubusercontent.com", "release-assets.githubusercontent.com", "objects.githubusercontent.com"}
+ALLOWED_HOSTS = {"api.github.com", "github.com", "raw.githubusercontent.com", "release-assets.githubusercontent.com", "objects.githubusercontent.com", "creativecommons.org"}
 
 
 def sha256(data: bytes) -> str:
@@ -156,15 +156,20 @@ def capture(store: SnapshotStore, spec: SourceSpec, *, code_revision: str, fetch
     license_record = fetch(spec.license_url, 256 * 1024)
     if not aware_time(metadata.fetched_at) <= aware_time(source.fetched_at) <= aware_time(license_record.fetched_at):
         raise ValueError("retrieval timestamps must be timezone-aware and ordered")
-    if not license_record.body.startswith(b"Attribution 4.0 International"):
-        raise ValueError("declared source license changed; review before ingesting")
+    _check_license(license_record.body, spec)
+    declaration = None
+    if spec.license_declaration_url:
+        declaration = fetch(spec.license_declaration_url, 256 * 1024)
+        if aware_time(declaration.fetched_at) < aware_time(license_record.fetched_at):
+            raise ValueError("license declaration retrieval precedes license retrieval")
+        _check_declaration(declaration.body)
     objects = {
         "raw": store.put(source.body),
         "release_metadata": store.put(metadata.body),
         "license": store.put(license_record.body),
     }
     receipt = {
-        "manifest_version": 1,
+        "manifest_version": 2 if declaration else 1,
         "code_revision": code_revision,
         "source": asdict(spec),
         "asset": asset,
@@ -173,6 +178,10 @@ def capture(store: SnapshotStore, spec: SourceSpec, *, code_revision: str, fetch
         "objects": objects,
         "audit": audit,
     }
+    if declaration:
+        receipt["objects"]["license_declaration"] = store.put(declaration.body)
+        receipt["retrieval"]["license_declaration"] = declaration.fetched_at
+        receipt["license_declaration_url"] = spec.license_declaration_url
     receipt_id = store.put(json_bytes(receipt), manifest=True)
     return receipt_id, receipt
 
@@ -180,7 +189,7 @@ def capture(store: SnapshotStore, spec: SourceSpec, *, code_revision: str, fetch
 def replay(store: SnapshotStore, receipt_id: str) -> dict:
     """Read only local objects. Verify provenance, bytes, and regenerated audit."""
     receipt = json.loads(store.read(receipt_id, manifest=True))
-    if receipt["manifest_version"] != 1:
+    if receipt["manifest_version"] not in {1, 2}:
         raise ValueError("unsupported manifest version")
     if not re.fullmatch(r"[0-9a-f]{40}", receipt["code_revision"]):
         raise ValueError("invalid recorded code revision")
@@ -192,6 +201,14 @@ def replay(store: SnapshotStore, receipt_id: str) -> dict:
     spec = source_spec(receipt["source"]["kind"], receipt["source"]["season"])
     if receipt["source"] != asdict(spec):
         raise ValueError("stored source schema/policy differs from this replay implementation")
+    if receipt["manifest_version"] != (2 if spec.license_declaration_url else 1):
+        raise ValueError("source requires its matching license provenance version")
+    if spec.license_declaration_url:
+        if receipt["license_declaration_url"] != spec.license_declaration_url:
+            raise ValueError("license declaration URL disagrees with source registry")
+        if aware_time(retrieval["license_declaration"]) < aware_time(retrieval["license"]):
+            raise ValueError("invalid license declaration chronology")
+        _check_declaration(store.read(receipt["objects"]["license_declaration"]))
     metadata = store.read(receipt["objects"]["release_metadata"])
     if resolve_asset(metadata, spec) != receipt["asset"]:
         raise ValueError("receipt asset disagrees with saved release metadata")
@@ -199,9 +216,24 @@ def replay(store: SnapshotStore, receipt_id: str) -> dict:
     if len(raw) != receipt["asset"]["size"] or sha256(raw) != receipt["asset"]["digest"][7:]:
         raise ValueError("saved raw bytes disagree with asset metadata")
     license_record = store.read(receipt["objects"]["license"])
-    if not license_record.startswith(b"Attribution 4.0 International"):
-        raise ValueError("saved license disagrees with declared source policy")
+    _check_license(license_record, spec)
     audit = audit_csv(raw, spec, observed_at=receipt["retrieval"]["data"])
     if audit != receipt["audit"]:
         raise ValueError("replayed audit differs from receipt; use the recorded code revision")
     return receipt
+
+
+def _check_license(body: bytes, spec: SourceSpec):
+    header = b"Attribution-ShareAlike 4.0 International" if spec.license_id == "CC-BY-SA-4.0" else b"Attribution 4.0 International"
+    if not body.startswith(header):
+        raise ValueError("declared source license changed; review before ingesting")
+
+
+def _check_declaration(body: bytes):
+    # Archive the actual declaration as well as the legal text. These tripwires
+    # flag source-policy changes; they are not a legal compatibility judgment.
+    if not all(marker in body for marker in (
+        b"https://creativecommons.org/licenses/by-sa/4.0/",
+        b"FTN Data via nflverse", b"2023 onwards", b"post-season games",
+    )):
+        raise ValueError("participation license declaration changed; review before ingesting")
