@@ -22,6 +22,16 @@ season existence cannot substitute for game coverage. First-unit selection cover
 selected chart was retrieved retrospectively; the report does not certify vintage
 pregame availability. See [PREGAME_INPUTS.md](PREGAME_INPUTS.md).
 
+**October 21 implementation audit:** the [historical defensive audit](audits/2026-10-21-defense-inputs.json)
+records exact 2025 FTN participation, PBP and schedule receipts. The FTN archive
+has 45,184 rows across 285 games; 45,005 rows pass the structural 11-versus-11
+lineup checks. The paired REG research cohort retains 29,059 plays in 241 games.
+Two games fail the strict completion-order check, and 29 further games are
+excluded for 37 candidate lineup failures. CC-BY-SA legal text and the source
+declaration are archived separately; raw and derived data retain FTN attribution.
+The release still has no 2026 participation asset. This does not establish live
+workload coverage, resolved positional identities, or individual contributions.
+
 ## Public-source launch plan
 
 | Source | Historical/current availability observed | Intended use and limitation |
@@ -31,7 +41,7 @@ pregame availability. See [PREGAME_INPUTS.md](PREGAME_INPUTS.md).
 | Rosters and player identifiers | 2026 assets present; historical fields vary | Stable IDs, team stints, and roles; audit merges and position changes. |
 | Depth charts | Historical loader support; 2026 timestamped snapshots present | Pregame first-unit membership. Since 2025, timestamps replace a simple week index; reconstruct as-of membership. |
 | Snap counts | Since 2012; 2026 game-level records present | Offensive, defensive, and special-teams workload. These are not play-level lineups. |
-| Participation | Since 2016; 2023 onward FTN releases are post-season | Historical rich-lineup experiment. No public 2026 live all-22 participation feed was verified. |
+| Participation | Since 2016; 2023 onward FTN releases are post-season; 2025 captured/audited October 21 | Historical rich/degraded inputs implemented under source-specific CC-BY-SA terms. No public 2026 live all-22 participation feed was verified. |
 | FTN charting subset | Since 2022; 2026 records present, generally delayed | Selected play context and charted events. Does not supply complete individual blocking, rushing, or coverage assignments. |
 | Next Gen Stats aggregates | Since 2016; current-season aggregates present | Selected passing/rushing/receiving context with qualification thresholds. Not raw tracking; absent rows are not zero. |
 | PFR advanced statistics via nflverse | Since 2018; current-season assets present | Potential event/context analysis only after upstream use rights are resolved. |

@@ -22,10 +22,17 @@ reports now work. Fresh data reconcile 93 games through Week 6. The audit retain
 11 blocked cohort issues and flags retrospective availability; no score is
 published. See [pregame inputs](docs/PREGAME_INPUTS.md).
 
-October 21 priority: dedicated historical participation ingestion with its own
-CC-BY-SA terms, verified identity/lineup joins, and the input audit for the required
-defensive information-loss experiment. October 22–23: normalized opportunities
-and roster/stint evidence, followed by the transparent regularized baseline.
+October 21 progress: dedicated historical participation capture with its own
+CC-BY-SA terms, structural identity/lineup checks, join audit and paired research
+inputs are implemented. The 2025 cohort retains 241 games / 29,059 plays; the
+whole-game rule excludes 29 games with candidate lineup failures. Two additional
+games reveal the strict completion rule's numeric-ID ordering assumption and
+remain excluded. See [defensive inputs](docs/DEFENSE_INPUTS.md).
+
+October 22–23: version/test chronological completion evidence without breaking old
+replays; normalize offensive opportunities and roster/stint evidence; then build
+the transparent regularized baseline. Additional historical participation seasons,
+roster identity/role validation and selection-loss assessment are still required.
 Model fitting and the actual information-loss experiment remain unfinished;
 reserve October 24–27 for their measured comparison and context work rather than
 adding optional features. Capture/selection coverage is not model validation.
