@@ -62,4 +62,15 @@ The decision is recorded per module, not inferred from a position label or suffi
 - Preserve original weekly releases and identifiable revisions.
 - Keep last-good output available when the next refresh fails.
 
-No live rankings or empirical evaluation results exist in the foundation unit. Numeric success tolerances for the fitted models must be documented before inspecting the final held-out results.
+No live rankings or empirical evaluation results existed in the foundation unit.
+Numeric success tolerances must be documented before inspecting final held-out results.
+
+October 23: the [first baseline experiment](BASELINE.md) now has a committed
+pre-evaluation plan and [real results](audits/2026-10-23-offensive-baseline.json).
+The historical actor-identity increment over observed-role information has a
+game-bootstrap interval spanning zero. The 2026 transfer increment is small and
+does not establish individual attribution. The validation-selected penalty remains
+1000 even though 100 has a better final historical test RMSE: changing it using
+that test would leak evaluation information. Further model development must use
+new validation windows/folds and disclose that these test results are now observed.
+No defensive, qualification, benchmark-contrast or player-interval gate passed.

@@ -56,3 +56,13 @@ Each daily report explains what was built and why it matters; the engineering de
 The deployed weekly ranking refresh must operate independently of this Codex development heartbeat. It consumes completed games, records exact source versions/cutoffs, computes reproducible outputs, and preserves prior weekly snapshots. A delayed development run must not stop publication of already validated production models. Production workflow concurrency and atomic publication need their own controls when that workstream is implemented.
 
 The 7:30 PM development schedule is separated from the existing Opponent Intelligence 8:00 AM schedule. Distinct repositories, environments, caches, and ports prevent accidental cross-project changes. The time difference reduces routine contention, but a long run can still overlap: inspect active work and defer expensive local fitting when the machine is busy. Never alter the other project's schedule or workspace as a workaround.
+
+## October 23, 2026 scheduling exception
+
+The owner requested the October 23 unit immediately instead of at 7:30 PM.
+That run is recorded in the October 23 learning report. The existing automation
+was updated through the app to start October 24, 2026 at 7:30 PM America/New_York,
+retaining its daily recurrence, prompt and target chat. This skips only the
+October 23 occurrence; there is no duplicate automation or permanent time change.
+The other project's automation was not edited. This note records the exception,
+not a recurring instruction to reschedule future runs.

@@ -1,0 +1,424 @@
+{
+  "audit_date": "2026-10-23",
+  "benchmark_contrasts_computed": false,
+  "coappearance": {
+    "actor_columns": 830,
+    "actor_offense_team_cosine_max": 0.8189326775820381,
+    "actor_offense_team_cosine_median": 0.13181640030262853,
+    "identical_actor_column_groups": [
+      [
+        "dropback/00-0039451",
+        "target/00-0036945"
+      ],
+      [
+        "dropback/00-0040730",
+        "target/00-0039732"
+      ],
+      [
+        "dropback/00-0035645",
+        "target/00-0031503"
+      ]
+    ],
+    "identification_validated": false
+  },
+  "code_revision": "a595912cf16716dff479d6e3d63c8d8df4452b9b",
+  "environment": {
+    "numpy": "2.2.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.2",
+    "scipy": "1.15.3"
+  },
+  "evaluation": {
+    "historical_test": {
+      "context": {
+        "games": 64,
+        "mae": 0.9556563409909413,
+        "max_accounting_error": 0.0,
+        "plays": 7650,
+        "prediction_minus_observation_bias": -0.00567680272410842,
+        "rmse": 1.3848031672985686,
+        "team_game_mean_epa_rmse": 0.209022834031235,
+        "unseen_feature_appearances": {}
+      },
+      "joint": {
+        "games": 64,
+        "mae": 0.9245404502540131,
+        "max_accounting_error": 1.7763568394002505e-15,
+        "plays": 7650,
+        "prediction_minus_observation_bias": -0.016378676594495774,
+        "rmse": 1.3462978316021141,
+        "team_game_mean_epa_rmse": 0.19273577559119454,
+        "unseen_feature_appearances": {
+          "carry": 141,
+          "dropback": 391,
+          "target": 135
+        }
+      },
+      "joint_vs_role": {
+        "candidate_minus_reference_rmse": -0.0004096320231090633,
+        "percentile_95_interval": [
+          -0.0009254242635364784,
+          5.6146216538943685e-05
+        ],
+        "player_uncertainty": false,
+        "replicates": 1000,
+        "resampling_unit": "game",
+        "seed": 20261023
+      },
+      "joint_vs_team": {
+        "candidate_minus_reference_rmse": -0.03580299093883199,
+        "percentile_95_interval": [
+          -0.04370069723655431,
+          -0.028300587469744017
+        ],
+        "player_uncertainty": false,
+        "replicates": 1000,
+        "resampling_unit": "game",
+        "seed": 20261023
+      },
+      "role": {
+        "games": 64,
+        "mae": 0.9250161560862293,
+        "max_accounting_error": 1.7763568394002505e-15,
+        "plays": 7650,
+        "prediction_minus_observation_bias": -0.016163524946971684,
+        "rmse": 1.3467074636252232,
+        "team_game_mean_epa_rmse": 0.19367824434265135,
+        "unseen_feature_appearances": {}
+      },
+      "team": {
+        "games": 64,
+        "mae": 0.9526387994705686,
+        "max_accounting_error": 4.440892098500626e-16,
+        "plays": 7650,
+        "prediction_minus_observation_bias": -0.005570182818171944,
+        "rmse": 1.3821008225409461,
+        "team_game_mean_epa_rmse": 0.2024961016214283,
+        "unseen_feature_appearances": {}
+      }
+    },
+    "transfer_test": {
+      "context": {
+        "games": 93,
+        "mae": 0.9491989900867938,
+        "max_accounting_error": 0.0,
+        "plays": 11441,
+        "prediction_minus_observation_bias": 0.004000032133027327,
+        "rmse": 1.3538294592576663,
+        "team_game_mean_epa_rmse": 0.1872042442949552,
+        "unseen_feature_appearances": {}
+      },
+      "joint": {
+        "games": 93,
+        "mae": 0.9243081722601858,
+        "max_accounting_error": 8.881784197001252e-16,
+        "plays": 11441,
+        "prediction_minus_observation_bias": 0.009109521215559654,
+        "rmse": 1.3249471715618553,
+        "team_game_mean_epa_rmse": 0.20175222920807273,
+        "unseen_feature_appearances": {
+          "carry": 450,
+          "dropback": 531,
+          "target": 728
+        }
+      },
+      "joint_vs_role": {
+        "candidate_minus_reference_rmse": -0.00047664950662285044,
+        "percentile_95_interval": [
+          -0.0007862845031372966,
+          -0.0001546660159054748
+        ],
+        "player_uncertainty": false,
+        "replicates": 1000,
+        "resampling_unit": "game",
+        "seed": 20261023
+      },
+      "joint_vs_team": {
+        "candidate_minus_reference_rmse": -0.03005443021929244,
+        "percentile_95_interval": [
+          -0.03621418669526823,
+          -0.024189237037288674
+        ],
+        "player_uncertainty": false,
+        "replicates": 1000,
+        "resampling_unit": "game",
+        "seed": 20261023
+      },
+      "role": {
+        "games": 93,
+        "mae": 0.9244706086126303,
+        "max_accounting_error": 1.7763568394002505e-15,
+        "plays": 11441,
+        "prediction_minus_observation_bias": 0.007223697470735712,
+        "rmse": 1.3254238210684781,
+        "team_game_mean_epa_rmse": 0.20111334788315144,
+        "unseen_feature_appearances": {}
+      },
+      "team": {
+        "games": 93,
+        "mae": 0.9488542913832474,
+        "max_accounting_error": 8.881784197001252e-16,
+        "plays": 11441,
+        "prediction_minus_observation_bias": 0.002618349313884754,
+        "rmse": 1.3550016017811477,
+        "team_game_mean_epa_rmse": 0.20722003787085574,
+        "unseen_feature_appearances": {}
+      }
+    }
+  },
+  "experiment_version": 1,
+  "fit_diagnostics": {
+    "context": {
+      "solver": {
+        "augmented_condition_estimate": 220.10001051286608,
+        "iterations": 25,
+        "stop": 2
+      },
+      "training_plays": 25163,
+      "training_rows_sha256": "616f59841bf4f6ee673f2c076d33673c2ba27a57f768015a63616888f9fd44a0"
+    },
+    "joint": {
+      "solver": {
+        "augmented_condition_estimate": 512.6884139906684,
+        "iterations": 71,
+        "stop": 2
+      },
+      "training_plays": 25163,
+      "training_rows_sha256": "616f59841bf4f6ee673f2c076d33673c2ba27a57f768015a63616888f9fd44a0"
+    },
+    "role": {
+      "solver": {
+        "augmented_condition_estimate": 448.6769257919013,
+        "iterations": 58,
+        "stop": 2
+      },
+      "training_plays": 25163,
+      "training_rows_sha256": "616f59841bf4f6ee673f2c076d33673c2ba27a57f768015a63616888f9fd44a0"
+    },
+    "team": {
+      "solver": {
+        "augmented_condition_estimate": 325.8056974253538,
+        "iterations": 49,
+        "stop": 2
+      },
+      "training_plays": 25163,
+      "training_rows_sha256": "616f59841bf4f6ee673f2c076d33673c2ba27a57f768015a63616888f9fd44a0"
+    }
+  },
+  "individual_attribution_validated": false,
+  "input_audits": {
+    "historical": {
+      "actor_issue_plays_retained": 87,
+      "excluded": {},
+      "input_plays": 32813,
+      "retained_plays": 32813
+    },
+    "transfer": {
+      "actor_issue_plays_retained": 27,
+      "excluded": {},
+      "input_plays": 11441,
+      "retained_plays": 11441
+    }
+  },
+  "input_reports": {
+    "historical": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+    "transfer": "e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83"
+  },
+  "interpretation": {
+    "historical_identity_improvement_interval_includes_zero": true,
+    "no_test_based_penalty_reselection": true,
+    "ranking_publication_admitted": false,
+    "role_observation_can_absorb_player_created_outcomes": true,
+    "transfer_identity_improvement_small": true
+  },
+  "objects": {
+    "models": "e1d8258117f1ffe4dface792391b446aff56704e38bb6a242a8e7c1945d62da3",
+    "predictions": "db093b4e190b59af7e484c390115034029dbdb4a4e0753ecc1cc800c50e29925"
+  },
+  "penalty_sensitivity": [
+    {
+      "actor_penalty": 10.0,
+      "historical_test": {
+        "games": 64,
+        "mae": 0.9255706340376052,
+        "plays": 7650,
+        "prediction_minus_observation_bias": -0.024565627506335497,
+        "rmse": 1.349310264413038,
+        "team_game_mean_epa_rmse": 0.18639946411303593
+      },
+      "max_actor_coefficient_change_from_selected": 0.7753815134098017,
+      "solver": {
+        "augmented_condition_estimate": 1454.206927147182,
+        "iterations": 158,
+        "stop": 2
+      }
+    },
+    {
+      "actor_penalty": 100.0,
+      "historical_test": {
+        "games": 64,
+        "mae": 0.9232272507176676,
+        "plays": 7650,
+        "prediction_minus_observation_bias": -0.019059268432400397,
+        "rmse": 1.3455611496917363,
+        "team_game_mean_epa_rmse": 0.18905323665823778
+      },
+      "max_actor_coefficient_change_from_selected": 0.19085007869062826,
+      "solver": {
+        "augmented_condition_estimate": 633.0263935431564,
+        "iterations": 88,
+        "stop": 2
+      }
+    },
+    {
+      "actor_penalty": 1000.0,
+      "historical_test": {
+        "games": 64,
+        "mae": 0.9245404502540131,
+        "plays": 7650,
+        "prediction_minus_observation_bias": -0.016378676594495774,
+        "rmse": 1.3462978316021141,
+        "team_game_mean_epa_rmse": 0.19273577559119454
+      },
+      "max_actor_coefficient_change_from_selected": 0.0,
+      "solver": {
+        "augmented_condition_estimate": 512.6884139906684,
+        "iterations": 71,
+        "stop": 2
+      }
+    }
+  ],
+  "plan": {
+    "actor_penalties": [
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "bootstrap_replicates": 1000,
+    "context_penalty": 1.0,
+    "historical_season": 2025,
+    "plan_version": 1,
+    "seed": 20261023,
+    "solver_iteration_limit": 20000,
+    "solver_tolerance": 1e-10,
+    "team_penalty": 50.0,
+    "test_through_week": 18,
+    "train_through_week": 10,
+    "transfer_season": 2026,
+    "validation_through_week": 14
+  },
+  "plan_file_sha256": "def91eee11bca64c7e30424eb5fdc188794e34bc452281da0e9a0a28207c9cbd",
+  "qualification_computed": false,
+  "ranking_ready": false,
+  "replay_tolerance": {
+    "absolute": 1e-09,
+    "relative": 1e-08
+  },
+  "report_id": "1fd9e2479c71ff06590a96e7b512fb291f80ad35bc10867d81814af7452660de",
+  "scope": "Observed offensive pass/run actor-role outcome model, not positional player value",
+  "selected_actor_penalty": 1000.0,
+  "source_provenance": {
+    "historical": {
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "source_receipts": {
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      }
+    },
+    "transfer": {
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "cutoff": "2026-10-22T23:50:38.680415+00:00",
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "source_receipts": {
+        "pbp": "45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f",
+        "schedules": "ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94"
+      }
+    }
+  },
+  "split_game_counts": {
+    "historical_test": 64,
+    "train": 149,
+    "transfer_test": 93,
+    "validation": 59
+  },
+  "validation": [
+    {
+      "actor_penalty": 10.0,
+      "metrics": {
+        "games": 59,
+        "mae": 0.9417930620723856,
+        "plays": 7210,
+        "prediction_minus_observation_bias": 0.04804153037226119,
+        "rmse": 1.3836063474507099,
+        "team_game_mean_epa_rmse": 0.20585109048783556
+      },
+      "solver": {
+        "augmented_condition_estimate": 1222.4332645759753,
+        "iterations": 144,
+        "stop": 2
+      }
+    },
+    {
+      "actor_penalty": 100.0,
+      "metrics": {
+        "games": 59,
+        "mae": 0.9379299729766691,
+        "plays": 7210,
+        "prediction_minus_observation_bias": 0.049982891973084954,
+        "rmse": 1.3754718077330852,
+        "team_game_mean_epa_rmse": 0.19829255547427715
+      },
+      "solver": {
+        "augmented_condition_estimate": 609.2222176825404,
+        "iterations": 87,
+        "stop": 2
+      }
+    },
+    {
+      "actor_penalty": 1000.0,
+      "metrics": {
+        "games": 59,
+        "mae": 0.93819635180941,
+        "plays": 7210,
+        "prediction_minus_observation_bias": 0.04801864115609537,
+        "rmse": 1.3743105737900894,
+        "team_game_mean_epa_rmse": 0.19419163974870632
+      },
+      "solver": {
+        "augmented_condition_estimate": 507.24636078310493,
+        "iterations": 73,
+        "stop": 2
+      }
+    }
+  ],
+  "verification": {
+    "build_and_replay_summaries_identical": true,
+    "network_blocked_build": true,
+    "network_blocked_replay": true,
+    "offline_tests": 152
+  }
+}

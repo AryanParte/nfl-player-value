@@ -36,15 +36,22 @@ per play, observed actor links and nonduplicated workload unions. Fresh 2026 dat
 provide 11,441 candidate plays in 93 games; 2025 provides 32,813 in 272 games.
 Actor gaps remain visible without dropping their negative team outcomes.
 
-October 23 priority: implement the first context-only and regularized joint-actor
-baselines with chronological validation. Complete identity/position and roster/stint
-evidence before positional contrasts or qualification. Correct exposure overlap
-checks for observed-by completion timestamps before constructing season exposures.
-Additional historical participation seasons and selection-loss assessment remain
-required for the defensive comparison. Avoid another broad ingestion-only unit.
-Model fitting and the actual information-loss experiment remain unfinished;
-reserve October 24–27 for their measured comparison and context work rather than
-adding optional features. Capture/selection coverage is not model validation.
+October 23 progress: the first context, team, observed-role and regularized
+joint-actor baselines are fitted under a committed chronological plan. Validation
+selected penalty 1000. The final 2025 actor-identity increment over the role model
+has an interval spanning zero; the 2026 transfer gain is small. Results, shared
+component accounting, collinearity and numerical replay are recorded in the
+[baseline audit](docs/audits/2026-10-23-offensive-baseline.json). No CAVAA is admitted.
+The immediate owner-requested run counts as today's work; the existing daily
+7:30 PM Eastern automation resumes October 24 and skips October 23.
+
+October 24 priority: perform the first bounded defensive rich/degraded model
+comparison on the same 243-game cohort, with selection-loss and identification
+diagnostics. Additional historical seasons and actual live-feed coverage remain
+required before admission. Finish identity/position and roster/stint evidence and
+the observed-by timestamp correction before positional contrasts or qualification.
+Reserve October 24–27 for this measured comparison and context work. Capture
+coverage and outcome-model fitting do not establish individual attribution.
 
 - Build content-addressed ingestion for 2026 play-by-play, player identifiers, rosters, depth-chart snapshots, and game status.
 - Audit historical seasons and current-year schemas before fitting; record source coverage at the game and position level.

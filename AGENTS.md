@@ -56,7 +56,8 @@ experiments ran when only their design exists.
 
 Python batch computation and immutable versioned outputs; React/TypeScript
 dashboard. Add complexity only when validated. Current core uses Python 3.11+
-stdlib; any new dependency must have a documented purpose, compatible license,
+stdlib for ingestion/contracts; the optional model extra pins NumPy/SciPy.
+Any new dependency must have a documented purpose, compatible license,
 and reproducible version policy. Use deterministic seeds for experiments.
 
 Keep downloaded source data and generated artifacts out of normal Git history.
