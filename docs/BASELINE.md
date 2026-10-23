@@ -72,3 +72,48 @@ versions with every fit. Augmented sparse least squares applies a separate penal
 per component, leaving the intercept free. Reject nonconvergence and nonfinite fits.
 Exact content hashes preserve artifacts; refitting may differ in floating-point
 rounding across platforms and must be checked numerically, not promised byte-identical.
+
+## Run and replay
+
+From the canonical repository root with the recorded raw and offensive stores:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m nfl_value.baseline_cli build \
+  --historical-report 97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293 \
+  --transfer-report e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83 \
+  --plan config/baseline-2025-v1.json
+PYTHONPATH=src .venv/bin/python -m nfl_value.baseline_cli replay \
+  1fd9e2479c71ff06590a96e7b512fb291f80ad35bc10867d81814af7452660de
+```
+
+Build requires committed source/package code. Both commands first replay and
+verify the original source-derived ledgers; fitting itself makes no network calls.
+The default output store is `data/derived/baseline`, excluded from Git. All four
+model states and held-out per-play components are saved as hashed JSON objects.
+Structural fields and identities must replay exactly; floats use absolute 1e-9
+and relative 1e-8 tolerances with the recorded NumPy/SciPy versions. This does not
+guarantee every platform will meet the tolerance; a mismatch is a failure to review.
+
+## October 23 evidence and interpretation
+
+Implementation `a595912cf16716dff479d6e3d63c8d8df4452b9b` produced the report above.
+The [audit](audits/2026-10-23-offensive-baseline.json) contains exact inputs, runtime,
+plan, validation selection, test errors, bootstrap intervals and sensitivity.
+The 2025 split has 149 training / 59 validation / 64 test games. The available
+2026 snapshot has 93 games. The selected penalty remains 1000.
+
+The historical joint-versus-role RMSE difference is -0.000410 EP/play, with 95%
+game-bootstrap interval [-0.000925, +0.000056]. The 2026 transfer difference is
+-0.000477 [-0.000786, -0.000155]. The historical interval spans zero and the
+transfer effect is small. Outcome gains over team-only largely reflect recorded
+role availability; this can incorporate sack/throwaway selection and absorb value
+the QB created. Neither that role adjustment nor these coefficients is approved
+for final CAVAA. Transfer team-game mean-EPA error also worsens versus context-only.
+
+There are 830 actor columns and three groups with identical observed columns.
+One actor's coefficient changes by up to 0.775 EP across the declared penalties;
+these are coefficient sensitivities, not cumulative value estimates. No role is
+admitted to a leaderboard and no first-unit comparison or qualification is run.
+All 87 historical and 27 transfer ambiguous-actor plays remain in the model cohort.
+Both real build and replay completed with network calls blocked, about 11 seconds
+each on this machine. Runtime is an observation, not a deployment guarantee.

@@ -13,10 +13,12 @@ adds versioned clock-based completion evidence and a unique-play offensive ledge
 2025 completion rule accepts all 272 REG games; the defensive lineup cohort
 retains 243 games and 29,297 plays. Old reports replay under their original rules.
 
-These are input findings, not player contribution estimates. **No real CAVAA
-ranking is produced yet.** Roster/stint and position verification, statistical
-fitting, the defensive information-loss comparison, uncertainty and the dashboard
-remain open. The 2026 first-unit chart audit still has 11 blocked IDL/CB/S/LS
+October 23 adds the first [fitted outcome baselines](docs/BASELINE.md) with frozen
+chronological evaluation. Actor identity adds only a small gain beyond observed
+role information; its 2025 test interval includes zero. This does not validate
+individual attribution. **No real CAVAA ranking is produced yet.** Roster/stint
+and position verification, the defensive information-loss comparison, player
+uncertainty and the dashboard remain open. The 2026 first-unit chart audit still has 11 blocked IDL/CB/S/LS
 issues. Synthetic tests are not football findings. See [offensive inputs](docs/OFFENSIVE_INPUTS.md)
 and [defensive inputs](docs/DEFENSE_INPUTS.md).
 
@@ -48,6 +50,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Defense experiment](docs/DEFENSE_EXPERIMENT.md) | Required defensive research design and explorer scope |
 | [Defensive inputs](docs/DEFENSE_INPUTS.md) | FTN provenance, whole-game cohort policy, paired views and offline replay |
 | [Offensive inputs](docs/OFFENSIVE_INPUTS.md) | Unique play outcomes, actor links, opportunity unions and missingness |
+| [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
 | [Project status](STATUS.md) | Completed work, active limitations, and next task |
 | [Daily workflow](docs/DAILY_WORKFLOW.md) | Independent development runs, locking, verification, and PR rules |
@@ -56,16 +59,23 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 20 learning report](docs/learning/2026-10-20.md) | Receiver slot semantics, game completeness, and benchmark coverage |
 | [October 21 learning report](docs/learning/2026-10-21.md) | Participation joins, controlled information loss, and selection bias |
 | [October 22 learning report](docs/learning/2026-10-22.md) | Event ordering, preserved replay and offensive opportunity accounting |
+| [October 23 learning report](docs/learning/2026-10-23.md) | First fitted models, shrinkage, role-selection confounding and held-out results |
 
-## Run the foundation checks
+## Run the checks
 
-Use Python 3.11 or newer. The foundation has no third-party runtime dependencies.
+Use Python 3.11–3.13. Ingestion/contracts use the standard library; modeling uses
+the pinned NumPy/SciPy extra. Keep the environment inside this repository.
 
 ```sh
-make check PYTHON=python3
+python3 -m venv .venv
+.venv/bin/python -m pip install '.[model]'
+make check PYTHON=.venv/bin/python
 ```
 
-This runs the standard-library test suite, compiles the Python sources, and checks whitespace. The tests exercise benchmark weighting, invalid or incomplete inputs, qualification boundaries, and development-run locking. Passing them validates those contracts; it does not validate a fitted football model.
+This runs 152 offline tests, compiles the Python sources, and checks whitespace.
+Tests cover the data/benchmark/qualification contracts, locking, known-effect and
+collinearity simulations, leakage, numerical solving and accounting. Real historical
+evaluation is separate from synthetic CI evidence; see the [October 23 audit](docs/audits/2026-10-23-offensive-baseline.json).
 
 ## Delivery and cost constraints
 

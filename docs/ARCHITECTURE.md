@@ -37,8 +37,8 @@ failures and retrospective-availability labels in a content-addressed diagnostic
 report. The [defensive input layer](DEFENSE_INPUTS.md) now adds source-specific FTN
 license provenance and paired rich-play/degraded-team-game objects with a common
 cohort hash. All derivation/replay is offline; reports retain exclusions and
-`ranking_ready=false`. No new runtime dependency was needed. Model fitting,
-information-loss comparisons, publication and presentation remain unimplemented.
+`ranking_ready=false`. No new runtime dependency was needed for those layers.
+Information-loss comparisons, publication and presentation remain unimplemented.
 
 The [offensive input layer](OFFENSIVE_INPUTS.md) now supplies one observed EPA
 outcome per play, actor links and per-player-game count unions, with unresolved
@@ -46,6 +46,15 @@ positions/stints explicitly flagged. It shares the preplay context parser with
 the defensive layer. New pregame/defensive report version 2 uses clock-based
 completion; replay dispatches old reports to their recorded rule. The change adds
 no runtime dependency and does not allocate team outcomes to individuals.
+
+The [baseline layer](BASELINE.md) now fits context, team, observed-role and joint
+actor models on chronological splits. It uses pinned optional NumPy/SciPy packages
+and sparse LSQR; ingestion remains stdlib. Models, component predictions and
+evaluation reports are immutable JSON objects, not executable pickles. Provenance
+links exact input reports, raw-source receipts, plan, code revision and runtime.
+Replay revalidates source inputs, refits offline and checks structure exactly and
+floating-point results within declared tolerances. These diagnostic coefficients
+have not passed positional benchmark or attribution admission.
 
 ## Snapshot and release contract
 

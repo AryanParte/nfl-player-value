@@ -15,6 +15,15 @@ Read-only audit completed October 18, 2026: repository metadata, actual source, 
 
 The audited commits included `nflreadpy@e7e87b2`, `nflfastR@701bbf3`, `fastrmodels@75c7b68`, `scikit-learn@d1b6d43`, `pymc@91e6da3`, `arviz@7d8d555`, and `recharts@b81ad8e`. These identify the research inspection, not the final dependency lock. Production versions require installation and smoke tests before adoption.
 
+October 23 implementation decision: the first fitted baseline uses the smaller
+NumPy 2.2.6 / SciPy 1.15.3 stack directly through sparse LSQR, without introducing
+scikit-learn. Separate component penalties use an augmented least-squares system;
+a dense normal-equation reference tests its numerical result on small fixtures.
+The optional dependency extra is pinned and tested on Python 3.11–3.13 in CI.
+Both dependencies have permissive BSD licenses. See [numerical dependencies](BASELINE.md)
+for primary references, the version policy and actual replay limits. Historical
+ingestion still uses the independent stdlib snapshot implementation.
+
 ## Research references with substantial adaptation required
 
 | Project | Actual limitations found | Decision |
