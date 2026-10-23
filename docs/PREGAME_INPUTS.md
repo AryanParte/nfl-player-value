@@ -20,13 +20,28 @@ January games belonging to the previous season. The runtime must provide the
 IANA timezone database (available on our local machine and CI runners). A missing
 kickoff for a due game blocks coverage; a future TBD game is listed separately.
 
-The schedule does **not** expose an explicit final-status flag. The v1 evidence
-rule requires a single terminal PBP `END_GAME` record, matching team identities,
-and agreement between its final scores and the schedule. Neither scores alone,
+The schedule does **not** expose an explicit final-status flag. New input reports
+use `clock-marker-schedule-v2`: require a single PBP `END_GAME` record, matching
+team identities and final scores, plus compatible quarter/clock evidence. Neither scores alone,
 a present file, nor a zero game clock establish completion. An overtime game can
 end with time remaining. Every scheduled regular-season game due by the cutoff
 is reconciled; missing PBP or unresolved completion remains visible and blocks
 the full game universe. There is no silent omission of an inconvenient game.
+
+The end marker must occur in quarter 4 at clock zero, or in overtime (quarter 5,
+possibly with time remaining). No timed event can be later than the marker by
+quarter and remaining quarter time. A higher-ID event at exactly the same clock
+is unresolved, because the ordering is ambiguous. Non-event `COMMENT` records
+are the only rows allowed to lack a clock. Other missing/invalid clocks block the
+game. A timeout or kneel with a higher numeric ID is accepted when its clock is
+strictly earlier than the marker. This is a conservative evidence rule, not a
+claim that game clocks uniquely order every event.
+
+Version 1 required the marker to have the highest numeric play ID. The 2025 audit
+found two completed games violating that assumption. Old version-1 reports still
+replay with their original rule and exclusions; new pregame/defensive reports use
+report version 2. Source receipts do not change. A correction is a new report,
+never a silent rewrite of the old result.
 
 `completion_observed_by` is the later retrieval of PBP and schedule. It is a
 conservative known-complete-by bound, **not an exact final-whistle timestamp**.

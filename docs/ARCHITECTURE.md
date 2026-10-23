@@ -40,6 +40,13 @@ cohort hash. All derivation/replay is offline; reports retain exclusions and
 `ranking_ready=false`. No new runtime dependency was needed. Model fitting,
 information-loss comparisons, publication and presentation remain unimplemented.
 
+The [offensive input layer](OFFENSIVE_INPUTS.md) now supplies one observed EPA
+outcome per play, actor links and per-player-game count unions, with unresolved
+positions/stints explicitly flagged. It shares the preplay context parser with
+the defensive layer. New pregame/defensive report version 2 uses clock-based
+completion; replay dispatches old reports to their recorded rule. The change adds
+no runtime dependency and does not allocate team outcomes to individuals.
+
 ## Snapshot and release contract
 
 Each source manifest should record the source URL/release asset, retrieval time, upstream update time when supplied, content hash, size, schema version, license/provenance reference, and observed game/week coverage. Record compressed and decoded hashes when transformations make both relevant. An upstream modification timestamp alone is not a data version.

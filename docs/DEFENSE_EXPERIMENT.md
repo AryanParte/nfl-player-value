@@ -29,6 +29,14 @@ held-out-season testing. Resolve a permitted live workload source and reproduce
 its actual missingness before interpreting reduced-model results as live-2026
 feasibility. Defense Explorer remains required and unimplemented.
 
+October 22 correction: [completion v2](PREGAME_INPUTS.md) validates event clocks
+instead of requiring the highest play ID to be the final marker. With identical
+2025 receipts and cutoff, all 272 REG games now reconcile and the paired cohort
+increases to 243 games / 29,297 plays. All 29 lineup exclusions remain; retained
+team coverage ranges from 13 to 17 games. Legacy v1 still replays unchanged. See
+[the controlled comparison](audits/2026-10-22-offensive-inputs.json). This resolves
+the completion prerequisite, not the model comparison or selection-bias problem.
+
 Defense is part of the product objective and the implementation roadmap. Public live 2026 data do not currently establish the same assignment-level coverage as historical tracking or full participation data. This workstream tests how much that loss prevents individual attribution.
 
 ## Research question

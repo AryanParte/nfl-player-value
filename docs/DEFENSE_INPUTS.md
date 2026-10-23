@@ -20,7 +20,9 @@ unqualified software-only license. Raw and derived data stay outside Git.
 
 `complete-game-reg-pass-run-v1` is a deliberately conservative research input rule:
 
-1. Reconcile regular-season games using terminal PBP markers and schedule scores.
+1. Reconcile regular-season games using PBP end markers, schedule scores and the
+   recorded [completion policy](PREGAME_INPUTS.md). New report version 2 uses
+   quarter/clock evidence; legacy version 1 preserves numeric-ID terminal checks.
 2. Consider PBP `play_type=pass|run`. Exclude explicit kneels, spikes and two-point
    attempts. No-play penalties and special teams are outside this estimand. Sacks
    and scrambles occur once in the source play stream; no extra event rows are added.
@@ -93,3 +95,7 @@ it checks exact bytes without updating a latest pointer. A successful CLI exit
 means a reproducible diagnostic, even when coverage is empty or blocked. Every
 report retains `experiment_run=false` and `ranking_ready=false`. Durable remote
 retention and model fitting remain separate work.
+
+The complete-game lineup policy is unchanged by the completion-rule correction.
+Version-2 rich/degraded provenance also identifies its completion policy. Compare
+versions using the same raw receipts and cutoff to isolate the rule change.

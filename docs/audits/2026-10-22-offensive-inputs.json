@@ -1,0 +1,321 @@
+{
+  "attribution": "nflverse contributors; Lee Sharpe (nfldata) via nflverse; historical FTN participation: FTN Data via nflverse",
+  "audit_version": 1,
+  "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+  "data_licenses": {
+    "derived_FTN_participation": "CC-BY-SA-4.0",
+    "pbp_and_schedules": "CC-BY-4.0"
+  },
+  "defense_policy_comparison": {
+    "corrected": {
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "completion_policy": "clock-marker-schedule-v2",
+      "coverage_complete": true,
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "matched_games": 272,
+      "objects": {
+        "degraded": "cddee787983bdf9f22972cc054ee4c719276291b3e86ee743cce8c68500f5112",
+        "rich": "3ab400e75342fe8f123710907372533815607f124c2178591b3bf5f22680ee26"
+      },
+      "report_id": "62f3bfabba7ca58f1f4c3b3b9e3c8993b327ca96772ab232d63666e9819433c9",
+      "report_version": 2,
+      "source_receipts": {
+        "participation": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      },
+      "unresolved_games": []
+    },
+    "legacy": {
+      "code_revision": "ac2078763ed6c2f59471cd8a178b1e0bd3f81023",
+      "completion_policy": "terminal-marker-schedule-v1",
+      "coverage_complete": false,
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "matched_games": 270,
+      "objects": {
+        "degraded": "e983d44be668b1ef83250fa9dcbb1ac30fe5029cc8e53e145d7d853c8da39be8",
+        "rich": "e7d848a6d9f0aa1105965b541f69fe192def75b07088112489ee59fdcd8d4775"
+      },
+      "report_id": "72f0095848187dc07529deea05a75076c6d8c7193a34398d33485d5e64366a4d",
+      "report_version": 1,
+      "source_receipts": {
+        "participation": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      },
+      "unresolved_games": [
+        {
+          "game_id": "2025_05_KC_JAX",
+          "reason": "missing_or_nonterminal_end_marker"
+        },
+        {
+          "game_id": "2025_16_NE_BAL",
+          "reason": "missing_or_nonterminal_end_marker"
+        }
+      ]
+    },
+    "lineup_rejection_counts": {
+      "defense_players:not_11_players": 28,
+      "n_defense:not_11": 28,
+      "n_offense:not_11": 9,
+      "offense_players:not_11_players": 9,
+      "players_on_play:not_22_players": 37
+    },
+    "new_paired_games": 243,
+    "new_paired_plays": 29297,
+    "old_paired_games": 241,
+    "old_paired_plays": 29059,
+    "paired_games_by_team": {
+      "ARI": 15,
+      "ATL": 14,
+      "BAL": 17,
+      "BUF": 16,
+      "CAR": 16,
+      "CHI": 17,
+      "CIN": 14,
+      "CLE": 15,
+      "DAL": 14,
+      "DEN": 13,
+      "DET": 15,
+      "GB": 16,
+      "HOU": 16,
+      "IND": 15,
+      "JAX": 15,
+      "KC": 15,
+      "LA": 15,
+      "LAC": 16,
+      "LV": 16,
+      "MIA": 15,
+      "MIN": 16,
+      "NE": 13,
+      "NO": 14,
+      "NYG": 17,
+      "NYJ": 14,
+      "PHI": 16,
+      "PIT": 15,
+      "SEA": 17,
+      "SF": 15,
+      "TB": 16,
+      "TEN": 14,
+      "WAS": 14
+    },
+    "recovered_game_ids": [
+      "2025_05_KC_JAX",
+      "2025_16_NE_BAL"
+    ],
+    "remaining_lineup_excluded_games": 29,
+    "same_sources_and_cutoff": true
+  },
+  "engineering_date": "2026-10-22",
+  "experiment_run": false,
+  "fresh_2026_sources": {
+    "pbp": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.csv.gz",
+        "digest": "sha256:a6ddee607edda2d530bc65fd869c0eb2f8019ea0d962b020e039dae52c840399",
+        "id": 666192933,
+        "name": "play_by_play_2026.csv.gz",
+        "size": 6436940,
+        "updated_at": "2026-10-22T15:03:34Z"
+      },
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "a6ddee607edda2d530bc65fd869c0eb2f8019ea0d962b020e039dae52c840399",
+        "release_metadata": "bcaed62869be0f72713cecbda72a74466051c879bd0e858c1079b5592a54c4e3"
+      },
+      "receipt_id": "45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f",
+      "retrieval": {
+        "data": "2026-10-22T23:45:22.600642+00:00",
+        "license": "2026-10-22T23:45:23.573911+00:00",
+        "metadata": "2026-10-22T23:45:22.327482+00:00"
+      },
+      "rows": 16380,
+      "source": {
+        "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "filename": "play_by_play_2026.csv.gz",
+        "kind": "pbp",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "schema_version": "pbp-csv-v1",
+        "season": 2026,
+        "tag": "pbp"
+      }
+    },
+    "schedules": {
+      "asset": {
+        "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv.gz",
+        "digest": "sha256:d84a1864fc87502e41937ed0f25363af739a673307a95ca2594d53160d7c75f0",
+        "id": 667402741,
+        "name": "games.csv.gz",
+        "size": 515567,
+        "updated_at": "2026-10-22T23:36:27Z"
+      },
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "objects": {
+        "license": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111",
+        "raw": "d84a1864fc87502e41937ed0f25363af739a673307a95ca2594d53160d7c75f0",
+        "release_metadata": "956c85148e7c078350efd02c7c71bf31ef2c6984f2c36171444b8e0e505a363c"
+      },
+      "receipt_id": "ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94",
+      "retrieval": {
+        "data": "2026-10-22T23:45:24.101429+00:00",
+        "license": "2026-10-22T23:45:24.221413+00:00",
+        "metadata": "2026-10-22T23:45:23.797969+00:00"
+      },
+      "rows": 7548,
+      "source": {
+        "attribution": "Lee Sharpe (nfldata) via nflverse",
+        "filename": "games.csv.gz",
+        "kind": "schedules",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "schema_version": "schedules-csv-v1",
+        "season": 2026,
+        "tag": "schedules"
+      }
+    }
+  },
+  "offensive_inputs": {
+    "2025": {
+      "audit": {
+        "candidate_plays": 32813,
+        "context_outcome_complete_plays": 32813,
+        "event_counts": {
+          "aborted": 87,
+          "non_dropback_run": 12992,
+          "pass": 17358,
+          "sack": 1287,
+          "scramble": 1089
+        },
+        "excluded_pbp_counts": {
+          "kneel_spike_or_two_point": 128,
+          "outside_pass_run_scope": 13511,
+          "postseason": 2319
+        },
+        "issue_counts": {
+          "aborted_actor_requires_review": 87
+        },
+        "missing_epa_plays": 0,
+        "observed_offense_epa_sum": 244.3762537446188,
+        "observed_player_game_rows": 5347,
+        "observed_players": 601,
+        "passes_without_recorded_target": 749,
+        "pbp_rows": 48771,
+        "player_game_team_conflicts": [],
+        "plays_with_actor_issues": 87
+      },
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "completion_policy": "clock-marker-schedule-v2",
+      "coverage_complete": true,
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "matched_games": 272,
+      "objects": {
+        "ledger": "cc45ebd4d3193ac120ba6df6d23a1292a6ab5873a4d20263c8ed2c75ab8f6c25"
+      },
+      "report_id": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+      "report_version": 1,
+      "source_receipts": {
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      },
+      "unresolved_games": []
+    },
+    "2026": {
+      "audit": {
+        "candidate_plays": 11441,
+        "context_outcome_complete_plays": 11441,
+        "event_counts": {
+          "aborted": 27,
+          "non_dropback_run": 4403,
+          "pass": 6227,
+          "sack": 429,
+          "scramble": 355
+        },
+        "excluded_pbp_counts": {
+          "kneel_spike_or_two_point": 43,
+          "outside_pass_run_scope": 4896
+        },
+        "issue_counts": {
+          "aborted_actor_requires_review": 27
+        },
+        "missing_epa_plays": 0,
+        "observed_offense_epa_sum": -8.81943896242727,
+        "observed_player_game_rows": 1819,
+        "observed_players": 471,
+        "passes_without_recorded_target": 269,
+        "pbp_rows": 16380,
+        "player_game_team_conflicts": [],
+        "plays_with_actor_issues": 27
+      },
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "completion_policy": "clock-marker-schedule-v2",
+      "coverage_complete": true,
+      "cutoff": "2026-10-22T23:50:38.680415+00:00",
+      "matched_games": 93,
+      "objects": {
+        "ledger": "0e84908842ad489b9d54baa9614d23b96fba8629d8a13f2737b040063b88b640"
+      },
+      "report_id": "e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83",
+      "report_version": 1,
+      "source_receipts": {
+        "pbp": "45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f",
+        "schedules": "ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94"
+      },
+      "unresolved_games": []
+    }
+  },
+  "pregame_policy_comparison": {
+    "corrected": {
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "completion_policy": "clock-marker-schedule-v2",
+      "coverage_complete": true,
+      "cutoff": "2026-10-20T23:48:27.503974+00:00",
+      "matched_games": 93,
+      "objects": {},
+      "report_id": "6615e546a413a226d48c8b4308cc1676df44c0e1e216d8b3a137af328f2527b2",
+      "report_version": 2,
+      "source_receipts": {
+        "depth_charts": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b",
+        "pbp": "03fca0bd054db939e6dcc01bbebf40f4b14dc4f20782b0bdac1b636a8199b853",
+        "schedules": "e53356ba0ce3d9c1bd6db1cdae751b9d96263222a20ef301218d85cbb59f4adf"
+      },
+      "unresolved_games": []
+    },
+    "first_unit_issues": 11,
+    "first_unit_selection_unchanged": true,
+    "legacy": {
+      "code_revision": "c683f7113a57c269e760e6a2637d9747e03832b6",
+      "completion_policy": "terminal-marker-schedule-v1",
+      "coverage_complete": true,
+      "cutoff": "2026-10-20T23:48:27.503974+00:00",
+      "matched_games": 93,
+      "objects": {},
+      "report_id": "eed5f528e32e427dfd47f0f06ab4619b59cc59257e8167558732979c4ffeefeb",
+      "report_version": 1,
+      "source_receipts": {
+        "depth_charts": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b",
+        "pbp": "03fca0bd054db939e6dcc01bbebf40f4b14dc4f20782b0bdac1b636a8199b853",
+        "schedules": "e53356ba0ce3d9c1bd6db1cdae751b9d96263222a20ef301218d85cbb59f4adf"
+      },
+      "unresolved_games": []
+    },
+    "same_sources_and_cutoff": true
+  },
+  "ranking_ready": false,
+  "remaining_gates": [
+    "Identity/position crosswalk and roster stints including missed games/trades/late signings",
+    "Actor review for aborted plays; unrecorded receiving-target interpretation",
+    "First fitted regularized baseline, chronological validation and shared-value accounting",
+    "Defensive information-loss model comparison and Defense Explorer",
+    "Qualification, uncertainty, cross-position comparability and public release gates",
+    "Durable off-machine raw and derived artifact retention"
+  ],
+  "verification": {
+    "legacy_reports_replayed_unchanged": true,
+    "network_construction_blocked_during_build_and_replay": true,
+    "new_reports_and_objects_replayed": true,
+    "observed_combined_build_replay_seconds": 76.328,
+    "offline_tests_passed": 129
+  }
+}

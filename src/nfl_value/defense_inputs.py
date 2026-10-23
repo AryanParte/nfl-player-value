@@ -11,11 +11,11 @@ import re
 
 from nfl_value.ingestion import SnapshotStore, json_bytes, replay, sha256
 from nfl_value.participation import PARTICIPATION_COLUMNS, inspect_lineup, participation_key
-from nfl_value.schedules import reconcile_game_coverage
+from nfl_value.preplay import CONTEXT, parse_context as _context
+from nfl_value.schedules import CLOCK_COLUMNS, CLOCK_COMPLETION, LEGACY_COMPLETION, reconcile_game_coverage
 from nfl_value.source_audit import aware_time
 
 
-CONTEXT = ("down", "ydstogo", "yardline_100", "game_seconds_remaining", "qtr", "score_differential")
 FLAGS = ("qb_kneel", "qb_spike", "two_point_attempt")
 PBP_COLUMNS = {
     "game_id", "play_id", "season_type", "play_type", "play_type_nfl", "posteam", "defteam", "epa",
@@ -32,17 +32,6 @@ def _rows(raw: bytes, columns: set[str], *, compressed: bool = True):
             raise ValueError(f"defensive inputs require columns: {sorted(columns - set(reader.fieldnames or []))}")
         for row in reader:
             yield {key: row[key] for key in columns}
-
-
-def _context(row: dict) -> dict:
-    context = {name: float(row[name]) for name in CONTEXT}
-    if not all(isfinite(x) for x in context.values()):
-        raise ValueError("nonfinite context")
-    if context["down"] not in {1, 2, 3, 4} or context["qtr"] not in {1, 2, 3, 4, 5}:
-        raise ValueError("invalid down or quarter")
-    if not (0 <= context["ydstogo"] <= 100 and 0 <= context["yardline_100"] <= 100 and 0 <= context["game_seconds_remaining"] <= 3600):
-        raise ValueError("invalid distance, field position or time")
-    return context
 
 
 def paired_cohort(pbp_rows, participation_rows, *, season: int, completed_games: list[dict]) -> tuple[dict, dict, dict]:
@@ -164,9 +153,11 @@ def paired_cohort(pbp_rows, participation_rows, *, season: int, completed_games:
     return {**common, "view": "rich_play_lineups", "plays": plays}, {**common, "view": "degraded_team_games", "team_games": team_games}, audit
 
 
-def build_defense_inputs(store: SnapshotStore, *, schedules: str, pbp: str, participation: str, cutoff: datetime, code_revision: str) -> tuple[dict, dict, dict]:
+def build_defense_inputs(store: SnapshotStore, *, schedules: str, pbp: str, participation: str, cutoff: datetime, code_revision: str, report_version: int = 2) -> tuple[dict, dict, dict]:
     if not re.fullmatch(r"[0-9a-f]{40}", code_revision) or cutoff.utcoffset() is None:
         raise ValueError("full code revision and timezone-aware cutoff required")
+    if type(report_version) is not int or report_version not in {1, 2}:
+        raise ValueError("unsupported defensive input version")
     ids = {"schedules": schedules, "pbp": pbp, "participation": participation}
     receipts = {kind: replay(store, rid) for kind, rid in ids.items()}
     if any(r["source"]["kind"] != kind for kind, r in receipts.items()):
@@ -178,8 +169,9 @@ def build_defense_inputs(store: SnapshotStore, *, schedules: str, pbp: str, part
         raise ValueError("input receipt was retrieved after cutoff")
     raw_pbp = store.read(receipts["pbp"]["objects"]["raw"])
     coverage = reconcile_game_coverage(
-        receipts["schedules"]["audit"]["games"], _rows(raw_pbp, PBP_COLUMNS), cutoff=cutoff,
+        receipts["schedules"]["audit"]["games"], _rows(raw_pbp, PBP_COLUMNS | (CLOCK_COLUMNS if report_version == 2 else set())), cutoff=cutoff,
         observed_at=max(aware_time(receipts[k]["retrieval"]["data"]) for k in ("schedules", "pbp")),
+        policy_version=CLOCK_COMPLETION if report_version == 2 else LEGACY_COMPLETION,
     )
     season = seasons.pop()
     rich, degraded, audit = paired_cohort(
@@ -188,7 +180,7 @@ def build_defense_inputs(store: SnapshotStore, *, schedules: str, pbp: str, part
         season=season, completed_games=coverage["matched_games"],
     )
     report = {
-        "report_version": 1, "code_revision": code_revision, "season": season,
+        "report_version": report_version, "code_revision": code_revision, "season": season,
         "cutoff": cutoff.isoformat(), "source_receipts": ids, "game_coverage": coverage,
         "policy": "complete-game-reg-pass-run-v1", "join_audit": audit,
         "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
@@ -208,6 +200,8 @@ def build_defense_inputs(store: SnapshotStore, *, schedules: str, pbp: str, part
     # Carry source terms into each independently reusable derivative.
     for view in (rich, degraded):
         view["provenance"] = {key: report[key] for key in ("source_receipts", "code_revision", "cutoff", "policy", "attribution", "derived_participation_license", "license_url")}
+        if report_version == 2:
+            view["provenance"]["completion_policy"] = CLOCK_COMPLETION
     return report, rich, degraded
 
 
@@ -218,9 +212,9 @@ def save_defense_inputs(derived: SnapshotStore, report: dict, rich: dict, degrad
 
 def replay_defense_inputs(raw: SnapshotStore, derived: SnapshotStore, report_id: str) -> dict:
     saved = json.loads(derived.read(report_id, manifest=True))
-    if saved["report_version"] != 1:
+    if saved["report_version"] not in {1, 2}:
         raise ValueError("unsupported defensive input version")
-    report, rich, degraded = build_defense_inputs(raw, **saved["source_receipts"], cutoff=aware_time(saved["cutoff"]), code_revision=saved["code_revision"])
+    report, rich, degraded = build_defense_inputs(raw, **saved["source_receipts"], cutoff=aware_time(saved["cutoff"]), code_revision=saved["code_revision"], report_version=saved["report_version"])
     objects = {}
     for name, view in (("rich", rich), ("degraded", degraded)):
         body = derived.read(saved["objects"][name])

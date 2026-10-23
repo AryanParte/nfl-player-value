@@ -29,10 +29,19 @@ whole-game rule excludes 29 games with candidate lineup failures. Two additional
 games reveal the strict completion rule's numeric-ID ordering assumption and
 remain excluded. See [defensive inputs](docs/DEFENSE_INPUTS.md).
 
-October 22–23: version/test chronological completion evidence without breaking old
-replays; normalize offensive opportunities and roster/stint evidence; then build
-the transparent regularized baseline. Additional historical participation seasons,
-roster identity/role validation and selection-loss assessment are still required.
+October 22 progress: completion v2 checks quarter/clock evidence and restores the
+two reordered-event games; old reports replay unchanged. The defensive paired
+cohort is now 243 games / 29,297 plays. The new offensive ledger has one EPA outcome
+per play, observed actor links and nonduplicated workload unions. Fresh 2026 data
+provide 11,441 candidate plays in 93 games; 2025 provides 32,813 in 272 games.
+Actor gaps remain visible without dropping their negative team outcomes.
+
+October 23 priority: implement the first context-only and regularized joint-actor
+baselines with chronological validation. Complete identity/position and roster/stint
+evidence before positional contrasts or qualification. Correct exposure overlap
+checks for observed-by completion timestamps before constructing season exposures.
+Additional historical participation seasons and selection-loss assessment remain
+required for the defensive comparison. Avoid another broad ingestion-only unit.
 Model fitting and the actual information-loss experiment remain unfinished;
 reserve October 24–27 for their measured comparison and context work rather than
 adding optional features. Capture/selection coverage is not model validation.

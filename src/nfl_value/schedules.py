@@ -17,6 +17,9 @@ SCHEDULE_COLUMNS = {
 }
 EASTERN = ZoneInfo("America/New_York")
 MISSING = {"", "NA"}
+LEGACY_COMPLETION = "terminal-marker-schedule-v1"
+CLOCK_COMPLETION = "clock-marker-schedule-v2"
+CLOCK_COLUMNS = {"qtr", "quarter_seconds_remaining"}
 
 
 def _integer(value: str, name: str, minimum: int = 0) -> int:
@@ -83,13 +86,50 @@ def audit_schedule_rows(rows, *, season: int) -> dict:
     }
 
 
-def reconcile_game_coverage(schedule_games: dict, pbp_rows, *, cutoff: datetime, observed_at: datetime) -> dict:
+def _event_clock(row: dict) -> tuple[int, int]:
+    quarter = _integer(row["qtr"], "quarter", 1)
+    seconds = _integer(row["quarter_seconds_remaining"], "quarter clock")
+    if quarter > 5 or seconds > 900:
+        raise ValueError("invalid regular-season event clock")
+    return quarter, -seconds
+
+
+def _clock_completion_issue(item: dict) -> str | None:
+    if len(item["markers"]) != 1:
+        return "missing_or_duplicate_end_marker"
+    marker_id, marker = item["markers"][0]
+    try:
+        end = _event_clock(marker)
+        if end[0] < 4 or (end[0] == 4 and end[1] != 0):
+            return "invalid_end_marker_clock"
+        for play, row in item["rows"]:
+            # COMMENT is descriptive metadata, not a timed football event.
+            # It can lack a clock; no other event is excused for missing time.
+            if row["play_type_nfl"] == "COMMENT":
+                continue
+            current = _event_clock(row)
+            if current > end:
+                return "event_after_end_marker_clock"
+            if play > marker_id and current == end:
+                return "ambiguous_event_at_end_marker_clock"
+    except (ValueError, KeyError):
+        return "missing_or_invalid_event_clock"
+    return None
+
+
+def reconcile_game_coverage(schedule_games: dict, pbp_rows, *, cutoff: datetime, observed_at: datetime,
+                            policy_version: str = LEGACY_COMPLETION) -> dict:
     """Report every due game, including missing/incomplete games, without dropout.
 
     The caller must replay both receipts and set observed_at to their latest
     retrieval. Never use this observation to claim a historical publication was
     available before then. Future/TBD games and postseason are not MVP games.
+
+    The default preserves legacy callers. New report builders explicitly select
+    CLOCK_COMPLETION. Numeric IDs identify plays; they need not order events.
     """
+    if policy_version not in {LEGACY_COMPLETION, CLOCK_COMPLETION}:
+        raise ValueError("unsupported completion policy")
     for value in (cutoff, observed_at):
         if value.utcoffset() is None:
             raise ValueError("cutoff and observation time must be timezone-aware")
@@ -104,9 +144,11 @@ def reconcile_game_coverage(schedule_games: dict, pbp_rows, *, cutoff: datetime,
         game_id = row["game_id"]
         if game_id not in schedule_games or schedule_games[game_id]["season_type"] != "REG":
             raise ValueError("regular-season PBP references an unexpected schedule game")
-        item = evidence.setdefault(game_id, {"last_play": -1, "markers": []})
+        item = evidence.setdefault(game_id, {"last_play": -1, "markers": [], "rows": []})
         play = _integer(row["play_id"], "play ID")
         item["last_play"] = max(item["last_play"], play)
+        if policy_version == CLOCK_COMPLETION:
+            item["rows"].append((play, {key: row.get(key, "") for key in CLOCK_COLUMNS | {"play_type_nfl"}}))
         if row["play_type_nfl"] == "END_GAME":
             item["markers"].append((play, row))
     matched, unresolved, future, excluded = [], [], [], []
@@ -130,7 +172,9 @@ def reconcile_game_coverage(schedule_games: dict, pbp_rows, *, cutoff: datetime,
         reason = None
         if not item:
             reason = "missing_pbp"
-        elif len(item["markers"]) != 1 or item["markers"][0][0] != item["last_play"]:
+        elif policy_version == CLOCK_COMPLETION and (clock_issue := _clock_completion_issue(item)):
+            reason = clock_issue
+        elif policy_version == LEGACY_COMPLETION and (len(item["markers"]) != 1 or item["markers"][0][0] != item["last_play"]):
             reason = "missing_or_nonterminal_end_marker"
         elif game["home_score"] is None:
             reason = "missing_schedule_scores"
@@ -149,7 +193,7 @@ def reconcile_game_coverage(schedule_games: dict, pbp_rows, *, cutoff: datetime,
         else:
             matched.append({"game_id": game_id, **game, "completion_observed_by": observed_at.isoformat()})
     return {
-        "policy_version": "terminal-marker-schedule-v1",
+        "policy_version": policy_version,
         "coverage_complete": bool(matched) and not unresolved,
         "matched_games": matched, "unresolved_games": unresolved,
         "not_due_game_ids": future, "excluded_postseason_game_ids": excluded,
