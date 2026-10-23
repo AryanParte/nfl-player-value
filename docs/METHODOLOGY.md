@@ -69,6 +69,11 @@ Require at least **three games with participation** for the main board. Earlier 
 
 QB opportunities combine dropbacks and designed non-kneel rushes; count scrambles once. Receiving qualification only supports the targeted receiving module. Specialist modules need task-specific denominators before admission. Meeting a defensive snap threshold does not qualify a defender for an overall CAVAA score.
 
+The [offensive ledger](OFFENSIVE_INPUTS.md) now implements unique observed actor
+counts, including the dropback/rush union. Those event roles are not verified
+positional labels, and its observed player games do not yet establish roster-stint
+or missed-game denominators. It deliberately does not produce qualification.
+
 These are product-policy hypotheses, not scientifically established cutoffs. Historical tests compare 0.75×, 1×, and 1.25× requirements and select the least restrictive stable policy without tuning to names, desired winners, or positional diversity. Source coverage and attribution admission remain separate gates.
 
 Partial pooling reduces low-sample extremes but does not create missing information. Do not require a positive estimate, a confidence interval excluding zero, or one universal interval-width cutoff to qualify; those rules select favorable outcomes or privilege easily measured positions.

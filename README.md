@@ -6,14 +6,19 @@ The target is a usable 2026 season-to-date leaderboard and interactive website b
 
 ## Current status
 
-Benchmark and participation-qualification contracts, immutable ingestion, schedule/PBP completion checks, and pregame first-unit selection are implemented. The October 20 audit reconciles 93 games through Week 6 and 186 team-game cells; all seven offensive chart cohorts have complete coverage. Eleven issues block IDL, CB, S and LS cohorts. These are input-coverage findings, not evidence of player contribution. The system does **not** produce player-value estimates or real rankings yet. Opportunity/stint normalization, statistical fitting, the defensive information-loss experiment, and the dashboard remain open. Synthetic test fixtures are not football findings.
+Benchmark/qualification contracts, immutable source capture, pregame first-unit
+selection and historical defensive research inputs are implemented. October 22
+adds versioned clock-based completion evidence and a unique-play offensive ledger:
+11,441 candidate plays from 93 completed 2026 games through Week 6. The corrected
+2025 completion rule accepts all 272 REG games; the defensive lineup cohort
+retains 243 games and 29,297 plays. Old reports replay under their original rules.
 
-October 21: historical FTN participation now has source-specific license capture,
-lineup/join audits and immutable paired rich/degraded inputs. The first 2025
-cohort contains 29,059 plays in 241 games across all 32 teams. Two games fail the
-existing strict completion-order rule and 29 more lose candidate plays to lineup
-checks. This is a documented research subset, not a full-season defensive ranking
-or a completed information-loss experiment. See [defensive inputs](docs/DEFENSE_INPUTS.md).
+These are input findings, not player contribution estimates. **No real CAVAA
+ranking is produced yet.** Roster/stint and position verification, statistical
+fitting, the defensive information-loss comparison, uncertainty and the dashboard
+remain open. The 2026 first-unit chart audit still has 11 blocked IDL/CB/S/LS
+issues. Synthetic tests are not football findings. See [offensive inputs](docs/OFFENSIVE_INPUTS.md)
+and [defensive inputs](docs/DEFENSE_INPUTS.md).
 
 The all-position objective remains explicit. An unsupported position receives no invented score. A narrower published board must identify its supported scope; it cannot be presented as a validated ranking of every NFL player.
 
@@ -42,6 +47,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Evaluation](docs/EVALUATION.md) | Predictive and attribution checks, sensitivity, and admission criteria |
 | [Defense experiment](docs/DEFENSE_EXPERIMENT.md) | Required defensive research design and explorer scope |
 | [Defensive inputs](docs/DEFENSE_INPUTS.md) | FTN provenance, whole-game cohort policy, paired views and offline replay |
+| [Offensive inputs](docs/OFFENSIVE_INPUTS.md) | Unique play outcomes, actor links, opportunity unions and missingness |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
 | [Project status](STATUS.md) | Completed work, active limitations, and next task |
 | [Daily workflow](docs/DAILY_WORKFLOW.md) | Independent development runs, locking, verification, and PR rules |
@@ -49,6 +55,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 19 learning report](docs/learning/2026-10-19.md) | Live snapshots, source quality, and replay verification |
 | [October 20 learning report](docs/learning/2026-10-20.md) | Receiver slot semantics, game completeness, and benchmark coverage |
 | [October 21 learning report](docs/learning/2026-10-21.md) | Participation joins, controlled information loss, and selection bias |
+| [October 22 learning report](docs/learning/2026-10-22.md) | Event ordering, preserved replay and offensive opportunity accounting |
 
 ## Run the foundation checks
 

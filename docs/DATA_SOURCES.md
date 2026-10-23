@@ -32,6 +32,16 @@ declaration are archived separately; raw and derived data retain FTN attribution
 The release still has no 2026 participation asset. This does not establish live
 workload coverage, resolved positional identities, or individual contributions.
 
+**October 22 implementation audit:** fresh 2026 PBP and schedule receipts support
+an [offensive ledger audit](audits/2026-10-22-offensive-inputs.json) of 11,441
+candidate plays in 93 completed games. There are 27 aborted plays whose actor
+links remain unallocated and 269 passes without a recorded target. The same audit
+compares completion policies on identical historical inputs: v2 accepts all 272
+2025 REG games and restores two games to the defensive cohort (243 games / 29,297
+plays). The 29 lineup-excluded games remain excluded. Old reports and source bytes
+remain preserved; no first-unit membership, player position or live workload right
+is inferred from this correction.
+
 ## Public-source launch plan
 
 | Source | Historical/current availability observed | Intended use and limitation |
