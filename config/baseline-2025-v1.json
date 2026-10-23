@@ -1,0 +1,15 @@
+{
+  "plan_version": 1,
+  "historical_season": 2025,
+  "train_through_week": 10,
+  "validation_through_week": 14,
+  "test_through_week": 18,
+  "transfer_season": 2026,
+  "context_penalty": 1.0,
+  "team_penalty": 50.0,
+  "actor_penalties": [10.0, 100.0, 1000.0],
+  "solver_tolerance": 1e-10,
+  "solver_iteration_limit": 20000,
+  "bootstrap_replicates": 1000,
+  "seed": 20261023
+}
