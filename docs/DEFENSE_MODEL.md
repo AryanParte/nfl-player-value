@@ -90,3 +90,44 @@ source data. Numerical replay uses the same tolerances as the offensive baseline
 
 This unit is stacked on the unmerged offensive baseline PR #6. Review/merge #6
 first, then retarget this unit to main; no automated merge or force-push.
+
+## October 24 result and decision
+
+The [measured audit](audits/2026-10-24-defensive-model.json) records 131 training,
+54 validation and 58 test games. Both views select penalty 1000. Test team-game
+weighted RMSE is 0.202948 for the rich defender model versus 0.201203 for its
+team/context baseline; degraded values are 0.146772 versus 0.145339. Neither
+increment's 95% game-bootstrap interval is entirely negative. Residualized defender
+rank is 922 versus 301 across 951 columns. No defensive CAVAA is admitted.
+
+The reduced model's lower absolute error compares conditional outcome models,
+not player attribution. Aggregation changes the covariance/loss, and full-game
+average preplay score states reflect earlier performance; this is neither a
+pregame forecast nor a justified CAVAA adjustment. Positional/player uncertainty
+and first-unit contrasts remain uncomputed. The [learning report](learning/2026-10-24.md)
+explains the selection diagnostics, limitations and next Defense Explorer unit.
+
+## Reproduce the fixed experiment
+
+Install the existing model extra and use the recorded local content-addressed
+stores. Source replay validates their exact bytes and transitive receipts; no
+network call or download occurs inside fitting. Raw/generated objects are excluded
+from Git, so a clean clone needs the recorded source snapshots; durable artifact
+hosting remains a release prerequisite. The audit retains the full source IDs,
+terms, code and output hashes. It does not pretend that mutable upstream downloads
+are identical substitutes for missing archived bytes.
+
+```sh
+PYTHONPATH=src .venv/bin/python -m nfl_value.defensive_model_cli build \
+  --defensive-report 62f3bfabba7ca58f1f4c3b3b9e3c8993b327ca96772ab232d63666e9819433c9 \
+  --candidate-report 97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293 \
+  --plan config/defense-2025-v1.json
+
+PYTHONPATH=src .venv/bin/python -m nfl_value.defensive_model_cli replay \
+  f447fc8a36ff59f968c62f56aaa5d03cea962156afb63800fd827e50afaf19fb
+```
+
+The report's implementation revision is `cd8a98774ea62024d48a0f954ab03414d5255c09`.
+A build from a later documentation-only commit records a new code revision and
+artifact identity; use replay to verify the preserved original. Do not replace its
+manifest or change its plan to improve an observed test result.

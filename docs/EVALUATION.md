@@ -74,3 +74,13 @@ does not establish individual attribution. The validation-selected penalty remai
 that test would leak evaluation information. Further model development must use
 new validation windows/folds and disclose that these test results are now observed.
 No defensive, qualification, benchmark-contrast or player-interval gate passed.
+
+October 24: the [bounded defensive comparison](DEFENSE_MODEL.md) uses the exact
+same games/targets for lineup and aggregate fits. Neither selected defender model
+beats its own team/context baseline with a 95% interval below zero. Lower aggregate
+prediction error is not evidence of correct allocation, especially with 650
+unidentified linear dimensions across 951 defender columns. The [audit](audits/2026-10-24-defensive-model.json)
+preserves the negative result, selection diagnostics and non-admission decision.
+The richer model is not ground truth; these tests are now observed. Broader
+historical/live-degradation, position, benchmark and player-uncertainty gates remain
+open. No aggregate error interval is relabeled as uncertainty in individual value.

@@ -38,7 +38,8 @@ report. The [defensive input layer](DEFENSE_INPUTS.md) now adds source-specific 
 license provenance and paired rich-play/degraded-team-game objects with a common
 cohort hash. All derivation/replay is offline; reports retain exclusions and
 `ranking_ready=false`. No new runtime dependency was needed for those layers.
-Information-loss comparisons, publication and presentation remain unimplemented.
+The first bounded information-loss comparison is now implemented below;
+publication and presentation remain unimplemented.
 
 The [offensive input layer](OFFENSIVE_INPUTS.md) now supplies one observed EPA
 outcome per play, actor links and per-player-game count unions, with unresolved
@@ -55,6 +56,14 @@ links exact input reports, raw-source receipts, plan, code revision and runtime.
 Replay revalidates source inputs, refits offline and checks structure exactly and
 floating-point results within declared tolerances. These diagnostic coefficients
 have not passed positional benchmark or attribution admission.
+
+The [defensive model layer](DEFENSE_MODEL.md) fits paired play-lineup and
+opportunity-weighted game-fraction models plus team/context ablations. It reuses
+the numerical stack and replay helper, validates strict aggregate input boundaries,
+and records common-unit evaluation, residualized rank and selection loss. Models
+and predictions each carry independent data-derivative provenance and license
+notices. These are historical diagnostics, not production player scores; no
+live-source equivalence, positional contrast or attribution admission is implied.
 
 ## Snapshot and release contract
 

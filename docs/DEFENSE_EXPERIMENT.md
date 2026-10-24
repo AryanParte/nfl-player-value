@@ -37,6 +37,18 @@ team coverage ranges from 13 to 17 games. Legacy v1 still replays unchanged. See
 [the controlled comparison](audits/2026-10-22-offensive-inputs.json). This resolves
 the completion prerequisite, not the model comparison or selection-bias problem.
 
+October 24 comparison: the first [bounded model experiment](DEFENSE_MODEL.md)
+actually ran on the corrected 243-game cohort. Both views select penalty 1000;
+neither defender model reliably improves its team/context baseline. Residualized
+rank falls from 922 to 301 across 951 defender columns after aggregation. All
+3,516 excluded plays are included in selection diagnostics, with no measured
+standardized mean difference above the fixed 0.1 flag; missingness is still not
+established as harmless. See the [measured audit](audits/2026-10-24-defensive-model.json).
+This completes the first fitted comparison, not the full multi-season/live-feed
+experiment. Defensive CAVAA remains withheld; positions, actual live missingness,
+absence cases and player uncertainty remain unresolved. Defense Explorer is the
+next required product unit, not replaced by this diagnostic.
+
 Defense is part of the product objective and the implementation roadmap. Public live 2026 data do not currently establish the same assignment-level coverage as historical tracking or full participation data. This workstream tests how much that loss prevents individual attribution.
 
 ## Research question

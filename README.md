@@ -16,9 +16,12 @@ retains 243 games and 29,297 plays. Old reports replay under their original rule
 October 23 adds the first [fitted outcome baselines](docs/BASELINE.md) with frozen
 chronological evaluation. Actor identity adds only a small gain beyond observed
 role information; its 2025 test interval includes zero. This does not validate
-individual attribution. **No real CAVAA ranking is produced yet.** Roster/stint
-and position verification, the defensive information-loss comparison, player
-uncertainty and the dashboard remain open. The 2026 first-unit chart audit still has 11 blocked IDL/CB/S/LS
+individual attribution. October 24 adds the first [defensive model comparison](docs/DEFENSE_MODEL.md):
+aggregation reduces residualized defender rank from 922 to 301 across 951 columns;
+neither defender model reliably improves its team/context baseline. This is a
+historical diagnostic, not verified live-2026 attribution. **No real CAVAA ranking
+is produced yet.** Roster/stint and position verification, broader defensive
+validation, Defense Explorer, player uncertainty and the dashboard remain open. The 2026 first-unit chart audit still has 11 blocked IDL/CB/S/LS
 issues. Synthetic tests are not football findings. See [offensive inputs](docs/OFFENSIVE_INPUTS.md)
 and [defensive inputs](docs/DEFENSE_INPUTS.md).
 
@@ -50,6 +53,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Defense experiment](docs/DEFENSE_EXPERIMENT.md) | Required defensive research design and explorer scope |
 | [Defensive inputs](docs/DEFENSE_INPUTS.md) | FTN provenance, whole-game cohort policy, paired views and offline replay |
 | [Offensive inputs](docs/OFFENSIVE_INPUTS.md) | Unique play outcomes, actor links, opportunity unions and missingness |
+| [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
 | [Project status](STATUS.md) | Completed work, active limitations, and next task |
@@ -60,6 +64,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 21 learning report](docs/learning/2026-10-21.md) | Participation joins, controlled information loss, and selection bias |
 | [October 22 learning report](docs/learning/2026-10-22.md) | Event ordering, preserved replay and offensive opportunity accounting |
 | [October 23 learning report](docs/learning/2026-10-23.md) | First fitted models, shrinkage, role-selection confounding and held-out results |
+| [October 24 learning report](docs/learning/2026-10-24.md) | Defensive information loss, weighted models, rank deficiency and admission limits |
 
 ## Run the checks
 
@@ -72,10 +77,11 @@ python3 -m venv .venv
 make check PYTHON=.venv/bin/python
 ```
 
-This runs 152 offline tests, compiles the Python sources, and checks whitespace.
+This runs 171 offline tests, compiles the Python sources, and checks whitespace.
 Tests cover the data/benchmark/qualification contracts, locking, known-effect and
 collinearity simulations, leakage, numerical solving and accounting. Real historical
-evaluation is separate from synthetic CI evidence; see the [October 23 audit](docs/audits/2026-10-23-offensive-baseline.json).
+evaluation is separate from synthetic CI evidence; see the [offensive audit](docs/audits/2026-10-23-offensive-baseline.json)
+and [defensive audit](docs/audits/2026-10-24-defensive-model.json).
 
 ## Delivery and cost constraints
 

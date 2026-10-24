@@ -1,87 +1,86 @@
 # Project status
 
-Updated: October 23, 2026, America/New_York.
+Updated: October 24, 2026, America/New_York.
 
 ## Current unit
 
-The owner merged PR #5; main CI is green and no review feedback was pending.
-Today's immediate run uses `codex/regularized-offensive-baseline` from current
-main. Its PR remains for human review; never merge automatically.
+The first bounded **defensive information-loss comparison is implemented, fitted,
+and replayed**. See the [specification](docs/DEFENSE_MODEL.md),
+[audit](docs/audits/2026-10-24-defensive-model.json) and
+[learning report](docs/learning/2026-10-24.md). No defensive CAVAA is admitted.
 
-The first actual outcome-model experiment is implemented and fitted, alongside
-the existing benchmark/qualification contracts, immutable ingestion, pregame
-first-unit selection, historical defensive paired inputs and offensive ledger.
-See the [experiment specification](docs/BASELINE.md), [audit](docs/audits/2026-10-23-offensive-baseline.json)
-and [learning report](docs/learning/2026-10-23.md).
+PR #6 remains open with green CI and no review comments. Today's branch,
+`codex/defensive-information-loss`, is explicitly stacked on
+`codex/regularized-offensive-baseline` at `8488ed5`. It reuses the pinned numerical
+dependencies and replay helper. Review/merge #6 first, then retarget this PR to
+main; agents must not merge either PR or force-push.
 
 ## Measured evidence
 
-The frozen 2025 split has 149 training, 59 validation and 64 final-test games.
-Validation selected actor penalty 1000; the final refit uses 25,163 plays through
-Week 14. The 2025 test has 7,650 plays; the separate 2026 transfer test has 11,441
-plays in 93 completed games through Week 6, using the October 22 source snapshot.
-No fresh source capture was needed for this fixed-input experiment.
+The fixed 2025 cohort has 243 games / 29,297 plays. Its chronological split is
+131 training games (Weeks 1–10), 54 validation games (11–14) and 58 test games
+(15–18). Both views select the strongest declared defender penalty, 1000, using
+validation alone. Final refits use the same 22,372 plays, represented as either
+play-level lineups or 370 defensive team-game aggregates. Tests cover 6,925 plays.
 
-| Model | 2025 test RMSE (EP/play) | 2026 transfer RMSE (EP/play) |
-| --- | ---: | ---: |
-| Preplay context | 1.384803 | 1.353829 |
-| Context + teams | 1.382101 | 1.355002 |
-| Context + teams + observed roles | 1.346707 | 1.325424 |
-| Above + actor identity | 1.346298 | 1.324947 |
+| View | Team/context weighted RMSE | Adding defenders | Defender minus team 95% interval |
+| --- | ---: | ---: | --- |
+| Play-level lineups | 0.201203 | 0.202948 | [-0.003341, +0.006877] |
+| Game-level fractions | 0.145339 | 0.146772 | [-0.002168, +0.004774] |
 
-The actor-identity RMSE increment over the role model is -0.000410 with a
-95% game-bootstrap interval of [-0.000925, +0.000056] on the historical test.
-The 2026 increment is -0.000477 [-0.000786, -0.000155]. The historical interval
-includes zero; the transfer gain is small. Most of the gain over team-only comes
-from realized role information. That information can absorb player-created
-outcomes, so this is a diagnostic ablation, not an approved CAVAA adjustment.
-2026 team-game mean-EPA error is also worse than context-only, despite better
-play RMSE. Do not claim a uniformly better model or validated player attribution.
+Errors are EP per eligible play, evaluated at team-game means. Neither interval
+supports an incremental defender prediction claim. The lower aggregate error is
+not evidence of better individual attribution: aggregation changes the loss and
+within-game covariance, and realized game-average context includes score states
+partly produced by earlier performance. This is not a pregame forecast or an
+approved CAVAA adjustment. The richer model is not ground truth.
 
-All 32,813 historical and 11,441 transfer plays are retained, including 87/27
-aborted or ambiguous actor records with no invented actor effects. Fitted state,
-component predictions and diagnostics are immutable JSON, linked to exact raw
-receipts. Build and replay both succeeded with network construction/connections
-blocked. The outcome-accounting error is below 2e-15 EP. There are 152 offline
-tests (23 new); the PR carries current remote CI evidence.
+After projecting off context and teams, numerical defender rank falls from 922
+to 301 across 951 columns. There are 29 versus 650 unidentified linear dimensions
+at the fixed tolerance. Both views have six identical-column groups. Selected
+coefficient correlation is 0.443; penalty sensitivity remains large. These are
+identification diagnostics, not player intervals or first-unit contrasts.
 
-Three identical actor-column groups and sensitivity up to 0.775 EP/coefficient
-across declared penalties illustrate weak identification. Bootstrap intervals here
-concern outcome RMSE differences, not player-value uncertainty or ranks. The
-penalty is not reselected using either final test.
+Selection checks account for all 32,813 candidate plays: 29,297 retained and
+3,516 from 29 lineup-excluded games. No measured context/outcome standardized
+mean difference crosses the predeclared 0.1 flag; this does not establish ignorable
+selection. Retained team coverage still varies from 13 to 17 games.
 
-## Next highest-priority unit — October 24
+171 offline tests pass (19 new). Real build and numerical replay succeeded with
+network construction/connections blocked. Model and prediction JSON objects carry
+independent FTN/nflverse attribution, derivative license, plan and source hashes.
+Shared-value accounting is checked without allocating the full outcome to each
+defender. All research outputs retain `ranking_ready=false`.
 
-Run the first bounded defensive rich-versus-degraded model comparison on the
-existing identical cohort (243 games / 29,297 plays), with chronological splits,
-shared-value accounting, collinearity and whole-game selection-loss diagnostics.
-Reuse the numerical approach where appropriate; do not replace this required
-workstream with more offense-only feature development. Declare any needed model
-extensions and thresholds before evaluation. The existing paired cohort is a
-controlled information loss, not yet a verified replica of a permitted live feed.
-Audit additional seasons and live workload coverage before broader admission.
-Start the required Defense Explorer with verified observations and missingness.
+## Next highest-priority unit — October 25
 
-In parallel within the roadmap, finish position/roster-stint evidence and the
-`SeasonExposure` observed-by timestamp correction before benchmark contrasts or
-qualification. Never infer missed-game denominators from positive actor appearances.
-Evaluate offensive actor effects using additional folds/absence cases without
-reusing today's observed tests as untouched tests. First-unit, equal-player and
-opportunity-weighted policies remain unchanged; none is silently replaced by the
-ridge origin. Preserve the bounded participation tests and all earlier season games.
+Build the required Defense Explorer foundation from verified observations, with
+source age, supported denominators and missing contributions visible. Audit a
+permitted live workload source before showing 2026 snap fractions; the historical
+fraction experiment does not certify live coverage. Unsupported positions retain
+missing scores. Keep the initial React/TypeScript view small and compatible with
+the versioned JSON pipeline; do not delay the website for extra model complexity.
+
+Finish position/roster-stint evidence and correct `SeasonExposure`'s observed-by
+completion timestamp handling before benchmark contrasts or qualification. Do not
+infer missed-game denominators from positive appearances. Reserve the October
+28–30 freeze for bounded first-unit/equal-player/opportunity-weighted contrasts,
+qualification and module admission. Any additional historical folds, absence
+checks or live-like degradation must disclose that the present tests are observed.
+No tuning on these test results. The defensive workstream remains required.
 
 ## Unfinished release gates
 
-No CAVAA score is published and no position has passed attribution/comparability
-admission. Position/stint verification, player/benchmark uncertainty, defensive
-information-loss results, Defense Explorer, React/TypeScript dashboard, durable
-off-machine retention and independent production refresh remain open. The 2026
-chart audit still has 11 IDL/CB/S/LS issues. All experiment outputs explicitly
-retain `ranking_ready=false`.
+No 2026 CAVAA score is published and no position has passed attribution/comparability
+admission. The broader defensive experiment still needs additional seasons,
+verified positions/live missingness, absence cases and player uncertainty. Defense
+Explorer, supported offensive contrasts, joint player/benchmark intervals,
+qualification tests, React/TypeScript dashboard, durable off-machine retention and
+independent production refresh remain unfinished. The last 2026 chart audit has
+11 IDL/CB/S/LS issues; the latest archived 2026 outcome cohort is through Week 6.
 
-Today's immediate run counts as October 23 development. The existing automation
-was updated through the app with a start date of October 24, 2026 at 7:30 PM
-America/New_York; its daily recurrence, prompt and destination were preserved.
-Tonight's occurrence is excluded. No duplicate automation was created. The other
-NFL project and automation were untouched. November 7 remains the launch target;
-no purchases or paid services were enabled.
+November 7 remains the target. A working site must show measured coverage and
+only admitted values; if no module passes, an exploratory site does not fulfill
+the MVP-ranking objective. Protect the freeze/release dates and record that risk.
+Today's October 24 unit makes no schedule change, no purchase, and no change to
+NFL Opponent Intelligence. The production refresh remains independent of Codex.

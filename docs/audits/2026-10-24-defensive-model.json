@@ -1,0 +1,1222 @@
+{
+  "admission_decision": {
+    "defensive_cavaa_admitted": false,
+    "reason": "Neither selected defender model reliably improves its team/context baseline; reduced design is severely rank deficient. Positional benchmarks, player uncertainty, live-source equivalence and broader attribution validation remain absent."
+  },
+  "audit_date": "2026-10-24",
+  "benchmark_contrasts_computed": false,
+  "code_revision": "cd8a98774ea62024d48a0f954ab03414d5255c09",
+  "coefficient_agreement": {
+    "defender": {
+      "defenders": 951,
+      "max_absolute_difference": 0.0392838960468641,
+      "mean_absolute_difference": 0.0073548996336383335,
+      "pearson_correlation": 0.44254289628755855,
+      "reference_is_ground_truth": false,
+      "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+    },
+    "penalty_10.0": {
+      "defenders": 951,
+      "max_absolute_difference": 0.5755555768877182,
+      "mean_absolute_difference": 0.13503662871304745,
+      "pearson_correlation": 0.1813675494076947,
+      "reference_is_ground_truth": false,
+      "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+    },
+    "penalty_100.0": {
+      "defenders": 951,
+      "max_absolute_difference": 0.1737312695799058,
+      "mean_absolute_difference": 0.04126434501907742,
+      "pearson_correlation": 0.3253551969257,
+      "reference_is_ground_truth": false,
+      "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+    },
+    "penalty_1000.0": {
+      "defenders": 951,
+      "max_absolute_difference": 0.0392838960468641,
+      "mean_absolute_difference": 0.0073548996336383335,
+      "pearson_correlation": 0.44254289628755855,
+      "reference_is_ground_truth": false,
+      "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+    }
+  },
+  "cohort_sha256": "dfdc4d16f0375f13e45e376d77593151f956ad106e093968ae9c4e9941d78aef",
+  "degraded_minus_rich": {
+    "defender": {
+      "candidate_minus_reference_weighted_rmse": -0.05617561431176499,
+      "equivalence_test": false,
+      "incremental_prediction_evidence": true,
+      "percentile_95_interval": [
+        -0.07485867996380613,
+        -0.039562926870428436
+      ],
+      "player_uncertainty": false,
+      "replicates": 1000,
+      "resampling_unit": "game",
+      "seed": 20261024
+    },
+    "penalty_10.0": {
+      "candidate_minus_reference_weighted_rmse": -0.15651484242738514,
+      "equivalence_test": false,
+      "incremental_prediction_evidence": true,
+      "percentile_95_interval": [
+        -0.1931826921303857,
+        -0.11989711430816692
+      ],
+      "player_uncertainty": false,
+      "replicates": 1000,
+      "resampling_unit": "game",
+      "seed": 20261024
+    },
+    "penalty_100.0": {
+      "candidate_minus_reference_weighted_rmse": -0.07527132975783998,
+      "equivalence_test": false,
+      "incremental_prediction_evidence": true,
+      "percentile_95_interval": [
+        -0.10054738625226096,
+        -0.052945974184570706
+      ],
+      "player_uncertainty": false,
+      "replicates": 1000,
+      "resampling_unit": "game",
+      "seed": 20261024
+    },
+    "penalty_1000.0": {
+      "candidate_minus_reference_weighted_rmse": -0.05617561431176499,
+      "equivalence_test": false,
+      "incremental_prediction_evidence": true,
+      "percentile_95_interval": [
+        -0.07485867996380613,
+        -0.039562926870428436
+      ],
+      "player_uncertainty": false,
+      "replicates": 1000,
+      "resampling_unit": "game",
+      "seed": 20261024
+    },
+    "team": {
+      "candidate_minus_reference_weighted_rmse": -0.05586443141001243,
+      "equivalence_test": false,
+      "incremental_prediction_evidence": true,
+      "percentile_95_interval": [
+        -0.07356361603757779,
+        -0.03997903361487477
+      ],
+      "player_uncertainty": false,
+      "replicates": 1000,
+      "resampling_unit": "game",
+      "seed": 20261024
+    }
+  },
+  "environment": {
+    "numpy": "2.2.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.2",
+    "scipy": "1.15.3"
+  },
+  "evaluation": {
+    "degraded": {
+      "defender": {
+        "equal_team_game_rmse": 0.1485404426083411,
+        "games": 58,
+        "max_row_accounting_error": 1.1102230246251565e-16,
+        "opportunities": 6925,
+        "team_games": 116,
+        "units": "EP per eligible play, evaluated at team-game means",
+        "unseen_effect_policy": "zero-centered prior prediction, not measured player value",
+        "unseen_feature_rows": {
+          "defender": 116
+        },
+        "weighted_bias": 0.0036215952703014193,
+        "weighted_mae": 0.11534614326000464,
+        "weighted_rmse": 0.1467721736825582
+      },
+      "defender_vs_team": {
+        "candidate_minus_reference_weighted_rmse": 0.001433515733574614,
+        "equivalence_test": false,
+        "incremental_prediction_evidence": false,
+        "percentile_95_interval": [
+          -0.0021683561702259,
+          0.004774107307619706
+        ],
+        "player_uncertainty": false,
+        "replicates": 1000,
+        "resampling_unit": "game",
+        "seed": 20261024
+      },
+      "team": {
+        "equal_team_game_rmse": 0.14718073571842707,
+        "games": 58,
+        "max_row_accounting_error": 5.551115123125783e-17,
+        "opportunities": 6925,
+        "team_games": 116,
+        "units": "EP per eligible play, evaluated at team-game means",
+        "unseen_effect_policy": "zero-centered prior prediction, not measured player value",
+        "unseen_feature_rows": {},
+        "weighted_bias": 0.0024970349086366464,
+        "weighted_mae": 0.11347908391994127,
+        "weighted_rmse": 0.1453386579489836
+      }
+    },
+    "rich": {
+      "defender": {
+        "equal_team_game_rmse": 0.20470656582271132,
+        "games": 58,
+        "max_row_accounting_error": 8.881784197001252e-16,
+        "opportunities": 6925,
+        "team_games": 116,
+        "units": "EP per eligible play, evaluated at team-game means",
+        "unseen_effect_policy": "zero-centered prior prediction, not measured player value",
+        "unseen_feature_rows": {
+          "defender": 1718
+        },
+        "weighted_bias": 0.0005729874361292939,
+        "weighted_mae": 0.15886356997448942,
+        "weighted_rmse": 0.2029477879943232
+      },
+      "defender_vs_team": {
+        "candidate_minus_reference_weighted_rmse": 0.0017446986353271687,
+        "equivalence_test": false,
+        "incremental_prediction_evidence": false,
+        "percentile_95_interval": [
+          -0.00334069167070014,
+          0.0068774879758592795
+        ],
+        "player_uncertainty": false,
+        "replicates": 1000,
+        "resampling_unit": "game",
+        "seed": 20261024
+      },
+      "team": {
+        "equal_team_game_rmse": 0.20327469266078174,
+        "games": 58,
+        "max_row_accounting_error": 4.440892098500626e-16,
+        "opportunities": 6925,
+        "team_games": 116,
+        "units": "EP per eligible play, evaluated at team-game means",
+        "unseen_effect_policy": "zero-centered prior prediction, not measured player value",
+        "unseen_feature_rows": {},
+        "weighted_bias": 0.0004251211703356988,
+        "weighted_mae": 0.15758428334526,
+        "weighted_rmse": 0.20120308935899603
+      }
+    }
+  },
+  "experiment_version": 1,
+  "identification": {
+    "degraded": {
+      "defender_columns": 951,
+      "defender_team_cosine_max": 1.0,
+      "defender_team_cosine_median": 0.7685553523337872,
+      "gram_reference_scale": 6124.522451354398,
+      "gram_relative_eigenvalue_tolerance": 1e-10,
+      "identical_defender_column_groups": [
+        [
+          "defender/00-0036418",
+          "defender/00-0039841"
+        ],
+        [
+          "defender/00-0038824",
+          "defender/00-0038951",
+          "defender/00-0039051",
+          "defender/00-0039589"
+        ],
+        [
+          "defender/00-0040013",
+          "defender/00-0040071"
+        ],
+        [
+          "defender/00-0036862",
+          "defender/00-0036984",
+          "defender/00-0037304",
+          "defender/00-0040534"
+        ],
+        [
+          "defender/00-0036677",
+          "defender/00-0039818"
+        ],
+        [
+          "defender/00-0036182",
+          "defender/00-0037252",
+          "defender/00-0039880",
+          "defender/00-0040198"
+        ]
+      ],
+      "identification_validated": false,
+      "observations": 370,
+      "residualized_defender_rank": 301,
+      "unidentified_linear_dimensions": 650
+    },
+    "rich": {
+      "defender_columns": 951,
+      "defender_team_cosine_max": 1.0,
+      "defender_team_cosine_median": 0.5527333516019948,
+      "gram_reference_scale": 6177.552614091921,
+      "gram_relative_eigenvalue_tolerance": 1e-10,
+      "identical_defender_column_groups": [
+        [
+          "defender/00-0036418",
+          "defender/00-0039841"
+        ],
+        [
+          "defender/00-0038824",
+          "defender/00-0038951",
+          "defender/00-0039051",
+          "defender/00-0039589"
+        ],
+        [
+          "defender/00-0040013",
+          "defender/00-0040071"
+        ],
+        [
+          "defender/00-0036862",
+          "defender/00-0036984",
+          "defender/00-0037304",
+          "defender/00-0040534"
+        ],
+        [
+          "defender/00-0036677",
+          "defender/00-0039818"
+        ],
+        [
+          "defender/00-0036182",
+          "defender/00-0037252",
+          "defender/00-0039880",
+          "defender/00-0040198"
+        ]
+      ],
+      "identification_validated": false,
+      "observations": 22372,
+      "residualized_defender_rank": 922,
+      "unidentified_linear_dimensions": 29
+    }
+  },
+  "individual_attribution_validated": false,
+  "input_reports": {
+    "candidate": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+    "defensive": "62f3bfabba7ca58f1f4c3b3b9e3c8993b327ca96772ab232d63666e9819433c9"
+  },
+  "live_source_equivalence_validated": false,
+  "objects": {
+    "models": "629b86ac1822e52e293b44278bfee56cf6c45a877ccd405be1a4362c3098fde4",
+    "predictions": "dfc6c4a6eb9e984e93ab98f73a1ff8cff94afc1be2b549eb52c61fd8d4ee4a68"
+  },
+  "penalty_sensitivity": {
+    "degraded": [
+      {
+        "coefficient_change_from_selected": {
+          "defenders": 951,
+          "max_absolute_difference": 0.3402730419099589,
+          "mean_absolute_difference": 0.05568368585406677,
+          "pearson_correlation": 0.6681935099499425,
+          "reference_is_ground_truth": false,
+          "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+        },
+        "defender_penalty": 10.0,
+        "test": {
+          "equal_team_game_rmse": 0.20516129343165077,
+          "games": 58,
+          "opportunities": 6925,
+          "team_games": 116,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": 0.0007614867671148317,
+          "weighted_mae": 0.16339034435288555,
+          "weighted_rmse": 0.20369396985150254
+        }
+      },
+      {
+        "coefficient_change_from_selected": {
+          "defenders": 951,
+          "max_absolute_difference": 0.12330102432649664,
+          "mean_absolute_difference": 0.015466427581579883,
+          "pearson_correlation": 0.9159223816761287,
+          "reference_is_ground_truth": false,
+          "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+        },
+        "defender_penalty": 100.0,
+        "test": {
+          "equal_team_game_rmse": 0.15989262926998282,
+          "games": 58,
+          "opportunities": 6925,
+          "team_games": 116,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": 0.008932853089429019,
+          "weighted_mae": 0.12113659567015853,
+          "weighted_rmse": 0.1587945910863811
+        }
+      },
+      {
+        "coefficient_change_from_selected": {
+          "defenders": 951,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "pearson_correlation": 1.0,
+          "reference_is_ground_truth": false,
+          "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+        },
+        "defender_penalty": 1000.0,
+        "test": {
+          "equal_team_game_rmse": 0.1485404426083411,
+          "games": 58,
+          "opportunities": 6925,
+          "team_games": 116,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": 0.0036215952703014193,
+          "weighted_mae": 0.11534614326000464,
+          "weighted_rmse": 0.1467721736825582
+        }
+      }
+    ],
+    "rich": [
+      {
+        "coefficient_change_from_selected": {
+          "defenders": 951,
+          "max_absolute_difference": 0.5461439087181654,
+          "mean_absolute_difference": 0.12618358008394057,
+          "pearson_correlation": 0.6712924776027414,
+          "reference_is_ground_truth": false,
+          "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+        },
+        "defender_penalty": 10.0,
+        "test": {
+          "equal_team_game_rmse": 0.3617934485671617,
+          "games": 58,
+          "opportunities": 6925,
+          "team_games": 116,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": -0.005339835784977688,
+          "weighted_mae": 0.28330459587957924,
+          "weighted_rmse": 0.3602088122788877
+        }
+      },
+      {
+        "coefficient_change_from_selected": {
+          "defenders": 951,
+          "max_absolute_difference": 0.14041693618088796,
+          "mean_absolute_difference": 0.035352010714745905,
+          "pearson_correlation": 0.9269494639427974,
+          "reference_is_ground_truth": false,
+          "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+        },
+        "defender_penalty": 100.0,
+        "test": {
+          "equal_team_game_rmse": 0.23528118217660746,
+          "games": 58,
+          "opportunities": 6925,
+          "team_games": 116,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": 0.0003991960820065287,
+          "weighted_mae": 0.18901226245467606,
+          "weighted_rmse": 0.2340659208442211
+        }
+      },
+      {
+        "coefficient_change_from_selected": {
+          "defenders": 951,
+          "max_absolute_difference": 0.0,
+          "mean_absolute_difference": 0.0,
+          "pearson_correlation": 1.0,
+          "reference_is_ground_truth": false,
+          "units": "penalized coefficient EP per eligible appearance, not CAVAA"
+        },
+        "defender_penalty": 1000.0,
+        "test": {
+          "equal_team_game_rmse": 0.20470656582271132,
+          "games": 58,
+          "opportunities": 6925,
+          "team_games": 116,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": 0.0005729874361292939,
+          "weighted_mae": 0.15886356997448942,
+          "weighted_rmse": 0.2029477879943232
+        }
+      }
+    ]
+  },
+  "plan": {
+    "bootstrap_replicates": 1000,
+    "context_penalty": 1.0,
+    "defender_penalties": [
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "plan_version": 1,
+    "rank_relative_tolerance": 1e-10,
+    "season": 2025,
+    "seed": 20261024,
+    "selection_smd_threshold": 0.1,
+    "solver_iteration_limit": 20000,
+    "solver_tolerance": 1e-10,
+    "team_penalty": 50.0,
+    "test_through_week": 18,
+    "train_through_week": 10,
+    "validation_through_week": 14
+  },
+  "qualification_computed": false,
+  "ranking_ready": false,
+  "replay_tolerance": {
+    "absolute": 1e-09,
+    "relative": 1e-08
+  },
+  "report_id": "f447fc8a36ff59f968c62f56aaa5d03cea962156afb63800fd827e50afaf19fb",
+  "scope": "Historical play-to-game aggregation diagnostic; no positional CAVAA or causal attribution",
+  "selected_defender_penalties": {
+    "degraded": 1000.0,
+    "rich": 1000.0
+  },
+  "selection": {
+    "candidate_context_outcome_missing": 0,
+    "candidate_plays": 32813,
+    "contrasts": {
+      "defense_epa": {
+        "excluded_mean": -0.05042455274896615,
+        "flagged": false,
+        "retained_mean": -0.0022897745939602617,
+        "standardized_difference": 0.03518243592539205
+      },
+      "down": {
+        "excluded_mean": 1.833617747440273,
+        "flagged": false,
+        "retained_mean": 1.8253404785472915,
+        "standardized_difference": -0.009738483704701846
+      },
+      "game_seconds_remaining": {
+        "excluded_mean": 1722.0998293515358,
+        "flagged": false,
+        "retained_mean": 1728.200088746288,
+        "standardized_difference": 0.005812173586544792
+      },
+      "qtr": {
+        "excluded_mean": 2.573094425483504,
+        "flagged": false,
+        "retained_mean": 2.564972522783903,
+        "standardized_difference": -0.007181072749497354
+      },
+      "score_differential": {
+        "excluded_mean": -1.5748009101251421,
+        "flagged": false,
+        "retained_mean": -1.703007133836229,
+        "standardized_difference": -0.012569546896198169
+      },
+      "yardline_100": {
+        "excluded_mean": 49.82081911262799,
+        "flagged": false,
+        "retained_mean": 49.05451070075434,
+        "standardized_difference": -0.032448977054893385
+      },
+      "ydstogo": {
+        "excluded_mean": 8.53043230944255,
+        "flagged": false,
+        "retained_mean": 8.374884800491518,
+        "standardized_difference": -0.038583876886505046
+      }
+    },
+    "descriptive_smd_threshold": 0.1,
+    "excluded": {
+      "by_defense_team": {
+        "ARI": {
+          "games": 2,
+          "plays": 135
+        },
+        "ATL": {
+          "games": 3,
+          "plays": 175
+        },
+        "BUF": {
+          "games": 1,
+          "plays": 47
+        },
+        "CAR": {
+          "games": 1,
+          "plays": 61
+        },
+        "CIN": {
+          "games": 3,
+          "plays": 206
+        },
+        "CLE": {
+          "games": 2,
+          "plays": 119
+        },
+        "DAL": {
+          "games": 3,
+          "plays": 155
+        },
+        "DEN": {
+          "games": 4,
+          "plays": 251
+        },
+        "DET": {
+          "games": 2,
+          "plays": 115
+        },
+        "GB": {
+          "games": 1,
+          "plays": 60
+        },
+        "HOU": {
+          "games": 1,
+          "plays": 65
+        },
+        "IND": {
+          "games": 2,
+          "plays": 141
+        },
+        "JAX": {
+          "games": 2,
+          "plays": 122
+        },
+        "KC": {
+          "games": 2,
+          "plays": 115
+        },
+        "LA": {
+          "games": 2,
+          "plays": 108
+        },
+        "LAC": {
+          "games": 1,
+          "plays": 54
+        },
+        "LV": {
+          "games": 1,
+          "plays": 68
+        },
+        "MIA": {
+          "games": 2,
+          "plays": 100
+        },
+        "MIN": {
+          "games": 1,
+          "plays": 62
+        },
+        "NE": {
+          "games": 4,
+          "plays": 226
+        },
+        "NO": {
+          "games": 3,
+          "plays": 189
+        },
+        "NYJ": {
+          "games": 3,
+          "plays": 182
+        },
+        "PHI": {
+          "games": 1,
+          "plays": 50
+        },
+        "PIT": {
+          "games": 2,
+          "plays": 137
+        },
+        "SF": {
+          "games": 2,
+          "plays": 109
+        },
+        "TB": {
+          "games": 1,
+          "plays": 67
+        },
+        "TEN": {
+          "games": 3,
+          "plays": 177
+        },
+        "WAS": {
+          "games": 3,
+          "plays": 220
+        }
+      },
+      "by_week": {
+        "1": 256,
+        "11": 121,
+        "13": 392,
+        "14": 128,
+        "15": 117,
+        "16": 114,
+        "17": 373,
+        "18": 121,
+        "2": 461,
+        "3": 122,
+        "4": 241,
+        "6": 469,
+        "7": 365,
+        "8": 236
+      },
+      "games": 29,
+      "plays": 3516
+    },
+    "outcome_difference_is_causal": false,
+    "retained": {
+      "by_defense_team": {
+        "ARI": {
+          "games": 15,
+          "plays": 915
+        },
+        "ATL": {
+          "games": 14,
+          "plays": 867
+        },
+        "BAL": {
+          "games": 17,
+          "plays": 1072
+        },
+        "BUF": {
+          "games": 16,
+          "plays": 897
+        },
+        "CAR": {
+          "games": 16,
+          "plays": 937
+        },
+        "CHI": {
+          "games": 17,
+          "plays": 1017
+        },
+        "CIN": {
+          "games": 14,
+          "plays": 825
+        },
+        "CLE": {
+          "games": 15,
+          "plays": 873
+        },
+        "DAL": {
+          "games": 14,
+          "plays": 867
+        },
+        "DEN": {
+          "games": 13,
+          "plays": 802
+        },
+        "DET": {
+          "games": 15,
+          "plays": 918
+        },
+        "GB": {
+          "games": 16,
+          "plays": 992
+        },
+        "HOU": {
+          "games": 16,
+          "plays": 912
+        },
+        "IND": {
+          "games": 15,
+          "plays": 957
+        },
+        "JAX": {
+          "games": 15,
+          "plays": 902
+        },
+        "KC": {
+          "games": 15,
+          "plays": 862
+        },
+        "LA": {
+          "games": 15,
+          "plays": 955
+        },
+        "LAC": {
+          "games": 16,
+          "plays": 898
+        },
+        "LV": {
+          "games": 16,
+          "plays": 981
+        },
+        "MIA": {
+          "games": 15,
+          "plays": 911
+        },
+        "MIN": {
+          "games": 16,
+          "plays": 954
+        },
+        "NE": {
+          "games": 13,
+          "plays": 737
+        },
+        "NO": {
+          "games": 14,
+          "plays": 838
+        },
+        "NYG": {
+          "games": 17,
+          "plays": 1028
+        },
+        "NYJ": {
+          "games": 14,
+          "plays": 869
+        },
+        "PHI": {
+          "games": 16,
+          "plays": 1013
+        },
+        "PIT": {
+          "games": 15,
+          "plays": 960
+        },
+        "SEA": {
+          "games": 17,
+          "plays": 1056
+        },
+        "SF": {
+          "games": 15,
+          "plays": 904
+        },
+        "TB": {
+          "games": 16,
+          "plays": 919
+        },
+        "TEN": {
+          "games": 14,
+          "plays": 811
+        },
+        "WAS": {
+          "games": 14,
+          "plays": 848
+        }
+      },
+      "by_week": {
+        "1": 1651,
+        "10": 1708,
+        "11": 1700,
+        "12": 1733,
+        "13": 1552,
+        "14": 1584,
+        "15": 1785,
+        "16": 1845,
+        "17": 1531,
+        "18": 1764,
+        "2": 1483,
+        "3": 1800,
+        "4": 1683,
+        "5": 1697,
+        "6": 1294,
+        "7": 1482,
+        "8": 1299,
+        "9": 1706
+      },
+      "games": 243,
+      "plays": 29297
+    },
+    "selection_is_ignorable": false
+  },
+  "source_provenance": {
+    "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
+    "candidate": {
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "completion_policy": "clock-marker-schedule-v2",
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "opportunity_policy": "observed-offensive-pass-run-v1",
+      "season": 2025,
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "source_receipts": {
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      }
+    },
+    "defensive": {
+      "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
+      "code_revision": "bab4b39a98123bfdd4cd844120a04c7ca409360b",
+      "completion_policy": "clock-marker-schedule-v2",
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "derived_participation_license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+      "policy": "complete-game-reg-pass-run-v1",
+      "source_receipts": {
+        "participation": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      }
+    },
+    "derivative_license": "CC-BY-SA-4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+    "transformations": "Matched play/game aggregation, regularized defensive regression, predictions and diagnostics. Software MIT does not relicense data derivatives."
+  },
+  "split_games": {
+    "test": [
+      "2025_15_ARI_HOU",
+      "2025_15_ATL_TB",
+      "2025_15_BAL_CIN",
+      "2025_15_BUF_NE",
+      "2025_15_CLE_CHI",
+      "2025_15_DET_LA",
+      "2025_15_GB_DEN",
+      "2025_15_IND_SEA",
+      "2025_15_LAC_KC",
+      "2025_15_LV_PHI",
+      "2025_15_MIA_PIT",
+      "2025_15_MIN_DAL",
+      "2025_15_NYJ_JAX",
+      "2025_15_TEN_SF",
+      "2025_15_WAS_NYG",
+      "2025_16_ATL_ARI",
+      "2025_16_BUF_CLE",
+      "2025_16_CIN_MIA",
+      "2025_16_GB_CHI",
+      "2025_16_JAX_DEN",
+      "2025_16_KC_TEN",
+      "2025_16_LAC_DAL",
+      "2025_16_LA_SEA",
+      "2025_16_LV_HOU",
+      "2025_16_MIN_NYG",
+      "2025_16_NE_BAL",
+      "2025_16_NYJ_NO",
+      "2025_16_PIT_DET",
+      "2025_16_SF_IND",
+      "2025_16_TB_CAR",
+      "2025_17_ARI_CIN",
+      "2025_17_BAL_GB",
+      "2025_17_CHI_SF",
+      "2025_17_DEN_KC",
+      "2025_17_DET_MIN",
+      "2025_17_HOU_LAC",
+      "2025_17_JAX_IND",
+      "2025_17_LA_ATL",
+      "2025_17_NYG_LV",
+      "2025_17_PHI_BUF",
+      "2025_17_PIT_CLE",
+      "2025_17_SEA_CAR",
+      "2025_17_TB_MIA",
+      "2025_18_BAL_PIT",
+      "2025_18_CAR_TB",
+      "2025_18_CLE_CIN",
+      "2025_18_DAL_NYG",
+      "2025_18_DET_CHI",
+      "2025_18_GB_MIN",
+      "2025_18_IND_HOU",
+      "2025_18_KC_LV",
+      "2025_18_LAC_DEN",
+      "2025_18_MIA_NE",
+      "2025_18_NO_ATL",
+      "2025_18_NYJ_BUF",
+      "2025_18_SEA_SF",
+      "2025_18_TEN_JAX",
+      "2025_18_WAS_PHI"
+    ],
+    "train": [
+      "2025_01_BAL_BUF",
+      "2025_01_CAR_JAX",
+      "2025_01_CIN_CLE",
+      "2025_01_DAL_PHI",
+      "2025_01_DET_GB",
+      "2025_01_HOU_LA",
+      "2025_01_KC_LAC",
+      "2025_01_MIA_IND",
+      "2025_01_MIN_CHI",
+      "2025_01_NYG_WAS",
+      "2025_01_PIT_NYJ",
+      "2025_01_SF_SEA",
+      "2025_01_TB_ATL",
+      "2025_01_TEN_DEN",
+      "2025_02_CAR_ARI",
+      "2025_02_CHI_DET",
+      "2025_02_CLE_BAL",
+      "2025_02_DEN_IND",
+      "2025_02_LAC_LV",
+      "2025_02_LA_TEN",
+      "2025_02_NYG_DAL",
+      "2025_02_PHI_KC",
+      "2025_02_SEA_PIT",
+      "2025_02_SF_NO",
+      "2025_02_TB_HOU",
+      "2025_02_WAS_GB",
+      "2025_03_ARI_SF",
+      "2025_03_ATL_CAR",
+      "2025_03_CIN_MIN",
+      "2025_03_DAL_CHI",
+      "2025_03_DEN_LAC",
+      "2025_03_DET_BAL",
+      "2025_03_GB_CLE",
+      "2025_03_IND_TEN",
+      "2025_03_KC_NYG",
+      "2025_03_LA_PHI",
+      "2025_03_LV_WAS",
+      "2025_03_MIA_BUF",
+      "2025_03_NO_SEA",
+      "2025_03_NYJ_TB",
+      "2025_03_PIT_NE",
+      "2025_04_BAL_KC",
+      "2025_04_CAR_NE",
+      "2025_04_CHI_LV",
+      "2025_04_CLE_DET",
+      "2025_04_GB_DAL",
+      "2025_04_JAX_SF",
+      "2025_04_LAC_NYG",
+      "2025_04_MIN_PIT",
+      "2025_04_NO_BUF",
+      "2025_04_NYJ_MIA",
+      "2025_04_PHI_TB",
+      "2025_04_SEA_ARI",
+      "2025_04_TEN_HOU",
+      "2025_04_WAS_ATL",
+      "2025_05_DAL_NYJ",
+      "2025_05_DEN_PHI",
+      "2025_05_DET_CIN",
+      "2025_05_HOU_BAL",
+      "2025_05_KC_JAX",
+      "2025_05_LV_IND",
+      "2025_05_MIA_CAR",
+      "2025_05_MIN_CLE",
+      "2025_05_NE_BUF",
+      "2025_05_NYG_NO",
+      "2025_05_SF_LA",
+      "2025_05_TB_SEA",
+      "2025_05_TEN_ARI",
+      "2025_05_WAS_LAC",
+      "2025_06_ARI_IND",
+      "2025_06_BUF_ATL",
+      "2025_06_CHI_WAS",
+      "2025_06_CIN_GB",
+      "2025_06_DAL_CAR",
+      "2025_06_LAC_MIA",
+      "2025_06_LA_BAL",
+      "2025_06_NE_NO",
+      "2025_06_PHI_NYG",
+      "2025_06_SEA_JAX",
+      "2025_06_TEN_LV",
+      "2025_07_CAR_NYJ",
+      "2025_07_GB_ARI",
+      "2025_07_HOU_SEA",
+      "2025_07_LA_JAX",
+      "2025_07_LV_KC",
+      "2025_07_MIA_CLE",
+      "2025_07_NO_CHI",
+      "2025_07_NYG_DEN",
+      "2025_07_PHI_MIN",
+      "2025_07_PIT_CIN",
+      "2025_07_TB_DET",
+      "2025_07_WAS_DAL",
+      "2025_08_BUF_CAR",
+      "2025_08_CHI_BAL",
+      "2025_08_CLE_NE",
+      "2025_08_GB_PIT",
+      "2025_08_MIN_LAC",
+      "2025_08_NYG_PHI",
+      "2025_08_NYJ_CIN",
+      "2025_08_SF_HOU",
+      "2025_08_TB_NO",
+      "2025_08_TEN_IND",
+      "2025_08_WAS_KC",
+      "2025_09_ARI_DAL",
+      "2025_09_ATL_NE",
+      "2025_09_BAL_MIA",
+      "2025_09_CAR_GB",
+      "2025_09_CHI_CIN",
+      "2025_09_DEN_HOU",
+      "2025_09_IND_PIT",
+      "2025_09_JAX_LV",
+      "2025_09_KC_BUF",
+      "2025_09_LAC_TEN",
+      "2025_09_MIN_DET",
+      "2025_09_NO_LA",
+      "2025_09_SEA_WAS",
+      "2025_09_SF_NYG",
+      "2025_10_ARI_SEA",
+      "2025_10_ATL_IND",
+      "2025_10_BAL_MIN",
+      "2025_10_BUF_MIA",
+      "2025_10_CLE_NYJ",
+      "2025_10_DET_WAS",
+      "2025_10_JAX_HOU",
+      "2025_10_LA_SF",
+      "2025_10_LV_DEN",
+      "2025_10_NE_TB",
+      "2025_10_NO_CAR",
+      "2025_10_NYG_CHI",
+      "2025_10_PHI_GB",
+      "2025_10_PIT_LAC"
+    ],
+    "validation": [
+      "2025_11_BAL_CLE",
+      "2025_11_CAR_ATL",
+      "2025_11_CHI_MIN",
+      "2025_11_DAL_LV",
+      "2025_11_DET_PHI",
+      "2025_11_GB_NYG",
+      "2025_11_HOU_TEN",
+      "2025_11_KC_DEN",
+      "2025_11_LAC_JAX",
+      "2025_11_NYJ_NE",
+      "2025_11_SEA_LA",
+      "2025_11_SF_ARI",
+      "2025_11_TB_BUF",
+      "2025_11_WAS_MIA",
+      "2025_12_ATL_NO",
+      "2025_12_BUF_HOU",
+      "2025_12_CAR_SF",
+      "2025_12_CLE_LV",
+      "2025_12_IND_KC",
+      "2025_12_JAX_ARI",
+      "2025_12_MIN_GB",
+      "2025_12_NE_CIN",
+      "2025_12_NYG_DET",
+      "2025_12_NYJ_BAL",
+      "2025_12_PHI_DAL",
+      "2025_12_PIT_CHI",
+      "2025_12_SEA_TEN",
+      "2025_12_TB_LA",
+      "2025_13_ARI_TB",
+      "2025_13_ATL_NYJ",
+      "2025_13_BUF_PIT",
+      "2025_13_CHI_PHI",
+      "2025_13_CIN_BAL",
+      "2025_13_HOU_IND",
+      "2025_13_JAX_TEN",
+      "2025_13_LA_CAR",
+      "2025_13_LV_LAC",
+      "2025_13_MIN_SEA",
+      "2025_13_NO_MIA",
+      "2025_13_NYG_NE",
+      "2025_13_SF_CLE",
+      "2025_14_CHI_GB",
+      "2025_14_CIN_BUF",
+      "2025_14_DAL_DET",
+      "2025_14_DEN_LV",
+      "2025_14_HOU_KC",
+      "2025_14_IND_JAX",
+      "2025_14_LA_ARI",
+      "2025_14_MIA_NYJ",
+      "2025_14_NO_TB",
+      "2025_14_PHI_LAC",
+      "2025_14_PIT_BAL",
+      "2025_14_SEA_ATL",
+      "2025_14_WAS_MIN"
+    ]
+  },
+  "validation": {
+    "degraded": [
+      {
+        "defender_penalty": 10.0,
+        "metrics": {
+          "equal_team_game_rmse": 0.21264898265039087,
+          "games": 54,
+          "opportunities": 6569,
+          "team_games": 108,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": -0.04856066028981205,
+          "weighted_mae": 0.16110888676289517,
+          "weighted_rmse": 0.2083059750481154
+        },
+        "solver": {
+          "augmented_condition_estimate": 2527.364823852244,
+          "iterations": 257,
+          "stop": 2
+        }
+      },
+      {
+        "defender_penalty": 100.0,
+        "metrics": {
+          "equal_team_game_rmse": 0.18321704344227552,
+          "games": 54,
+          "opportunities": 6569,
+          "team_games": 108,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": -0.049102027796527434,
+          "weighted_mae": 0.13954222667621208,
+          "weighted_rmse": 0.17822756108639598
+        },
+        "solver": {
+          "augmented_condition_estimate": 1305.8848937084408,
+          "iterations": 137,
+          "stop": 2
+        }
+      },
+      {
+        "defender_penalty": 1000.0,
+        "metrics": {
+          "equal_team_game_rmse": 0.17267031685519144,
+          "games": 54,
+          "opportunities": 6569,
+          "team_games": 108,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": -0.05505997848057518,
+          "weighted_mae": 0.13198385456259976,
+          "weighted_rmse": 0.16778055030548683
+        },
+        "solver": {
+          "augmented_condition_estimate": 1065.250664488075,
+          "iterations": 112,
+          "stop": 2
+        }
+      }
+    ],
+    "rich": [
+      {
+        "defender_penalty": 10.0,
+        "metrics": {
+          "equal_team_game_rmse": 0.3512127920215049,
+          "games": 54,
+          "opportunities": 6569,
+          "team_games": 108,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": 0.009404258706417335,
+          "weighted_mae": 0.274716034296301,
+          "weighted_rmse": 0.3520864831152589
+        },
+        "solver": {
+          "augmented_condition_estimate": 1065.9942556037029,
+          "iterations": 170,
+          "stop": 2
+        }
+      },
+      {
+        "defender_penalty": 100.0,
+        "metrics": {
+          "equal_team_game_rmse": 0.25542376863776195,
+          "games": 54,
+          "opportunities": 6569,
+          "team_games": 108,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": -0.031139645138976012,
+          "weighted_mae": 0.19728584876196212,
+          "weighted_rmse": 0.2511820267891103
+        },
+        "solver": {
+          "augmented_condition_estimate": 347.1389183724917,
+          "iterations": 83,
+          "stop": 2
+        }
+      },
+      {
+        "defender_penalty": 1000.0,
+        "metrics": {
+          "equal_team_game_rmse": 0.21588818375398694,
+          "games": 54,
+          "opportunities": 6569,
+          "team_games": 108,
+          "units": "EP per eligible play, evaluated at team-game means",
+          "weighted_bias": -0.05442675172480372,
+          "weighted_mae": 0.1614151895323928,
+          "weighted_rmse": 0.2091588998430006
+        },
+        "solver": {
+          "augmented_condition_estimate": 273.31740483987426,
+          "iterations": 72,
+          "stop": 2
+        }
+      }
+    ]
+  },
+  "verification": {
+    "all_prediction_team_game_accounting_error": 3.3306690738754696e-16,
+    "new_defensive_tests": 19,
+    "offline_build_network_blocked": true,
+    "offline_replay_network_blocked": true,
+    "offline_tests_passed": 171
+  }
+}
