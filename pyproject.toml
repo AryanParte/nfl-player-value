@@ -12,6 +12,9 @@ license = {text = "MIT"}
 authors = [{name = "Aryan Parte"}]
 dependencies = []
 
+[project.optional-dependencies]
+model = ["numpy==2.2.6", "scipy==1.15.3"]
+
 [project.urls]
 Repository = "https://github.com/AryanParte/nfl-player-value"
 

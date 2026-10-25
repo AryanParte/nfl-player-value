@@ -88,6 +88,13 @@ Pressure, sacks, time to throw, separation, YAC, and targets can be consequences
 
 Nonlinear interactions need an explicit shared-value allocation before individual contrasts can be summed. Shapley-style allocations encode a chosen coalition/counterfactual definition and are not automatically causal. Graph models and tracking methods remain optional research until they improve evidence, not just fit.
 
+The October 23 [diagnostic baseline](BASELINE.md) includes an observed-role
+ablation to distinguish actor identity from knowing a target/carry/dropback link
+was recorded. Target availability is realized information and can absorb a QB's
+avoidance of sacks or throwaways. This ablation is not an approved hardship
+adjustment for final CAVAA. Its model coefficients are not positional scores,
+and the first-unit and two sensitivity benchmarks have not yet been applied.
+
 ## Evidence and release labels
 
 Prediction accuracy supports the outcome model but does not establish correct player attribution. Cross-position admission requires a comparable estimand, benchmark, opportunity definition, accounting policy, and meaningful validation. Unsupported contributions stay unmeasured; missing is not zero. See [evaluation](EVALUATION.md) and the required [defensive experiment](DEFENSE_EXPERIMENT.md).
