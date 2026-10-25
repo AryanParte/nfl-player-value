@@ -45,13 +45,23 @@ component accounting, collinearity and numerical replay are recorded in the
 The immediate owner-requested run counts as today's work; the existing daily
 7:30 PM Eastern automation resumes October 24 and skips October 23.
 
-October 24 priority: perform the first bounded defensive rich/degraded model
-comparison on the same 243-game cohort, with selection-loss and identification
-diagnostics. Additional historical seasons and actual live-feed coverage remain
-required before admission. Finish identity/position and roster/stint evidence and
-the observed-by timestamp correction before positional contrasts or qualification.
-Reserve October 24–27 for this measured comparison and context work. Capture
-coverage and outcome-model fitting do not establish individual attribution.
+October 24 progress: the first bounded [defensive rich/degraded comparison](docs/DEFENSE_MODEL.md)
+is fitted and replayed on the same 243-game cohort. Both select penalty 1000; neither
+adds reliable predictive improvement over its team/context baseline. Aggregation
+reduces residualized defender rank from 922 to 301 across 951 columns. Selection
+diagnostics account for 3,516 excluded plays; no measured standardized difference exceeds
+the fixed flag, without establishing harmless selection. No defender is admitted.
+This unit is stacked on still-open PR #6 and requires separate human review.
+
+October 25 priority: build the required Defense Explorer foundation and initial
+React/TypeScript presentation from verified observations and explicit missingness.
+Verify a permitted live workload source before displaying 2026 fractions. Finish
+identity/position, roster/stint evidence and the observed-by timestamp correction
+before positional contrasts or qualification. Additional seasons, actual live-feed
+degradation and absence/uncertainty checks remain open defensive requirements.
+Protect the October 28–30 model freeze and November 7 release dates; extra model
+complexity must not consume dashboard/publication work. No admitted ranking yet
+means the universal-MVP objective remains at risk, not silently complete.
 
 - Build content-addressed ingestion for 2026 play-by-play, player identifiers, rosters, depth-chart snapshots, and game status.
 - Audit historical seasons and current-year schemas before fitting; record source coverage at the game and position level.
