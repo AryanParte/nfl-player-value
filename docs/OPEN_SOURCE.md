@@ -24,6 +24,33 @@ Both dependencies have permissive BSD licenses. See [numerical dependencies](BAS
 for primary references, the version policy and actual replay limits. Historical
 ingestion still uses the independent stdlib snapshot implementation.
 
+## October 25 dashboard dependencies
+
+The independent Defense Explorer uses exact npm versions plus the committed
+`web/package-lock.json`. Public npm metadata/license declarations were checked
+before installation; the installed stack passes TypeScript and production build
+checks. Use Node 24 (the local Node 23 installation is outside the test runner's
+supported range). No upstream application or player-value scoring code was copied.
+
+| Component | Pinned version / license | Purpose |
+| --- | --- | --- |
+| React / React DOM | 19.3.1 / MIT | Stateful filters and observed player details |
+| React / DOM types | 19.3.0 / MIT | Compile-time interface checking |
+| Zod | 4.6.7 / MIT | Runtime validation of the versioned Python export |
+| TypeScript | 7.0.2 / Apache-2.0 | Strict static checks |
+| Vite | 8.3.5 / MIT | Local server and static production bundle |
+| Vitest | 5.0.5 / MIT | Contract and accounting tests |
+| Playwright | 1.64.1 / Apache-2.0 | Chromium interaction and failure-path tests |
+| Prettier | 3.9.10 / MIT | Consistent, reviewable frontend formatting |
+
+Primary documentation: [React](https://react.dev/learn/installation),
+[Vite](https://vite.dev/guide/), [Zod](https://zod.dev/),
+[Vitest](https://vitest.dev/guide/), [Playwright](https://playwright.dev/docs/intro)
+and [Prettier](https://prettier.io/docs/install). The simple signed EPA and coverage
+bars use HTML/CSS with text equivalents, so a charting library is not yet needed.
+Dependency upgrades must preserve the shared Python/TypeScript contract and pass
+browser checks. These dependencies do not supply NFL attribution evidence.
+
 ## Research references with substantial adaptation required
 
 | Project | Actual limitations found | Decision |

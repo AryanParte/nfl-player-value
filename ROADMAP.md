@@ -51,17 +51,23 @@ adds reliable predictive improvement over its team/context baseline. Aggregation
 reduces residualized defender rank from 922 to 301 across 951 columns. Selection
 diagnostics account for 3,516 excluded plays; no measured standardized difference exceeds
 the fixed flag, without establishing harmless selection. No defender is admitted.
-This unit is stacked on still-open PR #6 and requires separate human review.
+PRs #6 and #7 were subsequently merged by the owner before the October 25 run.
 
-October 25 priority: build the required Defense Explorer foundation and initial
-React/TypeScript presentation from verified observations and explicit missingness.
-Verify a permitted live workload source before displaying 2026 fractions. Finish
-identity/position, roster/stint evidence and the observed-by timestamp correction
-before positional contrasts or qualification. Additional seasons, actual live-feed
-degradation and absence/uncertainty checks remain open defensive requirements.
-Protect the October 28–30 model freeze and November 7 release dates; extra model
-complexity must not consume dashboard/publication work. No admitted ranking yet
-means the universal-MVP objective remains at risk, not silently complete.
+October 25 progress: the required [Defense Explorer foundation](docs/DEFENSE_EXPLORER.md)
+and first React/TypeScript dashboard are implemented. The archived Week 6 view
+contains 518 players, 425 recorded sack credits and 130 interceptions; four sack
+events, 92 chart roles, one name and ten defensive role cells retain explicit
+limitations. Charts show team EPA without attributing it to individuals. Hash
+verification, runtime contracts, offline replay and browser tests guard the view.
+No live workload fractions or CAVAA scores are supplied, and the site is not yet
+deployed. See [the measured audit](docs/audits/2026-10-25-defense-explorer.json).
+
+October 26 priority: finish identity/position, roster/stint evidence and the
+observed-by timestamp correction before positional contrasts or qualification.
+Additional seasons, actual live-feed degradation and absence/uncertainty checks
+remain open defensive requirements. Protect the October 28–30 model freeze and
+November 7 release dates. The universal-MVP objective remains at risk until an
+individual contribution module passes admission.
 
 - Build content-addressed ingestion for 2026 play-by-play, player identifiers, rosters, depth-chart snapshots, and game status.
 - Audit historical seasons and current-year schemas before fitting; record source coverage at the game and position level.

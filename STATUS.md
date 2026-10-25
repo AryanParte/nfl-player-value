@@ -1,86 +1,76 @@
 # Project status
 
-Updated: October 24, 2026, America/New_York.
+Updated: October 25, 2026, America/New_York.
 
 ## Current unit
 
-The first bounded **defensive information-loss comparison is implemented, fitted,
-and replayed**. See the [specification](docs/DEFENSE_MODEL.md),
-[audit](docs/audits/2026-10-24-defensive-model.json) and
-[learning report](docs/learning/2026-10-24.md). No defensive CAVAA is admitted.
+The required **Defense Explorer foundation and first React/TypeScript dashboard**
+are implemented. The Python exporter rebuilds scoped observed evidence from the
+archived 2026 inputs; the browser verifies the hash and strict data contract before
+showing players, filters, chart coverage, team EPA and provenance. See the
+[contract](docs/DEFENSE_EXPLORER.md), [audit](docs/audits/2026-10-25-defense-explorer.json)
+and [learning report](docs/learning/2026-10-25.md).
 
-PR #6 remains open with green CI and no review comments. Today's branch,
-`codex/defensive-information-loss`, is explicitly stacked on
-`codex/regularized-offensive-baseline` at `8488ed5`. It reuses the pinned numerical
-dependencies and replay helper. Review/merge #6 first, then retarget this PR to
-main; agents must not merge either PR or force-push.
+PRs #6 and #7 were merged by the owner before this run. Main CI passed at
+`4ef8bd7`. Today's branch `codex/defense-explorer` starts from that main commit;
+it is not a stacked PR and has no prerequisite PR awaiting merge. Agents still
+must not merge this work or enable auto-merge.
 
 ## Measured evidence
 
-The fixed 2025 cohort has 243 games / 29,297 plays. Its chronological split is
-131 training games (Weeks 1–10), 54 validation games (11–14) and 58 test games
-(15–18). Both views select the strongest declared defender penalty, 1000, using
-validation alone. Final refits use the same 22,372 plays, represented as either
-play-level lineups or 370 defensive team-game aggregates. Tests cover 6,925 plays.
+The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
+teams and 518 players through Week 6. Its fixed cutoff is October 22 at
+23:50:38.680415 UTC; this is an archived snapshot, not October 25 live coverage.
+Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
+sacks remain unallocated. There are 92 players without a verified chart role,
+one unresolved roster name and ten blocked defensive team-game-role cells:
+six IDL, two CB and two S. The separate LS issue is outside the defensive view.
+All 186 chart team-games use retrospectively retrieved evidence.
 
-| View | Team/context weighted RMSE | Adding defenders | Defender minus team 95% interval |
-| --- | ---: | ---: | --- |
-| Play-level lineups | 0.201203 | 0.202948 | [-0.003341, +0.006877] |
-| Game-level fractions | 0.145339 | 0.146772 | [-0.002168, +0.004774] |
+These are event/chart observations, not individual value estimates. No snap
+fractions, games-played denominators or pressure rates are inferred. Every player
+has null CAVAA and snaps; team EPA is kept separate and negative team outcomes
+remain visible. Qualification and the first-unit/equal-player/opportunity-weighted
+contrasts are not calculated here. No position is admitted to the MVP leaderboard.
 
-Errors are EP per eligible play, evaluated at team-game means. Neither interval
-supports an incremental defender prediction claim. The lower aggregate error is
-not evidence of better individual attribution: aggregation changes the loss and
-within-game covariance, and realized game-average context includes score states
-partly produced by earlier performance. This is not a pregame forecast or an
-approved CAVAA adjustment. The richer model is not ground truth.
+The October 24 bounded historical experiment remains unchanged: 243 games /
+29,297 plays, no reliable defender increment over team/context prediction, and
+residualized defender rank falling from 922 to 301 across 951 columns after
+aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
+The richer model is not ground truth, and the degraded historical view is not
+verified live-feed coverage.
 
-After projecting off context and teams, numerical defender rank falls from 922
-to 301 across 951 columns. There are 29 versus 650 unidentified linear dimensions
-at the fixed tolerance. Both views have six identical-column groups. Selected
-coefficient correlation is 0.443; penalty sensitivity remains large. These are
-identification diagnostics, not player intervals or first-unit contrasts.
+186 Python tests, 13 frontend contracts, TypeScript/format/build checks and eight
+Chromium scenarios pass locally. The real snapshot builds and exactly replays
+offline with network construction/connections blocked. Desktop/mobile inspection
+finds no page errors, failed responses or document overflow. See the audit for
+recorded inputs and the learning report for failures fixed during verification.
 
-Selection checks account for all 32,813 candidate plays: 29,297 retained and
-3,516 from 29 lineup-excluded games. No measured context/outcome standardized
-mean difference crosses the predeclared 0.1 flag; this does not establish ignorable
-selection. Retained team coverage still varies from 13 to 17 games.
-
-171 offline tests pass (19 new). Real build and numerical replay succeeded with
-network construction/connections blocked. Model and prediction JSON objects carry
-independent FTN/nflverse attribution, derivative license, plan and source hashes.
-Shared-value accounting is checked without allocating the full outcome to each
-defender. All research outputs retain `ranking_ready=false`.
-
-## Next highest-priority unit — October 25
-
-Build the required Defense Explorer foundation from verified observations, with
-source age, supported denominators and missing contributions visible. Audit a
-permitted live workload source before showing 2026 snap fractions; the historical
-fraction experiment does not certify live coverage. Unsupported positions retain
-missing scores. Keep the initial React/TypeScript view small and compatible with
-the versioned JSON pipeline; do not delay the website for extra model complexity.
+## Next highest-priority unit — October 26
 
 Finish position/roster-stint evidence and correct `SeasonExposure`'s observed-by
 completion timestamp handling before benchmark contrasts or qualification. Do not
-infer missed-game denominators from positive appearances. Reserve the October
-28–30 freeze for bounded first-unit/equal-player/opportunity-weighted contrasts,
-qualification and module admission. Any additional historical folds, absence
-checks or live-like degradation must disclose that the present tests are observed.
-No tuning on these test results. The defensive workstream remains required.
+infer missed-game denominators from positive appearances. Test the first-unit,
+equal-player and opportunity-weighted contrasts on the bounded historical plan,
+with joint player/benchmark uncertainty and qualification sensitivity. Keep the
+October 28–30 freeze and November 7 launch target explicit; additional complexity
+must not displace admission decisions or publication work.
+
+Defensive follow-up still requires a permitted live workload source, actual
+live-like missingness, verified positions, additional seasons, absence cases and
+player uncertainty. Do not convert the Explorer's event counts into scores.
 
 ## Unfinished release gates
 
-No 2026 CAVAA score is published and no position has passed attribution/comparability
-admission. The broader defensive experiment still needs additional seasons,
-verified positions/live missingness, absence cases and player uncertainty. Defense
-Explorer, supported offensive contrasts, joint player/benchmark intervals,
-qualification tests, React/TypeScript dashboard, durable off-machine retention and
-independent production refresh remain unfinished. The last 2026 chart audit has
-11 IDL/CB/S/LS issues; the latest archived 2026 outcome cohort is through Week 6.
+The local exploratory website is usable, but no 2026 CAVAA score is published and
+no position has passed attribution/comparability admission. Supported offensive
+contrasts, joint intervals, qualification tests, ranked/history views, durable
+off-machine snapshot retention, deployment and independent production refresh
+remain unfinished. Source receipts and generated exports are local and ignored
+by Git; a hash alone cannot restore missing bytes. The current public-data rights
+review does not admit a PFR workload dependency.
 
-November 7 remains the target. A working site must show measured coverage and
-only admitted values; if no module passes, an exploratory site does not fulfill
-the MVP-ranking objective. Protect the freeze/release dates and record that risk.
-Today's October 24 unit makes no schedule change, no purchase, and no change to
-NFL Opponent Intelligence. The production refresh remains independent of Codex.
+An exploratory site without admitted CAVAA does not fulfill the MVP-ranking
+objective. November 7 remains the target and that scientific release risk remains
+open. Today's run changes no schedule, purchases nothing, and does not modify NFL
+Opponent Intelligence. Production refresh remains independent of Codex.

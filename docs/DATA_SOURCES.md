@@ -42,6 +42,16 @@ plays). The 29 lineup-excluded games remain excluded. Old reports and source byt
 remain preserved; no first-unit membership, player position or live workload right
 is inferred from this correction.
 
+**October 25 Explorer audit:** the [archived 2026 view](audits/2026-10-25-defense-explorer.json)
+replays the existing October 22 outcome report with the archived chart and roster
+receipts. It contains 518 event/chart-observed players in 93 games through Week 6,
+425 valid sack credits and 130 interceptions. Four flagged sacks are unallocated;
+92 players have no verified chart role and one name is unresolved. Ten defensive
+role cells are withheld (the eleventh full-chart issue concerns LS). All 186
+chart team-games remain retrospective. No new live source capture, PFR workload
+feed or FTN participation data is introduced. The UI shows its fixed cutoff and
+source times; this is not a claim of October 25 freshness.
+
 ## Public-source launch plan
 
 | Source | Historical/current availability observed | Intended use and limitation |
