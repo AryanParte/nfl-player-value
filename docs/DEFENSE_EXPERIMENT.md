@@ -49,6 +49,14 @@ experiment. Defensive CAVAA remains withheld; positions, actual live missingness
 absence cases and player uncertainty remain unresolved. Defense Explorer is the
 next required product unit, not replaced by this diagnostic.
 
+October 25 product implementation: the [Defense Explorer](DEFENSE_EXPLORER.md)
+now renders archived 2026 recorded sack credits/interceptions, valid defensive
+chart roles, team EPA, provenance and missingness. A strict Python-to-TypeScript
+contract withholds unadmitted scores. No live snap fractions, pressure rates,
+games-played claims or qualification decisions are inferred from charts/events.
+This delivers the initial exploratory view, not completion of the broader
+defensive validation or admission of defensive CAVAA.
+
 Defense is part of the product objective and the implementation roadmap. Public live 2026 data do not currently establish the same assignment-level coverage as historical tracking or full participation data. This workstream tests how much that loss prevents individual attribution.
 
 ## Research question

@@ -38,8 +38,9 @@ report. The [defensive input layer](DEFENSE_INPUTS.md) now adds source-specific 
 license provenance and paired rich-play/degraded-team-game objects with a common
 cohort hash. All derivation/replay is offline; reports retain exclusions and
 `ranking_ready=false`. No new runtime dependency was needed for those layers.
-The first bounded information-loss comparison is now implemented below;
-publication and presentation remain unimplemented.
+The first bounded information-loss comparison is now implemented below.
+October 25 adds local static export and the initial Defense Explorer presentation;
+deployed production publication remains unimplemented.
 
 The [offensive input layer](OFFENSIVE_INPUTS.md) now supplies one observed EPA
 outcome per play, actor links and per-player-game count unions, with unresolved
@@ -64,6 +65,18 @@ and records common-unit evaluation, residualized rank and selection loss. Models
 and predictions each carry independent data-derivative provenance and license
 notices. These are historical diagnostics, not production player scores; no
 live-source equivalence, positional contrast or attribution admission is implied.
+
+The [Defense Explorer layer](DEFENSE_EXPLORER.md) replays permitted ordinary
+nflverse receipts into a scoped observed-event/chart ledger. It does not consume
+historical defensive model coefficients or assign team EPA to players. A Python
+CLI saves/replays exact JSON and atomically exports a hash-named object and latest
+pointer. The static React/TypeScript app verifies SHA-256 and a strict runtime
+contract before rendering. Filters recompute team-scoped evidence, and unknown
+roles, missing measurements and the archived cutoff remain explicit. Node 24,
+exact npm pins and a lockfile support Vitest, TypeScript and Chromium CI. HTML/CSS
+bars with text equivalents suffice for these initial charts; no frontend charting
+library, database or hosted API is introduced. CAVAA ranking/history views and
+independent weekly publication still require implementation and admission gates.
 
 ## Snapshot and release contract
 

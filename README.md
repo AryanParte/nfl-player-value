@@ -19,11 +19,16 @@ role information; its 2025 test interval includes zero. This does not validate
 individual attribution. October 24 adds the first [defensive model comparison](docs/DEFENSE_MODEL.md):
 aggregation reduces residualized defender rank from 922 to 301 across 951 columns;
 neither defender model reliably improves its team/context baseline. This is a
-historical diagnostic, not verified live-2026 attribution. **No real CAVAA ranking
-is produced yet.** Roster/stint and position verification, broader defensive
-validation, Defense Explorer, player uncertainty and the dashboard remain open. The 2026 first-unit chart audit still has 11 blocked IDL/CB/S/LS
-issues. Synthetic tests are not football findings. See [offensive inputs](docs/OFFENSIVE_INPUTS.md)
-and [defensive inputs](docs/DEFENSE_INPUTS.md).
+historical diagnostic, not verified live-2026 attribution.
+
+October 25 adds the [Defense Explorer](docs/DEFENSE_EXPLORER.md) and an interactive
+React/TypeScript dashboard: 518 observed players through Week 6, scoped event
+counts, chart-role coverage, signed team EPA, missing measurements and source
+cutoffs. [Run the local view](web/README.md). It is not deployed or a value ranking.
+**No real CAVAA ranking is produced yet.** Position/stint verification, broader
+defensive validation, benchmark contrasts, player uncertainty, ranking/history
+views and independent production publication remain open. Unsupported scores stay
+missing. Synthetic tests are not football findings.
 
 The all-position objective remains explicit. An unsupported position receives no invented score. A narrower published board must identify its supported scope; it cannot be presented as a validated ranking of every NFL player.
 
@@ -53,6 +58,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Defense experiment](docs/DEFENSE_EXPERIMENT.md) | Required defensive research design and explorer scope |
 | [Defensive inputs](docs/DEFENSE_INPUTS.md) | FTN provenance, whole-game cohort policy, paired views and offline replay |
 | [Offensive inputs](docs/OFFENSIVE_INPUTS.md) | Unique play outcomes, actor links, opportunity unions and missingness |
+| [Defense Explorer](docs/DEFENSE_EXPLORER.md) | Observed defensive evidence, immutable export and the initial dashboard |
 | [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
@@ -65,19 +71,24 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 22 learning report](docs/learning/2026-10-22.md) | Event ordering, preserved replay and offensive opportunity accounting |
 | [October 23 learning report](docs/learning/2026-10-23.md) | First fitted models, shrinkage, role-selection confounding and held-out results |
 | [October 24 learning report](docs/learning/2026-10-24.md) | Defensive information loss, weighted models, rank deficiency and admission limits |
+| [October 25 learning report](docs/learning/2026-10-25.md) | Observed versus attributed value, the first dashboard and shared data contracts |
 
 ## Run the checks
 
 Use Python 3.11–3.13. Ingestion/contracts use the standard library; modeling uses
-the pinned NumPy/SciPy extra. Keep the environment inside this repository.
+the pinned NumPy/SciPy extra. The dashboard requires Node 24. Keep both
+environments inside this repository.
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install '.[model]'
+npm --prefix web ci --ignore-scripts --no-fund
 make check PYTHON=.venv/bin/python
 ```
 
-This runs 171 offline tests, compiles the Python sources, and checks whitespace.
+This runs 186 offline Python tests and 13 frontend contract tests, checks
+formatting/TypeScript, builds the dashboard, compiles Python and checks whitespace.
+The separate [Chromium suite](web/README.md) covers eight browser scenarios.
 Tests cover the data/benchmark/qualification contracts, locking, known-effect and
 collinearity simulations, leakage, numerical solving and accounting. Real historical
 evaluation is separate from synthetic CI evidence; see the [offensive audit](docs/audits/2026-10-23-offensive-baseline.json)

@@ -298,6 +298,7 @@ export function selectPlayers(data: Explorer, filters: Filters) {
     )
     .sort(
       (a, b) =>
+        Number(a.name === null) - Number(b.name === null) ||
         (a.name ?? a.player_id).localeCompare(b.name ?? b.player_id) ||
         a.player_id.localeCompare(b.player_id),
     );

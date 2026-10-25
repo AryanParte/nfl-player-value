@@ -516,6 +516,12 @@ function Dashboard({
             {data.provenance.retrospective_chart_team_games} team-games use
             retrospectively retrieved charts.
           </p>
+          <p className="muted">
+            Unallocated flagged events:{" "}
+            {data.audit.unallocated_flagged_events.sacks} sacks and{" "}
+            {data.audit.unallocated_flagged_events.interceptions} interceptions.
+            These remain in team outcomes without invented player credit.
+          </p>
         </div>
         <dl className="missing-measures">
           <div>
@@ -603,8 +609,9 @@ function PlayerDetails({
         <span>games listed in a valid first-unit chart</span>
       </div>
       <p className="muted">
-        Event credits appear in {p.event_games} games. This is a lower bound on
-        event appearances, not games played.
+        Event credits appear in {p.event_games}{" "}
+        {p.event_games === 1 ? "game" : "games"}. This is a lower bound on event
+        appearances, not games played.
       </p>
       <div className="withheld">
         <span className="eyebrow">SEASON CAVAA</span>

@@ -1,0 +1,271 @@
+{
+  "all_player_cavaa_and_snaps_null": true,
+  "audit_date": "2026-10-25",
+  "coverage": {
+    "completed_games": 93,
+    "expected_role_cells": 186,
+    "included_plays": 11441,
+    "players": 518,
+    "role_cells": [
+      {
+        "blocked_cells": 6,
+        "complete_cells": 180,
+        "role": "IDL"
+      },
+      {
+        "blocked_cells": 0,
+        "complete_cells": 186,
+        "role": "EDGE"
+      },
+      {
+        "blocked_cells": 0,
+        "complete_cells": 186,
+        "role": "LB"
+      },
+      {
+        "blocked_cells": 2,
+        "complete_cells": 184,
+        "role": "CB"
+      },
+      {
+        "blocked_cells": 2,
+        "complete_cells": 184,
+        "role": "S"
+      }
+    ],
+    "through_week": 6
+  },
+  "cutoff": "2026-10-22T23:50:38.680415+00:00",
+  "data_mode": "observed",
+  "kind": "observed_defense_explorer",
+  "limitations": [
+    "Archived Week 6 data, not October 25 live coverage. No fresh source capture in this unit.",
+    "Event/chart population is incomplete; zero counts mean no valid recorded credit in the included scope.",
+    "No verified live defensive snaps, pass-rush denominator, coverage assignments or off-ball effects.",
+    "Chart-listed/event-observed games are not games played or eligibility denominators.",
+    "All charts were retrieved retrospectively; no vintage pregame availability claim.",
+    "No benchmark contrasts, CAVAA, player intervals or qualification computed.",
+    "Snapshot and export are stored locally outside Git; durable off-machine retention and production publication remain open.",
+    "No public deployment or independent weekly refresh delivered in this unit."
+  ],
+  "producer_code_revision": "7e6c0ff6553a085e37559babbf8b1862578c0c8e",
+  "ranking_ready": false,
+  "recorded_event_audit": {
+    "allocated_credits": {
+      "interceptions": 130,
+      "sacks": 425.0
+    },
+    "chart_issues": [
+      {
+        "game_id": "2026_01_WAS_PHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_02_PHI_TEN",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_03_PHI_CHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_04_LA_PHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_05_PHI_JAX",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_05_TB_DAL",
+        "reason": "ambiguous_unit_role",
+        "role": "CB",
+        "slot": null,
+        "team_id": "DAL"
+      },
+      {
+        "game_id": "2026_05_TB_DAL",
+        "reason": "ambiguous_unit_role",
+        "role": "S",
+        "slot": null,
+        "team_id": "DAL"
+      },
+      {
+        "game_id": "2026_06_CAR_PHI",
+        "reason": "unresolved_player_identity",
+        "role": "IDL",
+        "slot": 2,
+        "team_id": "PHI"
+      },
+      {
+        "game_id": "2026_06_DAL_GB",
+        "reason": "ambiguous_unit_role",
+        "role": "CB",
+        "slot": null,
+        "team_id": "DAL"
+      },
+      {
+        "game_id": "2026_06_DAL_GB",
+        "reason": "ambiguous_unit_role",
+        "role": "S",
+        "slot": null,
+        "team_id": "DAL"
+      }
+    ],
+    "event_issues": [
+      {
+        "game_id": "2026_01_DEN_KC",
+        "play_id": 2628,
+        "reasons": [
+          "unresolved_sack_credit"
+        ]
+      },
+      {
+        "game_id": "2026_02_CAR_ATL",
+        "play_id": 4398,
+        "reasons": [
+          "unresolved_sack_credit"
+        ]
+      },
+      {
+        "game_id": "2026_03_NE_JAX",
+        "play_id": 687,
+        "reasons": [
+          "unresolved_sack_credit"
+        ]
+      },
+      {
+        "game_id": "2026_06_ARI_LA",
+        "play_id": 3169,
+        "reasons": [
+          "unresolved_sack_credit"
+        ]
+      }
+    ],
+    "flagged_events": {
+      "interceptions": 130,
+      "sacks": 429
+    },
+    "name_issues": [
+      {
+        "player_id": "00-0031557",
+        "reason": "missing_or_ambiguous_roster_name_identity"
+      }
+    ],
+    "unallocated_flagged_events": {
+      "interceptions": 0,
+      "sacks": 4.0
+    },
+    "unknown_event_flags": {
+      "interceptions": 0,
+      "sacks": 0
+    }
+  },
+  "report_id": "497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435",
+  "scope": "Recorded sacks/interceptions on included completed REG pass/run plays, plus valid pregame first-unit chart members. Not a complete roster or official full-season totals.",
+  "season": 2026,
+  "snapshot_bytes": 807547,
+  "snapshot_id": "29440a2c67c19861ac956b39a2267e7fc8285962a17ee46e27c71059faa0d1ea",
+  "source_provenance": {
+    "chart_policy": "espn-formation-slots-2025-v1",
+    "name_policy": "Unique GSIS/ESPN roster name only; roster team and position do not establish historical roles or stints.",
+    "offensive_report": "e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83",
+    "opportunity_policy": "observed-offensive-pass-run-v1",
+    "retrospective_chart_team_games": 186,
+    "source_receipts": {
+      "depth_charts": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b",
+      "pbp": "45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f",
+      "rosters": "ceb435dccca777b12ec703065e1fb0e2bce82bc04805ae7dc81858a39bcb131d",
+      "schedules": "ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94"
+    },
+    "sources": [
+      {
+        "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "fetched_at": "2026-10-20T23:47:42.370021+00:00",
+        "kind": "depth_charts",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "source_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.csv.gz",
+        "updated_at": "2026-10-20T12:41:55Z"
+      },
+      {
+        "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "fetched_at": "2026-10-22T23:45:22.600642+00:00",
+        "kind": "pbp",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "source_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.csv.gz",
+        "updated_at": "2026-10-22T15:03:34Z"
+      },
+      {
+        "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+        "fetched_at": "2026-10-20T00:56:43.203706+00:00",
+        "kind": "rosters",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "source_url": "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2026.csv.gz",
+        "updated_at": "2026-10-19T14:38:59Z"
+      },
+      {
+        "attribution": "Lee Sharpe (nfldata) via nflverse",
+        "fetched_at": "2026-10-22T23:45:24.101429+00:00",
+        "kind": "schedules",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md",
+        "source_url": "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv.gz",
+        "updated_at": "2026-10-22T23:36:27Z"
+      }
+    ]
+  },
+  "team_games_with_missing_epa": 0,
+  "team_games_with_negative_defense_epa": 91,
+  "teams": 32,
+  "unverified_chart_role_players": 92,
+  "verification": {
+    "browser_engine": "Chromium 156.0.8078.4",
+    "browser_qa": {
+      "desktop": [
+        1440,
+        1100
+      ],
+      "failed_responses": [],
+      "mobile": [
+        390,
+        844
+      ],
+      "mobile_no_document_overflow": true,
+      "page_errors": [],
+      "pagination": true,
+      "players": 518,
+      "real_snapshot": true,
+      "search_and_selection": true,
+      "unmapped_roles": 92
+    },
+    "build_network_construction_and_connections_blocked": true,
+    "chromium_scenarios": 8,
+    "export_replay_network_construction_and_connections_blocked": true,
+    "frontend_contract_tests": 13,
+    "node_version": "24.19.0",
+    "npm_lock_sha256": "47907a9da262d6ab2242f3d72fa17c5222297140092d23e4d79c64460d167182",
+    "offline_python_tests": 186,
+    "python_version": "3.13.2",
+    "real_payload_runtime_schema_accepted": true,
+    "replay_exact_bytes": true,
+    "typescript_build_and_format_checks": true
+  }
+}
