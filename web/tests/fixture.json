@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "kind": "defense_explorer",
+  "data_mode": "synthetic",
+  "ranking_ready": false,
+  "season": 2026,
+  "cutoff": "2026-10-22T23:50:38+00:00",
+  "code_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "scope": "Synthetic test observations; not real NFL data.",
+  "provenance": {
+    "offensive_report": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "source_receipts": {
+      "pbp": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "schedules": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "rosters": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "depth_charts": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "sources": [
+      {
+        "kind": "pbp",
+        "fetched_at": "2026-10-22T22:00:00+00:00",
+        "updated_at": "2026-10-22T21:00:00+00:00",
+        "source_url": "https://github.com/nflverse/nflverse-data",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Synthetic test fixture"
+      },
+      {
+        "kind": "schedules",
+        "fetched_at": "2026-10-22T22:00:00+00:00",
+        "updated_at": "2026-10-22T21:00:00+00:00",
+        "source_url": "https://github.com/nflverse/nflverse-data",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Synthetic test fixture"
+      },
+      {
+        "kind": "rosters",
+        "fetched_at": "2026-10-22T22:00:00+00:00",
+        "updated_at": "2026-10-22T21:00:00+00:00",
+        "source_url": "https://github.com/nflverse/nflverse-data",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Synthetic test fixture"
+      },
+      {
+        "kind": "depth_charts",
+        "fetched_at": "2026-10-22T22:00:00+00:00",
+        "updated_at": "2026-10-22T21:00:00+00:00",
+        "source_url": "https://github.com/nflverse/nflverse-data",
+        "license_id": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "Synthetic test fixture"
+      }
+    ],
+    "opportunity_policy": "observed-offensive-pass-run-v1",
+    "chart_policy": "espn-formation-slots-2025-v1",
+    "retrospective_chart_team_games": 2,
+    "name_policy": "Synthetic fixture"
+  },
+  "coverage": {
+    "completed_games": 1,
+    "through_week": 1,
+    "included_plays": 4,
+    "players": 4,
+    "expected_role_cells": 2,
+    "role_cells": [
+      {
+        "role": "IDL",
+        "complete_cells": 0,
+        "blocked_cells": 0
+      },
+      {
+        "role": "EDGE",
+        "complete_cells": 1,
+        "blocked_cells": 0
+      },
+      {
+        "role": "LB",
+        "complete_cells": 0,
+        "blocked_cells": 0
+      },
+      {
+        "role": "CB",
+        "complete_cells": 1,
+        "blocked_cells": 0
+      },
+      {
+        "role": "S",
+        "complete_cells": 0,
+        "blocked_cells": 0
+      }
+    ]
+  },
+  "players": [
+    {
+      "player_id": "00-0000001",
+      "name": "Synthetic Player 1",
+      "teams": ["BUF"],
+      "roles": ["EDGE"],
+      "chart_games": 1,
+      "event_games": 1,
+      "sack_credits": 1.5,
+      "interceptions": 0,
+      "cavaa": null,
+      "defensive_snaps": null,
+      "games": [
+        {
+          "game_id": "2026_01_BUF_NYJ",
+          "week": 1,
+          "team": "BUF",
+          "opponent": "NYJ",
+          "chart_roles": ["EDGE"],
+          "sack_credits": 1.5,
+          "interceptions": 0
+        }
+      ]
+    },
+    {
+      "player_id": "00-0000002",
+      "name": "Synthetic Player 2",
+      "teams": ["BUF"],
+      "roles": [],
+      "chart_games": 0,
+      "event_games": 1,
+      "sack_credits": 0.5,
+      "interceptions": 0,
+      "cavaa": null,
+      "defensive_snaps": null,
+      "games": [
+        {
+          "game_id": "2026_01_BUF_NYJ",
+          "week": 1,
+          "team": "BUF",
+          "opponent": "NYJ",
+          "chart_roles": [],
+          "sack_credits": 0.5,
+          "interceptions": 0
+        }
+      ]
+    },
+    {
+      "player_id": "00-0000003",
+      "name": "Synthetic Player 3",
+      "teams": ["BUF"],
+      "roles": [],
+      "chart_games": 0,
+      "event_games": 1,
+      "sack_credits": 0.0,
+      "interceptions": 1,
+      "cavaa": null,
+      "defensive_snaps": null,
+      "games": [
+        {
+          "game_id": "2026_01_BUF_NYJ",
+          "week": 1,
+          "team": "BUF",
+          "opponent": "NYJ",
+          "chart_roles": [],
+          "sack_credits": 0.0,
+          "interceptions": 1
+        }
+      ]
+    },
+    {
+      "player_id": "00-0000004",
+      "name": "Synthetic Player 4",
+      "teams": ["NYJ"],
+      "roles": ["CB"],
+      "chart_games": 1,
+      "event_games": 0,
+      "sack_credits": 0.0,
+      "interceptions": 0,
+      "cavaa": null,
+      "defensive_snaps": null,
+      "games": [
+        {
+          "game_id": "2026_01_BUF_NYJ",
+          "week": 1,
+          "team": "NYJ",
+          "opponent": "BUF",
+          "chart_roles": ["CB"],
+          "sack_credits": 0.0,
+          "interceptions": 0
+        }
+      ]
+    }
+  ],
+  "team_games": [
+    {
+      "game_id": "2026_01_BUF_NYJ",
+      "week": 1,
+      "team": "BUF",
+      "opponent": "NYJ",
+      "included_plays": 3,
+      "epa_observed_plays": 3,
+      "defense_epa": 1.5
+    },
+    {
+      "game_id": "2026_01_BUF_NYJ",
+      "week": 1,
+      "team": "NYJ",
+      "opponent": "BUF",
+      "included_plays": 1,
+      "epa_observed_plays": 1,
+      "defense_epa": -0.5
+    }
+  ],
+  "unavailable": {
+    "cavaa": "Individual defensive attribution and cross-position comparability have not passed admission.",
+    "defensive_snaps": "No verified, permitted live defensive workload feed is integrated.",
+    "pressure_rate": "Pressure observations and a verified pass-rush denominator are unavailable.",
+    "coverage_deterrence": "Targets avoided, coverage assignments and off-ball effects are unmeasured.",
+    "qualification": "Chart membership and event appearances do not establish games played or snap eligibility.",
+    "player_uncertainty": "No admitted individual estimate exists for an uncertainty interval."
+  },
+  "audit": {
+    "chart_issues": [],
+    "name_issues": [],
+    "event_issues": [],
+    "flagged_events": {
+      "sacks": 2,
+      "interceptions": 1
+    },
+    "allocated_credits": {
+      "sacks": 2.0,
+      "interceptions": 1
+    },
+    "unallocated_flagged_events": {
+      "sacks": 0.0,
+      "interceptions": 0
+    },
+    "unknown_event_flags": {
+      "sacks": 0,
+      "interceptions": 0
+    }
+  }
+}
