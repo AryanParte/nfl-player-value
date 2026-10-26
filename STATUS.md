@@ -4,6 +4,15 @@ Updated: October 25, 2026, America/New_York.
 
 ## Current unit
 
+The additional manual CI/reliability unit is implemented on
+`codex/ci-regression-reliability`, from owner-merged PR #8 / main `5080d15`.
+Main CI was green and there were no open PRs or unfinished changes at inspection.
+The unit adds pinned Ruff/coverage checks, retained CI/browser diagnostics,
+13 meaningful replay/export/archive regressions, stricter numerical and manifest
+validation, and a manual dependency audit. Installer/build-tool advisory matches
+were resolved with pip 26.2.2 and setuptools 84.1.0. See [CI](docs/CI.md) and the
+appended [learning report](docs/learning/2026-10-25.md). No schedule was changed.
+
 The required **Defense Explorer foundation and first React/TypeScript dashboard**
 are implemented. The Python exporter rebuilds scoped observed evidence from the
 archived 2026 inputs; the browser verifies the hash and strict data contract before
@@ -11,10 +20,8 @@ showing players, filters, chart coverage, team EPA and provenance. See the
 [contract](docs/DEFENSE_EXPLORER.md), [audit](docs/audits/2026-10-25-defense-explorer.json)
 and [learning report](docs/learning/2026-10-25.md).
 
-PRs #6 and #7 were merged by the owner before this run. Main CI passed at
-`4ef8bd7`. Today's branch `codex/defense-explorer` starts from that main commit;
-it is not a stacked PR and has no prerequisite PR awaiting merge. Agents still
-must not merge this work or enable auto-merge.
+PR #8 is now merged by the owner. This manual unit targets main with no stacked
+dependency. Agents still must not merge this work or enable auto-merge.
 
 ## Measured evidence
 
@@ -40,8 +47,12 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-186 Python tests, 13 frontend contracts, TypeScript/format/build checks and eight
-Chromium scenarios pass locally. The real snapshot builds and exactly replays
+199 Python tests, 13 frontend contracts, TypeScript/format/build checks and eight
+Chromium scenarios pass locally. Combined Python coverage is 90.15%; it remains
+informational and does not establish attribution. The manual dependency audits
+report no known vulnerabilities with the new installer/build pins. Hosted CI
+results for this branch will be reported separately; local success is not hosted
+verification. During the earlier Explorer unit, the real snapshot built and exactly replayed
 offline with network construction/connections blocked. Desktop/mobile inspection
 finds no page errors, failed responses or document overflow. See the audit for
 recorded inputs and the learning report for failures fixed during verification.

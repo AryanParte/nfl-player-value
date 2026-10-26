@@ -81,13 +81,16 @@ environments inside this repository.
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install '.[model]'
+.venv/bin/python -m pip install --upgrade 'pip==26.2.2'
+.venv/bin/python -m pip install '.[model,quality]'
 npm --prefix web ci --ignore-scripts --no-fund
 make check PYTHON=.venv/bin/python
 ```
 
-This runs 186 offline Python tests and 13 frontend contract tests, checks
-formatting/TypeScript, builds the dashboard, compiles Python and checks whitespace.
+This runs 199 offline Python tests and 13 frontend contract tests, checks Python
+lint/adopted formatting and frontend formatting/TypeScript, builds the dashboard,
+compiles Python and checks whitespace. See [CI and release gates](docs/CI.md) for
+coverage reports, browser diagnostics and the optional manual dependency audit.
 The separate [Chromium suite](web/README.md) covers eight browser scenarios.
 Tests cover the data/benchmark/qualification contracts, locking, known-effect and
 collinearity simulations, leakage, numerical solving and accounting. Real historical

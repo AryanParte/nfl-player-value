@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools==80.9.0"]
+requires = ["setuptools==84.1.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -14,9 +14,37 @@ dependencies = []
 
 [project.optional-dependencies]
 model = ["numpy==2.2.6", "scipy==1.15.3"]
+quality = ["ruff==0.17.2", "coverage==7.17.0"]
 
 [project.urls]
 Repository = "https://github.com/AryanParte/nfl-player-value"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+# Syntax/name errors and selected high-signal bug checks, without legacy style churn.
+select = ["E4", "E9", "F", "B006", "B008", "B018", "B033"]
+
+[tool.coverage.run]
+branch = true
+source = ["src/nfl_value", "scripts"]
+data_file = "artifacts/coverage/.coverage"
+relative_files = true
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+
+[tool.coverage.html]
+directory = "artifacts/coverage/html"
+
+[tool.coverage.xml]
+output = "artifacts/coverage/coverage.xml"
+
+[tool.coverage.json]
+output = "artifacts/coverage/coverage.json"

@@ -4,6 +4,12 @@ export default defineConfig({
   testMatch: "*.spec.ts",
   workers: 1,
   retries: 0,
+  forbidOnly: true,
+  reporter: [
+    ["list"],
+    ["html", { open: "never" }],
+    ["junit", { outputFile: "test-results/junit.xml" }],
+  ],
   use: {
     baseURL: "http://127.0.0.1:4318",
     browserName: "chromium",
