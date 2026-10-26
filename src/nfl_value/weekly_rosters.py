@@ -40,10 +40,14 @@ def normalize_weekly_rosters(rows, *, season: int) -> list[dict]:
         if not re.fullmatch(r"[1-9]\d?", row["week"]):
             raise ValueError("invalid weekly roster week")
         week = int(row["week"])
-        if row["game_type"] not in {"REG", "POST"}:
+        if row["game_type"] not in {"REG", "WC", "DIV", "CON", "SB"}:
             raise ValueError("unreviewed weekly roster game type")
-        if row["game_type"] == "REG" and week > (18 if season >= 2021 else 17):
+        last_regular_week = 18 if season >= 2021 else 17
+        if row["game_type"] == "REG" and week > last_regular_week:
             raise ValueError("invalid regular-season roster week")
+        playoff_offset = {"WC": 1, "DIV": 2, "CON": 3, "SB": 4}.get(row["game_type"])
+        if playoff_offset and week != last_regular_week + playoff_offset:
+            raise ValueError("postseason roster week disagrees with game type")
         if not re.fullmatch(r"[A-Z]{2,3}", row["team"]):
             raise ValueError("invalid weekly roster team")
         key = tuple(row[k] for k in ("season", "week", "game_type", "team", "gsis_id", "espn_id"))

@@ -184,11 +184,23 @@ class WeeklyRosterTests(unittest.TestCase):
     def test_opaque_defensive_roles_and_postseason_rows_cannot_supply_regular_season_role(self):
         rows = [
             roster(position="DB", depth_chart_position="CB"),
-            roster(game_type="POST", position="WR"),
+            roster(game_type="WC", week="19", position="WR"),
         ]
         evidence, audit = join(rows, workloads=[workload()])
         self.assertIsNone(evidence["player_games"][0]["source_position_role"])
         self.assertEqual(audit["actor_issue_counts"], {"primary_position_unreviewed": 1})
+
+    def test_historical_playoff_labels_are_archived_but_never_create_mvp_exposures(self):
+        rows = [
+            roster(game_type=t, week=str(19 + offset))
+            for offset, t in enumerate(("WC", "DIV", "CON", "SB"))
+        ]
+        report = self.audit(rows)
+        self.assertEqual(report["rows"], 4)
+        evidence, _ = join(rows)
+        self.assertEqual(evidence["player_games"], [])
+        with self.assertRaisesRegex(ValueError, "week disagrees"):
+            self.audit([roster(game_type="WC", week="1")])
 
     def test_order_independence_no_epa_allocation_and_source_availability_are_explicit(self):
         rows = [roster(), roster(gsis_id=RECEIVER, espn_id="2", position="WR")]
