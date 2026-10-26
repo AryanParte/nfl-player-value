@@ -54,6 +54,17 @@ source times; this is not a claim of October 25 freshness.
 
 ## Public-source launch plan
 
+**October 26 weekly roster audit:** the new [weekly evidence layer](ROSTER_INPUTS.md)
+captures 46,849 rows for 2025 and 17,606 for 2026 under the archived CC-BY-4.0
+declaration. It resolves direct source positions for 5,323/5,347 and 1,814/1,819
+observed offensive player-game rows respectively. The remaining rows have broad
+position labels. 29 historical source rows lack GSIS IDs. Historical playoff
+labels are preserved in the archive and excluded from regular-season joins.
+See [the measured audit](audits/2026-10-26-roster-evidence.json) for hashes,
+timestamps and counts. Weekly rows include released/reserve players and do not
+establish exact stints or participation. Both joins are retrospective; new roster
+capture does not make the archived October 22 game cohorts current.
+
 | Source | Historical/current availability observed | Intended use and limitation |
 | --- | --- | --- |
 | nflverse play-by-play | Since 1999; a 2026 release asset was present | EPA and game/play context. A present file does not establish complete or corrected game coverage. |

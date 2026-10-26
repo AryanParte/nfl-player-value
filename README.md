@@ -25,6 +25,13 @@ October 25 adds the [Defense Explorer](docs/DEFENSE_EXPLORER.md) and an interact
 React/TypeScript dashboard: 518 observed players through Week 6, scoped event
 counts, chart-role coverage, signed team EPA, missing measurements and source
 cutoffs. [Run the local view](web/README.md). It is not deployed or a value ranking.
+
+October 26 adds [weekly position/team evidence](docs/ROSTER_INPUTS.md): exact-week
+source joins, explicit identity/position gaps, both-season offline replay and a
+correction to exposure completion-time handling. It resolves source positions for
+1,814 of 1,819 observed offensive player-game rows in the archived 2026 cohort;
+weekly roster presence does not establish complete stints or missed games.
+
 **No real CAVAA ranking is produced yet.** Position/stint verification, broader
 defensive validation, benchmark contrasts, player uncertainty, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -54,6 +61,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Data sources](docs/DATA_SOURCES.md) | Coverage, freshness, provenance, and licensing constraints |
 | [Ingestion](docs/INGESTION.md) | Exact-byte capture commands, offline replay, and failure behavior |
 | [Pregame inputs](docs/PREGAME_INPUTS.md) | Completed-game evidence, formation-aware first-unit selection, and historical availability |
+| [Weekly roster evidence](docs/ROSTER_INPUTS.md) | Exact-week position/team joins, missing observations, and remaining stint/eligibility limits |
 | [Evaluation](docs/EVALUATION.md) | Predictive and attribution checks, sensitivity, and admission criteria |
 | [Defense experiment](docs/DEFENSE_EXPERIMENT.md) | Required defensive research design and explorer scope |
 | [Defensive inputs](docs/DEFENSE_INPUTS.md) | FTN provenance, whole-game cohort policy, paired views and offline replay |
@@ -72,6 +80,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 23 learning report](docs/learning/2026-10-23.md) | First fitted models, shrinkage, role-selection confounding and held-out results |
 | [October 24 learning report](docs/learning/2026-10-24.md) | Defensive information loss, weighted models, rank deficiency and admission limits |
 | [October 25 learning report](docs/learning/2026-10-25.md) | Observed versus attributed value, the first dashboard and shared data contracts |
+| [October 26 learning report](docs/learning/2026-10-26.md) | Retrospective roster evidence, exposure timing and real offline replay |
 
 ## Run the checks
 

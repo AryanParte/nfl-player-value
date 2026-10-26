@@ -84,6 +84,15 @@ recorded semantics.
 
 ## Next acceptance requirements
 
+The [October 26 audit](audits/2026-10-26-roster-evidence.json) records the real
+captures and exact offline replay. In 2025, 5,323 of 5,347 offensive player-game
+rows resolve direct source positions across 272 games. In archived 2026, 1,814
+of 1,819 resolve across 93 games through Week 6. All remaining actor rows have
+broad position labels. Every matched team-game has some roster rows; this does
+not prove player-level completeness. All retrievals are retrospective. The
+`game_coverage_complete` flag describes only the explicitly named archived
+game-cohort cutoff, never freshness through the later evidence cutoff.
+
 Use the literal weekly evidence and pregame depth charts to review roster-status
 and transaction policies. Identify ambiguous same-week trades, release/injury
 cases, missing weeks and position changes before constructing a `SeasonExposure`.

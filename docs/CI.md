@@ -34,7 +34,7 @@ npm --prefix web run test:e2e
 [Ruff](https://docs.astral.sh/ruff/linter/) 0.17.2 (MIT) finds syntax/name errors,
 unused imports and selected high-signal bugs across `src`, `scripts` and `tests`.
 Formatting is introduced incrementally: `PYTHON_FORMAT_FILES` in the Makefile
-currently checks the substantially edited baseline CLI and new reliability tests.
+checks the baseline CLI, reliability tests and October 26 weekly-roster modules/tests.
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports
@@ -129,7 +129,7 @@ on *every* rejected refresh.
 | Gate | Existing foundation | Remaining acceptance test |
 | --- | --- | --- |
 | Completed games and source readiness | Terminal-event/score reconciliation and receipt cutoffs | Required-feed quorum, expected completed-game set and source-specific freshness policy; reject stale/missing feeds without replacing last good release |
-| Historically available evidence | Retrieval timestamps and retrospective labels | Correct `SeasonExposure` observed-by handling; reject future roster/chart evidence in historical evaluations |
+| Historically available evidence | Retrieval timestamps, retrospective labels, exact-week roster joins and corrected `SeasonExposure` observed-by handling | Enforce acknowledged retrospective versus vintage evidence at model entry; validate exact stint/denominator policy |
 | Exact model/benchmark versions | Hashed plans, model artifacts and numerical replay | Release manifest binds admitted model, first-unit benchmark, both sensitivity definitions, qualification and schema versions |
 | Accounting and uncertainty | Additive outcome conservation and independent solver references | First-unit contrasts conserve the allocated shared components; joint player/benchmark uncertainty and negative season totals survive serialization |
 | Ranking correctness | Existing qualification/benchmark unit contracts; no scores admitted | Three-game/role opportunity grid, eligibility independent of benchmark membership, deterministic ties, cumulative games without recency decay, missing score versus zero |

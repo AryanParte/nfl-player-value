@@ -40,6 +40,14 @@ Record membership coverage, shrinkage, future predictive stability, sensitivity 
 
 All valid participants continue to inform fitting; eligibility changes must not silently change the benchmark. Exercise trade, missed-game, bye, late-signing, position-change, duplicate-opportunity, and missing-denominator cases.
 
+October 26: [weekly roster evidence](ROSTER_INPUTS.md) covers exact-week joins,
+missing/ambiguous identities, trades, byes, gaps and position changes, with real
+2025/2026 offline replay. It fixes the observed-by completion-time overlap bug.
+These are input-contract tests, not the bounded qualification study or evidence
+of complete player exposure. Weekly status rows do not independently establish
+transaction time, participation or all missed games. Every denominator remains
+unvalidated, and no player is qualified by this join.
+
 ## Position/contribution admission
 
 Before any module enters the unified leaderboard, document:

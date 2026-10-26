@@ -1,0 +1,546 @@
+{
+  "audit_date": "2026-10-26",
+  "code_revision": "ca6f062fba1cb0d72a0ee4950285889811ae1c39",
+  "limitations": [
+    "Source positions are retrospective weekly labels, not verified roles on every play.",
+    "Weekly status/roster listing does not establish transaction time, exact stints or a missed-game denominator.",
+    "No forward/backward filling across gaps, byes, trades, position changes or missing identities.",
+    "No observed offensive workload means unknown participation, not zero snaps, zero value or a missed game.",
+    "Released/reserve/practice-squad labels are preserved; their exposure rules require separate review.",
+    "No benchmark, qualification, attribution or position-admission decision is made by this evidence join.",
+    "New roster retrieval does not update the archived game's cutoff or establish historical availability."
+  ],
+  "policy": "weekly-roster-evidence-v1",
+  "ranking_ready": false,
+  "seasons": {
+    "2025": {
+      "completed_games": 272,
+      "evidence_cutoff": "2026-10-26T20:50:19.932422+00:00",
+      "evidence_object": "9daa16ee98da490152d57bbfbbc76166441e258f8f86198bbd59f9322417a6d9",
+      "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "game_coverage_complete": true,
+      "included_offensive_plays": 32813,
+      "join_audit": {
+        "actor_issue_counts": {
+          "primary_position_unreviewed": 24
+        },
+        "actor_role_counts": {
+          "K": 1,
+          "P": 6,
+          "QB": 652,
+          "RB": 1410,
+          "TE": 1123,
+          "WR": 2131
+        },
+        "actor_rows_with_resolved_role": 5323,
+        "all_player_game_issue_counts": {
+          "primary_position_unreviewed": 29102
+        },
+        "completed_team_games": 544,
+        "observed_offensive_player_games": 5347,
+        "observed_offensive_players": 601,
+        "player_game_rows": 44669,
+        "player_games_without_observed_offensive_participation": 39322,
+        "team_games_with_retrospective_roster_retrieval": 544,
+        "team_games_with_roster_retrieved_before_kickoff": 0,
+        "team_games_without_roster_rows": 0,
+        "weekly_observations": 46849
+      },
+      "offensive_report_id": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+      "qualification_denominator_complete": false,
+      "ranking_ready": false,
+      "report_id": "be0547bd656d1925343bbd2ac5a2c14e6db44a4d53c47621fab0d4c874ea7ee7",
+      "roster_stints_verified": false,
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "source_game_types": {
+        "CON": 324,
+        "DIV": 667,
+        "REG": 44697,
+        "SB": 165,
+        "WC": 996
+      },
+      "source_issue_counts": {
+        "missing_gsis_id": 29,
+        "primary_position_unreviewed": 30518
+      },
+      "source_positions": {
+        "DB": 8944,
+        "DL": 6860,
+        "K": 759,
+        "LB": 6312,
+        "LS": 616,
+        "OL": 8402,
+        "P": 599,
+        "QB": 2032,
+        "RB": 3553,
+        "TE": 3110,
+        "WR": 5662
+      },
+      "source_retrieval": {
+        "data": "2026-10-26T20:49:45.882775+00:00",
+        "license": "2026-10-26T20:49:46.970669+00:00",
+        "metadata": "2026-10-26T20:49:45.668629+00:00"
+      },
+      "source_rows": 46849,
+      "source_statuses": {
+        "ACT": 27377,
+        "CUT": 951,
+        "DEV": 8783,
+        "EXE": 7,
+        "INA": 3593,
+        "RES": 5763,
+        "RET": 361,
+        "TRC": 7,
+        "TRD": 7
+      },
+      "source_updated_at": "2026-03-14T07:33:06Z",
+      "unresolved_actor_rows": [
+        {
+          "game_id": "2025_16_ATL_ARI",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0031279",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "ATL"
+        },
+        {
+          "game_id": "2025_07_NYG_DEN",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0033538",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "DEN"
+        },
+        {
+          "game_id": "2025_06_TEN_LV",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0034678",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "LV"
+        },
+        {
+          "game_id": "2025_17_ARI_CIN",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0035238",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "CIN"
+        },
+        {
+          "game_id": "2025_15_TEN_SF",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0035643",
+          "source_positions": [
+            "DL"
+          ],
+          "team": "TEN"
+        },
+        {
+          "game_id": "2025_13_ARI_TB",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0036406",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "TB"
+        },
+        {
+          "game_id": "2025_11_DET_PHI",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0036672",
+          "source_positions": [
+            "LB"
+          ],
+          "team": "DET"
+        },
+        {
+          "game_id": "2025_06_CIN_GB",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_10_PHI_GB",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_11_GB_NYG",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_13_GB_DET",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_14_CHI_GB",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_15_GB_DEN",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_17_BAL_GB",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_18_GB_MIN",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037091",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "GB"
+        },
+        {
+          "game_id": "2025_15_LAC_KC",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037241",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "LAC"
+        },
+        {
+          "game_id": "2025_09_IND_PIT",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037323",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "IND"
+        },
+        {
+          "game_id": "2025_18_KC_LV",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037512",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "LV"
+        },
+        {
+          "game_id": "2025_05_LV_IND",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0037757",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "IND"
+        },
+        {
+          "game_id": "2025_03_GB_CLE",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0038609",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "CLE"
+        },
+        {
+          "game_id": "2025_08_GB_PIT",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0038645",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "PIT"
+        },
+        {
+          "game_id": "2025_16_NE_BAL",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0039054",
+          "source_positions": [
+            "LB"
+          ],
+          "team": "NE"
+        },
+        {
+          "game_id": "2025_17_NE_NYJ",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0040165",
+          "source_positions": [
+            "DB"
+          ],
+          "team": "NYJ"
+        },
+        {
+          "game_id": "2025_07_ATL_SF",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0040245",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "SF"
+        }
+      ],
+      "weekly_roster_raw_sha256": "f3fbe6bb1b56a0f51c4b6d5793f8bc3b46da2d54c070572144b8771912eeaaec",
+      "weekly_roster_receipt": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+    },
+    "2026": {
+      "completed_games": 93,
+      "evidence_cutoff": "2026-10-26T20:50:19.932422+00:00",
+      "evidence_object": "3a9e42168bc2156e425aa88c5c6eae6b602cc96f7e53a50488dbbb97feb921f7",
+      "game_cohort_cutoff": "2026-10-22T23:50:38.680415+00:00",
+      "game_coverage_complete": true,
+      "included_offensive_plays": 11441,
+      "join_audit": {
+        "actor_issue_counts": {
+          "primary_position_unreviewed": 5
+        },
+        "actor_role_counts": {
+          "P": 3,
+          "QB": 206,
+          "RB": 475,
+          "TE": 395,
+          "WR": 735
+        },
+        "actor_rows_with_resolved_role": 1814,
+        "all_player_game_issue_counts": {
+          "primary_position_unreviewed": 9922
+        },
+        "completed_team_games": 186,
+        "observed_offensive_player_games": 1819,
+        "observed_offensive_players": 471,
+        "player_game_rows": 15320,
+        "player_games_without_observed_offensive_participation": 13501,
+        "team_games_with_retrospective_roster_retrieval": 186,
+        "team_games_with_roster_retrieved_before_kickoff": 0,
+        "team_games_without_roster_rows": 0,
+        "weekly_observations": 17606
+      },
+      "offensive_report_id": "e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83",
+      "qualification_denominator_complete": false,
+      "ranking_ready": false,
+      "report_id": "1e15bbad312a88685b9fa74164b6b8eecc677c49f07029528048413b3c35ea3b",
+      "roster_stints_verified": false,
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "source_game_types": {
+        "REG": 17606
+      },
+      "source_issue_counts": {
+        "missing_gsis_id": 8,
+        "primary_position_unreviewed": 11398
+      },
+      "source_positions": {
+        "DB": 3288,
+        "DL": 2403,
+        "K": 249,
+        "LB": 2658,
+        "LS": 232,
+        "OL": 3049,
+        "P": 240,
+        "QB": 747,
+        "RB": 1322,
+        "TE": 1233,
+        "WR": 2185
+      },
+      "source_retrieval": {
+        "data": "2026-10-26T20:48:24.916080+00:00",
+        "license": "2026-10-26T20:48:25.480978+00:00",
+        "metadata": "2026-10-26T20:48:24.631001+00:00"
+      },
+      "source_rows": 17606,
+      "source_statuses": {
+        "ACT": 10284,
+        "CUT": 583,
+        "DEV": 3291,
+        "EXE": 24,
+        "INA": 1339,
+        "RES": 1934,
+        "RET": 148,
+        "TRD": 1,
+        "TRT": 2
+      },
+      "source_updated_at": "2026-10-26T14:13:03Z",
+      "unresolved_actor_rows": [
+        {
+          "game_id": "2026_05_BAL_ATL",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0031279",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "ATL"
+        },
+        {
+          "game_id": "2026_01_SF_LA",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0032701",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "SF"
+        },
+        {
+          "game_id": "2026_02_IND_KC",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0036909",
+          "source_positions": [
+            "DL"
+          ],
+          "team": "KC"
+        },
+        {
+          "game_id": "2026_04_KC_LV",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0036909",
+          "source_positions": [
+            "DL"
+          ],
+          "team": "KC"
+        },
+        {
+          "game_id": "2026_04_IND_WAS",
+          "issues": [
+            "primary_position_unreviewed"
+          ],
+          "player_id": "00-0039913",
+          "source_positions": [
+            "OL"
+          ],
+          "team": "WAS"
+        }
+      ],
+      "weekly_roster_raw_sha256": "1053c34102ea0681819f9855ee3f5fc1a16d74a6f0b0bcfbe93bf58a3fd13297",
+      "weekly_roster_receipt": "f92fac17e168484f282c7954a103ae0850b6a59abe6e85f0dc74a8b60e583c9c"
+    }
+  },
+  "verification": {
+    "cli_replay": true,
+    "hosted_ci": "reported_separately_in_pr",
+    "local_chromium_rerun": false,
+    "local_frontend_contracts": 13,
+    "local_python": "3.13.2",
+    "local_python_tests": 217,
+    "make_check_passed": true,
+    "network_blocked_build": true,
+    "network_blocked_replay": true
+  }
+}
