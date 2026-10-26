@@ -9,7 +9,7 @@ import re
 import tempfile
 
 from nfl_value.first_unit import DEFENSE_ROLES
-from nfl_value.ingestion import SnapshotStore, json_bytes, replay
+from nfl_value.ingestion import json_bytes, replay
 from nfl_value.offensive_inputs import replay_offensive_inputs
 from nfl_value.pregame_inputs import _rows, build_inputs
 from nfl_value.source_audit import aware_time
@@ -218,7 +218,8 @@ def save_explorer(store, payload):
 
 def replay_explorer(raw, inputs, store, report_id):
     report = json.loads(store.read(report_id, manifest=True))
-    if report["report_version"] != 1 or report["ranking_ready"] is not False:
+    if (type(report["report_version"]) is not int or report["report_version"] != 1
+            or report["ranking_ready"] is not False):
         raise ValueError("unsupported explorer report")
     payload = build_explorer(raw, inputs, **{k: report[k] for k in ("offensive_report", "depth_charts", "rosters", "code_revision")})
     if json_bytes(payload) != store.read(report["object"]):
@@ -231,8 +232,18 @@ def export_explorer(store, report_id, destination):
     report = json.loads(store.read(report_id, manifest=True))
     body = store.read(report["object"])
     payload = json.loads(body)
-    if report["report_version"] != 1 or payload["schema_version"] != 1 or payload["kind"] != "defense_explorer" or payload["ranking_ready"] is not False:
+    if (type(report["report_version"]) is not int or report["report_version"] != 1
+            or report["ranking_ready"] is not False
+            or type(payload["schema_version"]) is not int or payload["schema_version"] != 1
+            or payload["kind"] != "defense_explorer" or payload["ranking_ready"] is not False):
         raise ValueError("unsupported explorer export")
+    expected = {
+        "code_revision": payload["code_revision"],
+        "offensive_report": payload["provenance"]["offensive_report"],
+        **{k: payload["provenance"]["source_receipts"][k] for k in ("depth_charts", "rosters")},
+    }
+    if any(report[k] != value for k, value in expected.items()):
+        raise ValueError("explorer export manifest disagrees with payload provenance")
     if any(p["cavaa"] is not None or p["defensive_snaps"] is not None for p in payload["players"]):
         raise ValueError("unadmitted values cannot be exported")
     destination = Path(destination)

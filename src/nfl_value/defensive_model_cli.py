@@ -55,7 +55,8 @@ def save(output, report, models, predictions, *, code_revision):
 
 def replay_experiment(raw, inputs, candidates, output, report_id):
     saved = json.loads(output.read(report_id, manifest=True))
-    if saved["experiment_version"] != 1 or saved["replay_tolerance"] != {"absolute": 1e-9, "relative": 1e-8}:
+    if (type(saved["experiment_version"]) is not int or saved["experiment_version"] != 1
+            or saved["replay_tolerance"] != {"absolute": 1e-9, "relative": 1e-8}):
         raise ValueError("unsupported defensive experiment or tolerance")
     if saved["environment"]["numpy"] != numpy.__version__ or saved["environment"]["scipy"] != scipy.__version__:
         raise ValueError("replay requires recorded NumPy/SciPy versions")

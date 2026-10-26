@@ -69,6 +69,15 @@ remain open defensive requirements. Protect the October 28–30 model freeze and
 November 7 release dates. The universal-MVP objective remains at risk until an
 individual contribution module passes admission.
 
+October 25 additional manual reliability unit: preserve the existing CI matrix
+and frontend stack while adding Ruff, measured branch/statement coverage,
+retained browser diagnostics, 13 replay/archive/export regressions, strict
+numerical/manifest guards and an optional manual dependency audit. Patch the
+flagged installer/build-tool pins without changing model dependencies. The suite
+now has 199 Python tests; coverage is 90.15% and informational. See
+[CI and the future publication acceptance contract](docs/CI.md). This extra unit
+changes no development schedule and does not complete ranking publication gates.
+
 - Build content-addressed ingestion for 2026 play-by-play, player identifiers, rosters, depth-chart snapshots, and game status.
 - Audit historical seasons and current-year schemas before fitting; record source coverage at the game and position level.
 - Implement pregame first-unit role membership and the two sensitivity benchmarks. Fail closed on missing required role cells.

@@ -1,7 +1,7 @@
 """Pregame chart membership, not participation, talent, or contribution scores."""
 
 from collections import defaultdict
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from nfl_value.benchmarks import CompletedTeamGame, FirstUnitAssignment, validate_player_id, validate_role
 from nfl_value.source_audit import aware_time, integer

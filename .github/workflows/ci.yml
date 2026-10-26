@@ -23,27 +23,55 @@ jobs:
         python-version: ['3.11', '3.12', '3.13']
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Bootstrap reviewed installer
+        run: python -m pip install --upgrade 'pip==26.2.2'
       - name: Install package and pinned modeling dependencies
-        run: python -m pip install '.[model]'
+        run: python -m pip install '.[model,quality]'
       - name: Verify installed package
         working-directory: /tmp
         run: python -c "import nfl_value; print(nfl_value.__version__)"
+      - name: Check Python lint and adopted formatting
+        if: matrix.python-version == '3.13'
+        run: make python-quality
       - name: Run offline contracts and workflow tests
-        run: python -m unittest discover -s tests -v
+        id: tests
+        run: PYTHONPATH=src python -m coverage run -m unittest discover -s tests -v
+      - name: Report measured branch and statement coverage
+        if: ${{ !cancelled() && (steps.tests.outcome == 'success' || steps.tests.outcome == 'failure') }}
+        run: |
+          make coverage-report
+          python -m coverage report --format=markdown >> "$GITHUB_STEP_SUMMARY"
       - name: Check source syntax and whitespace
         run: |
           python -m compileall -q src scripts tests
           git diff --check
           git show --format= --check HEAD
+      - name: Retain coverage diagnostics
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: coverage-python-${{ matrix.python-version }}
+          path: |
+            artifacts/coverage/html/
+            artifacts/coverage/coverage.xml
+            artifacts/coverage/coverage.json
+          if-no-files-found: warn
+          retention-days: 14
 
   dashboard:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24'
@@ -61,3 +89,13 @@ jobs:
       - name: Verify browser behavior with synthetic fixtures
         working-directory: web
         run: npm run test:e2e
+      - name: Retain browser reports and failure traces/screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: chromium-report
+          path: |
+            web/playwright-report/
+            web/test-results/
+          if-no-files-found: warn
+          retention-days: 14

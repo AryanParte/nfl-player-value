@@ -51,6 +51,19 @@ bars use HTML/CSS with text equivalents, so a charting library is not yet needed
 Dependency upgrades must preserve the shared Python/TypeScript contract and pass
 browser checks. These dependencies do not supply NFL attribution evidence.
 
+## CI tools added October 25
+
+Ruff 0.17.2 (MIT) and coverage.py 7.17.0 (Apache-2.0) are pinned in the optional
+`quality` extra. Ruff checks all Python files for selected high-signal errors;
+format adoption is incremental. Coverage reports executed statements/branches,
+not statistical validity. The optional manual audit pins pip-audit 2.10.1
+(Apache-2.0) and uses npm's existing audit command; it records resolved transitive
+tool dependencies. No additional application runtime dependencies or paid services
+were introduced. Pip 26.2.2 and setuptools 84.1.0 address audit findings in the
+installer/build environment. Model NumPy/SciPy pins remain unchanged. See
+[CI](CI.md) for primary documentation, commands, measured coverage, tool policies
+and the rationale for deferring broad static type checking.
+
 ## Research references with substantial adaptation required
 
 | Project | Actual limitations found | Decision |
