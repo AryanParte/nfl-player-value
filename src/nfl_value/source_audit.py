@@ -12,6 +12,7 @@ import re
 from nfl_value.sources import SourceSpec
 from nfl_value.schedules import SCHEDULE_COLUMNS, audit_schedule_rows
 from nfl_value.participation import PARTICIPATION_COLUMNS, audit_participation_rows
+from nfl_value.weekly_rosters import WEEKLY_ROSTER_COLUMNS, audit_weekly_rosters
 
 
 MAX_DECODED_BYTES = 512 * 1024 * 1024
@@ -22,6 +23,7 @@ REQUIRED = {
     "depth_charts": {"dt", "team", "gsis_id", "espn_id", "pos_grp_id", "pos_slot", "pos_rank", "pos_abb"},
     "schedules": SCHEDULE_COLUMNS,
     "participation": PARTICIPATION_COLUMNS,
+    "weekly_rosters": WEEKLY_ROSTER_COLUMNS,
 }
 
 
@@ -61,6 +63,12 @@ def audit_csv(raw: bytes, spec: SourceSpec, *, observed_at: str) -> dict:
     missing = REQUIRED[spec.kind] - set(columns)
     if missing:
         raise ValueError(f"missing required columns: {sorted(missing)}")
+    if spec.kind == "weekly_rosters":
+        return {
+            "schema_version": spec.schema_version, "columns": columns,
+            "decoded_bytes": len(decoded), "decoded_sha256": hashlib.sha256(decoded).hexdigest(),
+            **audit_weekly_rosters(reader, season=spec.season),
+        }
     if spec.kind == "participation":
         return {
             "schema_version": spec.schema_version, "columns": columns,

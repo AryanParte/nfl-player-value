@@ -54,9 +54,10 @@ class CompletedTeamGame:
 
     The season-specific schedule remains authoritative for whether an otherwise
     valid week exists (for example, older seasons with only 17 regular weeks).
-    completed_at is a conservative known-complete-by bound when an exact finish
-    time is unavailable. The ingestion report must identify that time semantics;
-    never backdate the bound to an invented final-whistle time.
+    completed_at defaults to a conservative observed_by bound. Only an explicitly
+    documented final-whistle timestamp may use completion_time_kind="exact".
+    Retrieval bounds cannot establish game duration or overlapping player games;
+    never backdate them to an invented finish time.
     """
 
     game_id: str
@@ -64,6 +65,7 @@ class CompletedTeamGame:
     kickoff: datetime
     completed_at: datetime
     season_type: Literal["REG"]
+    completion_time_kind: Literal["observed_by", "exact"] = "observed_by"
 
     def __post_init__(self) -> None:
         if not isinstance(self.game_id, str) or not re.fullmatch(
@@ -72,6 +74,8 @@ class CompletedTeamGame:
             raise ValueError("game_id must use the nflverse season_week_away_home form")
         if self.season_type != "REG":
             raise ValueError("the season MVP window accepts regular-season (REG) games only")
+        if self.completion_time_kind not in {"observed_by", "exact"}:
+            raise ValueError("completion_time_kind must be observed_by or exact")
         week = int(self.game_id.split("_")[1])
         if not 1 <= week <= 18:
             raise ValueError("regular-season game week must be between 1 and 18")

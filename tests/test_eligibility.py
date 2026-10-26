@@ -99,6 +99,22 @@ class EligibilityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "opportunity_unit"):
             qualify(season("WR", (20, 20, 20), unit="offensive_snaps"), VALIDATED)
 
+    def test_shared_retrieval_bound_does_not_create_overlapping_games(self):
+        exposure = season()
+        games = tuple(replace(g, game=replace(g.game, completed_at=exposure.cutoff)) for g in exposure.games)
+        bounded = replace(exposure, games=games)
+        self.assertEqual(qualify(bounded, VALIDATED), qualify(exposure, VALIDATED))
+        with self.assertRaisesRegex(ValueError, "not completed"):
+            replace(bounded, cutoff=exposure.cutoff - timedelta(seconds=1))
+
+    def test_explicit_exact_finish_rejects_overlap_without_inventing_finish_times(self):
+        exposure = season()
+        first = replace(exposure.games[0].game, completed_at=exposure.games[1].game.kickoff + timedelta(minutes=1), completion_time_kind="exact")
+        with self.assertRaisesRegex(ValueError, "overlapping"):
+            replace(exposure, games=(replace(exposure.games[0], game=first),) + exposure.games[1:])
+        with self.assertRaisesRegex(ValueError, "completion_time_kind"):
+            replace(first, completion_time_kind="estimated")
+
     def test_missing_denominators_and_future_or_incomplete_windows_fail_closed(self):
         missing = qualify(season("CB", (40, 40, 40)), VALIDATED)
         self.assertFalse(missing.participation_qualified)

@@ -44,6 +44,7 @@ def source_spec(kind: str, season: int) -> SourceSpec:
     choices = {
         "pbp": ("pbp", f"play_by_play_{season}.csv.gz", "pbp-csv-v1"),
         "rosters": ("rosters", f"roster_{season}.csv.gz", "rosters-csv-v1"),
+        "weekly_rosters": ("weekly_rosters", f"roster_weekly_{season}.csv.gz", "weekly-rosters-csv-v1"),
         "depth_charts": ("depth_charts", f"depth_charts_{season}.csv.gz", "depth-2025-csv-v1"),
         "schedules": ("schedules", "games.csv.gz", "schedules-csv-v1"),
     }
@@ -51,6 +52,8 @@ def source_spec(kind: str, season: int) -> SourceSpec:
         raise ValueError(f"unreviewed source: {kind!r}")
     if kind == "depth_charts" and season < 2025:
         raise ValueError("pre-2025 depth charts require a different schema adapter")
+    if kind == "weekly_rosters" and season < 2002:
+        raise ValueError("weekly roster coverage begins in 2002")
     tag, filename, schema = choices[kind]
     return SourceSpec(
         kind, season, tag, filename, schema, "CC-BY-4.0",

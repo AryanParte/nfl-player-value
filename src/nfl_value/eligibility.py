@@ -74,7 +74,15 @@ class SeasonExposure:
             if exposure.game.completed_at > self.cutoff:
                 raise ValueError("game was not completed by cutoff")
         ordered = sorted(self.games, key=lambda g: g.game.kickoff)
-        if any(a.game.completed_at > b.game.kickoff for a, b in zip(ordered, ordered[1:])):
+        # A late retrieval can bound the completion of several earlier games.
+        # That bound is not evidence they were still in progress simultaneously.
+        # Equal kickoffs are incompatible; otherwise only an exact finish can
+        # establish overlap. Reconciled roster membership remains upstream.
+        if any(
+            a.game.kickoff == b.game.kickoff
+            or (a.game.completion_time_kind == "exact" and a.game.completed_at > b.game.kickoff)
+            for a, b in zip(ordered, ordered[1:])
+        ):
             raise ValueError("player season cannot contain overlapping team games")
 
 
