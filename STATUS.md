@@ -1,17 +1,22 @@
 # Project status
 
-Updated: October 25, 2026, America/New_York.
+Updated: October 26, 2026, America/New_York.
 
 ## Current unit
 
-The additional manual CI/reliability unit is implemented on
-`codex/ci-regression-reliability`, from owner-merged PR #8 / main `5080d15`.
-Main CI was green and there were no open PRs or unfinished changes at inspection.
-The unit adds pinned Ruff/coverage checks, retained CI/browser diagnostics,
-13 meaningful replay/export/archive regressions, stricter numerical and manifest
-validation, and a manual dependency audit. Installer/build-tool advisory matches
-were resolved with pip 26.2.2 and setuptools 84.1.0. See [CI](docs/CI.md) and the
-appended [learning report](docs/learning/2026-10-25.md). No schedule was changed.
+The weekly position/team evidence unit is implemented on
+`codex/position-exposure-evidence`, from owner-merged PR #9 / main `61dcead`.
+Main CI was green, with no open PRs, reviews to address or unfinished local work.
+The new source adapter archives weekly rosters separately from annual rosters;
+the offline join records exact player/team/week matches, unresolved identities,
+literal statuses and missing workloads. `SeasonExposure` now distinguishes a
+completion retrieval bound from an exact finish. See the
+[contract](docs/ROSTER_INPUTS.md), [audit](docs/audits/2026-10-26-roster-evidence.json)
+and [learning report](docs/learning/2026-10-26.md).
+
+The preceding manual CI/reliability work is merged. Its Python matrix, Ruff,
+coverage diagnostics, frontend/browser checks and optional dependency audit remain
+intact. This unit adds no dependencies, services or schedules.
 
 The required **Defense Explorer foundation and first React/TypeScript dashboard**
 are implemented. The Python exporter rebuilds scoped observed evidence from the
@@ -20,14 +25,28 @@ showing players, filters, chart coverage, team EPA and provenance. See the
 [contract](docs/DEFENSE_EXPLORER.md), [audit](docs/audits/2026-10-25-defense-explorer.json)
 and [learning report](docs/learning/2026-10-25.md).
 
-PR #8 is now merged by the owner. This manual unit targets main with no stacked
-dependency. Agents still must not merge this work or enable auto-merge.
+This unit targets main with no stacked dependency. Agents must not merge this
+work or enable auto-merge.
 
 ## Measured evidence
 
+The new join exactly replays with network calls blocked. The 2025 archive has
+46,849 weekly rows (44,697 regular season); 5,323 of 5,347 observed offensive
+player-game rows have a directly interpretable source position. The 2026 archive
+has 17,606 weekly rows; 1,814 of 1,819 offensive player-game rows resolve. The
+remaining 24/5 use broad position labels and stay unresolved. No matched
+team-game is missing all roster rows, which does **not** certify complete stints.
+29 historical roster rows have missing GSIS IDs and remain unlinked.
+
+All weekly roster evidence was retrieved retrospectively. Its October 26 evidence
+cutoff does not advance either archived game cohort: 2025 retains 272 games /
+32,813 plays, and 2026 retains the 93-game / 11,441-play Week 6 snapshot below.
+Unobserved offensive workloads stay null, and every denominator/admission gate
+remains false. No completed-game inventory was refreshed in this unit.
+
 The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not October 25 live coverage.
+23:50:38.680415 UTC; this is an archived snapshot, not October 26 live coverage.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
 one unresolved roster name and ten blocked defensive team-game-role cells:
@@ -47,25 +66,27 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-199 Python tests, 13 frontend contracts, TypeScript/format/build checks and eight
-Chromium scenarios pass locally. Combined Python coverage is 90.15%; it remains
-informational and does not establish attribution. The manual dependency audits
-report no known vulnerabilities with the new installer/build pins. Hosted CI
-results for this branch will be reported separately; local success is not hosted
-verification. During the earlier Explorer unit, the real snapshot built and exactly replayed
+217 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
+whitespace checks pass locally. The existing eight Chromium scenarios were not
+rerun locally for this Python-only unit; the unchanged hosted dashboard job runs
+them. Hosted results for this branch are reported separately. The October 25
+coverage baseline was 90.15% and remains informational; it is not today's
+measurement or evidence of attribution. During the earlier Explorer unit, the
+real snapshot built and exactly replayed
 offline with network construction/connections blocked. Desktop/mobile inspection
 finds no page errors, failed responses or document overflow. See the audit for
 recorded inputs and the learning report for failures fixed during verification.
 
-## Next highest-priority unit — October 26
+## Next highest-priority unit — October 27
 
-Finish position/roster-stint evidence and correct `SeasonExposure`'s observed-by
-completion timestamp handling before benchmark contrasts or qualification. Do not
-infer missed-game denominators from positive appearances. Test the first-unit,
-equal-player and opportunity-weighted contrasts on the bounded historical plan,
-with joint player/benchmark uncertainty and qualification sensitivity. Keep the
-October 28–30 freeze and November 7 launch target explicit; additional complexity
-must not displace admission decisions or publication work.
+Implement and test the first-unit, equal-player and opportunity-weighted contrasts
+for directly supported offensive role evidence. Resolve a documented exposure
+policy using the weekly/status and pregame evidence; explicitly block ambiguous
+trades, gaps, injuries and unverified missed-game denominators. Do not silently
+fill them or let leaderboard qualification define the benchmark. Complete the
+bounded qualification/uncertainty tests and admission decisions in the October
+28–30 freeze window. Prioritize that experiment and its decision over further
+generic data/CI framework work; November 7 remains the launch target.
 
 Defensive follow-up still requires a permitted live workload source, actual
 live-like missingness, verified positions, additional seasons, absence cases and

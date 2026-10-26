@@ -6,6 +6,11 @@ and preserves the bytes for offline replay. The separate [pregame input layer](P
 reconciles schedule/PBP completion evidence and selects first-unit chart members.
 Neither layer produces model opportunities, eligibility decisions, or rankings.
 
+The [weekly roster evidence layer](ROSTER_INPUTS.md) adds a separately versioned
+`weekly_rosters` source and an offline join to the offensive opportunity ledger.
+It preserves weekly positions/statuses without pretending they are exact roster
+transactions or certifying eligibility. The annual `rosters` source is unchanged.
+
 The dedicated [historical defensive layer](DEFENSE_INPUTS.md) additionally captures
 uncompressed FTN participation CSVs for 2023–2025 with CC-BY-SA terms and the
 source's attribution declaration. Its derived research cohort is separate from
@@ -22,6 +27,7 @@ or installed copy, so each receipt can identify its executing Git revision.
 ```sh
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture pbp --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture rosters --season 2026
+PYTHONPATH=src python3 -m nfl_value.ingest_cli capture weekly_rosters --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture depth_charts --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture schedules --season 2026
 PYTHONPATH=src python3 -m nfl_value.ingest_cli capture participation --season 2025

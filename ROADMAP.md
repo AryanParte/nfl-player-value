@@ -62,12 +62,24 @@ verification, runtime contracts, offline replay and browser tests guard the view
 No live workload fractions or CAVAA scores are supplied, and the site is not yet
 deployed. See [the measured audit](docs/audits/2026-10-25-defense-explorer.json).
 
-October 26 priority: finish identity/position, roster/stint evidence and the
-observed-by timestamp correction before positional contrasts or qualification.
-Additional seasons, actual live-feed degradation and absence/uncertainty checks
-remain open defensive requirements. Protect the October 28–30 model freeze and
-November 7 release dates. The universal-MVP objective remains at risk until an
-individual contribution module passes admission.
+October 26 progress: [weekly position/team evidence](docs/ROSTER_INPUTS.md) now
+archives the distinct weekly roster source, joins exact GSIS/team/season/week,
+preserves missing and ambiguous observations, and replays both seasons offline.
+2025 resolves 5,323/5,347 observed offensive player-game positions; archived 2026
+resolves 1,814/1,819. Broad labels remain unresolved. The `SeasonExposure`
+observed-by timestamp bug is fixed with regression tests. Weekly listing is
+insufficient to certify exact roster stints: that policy/denominator gate remains
+open, with no backfill or invented participation. See the
+[audit](docs/audits/2026-10-26-roster-evidence.json).
+
+October 27 priority: implement bounded positional benchmark contrasts, review the
+exposure policy against these literal records, and make uncertainty/qualification
+failures explicit. Keep benchmark populations independent of eligibility. Protect
+the October 28–30 freeze and November 7 release dates. Further generic ingestion
+or CI expansion must not displace these decisions. Additional seasons, actual
+live-feed degradation and absence/uncertainty checks remain open defensive
+requirements. The universal-MVP objective remains at risk until an individual
+contribution module passes admission.
 
 October 25 additional manual reliability unit: preserve the existing CI matrix
 and frontend stack while adding Ruff, measured branch/statement coverage,

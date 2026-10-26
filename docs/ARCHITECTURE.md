@@ -80,6 +80,15 @@ independent weekly publication still require implementation and admission gates.
 
 ## Snapshot and release contract
 
+The [weekly roster evidence layer](ROSTER_INPUTS.md) replays the offensive input
+chain and a separate weekly roster receipt before joining GSIS/team/season/week.
+It writes a hashed evidence payload and report to `data/derived/roster-inputs`.
+The source adapter remains stdlib-only. Observation references and literal
+statuses preserve provenance; unmatched workloads remain null. The report binds
+separate game-cohort and evidence cutoffs, avoiding a false claim that a newer
+roster download refreshes earlier game coverage. It is an upstream diagnostic
+artifact, not a ranking export or completed eligibility denominator.
+
 Each source manifest should record the source URL/release asset, retrieval time, upstream update time when supplied, content hash, size, schema version, license/provenance reference, and observed game/week coverage. Record compressed and decoded hashes when transformations make both relevant. An upstream modification timestamp alone is not a data version.
 
 Each model release should identify its input manifest hashes, code commit, dependency lock, model and qualification policies, benchmark cohort/weights, seed, training cutoff, completed games, exclusion counts, diagnostics, and output hashes. Persist sufficient fitted state or reproducible instructions for an offline rerun.
