@@ -1,0 +1,13 @@
+{
+  "plan_version": 1,
+  "windows": {"2025": [6, 10, 14, 18], "2026": [3, 6]},
+  "roles": ["QB", "RB", "WR", "TE"],
+  "primary_actor_penalty": 1000.0,
+  "actor_penalties": [10.0, 100.0, 1000.0],
+  "context_penalty": 1.0,
+  "team_penalty": 50.0,
+  "qualification_multipliers": [0.75, 1.0, 1.25],
+  "uncertainty": "conditional-gaussian-plugin-iid-v1",
+  "exposure_policy": "full-observed-single-team-window-v1",
+  "allow_retrospective": true
+}
