@@ -37,6 +37,12 @@ Formatting is introduced incrementally: `PYTHON_FORMAT_FILES` in the Makefile
 checks the baseline CLI, reliability tests, weekly-roster modules/tests and
 October 27 contrast modules/tests. The latter add independent joint-covariance,
 accounting, prefix isolation and offline numerical replay regressions.
+October 28 calibration modules/tests are also formatted and add 13 regressions:
+cached ridge versus independent dense algebra and the existing fitter, exact
+bias, clustered/oracle variances, prior-only parameters, Monte Carlo dependence,
+deterministic synthetic truth, prefix selection and corrupted/rehashed replay.
+The broader two-design simulation is an offline research command documented in
+[CALIBRATION.md](CALIBRATION.md), not a live-download prerequisite for PR CI.
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports

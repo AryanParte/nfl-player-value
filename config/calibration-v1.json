@@ -1,0 +1,21 @@
+{
+  "plan_version": 1,
+  "windows": {"2025": 6, "2026": 6},
+  "benchmark": "first_unit",
+  "actor_penalties": [10.0, 100.0, 1000.0],
+  "primary_actor_penalty": 1000.0,
+  "replicates": 256,
+  "seed": 20261028,
+  "noise_sd": 1.5,
+  "fixed_effect_magnitudes": {"actor": 0.25, "context": 0.1, "team": 0.15, "observed_role": 0.05},
+  "scenarios": [
+    {"name": "matched_prior_iid", "truth": "matched_prior", "noise_group": "game", "correlated_fraction": 0.0},
+    {"name": "fixed_signal_iid", "truth": "fixed_signal", "noise_group": "game", "correlated_fraction": 0.0},
+    {"name": "fixed_signal_game", "truth": "fixed_signal", "noise_group": "game", "correlated_fraction": 0.5},
+    {"name": "fixed_signal_team", "truth": "fixed_signal", "noise_group": "offense_team", "correlated_fraction": 0.5}
+  ],
+  "cluster_estimator": "game_cr0_penalized_scores_v1",
+  "nominal_coverage": 0.95,
+  "severe_undercoverage_bound": 0.9,
+  "alias_shift_ep_per_component": 0.25
+}

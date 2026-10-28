@@ -37,6 +37,12 @@ and two sensitivity benchmarks, joint conditional uncertainty, six cumulative
 windows and a narrow exposure/qualification study. Strong penalty sensitivity,
 missing historical benchmark cells and selective exposure remain explicit.
 
+October 28 adds [known-effect calibration](docs/CALIBRATION.md): 6,144 synthetic
+response fits on the archived Week 6 designs, interval/bias diagnostics and exact
+alias checks. Near-95% coverage under the model's own prior does not survive the
+prespecified stronger-signal tests. This is a documented model limitation, not a
+new ranking or a measurement of actual players' errors.
+
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -75,6 +81,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Positional contrasts](docs/CONTRASTS.md) | Benchmark accounting, joint conditional intervals, prefix isolation and narrow exposure diagnostics |
+| [Calibration stress tests](docs/CALIBRATION.md) | Known-truth coverage, shrinkage bias, clustered noise, exact aliases and offline replay |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
 | [Project status](STATUS.md) | Completed work, active limitations, and next task |
 | [Daily workflow](docs/DAILY_WORKFLOW.md) | Independent development runs, locking, verification, and PR rules |
@@ -88,6 +95,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 25 learning report](docs/learning/2026-10-25.md) | Observed versus attributed value, the first dashboard and shared data contracts |
 | [October 26 learning report](docs/learning/2026-10-26.md) | Retrospective roster evidence, exposure timing and real offline replay |
 | [October 27 learning report](docs/learning/2026-10-27.md) | Positional contrasts, shared uncertainty, shrinkage sensitivity and selective exposure |
+| [October 28 learning report](docs/learning/2026-10-28.md) | Prior-dependent coverage, sampling variance versus bias, and attribution stress tests |
 
 ## Run the checks
 
@@ -103,7 +111,7 @@ npm --prefix web ci --ignore-scripts --no-fund
 make check PYTHON=.venv/bin/python
 ```
 
-This runs 237 offline Python tests and 13 frontend contract tests, checks Python
+This runs 250 offline Python tests and 13 frontend contract tests, checks Python
 lint/adopted formatting and frontend formatting/TypeScript, builds the dashboard,
 compiles Python and checks whitespace. See [CI and release gates](docs/CI.md) for
 coverage reports, browser diagnostics and the optional manual dependency audit.

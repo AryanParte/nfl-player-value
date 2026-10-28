@@ -84,8 +84,18 @@ RB/WR/TE benchmark cells fail closed on one ARI game's missing slots. The larges
 2026 penalty range is 87.14 EP versus 0.54 EP across benchmark choices at the
 primary setting. See the [audit](docs/audits/2026-10-27-positional-contrasts.json).
 
-October 28 priority: bounded calibration/attribution stress tests and a formal
-admission decision, with prespecified clustered/shrinkage and absence/cast cases.
+October 28 progress: [known-effect calibration](docs/CALIBRATION.md) implements
+four frozen scenarios, three unchanged penalties and 256 replicates on each real
+Week 6 design (6,144 synthetic-response fits), plus exact-alias diagnostics.
+Both complete chains replay offline. Matched-prior conditional coverage is near
+95%, while stronger-signal primary coverage falls below 2%; the game-cluster
+diagnostic does not fix regularization bias. Oracle expectation controls remain
+near 95%. No interval or position is admitted. Thirteen new regression tests
+protect independent algebra, cold parameters, simulated truth and archive replay.
+See the [audit](docs/audits/2026-10-28-calibration.json).
+
+October 29 priority: prespecified absence/cast and remaining exposure evidence,
+followed by formal admission/non-admission and release labels by October 30.
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without
 invented fills or outcome-selected cohorts. Protect the October 28–30 freeze and

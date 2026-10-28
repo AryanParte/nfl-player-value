@@ -109,6 +109,16 @@ This selected subset does not resolve general stints, injured/missed games, trad
 or late signings. The three-game rule and threshold grid remain provisional,
 and every main-admission flag stays false.
 
+October 28 [calibration results](CALIBRATION.md) demonstrate why that distinction
+matters: near-nominal coverage under effects drawn from the prior coexists with
+severe undercoverage for the prespecified stronger effects. Sampling uncertainty
+around a biased estimator is not uncertainty about the true player contrast.
+Neither an uncorrected game-cluster diagnostic nor known-noise oracle width
+resolves this bias. No interval is relabeled as calibrated NFL uncertainty, no
+penalty is reselected and no position is admitted. The simulations preserve the
+same first-unit benchmark and observed opportunities; they do not validate the
+observed-role conditioning policy or recover unobserved contributions.
+
 ## Evidence and release labels
 
 Prediction accuracy supports the outcome model but does not establish correct player attribution. Cross-position admission requires a comparable estimand, benchmark, opportunity definition, accounting policy, and meaningful validation. Unsupported contributions stay unmeasured; missing is not zero. See [evaluation](EVALUATION.md) and the required [defensive experiment](DEFENSE_EXPERIMENT.md).
