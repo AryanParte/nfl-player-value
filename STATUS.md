@@ -1,19 +1,25 @@
 # Project status
 
-Updated: October 27, 2026, America/New_York.
+Updated: October 28, 2026, America/New_York.
 
 ## Current unit
 
-The bounded positional contrast unit is implemented on
-`codex/positional-contrast-diagnostics`, from owner-merged PR #10 / main `a29e7a5`.
+The bounded known-effect calibration unit is implemented on
+`codex/attribution-calibration`, from owner-merged PR #11 / main `4ffc6ab`.
 Main CI was green, with no open PRs, reviews to address or unfinished local work.
-The plan was committed before numerical results. The implementation compares
-joint actor effects against first-unit, equal-player and opportunity-weighted
-benchmarks; propagates shared conditional uncertainty; reconciles every fitted
-play; and tests the qualification grid on a narrow proven-participation subset.
-Both seasons build and numerically replay offline. See the
-[specification](docs/CONTRASTS.md), [audit](docs/audits/2026-10-27-positional-contrasts.json)
-and [learning report](docs/learning/2026-10-27.md).
+The plan was committed before results. It simulates known player effects on the
+verified 2025/2026 Week 6 designs, measures interval coverage and shrinkage bias,
+and tests exactly interchangeable actor allocations. Both complete chains build
+and numerically replay offline. See the [specification and results](docs/CALIBRATION.md),
+[audit](docs/audits/2026-10-28-calibration.json) and
+[learning report](docs/learning/2026-10-28.md).
+
+**The primary intervals fail the stronger-signal stress tests.** Matched-prior
+coverage is 94.85/94.94%, but fixed-signal coverage is only 0.96–1.94% in 2025 and
+0.88–1.13% in archived 2026. Those are simulated truths, not measured real-player
+errors. Game-cluster sampling variance does not repair shrinkage bias. All 6,144
+synthetic-response fits retain the declared settings; no penalty, threshold,
+benchmark or admission decision is changed to improve these results.
 
 The preceding manual CI/reliability work is merged. Its Python matrix, Ruff,
 coverage diagnostics, frontend/browser checks and optional dependency audit remain
@@ -47,7 +53,8 @@ RB/WR/TE populations in later historical windows; they are not silently omitted.
 The largest 2026 Week 6 primary-setting benchmark difference is 0.54 EP, while the
 largest per-player range across the declared penalties is 87.14 EP. This strong
 regularization dependence and the selective exposure subset prevent an admission
-claim. Conditional intervals are uncalibrated. Maximum per-play reconstruction
+claim. Conditional intervals now have measured calibration failures under the
+declared stronger-signal scenarios. Maximum per-play reconstruction
 error across all fits is 1.78e-15 EP, which verifies arithmetic, not attribution.
 The first-unit benchmark, penalty 1000 and provisional eligibility rules are
 unchanged. The experiment adds no public scores or new live game coverage.
@@ -69,7 +76,7 @@ No completed-game inventory was refreshed in this unit.
 
 The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not October 27 live coverage.
+23:50:38.680415 UTC; this is an archived snapshot, not October 28 live coverage.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
 one unresolved roster name and ten blocked defensive team-game-role cells:
@@ -89,7 +96,7 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-237 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
+250 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
 whitespace checks pass locally. The existing eight Chromium scenarios were not
 rerun locally for this Python-only unit; the unchanged hosted dashboard job runs
 them. Hosted results for this branch are reported separately. The October 25
@@ -100,17 +107,17 @@ offline with network construction/connections blocked. Desktop/mobile inspection
 finds no page errors, failed responses or document overflow. See the audit for
 recorded inputs and the learning report for failures fixed during verification.
 
-## Next highest-priority unit — October 28
+## Next highest-priority unit — October 29
 
-Freeze a bounded attribution/uncertainty decision plan before new results: test
-clustered dependence and shrinkage sensitivity against controlled known effects,
-then examine prespecified absence/supporting-cast cases without retuning on old
-test outcomes. Resolve the missing historical chart cells only from defensible
-evidence, and assess a broader verified missed-game/stint policy. The all-games
-observed subset is not a production denominator fallback. Document admission or
-non-admission by October 30; never turn arithmetic correctness, narrow intervals
-or benchmark completeness into scientific validation. Prioritize this decision
-over more generic data/CI work. November 7 remains the target.
+Prespecify a small outcome-independent absence/supporting-cast audit on existing
+archives and assess the remaining source/exposure evidence needed for formal
+module decisions by October 30. Resolve historical chart gaps only from defensible
+evidence. The selective all-games-observed subset is not a production denominator
+fallback. The measured shrinkage/dependence failures cannot be repaired by choosing
+the best-looking simulated penalty or merely widening intervals. Freeze an honest
+admission/non-admission decision and release labels without another open-ended
+model rebuild. Prioritize that decision, then the November 7 website, durable
+artifacts and independent publication/last-good-output work.
 
 Defensive follow-up still requires a permitted live workload source, actual
 live-like missingness, verified positions, additional seasons, absence cases and
@@ -120,8 +127,9 @@ player uncertainty. Do not convert the Explorer's event counts into scores.
 
 The local exploratory website is usable, but no 2026 CAVAA score is published and
 no position has passed attribution/comparability admission. The first offensive
-contrast/conditional-interval and partial qualification experiments now run;
-calibration, broader exposure, admission, ranked/history views, durable
+contrast/conditional-interval, bounded calibration and partial qualification
+experiments now run, but calibrated player uncertainty, broader exposure,
+admission, ranked/history views, durable
 off-machine snapshot retention, deployment and independent production refresh
 remain unfinished. Source receipts and generated exports are local and ignored
 by Git; a hash alone cannot restore missing bytes. The current public-data rights

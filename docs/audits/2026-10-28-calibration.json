@@ -1,0 +1,856 @@
+{
+  "audit_version": 1,
+  "date": "2026-10-28",
+  "inference": "bounded stress tests, not empirical calibration or causal identification",
+  "kind": "known-effect-calibration",
+  "outcomes": "synthetic known truth on real archived Week 6 incidence; not real player errors",
+  "plan_path": "config/calibration-v1.json",
+  "plan_revision": "715a4bc",
+  "plan_sha256": "689e6a245d775893efcdbd8260d7529540cad490b7105cec5bf31b1bbb8f2701",
+  "ranking_ready": false,
+  "remaining": [
+    "Real absence/supporting-cast evidence",
+    "Broader verified exposure/stint policy",
+    "Historical incomplete first-unit cells",
+    "Position admission and release labels",
+    "Durable off-machine artifact retention",
+    "Ranked/history views and independent production refresh"
+  ],
+  "seasons": {
+    "2025": {
+      "alias_summary": {
+        "all_constructed_play_expectation_changes_zero": true,
+        "largest_single_prior_only_shift": {
+          "affected_contrasts": 36,
+          "coefficient_shifts": {
+            "carry/00-0023459": 0.25
+          },
+          "kind": "prior_only_column",
+          "max_absolute_contrast_change_ep": 0.1796875,
+          "max_change_contrast": {
+            "component_opportunities": {
+              "carry": 23,
+              "dropback": 209
+            },
+            "player_id": "00-0036389",
+            "role": "QB",
+            "unique_opportunities": 232
+          },
+          "max_change_contrast_index": 32,
+          "max_play_expectation_change_ep": 0.0,
+          "signed_change_at_max_ep": -0.1796875
+        },
+        "observed_pairs": [],
+        "prior_only_cases_affecting_contrasts": 6
+      },
+      "build_seconds": 28.439,
+      "conditional_interval_penalty_sensitivity": {
+        "fixed_signal_game/penalty-10": {
+          "coverage": 0.916649070945946,
+          "mean_absolute_conditional_bias_ep": 3.184151344722749,
+          "mean_width_ep": 29.043061071752113,
+          "monte_carlo_se": 0.0009020725132583114,
+          "rmse_ep": 19.451965080495025,
+          "severe_undercoverage": false
+        },
+        "fixed_signal_game/penalty-100": {
+          "coverage": 0.6731770833333333,
+          "mean_absolute_conditional_bias_ep": 5.788117941741697,
+          "mean_width_ep": 15.366658419342446,
+          "monte_carlo_se": 0.00316117853484555,
+          "rmse_ep": 12.127211029748041,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_game/penalty-1000": {
+          "coverage": 0.01583614864864865,
+          "mean_absolute_conditional_bias_ep": 8.110587408917677,
+          "mean_width_ep": 5.836884463606157,
+          "monte_carlo_se": 0.00018901132472704438,
+          "rmse_ep": 14.120610658206965,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_iid/penalty-10": {
+          "coverage": 0.9865656672297297,
+          "mean_absolute_conditional_bias_ep": 3.184151344722749,
+          "mean_width_ep": 32.27673351132624,
+          "monte_carlo_se": 0.00034510655731019726,
+          "rmse_ep": 10.367612846143523,
+          "severe_undercoverage": false
+        },
+        "fixed_signal_iid/penalty-100": {
+          "coverage": 0.8236732826576576,
+          "mean_absolute_conditional_bias_ep": 5.788117941741697,
+          "mean_width_ep": 16.925771565128407,
+          "monte_carlo_se": 0.0011998444013536723,
+          "rmse_ep": 10.21347079815769,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_iid/penalty-1000": {
+          "coverage": 0.019434473536036036,
+          "mean_absolute_conditional_bias_ep": 8.110587408917677,
+          "mean_width_ep": 6.3797411100783705,
+          "monte_carlo_se": 0.00011883913983831926,
+          "rmse_ep": 14.072532831676112,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_team/penalty-10": {
+          "coverage": 0.8522663288288288,
+          "mean_absolute_conditional_bias_ep": 3.184151344722749,
+          "mean_width_ep": 23.00178517981249,
+          "monte_carlo_se": 0.0013282375535772337,
+          "rmse_ep": 30.49649764014994,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_team/penalty-100": {
+          "coverage": 0.33749472128378377,
+          "mean_absolute_conditional_bias_ep": 5.788117941741697,
+          "mean_width_ep": 12.148230151169818,
+          "monte_carlo_se": 0.0011869667070850613,
+          "rmse_ep": 13.011707699280477,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_team/penalty-1000": {
+          "coverage": 0.009589667792792793,
+          "mean_absolute_conditional_bias_ep": 8.110587408917677,
+          "mean_width_ep": 4.609166146482084,
+          "monte_carlo_se": 6.294272005453044e-05,
+          "rmse_ep": 14.112592123692314,
+          "severe_undercoverage": true
+        },
+        "matched_prior_iid/penalty-10": {
+          "coverage": 0.9913692989864866,
+          "mean_absolute_conditional_bias_ep": 2.0818283637807387,
+          "mean_width_ep": 32.24678606185739,
+          "monte_carlo_se": 0.00029418880805662234,
+          "rmse_ep": 10.11854701533055,
+          "severe_undercoverage": false
+        },
+        "matched_prior_iid/penalty-100": {
+          "coverage": 0.9996216920045046,
+          "mean_absolute_conditional_bias_ep": 1.1266410152597905,
+          "mean_width_ep": 16.816053687958526,
+          "monte_carlo_se": 5.272675011994852e-05,
+          "rmse_ep": 4.451238541293165,
+          "severe_undercoverage": false
+        },
+        "matched_prior_iid/penalty-1000": {
+          "coverage": 0.9485501126126126,
+          "mean_absolute_conditional_bias_ep": 1.2551868372779642,
+          "mean_width_ep": 6.300112788384854,
+          "monte_carlo_se": 0.000703538957266403,
+          "rmse_ep": 2.7882740763984613,
+          "severe_undercoverage": false
+        }
+      },
+      "design": {
+        "compared_role_players": 444,
+        "completed_games": 93,
+        "features": 784,
+        "modeled_plays": 11157,
+        "observed_alias_pairs": 0,
+        "prior_only_actor_columns": 41,
+        "synthetic_response_fits": 3072
+      },
+      "environment": {
+        "numpy": "2.2.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2",
+        "scipy": "1.15.3"
+      },
+      "evidence_cutoff": "2026-10-28T00:13:15+00:00",
+      "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "historically_available_evidence_validated": false,
+      "input_contrast_report": "47312841867d44864ce7418bcf265fe6894a0141721e4d5b87062594bdf8c054",
+      "objects": {
+        "models": "7229006d4d975f50b499217efe5c068a1240f301e5aad43e9d9f693ed9823324",
+        "predictions": "faebbb8ebbd7091c4509fe7d82b3b28792b8f4084ea0dfe45da0e7ae6def04b7"
+      },
+      "offline_replay_passed": true,
+      "oracle_expectation_control_overall_range": [
+        0.9481014217342343,
+        0.951391821509009
+      ],
+      "primary_overall_metrics": {
+        "fixed_signal_game": {
+          "contrasts": 444,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.01583614864864865,
+              "mean_width_ep": 5.836884463606157,
+              "monte_carlo_se": 0.00018901132472704438,
+              "severe_undercoverage": true
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.002674549549549549,
+              "mean_width_ep": 1.9087009081618829,
+              "monte_carlo_se": 8.85906001735692e-05,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9481014217342343,
+              "mean_width_ep": 2.124412514220495,
+              "monte_carlo_se": 0.0010805783700285783,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.0025073902027027027,
+              "mean_width_ep": 2.124412514220495,
+              "monte_carlo_se": 6.925031829743233e-05,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 8.110587408917677,
+          "mean_bias_ep": 0.28919892062251873,
+          "replicates": 256,
+          "rmse_ep": 14.120610658206965
+        },
+        "fixed_signal_iid": {
+          "contrasts": 444,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.019434473536036036,
+              "mean_width_ep": 6.3797411100783705,
+              "monte_carlo_se": 0.00011883913983831926,
+              "severe_undercoverage": true
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.0020059121621621625,
+              "mean_width_ep": 1.4899351129233798,
+              "monte_carlo_se": 4.402034212211862e-05,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9513390343468469,
+              "mean_width_ep": 1.3356841482180548,
+              "monte_carlo_se": 0.0008125753795208621,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.0020586993243243245,
+              "mean_width_ep": 1.3356841482180548,
+              "monte_carlo_se": 3.9529948038746025e-05,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 8.110587408917677,
+          "mean_bias_ep": 0.29269229462569696,
+          "replicates": 256,
+          "rmse_ep": 14.072532831676112
+        },
+        "fixed_signal_team": {
+          "contrasts": 444,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.009589667792792793,
+              "mean_width_ep": 4.609166146482084,
+              "monte_carlo_se": 6.294272005453044e-05,
+              "severe_undercoverage": true
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.0018475506756756759,
+              "mean_width_ep": 1.227434859617532,
+              "monte_carlo_se": 5.414963549751725e-05,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9510838963963963,
+              "mean_width_ep": 2.074872932893818,
+              "monte_carlo_se": 0.0008030812060280966,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.0019971143018018022,
+              "mean_width_ep": 2.074872932893818,
+              "monte_carlo_se": 4.470117118161245e-05,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 8.110587408917677,
+          "mean_bias_ep": 0.2920633412613826,
+          "replicates": 256,
+          "rmse_ep": 14.112592123692314
+        },
+        "matched_prior_iid": {
+          "contrasts": 444,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.9485501126126126,
+              "mean_width_ep": 6.300112788384854,
+              "monte_carlo_se": 0.000703538957266403,
+              "severe_undercoverage": false
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.18757918074324326,
+              "mean_width_ep": 1.2471873273597014,
+              "monte_carlo_se": 0.0011205293234904487,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9495794622747749,
+              "mean_width_ep": 1.3356841482180548,
+              "monte_carlo_se": 0.0007559792522263408,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.20211324605855857,
+              "mean_width_ep": 1.3356841482180548,
+              "monte_carlo_se": 0.001126590586482521,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 1.2551868372779642,
+          "mean_bias_ep": 0.0017931017561400827,
+          "replicates": 256,
+          "rmse_ep": 2.7882740763984613
+        }
+      },
+      "primary_role_coverage": {
+        "fixed_signal_game": {
+          "QB": {
+            "conditional_gaussian": 0.0026483050847457626,
+            "game_cluster_cr0": 0.004899364406779662,
+            "oracle_expectation_control": 0.9485566737288135,
+            "oracle_sampling": 0.003244173728813559
+          },
+          "RB": {
+            "conditional_gaussian": 0.059267241379310345,
+            "game_cluster_cr0": 0.0077451508620689676,
+            "oracle_expectation_control": 0.9465247844827586,
+            "oracle_sampling": 0.00794719827586207
+          },
+          "TE": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9499760841836735,
+            "oracle_sampling": 0.0
+          },
+          "WR": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9479395102339181,
+            "oracle_sampling": 0.0
+          }
+        },
+        "fixed_signal_iid": {
+          "QB": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9516684322033897,
+            "oracle_sampling": 0.0
+          },
+          "RB": {
+            "conditional_gaussian": 0.0743871228448276,
+            "game_cluster_cr0": 0.007677801724137933,
+            "oracle_expectation_control": 0.9515086206896552,
+            "oracle_sampling": 0.007879849137931036
+          },
+          "TE": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9519690688775511,
+            "oracle_sampling": 0.0
+          },
+          "WR": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9507492690058481,
+            "oracle_sampling": 0.0
+          }
+        },
+        "fixed_signal_team": {
+          "QB": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9539856991525424,
+            "oracle_sampling": 0.0
+          },
+          "RB": {
+            "conditional_gaussian": 0.0367052801724138,
+            "game_cluster_cr0": 0.007071659482758622,
+            "oracle_expectation_control": 0.9488146551724138,
+            "oracle_sampling": 0.007644127155172415
+          },
+          "TE": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9520089285714286,
+            "oracle_sampling": 0.0
+          },
+          "WR": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9510919225146199,
+            "oracle_sampling": 0.0
+          }
+        },
+        "matched_prior_iid": {
+          "QB": {
+            "conditional_gaussian": 0.9480270127118644,
+            "game_cluster_cr0": 0.2692002118644068,
+            "oracle_expectation_control": 0.9516022245762711,
+            "oracle_sampling": 0.2974708686440678
+          },
+          "RB": {
+            "conditional_gaussian": 0.9482758620689655,
+            "game_cluster_cr0": 0.19827586206896552,
+            "oracle_expectation_control": 0.948174838362069,
+            "oracle_sampling": 0.21198141163793102
+          },
+          "TE": {
+            "conditional_gaussian": 0.9488600127551021,
+            "game_cluster_cr0": 0.15043048469387754,
+            "oracle_expectation_control": 0.9501355229591837,
+            "oracle_sampling": 0.15951849489795916
+          },
+          "WR": {
+            "conditional_gaussian": 0.9487390350877194,
+            "game_cluster_cr0": 0.17345120614035087,
+            "oracle_expectation_control": 0.9495157163742691,
+            "oracle_sampling": 0.18692891081871343
+          }
+        }
+      },
+      "producer_revision": "7c532b86af3692d14284351f0e2787253712707a",
+      "ranking_ready": false,
+      "replay_seconds": 28.97,
+      "report_id": "92ccf6f4169ef4692c63073acf3f7c964684b12842989934c3eb5cc2c9b16c39",
+      "season": 2025,
+      "week": 6
+    },
+    "2026": {
+      "alias_summary": {
+        "all_constructed_play_expectation_changes_zero": true,
+        "largest_single_prior_only_shift": {
+          "affected_contrasts": 37,
+          "coefficient_shifts": {
+            "carry/00-0023459": 0.25
+          },
+          "kind": "prior_only_column",
+          "max_absolute_contrast_change_ep": 0.1640625,
+          "max_change_contrast": {
+            "component_opportunities": {
+              "carry": 21,
+              "dropback": 200
+            },
+            "player_id": "00-0034857",
+            "role": "QB",
+            "unique_opportunities": 221
+          },
+          "max_change_contrast_index": 18,
+          "max_play_expectation_change_ep": 0.0,
+          "signed_change_at_max_ep": -0.1640625
+        },
+        "observed_pairs": [
+          {
+            "affected_contrasts": 0,
+            "coefficient_shifts": {
+              "dropback/00-0038559": 0.25,
+              "target/00-0033119": -0.25
+            },
+            "kind": "identical_observed_columns",
+            "max_absolute_contrast_change_ep": 0.0,
+            "max_change_contrast_index": 0,
+            "max_play_expectation_change_ep": 0.0,
+            "signed_change_at_max_ep": 0.0
+          },
+          {
+            "affected_contrasts": 0,
+            "coefficient_shifts": {
+              "dropback/00-0040727": 0.25,
+              "target/00-0036355": -0.25
+            },
+            "kind": "identical_observed_columns",
+            "max_absolute_contrast_change_ep": 0.0,
+            "max_change_contrast_index": 0,
+            "max_play_expectation_change_ep": 0.0,
+            "signed_change_at_max_ep": 0.0
+          }
+        ],
+        "prior_only_cases_affecting_contrasts": 9
+      },
+      "build_seconds": 13.432,
+      "conditional_interval_penalty_sensitivity": {
+        "fixed_signal_game/penalty-10": {
+          "coverage": 0.9110421166306695,
+          "mean_absolute_conditional_bias_ep": 3.0983822362732085,
+          "mean_width_ep": 28.80602919081948,
+          "monte_carlo_se": 0.0009431834455957341,
+          "rmse_ep": 19.19104735858007,
+          "severe_undercoverage": false
+        },
+        "fixed_signal_game/penalty-100": {
+          "coverage": 0.6956415361771058,
+          "mean_absolute_conditional_bias_ep": 5.859380424864,
+          "mean_width_ep": 15.250171581954127,
+          "monte_carlo_se": 0.0032889869473042357,
+          "rmse_ep": 12.202422305437747,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_game/penalty-1000": {
+          "coverage": 0.009887958963282935,
+          "mean_absolute_conditional_bias_ep": 8.153890843488131,
+          "mean_width_ep": 5.796296344232486,
+          "monte_carlo_se": 0.00010640399316523785,
+          "rmse_ep": 14.450735868361994,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_iid/penalty-10": {
+          "coverage": 0.9872182100431967,
+          "mean_absolute_conditional_bias_ep": 3.0983822362732085,
+          "mean_width_ep": 32.0461887739344,
+          "monte_carlo_se": 0.0003441331681877083,
+          "rmse_ep": 10.076242372916756,
+          "severe_undercoverage": false
+        },
+        "fixed_signal_iid/penalty-100": {
+          "coverage": 0.8465847732181425,
+          "mean_absolute_conditional_bias_ep": 5.859380424864,
+          "mean_width_ep": 16.792451645359442,
+          "monte_carlo_se": 0.001128316634839954,
+          "rmse_ep": 10.5527770463234,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_iid/penalty-1000": {
+          "coverage": 0.011271598272138228,
+          "mean_absolute_conditional_bias_ep": 8.153890843488131,
+          "mean_width_ep": 6.331109966213954,
+          "monte_carlo_se": 0.00011705679322264318,
+          "rmse_ep": 14.407628852659819,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_team/penalty-10": {
+          "coverage": 0.8530980021598272,
+          "mean_absolute_conditional_bias_ep": 3.0983822362732085,
+          "mean_width_ep": 22.81563330617888,
+          "monte_carlo_se": 0.0012700281748693144,
+          "rmse_ep": 31.536713756551308,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_team/penalty-100": {
+          "coverage": 0.3282431155507559,
+          "mean_absolute_conditional_bias_ep": 5.859380424864,
+          "mean_width_ep": 12.043036600847048,
+          "monte_carlo_se": 0.0013922097732200545,
+          "rmse_ep": 13.513600713166465,
+          "severe_undercoverage": true
+        },
+        "fixed_signal_team/penalty-1000": {
+          "coverage": 0.008808045356371488,
+          "mean_absolute_conditional_bias_ep": 8.153890843488131,
+          "mean_width_ep": 4.569225452545474,
+          "monte_carlo_se": 3.629777069808598e-05,
+          "rmse_ep": 14.469369991593517,
+          "severe_undercoverage": true
+        },
+        "matched_prior_iid/penalty-10": {
+          "coverage": 0.9915041171706264,
+          "mean_absolute_conditional_bias_ep": 2.1232178822743317,
+          "mean_width_ep": 32.00651534229706,
+          "monte_carlo_se": 0.0002654232744528414,
+          "rmse_ep": 10.182985815476998,
+          "severe_undercoverage": false
+        },
+        "matched_prior_iid/penalty-100": {
+          "coverage": 0.9995781587473,
+          "mean_absolute_conditional_bias_ep": 1.127661906390191,
+          "mean_width_ep": 16.677761896494165,
+          "monte_carlo_se": 5.6222335677877054e-05,
+          "rmse_ep": 4.494368328131566,
+          "severe_undercoverage": false
+        },
+        "matched_prior_iid/penalty-1000": {
+          "coverage": 0.9494381074514039,
+          "mean_absolute_conditional_bias_ep": 1.2453492825812233,
+          "mean_width_ep": 6.25013152355106,
+          "monte_carlo_se": 0.0006531511355848112,
+          "rmse_ep": 2.8064542842262905,
+          "severe_undercoverage": false
+        }
+      },
+      "design": {
+        "compared_role_players": 463,
+        "completed_games": 93,
+        "features": 800,
+        "modeled_plays": 11441,
+        "observed_alias_pairs": 2,
+        "prior_only_actor_columns": 42,
+        "synthetic_response_fits": 3072
+      },
+      "environment": {
+        "numpy": "2.2.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2",
+        "scipy": "1.15.3"
+      },
+      "evidence_cutoff": "2026-10-28T00:13:15+00:00",
+      "game_cohort_cutoff": "2026-10-22T23:50:38.680415+00:00",
+      "historically_available_evidence_validated": false,
+      "input_contrast_report": "cfc1e537feb9dfc11b4e49150f9ec92a1cfddafc28aa42e19be11c3a67f9e571",
+      "objects": {
+        "models": "2b8a9c1f0f939a5bb6f9b73367408777aeac177de70ab6ca4f798ffe615b7f61",
+        "predictions": "3c9cc6e7e19e43d2a623b24bccfb6456f6d4fc8053a733e155803e5b5e95ab90"
+      },
+      "offline_replay_passed": true,
+      "oracle_expectation_control_overall_range": [
+        0.9476073164146868,
+        0.9508554940604752
+      ],
+      "primary_overall_metrics": {
+        "fixed_signal_game": {
+          "contrasts": 463,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.009887958963282935,
+              "mean_width_ep": 5.796296344232486,
+              "monte_carlo_se": 0.00010640399316523785,
+              "severe_undercoverage": true
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.002235758639308855,
+              "mean_width_ep": 1.8579979161978013,
+              "monte_carlo_se": 8.13823766431606e-05,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9476073164146868,
+              "mean_width_ep": 2.0581644713636473,
+              "monte_carlo_se": 0.0012013573253265386,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.0018898488120950322,
+              "mean_width_ep": 2.0581644713636473,
+              "monte_carlo_se": 6.211919456107212e-05,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 8.153890843488131,
+          "mean_bias_ep": 0.3197734189210125,
+          "replicates": 256,
+          "rmse_ep": 14.450735868361994
+        },
+        "fixed_signal_iid": {
+          "contrasts": 463,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.011271598272138228,
+              "mean_width_ep": 6.331109966213954,
+              "monte_carlo_se": 0.00011705679322264318,
+              "severe_undercoverage": true
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.00199109071274298,
+              "mean_width_ep": 1.470825609645409,
+              "monte_carlo_se": 4.507903837465353e-05,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9508554940604752,
+              "mean_width_ep": 1.3269079258413632,
+              "monte_carlo_se": 0.0007419469766195684,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.0019320329373650105,
+              "mean_width_ep": 1.3269079258413632,
+              "monte_carlo_se": 4.154402555191638e-05,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 8.153890843488131,
+          "mean_bias_ep": 0.3209368506386824,
+          "replicates": 256,
+          "rmse_ep": 14.407628852659819
+        },
+        "fixed_signal_team": {
+          "contrasts": 463,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.008808045356371488,
+              "mean_width_ep": 4.569225452545474,
+              "monte_carlo_se": 3.629777069808598e-05,
+              "severe_undercoverage": true
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.0016704913606911446,
+              "mean_width_ep": 1.2071293569077537,
+              "monte_carlo_se": 5.661813314232147e-05,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9500118115550755,
+              "mean_width_ep": 2.07923215732608,
+              "monte_carlo_se": 0.0008440514944490292,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.001813917386609071,
+              "mean_width_ep": 2.07923215732608,
+              "monte_carlo_se": 4.96043898192644e-05,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 8.153890843488131,
+          "mean_bias_ep": 0.3188477312019727,
+          "replicates": 256,
+          "rmse_ep": 14.469369991593517
+        },
+        "matched_prior_iid": {
+          "contrasts": 463,
+          "intervals": {
+            "conditional_gaussian": {
+              "coverage": 0.9494381074514039,
+              "mean_width_ep": 6.25013152355106,
+              "monte_carlo_se": 0.0006531511355848112,
+              "severe_undercoverage": false
+            },
+            "game_cluster_cr0": {
+              "coverage": 0.18640321274298055,
+              "mean_width_ep": 1.237026533148282,
+              "monte_carlo_se": 0.0011246527373301013,
+              "severe_undercoverage": true
+            },
+            "oracle_expectation_control": {
+              "coverage": 0.9488812769978402,
+              "mean_width_ep": 1.3269079258413632,
+              "monte_carlo_se": 0.0007968949702154369,
+              "severe_undercoverage": false
+            },
+            "oracle_sampling": {
+              "coverage": 0.2018004184665227,
+              "mean_width_ep": 1.3269079258413632,
+              "monte_carlo_se": 0.001163276748542107,
+              "severe_undercoverage": true
+            }
+          },
+          "mean_absolute_conditional_bias_ep": 1.2453492825812233,
+          "mean_bias_ep": 0.0017909006284786825,
+          "replicates": 256,
+          "rmse_ep": 2.8064542842262905
+        }
+      },
+      "primary_role_coverage": {
+        "fixed_signal_game": {
+          "QB": {
+            "conditional_gaussian": 0.0014003537735849058,
+            "game_cluster_cr0": 0.0030218160377358493,
+            "oracle_expectation_control": 0.9443543632075471,
+            "oracle_sampling": 0.0005159198113207547
+          },
+          "RB": {
+            "conditional_gaussian": 0.037847951680672266,
+            "game_cluster_cr0": 0.007352941176470588,
+            "oracle_expectation_control": 0.9495798319327732,
+            "oracle_sampling": 0.007123161764705881
+          },
+          "TE": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9469275841346153,
+            "oracle_sampling": 0.0
+          },
+          "WR": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9476520721925134,
+            "oracle_sampling": 0.0
+          }
+        },
+        "fixed_signal_iid": {
+          "QB": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9524616745283019,
+            "oracle_sampling": 0.0
+          },
+          "RB": {
+            "conditional_gaussian": 0.043855042016806726,
+            "game_cluster_cr0": 0.007746848739495798,
+            "oracle_expectation_control": 0.9487920168067228,
+            "oracle_sampling": 0.007517069327731092
+          },
+          "TE": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9519981971153846,
+            "oracle_sampling": 0.0
+          },
+          "WR": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9510778743315508,
+            "oracle_sampling": 0.0
+          }
+        },
+        "fixed_signal_team": {
+          "QB": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9503979952830189,
+            "oracle_sampling": 0.0
+          },
+          "RB": {
+            "conditional_gaussian": 0.03426995798319328,
+            "game_cluster_cr0": 0.006499474789915966,
+            "oracle_expectation_control": 0.9500722163865547,
+            "oracle_sampling": 0.00705751050420168
+          },
+          "TE": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9511343149038461,
+            "oracle_sampling": 0.0
+          },
+          "WR": {
+            "conditional_gaussian": 0.0,
+            "game_cluster_cr0": 0.0,
+            "oracle_expectation_control": 0.9492396390374331,
+            "oracle_sampling": 0.0
+          }
+        },
+        "matched_prior_iid": {
+          "QB": {
+            "conditional_gaussian": 0.951061320754717,
+            "game_cluster_cr0": 0.29525353773584906,
+            "oracle_expectation_control": 0.9530512971698114,
+            "oracle_sampling": 0.3245872641509434
+          },
+          "RB": {
+            "conditional_gaussian": 0.9482996323529412,
+            "game_cluster_cr0": 0.2034204306722689,
+            "oracle_expectation_control": 0.9479713760504203,
+            "oracle_sampling": 0.2179293592436975
+          },
+          "TE": {
+            "conditional_gaussian": 0.9494065504807692,
+            "game_cluster_cr0": 0.15012770432692304,
+            "oracle_expectation_control": 0.9468900240384616,
+            "oracle_sampling": 0.1602313701923077
+          },
+          "WR": {
+            "conditional_gaussian": 0.9497200868983957,
+            "game_cluster_cr0": 0.16489806149732622,
+            "oracle_expectation_control": 0.9493858622994653,
+            "oracle_sampling": 0.17985461229946523
+          }
+        }
+      },
+      "producer_revision": "7c532b86af3692d14284351f0e2787253712707a",
+      "ranking_ready": false,
+      "replay_seconds": 13.381,
+      "report_id": "7d76aa6f07dc160d091895047da5d27c8e0045ee04cc9086f089b324ad5b32a8",
+      "season": 2026,
+      "week": 6
+    }
+  },
+  "verification": {
+    "additional_tests": 13,
+    "frontend_contract_tests": 13,
+    "hosted_ci": "Reported separately at the final PR head",
+    "local_chromium_rerun": false,
+    "local_python": "3.13.2",
+    "make_check_passed": true,
+    "network_blocked_build_and_replay": true,
+    "python_tests": 250
+  }
+}

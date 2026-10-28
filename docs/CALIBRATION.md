@@ -97,3 +97,106 @@ documents its regression implementation and optional correction. Our penalized
 CR0 adaptation is derived explicitly above and checked against direct algebra;
 we do not install statsmodels or claim its OLS results validate this ridge model.
 Dependence assumptions and regularization bias require separate tests.
+
+## Implementation and replay
+
+The Python batch runner reuses the pinned NumPy/SciPy dependencies and immutable
+JSON store. Its input is a saved positional-contrast report, not downloaded live
+data. It first replays that report's entire source/cohort/model chain, then slices
+the ledger before preparing the selected window. It checks the exact prepared-row
+hash, game inventory, feature vocabulary and primary penalty against the archive.
+All four first-unit populations must be complete; missing roles are not dropped.
+Qualification does not select simulation participants or alter the benchmark.
+
+Run from the repository root with the modeling extra installed and source changes
+committed:
+
+```sh
+PYTHONPATH=src .venv/bin/python -m nfl_value.calibration_cli build \
+  --contrast-report CONTRAST_REPORT_SHA256 --plan config/calibration-v1.json
+PYTHONPATH=src .venv/bin/python -m nfl_value.calibration_cli replay CALIBRATION_REPORT_SHA256
+```
+
+Default stores are the existing raw, offensive, roster and contrast stores;
+output goes to ignored `data/derived/calibration`. Each can be overridden with
+`--raw-store`, `--offensive-store`, `--roster-store`, `--contrast-store` or
+`--output-store` **before** the subcommand. Replay regenerates the synthetic draws,
+all interval diagnostics and alias cases, then compares structure exactly and
+numbers at the existing absolute `1e-9` / relative `1e-8` tolerance. NumPy/SciPy
+versions must match. A failed run does not alter earlier manifests or any dashboard
+pointer. This is not a production publisher.
+
+The manifest binds the complete plan, upstream report hash, executing code
+revision, environment, source attribution, retrospective availability and both
+cutoffs. In the reused snapshot writer, `objects.models` contains feature/contrast
+order, first-unit weights and alias diagnostics; `objects.predictions` contains
+simulation metrics by role and player. Neither contains a publishable fitted model,
+real player score or ranking. Intervals and truth are in the declared cumulative
+expected-point contrast units, conditional on the observed opportunity design.
+
+Read `oracle_expectation_control` only as a numerical check: it measures sampling
+coverage around the estimator's known expectation after accounting for its known
+bias. A result near 95% there can coexist with almost no coverage of true player
+effects. `mean_absolute_conditional_bias_ep` prevents positive/negative biases
+from hiding through cancellation in `mean_bias_ep`. Alias indices refer to the
+saved `contrast_order`; a reported coefficient shift is a constructed example,
+not a proposed correction to that player's value.
+
+## October 28 measured results
+
+Plan commit `715a4bc` preceded implementation and results. Producer
+`7c532b86af3692d14284351f0e2787253712707a` built and replayed both complete source
+chains with HTTP/socket connections blocked. Each design contains 93 completed
+games: 2025 has 11,157 plays / 444 role-player contrasts, archived 2026 has 11,441
+plays / 463 contrasts. Across two designs, four scenarios, three fixed penalties
+and 256 replicates, this is **6,144 synthetic-response fits**, using cached matrix
+factorizations. These are not 6,144 independent NFL datasets. The source evidence
+remains retrospective and the 2026 game cutoff remains October 22, Week 6.
+
+The [audit](audits/2026-10-28-calibration.json) records report/object hashes,
+environment, timing, all primary role coverages, overall interval metrics and
+penalty sensitivities. Primary-penalty conditional-Gaussian coverage is:
+
+| Known-truth scenario | 2025 coverage (MC SE) | Archived 2026 coverage (MC SE) |
+| --- | ---: | ---: |
+| Matched-prior iid | 94.85% (0.070 percentage points) | 94.94% (0.065 pp) |
+| Fixed signal, iid noise | 1.94% (0.012 pp) | 1.13% (0.012 pp) |
+| Fixed signal, game noise | 1.58% (0.019 pp) | 0.99% (0.011 pp) |
+| Fixed signal, team noise | 0.96% (0.006 pp) | 0.88% (0.004 pp) |
+
+The stronger-signal scenarios fail the prespecified severe-undercoverage flag
+for every role at the primary penalty. This is evidence against treating these
+intervals as generally calibrated. It does **not** establish that actual NFL
+effects have the illustrative ±0.25 size or that real-player coverage is 1%.
+Matched-prior coverage is an average over a favorable assumed population, not a
+guarantee for each fixed player. Mean absolute conditional bias in the fixed-signal
+scenarios is 8.11/8.15 cumulative EP across 2025/2026 contrasts.
+
+Experimental game-cluster CR0 does not rescue the primary setting: overall
+coverage is below 0.3% in the fixed-signal cases and about 18.7% under the
+matched-prior control. Sampling variance excludes shrinkage bias and uncertainty
+in prior-only parameters; this formula is not a substitute for the conditional
+posterior. Even oracle sampling intervals centered at the biased estimate fail.
+By contrast, the oracle **expectation** control spans 94.76–95.14% across all 24
+design/scenario/penalty cells, supporting the implementation's sampling algebra.
+That control uses known synthetic truth and cannot correct real player estimates.
+
+At penalty 10 the conditional interval covers 98.66/98.72% under fixed-signal iid,
+but only 85.23/85.31% under persistent team noise. Neither the favorable case nor
+the 90% failure flag is an admission rule. The selected penalty remains 1000;
+these now-observed simulations are not a new tuning set or grounds for a silent
+penalty change. No uncertainty method is promoted to production.
+
+The design has 41/42 prior-only actor columns. Shifting one such coefficient by
+0.25 EP leaves all expected play outcomes unchanged; six/nine shifts affect the
+selected first-unit contrasts, with largest changes 0.180/0.164 cumulative EP.
+The 2026 design also contains two identical observed actor-column pairs. Their
+constructed opposite shifts change **none** of the selected positional contrasts;
+do not present those pairs as proof of ambiguity in those reported contrasts.
+The audit retains that negative finding and the concrete cold-benchmark examples.
+This check does not characterize all near-collinearity or team/player confounding.
+
+The working model fails this bounded robustness check. Every admission flag
+remains false. Real absence/cast evidence, broader exposure policy and formal
+module decisions are still required before the October 30 methodology freeze.
+No real ranking, updated game cohort, defensive score or deployment is produced.

@@ -104,3 +104,16 @@ dependence, general missed-game/stint coverage, selection effects, future
 predictive stability and cross-position admission remain open. Do not select a
 penalty or threshold using these now-observed results, and do not call these
 within-prefix fits new held-out evidence.
+
+October 28: the [frozen known-effect calibration](CALIBRATION.md) now runs 6,144
+synthetic-response fits on both archived Week 6 designs. The selected penalty's
+conditional intervals cover about 95% under the matched-prior population, but
+below 2% under the declared stronger fixed signals. All four roles fail the
+prespecified severe-undercoverage flag in those fixed-signal scenarios. That
+does not measure actual NFL error rates; it falsifies a general calibration claim
+for this working model. Experimental game-cluster CR0 and oracle sampling widths
+cannot fix shrinkage bias. Oracle expectation controls verify sampling algebra
+using unavailable truth. No method is promoted, and the penalty is not retuned.
+Exact alias cases report both affected and unaffected contrasts rather than
+assuming every coappearance problem affects the selected estimand. Real absence,
+supporting-cast, general exposure and module admission decisions remain open.
