@@ -34,7 +34,9 @@ npm --prefix web run test:e2e
 [Ruff](https://docs.astral.sh/ruff/linter/) 0.17.2 (MIT) finds syntax/name errors,
 unused imports and selected high-signal bugs across `src`, `scripts` and `tests`.
 Formatting is introduced incrementally: `PYTHON_FORMAT_FILES` in the Makefile
-checks the baseline CLI, reliability tests and October 26 weekly-roster modules/tests.
+checks the baseline CLI, reliability tests, weekly-roster modules/tests and
+October 27 contrast modules/tests. The latter add independent joint-covariance,
+accounting, prefix isolation and offline numerical replay regressions.
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports

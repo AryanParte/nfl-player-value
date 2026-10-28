@@ -1,0 +1,1324 @@
+{
+  "added_recurring_cost_usd": 0,
+  "audit_version": 1,
+  "date": "2026-10-27",
+  "decisions": {
+    "benchmark_policy_changed": false,
+    "broader_exposure_policy_validated": false,
+    "main_position_admissions": [],
+    "primary_actor_penalty": 1000.0,
+    "production_publication_implemented": false,
+    "qualification_thresholds_changed": false,
+    "reason": "Strong penalty dependence, incomplete historical benchmark cells, selective exposure and unvalidated attribution/calibration preclude admission",
+    "uncertainty_calibrated": false
+  },
+  "frozen_plan_revision": "5b55fdf",
+  "plan_file_sha256": "2f5ef771d5ac5d2587ed66ddf89d4d40ac703083bb7b0ad799d3328830d378c7",
+  "plan_path": "config/contrasts-v1.json",
+  "scope": "Retrospective positional contrast and narrow-exposure diagnostics; no admitted CAVAA scores",
+  "seasons": {
+    "2025": {
+      "code_revision": "4f121466434ec537644770b09b3c16447589a885",
+      "depth_charts": "e93594899b3e775416aba905fed1dd22cafb8efaa15d10f4b397b9a14cfdc794",
+      "environment": {
+        "numpy": "2.2.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2",
+        "scipy": "1.15.3"
+      },
+      "evidence_cutoff": "2026-10-28T00:13:15+00:00",
+      "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "historical_availability": {
+        "historically_available_evidence_validated": false,
+        "retrospective_depth_team_games": 544,
+        "retrospective_roster_team_games": 544
+      },
+      "input_reports": {
+        "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+        "roster": "be0547bd656d1925343bbd2ac5a2c14e6db44a4d53c47621fab0d4c874ea7ee7"
+      },
+      "objects": {
+        "models": "3b39e746933f6728d185ea231a7a541824fdd6fad0c5cb35f94d6c24b1073fe5",
+        "predictions": "0abaf62926179c7396a9062c5ff9207730d03f464252358c2258cf7920bfd9c0"
+      },
+      "offline_replay_verified": true,
+      "replay_tolerance": {
+        "absolute": 1e-09,
+        "relative": 1e-08
+      },
+      "report_id": "47312841867d44864ce7418bcf265fe6894a0141721e4d5b87062594bdf8c054",
+      "source_attribution": {
+        "depth_charts": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "summary": {
+        "10": {
+          "benchmark_ready_roles": [
+            "QB"
+          ],
+          "compared_players": 64,
+          "completed_games": 149,
+          "exposure_proven_players": 125,
+          "main_admitted_players": 0,
+          "max_benchmark_difference_ep": 1.1361979866300398,
+          "max_penalty_difference_ep": 94.77253675588209,
+          "modeled_plays": 17953,
+          "negative_primary_contrasts": 45,
+          "observed_role_players": 490,
+          "participation_qualified_by_multiplier": {
+            "0.75": 121,
+            "1.0": 115,
+            "1.25": 108
+          }
+        },
+        "14": {
+          "benchmark_ready_roles": [
+            "QB"
+          ],
+          "compared_players": 70,
+          "completed_games": 208,
+          "exposure_proven_players": 106,
+          "main_admitted_players": 0,
+          "max_benchmark_difference_ep": 2.285648583605152,
+          "max_penalty_difference_ep": 149.76318806115515,
+          "modeled_plays": 25163,
+          "negative_primary_contrasts": 47,
+          "observed_role_players": 536,
+          "participation_qualified_by_multiplier": {
+            "0.75": 104,
+            "1.0": 102,
+            "1.25": 98
+          }
+        },
+        "18": {
+          "benchmark_ready_roles": [
+            "QB"
+          ],
+          "compared_players": 79,
+          "completed_games": 272,
+          "exposure_proven_players": 70,
+          "main_admitted_players": 0,
+          "max_benchmark_difference_ep": 5.673038333558085,
+          "max_penalty_difference_ep": 173.25389389855863,
+          "modeled_plays": 32813,
+          "negative_primary_contrasts": 54,
+          "observed_role_players": 575,
+          "participation_qualified_by_multiplier": {
+            "0.75": 70,
+            "1.0": 68,
+            "1.25": 67
+          }
+        },
+        "6": {
+          "benchmark_ready_roles": [
+            "QB",
+            "RB",
+            "TE",
+            "WR"
+          ],
+          "compared_players": 444,
+          "completed_games": 93,
+          "exposure_proven_players": 169,
+          "main_admitted_players": 0,
+          "max_benchmark_difference_ep": 0.25222708996641074,
+          "max_penalty_difference_ep": 63.41314873621271,
+          "modeled_plays": 11157,
+          "negative_primary_contrasts": 255,
+          "observed_role_players": 444,
+          "participation_qualified_by_multiplier": {
+            "0.75": 162,
+            "1.0": 150,
+            "1.25": 139
+          }
+        }
+      },
+      "windows": {
+        "10": {
+          "coappearance": {
+            "actor_columns": 739,
+            "actor_offense_team_cosine_max": 0.8184992736122206,
+            "actor_offense_team_cosine_median": 0.15174424466672098,
+            "identification_validated": false
+          },
+          "cohort_audit": {
+            "QB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 64,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 64
+            },
+            "RB": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "RB",
+                  "slot": 11,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 129,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 129
+            },
+            "TE": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "TE",
+                  "slot": 10,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 104,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 104
+            },
+            "WR": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 1,
+                  "team_id": "ARI"
+                },
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 2,
+                  "team_id": "ARI"
+                },
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 8,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 193,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 193
+            }
+          },
+          "conditional_interval_width_ep": {
+            "maximum": 62.883654982652814,
+            "median": 28.332165603348777
+          },
+          "first_unit_prior_only_weight_by_component": {
+            "QB": {
+              "carry": 0.13194444444444445,
+              "dropback": 0
+            }
+          },
+          "identical_actor_column_group_count": 0,
+          "max_play_accounting_error_all_fits": 1.7763568394002505e-15,
+          "max_player_sum_error_all_fits": 1.0686562745831907e-11,
+          "primary_accounting": {
+            "equal_player": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 369.7017394362326,
+              "player_sum_error": 1.5987211554602254e-13,
+              "totals_ep": {
+                "benchmark_reference": 1.8056923184762386,
+                "context": -38203.44464559145,
+                "contrast": 27.261954533247913,
+                "defense_team": 25.991951938009496,
+                "observed_role": 38487.83293888814,
+                "offense_team": 15.110092008691055,
+                "outside_module_actor": 15.143755339758378,
+                "residual": -5.405809133662842e-11
+              }
+            },
+            "first_unit": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 369.7017394362326,
+              "player_sum_error": 1.9806378759312793e-13,
+              "totals_ep": {
+                "benchmark_reference": 31.608400127547945,
+                "context": -38203.44464559145,
+                "contrast": -2.5407532758200797,
+                "defense_team": 25.991951938009496,
+                "observed_role": 38487.83293888814,
+                "offense_team": 15.110092008691055,
+                "outside_module_actor": 15.143755339758378,
+                "residual": -5.405809133662842e-11
+              }
+            },
+            "opportunity_weighted": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 369.7017394362326,
+              "player_sum_error": 1.121255865932369e-13,
+              "totals_ep": {
+                "benchmark_reference": 29.12617120660747,
+                "context": -38203.44464559145,
+                "contrast": -0.058524354879243214,
+                "defense_team": 25.991951938009496,
+                "observed_role": 38487.83293888814,
+                "offense_team": 15.110092008691055,
+                "outside_module_actor": 15.143755339758378,
+                "residual": -5.405809133662842e-11
+              }
+            }
+          },
+          "prior_only_actor_parameter_count": 48,
+          "qualification_by_role": {
+            "QB": {
+              "denominator_proven": 19,
+              "observed": 64,
+              "participation_qualified": {
+                "0.75": 19,
+                "1.0": 19,
+                "1.25": 19
+              },
+              "source_complete_primary_qualified": 19
+            },
+            "RB": {
+              "denominator_proven": 41,
+              "observed": 129,
+              "participation_qualified": {
+                "0.75": 39,
+                "1.0": 35,
+                "1.25": 33
+              },
+              "source_complete_primary_qualified": 35
+            },
+            "TE": {
+              "denominator_proven": 21,
+              "observed": 104,
+              "participation_qualified": {
+                "0.75": 21,
+                "1.0": 20,
+                "1.25": 19
+              },
+              "source_complete_primary_qualified": 20
+            },
+            "WR": {
+              "denominator_proven": 44,
+              "observed": 193,
+              "participation_qualified": {
+                "0.75": 42,
+                "1.0": 41,
+                "1.25": 37
+              },
+              "source_complete_primary_qualified": 41
+            }
+          },
+          "unresolved_exposure_reason_counts": {
+            "no_single_team_in_window": 21,
+            "no_team_games": 21,
+            "not_positively_observed_in_every_team_game": 344
+          },
+          "unsupported_actor_appearances": {
+            "outside_role_scope": 269,
+            "unresolved_position": 13
+          }
+        },
+        "14": {
+          "coappearance": {
+            "actor_columns": 830,
+            "actor_offense_team_cosine_max": 0.8189326775820381,
+            "actor_offense_team_cosine_median": 0.13181640030262853,
+            "identification_validated": false
+          },
+          "cohort_audit": {
+            "QB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 70,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 70
+            },
+            "RB": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "RB",
+                  "slot": 11,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 141,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 141
+            },
+            "TE": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "TE",
+                  "slot": 10,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 115,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 115
+            },
+            "WR": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 1,
+                  "team_id": "ARI"
+                },
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 2,
+                  "team_id": "ARI"
+                },
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 8,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 210,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 210
+            }
+          },
+          "conditional_interval_width_ep": {
+            "maximum": 82.38321121342389,
+            "median": 30.461624591729418
+          },
+          "first_unit_prior_only_weight_by_component": {
+            "QB": {
+              "carry": 0.09134615384615385,
+              "dropback": 0
+            }
+          },
+          "identical_actor_column_group_count": 3,
+          "max_play_accounting_error_all_fits": 1.7763568394002505e-15,
+          "max_player_sum_error_all_fits": 3.54702933691442e-11,
+          "primary_accounting": {
+            "equal_player": {
+              "max_play_accounting_error": 1.7763568394002505e-15,
+              "observed_epa": 139.6562111750067,
+              "player_sum_error": 1.4566126083082054e-12,
+              "totals_ep": {
+                "benchmark_reference": 1.9513705141322015,
+                "context": -52298.4562061254,
+                "contrast": 60.74000384575305,
+                "defense_team": 4.389502100171898,
+                "observed_role": 52325.6583685422,
+                "offense_team": 30.613573334846873,
+                "outside_module_actor": 14.75959895014889,
+                "residual": -2.7148061576554028e-11
+              }
+            },
+            "first_unit": {
+              "max_play_accounting_error": 1.7763568394002505e-15,
+              "observed_epa": 139.6562111750067,
+              "player_sum_error": 1.127986593019159e-13,
+              "totals_ep": {
+                "benchmark_reference": 65.5686688718859,
+                "context": -52298.4562061254,
+                "contrast": -2.8772945120101987,
+                "defense_team": 4.389502100171898,
+                "observed_role": 52325.6583685422,
+                "offense_team": 30.613573334846873,
+                "outside_module_actor": 14.75959895014889,
+                "residual": -2.7148061576554028e-11
+              }
+            },
+            "opportunity_weighted": {
+              "max_play_accounting_error": 1.7763568394002505e-15,
+              "observed_epa": 139.6562111750067,
+              "player_sum_error": 1.4210854715202004e-14,
+              "totals_ep": {
+                "benchmark_reference": 61.90201384767594,
+                "context": -52298.4562061254,
+                "contrast": 0.7893605122321152,
+                "defense_team": 4.389502100171898,
+                "observed_role": 52325.6583685422,
+                "offense_team": 30.613573334846873,
+                "outside_module_actor": 14.75959895014889,
+                "residual": -2.7148061576554028e-11
+              }
+            }
+          },
+          "prior_only_actor_parameter_count": 51,
+          "qualification_by_role": {
+            "QB": {
+              "denominator_proven": 18,
+              "observed": 70,
+              "participation_qualified": {
+                "0.75": 18,
+                "1.0": 18,
+                "1.25": 18
+              },
+              "source_complete_primary_qualified": 18
+            },
+            "RB": {
+              "denominator_proven": 36,
+              "observed": 141,
+              "participation_qualified": {
+                "0.75": 34,
+                "1.0": 33,
+                "1.25": 31
+              },
+              "source_complete_primary_qualified": 33
+            },
+            "TE": {
+              "denominator_proven": 19,
+              "observed": 115,
+              "participation_qualified": {
+                "0.75": 19,
+                "1.0": 19,
+                "1.25": 18
+              },
+              "source_complete_primary_qualified": 19
+            },
+            "WR": {
+              "denominator_proven": 33,
+              "observed": 210,
+              "participation_qualified": {
+                "0.75": 33,
+                "1.0": 32,
+                "1.25": 31
+              },
+              "source_complete_primary_qualified": 32
+            }
+          },
+          "unresolved_exposure_reason_counts": {
+            "no_single_team_in_window": 36,
+            "no_team_games": 36,
+            "not_positively_observed_in_every_team_game": 394,
+            "unresolved_or_changing_position": 1
+          },
+          "unsupported_actor_appearances": {
+            "outside_role_scope": 387,
+            "unresolved_position": 21
+          }
+        },
+        "18": {
+          "coappearance": {
+            "actor_columns": 914,
+            "actor_offense_team_cosine_max": 0.7896110146901684,
+            "actor_offense_team_cosine_median": 0.12302937061656774,
+            "identification_validated": false
+          },
+          "cohort_audit": {
+            "QB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 79,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 79
+            },
+            "RB": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "RB",
+                  "slot": 11,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 149,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 149
+            },
+            "TE": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "TE",
+                  "slot": 10,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 124,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 124
+            },
+            "WR": {
+              "benchmark_ready": false,
+              "blocked_reasons": [
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 1,
+                  "team_id": "ARI"
+                },
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 2,
+                  "team_id": "ARI"
+                },
+                {
+                  "game_id": "2025_07_GB_ARI",
+                  "reason": "missing_or_ambiguous_first_unit_slot",
+                  "role": "WR",
+                  "slot": 8,
+                  "team_id": "ARI"
+                }
+              ],
+              "candidate_players": 223,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 223
+            }
+          },
+          "conditional_interval_width_ep": {
+            "maximum": 98.00521611410585,
+            "median": 29.944182612559036
+          },
+          "first_unit_prior_only_weight_by_component": {
+            "QB": {
+              "carry": 0.08272058823529412,
+              "dropback": 0
+            }
+          },
+          "identical_actor_column_group_count": 3,
+          "max_play_accounting_error_all_fits": 1.7763568394002505e-15,
+          "max_player_sum_error_all_fits": 2.9103830456733704e-11,
+          "primary_accounting": {
+            "equal_player": {
+              "max_play_accounting_error": 1.7763568394002505e-15,
+              "observed_epa": 244.3762537446188,
+              "player_sum_error": 7.133849067031406e-12,
+              "totals_ep": {
+                "benchmark_reference": 1.2699629776165455,
+                "context": -73814.98805655891,
+                "contrast": 146.01138485355028,
+                "defense_team": 5.697012039767996,
+                "observed_role": 73831.59006730934,
+                "offense_team": 37.29516003850038,
+                "outside_module_actor": 37.50072305934426,
+                "residual": -1.2830336793001607e-10
+              }
+            },
+            "first_unit": {
+              "max_play_accounting_error": 1.7763568394002505e-15,
+              "observed_epa": 244.3762537446188,
+              "player_sum_error": 1.8829382497642655e-13,
+              "totals_ep": {
+                "benchmark_reference": 168.0190524417594,
+                "context": -73814.98805655891,
+                "contrast": -20.73770461064841,
+                "defense_team": 5.697012039767996,
+                "observed_role": 73831.59006730934,
+                "offense_team": 37.29516003850038,
+                "outside_module_actor": 37.50072305934426,
+                "residual": -1.2830336793001607e-10
+              }
+            },
+            "opportunity_weighted": {
+              "max_play_accounting_error": 1.7763568394002505e-15,
+              "observed_epa": 244.3762537446188,
+              "player_sum_error": 5.734301922188934e-13,
+              "totals_ep": {
+                "benchmark_reference": 146.30589973723644,
+                "context": -73814.98805655891,
+                "contrast": 0.9754480939708258,
+                "defense_team": 5.697012039767996,
+                "observed_role": 73831.59006730934,
+                "offense_team": 37.29516003850038,
+                "outside_module_actor": 37.50072305934426,
+                "residual": -1.2830336793001607e-10
+              }
+            }
+          },
+          "prior_only_actor_parameter_count": 46,
+          "qualification_by_role": {
+            "QB": {
+              "denominator_proven": 10,
+              "observed": 79,
+              "participation_qualified": {
+                "0.75": 10,
+                "1.0": 10,
+                "1.25": 10
+              },
+              "source_complete_primary_qualified": 10
+            },
+            "RB": {
+              "denominator_proven": 25,
+              "observed": 149,
+              "participation_qualified": {
+                "0.75": 25,
+                "1.0": 24,
+                "1.25": 24
+              },
+              "source_complete_primary_qualified": 24
+            },
+            "TE": {
+              "denominator_proven": 12,
+              "observed": 124,
+              "participation_qualified": {
+                "0.75": 12,
+                "1.0": 12,
+                "1.25": 12
+              },
+              "source_complete_primary_qualified": 12
+            },
+            "WR": {
+              "denominator_proven": 23,
+              "observed": 223,
+              "participation_qualified": {
+                "0.75": 23,
+                "1.0": 22,
+                "1.25": 21
+              },
+              "source_complete_primary_qualified": 22
+            }
+          },
+          "unresolved_exposure_reason_counts": {
+            "no_single_team_in_window": 55,
+            "no_team_games": 55,
+            "not_positively_observed_in_every_team_game": 450,
+            "unresolved_or_changing_position": 2
+          },
+          "unsupported_actor_appearances": {
+            "outside_role_scope": 503,
+            "unresolved_position": 34
+          }
+        },
+        "6": {
+          "coappearance": {
+            "actor_columns": 659,
+            "actor_offense_team_cosine_max": 0.8236954014934265,
+            "actor_offense_team_cosine_median": 0.16783627165933782,
+            "identification_validated": false
+          },
+          "cohort_audit": {
+            "QB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 59,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 59
+            },
+            "RB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 116,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 116
+            },
+            "TE": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 98,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 98
+            },
+            "WR": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 171,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 171
+            }
+          },
+          "conditional_interval_width_ep": {
+            "maximum": 38.16755107531032,
+            "median": 2.63009025383949
+          },
+          "first_unit_prior_only_weight_by_component": {
+            "QB": {
+              "carry": 0.16666666666666666,
+              "dropback": 0
+            },
+            "RB": {
+              "carry": 0,
+              "target": 0
+            },
+            "TE": {
+              "target": 0
+            },
+            "WR": {
+              "target": 0
+            }
+          },
+          "identical_actor_column_group_count": 0,
+          "max_play_accounting_error_all_fits": 1.7763568394002505e-15,
+          "max_player_sum_error_all_fits": 1.0800249583553523e-12,
+          "primary_accounting": {
+            "equal_player": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 245.820637554101,
+              "player_sum_error": 1.2434497875801753e-14,
+              "totals_ep": {
+                "benchmark_reference": 0.5028705315802986,
+                "context": -26598.819437644717,
+                "contrast": 10.911049120460607,
+                "defense_team": 34.333874562206375,
+                "observed_role": 26811.929440418895,
+                "offense_team": -13.117668315816594,
+                "outside_module_actor": 0.0805088814257825,
+                "residual": -2.543010246824906e-11
+              }
+            },
+            "first_unit": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 245.820637554101,
+              "player_sum_error": 2.015054789694659e-14,
+              "totals_ep": {
+                "benchmark_reference": 11.72644790537267,
+                "context": -26598.819437644717,
+                "contrast": -0.3125282533326515,
+                "defense_team": 34.333874562206375,
+                "observed_role": 26811.929440418895,
+                "offense_team": -13.117668315816594,
+                "outside_module_actor": 0.0805088814257825,
+                "residual": -2.543010246824906e-11
+              }
+            },
+            "opportunity_weighted": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 245.820637554101,
+              "player_sum_error": 5.2735593669694936e-15,
+              "totals_ep": {
+                "benchmark_reference": 11.107766073261953,
+                "context": -26598.819437644717,
+                "contrast": 0.30615357877876687,
+                "defense_team": 34.333874562206375,
+                "observed_role": 26811.929440418895,
+                "offense_team": -13.117668315816594,
+                "outside_module_actor": 0.0805088814257825,
+                "residual": -2.543010246824906e-11
+              }
+            }
+          },
+          "prior_only_actor_parameter_count": 41,
+          "qualification_by_role": {
+            "QB": {
+              "denominator_proven": 23,
+              "observed": 59,
+              "participation_qualified": {
+                "0.75": 23,
+                "1.0": 23,
+                "1.25": 23
+              },
+              "source_complete_primary_qualified": 23
+            },
+            "RB": {
+              "denominator_proven": 48,
+              "observed": 116,
+              "participation_qualified": {
+                "0.75": 45,
+                "1.0": 40,
+                "1.25": 36
+              },
+              "source_complete_primary_qualified": 40
+            },
+            "TE": {
+              "denominator_proven": 27,
+              "observed": 98,
+              "participation_qualified": {
+                "0.75": 27,
+                "1.0": 25,
+                "1.25": 24
+              },
+              "source_complete_primary_qualified": 25
+            },
+            "WR": {
+              "denominator_proven": 71,
+              "observed": 171,
+              "participation_qualified": {
+                "0.75": 67,
+                "1.0": 62,
+                "1.25": 56
+              },
+              "source_complete_primary_qualified": 62
+            }
+          },
+          "unresolved_exposure_reason_counts": {
+            "no_single_team_in_window": 5,
+            "no_team_games": 5,
+            "not_positively_observed_in_every_team_game": 270
+          },
+          "unsupported_actor_appearances": {
+            "outside_role_scope": 177,
+            "unresolved_position": 4
+          }
+        }
+      }
+    },
+    "2026": {
+      "code_revision": "4f121466434ec537644770b09b3c16447589a885",
+      "depth_charts": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b",
+      "environment": {
+        "numpy": "2.2.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2",
+        "scipy": "1.15.3"
+      },
+      "evidence_cutoff": "2026-10-28T00:13:15+00:00",
+      "game_cohort_cutoff": "2026-10-22T23:50:38.680415+00:00",
+      "historical_availability": {
+        "historically_available_evidence_validated": false,
+        "retrospective_depth_team_games": 186,
+        "retrospective_roster_team_games": 186
+      },
+      "input_reports": {
+        "offensive": "e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83",
+        "roster": "1e15bbad312a88685b9fa74164b6b8eecc677c49f07029528048413b3c35ea3b"
+      },
+      "objects": {
+        "models": "bd7d88359f77e888fbfa13a5ce7b6a4944b7d871577a76433bd93d05a34fb6ed",
+        "predictions": "3be1d9d22f7039f727043d5cef8efc1de008296f4b4a3355f35c2612c561efd5"
+      },
+      "offline_replay_verified": true,
+      "replay_tolerance": {
+        "absolute": 1e-09,
+        "relative": 1e-08
+      },
+      "report_id": "cfc1e537feb9dfc11b4e49150f9ec92a1cfddafc28aa42e19be11c3a67f9e571",
+      "source_attribution": {
+        "depth_charts": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "summary": {
+        "3": {
+          "benchmark_ready_roles": [
+            "QB",
+            "RB",
+            "TE",
+            "WR"
+          ],
+          "compared_players": 407,
+          "completed_games": 48,
+          "exposure_proven_players": 221,
+          "main_admitted_players": 0,
+          "max_benchmark_difference_ep": 0.16346704810761636,
+          "max_penalty_difference_ep": 39.26655388449664,
+          "modeled_plays": 5814,
+          "negative_primary_contrasts": 236,
+          "observed_role_players": 407,
+          "participation_qualified_by_multiplier": {
+            "0.75": 164,
+            "1.0": 143,
+            "1.25": 112
+          }
+        },
+        "6": {
+          "benchmark_ready_roles": [
+            "QB",
+            "RB",
+            "TE",
+            "WR"
+          ],
+          "compared_players": 463,
+          "completed_games": 93,
+          "exposure_proven_players": 163,
+          "main_admitted_players": 0,
+          "max_benchmark_difference_ep": 0.538121812421214,
+          "max_penalty_difference_ep": 87.14012623311775,
+          "modeled_plays": 11441,
+          "negative_primary_contrasts": 281,
+          "observed_role_players": 463,
+          "participation_qualified_by_multiplier": {
+            "0.75": 158,
+            "1.0": 146,
+            "1.25": 130
+          }
+        }
+      },
+      "windows": {
+        "3": {
+          "coappearance": {
+            "actor_columns": 556,
+            "actor_offense_team_cosine_max": 0.8563488385776753,
+            "actor_offense_team_cosine_median": 0.19194496789521104,
+            "identification_validated": false
+          },
+          "cohort_audit": {
+            "QB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 48,
+              "first_unit_zero_opportunity_players": [
+                "00-0036212"
+              ],
+              "observed_players": 47
+            },
+            "RB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 104,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 104
+            },
+            "TE": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 93,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 93
+            },
+            "WR": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 167,
+              "first_unit_zero_opportunity_players": [
+                "00-0035535",
+                "00-0038976",
+                "00-0041035",
+                "00-0041099"
+              ],
+              "observed_players": 163
+            }
+          },
+          "conditional_interval_width_ep": {
+            "maximum": 22.7507975841431,
+            "median": 1.6258302316822668
+          },
+          "first_unit_prior_only_weight_by_component": {
+            "QB": {
+              "carry": 0.25,
+              "dropback": 0.010416666666666666
+            },
+            "RB": {
+              "carry": 0,
+              "target": 0
+            },
+            "TE": {
+              "target": 0
+            },
+            "WR": {
+              "target": 0.024305555555555552
+            }
+          },
+          "identical_actor_column_group_count": 0,
+          "max_play_accounting_error_all_fits": 8.881784197001252e-16,
+          "max_player_sum_error_all_fits": 8.810729923425242e-13,
+          "primary_accounting": {
+            "equal_player": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 39.54208772077861,
+              "player_sum_error": 2.2648549702353193e-14,
+              "totals_ep": {
+                "benchmark_reference": 0.241662423666567,
+                "context": -8101.893811511304,
+                "contrast": 2.875894870239222,
+                "defense_team": 6.447942871621325,
+                "observed_role": 8136.397966991687,
+                "offense_team": -4.530373132104673,
+                "outside_module_actor": 0.0028052070104037517,
+                "residual": -3.277822457903312e-12
+              }
+            },
+            "first_unit": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 39.54208772077861,
+              "player_sum_error": 1.7763568394002505e-15,
+              "totals_ep": {
+                "benchmark_reference": 5.31159264887481,
+                "context": -8101.893811511304,
+                "contrast": -2.1940353549688827,
+                "defense_team": 6.447942871621325,
+                "observed_role": 8136.397966991687,
+                "offense_team": -4.530373132104673,
+                "outside_module_actor": 0.0028052070104037517,
+                "residual": -3.277822457903312e-12
+              }
+            },
+            "opportunity_weighted": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": 39.54208772077861,
+              "player_sum_error": 4.440892098500626e-16,
+              "totals_ep": {
+                "benchmark_reference": 3.650403250364608,
+                "context": -8101.893811511304,
+                "contrast": -0.5328459564587257,
+                "defense_team": 6.447942871621325,
+                "observed_role": 8136.397966991687,
+                "offense_team": -4.530373132104673,
+                "outside_module_actor": 0.0028052070104037517,
+                "residual": -3.277822457903312e-12
+              }
+            }
+          },
+          "prior_only_actor_parameter_count": 53,
+          "qualification_by_role": {
+            "QB": {
+              "denominator_proven": 26,
+              "observed": 47,
+              "participation_qualified": {
+                "0.75": 26,
+                "1.0": 26,
+                "1.25": 26
+              },
+              "source_complete_primary_qualified": 26
+            },
+            "RB": {
+              "denominator_proven": 61,
+              "observed": 104,
+              "participation_qualified": {
+                "0.75": 47,
+                "1.0": 40,
+                "1.25": 36
+              },
+              "source_complete_primary_qualified": 40
+            },
+            "TE": {
+              "denominator_proven": 40,
+              "observed": 93,
+              "participation_qualified": {
+                "0.75": 31,
+                "1.0": 26,
+                "1.25": 18
+              },
+              "source_complete_primary_qualified": 26
+            },
+            "WR": {
+              "denominator_proven": 94,
+              "observed": 163,
+              "participation_qualified": {
+                "0.75": 60,
+                "1.0": 51,
+                "1.25": 32
+              },
+              "source_complete_primary_qualified": 51
+            }
+          },
+          "unresolved_exposure_reason_counts": {
+            "no_single_team_in_window": 2,
+            "no_team_games": 2,
+            "not_positively_observed_in_every_team_game": 184
+          },
+          "unsupported_actor_appearances": {
+            "outside_role_scope": 61,
+            "unresolved_position": 2
+          }
+        },
+        "6": {
+          "coappearance": {
+            "actor_columns": 674,
+            "actor_offense_team_cosine_max": 0.8406346808612327,
+            "actor_offense_team_cosine_median": 0.16293763397807054,
+            "identification_validated": false
+          },
+          "cohort_audit": {
+            "QB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 53,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 53
+            },
+            "RB": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 119,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 119
+            },
+            "TE": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 104,
+              "first_unit_zero_opportunity_players": [],
+              "observed_players": 104
+            },
+            "WR": {
+              "benchmark_ready": true,
+              "blocked_reasons": [],
+              "candidate_players": 189,
+              "first_unit_zero_opportunity_players": [
+                "00-0035535",
+                "00-0041035"
+              ],
+              "observed_players": 187
+            }
+          },
+          "conditional_interval_width_ep": {
+            "maximum": 40.6030911890517,
+            "median": 2.7033110908250686
+          },
+          "first_unit_prior_only_weight_by_component": {
+            "QB": {
+              "carry": 0.13020833333333334,
+              "dropback": 0
+            },
+            "RB": {
+              "carry": 0,
+              "target": 0.00625
+            },
+            "TE": {
+              "target": 0
+            },
+            "WR": {
+              "target": 0.005208333333333333
+            }
+          },
+          "identical_actor_column_group_count": 2,
+          "max_play_accounting_error_all_fits": 1.7763568394002505e-15,
+          "max_player_sum_error_all_fits": 8.185452315956354e-12,
+          "primary_accounting": {
+            "equal_player": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": -8.81943896242727,
+              "player_sum_error": 1.1191048088221578e-13,
+              "totals_ep": {
+                "benchmark_reference": 0.7998125089306506,
+                "context": -15863.201102755593,
+                "contrast": 9.887240688236789,
+                "defense_team": 18.378266635862712,
+                "observed_role": 15843.495694598483,
+                "offense_team": -18.17858339320404,
+                "outside_module_actor": -0.0007672435802582539,
+                "residual": -4.0742964557693995e-11
+              }
+            },
+            "first_unit": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": -8.81943896242727,
+              "player_sum_error": 2.1316282072803006e-14,
+              "totals_ep": {
+                "benchmark_reference": 20.2916859018568,
+                "context": -15863.201102755593,
+                "contrast": -9.604632704688905,
+                "defense_team": 18.378266635862712,
+                "observed_role": 15843.495694598483,
+                "offense_team": -18.17858339320404,
+                "outside_module_actor": -0.0007672435802582539,
+                "residual": -4.0742964557693995e-11
+              }
+            },
+            "opportunity_weighted": {
+              "max_play_accounting_error": 8.881784197001252e-16,
+              "observed_epa": -8.81943896242727,
+              "player_sum_error": 1.6209256159527285e-14,
+              "totals_ep": {
+                "benchmark_reference": 12.177133714869777,
+                "context": -15863.201102755593,
+                "contrast": -1.4900805177029173,
+                "defense_team": 18.378266635862712,
+                "observed_role": 15843.495694598483,
+                "offense_team": -18.17858339320404,
+                "outside_module_actor": -0.0007672435802582539,
+                "residual": -4.0742964557693995e-11
+              }
+            }
+          },
+          "prior_only_actor_parameter_count": 42,
+          "qualification_by_role": {
+            "QB": {
+              "denominator_proven": 23,
+              "observed": 53,
+              "participation_qualified": {
+                "0.75": 23,
+                "1.0": 23,
+                "1.25": 23
+              },
+              "source_complete_primary_qualified": 23
+            },
+            "RB": {
+              "denominator_proven": 42,
+              "observed": 119,
+              "participation_qualified": {
+                "0.75": 38,
+                "1.0": 35,
+                "1.25": 30
+              },
+              "source_complete_primary_qualified": 35
+            },
+            "TE": {
+              "denominator_proven": 34,
+              "observed": 104,
+              "participation_qualified": {
+                "0.75": 34,
+                "1.0": 29,
+                "1.25": 27
+              },
+              "source_complete_primary_qualified": 29
+            },
+            "WR": {
+              "denominator_proven": 64,
+              "observed": 187,
+              "participation_qualified": {
+                "0.75": 63,
+                "1.0": 59,
+                "1.25": 50
+              },
+              "source_complete_primary_qualified": 59
+            }
+          },
+          "unresolved_exposure_reason_counts": {
+            "no_single_team_in_window": 10,
+            "no_team_games": 10,
+            "not_positively_observed_in_every_team_game": 290
+          },
+          "unsupported_actor_appearances": {
+            "outside_role_scope": 136,
+            "unresolved_position": 5
+          }
+        }
+      }
+    }
+  },
+  "verification": {
+    "additional_tests": 20,
+    "frontend_contract_tests": 13,
+    "hosted_ci": "Report separately at the PR head; not inferred from local checks",
+    "local_chromium_rerun": false,
+    "local_python": "3.13.2",
+    "make_check_passed": true,
+    "offline_replay": "Both source chains and all fits rebuilt with HTTP/socket connections blocked",
+    "python_tests": 237
+  }
+}

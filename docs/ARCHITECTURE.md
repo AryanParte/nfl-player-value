@@ -80,6 +80,18 @@ independent weekly publication still require implementation and admission gates.
 
 ## Snapshot and release contract
 
+The [positional contrast layer](CONTRASTS.md) adds an offline research CLI on top
+of the offensive/weekly-roster chain and a depth-chart receipt. Each cumulative
+window selects its own depth evidence before identity consistency checks, then
+fits the existing additive design with explicit prior-only benchmark parameters.
+The pinned NumPy/SciPy stack supplies a Cholesky solution and joint conditional
+covariance; no dependency is added and legacy LSQR artifacts replay unchanged.
+The covariance stays in memory; immutable JSON stores fitted means, benchmark
+weights, player contrasts/conditional intervals, exposure diagnostics and an
+accounting audit. Replay refits the entire chain and checks saved numerical
+results. These artifacts live in `data/derived/contrasts`; they do not feed the
+public Explorer or authorize an individual ranking.
+
 The [weekly roster evidence layer](ROSTER_INPUTS.md) replays the offensive input
 chain and a separate weekly roster receipt before joining GSIS/team/season/week.
 It writes a hashed evidence payload and report to `data/derived/roster-inputs`.

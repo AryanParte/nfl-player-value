@@ -56,6 +56,8 @@ Gaussian iid residual model and Gaussian coefficient priors with precision
 Use the declared plug-in residual scale `SSE / n`. This scale and iid assumption
 are not calibrated NFL uncertainty; they ignore residual game/team dependence,
 variance-estimation uncertainty, shrinkage bias and unmeasured confounding.
+An exactly zero or nonfinite residual scale fails explicitly instead of producing
+falsely precise intervals for unobserved benchmark parameters.
 
 For a cumulative player-minus-benchmark vector L, calculate `L' beta` and
 `L' covariance L`. This preserves player/benchmark covariance, including the
@@ -98,3 +100,61 @@ Observed-role availability can absorb value created by a QB and remains a known
 baseline limitation. Historical predictive, attribution, calibration, scope and
 comparability gates still control admission. Defense Explorer and the failed
 defensive information-loss admission decision remain unchanged.
+
+## Build and reproduce
+
+The CLI uses the existing optional `model` dependencies. It never downloads
+data. Source capture is a separate operation; input replay verifies every raw
+receipt and upstream derived object before fitting. Select depth snapshots
+independently for each window: selecting a whole season first could let a later
+identity conflict contaminate earlier results. Weekly position joins also remain
+within the window and never fill gaps using later weeks.
+
+```sh
+PYTHONPATH=src python -m nfl_value.contrast_cli build \
+  --roster-report ROSTER_REPORT_SHA256 \
+  --depth-charts DEPTH_RECEIPT_SHA256 \
+  --evidence-cutoff TIMESTAMP_WITH_OFFSET \
+  --plan config/contrasts-v1.json
+PYTHONPATH=src python -m nfl_value.contrast_cli replay REPORT_SHA256
+```
+
+The model source must be committed before a build. The report binds the plan,
+producer revision, exact roster/offensive/depth lineage, evidence and game-cohort
+cutoffs, licensing and NumPy/SciPy versions. `models` is a hash-addressed JSON
+object. The reused writer calls the diagnostic results object `predictions`;
+it contains all windows' cohorts, retained first-unit assignments, benchmark
+weights, player contrasts, qualification grids and accounting, not published
+MVP predictions. Invalid output cannot overwrite earlier immutable objects.
+The report remains a research artifact: it neither moves the Explorer's latest
+pointer nor constitutes the future production publication gate.
+
+Twenty additional offline tests cover independent normal equations and covariance,
+an analytical correlated contrast, own-benchmark membership, shared shifts,
+prior-only parameters, zero residual scale, negative accounting, self-target and
+scramble unions, roster disagreement, qualification separation, missing exposure,
+zero targets during observed participation, future-data isolation, real synthetic
+CLI build/replay and rehashed corruption. They validate implementation, not real
+football attribution, uncertainty calibration or comparable positions.
+
+## October 27 evidence and decision
+
+Both real season bundles built and replayed with network access blocked; the
+[aggregate audit](audits/2026-10-27-positional-contrasts.json) records exact report
+IDs, producer revision, source cutoffs, prior-only weights and all six windows.
+The [learning report](learning/2026-10-27.md) explains the measured results.
+
+Archived 2026 Week 6 has 463 observed offensive role-players with complete
+benchmark comparisons, 163 proven denominators under the narrow rule, and
+158/146/130 participation passes under 0.75×/1×/1.25× thresholds. The largest
+primary-setting range across benchmarks is 0.54 EP, versus 87.14 EP across the
+declared penalties. Later 2025 windows block RB/WR/TE comparisons because ARI's
+Week 7 chart lacks valid first-unit slots. Full-season exposure can be proven for
+only 70 of 575 observed role-players under this deliberately narrow policy.
+
+No benchmark or threshold is revised from these results; no position is admitted.
+Regularization dependence, selective exposure, incomplete historical benchmark
+coverage, uncalibrated intervals and unvalidated attribution remain open. Small
+benchmark differences under a strongly shrunk fit do not establish that benchmark
+choice is unimportant in a better-identified model. These diagnostics cannot be
+presented as a ranked MVP output or new held-out predictive validation.

@@ -92,8 +92,22 @@ The October 23 [diagnostic baseline](BASELINE.md) includes an observed-role
 ablation to distinguish actor identity from knowing a target/carry/dropback link
 was recorded. Target availability is realized information and can absorb a QB's
 avoidance of sacks or throwaways. This ablation is not an approved hardship
-adjustment for final CAVAA. Its model coefficients are not positional scores,
-and the first-unit and two sensitivity benchmarks have not yet been applied.
+adjustment for final CAVAA. Its model coefficients are not positional scores.
+October 27 adds the [bounded positional contrast experiment](CONTRASTS.md), which
+applies the first-unit and two sensitivity populations to these joint actor
+components. It is a retrospective constant season-average fit, not a current-form
+estimate. Context/team/shared-role terms and residuals remain outside individual
+contrasts. All model/benchmark participants are retained independently of
+qualification; cold benchmark parameters carry prior uncertainty.
+
+The contrast layer's conditional Gaussian intervals use the full covariance of
+the player-minus-benchmark calculation. They are working-model diagnostics with
+an iid residual assumption and plug-in scale, not calibrated football confidence
+intervals. Its narrow exposure proof accepts only a consistent single team/role
+with positive observed participation in every completed team game in the window.
+This selected subset does not resolve general stints, injured/missed games, trades
+or late signings. The three-game rule and threshold grid remain provisional,
+and every main-admission flag stays false.
 
 ## Evidence and release labels
 
