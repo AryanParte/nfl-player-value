@@ -72,14 +72,25 @@ insufficient to certify exact roster stints: that policy/denominator gate remain
 open, with no backfill or invented participation. See the
 [audit](docs/audits/2026-10-26-roster-evidence.json).
 
-October 27 priority: implement bounded positional benchmark contrasts, review the
-exposure policy against these literal records, and make uncertainty/qualification
-failures explicit. Keep benchmark populations independent of eligibility. Protect
-the October 28–30 freeze and November 7 release dates. Further generic ingestion
-or CI expansion must not displace these decisions. Additional seasons, actual
-live-feed degradation and absence/uncertainty checks remain open defensive
-requirements. The universal-MVP objective remains at risk until an individual
-contribution module passes admission.
+October 27 progress: the [frozen positional contrast experiment](docs/CONTRASTS.md)
+fits six cumulative windows and three declared penalties, with both benchmark
+sensitivities, joint conditional intervals, complete component accounting and
+offline numerical replay. Twenty regressions guard independent math, leakage,
+negative/shared accounting, cold priors, exposure and artifacts. Archived 2026
+Week 6 supports 463 role-players' diagnostic contrasts but only 163 denominators
+under the narrow full-observed single-team rule. The 0.75×/1×/1.25× grid admits
+158/146/130 on participation alone; zero receive main admission. Later 2025
+RB/WR/TE benchmark cells fail closed on one ARI game's missing slots. The largest
+2026 penalty range is 87.14 EP versus 0.54 EP across benchmark choices at the
+primary setting. See the [audit](docs/audits/2026-10-27-positional-contrasts.json).
+
+October 28 priority: bounded calibration/attribution stress tests and a formal
+admission decision, with prespecified clustered/shrinkage and absence/cast cases.
+The now-measured selective exposure rule cannot be promoted to general
+eligibility. Resolve historical missing chart evidence and broader stints without
+invented fills or outcome-selected cohorts. Protect the October 28–30 freeze and
+November 7 target; the universal-MVP objective remains at risk. Defense requires
+actual live workload/role coverage, more seasons, absence and uncertainty evidence.
 
 October 25 additional manual reliability unit: preserve the existing CI matrix
 and frontend stack while adding Ruff, measured branch/statement coverage,

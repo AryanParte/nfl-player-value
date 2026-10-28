@@ -32,8 +32,13 @@ correction to exposure completion-time handling. It resolves source positions fo
 1,814 of 1,819 observed offensive player-game rows in the archived 2026 cohort;
 weekly roster presence does not establish complete stints or missed games.
 
-**No real CAVAA ranking is produced yet.** Position/stint verification, broader
-defensive validation, benchmark contrasts, player uncertainty, ranking/history
+October 27 adds [positional contrast diagnostics](docs/CONTRASTS.md): the primary
+and two sensitivity benchmarks, joint conditional uncertainty, six cumulative
+windows and a narrow exposure/qualification study. Strong penalty sensitivity,
+missing historical benchmark cells and selective exposure remain explicit.
+
+**No real CAVAA ranking is produced yet.** Broader stint verification, defensive
+validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
 missing. Synthetic tests are not football findings.
 
@@ -69,6 +74,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Defense Explorer](docs/DEFENSE_EXPLORER.md) | Observed defensive evidence, immutable export and the initial dashboard |
 | [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
+| [Positional contrasts](docs/CONTRASTS.md) | Benchmark accounting, joint conditional intervals, prefix isolation and narrow exposure diagnostics |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
 | [Project status](STATUS.md) | Completed work, active limitations, and next task |
 | [Daily workflow](docs/DAILY_WORKFLOW.md) | Independent development runs, locking, verification, and PR rules |
@@ -81,6 +87,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 24 learning report](docs/learning/2026-10-24.md) | Defensive information loss, weighted models, rank deficiency and admission limits |
 | [October 25 learning report](docs/learning/2026-10-25.md) | Observed versus attributed value, the first dashboard and shared data contracts |
 | [October 26 learning report](docs/learning/2026-10-26.md) | Retrospective roster evidence, exposure timing and real offline replay |
+| [October 27 learning report](docs/learning/2026-10-27.md) | Positional contrasts, shared uncertainty, shrinkage sensitivity and selective exposure |
 
 ## Run the checks
 
@@ -96,7 +103,7 @@ npm --prefix web ci --ignore-scripts --no-fund
 make check PYTHON=.venv/bin/python
 ```
 
-This runs 199 offline Python tests and 13 frontend contract tests, checks Python
+This runs 237 offline Python tests and 13 frontend contract tests, checks Python
 lint/adopted formatting and frontend formatting/TypeScript, builds the dashboard,
 compiles Python and checks whitespace. See [CI and release gates](docs/CI.md) for
 coverage reports, browser diagnostics and the optional manual dependency audit.

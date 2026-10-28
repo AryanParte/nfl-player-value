@@ -92,3 +92,15 @@ preserves the negative result, selection diagnostics and non-admission decision.
 The richer model is not ground truth; these tests are now observed. Broader
 historical/live-degradation, position, benchmark and player-uncertainty gates remain
 open. No aggregate error interval is relabeled as uncertainty in individual value.
+
+October 27: the [bounded contrast experiment](CONTRASTS.md) implements both
+benchmark sensitivities, joint conditional player-minus-benchmark intervals and
+the qualification grid on a documented, selected exposure subset. Synthetic
+tests independently verify linear algebra, shared-covariance propagation,
+prior-only players, per-play accounting and no later-window leakage. Real-source
+replay and measured sensitivity are reported in the dated audit. This completes
+neither uncertainty calibration nor the full qualification study: game/team
+dependence, general missed-game/stint coverage, selection effects, future
+predictive stability and cross-position admission remain open. Do not select a
+penalty or threshold using these now-observed results, and do not call these
+within-prefix fits new held-out evidence.
