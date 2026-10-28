@@ -4,7 +4,8 @@ PYTHON ?= python3
 # Incremental format adoption; expand this list when substantially editing modules.
 PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliability.py \
  src/nfl_value/weekly_rosters.py src/nfl_value/roster_inputs.py src/nfl_value/roster_cli.py \
- tests/test_roster_inputs.py
+ tests/test_roster_inputs.py src/nfl_value/contrast_math.py src/nfl_value/contrast_cohorts.py \
+ src/nfl_value/contrasts.py src/nfl_value/contrast_cli.py tests/test_contrasts.py tests/test_contrast_cli.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests
