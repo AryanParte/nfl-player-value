@@ -1,0 +1,13 @@
+{
+  "plan_version": 1,
+  "evaluation_labels": ["historical_test", "transfer_test"],
+  "minimum_team_dropbacks": 10,
+  "minimum_leader_share": 0.75,
+  "high_target_mix_change": 0.5,
+  "any_actor_issue_blocks_case": true,
+  "require_complete_ledger_context": true,
+  "adjacency": "consecutive-completed-team-games-within-evaluation",
+  "prediction_models": ["joint", "role"],
+  "actor_penalty": 1000.0,
+  "uncertainty": "leave-one-offense-team-out-sensitivity-not-confidence-interval"
+}
