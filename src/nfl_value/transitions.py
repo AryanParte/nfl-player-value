@@ -274,6 +274,14 @@ def experiment(ledgers, evidence, games, baseline, models, predictions, *, plan)
         ids = set(baseline["split_games"][label])
         if ids & training_ids or not ids:
             raise ValueError("empty or overlapping evaluation partition")
+        completed_ids = {g.game_id for g in games[label]}
+        expected_ids = completed_ids - training_ids if label == "historical_test" else completed_ids
+        if ids != expected_ids or (
+            label == "historical_test" and not training_ids <= completed_ids
+        ):
+            # An omitted completed game is not a bye. Do not bridge it even if
+            # the saved partition contains no modeled rows for that game.
+            raise ValueError("evaluation partition and completed game inventory differ")
         ledger = ledgers[label]
         raw_rows = [p for p in ledger["plays"] if p["game_id"] in ids]
         rows, preparation = prepare_plays(

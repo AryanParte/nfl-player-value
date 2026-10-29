@@ -197,6 +197,9 @@ class TransitionTests(unittest.TestCase):
         omitted = "2025_04_BUF_NYJ"
         data[3]["split_games"]["historical_test"].remove(omitted)
         data[2]["historical_test"] = [g for g in data[2]["historical_test"] if g.game_id != omitted]
+        data[0]["historical_test"]["plays"] = [
+            p for p in data[0]["historical_test"]["plays"] if p["game_id"] != omitted
+        ]
         refresh_predictions(data)
         cases = run(data)[2]["historical_test"]["cases"]
         self.assertEqual(len(cases), 2)
@@ -270,6 +273,7 @@ class TransitionTests(unittest.TestCase):
             "prediction_order",
             "inventory",
             "duplicate_roster",
+            "omitted_middle_game",
         ):
             data = fixture()
             if defect == "overlap":
@@ -283,6 +287,9 @@ class TransitionTests(unittest.TestCase):
                 data[5]["transfer_test"]["joint"].reverse()
             elif defect == "inventory":
                 data[2]["transfer_test"].pop()
+            elif defect == "omitted_middle_game":
+                data[3]["split_games"]["historical_test"].remove("2025_04_BUF_NYJ")
+                refresh_predictions(data)
             else:
                 data[1]["transfer_test"]["player_games"].append(
                     data[1]["transfer_test"]["player_games"][0]
