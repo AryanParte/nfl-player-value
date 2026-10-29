@@ -119,6 +119,16 @@ penalty is reselected and no position is admitted. The simulations preserve the
 same first-unit benchmark and observed opportunities; they do not validate the
 observed-role conditioning policy or recover unobserved contributions.
 
+October 29 [observed-transition diagnostics](TRANSITIONS.md) distinguish zero
+recorded dropbacks from missing identity/roster evidence and from a verified
+absence. Recorded target-share distance measures usage, not teammate quality.
+The isolated new-minus-prior QB coefficient contrast is explicitly a predecessor
+comparison, never the approved first-unit CAVAA benchmark. It holds realized
+decisions, targets and opportunity fixed and is withheld when either player lacks
+training exposure. Team EPA changes are reconciled across all model components
+and residual, never assigned wholesale to the QB. No eligibility, benchmark,
+penalty, position admission or cumulative season-value policy changes.
+
 ## Evidence and release labels
 
 Prediction accuracy supports the outcome model but does not establish correct player attribution. Cross-position admission requires a comparable estimand, benchmark, opportunity definition, accounting policy, and meaningful validation. Unsupported contributions stay unmeasured; missing is not zero. See [evaluation](EVALUATION.md) and the required [defensive experiment](DEFENSE_EXPERIMENT.md).

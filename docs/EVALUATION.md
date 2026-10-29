@@ -117,3 +117,15 @@ using unavailable truth. No method is promoted, and the penalty is not retuned.
 Exact alias cases report both affected and unaffected contrasts rather than
 assuming every coappearance problem affects the selected estimand. Real absence,
 supporting-cast, general exposure and module admission decisions remain open.
+
+October 29: the [frozen observed-transition audit](TRANSITIONS.md) evaluates
+unchanged models on direct adjacent completed games in the original evaluation
+partitions. It preserves every excluded pair and all QB-change cases, including
+unsupported identity swaps. The eight historical/five 2026 QB changes do not
+improve mean change prediction over the observed-role baseline. The target-mix
+subgroups are sparse and selected; a favorable subgroup cannot admit a module.
+Leave-one-offense-team-out ranges describe sensitivity, not confidence intervals.
+These previously examined outcomes, retrospective rosters and realized target
+counts do not establish injury causes, causal substitution or cast quality.
+The [audit](audits/2026-10-29-transitions.json) binds all source hashes and cutoffs.
+Formal module decisions remain due October 30; scientific gaps are not waived.
