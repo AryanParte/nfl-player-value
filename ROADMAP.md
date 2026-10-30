@@ -94,8 +94,18 @@ near 95%. No interval or position is admitted. Thirteen new regression tests
 protect independent algebra, cold parameters, simulated truth and archive replay.
 See the [audit](docs/audits/2026-10-28-calibration.json).
 
-October 29 priority: prespecified absence/cast and remaining exposure evidence,
-followed by formal admission/non-admission and release labels by October 30.
+October 29 progress: the [frozen QB/target-mix audit](docs/TRANSITIONS.md) reuses
+the original baseline predictions and evaluation games, with full offline replay.
+It retains 61/112 adjacent pairs and all 35/42 exclusions in 2025/2026. Eight/five
+QB changes provide weak, selected evidence; only four/two identity swaps have
+training support for both players. The joint model does not improve mean change
+error in those QB-change groups. Fifteen new regressions protect case selection,
+chronology, accounting, missing evidence and artifact integrity. Target mix is
+observed usage; injury causes, cast quality and real substitution effects remain
+unverified. See the [audit](docs/audits/2026-10-29-transitions.json).
+
+October 30 priority: formal module admission/non-admission and release labels,
+with a machine-readable decision contract for future publication gates.
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without
 invented fills or outcome-selected cohorts. Protect the October 28–30 freeze and

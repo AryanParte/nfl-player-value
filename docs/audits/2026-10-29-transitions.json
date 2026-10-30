@@ -1,0 +1,892 @@
+{
+  "all_qb_change_cases": {
+    "historical_test": [
+      {
+        "current_game_id": "2025_16_CIN_MIA",
+        "current_leader": "00-0040234",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 31,
+          "new_minus_prior_on_current_dropbacks_ep": 0.3975067130617158,
+          "training_dropbacks": {
+            "dropback/00-0036212": 390,
+            "dropback/00-0040234": 10
+          },
+          "untrained_features": []
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.28834344833624,
+            "predicted_change_epa_per_play": 0.23340516662913774,
+            "prediction_minus_observed_change": 0.28834344833624
+          },
+          "role": {
+            "absolute_change_error": 0.27352520466953495,
+            "predicted_change_epa_per_play": 0.2185869229624327,
+            "prediction_minus_observed_change": 0.27352520466953495
+          }
+        },
+        "observed_change_epa_per_play": -0.054938281707102236,
+        "previous_game_id": "2025_15_MIA_PIT",
+        "previous_leader": "00-0036212",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.38594164456233426,
+        "team": "MIA"
+      },
+      {
+        "current_game_id": "2025_16_LV_HOU",
+        "current_leader": "00-0030565",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 26,
+          "new_minus_prior_on_current_dropbacks_ep": 0.10479104251559537,
+          "training_dropbacks": {
+            "dropback/00-0030565": 461,
+            "dropback/00-0038102": 15
+          },
+          "untrained_features": []
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.45363593554283044,
+            "predicted_change_epa_per_play": -0.0859140313567589,
+            "prediction_minus_observed_change": -0.45363593554283044
+          },
+          "role": {
+            "absolute_change_error": 0.4572580029741686,
+            "predicted_change_epa_per_play": -0.08953609878809704,
+            "prediction_minus_observed_change": -0.4572580029741686
+          }
+        },
+        "observed_change_epa_per_play": 0.36772190418607154,
+        "previous_game_id": "2025_15_LV_PHI",
+        "previous_leader": "00-0038102",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.3109090909090909,
+        "team": "LV"
+      },
+      {
+        "current_game_id": "2025_18_IND_HOU",
+        "current_leader": "00-0040206",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 37,
+          "new_minus_prior_on_current_dropbacks_ep": null,
+          "training_dropbacks": {
+            "dropback/00-0022942": 0,
+            "dropback/00-0040206": 33
+          },
+          "untrained_features": [
+            "dropback/00-0022942"
+          ]
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.1892736676472378,
+            "predicted_change_epa_per_play": -0.056633691902493524,
+            "prediction_minus_observed_change": -0.1892736676472378
+          },
+          "role": {
+            "absolute_change_error": 0.1842592754272806,
+            "predicted_change_epa_per_play": -0.05161929968253631,
+            "prediction_minus_observed_change": -0.1842592754272806
+          }
+        },
+        "observed_change_epa_per_play": 0.1326399757447443,
+        "previous_game_id": "2025_17_JAX_IND",
+        "previous_leader": "00-0022942",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.23197492163009403,
+        "team": "IND"
+      },
+      {
+        "current_game_id": "2025_18_TEN_JAX",
+        "current_leader": "00-0032434",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 31,
+          "new_minus_prior_on_current_dropbacks_ep": null,
+          "training_dropbacks": {
+            "dropback/00-0032434": 0,
+            "dropback/00-0040676": 505
+          },
+          "untrained_features": [
+            "dropback/00-0032434"
+          ]
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.24188567286092766,
+            "predicted_change_epa_per_play": 0.07413461070229589,
+            "prediction_minus_observed_change": 0.24188567286092766
+          },
+          "role": {
+            "absolute_change_error": 0.23053301968984455,
+            "predicted_change_epa_per_play": 0.06278195753121277,
+            "prediction_minus_observed_change": 0.23053301968984455
+          }
+        },
+        "observed_change_epa_per_play": -0.16775106215863178,
+        "previous_game_id": "2025_17_NO_TEN",
+        "previous_leader": "00-0040676",
+        "previous_leader_current_dropbacks": 4,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": true,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.3541125541125541,
+        "team": "TEN"
+      },
+      {
+        "current_game_id": "2025_18_KC_LV",
+        "current_leader": "00-0038579",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 24,
+          "new_minus_prior_on_current_dropbacks_ep": null,
+          "training_dropbacks": {
+            "dropback/00-0030565": 461,
+            "dropback/00-0038579": 0
+          },
+          "untrained_features": [
+            "dropback/00-0038579"
+          ]
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.18016231162410007,
+            "predicted_change_epa_per_play": -0.09539051526929543,
+            "prediction_minus_observed_change": 0.18016231162410007
+          },
+          "role": {
+            "absolute_change_error": 0.18098103166970742,
+            "predicted_change_epa_per_play": -0.09457179522368808,
+            "prediction_minus_observed_change": 0.18098103166970742
+          }
+        },
+        "observed_change_epa_per_play": -0.2755528268933955,
+        "previous_game_id": "2025_17_NYG_LV",
+        "previous_leader": "00-0030565",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.33791208791208793,
+        "team": "LV"
+      },
+      {
+        "current_game_id": "2025_18_LAC_DEN",
+        "current_leader": "00-0037012",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 50,
+          "new_minus_prior_on_current_dropbacks_ep": -0.7958417052585783,
+          "training_dropbacks": {
+            "dropback/00-0036355": 507,
+            "dropback/00-0037012": 16
+          },
+          "untrained_features": []
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.3147186638174106,
+            "predicted_change_epa_per_play": 0.11652065856840714,
+            "prediction_minus_observed_change": 0.3147186638174106
+          },
+          "role": {
+            "absolute_change_error": 0.3243447751029036,
+            "predicted_change_epa_per_play": 0.12614676985390016,
+            "prediction_minus_observed_change": 0.3243447751029036
+          }
+        },
+        "observed_change_epa_per_play": -0.19819800524900344,
+        "previous_game_id": "2025_17_HOU_LAC",
+        "previous_leader": "00-0036355",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.7215619694397284,
+        "team": "LAC"
+      },
+      {
+        "current_game_id": "2025_18_WAS_PHI",
+        "current_leader": "00-0038400",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 45,
+          "new_minus_prior_on_current_dropbacks_ep": null,
+          "training_dropbacks": {
+            "dropback/00-0036389": 440,
+            "dropback/00-0038400": 0
+          },
+          "untrained_features": [
+            "dropback/00-0038400"
+          ]
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.09650520330652901,
+            "predicted_change_epa_per_play": 0.11316814120159192,
+            "prediction_minus_observed_change": 0.09650520330652901
+          },
+          "role": {
+            "absolute_change_error": 0.09050168661500303,
+            "predicted_change_epa_per_play": 0.10716462451006595,
+            "prediction_minus_observed_change": 0.09050168661500303
+          }
+        },
+        "observed_change_epa_per_play": 0.016662937895062915,
+        "previous_game_id": "2025_17_PHI_BUF",
+        "previous_leader": "00-0036389",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.7165775401069518,
+        "team": "PHI"
+      },
+      {
+        "current_game_id": "2025_18_BAL_PIT",
+        "current_leader": "00-0034796",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 21,
+          "new_minus_prior_on_current_dropbacks_ep": -0.12427371040036488,
+          "training_dropbacks": {
+            "dropback/00-0034796": 317,
+            "dropback/00-0035993": 45
+          },
+          "untrained_features": []
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.22376767350492016,
+            "predicted_change_epa_per_play": -0.004586019281616827,
+            "prediction_minus_observed_change": 0.22376767350492016
+          },
+          "role": {
+            "absolute_change_error": 0.2265718793885753,
+            "predicted_change_epa_per_play": -0.0017818133979617054,
+            "prediction_minus_observed_change": 0.2265718793885753
+          }
+        },
+        "observed_change_epa_per_play": -0.228353692786537,
+        "previous_game_id": "2025_17_BAL_GB",
+        "previous_leader": "00-0035993",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.40588235294117647,
+        "team": "BAL"
+      }
+    ],
+    "transfer_test": [
+      {
+        "current_game_id": "2026_02_NYG_LA",
+        "current_leader": "00-0031503",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 29,
+          "new_minus_prior_on_current_dropbacks_ep": -0.0691127193135452,
+          "training_dropbacks": {
+            "dropback/00-0031503": 69,
+            "dropback/00-0040691": 275
+          },
+          "untrained_features": []
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.5935560670138359,
+            "predicted_change_epa_per_play": -0.20452153055162614,
+            "prediction_minus_observed_change": 0.5935560670138359
+          },
+          "role": {
+            "absolute_change_error": 0.5960457578228037,
+            "predicted_change_epa_per_play": -0.20203183974265834,
+            "prediction_minus_observed_change": 0.5960457578228037
+          }
+        },
+        "observed_change_epa_per_play": -0.798077597565462,
+        "previous_game_id": "2026_01_DAL_NYG",
+        "previous_leader": "00-0040691",
+        "previous_leader_current_dropbacks": 5,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": true,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.3265086206896552,
+        "team": "NYG"
+      },
+      {
+        "current_game_id": "2026_03_SEA_WAS",
+        "current_leader": "00-0034869",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 46,
+          "new_minus_prior_on_current_dropbacks_ep": 1.1835371799832588,
+          "training_dropbacks": {
+            "dropback/00-0034869": 377,
+            "dropback/00-0035704": 3
+          },
+          "untrained_features": []
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.3975969655741702,
+            "predicted_change_epa_per_play": 0.21752725814691326,
+            "prediction_minus_observed_change": 0.3975969655741702
+          },
+          "role": {
+            "absolute_change_error": 0.3732712247037007,
+            "predicted_change_epa_per_play": 0.1932015172764438,
+            "prediction_minus_observed_change": 0.3732712247037007
+          }
+        },
+        "observed_change_epa_per_play": -0.18006970742725692,
+        "previous_game_id": "2026_02_SEA_ARI",
+        "previous_leader": "00-0035704",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.36324786324786323,
+        "team": "SEA"
+      },
+      {
+        "current_game_id": "2026_04_IND_WAS",
+        "current_leader": "00-0041117",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 36,
+          "new_minus_prior_on_current_dropbacks_ep": null,
+          "training_dropbacks": {
+            "dropback/00-0032268": 218,
+            "dropback/00-0041117": 0
+          },
+          "untrained_features": [
+            "dropback/00-0041117"
+          ]
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.28625742348732497,
+            "predicted_change_epa_per_play": 0.11628834030233684,
+            "prediction_minus_observed_change": 0.28625742348732497
+          },
+          "role": {
+            "absolute_change_error": 0.28423285708213697,
+            "predicted_change_epa_per_play": 0.11426377389714878,
+            "prediction_minus_observed_change": 0.28423285708213697
+          }
+        },
+        "observed_change_epa_per_play": -0.16996908318498816,
+        "previous_game_id": "2026_03_SEA_WAS",
+        "previous_leader": "00-0032268",
+        "previous_leader_current_dropbacks": 5,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": true,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.4722222222222222,
+        "team": "WAS"
+      },
+      {
+        "current_game_id": "2026_04_NYJ_CHI",
+        "current_leader": "00-0038416",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 36,
+          "new_minus_prior_on_current_dropbacks_ep": null,
+          "training_dropbacks": {
+            "dropback/00-0028986": 0,
+            "dropback/00-0038416": 5
+          },
+          "untrained_features": [
+            "dropback/00-0028986"
+          ]
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.18874393037394155,
+            "predicted_change_epa_per_play": 0.15423545275535566,
+            "prediction_minus_observed_change": 0.18874393037394155
+          },
+          "role": {
+            "absolute_change_error": 0.18189882162784204,
+            "predicted_change_epa_per_play": 0.14739034400925616,
+            "prediction_minus_observed_change": 0.18189882162784204
+          }
+        },
+        "observed_change_epa_per_play": -0.0345084776185859,
+        "previous_game_id": "2026_03_PHI_CHI",
+        "previous_leader": "00-0028986",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.32447817836812143,
+        "team": "CHI"
+      },
+      {
+        "current_game_id": "2026_05_NYG_WAS",
+        "current_leader": "00-0039910",
+        "identity_swap_diagnostic": {
+          "benchmark": "previous_observed_qb_not_cavaa_first_unit",
+          "current_leader_dropbacks": 37,
+          "new_minus_prior_on_current_dropbacks_ep": null,
+          "training_dropbacks": {
+            "dropback/00-0039910": 242,
+            "dropback/00-0041117": 0
+          },
+          "untrained_features": [
+            "dropback/00-0041117"
+          ]
+        },
+        "models": {
+          "joint": {
+            "absolute_change_error": 0.407937857563126,
+            "predicted_change_epa_per_play": -0.06307601685878837,
+            "prediction_minus_observed_change": -0.407937857563126
+          },
+          "role": {
+            "absolute_change_error": 0.4161974605683301,
+            "predicted_change_epa_per_play": -0.0713356198639925,
+            "prediction_minus_observed_change": -0.4161974605683301
+          }
+        },
+        "observed_change_epa_per_play": 0.3448618407043376,
+        "previous_game_id": "2026_04_IND_WAS",
+        "previous_leader": "00-0041117",
+        "previous_leader_current_dropbacks": 0,
+        "previous_leader_current_roster": {
+          "issues": [],
+          "observed_offensive_participation": false,
+          "record_present": true,
+          "source_position_role": "QB"
+        },
+        "target_mix_total_variation": 0.5446859903381642,
+        "team": "WAS"
+      }
+    ]
+  },
+  "audit_version": 1,
+  "code_revision": "815f5bf549a701c66cf4c906630282bc8f0358f6",
+  "date": "2026-10-29",
+  "environment": {
+    "numpy": "2.2.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.2",
+    "scipy": "1.15.3"
+  },
+  "individual_attribution_validated": false,
+  "injury_absences_verified": false,
+  "input_baseline_report": "1fd9e2479c71ff06590a96e7b512fb291f80ad35bc10867d81814af7452660de",
+  "input_roster_reports": {
+    "historical_test": "be0547bd656d1925343bbd2ac5a2c14e6db44a4d53c47621fab0d4c874ea7ee7",
+    "transfer_test": "1e15bbad312a88685b9fa74164b6b8eecc677c49f07029528048413b3c35ea3b"
+  },
+  "interpretation": "Retrospective observed QB/target-mix diagnostic; not first-unit CAVAA or a causal absence study",
+  "kind": "observed-lineup-transitions",
+  "object_semantics": {
+    "models": "complete team-game panels including exclusions",
+    "predictions": "all adjacent-pair cases and excluded pairs"
+  },
+  "objects": {
+    "models": "d0e3bf753f129d552525e301b0936e6aa5693891fc868b3d513510f00e077bd9",
+    "predictions": "428b4a1f9fa2de635969ab050770f277c692c51db8706999bfc414603c57aa0b"
+  },
+  "plan_path": "config/transitions-v1.json",
+  "plan_revision": "95d1379",
+  "plan_sha256": "268769c7ad54d7802706971c428a6df7b1774ed434be53c77b629660b275a775",
+  "ranking_ready": false,
+  "remaining": [
+    "Verified injury/absence causes and response to a true substitution",
+    "Supporting-cast quality and off-ball workload",
+    "General roster stints and eligibility denominators",
+    "Historical first-unit source gaps",
+    "Calibrated player uncertainty and position admission",
+    "Durable off-machine artifact retention",
+    "Ranking/history views, deployment and independent production refresh"
+  ],
+  "report_id": "54afb613475b4aa2736e6995ea7427e9aa765bd982c62d822276e83aecc729be",
+  "source_provenance": {
+    "historical_test": {
+      "evidence_cutoff": "2026-10-26T20:50:19.932422+00:00",
+      "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "historically_available_evidence_validated": false,
+      "offensive_report_id": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      }
+    },
+    "transfer_test": {
+      "evidence_cutoff": "2026-10-26T20:50:19.932422+00:00",
+      "game_cohort_cutoff": "2026-10-22T23:50:38.680415+00:00",
+      "historically_available_evidence_validated": false,
+      "offensive_report_id": "e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83",
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      }
+    }
+  },
+  "summary": {
+    "historical_test": {
+      "adjacent_pairs": 96,
+      "completed_team_games": 128,
+      "eligible_team_games": 104,
+      "excluded_pairs": 35,
+      "groups": {
+        "all": {
+          "distinct_games": 59,
+          "joint_minus_role_mae": -3.2861562594353424e-05,
+          "leave_one_offense_team_out_range": [
+            -0.00028037998308267655,
+            0.00013341015239174125
+          ],
+          "max_component_accounting_error": 1.1657341758564144e-15,
+          "mean_absolute_change_error": {
+            "joint": 0.22888545074626088,
+            "role": 0.2289183123088552
+          },
+          "offense_teams": 27,
+          "pairs": 61,
+          "range_is_confidence_interval": false
+        },
+        "qb_changed": {
+          "distinct_games": 16,
+          "joint_minus_role_mae": 0.002539712637897212,
+          "leave_one_offense_team_out_range": [
+            0.0007856367766389519,
+            0.004277687484095815
+          ],
+          "max_component_accounting_error": 1.1657341758564144e-15,
+          "mean_absolute_change_error": {
+            "joint": 0.24853657208002447,
+            "role": 0.24599685944212726
+          },
+          "offense_teams": 7,
+          "pairs": 8,
+          "range_is_confidence_interval": false
+        },
+        "qb_changed_prior_not_observed": {
+          "distinct_games": 14,
+          "joint_minus_role_mae": 0.0012807211331563695,
+          "leave_one_offense_team_out_range": [
+            -0.0009755326224350746,
+            0.0030985265362645995
+          ],
+          "max_component_accounting_error": 1.1657341758564144e-15,
+          "mean_absolute_change_error": {
+            "joint": 0.24948670053989544,
+            "role": 0.24820597940673905
+          },
+          "offense_teams": 6,
+          "pairs": 7,
+          "range_is_confidence_interval": false
+        },
+        "qb_changed_prior_still_observed": {
+          "distinct_games": 2,
+          "joint_minus_role_mae": 0.01135265317108311,
+          "leave_one_offense_team_out_range": null,
+          "max_component_accounting_error": 5.551115123125783e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.24188567286092766,
+            "role": 0.23053301968984455
+          },
+          "offense_teams": 1,
+          "pairs": 1,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained": {
+          "distinct_games": 55,
+          "joint_minus_role_mae": -0.0004211746494610048,
+          "leave_one_offense_team_out_range": [
+            -0.0006512540948871634,
+            -0.0002367902299937158
+          ],
+          "max_component_accounting_error": 8.690964614643804e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.2259192437524852,
+            "role": 0.22634041840194624
+          },
+          "offense_teams": 25,
+          "pairs": 53,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained_target_mix_high": {
+          "distinct_games": 9,
+          "joint_minus_role_mae": 0.00036527598497281823,
+          "leave_one_offense_team_out_range": [
+            -0.0001657642144728503,
+            0.0016656561875754775
+          ],
+          "max_component_accounting_error": 5.273559366969494e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.21938960232919955,
+            "role": 0.21902432634422672
+          },
+          "offense_teams": 4,
+          "pairs": 5,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained_target_mix_low": {
+          "distinct_games": 52,
+          "joint_minus_role_mae": -0.0005030965905478613,
+          "leave_one_offense_team_out_range": [
+            -0.0007642018815382724,
+            -0.0003008398273305811
+          ],
+          "max_component_accounting_error": 8.690964614643804e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.2265994147340775,
+            "role": 0.22710251132462533
+          },
+          "offense_teams": 25,
+          "pairs": 48,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained_target_mix_unknown": {
+          "distinct_games": 0,
+          "joint_minus_role_mae": null,
+          "leave_one_offense_team_out_range": null,
+          "max_component_accounting_error": null,
+          "mean_absolute_change_error": {
+            "joint": null,
+            "role": null
+          },
+          "offense_teams": 0,
+          "pairs": 0,
+          "range_is_confidence_interval": false
+        }
+      },
+      "identity_swaps_with_training_support": 4,
+      "panel_issue_counts": {
+        "actor_issue_or_ambiguous_event": 18,
+        "no_unique_qb_leader": 1,
+        "qb_leader_share_below_minimum": 8,
+        "unresolved_dropback_position_or_identity": 1
+      }
+    },
+    "transfer_test": {
+      "adjacent_pairs": 154,
+      "completed_team_games": 186,
+      "eligible_team_games": 157,
+      "excluded_pairs": 42,
+      "groups": {
+        "all": {
+          "distinct_games": 89,
+          "joint_minus_role_mae": 0.000547532746653609,
+          "leave_one_offense_team_out_range": [
+            0.00018532959508597087,
+            0.000716017078376007
+          ],
+          "max_component_accounting_error": 1.2004286453759505e-15,
+          "mean_absolute_change_error": {
+            "joint": 0.1975095325672414,
+            "role": 0.19696199982058782
+          },
+          "offense_teams": 32,
+          "pairs": 112,
+          "range_is_confidence_interval": false
+        },
+        "qb_changed": {
+          "distinct_games": 8,
+          "joint_minus_role_mae": 0.004489224441517015,
+          "leave_one_offense_team_out_range": [
+            -0.00046990466572109646,
+            0.009560386269200397
+          ],
+          "max_component_accounting_error": 2.220446049250313e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.3748184488024797,
+            "role": 0.3703292243609627
+          },
+          "offense_teams": 4,
+          "pairs": 5,
+          "range_is_confidence_interval": false
+        },
+        "qb_changed_prior_not_observed": {
+          "distinct_games": 6,
+          "joint_minus_role_mae": 0.007637082203788281,
+          "leave_one_offense_team_out_range": [
+            -0.0007072471295523075,
+            0.015585424808284482
+          ],
+          "max_component_accounting_error": 2.220446049250313e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.3314262511704126,
+            "role": 0.3237891689666243
+          },
+          "offense_teams": 3,
+          "pairs": 3,
+          "range_is_confidence_interval": false
+        },
+        "qb_changed_prior_still_observed": {
+          "distinct_games": 4,
+          "joint_minus_role_mae": -0.0002325622018898854,
+          "leave_one_offense_team_out_range": [
+            -0.0024896908089677705,
+            0.0020245664051879997
+          ],
+          "max_component_accounting_error": 2.220446049250313e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.43990674525058043,
+            "role": 0.4401393074524703
+          },
+          "offense_teams": 2,
+          "pairs": 2,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained": {
+          "distinct_games": 89,
+          "joint_minus_role_mae": 0.00036334154595905736,
+          "leave_one_offense_team_out_range": [
+            0.00021077558579692495,
+            0.0005328516723982881
+          ],
+          "max_component_accounting_error": 1.2004286453759505e-15,
+          "mean_absolute_change_error": {
+            "joint": 0.189224069191763,
+            "role": 0.18886072764580392
+          },
+          "offense_teams": 31,
+          "pairs": 107,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained_target_mix_high": {
+          "distinct_games": 18,
+          "joint_minus_role_mae": -0.0004905981169815706,
+          "leave_one_offense_team_out_range": [
+            -0.0011330751961687816,
+            0.00045410158893598
+          ],
+          "max_component_accounting_error": 5.273559366969494e-16,
+          "mean_absolute_change_error": {
+            "joint": 0.2259308959744039,
+            "role": 0.22642149409138548
+          },
+          "offense_teams": 9,
+          "pairs": 9,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained_target_mix_low": {
+          "distinct_games": 87,
+          "joint_minus_role_mae": 0.0004417645762291151,
+          "leave_one_offense_team_out_range": [
+            0.00027792838712678087,
+            0.0006227551545861156
+          ],
+          "max_component_accounting_error": 1.2004286453759505e-15,
+          "mean_absolute_change_error": {
+            "joint": 0.18585303407907147,
+            "role": 0.18541126950284234
+          },
+          "offense_teams": 31,
+          "pairs": 98,
+          "range_is_confidence_interval": false
+        },
+        "qb_retained_target_mix_unknown": {
+          "distinct_games": 0,
+          "joint_minus_role_mae": null,
+          "leave_one_offense_team_out_range": null,
+          "max_component_accounting_error": null,
+          "mean_absolute_change_error": {
+            "joint": null,
+            "role": null
+          },
+          "offense_teams": 0,
+          "pairs": 0,
+          "range_is_confidence_interval": false
+        }
+      },
+      "identity_swaps_with_training_support": 2,
+      "panel_issue_counts": {
+        "actor_issue_or_ambiguous_event": 25,
+        "qb_leader_share_below_minimum": 5
+      }
+    }
+  },
+  "verification": {
+    "actual_case_objects_unchanged_after_partition_guard": true,
+    "build_seconds": 21.404,
+    "full_build_network_blocked": true,
+    "full_replay_network_blocked": true,
+    "replay_seconds": 21.139,
+    "replay_tolerance": {
+      "absolute": 1e-09,
+      "relative": 1e-08
+    }
+  }
+}

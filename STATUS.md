@@ -1,18 +1,27 @@
 # Project status
 
-Updated: October 28, 2026, America/New_York.
+Updated: October 29, 2026, America/New_York.
 
 ## Current unit
 
-The bounded known-effect calibration unit is implemented on
-`codex/attribution-calibration`, from owner-merged PR #11 / main `4ffc6ab`.
+The bounded observed QB/target-mix transition audit is implemented on
+`codex/observed-lineup-transitions`, from owner-merged PR #12 / main `28d79c8`.
 Main CI was green, with no open PRs, reviews to address or unfinished local work.
-The plan was committed before results. It simulates known player effects on the
-verified 2025/2026 Week 6 designs, measures interval coverage and shrinkage bias,
-and tests exactly interchangeable actor allocations. Both complete chains build
-and numerically replay offline. See the [specification and results](docs/CALIBRATION.md),
-[audit](docs/audits/2026-10-28-calibration.json) and
-[learning report](docs/learning/2026-10-28.md).
+Plan `95d1379` was committed before implementation/results. The unchanged frozen
+baseline is evaluated on adjacent games in its original evaluation partitions;
+selection uses observations/identities, never EPA. Every excluded adjacent pair
+is retained. The complete baseline/roster/raw chain builds and replays offline.
+See the [specification and results](docs/TRANSITIONS.md),
+[audit](docs/audits/2026-10-29-transitions.json) and
+[learning report](docs/learning/2026-10-29.md).
+
+There are 61/112 accepted pairs in the 2025/2026 windows, including eight/five QB
+changes. On changed-QB pairs, joint-model mean absolute change error exceeds the
+role baseline by 0.00254/0.00449 EPA per play. Only four/two identity-swap
+diagnostics have both actors represented in training; the others remain null.
+Small, selected and dependent samples do not establish attribution or causal
+absence effects. Target mix measures recorded usage, not cast quality. This
+audit supplies bounded evidence for the October 30 decision, not an admission.
 
 **The primary intervals fail the stronger-signal stress tests.** Matched-prior
 coverage is 94.85/94.94%, but fixed-signal coverage is only 0.96–1.94% in 2025 and
@@ -76,7 +85,7 @@ No completed-game inventory was refreshed in this unit.
 
 The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not October 28 live coverage.
+23:50:38.680415 UTC; this is an archived snapshot, not October 29 live coverage.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
 one unresolved roster name and ten blocked defensive team-game-role cells:
@@ -96,7 +105,7 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-250 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
+265 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
 whitespace checks pass locally. The existing eight Chromium scenarios were not
 rerun locally for this Python-only unit; the unchanged hosted dashboard job runs
 them. Hosted results for this branch are reported separately. The October 25
@@ -107,17 +116,19 @@ offline with network construction/connections blocked. Desktop/mobile inspection
 finds no page errors, failed responses or document overflow. See the audit for
 recorded inputs and the learning report for failures fixed during verification.
 
-## Next highest-priority unit — October 29
+## Next highest-priority unit — October 30
 
-Prespecify a small outcome-independent absence/supporting-cast audit on existing
-archives and assess the remaining source/exposure evidence needed for formal
-module decisions by October 30. Resolve historical chart gaps only from defensible
-evidence. The selective all-games-observed subset is not a production denominator
-fallback. The measured shrinkage/dependence failures cannot be repaired by choosing
-the best-looking simulated penalty or merely widening intervals. Freeze an honest
-admission/non-admission decision and release labels without another open-ended
-model rebuild. Prioritize that decision, then the November 7 website, durable
-artifacts and independent publication/last-good-output work.
+Freeze evidence-backed module admission/non-admission decisions and release labels.
+Implement the small machine-readable decision contract that future release gates
+can enforce; all current score modules remain unadmitted. Preserve the required
+first-unit benchmark and sensitivity definitions, cumulative accounting and
+provisional participation rules. Do not promote the selected all-games-observed
+subset to a general denominator policy, fill historical chart gaps by inference,
+or relabel observed transitions as verified injuries/absences. The measured
+shrinkage/dependence failures cannot be repaired by choosing a favorable simulated
+penalty or merely widening intervals. Avoid another open-ended model rebuild;
+then prioritize the November 7 website, durable artifacts and independent
+publication/last-good-output work. Explicitly record the unfinished ranking goal.
 
 Defensive follow-up still requires a permitted live workload source, actual
 live-like missingness, verified positions, additional seasons, absence cases and
@@ -127,7 +138,7 @@ player uncertainty. Do not convert the Explorer's event counts into scores.
 
 The local exploratory website is usable, but no 2026 CAVAA score is published and
 no position has passed attribution/comparability admission. The first offensive
-contrast/conditional-interval, bounded calibration and partial qualification
+contrast/conditional-interval, calibration, transition and partial qualification
 experiments now run, but calibrated player uncertainty, broader exposure,
 admission, ranked/history views, durable
 off-machine snapshot retention, deployment and independent production refresh

@@ -43,6 +43,11 @@ bias, clustered/oracle variances, prior-only parameters, Monte Carlo dependence,
 deterministic synthetic truth, prefix selection and corrupted/rehashed replay.
 The broader two-design simulation is an offline research command documented in
 [CALIBRATION.md](CALIBRATION.md), not a live-download prerequisite for PR CI.
+October 29 adds 15 formatted transition regressions: known share/contrast answers,
+outcome-independent case selection, no skipped completed games, missing identities,
+chronology, component conservation and archive corruption/replay. Its complete
+real-data [transition audit](TRANSITIONS.md) runs separately offline; ordinary
+PR CI uses only deterministic synthetic fixtures and adds no network dependency.
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports

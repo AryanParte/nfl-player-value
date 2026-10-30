@@ -43,6 +43,11 @@ alias checks. Near-95% coverage under the model's own prior does not survive the
 prespecified stronger-signal tests. This is a documented model limitation, not a
 new ranking or a measurement of actual players' errors.
 
+October 29 adds the [observed QB/target-mix transition audit](docs/TRANSITIONS.md):
+unchanged model predictions, outcome-independent adjacent-game selection and
+replay from verified archives. Sparse QB changes and unsupported comparisons
+remain visible; no observed change is labeled a causal injury/absence effect.
+
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -96,6 +101,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 26 learning report](docs/learning/2026-10-26.md) | Retrospective roster evidence, exposure timing and real offline replay |
 | [October 27 learning report](docs/learning/2026-10-27.md) | Positional contrasts, shared uncertainty, shrinkage sensitivity and selective exposure |
 | [October 28 learning report](docs/learning/2026-10-28.md) | Prior-dependent coverage, sampling variance versus bias, and attribution stress tests |
+| [October 29 learning report](docs/learning/2026-10-29.md) | Observed transitions, missing comparisons, target mix and limits of absence evidence |
 
 ## Run the checks
 
