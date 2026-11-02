@@ -129,3 +129,12 @@ These previously examined outcomes, retrospective rosters and realized target
 counts do not establish injury causes, causal substitution or cast quality.
 The [audit](audits/2026-10-29-transitions.json) binds all source hashes and cutoffs.
 Formal module decisions remain due October 30; scientific gaps are not waived.
+
+November 2: the overdue decision is now [formally recorded](decisions/2026-11-02-module-admission.md)
+with an [executable non-admission registry](ADMISSION.md). Every role has an
+explicit module scope and data/benchmark/denominator/accounting/attribution/
+uncertainty/comparability findings. All current modules remain unadmitted.
+The gate checks exact evidence/policy hashes and preserves participation rules;
+it does not refit models, establish scientific truth or validate a production
+ranking bundle. Positive admission requires new reviewed evidence and a contract
+revision. No numerical criterion is relaxed or new validation result claimed.
