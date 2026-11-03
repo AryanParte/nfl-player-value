@@ -2,6 +2,27 @@ import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
 import { createHash } from "node:crypto";
 import fixture from "./fixture.json" with { type: "json" };
+import { admission, admissionRoute } from "./admission-fixture";
+
+test.beforeEach(async ({ page }) => {
+  await admission(page);
+});
+
+test("missing availability does not hide valid observed defensive evidence", async ({
+  page,
+}) => {
+  await page.unroute(admissionRoute);
+  await page.route(admissionRoute, (route) => route.fulfill({ status: 404 }));
+  await snapshot(page);
+  await page.goto("/");
+  await expect(page.locator("#availability").getByRole("alert")).toContainText(
+    "record is missing",
+  );
+  await expect(
+    page.getByRole("button", { name: "Synthetic Player 1" }),
+  ).toBeVisible();
+  await expect(page.locator("#availability").getByRole("group")).toHaveCount(0);
+});
 
 async function snapshot(
   page: Page,

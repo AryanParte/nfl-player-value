@@ -83,6 +83,12 @@ files after rejection tests this gate only, not a future publisher's atomicity.
 
 ## Remaining production integration
 
+The [dashboard availability panel and static review command](STATIC_REVIEW.md)
+now consume the exact pinned registry bytes. The panel preserves all 17 roles,
+scope labels and evidence reasons with no numerical values. The review command
+also validates evidence-link Git bytes. This is an exploratory presentation;
+the registry and game cutoff remain separate and no positive admission is possible.
+
 The actual ranking schema, source-readiness/freshness checks, model numerical
 replay, validated stints and benchmark coverage, immutable release manifest,
 position admission, deployment concurrency and last-good publication handling
