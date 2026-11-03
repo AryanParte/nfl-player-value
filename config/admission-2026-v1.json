@@ -1,0 +1,523 @@
+{
+  "decided_at": "2026-11-02T19:53:56+00:00",
+  "decision_version": "2026-11-02-v1",
+  "findings": {
+    "defense_accounting": {
+      "applies_to": [
+        "accounting"
+      ],
+      "evidence_refs": [
+        "defense_evidence"
+      ],
+      "reason": "Historical rich/degraded outcome accounting retains team/context/residual and negative defensive outcomes. This is not proof of individual allocation.",
+      "status": "passed"
+    },
+    "defense_attribution": {
+      "applies_to": [
+        "attribution"
+      ],
+      "evidence_refs": [
+        "defense_evidence"
+      ],
+      "reason": "Neither defender model passes the prespecified predictive-increment criterion; aggregation loses identification. Passing prediction would still not prove attribution.",
+      "status": "failed"
+    },
+    "defense_benchmark": {
+      "applies_to": [
+        "benchmark"
+      ],
+      "evidence_refs": [
+        "defense_evidence",
+        "decision_record"
+      ],
+      "reason": "No fitted positional defensive first-unit contrast or both benchmark sensitivities are implemented and validated.",
+      "status": "not_evaluated"
+    },
+    "defense_comparability": {
+      "applies_to": [
+        "comparability"
+      ],
+      "evidence_refs": [
+        "defense_evidence",
+        "decision_record"
+      ],
+      "reason": "No defensive positional CAVAA module has demonstrated common-unit comparability to an admitted offensive module.",
+      "status": "not_evaluated"
+    },
+    "defense_data": {
+      "applies_to": [
+        "data"
+      ],
+      "evidence_refs": [
+        "defense_evidence",
+        "explorer_evidence"
+      ],
+      "reason": "The historical lineup experiment does not certify current-season role/workload coverage. Explorer event counts do not measure pressures, coverage deterrence or off-ball value.",
+      "status": "insufficient"
+    },
+    "defense_denominator": {
+      "applies_to": [
+        "denominator"
+      ],
+      "evidence_refs": [
+        "explorer_evidence",
+        "eligibility_contract"
+      ],
+      "reason": "No verified permitted live defensive workload and general stint denominator supports individual-value qualification.",
+      "status": "not_evaluated"
+    },
+    "defense_uncertainty": {
+      "applies_to": [
+        "uncertainty"
+      ],
+      "evidence_refs": [
+        "defense_evidence",
+        "decision_record"
+      ],
+      "reason": "Prediction-error intervals are not individual-value uncertainty; no calibrated positional player-minus-benchmark interval is available.",
+      "status": "not_evaluated"
+    },
+    "offense_accounting": {
+      "applies_to": [
+        "accounting"
+      ],
+      "evidence_refs": [
+        "contrast_evidence"
+      ],
+      "reason": "Independent numerical checks and component reconstruction preserve shared/team terms and negative outcomes. This establishes arithmetic only, not uniquely correct allocation.",
+      "status": "passed"
+    },
+    "offense_attribution": {
+      "applies_to": [
+        "attribution"
+      ],
+      "evidence_refs": [
+        "offense_evidence",
+        "contrast_evidence",
+        "transition_evidence"
+      ],
+      "reason": "Limited identity increment, strong penalty sensitivity and sparse selected QB transitions do not establish individual contribution under a comparable positional counterfactual.",
+      "status": "insufficient"
+    },
+    "offense_benchmark": {
+      "applies_to": [
+        "benchmark"
+      ],
+      "evidence_refs": [
+        "contrast_evidence",
+        "benchmark_contract"
+      ],
+      "reason": "First-unit and both sensitivity contrasts run, but retrospective source availability and missing later historical RB/WR/TE first-unit cells do not validate the full release population.",
+      "status": "insufficient"
+    },
+    "offense_comparability": {
+      "applies_to": [
+        "comparability"
+      ],
+      "evidence_refs": [
+        "offense_evidence",
+        "contrast_evidence",
+        "decision_record"
+      ],
+      "reason": "Observed QB/RB/target components omit different contributions and condition on endogenous observed roles; no cross-position comparison has passed validation.",
+      "status": "insufficient"
+    },
+    "offense_data": {
+      "applies_to": [
+        "data"
+      ],
+      "evidence_refs": [
+        "offense_evidence",
+        "roster_evidence",
+        "contrast_evidence"
+      ],
+      "reason": "Observed actor roles and exact-week roster positions do not cover full contributions, off-ball play or comparable player-created context. The current archive is retrospective Week 6 evidence.",
+      "status": "insufficient"
+    },
+    "offense_denominator": {
+      "applies_to": [
+        "denominator"
+      ],
+      "evidence_refs": [
+        "roster_evidence",
+        "contrast_evidence",
+        "eligibility_contract"
+      ],
+      "reason": "The selected full-observed single-team subset does not establish general stints, missed games, late signings, trades or position-change denominators.",
+      "status": "insufficient"
+    },
+    "offense_uncertainty": {
+      "applies_to": [
+        "uncertainty"
+      ],
+      "evidence_refs": [
+        "calibration_evidence"
+      ],
+      "reason": "The primary conditional intervals fail the prespecified stronger-signal simulations despite near-nominal prior-matched coverage. These failures are not measured real-player error rates.",
+      "status": "failed"
+    },
+    "unimplemented": {
+      "applies_to": [
+        "data",
+        "benchmark",
+        "denominator",
+        "accounting",
+        "attribution",
+        "uncertainty",
+        "comparability"
+      ],
+      "evidence_refs": [
+        "decision_record"
+      ],
+      "reason": "No individual model and validated contribution/benchmark/workload/uncertainty comparison are implemented for this module. Missing value is not zero.",
+      "status": "not_evaluated"
+    }
+  },
+  "modules": {
+    "c_blocking": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "C",
+      "scope_label": "Center blocking contribution"
+    },
+    "cb_defense": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "defense_accounting",
+        "attribution": "defense_attribution",
+        "benchmark": "defense_benchmark",
+        "comparability": "defense_comparability",
+        "data": "defense_data",
+        "denominator": "defense_denominator",
+        "uncertainty": "defense_uncertainty"
+      },
+      "model_spec_refs": [
+        "defense_plan"
+      ],
+      "role": "CB",
+      "scope_label": "Cornerback contribution"
+    },
+    "edge_defense": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "defense_accounting",
+        "attribution": "defense_attribution",
+        "benchmark": "defense_benchmark",
+        "comparability": "defense_comparability",
+        "data": "defense_data",
+        "denominator": "defense_denominator",
+        "uncertainty": "defense_uncertainty"
+      },
+      "model_spec_refs": [
+        "defense_plan"
+      ],
+      "role": "EDGE",
+      "scope_label": "Edge defender contribution"
+    },
+    "idl_defense": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "defense_accounting",
+        "attribution": "defense_attribution",
+        "benchmark": "defense_benchmark",
+        "comparability": "defense_comparability",
+        "data": "defense_data",
+        "denominator": "defense_denominator",
+        "uncertainty": "defense_uncertainty"
+      },
+      "model_spec_refs": [
+        "defense_plan"
+      ],
+      "role": "IDL",
+      "scope_label": "Interior defensive line contribution"
+    },
+    "k_kicking": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "K",
+      "scope_label": "Placekicking contribution"
+    },
+    "kr_returns": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "KR",
+      "scope_label": "Kickoff return contribution"
+    },
+    "lb_defense": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "defense_accounting",
+        "attribution": "defense_attribution",
+        "benchmark": "defense_benchmark",
+        "comparability": "defense_comparability",
+        "data": "defense_data",
+        "denominator": "defense_denominator",
+        "uncertainty": "defense_uncertainty"
+      },
+      "model_spec_refs": [
+        "defense_plan"
+      ],
+      "role": "LB",
+      "scope_label": "Linebacker contribution"
+    },
+    "ls_snapping": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "LS",
+      "scope_label": "Long-snapping contribution"
+    },
+    "og_blocking": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "OG",
+      "scope_label": "Offensive guard blocking contribution"
+    },
+    "ot_blocking": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "OT",
+      "scope_label": "Offensive tackle blocking contribution"
+    },
+    "p_punting": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "P",
+      "scope_label": "Punting contribution"
+    },
+    "pr_returns": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "unimplemented",
+        "attribution": "unimplemented",
+        "benchmark": "unimplemented",
+        "comparability": "unimplemented",
+        "data": "unimplemented",
+        "denominator": "unimplemented",
+        "uncertainty": "unimplemented"
+      },
+      "model_spec_refs": [],
+      "role": "PR",
+      "scope_label": "Punt return contribution"
+    },
+    "qb_observed": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "offense_accounting",
+        "attribution": "offense_attribution",
+        "benchmark": "offense_benchmark",
+        "comparability": "offense_comparability",
+        "data": "offense_data",
+        "denominator": "offense_denominator",
+        "uncertainty": "offense_uncertainty"
+      },
+      "model_spec_refs": [
+        "baseline_plan",
+        "contrast_plan"
+      ],
+      "role": "QB",
+      "scope_label": "Observed QB dropback and carry components"
+    },
+    "rb_on_ball": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "offense_accounting",
+        "attribution": "offense_attribution",
+        "benchmark": "offense_benchmark",
+        "comparability": "offense_comparability",
+        "data": "offense_data",
+        "denominator": "offense_denominator",
+        "uncertainty": "offense_uncertainty"
+      },
+      "model_spec_refs": [
+        "baseline_plan",
+        "contrast_plan"
+      ],
+      "role": "RB",
+      "scope_label": "Observed RB carries and recorded targets only"
+    },
+    "s_defense": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "defense_accounting",
+        "attribution": "defense_attribution",
+        "benchmark": "defense_benchmark",
+        "comparability": "defense_comparability",
+        "data": "defense_data",
+        "denominator": "defense_denominator",
+        "uncertainty": "defense_uncertainty"
+      },
+      "model_spec_refs": [
+        "defense_plan"
+      ],
+      "role": "S",
+      "scope_label": "Safety contribution"
+    },
+    "te_targeted": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "offense_accounting",
+        "attribution": "offense_attribution",
+        "benchmark": "offense_benchmark",
+        "comparability": "offense_comparability",
+        "data": "offense_data",
+        "denominator": "offense_denominator",
+        "uncertainty": "offense_uncertainty"
+      },
+      "model_spec_refs": [
+        "baseline_plan",
+        "contrast_plan"
+      ],
+      "role": "TE",
+      "scope_label": "Recorded TE targets only; partial receiving coverage"
+    },
+    "wr_targeted": {
+      "decision": "not_admitted",
+      "gates": {
+        "accounting": "offense_accounting",
+        "attribution": "offense_attribution",
+        "benchmark": "offense_benchmark",
+        "comparability": "offense_comparability",
+        "data": "offense_data",
+        "denominator": "offense_denominator",
+        "uncertainty": "offense_uncertainty"
+      },
+      "model_spec_refs": [
+        "baseline_plan",
+        "contrast_plan"
+      ],
+      "role": "WR",
+      "scope_label": "Recorded WR targets only; partial receiving coverage"
+    }
+  },
+  "policy": {
+    "eligibility_filters_benchmark": false,
+    "eligibility_policy": "provisional-2026-v1",
+    "first_unit_weighting": "equal-team-completed-game-role-slot-v1",
+    "metric": "cumulative_expected_point_cavaa",
+    "primary_benchmark": "first_unit",
+    "recency_discount": false,
+    "sensitivity_benchmarks": [
+      "equal_player",
+      "opportunity_weighted"
+    ]
+  },
+  "schema_version": 1,
+  "season": 2026,
+  "sources": {
+    "baseline_plan": {
+      "path": "config/baseline-2025-v1.json",
+      "sha256": "def91eee11bca64c7e30424eb5fdc188794e34bc452281da0e9a0a28207c9cbd"
+    },
+    "benchmark_contract": {
+      "path": "src/nfl_value/benchmarks.py",
+      "sha256": "1fe0957e1a783e64900eb29610156c93b9102efef22b681602e0d6c9327bebb0"
+    },
+    "calibration_evidence": {
+      "path": "docs/audits/2026-10-28-calibration.json",
+      "sha256": "2a8fc30c80a2d115d1e812ab68271389c69076566cd5ea70b6f639b161001ae3"
+    },
+    "contrast_evidence": {
+      "path": "docs/audits/2026-10-27-positional-contrasts.json",
+      "sha256": "4fad9ee29f71f20b45adbd060358c18fc85aed9cef02f0f48093bd21068c6555"
+    },
+    "contrast_plan": {
+      "path": "config/contrasts-v1.json",
+      "sha256": "2f5ef771d5ac5d2587ed66ddf89d4d40ac703083bb7b0ad799d3328830d378c7"
+    },
+    "decision_record": {
+      "path": "docs/decisions/2026-11-02-module-admission.md",
+      "sha256": "61addddd9a11a013e7693f9ce2e516b2a2bb4a7027eeaf6a64b421a7571fab69"
+    },
+    "defense_evidence": {
+      "path": "docs/audits/2026-10-24-defensive-model.json",
+      "sha256": "056a7ab79362e4a588976c4d5e69a1811a5ee31f2d07ac58ba5ba11d5fbf50bf"
+    },
+    "defense_plan": {
+      "path": "config/defense-2025-v1.json",
+      "sha256": "0eadb0f0c5ffc23e1952f2d61913181e411b99de8670cd471dbdca5b5526e7c5"
+    },
+    "eligibility_contract": {
+      "path": "src/nfl_value/eligibility.py",
+      "sha256": "74b77deb1dcbe79fbb7557a34ea99385bf355dc8ba4d29e3e5d8ead7d9ae2e3d"
+    },
+    "explorer_evidence": {
+      "path": "docs/audits/2026-10-25-defense-explorer.json",
+      "sha256": "96dce37486cde060060862fb3a9c082bcfc0bc86b74e7a8d8baac6dd68946e69"
+    },
+    "offense_evidence": {
+      "path": "docs/audits/2026-10-23-offensive-baseline.json",
+      "sha256": "27eef52826b466d9296fe420deb17d9b4ff9a9212cf677cbda67fa371b363a7c"
+    },
+    "roster_evidence": {
+      "path": "docs/audits/2026-10-26-roster-evidence.json",
+      "sha256": "51b4a92c82f6f67bcfee6d95f732a8212c86d6bed2618fbf57ffcc82439597c9"
+    },
+    "transition_evidence": {
+      "path": "docs/audits/2026-10-29-transitions.json",
+      "sha256": "14a85f8237cd40f477fd135ead0d6089003db2a56423ff6563f4d32ce27e9de0"
+    }
+  }
+}

@@ -48,6 +48,11 @@ unchanged model predictions, outcome-independent adjacent-game selection and
 replay from verified archives. Sparse QB changes and unsupported comparisons
 remain visible; no observed change is labeled a causal injury/absence effect.
 
+November 2 records [formal module decisions](docs/ADMISSION.md) and an executable
+admission prerequisite. All 17 role modules remain unadmitted. The registry binds
+exact evidence and policy files, preserves participation/benchmark separation and
+rejects unsupported score requests; it does not create a production publisher.
+
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -102,6 +107,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 27 learning report](docs/learning/2026-10-27.md) | Positional contrasts, shared uncertainty, shrinkage sensitivity and selective exposure |
 | [October 28 learning report](docs/learning/2026-10-28.md) | Prior-dependent coverage, sampling variance versus bias, and attribution stress tests |
 | [October 29 learning report](docs/learning/2026-10-29.md) | Observed transitions, missing comparisons, target mix and limits of absence evidence |
+| [November 2 learning report](docs/learning/2026-11-02.md) | Module admission, participation independence and evidence-bound release decisions |
 
 ## Run the checks
 

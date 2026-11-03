@@ -104,12 +104,23 @@ chronology, accounting, missing evidence and artifact integrity. Target mix is
 observed usage; injury causes, cast quality and real substitution effects remain
 unverified. See the [audit](docs/audits/2026-10-29-transitions.json).
 
-October 30 priority: formal module admission/non-admission and release labels,
-with a machine-readable decision contract for future publication gates.
+November 2 progress: the overdue October 30 module decision is recorded on its
+actual date. The [admission contract](docs/ADMISSION.md) binds 13 evidence/plan/
+policy references and records seven gates for every one of the 17 supported role
+codes. All current modules remain unadmitted. The read-only CLI verifies hashes
+and rejects score requests; a participation adapter preserves the existing
+thresholds. Fourteen new regressions guard evidence corruption, missing modules,
+scope changes, false admission and eligibility separation. The production ranking
+validator and an actually admissible model remain unfinished. See the
+[decision](docs/decisions/2026-11-02-module-admission.md).
+
+November 3 priority: dashboard module availability/reasons and a reproducible
+static release bundle, followed by durable storage, source readiness, deployment
+and independent refresh with last-good-output protection through November 7.
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without
-invented fills or outcome-selected cohorts. Protect the October 28–30 freeze and
-November 7 target; the universal-MVP objective remains at risk. Defense requires
+invented fills or outcome-selected cohorts. Preserve the frozen evidence and
+November 7 target; the universal-MVP objective remains unfinished. Defense requires
 actual live workload/role coverage, more seasons, absence and uncertainty evidence.
 
 October 25 additional manual reliability unit: preserve the existing CI matrix

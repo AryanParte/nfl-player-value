@@ -1,19 +1,24 @@
 # Project status
 
-Updated: October 29, 2026, America/New_York.
+Updated: November 2, 2026, America/New_York.
 
 ## Current unit
 
-The bounded observed QB/target-mix transition audit is implemented on
-`codex/observed-lineup-transitions`, from owner-merged PR #12 / main `28d79c8`.
-Main CI was green, with no open PRs, reviews to address or unfinished local work.
-Plan `95d1379` was committed before implementation/results. The unchanged frozen
-baseline is evaluated on adjacent games in its original evaluation partitions;
-selection uses observations/identities, never EPA. Every excluded adjacent pair
-is retained. The complete baseline/roster/raw chain builds and replays offline.
-See the [specification and results](docs/TRANSITIONS.md),
-[audit](docs/audits/2026-10-29-transitions.json) and
-[learning report](docs/learning/2026-10-29.md).
+The module admission contract is implemented on `codex/module-admission-gate`,
+from owner-merged PR #13 / main `e186c81`. Main CI was green, with no open PRs,
+review feedback or unfinished local changes. The overdue October 30 decision is
+recorded on November 2, not backdated. All 17 role modules remain **not admitted**.
+See the [contract](docs/ADMISSION.md),
+[dated decision](docs/decisions/2026-11-02-module-admission.md),
+[registry](config/admission-2026-v1.json) and
+[learning report](docs/learning/2026-11-02.md).
+
+The executable registry verifies 13 evidence/plan/policy references, separates
+seven gates, rejects scope/role/version changes and cannot grant admission by
+flipping a flag. It adapts the existing participation rules without changing
+their thresholds, benchmark membership or three-game minimum. A valid registry
+check is not permission to publish scores. This is a reusable prerequisite, not
+an implemented production ranking validator or refreshed NFL dataset.
 
 There are 61/112 accepted pairs in the 2025/2026 windows, including eight/five QB
 changes. On changed-QB pairs, joint-model mean absolute change error exceeds the
@@ -21,7 +26,7 @@ role baseline by 0.00254/0.00449 EPA per play. Only four/two identity-swap
 diagnostics have both actors represented in training; the others remain null.
 Small, selected and dependent samples do not establish attribution or causal
 absence effects. Target mix measures recorded usage, not cast quality. This
-audit supplies bounded evidence for the October 30 decision, not an admission.
+audit supplies bounded evidence for the documented decision, not an admission.
 
 **The primary intervals fail the stronger-signal stress tests.** Matched-prior
 coverage is 94.85/94.94%, but fixed-signal coverage is only 0.96–1.94% in 2025 and
@@ -85,7 +90,7 @@ No completed-game inventory was refreshed in this unit.
 
 The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not October 29 live coverage.
+23:50:38.680415 UTC; this is an archived snapshot, not November 2 live coverage.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
 one unresolved roster name and ten blocked defensive team-game-role cells:
@@ -105,7 +110,7 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-265 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
+279 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
 whitespace checks pass locally. The existing eight Chromium scenarios were not
 rerun locally for this Python-only unit; the unchanged hosted dashboard job runs
 them. Hosted results for this branch are reported separately. The October 25
@@ -116,19 +121,17 @@ offline with network construction/connections blocked. Desktop/mobile inspection
 finds no page errors, failed responses or document overflow. See the audit for
 recorded inputs and the learning report for failures fixed during verification.
 
-## Next highest-priority unit — October 30
+## Next highest-priority unit — November 3
 
-Freeze evidence-backed module admission/non-admission decisions and release labels.
-Implement the small machine-readable decision contract that future release gates
-can enforce; all current score modules remain unadmitted. Preserve the required
-first-unit benchmark and sensitivity definitions, cumulative accounting and
-provisional participation rules. Do not promote the selected all-games-observed
-subset to a general denominator policy, fill historical chart gaps by inference,
-or relabel observed transitions as verified injuries/absences. The measured
-shrinkage/dependence failures cannot be repaired by choosing a favorable simulated
-penalty or merely widening intervals. Avoid another open-ended model rebuild;
-then prioritize the November 7 website, durable artifacts and independent
-publication/last-good-output work. Explicitly record the unfinished ranking goal.
+Expose the frozen module-availability decisions and reasons in the React dashboard,
+then prepare a reproducible static release bundle with explicit archived-data
+labels. Preserve null scores and the separate Defense Explorer. Prioritize durable
+artifact retention, current-source readiness, deployment and independent refresh
+with last-good-output handling in the remaining November 3–7 window. No admitted
+ranking is presently supported, so an exploratory release must explicitly state
+that the unified-MVP objective remains unfinished. Do not start an open-ended
+model rescue, promote the selected exposure subset to general eligibility or
+retune on already examined outcomes to meet the deadline.
 
 Defensive follow-up still requires a permitted live workload source, actual
 live-like missingness, verified positions, additional seasons, absence cases and
@@ -139,9 +142,9 @@ player uncertainty. Do not convert the Explorer's event counts into scores.
 The local exploratory website is usable, but no 2026 CAVAA score is published and
 no position has passed attribution/comparability admission. The first offensive
 contrast/conditional-interval, calibration, transition and partial qualification
-experiments now run, but calibrated player uncertainty, broader exposure,
-admission, ranked/history views, durable
-off-machine snapshot retention, deployment and independent production refresh
+experiments now run, and formal non-admission decisions are recorded. Calibrated
+player uncertainty, broader exposure, a module that passes admission,
+ranked/history views, durable off-machine snapshot retention, deployment and independent production refresh
 remain unfinished. Source receipts and generated exports are local and ignored
 by Git; a hash alone cannot restore missing bytes. The current public-data rights
 review does not admit a PFR workload dependency.

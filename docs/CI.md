@@ -48,6 +48,10 @@ outcome-independent case selection, no skipped completed games, missing identiti
 chronology, component conservation and archive corruption/replay. Its complete
 real-data [transition audit](TRANSITIONS.md) runs separately offline; ordinary
 PR CI uses only deterministic synthetic fixtures and adds no network dependency.
+November 2 adds 14 admission-contract regressions and formatting checks. CI reads
+the actual committed registry, verifies every referenced evidence/plan/policy file,
+and tests corruption, malformed JSON, missing roles, relabeled scopes, false
+admission and independence from participation thresholds. No live data is needed.
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports
@@ -146,7 +150,7 @@ on *every* rejected refresh.
 | Exact model/benchmark versions | Hashed plans, model artifacts and numerical replay | Release manifest binds admitted model, first-unit benchmark, both sensitivity definitions, qualification and schema versions |
 | Accounting and uncertainty | Additive outcome conservation and independent solver references | First-unit contrasts conserve the allocated shared components; joint player/benchmark uncertainty and negative season totals survive serialization |
 | Ranking correctness | Existing qualification/benchmark unit contracts; no scores admitted | Three-game/role opportunity grid, eligibility independent of benchmark membership, deterministic ties, cumulative games without recency decay, missing score versus zero |
-| Position admission | Explicit unadmitted Explorer values and rejection in Python/browser | A scored row must reference a passing admission decision for its module/position; partial scope cannot silently appear as universal value |
+| Position admission | Explicit unadmitted Explorer values and rejection in Python/browser; versioned non-admission registry with verified evidence and a score-request guard | Integrate the registry digest with the actual ranking schema and publisher; a scored row must reference a passing module decision, and partial scope cannot silently become universal value |
 | Reproducibility and retention | Append-only local objects, exact source and numerical model replay | Restore on a clean machine from durable retained bytes; previous weekly and corrected releases remain retrievable |
 | Publication failure recovery | Local atomic object-before-pointer ordering and failure tests | Deployment-store concurrency, immutable release index, monotonic/corrected cutoff policy, rollback and failed-refresh end-to-end tests |
 
