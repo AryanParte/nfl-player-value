@@ -22,6 +22,7 @@ From the canonical repository root, with the development lease held, Python
 ```sh
 # Install the committed frontend lockfile once if dependencies are absent.
 npm --prefix web ci --ignore-scripts --no-fund
+mkdir -p work
 PYTHONPATH=src .venv/bin/python -m nfl_value.review_cli \
   497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435 \
   > work/review-build.json

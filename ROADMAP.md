@@ -114,9 +114,18 @@ scope changes, false admission and eligibility separation. The production rankin
 validator and an actually admissible model remain unfinished. See the
 [decision](docs/decisions/2026-11-02-module-admission.md).
 
-November 3 priority: dashboard module availability/reasons and a reproducible
-static release bundle, followed by durable storage, source readiness, deployment
-and independent refresh with last-good-output protection through November 7.
+November 3 progress: the [availability panel and static review bundle](docs/STATIC_REVIEW.md)
+expose all 17 unadmitted modules with exact evidence links, independent integrity
+checks and retries. The full archived Explorer chain plus a clean committed
+frontend builds into an immutable 1.19 MB ZIP; two offline builds are byte-identical.
+The restored `/nfl/` view passes desktop/mobile inspection. Thirteen Python,
+fourteen frontend and four browser regressions protect these boundaries. See the
+[audit](docs/audits/2026-11-03-static-review.json). This is local archived research,
+not deployment, durable remote retention, fresh coverage or admitted rankings.
+
+November 4 priority: durable artifact retention and verified restoration, then
+source readiness, deployment and independent refresh with last-good-output
+protection through November 7. No paid infrastructure without owner approval.
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without
 invented fills or outcome-selected cohorts. Preserve the frozen evidence and

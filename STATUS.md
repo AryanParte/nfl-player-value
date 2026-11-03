@@ -1,24 +1,37 @@
 # Project status
 
-Updated: November 2, 2026, America/New_York.
+Updated: November 3, 2026, America/New_York.
 
 ## Current unit
 
-The module admission contract is implemented on `codex/module-admission-gate`,
-from owner-merged PR #13 / main `e186c81`. Main CI was green, with no open PRs,
-review feedback or unfinished local changes. The overdue October 30 decision is
-recorded on November 2, not backdated. All 17 role modules remain **not admitted**.
-See the [contract](docs/ADMISSION.md),
-[dated decision](docs/decisions/2026-11-02-module-admission.md),
-[registry](config/admission-2026-v1.json) and
-[learning report](docs/learning/2026-11-02.md).
+The dashboard module-availability and archived static review unit is implemented
+on `codex/dashboard-module-availability`, from owner-merged PR #14 / main
+`d58dc05`. Main CI was green, with no open PRs, review feedback or unfinished
+local changes. The interface exposes all 17 modules, seven gates, partial scope
+labels and links to exact reviewed evidence. All modules remain **not admitted**;
+unavailable values are never zero. The decision registry and observed Explorer
+load independently, so a missing/corrupt asset cannot manufacture a decision or
+hide valid observations in the other panel.
 
-The executable registry verifies 13 evidence/plan/policy references, separates
-seven gates, rejects scope/role/version changes and cannot grant admission by
-flipping a flag. It adapts the existing participation rules without changing
-their thresholds, benchmark membership or three-game minimum. A valid registry
-check is not permission to publish scores. This is a reusable prerequisite, not
-an implemented production ranking validator or refreshed NFL dataset.
+The [static review command](docs/STATIC_REVIEW.md) verifies the pinned registry
+and 13 references, replays archived source inputs, checks committed code and
+Node/dependency state, builds the existing dashboard and creates an immutable ZIP.
+Two builds with Python/Node network APIs blocked produced identical bytes:
+1,190,657 bytes, SHA-256
+`ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb`.
+The producer is `1c9bcae77291195b8002343b780aafafa12db90d`; the following
+documentation commit records the audit. See the [audit](docs/audits/2026-11-03-static-review.json)
+and [learning report](docs/learning/2026-11-03.md).
+
+The bundle retains the October 22 cutoff / Week 6 game coverage and the separate
+November 2 model-review date. It contains seven public files, without raw NFL
+downloads or old unreferenced exports. All file hashes were verified after
+restoring into a new directory. Desktop and 390/320-pixel mobile Chromium checks
+passed at a `/nfl/` subdirectory URL, with no page errors, failed responses,
+external requests or document overflow. The local QA server was stopped.
+This artifact is local and ignored by Git: it is neither deployed nor durably
+retained off-machine. No source refresh, model change or production publisher is
+claimed. Participation rules and benchmark membership are unchanged.
 
 There are 61/112 accepted pairs in the 2025/2026 windows, including eight/five QB
 changes. On changed-QB pairs, joint-model mean absolute change error exceeds the
@@ -90,7 +103,7 @@ No completed-game inventory was refreshed in this unit.
 
 The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not November 2 live coverage.
+23:50:38.680415 UTC; this is an archived snapshot, not November 3 live coverage.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
 one unresolved roster name and ten blocked defensive team-game-role cells:
@@ -110,28 +123,28 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-279 Python tests, 13 frontend contracts, Ruff, TypeScript/format/build, compile and
-whitespace checks pass locally. The existing eight Chromium scenarios were not
-rerun locally for this Python-only unit; the unchanged hosted dashboard job runs
-them. Hosted results for this branch are reported separately. The October 25
-coverage baseline was 90.15% and remains informational; it is not today's
-measurement or evidence of attribution. During the earlier Explorer unit, the
-real snapshot built and exactly replayed
-offline with network construction/connections blocked. Desktop/mobile inspection
-finds no page errors, failed responses or document overflow. See the audit for
-recorded inputs and the learning report for failures fixed during verification.
+292 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile and
+whitespace checks pass locally. All 12 Chromium scenarios pass, retaining the
+eight original Explorer cases and adding four availability scenarios. Hosted
+results for this branch are reported separately. The October 25 coverage baseline
+of 90.15% remains informational; it is not today's measurement or evidence of
+attribution. The real bundle replays and builds offline, with exact repeated ZIP
+bytes and restored-file/browser inspection. The learning report records the
+failures corrected during verification.
 
-## Next highest-priority unit — November 3
+## Next highest-priority unit — November 4
 
-Expose the frozen module-availability decisions and reasons in the React dashboard,
-then prepare a reproducible static release bundle with explicit archived-data
-labels. Preserve null scores and the separate Defense Explorer. Prioritize durable
-artifact retention, current-source readiness, deployment and independent refresh
-with last-good-output handling in the remaining November 3–7 window. No admitted
-ranking is presently supported, so an exploratory release must explicitly state
-that the unified-MVP objective remains unfinished. Do not start an open-ended
-model rescue, promote the selected exposure subset to general eligibility or
-retune on already examined outcomes to meet the deadline.
+Preserve source/derived/review artifacts durably off-machine within the approved
+near-zero budget and demonstrate restoration before deployment. Then connect
+explicit current-source readiness, independently scheduled refresh and hosted
+last-good-output handling. Inspect public redistribution/storage limits before
+choosing the retention mechanism; do not enable paid infrastructure. The local
+ZIP is a review artifact, not fulfillment of those production tasks.
+
+No admitted ranking is presently supported. An exploratory release must state
+that the unified-MVP objective remains unfinished. Preserve the November 7 target
+without retuning on examined outcomes, promoting selected exposure to general
+eligibility, or labeling a retrospective Week 6 view as current NFL rankings.
 
 Defensive follow-up still requires a permitted live workload source, actual
 live-like missingness, verified positions, additional seasons, absence cases and

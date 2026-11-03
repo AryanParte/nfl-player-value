@@ -53,6 +53,12 @@ admission prerequisite. All 17 role modules remain unadmitted. The registry bind
 exact evidence and policy files, preserves participation/benchmark separation and
 rejects unsupported score requests; it does not create a production publisher.
 
+November 3 adds [dashboard module availability and static review bundles](docs/STATIC_REVIEW.md).
+All 17 modules have inspectable scope, validation gaps and exact evidence links.
+The local 1.19 MB archived view rebuilds byte-for-byte and works on desktop/mobile;
+the November 2 review date does not change the Week 6 game cutoff. Deployment,
+durable off-machine retention and independent refresh remain unfinished.
+
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -88,6 +94,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Defensive inputs](docs/DEFENSE_INPUTS.md) | FTN provenance, whole-game cohort policy, paired views and offline replay |
 | [Offensive inputs](docs/OFFENSIVE_INPUTS.md) | Unique play outcomes, actor links, opportunity unions and missingness |
 | [Defense Explorer](docs/DEFENSE_EXPLORER.md) | Observed defensive evidence, immutable export and the initial dashboard |
+| [Static review bundles](docs/STATIC_REVIEW.md) | All-position availability, pinned evidence, offline builds and archived-data limits |
 | [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Positional contrasts](docs/CONTRASTS.md) | Benchmark accounting, joint conditional intervals, prefix isolation and narrow exposure diagnostics |
@@ -108,6 +115,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [October 28 learning report](docs/learning/2026-10-28.md) | Prior-dependent coverage, sampling variance versus bias, and attribution stress tests |
 | [October 29 learning report](docs/learning/2026-10-29.md) | Observed transitions, missing comparisons, target mix and limits of absence evidence |
 | [November 2 learning report](docs/learning/2026-11-02.md) | Module admission, participation independence and evidence-bound release decisions |
+| [November 3 learning report](docs/learning/2026-11-03.md) | Honest availability, integrity versus validity, deterministic review artifacts and independent UI failures |
 
 ## Run the checks
 

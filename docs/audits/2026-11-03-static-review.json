@@ -1,0 +1,206 @@
+{
+  "audit_date": "2026-11-03",
+  "bundle": {
+    "archive": "artifacts/review-bundles/ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb.zip",
+    "archive_bytes": 1190657,
+    "archive_sha256": "ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb",
+    "code_revision": "1c9bcae77291195b8002343b780aafafa12db90d",
+    "coverage": {
+      "completed_games": 93,
+      "expected_role_cells": 186,
+      "included_plays": 11441,
+      "players": 518,
+      "role_cells": [
+        {
+          "blocked_cells": 6,
+          "complete_cells": 180,
+          "role": "IDL"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 186,
+          "role": "EDGE"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 186,
+          "role": "LB"
+        },
+        {
+          "blocked_cells": 2,
+          "complete_cells": 184,
+          "role": "CB"
+        },
+        {
+          "blocked_cells": 2,
+          "complete_cells": 184,
+          "role": "S"
+        }
+      ],
+      "through_week": 6
+    },
+    "decided_at": "2026-11-02T19:53:56+00:00",
+    "decision_version": "2026-11-02-v1",
+    "explorer_report": "497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435",
+    "explorer_snapshot": "29440a2c67c19861ac956b39a2267e7fc8285962a17ee46e27c71059faa0d1ea",
+    "game_cutoff": "2026-10-22T23:50:38.680415+00:00",
+    "kind": "archived_exploratory_review",
+    "npm_lock_sha256": "47907a9da262d6ab2242f3d72fa17c5222297140092d23e4d79c64460d167182",
+    "ranking_ready": false,
+    "registry_revision": "c0db5d327b4b9c4225f685aca9a3cdb82ae44198",
+    "registry_sha256": "3ef6eac4de93a8b9a878eec24b50e8db550c7fd04d309e8501fc98c4ba5d89c7",
+    "schema_version": 1,
+    "season": 2026,
+    "source_receipts": {
+      "depth_charts": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b",
+      "pbp": "45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f",
+      "rosters": "ceb435dccca777b12ec703065e1fb0e2bce82bc04805ae7dc81858a39bcb131d",
+      "schedules": "ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94"
+    },
+    "toolchain": {
+      "node": "v24.22.1",
+      "npm": "11.4.0",
+      "python": "3.13.2"
+    }
+  },
+  "kind": "archived_static_review_audit",
+  "limitations": [
+    "Archived Week 6 only: no source refresh or newer game coverage.",
+    "All 17 modules remain not admitted; no CAVAA ranking or player uncertainty published.",
+    "A verified hash establishes byte integrity, not scientific validity or trusted authorship.",
+    "Local ignored ZIP and raw source archives are not durable off-machine retention.",
+    "No hosted deployment or independently scheduled production refresh is implemented.",
+    "Tests stub replay at its boundary; this separately recorded build replays the real archived inputs.",
+    "The npm installed-tree check is not a cryptographic package-content audit."
+  ],
+  "manifest": {
+    "code_revision": "1c9bcae77291195b8002343b780aafafa12db90d",
+    "coverage": {
+      "completed_games": 93,
+      "expected_role_cells": 186,
+      "included_plays": 11441,
+      "players": 518,
+      "role_cells": [
+        {
+          "blocked_cells": 6,
+          "complete_cells": 180,
+          "role": "IDL"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 186,
+          "role": "EDGE"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 186,
+          "role": "LB"
+        },
+        {
+          "blocked_cells": 2,
+          "complete_cells": 184,
+          "role": "CB"
+        },
+        {
+          "blocked_cells": 2,
+          "complete_cells": 184,
+          "role": "S"
+        }
+      ],
+      "through_week": 6
+    },
+    "decided_at": "2026-11-02T19:53:56+00:00",
+    "decision_version": "2026-11-02-v1",
+    "explorer_report": "497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435",
+    "explorer_snapshot": "29440a2c67c19861ac956b39a2267e7fc8285962a17ee46e27c71059faa0d1ea",
+    "files": {
+      "assets/index-CwgsAgNN.css": {
+        "bytes": 16839,
+        "sha256": "2dd052047bdd0e178b9db31f38587fcd32632434e5136be9c438c16d6b0b94ac"
+      },
+      "assets/index-YXDp66UR.js": {
+        "bytes": 344442,
+        "sha256": "5a4f36ef961fcb60f78e3eaa154af880f0278485c0ce68dab2f5cd1b322af0a8"
+      },
+      "data/29440a2c67c19861ac956b39a2267e7fc8285962a17ee46e27c71059faa0d1ea.json": {
+        "bytes": 807547,
+        "sha256": "29440a2c67c19861ac956b39a2267e7fc8285962a17ee46e27c71059faa0d1ea"
+      },
+      "data/admission/3ef6eac4de93a8b9a878eec24b50e8db550c7fd04d309e8501fc98c4ba5d89c7.json": {
+        "bytes": 17185,
+        "sha256": "3ef6eac4de93a8b9a878eec24b50e8db550c7fd04d309e8501fc98c4ba5d89c7"
+      },
+      "data/latest.json": {
+        "bytes": 111,
+        "sha256": "3b905af67f26dab3570b1a3dc2933d4abc39990f00721cc35eb22ca94359b170"
+      },
+      "index.html": {
+        "bytes": 641,
+        "sha256": "e99c5ca24a84b14a7a5bc033a2f1bbe583a257879b1582118448a9bb5525b57a"
+      }
+    },
+    "game_cutoff": "2026-10-22T23:50:38.680415+00:00",
+    "kind": "archived_exploratory_review",
+    "npm_lock_sha256": "47907a9da262d6ab2242f3d72fa17c5222297140092d23e4d79c64460d167182",
+    "ranking_ready": false,
+    "registry_revision": "c0db5d327b4b9c4225f685aca9a3cdb82ae44198",
+    "registry_sha256": "3ef6eac4de93a8b9a878eec24b50e8db550c7fd04d309e8501fc98c4ba5d89c7",
+    "schema_version": 1,
+    "season": 2026,
+    "source_receipts": {
+      "depth_charts": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b",
+      "pbp": "45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f",
+      "rosters": "ceb435dccca777b12ec703065e1fb0e2bce82bc04805ae7dc81858a39bcb131d",
+      "schedules": "ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94"
+    },
+    "toolchain": {
+      "node": "v24.22.1",
+      "npm": "11.4.0",
+      "python": "3.13.2"
+    }
+  },
+  "verification": {
+    "browser_qa": {
+      "browser": "156.0.8078.4",
+      "decision_date_distinct": true,
+      "desktop": [
+        1440,
+        1100
+      ],
+      "external_requests": [],
+      "failed_responses": [],
+      "game_cutoff": "2026-10-22T23:50:38.680415+00:00",
+      "keyboard_module_selection": true,
+      "layouts": [
+        {
+          "height": 844,
+          "no_document_overflow": true,
+          "width": 390
+        },
+        {
+          "height": 844,
+          "no_document_overflow": true,
+          "width": 320
+        }
+      ],
+      "module_buttons": 17,
+      "page_errors": [],
+      "player_search_and_details": true,
+      "players": 518,
+      "real_snapshot": true,
+      "subdirectory": "/nfl/"
+    },
+    "chromium_scenarios": 12,
+    "frontend_contract_tests": 27,
+    "hosted_ci": "Reported on the PR after the final head is pushed; local results are not a hosted CI claim.",
+    "local_preview_stopped": true,
+    "node_network_apis_blocked_during_build": true,
+    "python_socket_and_connection_apis_blocked_during_build": true,
+    "python_tests": 292,
+    "repeated_builds_identical": true,
+    "restored_file_hashes_verified": true,
+    "ruff_format_compile_whitespace": true,
+    "screenshots_visually_inspected": true,
+    "typescript_production_build": true
+  }
+}
