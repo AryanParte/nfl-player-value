@@ -11,7 +11,7 @@ is unchanged.
 
 | Level | Implemented checks | When |
 | --- | --- | --- |
-| Fast PR CI | Python 3.11/3.12/3.13 unittest matrix; installed-package smoke test; Ruff; branch/statement coverage; compileall/whitespace; Node 24 locked install; Prettier, Vitest, TypeScript, Vite build; eight Chromium scenarios | PRs and pushes to main |
+| Fast PR CI | Python 3.11/3.12/3.13 unittest matrix; installed-package smoke test; Ruff; branch/statement coverage; compileall/whitespace; Node 24 locked install; Prettier, Vitest, TypeScript, Vite build; twelve Chromium scenarios | PRs and pushes to main |
 | Optional checks | `Optional dependency audit`: pip-audit and npm audit, including development dependencies; existing bounded historical experiment CLIs run separately from CI | Manual dispatch; rerun before launch or dependency changes |
 | Publication gates | Current source/experiment replay and local Defense Explorer export safeguards; the remaining ranking-release acceptance contract below | Production ranking refresh is **not implemented** |
 
@@ -52,6 +52,13 @@ November 2 adds 14 admission-contract regressions and formatting checks. CI read
 the actual committed registry, verifies every referenced evidence/plan/policy file,
 and tests corruption, malformed JSON, missing roles, relabeled scopes, false
 admission and independence from participation thresholds. No live data is needed.
+November 3 adds 13 Python review-bundle tests, 14 frontend admission contracts and
+four browser scenarios. They protect pinned decisions, evidence scopes, independent
+panel failures/retries, null scores, stale/corrupt builds, immutable archives,
+compile failure and deterministic packaging. The restored real archived bundle
+was separately inspected at desktop/mobile sizes under a subdirectory URL.
+The [static review command](STATIC_REVIEW.md) is neither an ordinary CI data
+download nor a production ranking gate; existing workflows are unchanged.
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports

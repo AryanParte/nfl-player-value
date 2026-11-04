@@ -4,6 +4,12 @@ React/TypeScript renders an offline Python export. It does not calculate player
 value. The initial page is an observed defensive ledger, not an MVP leaderboard.
 See [the data contract](../docs/DEFENSE_EXPLORER.md) for scope and limitations.
 
+The availability panel covers all 17 position modules and their reviewed reasons
+for non-admission. It loads independently of the observed defensive snapshot and
+never converts unavailable values into zero. See [static review bundles](../docs/STATIC_REVIEW.md)
+to verify archived inputs, export the pinned registry, rebuild this dashboard and
+package an immutable local review ZIP. This does not deploy a website.
+
 Use **Node 24** and the committed npm lockfile. From the repository root:
 
 ```sh

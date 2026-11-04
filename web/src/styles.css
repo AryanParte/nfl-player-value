@@ -879,6 +879,172 @@ summary {
     grid-template-columns: minmax(0, 2.45fr) 320px;
   }
 }
+.availability {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 28px;
+  margin-bottom: 48px;
+  border-radius: 8px;
+}
+.availability-intro {
+  max-width: 850px;
+  font-size: 14px;
+}
+.availability-intro strong {
+  color: var(--amber);
+}
+.availability-date {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.availability-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.6fr);
+  gap: 36px;
+  margin: 28px 0;
+}
+.module-picker fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 24px;
+  min-width: 0;
+}
+.module-picker legend {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+.module-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.module-buttons button {
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: #101719;
+  padding: 10px 12px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 650;
+}
+.module-buttons button[aria-pressed="true"] {
+  color: #172121;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.module-picker > p {
+  font-size: 12px;
+  max-width: 320px;
+}
+.module-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.module-title h3 {
+  font-size: 20px;
+}
+.module-scope {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 12px;
+}
+.module-value {
+  font-size: 12px;
+  padding: 12px 0;
+}
+.module-value strong {
+  color: var(--amber);
+}
+.gate {
+  border-top: 1px solid var(--line);
+}
+.gate summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-size: 12px;
+}
+.gate-status {
+  float: right;
+  font-size: 11px;
+  color: var(--amber);
+  margin-left: 8px;
+}
+.gate-failed .gate-status {
+  color: var(--negative);
+}
+.gate-passed .gate-status {
+  color: var(--accent);
+}
+.gate p {
+  font-size: 12px;
+  color: var(--muted);
+}
+.evidence-links {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  list-style: none;
+  font-size: 11px;
+  color: var(--accent);
+}
+.availability-policy {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+.availability-empty .primary {
+  margin-top: 16px;
+}
+@media (max-width: 800px) {
+  .availability-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .module-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 24px;
+  }
+  .module-picker > p {
+    max-width: none;
+  }
+}
+@media (max-width: 680px) {
+  .availability {
+    padding: 20px 16px;
+    margin-bottom: 30px;
+  }
+  .availability .section-heading {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .availability-intro {
+    font-size: 13px;
+  }
+  .gate summary {
+    font-size: 11px;
+  }
+  .gate-status {
+    float: none;
+    display: block;
+    margin: 6px 0 0 14px;
+  }
+  header .header-inner {
+    flex-wrap: wrap;
+  }
+  header nav {
+    flex-wrap: wrap;
+  }
+}
 @media (max-width: 1024px) {
   header .header-inner {
     padding: 22px 28px;

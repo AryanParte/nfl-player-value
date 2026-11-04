@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { formatEpa, loadExplorer, ROLES, selectPlayers } from "./data";
 import type { Explorer, Player, TeamGame } from "./data";
+import { ModuleAvailability } from "./ModuleAvailability";
 
 const PAGE_SIZE = 20;
 const number = new Intl.NumberFormat("en-US");
@@ -42,6 +43,7 @@ function Frame({ children }: { children: React.ReactNode }) {
           <Brand />
           <nav aria-label="Main navigation">
             <a href="#explorer">Explorer</a>
+            <a href="#availability">Availability</a>
             <a href="#coverage">Coverage</a>
             <a href="#method">Method</a>
           </nav>
@@ -110,6 +112,7 @@ export function App() {
             CAVAA estimates are not published in this research view.
           </p>
         </section>
+        <ModuleAvailability />
       </Frame>
     );
   return <Dashboard data={result.data} snapshotId={result.snapshotId} />;
@@ -196,8 +199,8 @@ function Dashboard({
             Defensive attribution has not passed validation. Observed events are
             shown here without an MVP score.
           </p>
-          <a href="#method">
-            Read the measurement limits <span aria-hidden="true">↘</span>
+          <a href="#availability">
+            Inspect module decisions <span aria-hidden="true">↘</span>
           </a>
         </aside>
       </section>
@@ -225,6 +228,7 @@ function Dashboard({
           <small>Team-game roles withheld</small>
         </div>
       </section>
+      <ModuleAvailability />
       <section
         className="explorer"
         id="explorer"
