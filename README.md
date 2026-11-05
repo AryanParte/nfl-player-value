@@ -59,6 +59,12 @@ The local 1.19 MB archived view rebuilds byte-for-byte and works on desktop/mobi
 the November 2 review date does not change the Week 6 game cutoff. Deployment,
 durable off-machine retention and independent refresh remain unfinished.
 
+November 4 adds [verified Explorer recovery archives](docs/RECOVERY.md).
+The exact source/derived dependency set, attribution and saved site ZIP can be
+restored into a new directory with full offline replay before it becomes visible.
+Remote upload remains blocked on release-upload access; local recovery is not yet
+durable off-machine retention, a new game snapshot or a published ranking.
+
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -95,6 +101,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Offensive inputs](docs/OFFENSIVE_INPUTS.md) | Unique play outcomes, actor links, opportunity unions and missingness |
 | [Defense Explorer](docs/DEFENSE_EXPLORER.md) | Observed defensive evidence, immutable export and the initial dashboard |
 | [Static review bundles](docs/STATIC_REVIEW.md) | All-position availability, pinned evidence, offline builds and archived-data limits |
+| [Explorer recovery](docs/RECOVERY.md) | Exact retained inputs, attribution, verified restoration and remote-storage limits |
 | [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Positional contrasts](docs/CONTRASTS.md) | Benchmark accounting, joint conditional intervals, prefix isolation and narrow exposure diagnostics |

@@ -1,37 +1,44 @@
 # Project status
 
-Updated: November 3, 2026, America/New_York.
+Updated: November 4, 2026, America/New_York.
 
 ## Current unit
 
-The dashboard module-availability and archived static review unit is implemented
-on `codex/dashboard-module-availability`, from owner-merged PR #14 / main
-`d58dc05`. Main CI was green, with no open PRs, review feedback or unfinished
-local changes. The interface exposes all 17 modules, seven gates, partial scope
-labels and links to exact reviewed evidence. All modules remain **not admitted**;
-unavailable values are never zero. The decision registry and observed Explorer
-load independently, so a missing/corrupt asset cannot manufacture a decision or
-hide valid observations in the other panel.
+The [Explorer recovery unit](docs/RECOVERY.md) is implemented on
+`codex/explorer-recovery-archive`, from owner-merged PR #15 / main `7100dd6`.
+Main CI was green; no open PRs, review feedback or unfinished local changes were
+present. The new command records only files actually read by full verified replay,
+retains source attribution/licenses and the exact saved site ZIP, and restores
+into a new directory only after successful replay from the candidate stores.
+Hash, inventory, cutoff, license, write or replay failure cannot replace existing
+restores or advance a public pointer. No dependency or service was added.
 
-The [static review command](docs/STATIC_REVIEW.md) verifies the pinned registry
-and 13 references, replays archived source inputs, checks committed code and
-Node/dependency state, builds the existing dashboard and creates an immutable ZIP.
-Two builds with Python/Node network APIs blocked produced identical bytes:
-1,190,657 bytes, SHA-256
-`ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb`.
-The producer is `1c9bcae77291195b8002343b780aafafa12db90d`; the following
-documentation commit records the audit. See the [audit](docs/audits/2026-11-03-static-review.json)
-and [learning report](docs/learning/2026-11-03.md).
+Two packs from committed code, with Python networking blocked, produced the same
+32,538,960-byte archive, SHA-256
+`8e02013401689bc70b7f6bbb8d2523c39a68a7544d141847dfb75aea34592387`.
+The producer is `0cf7e7c7aaf40d723ca1135753862988d2a91df9`; this later
+documentation commit records the result. The fresh restore verifies all 20 files:
+17 source/derived store members, attribution, the saved review ZIP and recovery
+manifest. All 51 store reads during replay were confined to staging. Original
+dependencies and the local public pointer remained unchanged; corruption and
+existing-destination rejection were also exercised on the real archive. See the
+[audit](docs/audits/2026-11-04-recovery.json) and
+[learning report](docs/learning/2026-11-04.md).
 
-The bundle retains the October 22 cutoff / Week 6 game coverage and the separate
-November 2 model-review date. It contains seven public files, without raw NFL
-downloads or old unreferenced exports. All file hashes were verified after
-restoring into a new directory. Desktop and 390/320-pixel mobile Chromium checks
-passed at a `/nfl/` subdirectory URL, with no page errors, failed responses,
-external requests or document overflow. The local QA server was stopped.
-This artifact is local and ignored by Git: it is neither deployed nor durably
-retained off-machine. No source refresh, model change or production publisher is
-claimed. Participation rules and benchmark membership are unchanged.
+**Off-machine retention is still blocked.** GitHub Releases is the proposed
+destination, but the connected tool has no binary release-upload capability,
+the browser is signed out, and no authenticated release-upload CLI is available.
+Nothing was uploaded, purchased or deployed. An authenticated upload followed by
+an independent download/restore is still required. The archive covers only this
+2026 Explorer chain, not historical participation or model research stores.
+
+The unchanged [static review ZIP](docs/STATIC_REVIEW.md) is 1,190,657 bytes,
+SHA-256 `ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb`.
+It retains the October 22 / Week 6 game coverage and separate November 2 review
+date. All 17 modules remain **not admitted**, unavailable values stay null, and
+no source refresh or production publisher is claimed. First-unit CAVAA, benchmark
+sensitivities and participation policies are unchanged. The existing desktop/
+mobile interface and independent availability/Explorer panels were not modified.
 
 There are 61/112 accepted pairs in the 2025/2026 windows, including eight/five QB
 changes. On changed-QB pairs, joint-model mean absolute change error exceeds the
@@ -103,7 +110,7 @@ No completed-game inventory was refreshed in this unit.
 
 The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not November 3 live coverage.
+23:50:38.680415 UTC; this is an archived snapshot, not November 4 live coverage.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
 one unresolved roster name and ten blocked defensive team-game-role cells:
@@ -123,23 +130,24 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-292 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile and
-whitespace checks pass locally. All 12 Chromium scenarios pass, retaining the
-eight original Explorer cases and adding four availability scenarios. Hosted
-results for this branch are reported separately. The October 25 coverage baseline
-of 90.15% remains informational; it is not today's measurement or evidence of
-attribution. The real bundle replays and builds offline, with exact repeated ZIP
-bytes and restored-file/browser inspection. The learning report records the
-failures corrected during verification.
+314 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile and
+whitespace checks pass locally. The 22 new Python cases cover the recovery
+boundary. Existing Python matrix and 12 Chromium scenarios remain in hosted CI;
+results for this branch are reported on the PR. No new visual behavior or browser
+scenario was introduced. The October 25 coverage baseline of 90.15% remains
+informational; it is not today's measurement or attribution evidence. Real archive
+packing/restoration was independently exercised offline. The learning report
+records verification limits and defects corrected during self-review.
 
-## Next highest-priority unit — November 4
+## Next highest-priority unit — November 5
 
-Preserve source/derived/review artifacts durably off-machine within the approved
-near-zero budget and demonstrate restoration before deployment. Then connect
-explicit current-source readiness, independently scheduled refresh and hosted
-last-good-output handling. Inspect public redistribution/storage limits before
-choosing the retention mechanism; do not enable paid infrastructure. The local
-ZIP is a review artifact, not fulfillment of those production tasks.
+When authenticated release-upload access is available, retain the prepared archive
+in the canonical GitHub repository's releases, download it independently and
+verify restoration against the committed digest. Preserve prior assets. Continue
+current-source readiness, deployment preparation and independent refresh with
+last-good-output handling even while remote access is blocked. The November 4
+archive is verified local recovery, not completion of remote retention or those
+production tasks. Retention of other research stores also remains outstanding.
 
 No admitted ranking is presently supported. An exploratory release must state
 that the unified-MVP objective remains unfinished. Preserve the November 7 target
