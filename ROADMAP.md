@@ -123,9 +123,21 @@ fourteen frontend and four browser regressions protect these boundaries. See the
 [audit](docs/audits/2026-11-03-static-review.json). This is local archived research,
 not deployment, durable remote retention, fresh coverage or admitted rankings.
 
-November 4 priority: durable artifact retention and verified restoration, then
-source readiness, deployment and independent refresh with last-good-output
-protection through November 7. No paid infrastructure without owner approval.
+November 4 progress: [Explorer recovery](docs/RECOVERY.md) packages the exact 17
+verified store members, source credits/licenses and saved review ZIP. Two offline
+packs produce the same 32,538,960-byte archive; all 20 entries restore byte-exact
+with complete candidate-store replay. Twenty-two regressions cover corruption,
+missing/extra dependencies, unsafe paths, failure cleanup and prior-data
+preservation. The [audit](docs/audits/2026-11-04-recovery.json) records unchanged
+cutoffs and null scores. Remote upload/download verification remains blocked on
+authenticated release-upload access; historical/model research stores remain
+outside this narrow recovery artifact. Local recovery is not durable remote
+retention, deployment or ranking admission.
+
+November 5 priority: finish authenticated off-machine upload and independent
+restore when access is available; progress source readiness, deployment and
+independent refresh with last-good-output protection through November 7. No paid
+infrastructure without owner approval; do not pause other preparation for auth.
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without
 invented fills or outcome-selected cohorts. Preserve the frozen evidence and

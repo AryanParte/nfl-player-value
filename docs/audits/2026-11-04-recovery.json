@@ -1,0 +1,158 @@
+{
+  "audited_at": "2026-11-05T02:55:48.059443+00:00",
+  "coverage": {
+    "completed_games": 93,
+    "included_plays": 11441,
+    "players": 518,
+    "season": 2026,
+    "through_week": 6
+  },
+  "kind": "explorer_recovery_audit",
+  "limits": [
+    "Explorer dependency chain only; historical participation and model-research stores excluded.",
+    "Saved compiled site bytes verified; frontend compiler not rerun by recovery.",
+    "No source refresh, new game coverage, model admission, deployment or production publisher."
+  ],
+  "local_checks": {
+    "frontend_contracts": 27,
+    "hosted_ci": "reported separately on PR",
+    "make_check": "passed",
+    "python_tests": 314
+  },
+  "manifest": {
+    "explorer_report": "497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435",
+    "files": {
+      "ATTRIBUTION.md": {
+        "bytes": 3046,
+        "sha256": "af84936799bbfbb5f5fd8857a9135819061b46498ed7ac6a193984f608b772d6"
+      },
+      "data/derived/defense-explorer/manifests/497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435.json": {
+        "bytes": 452,
+        "sha256": "497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435"
+      },
+      "data/derived/defense-explorer/objects/29440a2c67c19861ac956b39a2267e7fc8285962a17ee46e27c71059faa0d1ea": {
+        "bytes": 807547,
+        "sha256": "29440a2c67c19861ac956b39a2267e7fc8285962a17ee46e27c71059faa0d1ea"
+      },
+      "data/derived/offensive-inputs/manifests/e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83.json": {
+        "bytes": 41777,
+        "sha256": "e09813840603bb755d03befb446c27e2435a067281744865d19b137a4bc0fd83"
+      },
+      "data/derived/offensive-inputs/objects/0e84908842ad489b9d54baa9614d23b96fba8629d8a13f2737b040063b88b640": {
+        "bytes": 8813601,
+        "sha256": "0e84908842ad489b9d54baa9614d23b96fba8629d8a13f2737b040063b88b640"
+      },
+      "data/raw/source-snapshots/manifests/45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f.json": {
+        "bytes": 24676,
+        "sha256": "45eae181fef2293978caa7c5c570e98f84a1e7dd30eaab40be55934ddbd0412f"
+      },
+      "data/raw/source-snapshots/manifests/ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b.json": {
+        "bytes": 3591,
+        "sha256": "ce3331952271741cdfe59502c67b1998d9a5a9bf97c9bf2d26f252193b63b29b"
+      },
+      "data/raw/source-snapshots/manifests/ceb435dccca777b12ec703065e1fb0e2bce82bc04805ae7dc81858a39bcb131d.json": {
+        "bytes": 3638,
+        "sha256": "ceb435dccca777b12ec703065e1fb0e2bce82bc04805ae7dc81858a39bcb131d"
+      },
+      "data/raw/source-snapshots/manifests/ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94.json": {
+        "bytes": 80809,
+        "sha256": "ec47c8fecb9f2f9e06f6e422ac18551263d33ab8768fe46bab35d1efd4a88d94"
+      },
+      "data/raw/source-snapshots/objects/2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111": {
+        "bytes": 18651,
+        "sha256": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111"
+      },
+      "data/raw/source-snapshots/objects/3e4182bd4f526f806243350fe44b0c97c3a866cd3632322d7707f7fa26a1627b": {
+        "bytes": 163983,
+        "sha256": "3e4182bd4f526f806243350fe44b0c97c3a866cd3632322d7707f7fa26a1627b"
+      },
+      "data/raw/source-snapshots/objects/5246a887013fb1d51141d74e8b9b472b030d3a61f479db8a28952dc509992c17": {
+        "bytes": 641290,
+        "sha256": "5246a887013fb1d51141d74e8b9b472b030d3a61f479db8a28952dc509992c17"
+      },
+      "data/raw/source-snapshots/objects/956c85148e7c078350efd02c7c71bf31ef2c6984f2c36171444b8e0e505a363c": {
+        "bytes": 10931,
+        "sha256": "956c85148e7c078350efd02c7c71bf31ef2c6984f2c36171444b8e0e505a363c"
+      },
+      "data/raw/source-snapshots/objects/a6ddee607edda2d530bc65fd869c0eb2f8019ea0d962b020e039dae52c840399": {
+        "bytes": 6436940,
+        "sha256": "a6ddee607edda2d530bc65fd869c0eb2f8019ea0d962b020e039dae52c840399"
+      },
+      "data/raw/source-snapshots/objects/bc4446aed1d7c37ee7df0e26752c9cb0de15d63317c30b22c13639e1b6607664": {
+        "bytes": 376992,
+        "sha256": "bc4446aed1d7c37ee7df0e26752c9cb0de15d63317c30b22c13639e1b6607664"
+      },
+      "data/raw/source-snapshots/objects/bcaed62869be0f72713cecbda72a74466051c879bd0e858c1079b5592a54c4e3": {
+        "bytes": 236002,
+        "sha256": "bcaed62869be0f72713cecbda72a74466051c879bd0e858c1079b5592a54c4e3"
+      },
+      "data/raw/source-snapshots/objects/d84a1864fc87502e41937ed0f25363af739a673307a95ca2594d53160d7c75f0": {
+        "bytes": 515567,
+        "sha256": "d84a1864fc87502e41937ed0f25363af739a673307a95ca2594d53160d7c75f0"
+      },
+      "data/raw/source-snapshots/objects/f8843edd5634baa2f5df808c45ff34b2d34c500c57549ec188fb47a0759ee8be": {
+        "bytes": 13159002,
+        "sha256": "f8843edd5634baa2f5df808c45ff34b2d34c500c57549ec188fb47a0759ee8be"
+      },
+      "review/ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb.zip": {
+        "bytes": 1190657,
+        "sha256": "ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb"
+      }
+    },
+    "game_cutoff": "2026-10-22T23:50:38.680415+00:00",
+    "kind": "explorer_recovery",
+    "packager_code_revision": "0cf7e7c7aaf40d723ca1135753862988d2a91df9",
+    "policy": "explorer-2026-cc-by-closure-v1",
+    "ranking_ready": false,
+    "review_archive_sha256": "ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb",
+    "schema_version": 1
+  },
+  "off_machine_retention": {
+    "blocker": "Connected GitHub tool has no release-asset upload; browser signed out; no authenticated release-upload CLI available.",
+    "release_url": null,
+    "remote_download_restore_verified": false,
+    "uploaded": false
+  },
+  "packager_code_revision": "0cf7e7c7aaf40d723ca1135753862988d2a91df9",
+  "python_version": "3.13.2",
+  "recovery_archive": {
+    "bytes": 32538960,
+    "entries": 20,
+    "local_path": "artifacts/recovery/8e02013401689bc70b7f6bbb8d2523c39a68a7544d141847dfb75aea34592387.zip",
+    "sha256": "8e02013401689bc70b7f6bbb8d2523c39a68a7544d141847dfb75aea34592387"
+  },
+  "review_archive": {
+    "bytes": 1190657,
+    "producer_revision": "1c9bcae77291195b8002343b780aafafa12db90d",
+    "sha256": "ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb"
+  },
+  "schema_version": 1,
+  "store_inventory": {
+    "data/derived/defense-explorer": {
+      "bytes": 807999,
+      "files": 2
+    },
+    "data/derived/offensive-inputs": {
+      "bytes": 8855378,
+      "files": 2
+    },
+    "data/raw/source-snapshots": {
+      "bytes": 21672072,
+      "files": 13
+    }
+  },
+  "verification": {
+    "all_archive_entries_restored_byte_exact": true,
+    "canonical_dependency_files_unchanged": true,
+    "existing_restore_refused_and_preserved": true,
+    "external_hash_failure_creates_no_destination": true,
+    "owned_staging_removed": true,
+    "public_pointer_unchanged": true,
+    "python_socket_apis_blocked": true,
+    "ranking_ready": false,
+    "repeat_pack_byte_identical": true,
+    "restored_reads_confined_to_staging": true,
+    "restored_store_read_count": 51,
+    "semantic_restore_cli_passed": true
+  }
+}

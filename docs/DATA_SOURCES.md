@@ -1,5 +1,12 @@
 # Data sources and provenance
 
+**November 4 recovery scope:** the [Explorer recovery archive](RECOVERY.md) retains
+the exact previously captured 2026 PBP/schedule/chart/roster dependency set with
+original receipts, archived CC-BY-4.0 license bytes and attribution. It does not
+refresh game coverage or include historical participation/model research stores.
+Local pack/restore is verified; authenticated remote upload/download verification
+remains blocked. See the [audit](audits/2026-11-04-recovery.json).
+
 Research audit date: **October 18, 2026**. Availability findings are observations at that date, not continuing guarantees. The production pipeline must verify every selected release, schema, game set, and license. Some row-level checks below were made on October 17 and may lag subsequent source updates.
 
 **October 19 implementation audit:** real PBP, season-roster, and depth-chart

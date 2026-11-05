@@ -59,6 +59,12 @@ compile failure and deterministic packaging. The restored real archived bundle
 was separately inspected at desktop/mobile sizes under a subdirectory URL.
 The [static review command](STATIC_REVIEW.md) is neither an ordinary CI data
 download nor a production ranking gate; existing workflows are unchanged.
+November 4 adds 22 Python [recovery regressions](RECOVERY.md). They protect
+independent archive pins, exact dependency inventories, original manifest bytes,
+license scope, null-value review contracts, corrupt/missing inputs, unsafe archive
+members, failed writes/replay/rename and preservation of earlier restores. The
+real archived Explorer chain is separately restored with networking blocked;
+ordinary CI still uses synthetic raw replay boundaries, not live NFL downloads.
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports
@@ -158,10 +164,10 @@ on *every* rejected refresh.
 | Accounting and uncertainty | Additive outcome conservation and independent solver references | First-unit contrasts conserve the allocated shared components; joint player/benchmark uncertainty and negative season totals survive serialization |
 | Ranking correctness | Existing qualification/benchmark unit contracts; no scores admitted | Three-game/role opportunity grid, eligibility independent of benchmark membership, deterministic ties, cumulative games without recency decay, missing score versus zero |
 | Position admission | Explicit unadmitted Explorer values and rejection in Python/browser; versioned non-admission registry with verified evidence and a score-request guard | Integrate the registry digest with the actual ranking schema and publisher; a scored row must reference a passing module decision, and partial scope cannot silently become universal value |
-| Reproducibility and retention | Append-only local objects, exact source and numerical model replay | Restore on a clean machine from durable retained bytes; previous weekly and corrected releases remain retrievable |
+| Reproducibility and retention | Append-only local objects, exact source/model replay; verified local recovery of the archived Explorer dependency set | Independent download/restore from durable retained bytes; other research stores and all previous weekly/corrected releases remain retrievable |
 | Publication failure recovery | Local atomic object-before-pointer ordering and failure tests | Deployment-store concurrency, immutable release index, monotonic/corrected cutoff policy, rollback and failed-refresh end-to-end tests |
 
 These gates do not yet constitute a production ranking validator. Durable remote
 retention, weekly refresh, deployment and admitted 2026 rankings remain launch
-blockers. The next statistical roadmap unit remains identity/stint evidence and
-benchmark/qualification validation, not more CI framework work.
+blockers. The statistical gaps include broader stint evidence, calibrated player
+uncertainty and defensible attribution; packaging cannot pass those gates.

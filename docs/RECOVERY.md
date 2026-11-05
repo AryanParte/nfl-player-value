@@ -54,9 +54,10 @@ future changed policy/registry bytes may correctly reject this older archive.
 Keep the development lease while restoring under this repository.
 
 ```sh
-# Replace both SHA256 occurrences with the digest in the committed recovery audit.
+# Digest from docs/audits/2026-11-04-recovery.json.
 PYTHONPATH=src .venv/bin/python -m nfl_value.recovery_cli restore \
-  --archive artifacts/recovery/SHA256.zip --sha256 SHA256 \
+  --archive artifacts/recovery/8e02013401689bc70b7f6bbb8d2523c39a68a7544d141847dfb75aea34592387.zip \
+  --sha256 8e02013401689bc70b7f6bbb8d2523c39a68a7544d141847dfb75aea34592387 \
   --destination work/restored-explorer
 ```
 
@@ -111,6 +112,12 @@ release-upload CLI is available. The prepared local archive remains at risk from
 machine loss until access permits upload and the remote restore check succeeds.
 Do not bypass this by checking source binaries into Git. This access limitation
 does not justify delaying independent source-readiness or deployment preparation.
+
+The [November 4 audit](audits/2026-11-04-recovery.json) records the 32,538,960-byte
+archive, 20 restored members and identical repeated packs. Its committed producer
+is `0cf7e7c7aaf40d723ca1135753862988d2a91df9`. Repacking at a different
+commit records a different producer and therefore need not yield this same ZIP
+digest, even when the observations are unchanged.
 
 ## Verification limits
 
