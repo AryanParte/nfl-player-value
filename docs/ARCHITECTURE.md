@@ -80,6 +80,14 @@ independent weekly publication still require implementation and admission gates.
 
 ## Snapshot and release contract
 
+The [launch package](LAUNCH_PACKAGE.md) connects a verified source-ready Explorer
+candidate to its saved static site, frozen packaging-time recheck and exact replay
+dependencies. It uses the existing bounded archive IO and semantic replay, adds
+no service or dependency, and can restore into a new directory without consulting
+the original stores. Optional isolated frontend builds preserve the canonical
+staged pointer and output. These are local preparation/retention boundaries;
+hosted publication, off-machine storage and independent refresh remain unfinished.
+
 The [positional contrast layer](CONTRASTS.md) adds an offline research CLI on top
 of the offensive/weekly-roster chain and a depth-chart receipt. Each cumulative
 window selects its own depth evidence before identity consistency checks, then

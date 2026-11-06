@@ -5,6 +5,17 @@ and every source/derived byte required to replay both the candidate and its prio
 comparison. It also records a new source-readiness assessment at packaging time.
 It is an unpublished exploratory artifact, not an admitted MVP leaderboard.
 
+The dashboard labels the latest included week explicitly as potentially partial.
+That week number describes the newest completed game represented; it does not
+certify that the entire NFL week is complete.
+
+The [November 6 audit](audits/2026-11-06-launch-package.json) records 122 completed
+games, including the first Week 9 game. The final site ZIP is 1,401,742 bytes,
+SHA-256 `374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375`.
+The 39-member launch ZIP is 76,595,272 bytes,
+SHA-256 `e61bb2abb3e655db7a5cef08adb64d2bd41f6c85ea50c5654a2d6d4d086473ee`.
+Both are local artifacts; no upload or deployment is claimed.
+
 ## Prepare the website without changing the staged site
 
 Hold the development lease and use committed code and installed locked dependencies.

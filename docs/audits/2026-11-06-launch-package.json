@@ -1,0 +1,450 @@
+{
+  "audited_at": "2026-11-06T22:28:38.505574+00:00",
+  "browser": {
+    "checks": [
+      "actual restored /nfl/ site, hashes/runtime schemas, coverage and null-score labeling",
+      "real GSIS search, team filter and player detail remain unscored",
+      "all-position availability and defensive non-admission evidence",
+      "390px mobile view, no page overflow, searchable real player details"
+    ],
+    "completed_games": 122,
+    "errors": [],
+    "explorer_report": "a6cd94ffe0d027bd0b0662aee00142b50a888c9a04fdc0f8073b6ef55f505ec3",
+    "external_requests": [],
+    "passed": true,
+    "snapshot": "3af190383e1c6e61788ac6ab1ac34779f97821a4b8e71e0840c7250a07efc4aa",
+    "through_week": 9
+  },
+  "candidate": {
+    "code_revision": "4ea8705419a211af61b884a2472938bb545d8db5",
+    "coverage": {
+      "completed_games": 122,
+      "expected_role_cells": 244,
+      "included_plays": 14960,
+      "players": 562,
+      "role_cells": [
+        {
+          "blocked_cells": 8,
+          "complete_cells": 236,
+          "role": "IDL"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 244,
+          "role": "EDGE"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 244,
+          "role": "LB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 240,
+          "role": "CB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 240,
+          "role": "S"
+        }
+      ],
+      "through_week": 9
+    },
+    "cutoff": "2026-11-06T21:42:59.542615+00:00",
+    "explorer_report": "a6cd94ffe0d027bd0b0662aee00142b50a888c9a04fdc0f8073b6ef55f505ec3",
+    "explorer_snapshot": "3af190383e1c6e61788ac6ab1ac34779f97821a4b8e71e0840c7250a07efc4aa",
+    "kind": "explorer_refresh_candidate",
+    "offensive_report": "41444343041805a99b11533f80ba3454f00c001be549ae1227600822a581fa97",
+    "previous_comparison": {
+      "added_game_ids": [
+        "2026_09_JAX_BAL"
+      ],
+      "changed_existing_team_games": [
+        {
+          "game_id": "2026_04_DAL_HOU",
+          "team": "HOU"
+        }
+      ],
+      "scope": "Team context rows only; changes can reflect source corrections or code. Player/name changes are not enumerated."
+    },
+    "previous_explorer": "184947d5facca96851ab7e0c0897b0794df0e550bd1d1ea6ba30b6c32ae2716f",
+    "published": false,
+    "ranking_ready": false,
+    "readiness_policy_sha256": "f7a17acc7dcdd6d53bafc9697647db1a8481c96b3ba02ec70b90343c05057052",
+    "readiness_report": "dc9c3b8ffbc67514542601b80c91c26a7a6e0e52a9814cd6385e1439ea19ae0b",
+    "schema_version": 1,
+    "season": 2026
+  },
+  "candidate_id": "5b8b506d745cf4317ada190bfdf43e74b4d542d634864626c39ffe88baaa194f",
+  "kind": "explorer_launch_audit",
+  "launch_package": {
+    "archive": "artifacts/launch/e61bb2abb3e655db7a5cef08adb64d2bd41f6c85ea50c5654a2d6d4d086473ee.zip",
+    "archive_bytes": 76595272,
+    "archive_sha256": "e61bb2abb3e655db7a5cef08adb64d2bd41f6c85ea50c5654a2d6d4d086473ee",
+    "manifest": {
+      "candidate_id": "5b8b506d745cf4317ada190bfdf43e74b4d542d634864626c39ffe88baaa194f",
+      "checked_at": "2026-11-06T22:23:42.848989+00:00",
+      "explorer_report": "a6cd94ffe0d027bd0b0662aee00142b50a888c9a04fdc0f8073b6ef55f505ec3",
+      "files": {
+        "ATTRIBUTION.md": {
+          "bytes": 6183,
+          "sha256": "bb64d42b87d393921f68c62af60bad7c28e0f249eb7b05392f58f9052ee416c9"
+        },
+        "checks/source-readiness.json": {
+          "bytes": 54936,
+          "sha256": "09eec72eb2ee35e1596c0e81b98bf6da69636d526aa0f422b93210cb305967d5"
+        },
+        "data/derived/defense-explorer/manifests/184947d5facca96851ab7e0c0897b0794df0e550bd1d1ea6ba30b6c32ae2716f.json": {
+          "bytes": 452,
+          "sha256": "184947d5facca96851ab7e0c0897b0794df0e550bd1d1ea6ba30b6c32ae2716f"
+        },
+        "data/derived/defense-explorer/manifests/a6cd94ffe0d027bd0b0662aee00142b50a888c9a04fdc0f8073b6ef55f505ec3.json": {
+          "bytes": 452,
+          "sha256": "a6cd94ffe0d027bd0b0662aee00142b50a888c9a04fdc0f8073b6ef55f505ec3"
+        },
+        "data/derived/defense-explorer/objects/3af190383e1c6e61788ac6ab1ac34779f97821a4b8e71e0840c7250a07efc4aa": {
+          "bytes": 1018510,
+          "sha256": "3af190383e1c6e61788ac6ab1ac34779f97821a4b8e71e0840c7250a07efc4aa"
+        },
+        "data/derived/defense-explorer/objects/fa0273a6e0dc27c77252901ac523ae210e3e47b7d867ad5043820f0c05d0d5a4": {
+          "bytes": 1012065,
+          "sha256": "fa0273a6e0dc27c77252901ac523ae210e3e47b7d867ad5043820f0c05d0d5a4"
+        },
+        "data/derived/explorer-candidates/manifests/5b8b506d745cf4317ada190bfdf43e74b4d542d634864626c39ffe88baaa194f.json": {
+          "bytes": 1790,
+          "sha256": "5b8b506d745cf4317ada190bfdf43e74b4d542d634864626c39ffe88baaa194f"
+        },
+        "data/derived/explorer-candidates/manifests/dc9c3b8ffbc67514542601b80c91c26a7a6e0e52a9814cd6385e1439ea19ae0b.json": {
+          "bytes": 54924,
+          "sha256": "dc9c3b8ffbc67514542601b80c91c26a7a6e0e52a9814cd6385e1439ea19ae0b"
+        },
+        "data/derived/offensive-inputs/manifests/41444343041805a99b11533f80ba3454f00c001be549ae1227600822a581fa97.json": {
+          "bytes": 51822,
+          "sha256": "41444343041805a99b11533f80ba3454f00c001be549ae1227600822a581fa97"
+        },
+        "data/derived/offensive-inputs/manifests/760b4606b34af7701d6edd68011112a9852a329bb4b7635a3c254a576751400a.json": {
+          "bytes": 51475,
+          "sha256": "760b4606b34af7701d6edd68011112a9852a329bb4b7635a3c254a576751400a"
+        },
+        "data/derived/offensive-inputs/objects/b5092651c6e573dcb2a24f6affbc5dc5cf90ece4f0b51ccdf309ff25243dd246": {
+          "bytes": 11520947,
+          "sha256": "b5092651c6e573dcb2a24f6affbc5dc5cf90ece4f0b51ccdf309ff25243dd246"
+        },
+        "data/derived/offensive-inputs/objects/ec50fccbceb401724cb315cb3d0ab1224ad53c388454e341e95b1abcb454628e": {
+          "bytes": 11435228,
+          "sha256": "ec50fccbceb401724cb315cb3d0ab1224ad53c388454e341e95b1abcb454628e"
+        },
+        "data/raw/source-snapshots/manifests/153d85c5efe2b696aad06ba9e6a240b7d07b4e8bec9ab3fb9d91d44601aa6cdb.json": {
+          "bytes": 80692,
+          "sha256": "153d85c5efe2b696aad06ba9e6a240b7d07b4e8bec9ab3fb9d91d44601aa6cdb"
+        },
+        "data/raw/source-snapshots/manifests/2dda35ae177a8893d778f18f0478a38c5a256379c07c5b5ca9c96a411417a7b4.json": {
+          "bytes": 80688,
+          "sha256": "2dda35ae177a8893d778f18f0478a38c5a256379c07c5b5ca9c96a411417a7b4"
+        },
+        "data/raw/source-snapshots/manifests/88d60122dccb2754a260ef342c0e8f689b3402f877240e968570c568155f081d.json": {
+          "bytes": 28504,
+          "sha256": "88d60122dccb2754a260ef342c0e8f689b3402f877240e968570c568155f081d"
+        },
+        "data/raw/source-snapshots/manifests/88eca9e22ec5f3a66759d631f550625574bba1c19366719167e81a1d1def2973.json": {
+          "bytes": 28656,
+          "sha256": "88eca9e22ec5f3a66759d631f550625574bba1c19366719167e81a1d1def2973"
+        },
+        "data/raw/source-snapshots/manifests/8f95703a3bc7a09d442453e7e6a023da3f81c4ce59dae84e5ae31ad2796f4ef3.json": {
+          "bytes": 3593,
+          "sha256": "8f95703a3bc7a09d442453e7e6a023da3f81c4ce59dae84e5ae31ad2796f4ef3"
+        },
+        "data/raw/source-snapshots/manifests/befe566e2545cdcdd33e355b480079865f0d9aa754815df16c37f3b1ab3e4770.json": {
+          "bytes": 3682,
+          "sha256": "befe566e2545cdcdd33e355b480079865f0d9aa754815df16c37f3b1ab3e4770"
+        },
+        "data/raw/source-snapshots/manifests/d56a2973407c36a6e742733012658db993446f9ce9e28cfe83b363e575fa4b2f.json": {
+          "bytes": 3593,
+          "sha256": "d56a2973407c36a6e742733012658db993446f9ce9e28cfe83b363e575fa4b2f"
+        },
+        "data/raw/source-snapshots/manifests/df6d093719bd8ac2ed9f991a4cc914a2654e1ced2e49b810806e4a94f4f6f21e.json": {
+          "bytes": 3682,
+          "sha256": "df6d093719bd8ac2ed9f991a4cc914a2654e1ced2e49b810806e4a94f4f6f21e"
+        },
+        "data/raw/source-snapshots/objects/06b87fd8d95abc9cdb1585cbd41ccaaf8464b09ab0968c2f6b6b04ad91b7e28c": {
+          "bytes": 163986,
+          "sha256": "06b87fd8d95abc9cdb1585cbd41ccaaf8464b09ab0968c2f6b6b04ad91b7e28c"
+        },
+        "data/raw/source-snapshots/objects/13fee889c2323348b074bf7020576e767c4428dfac08a341c0439a3ed17cb9ba": {
+          "bytes": 14522393,
+          "sha256": "13fee889c2323348b074bf7020576e767c4428dfac08a341c0439a3ed17cb9ba"
+        },
+        "data/raw/source-snapshots/objects/1904f4ecb174ef7054907d26a6aef228865535ae942650615b29e932a57c5b14": {
+          "bytes": 516526,
+          "sha256": "1904f4ecb174ef7054907d26a6aef228865535ae942650615b29e932a57c5b14"
+        },
+        "data/raw/source-snapshots/objects/19f1691bd070de5ecb6bd266b1f9424574946deb55e96e3fe3c0f9562cc18d74": {
+          "bytes": 163987,
+          "sha256": "19f1691bd070de5ecb6bd266b1f9424574946deb55e96e3fe3c0f9562cc18d74"
+        },
+        "data/raw/source-snapshots/objects/2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111": {
+          "bytes": 18651,
+          "sha256": "2a82ac9bbc3e3ee066908381e8d373896db5a6025d083fbd59692fe9ccfb9111"
+        },
+        "data/raw/source-snapshots/objects/3f9b215e8820aa20f244150afae98513ca294fe91eae3fbdc684fbca1e77da4f": {
+          "bytes": 8372686,
+          "sha256": "3f9b215e8820aa20f244150afae98513ca294fe91eae3fbdc684fbca1e77da4f"
+        },
+        "data/raw/source-snapshots/objects/6a9a936cd4fe9fbc1400d79ed8ec46f0b4e29fa7c161ffd2969917892d549ddb": {
+          "bytes": 377870,
+          "sha256": "6a9a936cd4fe9fbc1400d79ed8ec46f0b4e29fa7c161ffd2969917892d549ddb"
+        },
+        "data/raw/source-snapshots/objects/897ff343b1dfda4c4fb68886197117fdefa8734aaf96d9ee89451b73e6f1be33": {
+          "bytes": 236007,
+          "sha256": "897ff343b1dfda4c4fb68886197117fdefa8734aaf96d9ee89451b73e6f1be33"
+        },
+        "data/raw/source-snapshots/objects/938193ddb2402c22acdac253538dc36b55a85eedd11ceb7da52f4b0d28272669": {
+          "bytes": 236006,
+          "sha256": "938193ddb2402c22acdac253538dc36b55a85eedd11ceb7da52f4b0d28272669"
+        },
+        "data/raw/source-snapshots/objects/a88682c855efec21b45a311aefbc3bfbb6b104c64b3484e164dba5ab238a8be8": {
+          "bytes": 378528,
+          "sha256": "a88682c855efec21b45a311aefbc3bfbb6b104c64b3484e164dba5ab238a8be8"
+        },
+        "data/raw/source-snapshots/objects/b162c38efc523a9f2f6f1a80c4e0f8cf8f6537b863eda5ecb1fe2bc49457d019": {
+          "bytes": 10938,
+          "sha256": "b162c38efc523a9f2f6f1a80c4e0f8cf8f6537b863eda5ecb1fe2bc49457d019"
+        },
+        "data/raw/source-snapshots/objects/b5658819c1667920b6956ea1f6dd947c6e34861762e74036186298ef8285e59f": {
+          "bytes": 641377,
+          "sha256": "b5658819c1667920b6956ea1f6dd947c6e34861762e74036186298ef8285e59f"
+        },
+        "data/raw/source-snapshots/objects/b85555b5837bf137216922b8420f54d3e98117a09978da4814bb4f836650b94a": {
+          "bytes": 8313305,
+          "sha256": "b85555b5837bf137216922b8420f54d3e98117a09978da4814bb4f836650b94a"
+        },
+        "data/raw/source-snapshots/objects/cc9bc97c13a309a98fa86679f91cf5a3c50720711a9ae2e8100aa363dc450cf3": {
+          "bytes": 641376,
+          "sha256": "cc9bc97c13a309a98fa86679f91cf5a3c50720711a9ae2e8100aa363dc450cf3"
+        },
+        "data/raw/source-snapshots/objects/d458d41c4982856279dadeaeed7160b4e1407703f376d2789a420ca86cab7778": {
+          "bytes": 14611257,
+          "sha256": "d458d41c4982856279dadeaeed7160b4e1407703f376d2789a420ca86cab7778"
+        },
+        "data/raw/source-snapshots/objects/d96973f8f624e928e12f5f7829b3e2b4ebd55442b0aee4e0f5e5f3692a4c9c30": {
+          "bytes": 516453,
+          "sha256": "d96973f8f624e928e12f5f7829b3e2b4ebd55442b0aee4e0f5e5f3692a4c9c30"
+        },
+        "data/raw/source-snapshots/objects/f024a064871b91e5369f8a9e3cd424b8a190ecbecdd25fef54b2ad959c0552c5": {
+          "bytes": 10931,
+          "sha256": "f024a064871b91e5369f8a9e3cd424b8a190ecbecdd25fef54b2ad959c0552c5"
+        },
+        "review/374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375.zip": {
+          "bytes": 1401742,
+          "sha256": "374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375"
+        }
+      },
+      "game_cutoff": "2026-11-06T21:42:59.542615+00:00",
+      "kind": "explorer_launch_package",
+      "packager_code_revision": "d973e8bdea397e106d863114a3642be7b400208b",
+      "policy": "explorer-launch-closure-2026-v1",
+      "published": false,
+      "ranking_ready": false,
+      "review_archive_sha256": "374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375",
+      "schema_version": 1
+    },
+    "published": false,
+    "uploaded": false
+  },
+  "limitations": [
+    "One completed Week 9 game is included; this is not complete Week 9 coverage.",
+    "Packaging readiness is frozen at checked_at; restoration does not renew it.",
+    "No remote upload/download, deployment, production scheduler or public publisher was completed.",
+    "Only candidate/current-prior Explorer dependencies are retained, not every release or historical research store.",
+    "All 17 modules remain unadmitted; no benchmark, eligibility or uncertainty method changed."
+  ],
+  "local_checks": {
+    "chromium_scenarios": 12,
+    "frontend_contracts": 27,
+    "hosted_ci": "recorded separately on PR",
+    "make_check": "passed",
+    "new_python_tests": 12,
+    "python_tests": 344
+  },
+  "observations": {
+    "allocated_credits": {
+      "interceptions": 172,
+      "sacks": 554.0
+    },
+    "chart_issues": 16,
+    "coverage": {
+      "completed_games": 122,
+      "expected_role_cells": 244,
+      "included_plays": 14960,
+      "players": 562,
+      "role_cells": [
+        {
+          "blocked_cells": 8,
+          "complete_cells": 236,
+          "role": "IDL"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 244,
+          "role": "EDGE"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 244,
+          "role": "LB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 240,
+          "role": "CB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 240,
+          "role": "S"
+        }
+      ],
+      "through_week": 9
+    },
+    "name_issues": 2,
+    "retrospective_chart_team_games": 244,
+    "unallocated_flagged_events": {
+      "interceptions": 0,
+      "sacks": 4.0
+    }
+  },
+  "readiness_policy_sha256": "f7a17acc7dcdd6d53bafc9697647db1a8481c96b3ba02ec70b90343c05057052",
+  "restoration": {
+    "archive_sha256": "e61bb2abb3e655db7a5cef08adb64d2bd41f6c85ea50c5654a2d6d4d086473ee",
+    "candidate_id": "5b8b506d745cf4317ada190bfdf43e74b4d542d634864626c39ffe88baaa194f",
+    "checked_at": "2026-11-06T22:23:42.848989+00:00",
+    "destination": "work/2026-11-06-launch/final/restored",
+    "files_restored": 39,
+    "game_cutoff": "2026-11-06T21:42:59.542615+00:00",
+    "published": false,
+    "ranking_ready": false,
+    "review_archive_sha256": "374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375",
+    "semantic_replay_verified": true,
+    "validator_code_revision": "d973e8bdea397e106d863114a3642be7b400208b",
+    "verified_at_recorded_time_only": true,
+    "verified_staging_reads": 194
+  },
+  "schema_version": 1,
+  "screenshots": {
+    "desktop.png": "38e31998fe3e8bd1060e60275539ecdd159477728dc424882d92b201da0eac09",
+    "mobile-ledger.png": "2f6abdcfcb909f8db24807cb56a09671f6270f3c58ca56ff450e2047dd857344",
+    "mobile.png": "e966b502c273e409a18380976d6cd5738db1a76c3610b48dfd126356813c90ad"
+  },
+  "site": {
+    "archive": "artifacts/review-bundles/374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375.zip",
+    "archive_bytes": 1401742,
+    "archive_sha256": "374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375",
+    "code_revision": "d973e8bdea397e106d863114a3642be7b400208b",
+    "coverage": {
+      "completed_games": 122,
+      "expected_role_cells": 244,
+      "included_plays": 14960,
+      "players": 562,
+      "role_cells": [
+        {
+          "blocked_cells": 8,
+          "complete_cells": 236,
+          "role": "IDL"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 244,
+          "role": "EDGE"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 244,
+          "role": "LB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 240,
+          "role": "CB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 240,
+          "role": "S"
+        }
+      ],
+      "through_week": 9
+    },
+    "decided_at": "2026-11-02T19:53:56+00:00",
+    "decision_version": "2026-11-02-v1",
+    "explorer_report": "a6cd94ffe0d027bd0b0662aee00142b50a888c9a04fdc0f8073b6ef55f505ec3",
+    "explorer_snapshot": "3af190383e1c6e61788ac6ab1ac34779f97821a4b8e71e0840c7250a07efc4aa",
+    "game_cutoff": "2026-11-06T21:42:59.542615+00:00",
+    "kind": "archived_exploratory_review",
+    "npm_lock_sha256": "47907a9da262d6ab2242f3d72fa17c5222297140092d23e4d79c64460d167182",
+    "ranking_ready": false,
+    "registry_revision": "c0db5d327b4b9c4225f685aca9a3cdb82ae44198",
+    "registry_sha256": "3ef6eac4de93a8b9a878eec24b50e8db550c7fd04d309e8501fc98c4ba5d89c7",
+    "schema_version": 1,
+    "season": 2026,
+    "source_receipts": {
+      "depth_charts": "8f95703a3bc7a09d442453e7e6a023da3f81c4ce59dae84e5ae31ad2796f4ef3",
+      "pbp": "88eca9e22ec5f3a66759d631f550625574bba1c19366719167e81a1d1def2973",
+      "rosters": "df6d093719bd8ac2ed9f991a4cc914a2654e1ced2e49b810806e4a94f4f6f21e",
+      "schedules": "2dda35ae177a8893d778f18f0478a38c5a256379c07c5b5ca9c96a411417a7b4"
+    },
+    "toolchain": {
+      "node": "v24.22.1",
+      "npm": "11.4.0",
+      "python": "3.13.2"
+    }
+  },
+  "source_capture_code_revision": "4ea8705419a211af61b884a2472938bb545d8db5",
+  "source_checks_at_packaging": {
+    "depth_charts": {
+      "available": true,
+      "receipt_id": "8f95703a3bc7a09d442453e7e6a023da3f81c4ce59dae84e5ae31ad2796f4ef3",
+      "retrieval_age_seconds": 2448.830076,
+      "retrieved_at": "2026-11-06T21:42:54.018913+00:00",
+      "updated_at": "2026-11-06T14:57:09Z",
+      "upstream_age_seconds": 26793.848989
+    },
+    "pbp": {
+      "available": true,
+      "receipt_id": "88eca9e22ec5f3a66759d631f550625574bba1c19366719167e81a1d1def2973",
+      "retrieval_age_seconds": 2452.343801,
+      "retrieved_at": "2026-11-06T21:42:50.505188+00:00",
+      "updated_at": "2026-11-06T16:45:55Z",
+      "upstream_age_seconds": 20267.848989
+    },
+    "rosters": {
+      "available": true,
+      "receipt_id": "df6d093719bd8ac2ed9f991a4cc914a2654e1ced2e49b810806e4a94f4f6f21e",
+      "retrieval_age_seconds": 2443.99893,
+      "retrieved_at": "2026-11-06T21:42:58.850059+00:00",
+      "updated_at": "2026-11-06T15:00:27Z",
+      "upstream_age_seconds": 26595.848989
+    },
+    "schedules": {
+      "available": true,
+      "receipt_id": "2dda35ae177a8893d778f18f0478a38c5a256379c07c5b5ca9c96a411417a7b4",
+      "retrieval_age_seconds": 2443.409098,
+      "retrieved_at": "2026-11-06T21:42:59.439891+00:00",
+      "updated_at": "2026-11-06T21:36:29Z",
+      "upstream_age_seconds": 2833.848989
+    }
+  },
+  "verification": {
+    "all_cavaa_and_snaps_null": true,
+    "network_blocked_during_build_pack_restore": true,
+    "original_public_dist_and_archives_preserved_during_isolated_build_and_pack": true,
+    "partial_week_label_inspected_desktop_and_mobile": true,
+    "public_pointer_sha256": "3b905af67f26dab3570b1a3dc2933d4abc39990f00721cc35eb22ca94359b170",
+    "published": false,
+    "ranking_ready": false,
+    "restored_archive_rebuild_byte_identical": true,
+    "restored_reads_confined_to_staging": true,
+    "two_final_site_builds_identical": true,
+    "uploaded": false
+  }
+}

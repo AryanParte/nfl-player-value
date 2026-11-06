@@ -73,7 +73,16 @@ rehashed manifest edits, failed builds and preserved prior objects/pointers.
 The dated real-source audit separately checks offline replay and the actual
 frontend schema; neither is evidence of player attribution or publication readiness.
 
-Expand that list when substantially editing other modules; this is not a claim
+November 6 adds 12 Python regressions for the [launch package](LAUNCH_PACKAGE.md) and isolated
+build boundary: newly started games, stale rechecks, exact site/candidate matching,
+prior dependencies, corrupted/rehashed manifests, missing/extra files, failed
+restore and preservation of the canonical staged site. The synthetic suite hides
+original source stores during restoration; no live download is required. Real
+packaging and browser verification are recorded separately in the dated audit.
+The existing load scenario also requires the partial-week explanation; no browser
+scenario was duplicated to test a copy change.
+
+Expand adopted formatting when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports
 were removed. No pytest migration was needed.
