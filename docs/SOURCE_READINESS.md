@@ -4,6 +4,14 @@ This unit adds an operational gate between archived source receipts and a new
 Defense Explorer candidate. It does not admit CAVAA, deploy a website, or advance
 any public pointer. A fresh source file is not evidence of valid attribution.
 
+The [November 5 real-source audit](audits/2026-11-05-source-readiness.json)
+records 121 completed games, 14,851 scoped plays and 562 players through Week 8,
+at November 5, 19:04:28 America/New_York. Candidate
+`a1a5fc0401401380e3c11291c96cc197f31e05947c0bd8141df879fe49cb6da8`
+replays offline and passes the existing frontend schema. It retains all 93 prior
+games, adds 28 and records two changed earlier team-context rows. The staged
+website still uses Week 6; the new candidate is unpublished.
+
 The four required sources remain public nflverse schedules, play-by-play, depth
 charts and seasonal rosters. The existing capture CLI verifies published hashes,
 schemas, licenses and retrieval chronology. Readiness replays those receipts
