@@ -5,12 +5,14 @@ No network capture, deployment, installation or hosted pointer update occurs.
 """
 
 import argparse
+from contextlib import contextmanager
 import csv
 import json
 from pathlib import Path
 import re
 import subprocess
 import sys
+import tempfile
 
 from nfl_value.ingest_cli import committed_revision
 from nfl_value.ingestion import SnapshotStore, sha256
@@ -22,11 +24,40 @@ from nfl_value.review_bundle import (
     read_policy,
     review_inputs,
     save_archive,
+    safe_path,
     stage_review,
 )
 
 
-def build_review(root, report_id, raw, inputs, output, destination):
+@contextmanager
+def build_workspace(root, isolated):
+    """Copy tracked web inputs only; keep canonical public pointers/dist intact."""
+    if not isolated:
+        yield root
+        return
+    work = safe_path(root, "work")
+    work.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=".review-build-", dir=work) as temporary:
+        staging = Path(temporary)
+        names = (
+            subprocess.check_output(["git", "ls-files", "-z", "--", "web"], cwd=root)
+            .decode()
+            .split("\0")
+        )
+        for name in filter(None, names):
+            # Ignored .env, local data, dist and caches never enter the build.
+            body = read_file(root, name)
+            target = safe_path(staging, name)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(body)
+        modules = safe_path(root, "web/node_modules")
+        if not modules.is_dir():
+            raise ValueError("installed locked frontend dependencies required")
+        (staging / "web/node_modules").symlink_to(modules, target_is_directory=True)
+        yield staging
+
+
+def build_review(root, report_id, raw, inputs, output, destination, *, isolated=False):
     revision = committed_revision()
     dirty = subprocess.check_output(
         [
@@ -69,11 +100,16 @@ def build_review(root, report_id, raw, inputs, output, destination):
         check=True,
         stdout=subprocess.DEVNULL,
     )
-    stage_review(root / "web/public", files)
-    # Run the locked local tools; no npx, install, downloads or inferred build.
-    subprocess.run(
-        ["npm", "--prefix", "web", "run", "build"], cwd=root, check=True, stdout=sys.stderr
-    )
+    with build_workspace(root, isolated) as build_root:
+        stage_review(build_root / "web/public", files)
+        # Run the locked local tools; no npx, install, downloads or inferred build.
+        subprocess.run(
+            ["npm", "--prefix", "web", "run", "build"],
+            cwd=build_root,
+            check=True,
+            stdout=sys.stderr,
+        )
+        body = archive_bytes(bundle_files(build_root / "web/dist", files, metadata))
     if (
         committed_revision() != revision
         or subprocess.check_output(
@@ -83,7 +119,6 @@ def build_review(root, report_id, raw, inputs, output, destination):
         ).strip()
     ):
         raise ValueError("source changed during review build")
-    body = archive_bytes(bundle_files(root / "web/dist", files, metadata))
     target = save_archive(destination, body)
     return {
         "archive": str(target),
@@ -100,6 +135,7 @@ def main(argv=None):
     parser.add_argument("--input-store", type=Path, default=Path("data/derived/offensive-inputs"))
     parser.add_argument("--output-store", type=Path, default=Path("data/derived/defense-explorer"))
     parser.add_argument("--destination", type=Path, default=Path("artifacts/review-bundles"))
+    parser.add_argument("--isolated", action="store_true", help="Preserve checkout public/dist")
     args = parser.parse_args(argv)
     try:
         result = build_review(
@@ -107,6 +143,7 @@ def main(argv=None):
             args.report_id,
             *(SnapshotStore(p) for p in (args.raw_store, args.input_store, args.output_store)),
             args.destination,
+            isolated=args.isolated,
         )
         print(json.dumps(result, indent=2, sort_keys=True))
     except (
