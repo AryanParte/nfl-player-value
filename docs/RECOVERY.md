@@ -1,5 +1,10 @@
 # Explorer recovery archives
 
+The November 6 [launch package](LAUNCH_PACKAGE.md) additionally retains a refresh
+candidate, readiness checks and its prior-comparison dependencies. This original
+recovery-v1 command remains available with its unchanged archived-Explorer scope.
+Neither format automatically retains other research stores or all prior releases.
+
 The recovery command retains the exact inputs needed to replay an archived
 Explorer, together with its existing [static review ZIP](STATIC_REVIEW.md).
 It provides a portable artifact and verified local restoration. It does not

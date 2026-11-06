@@ -1,5 +1,14 @@
 # Data sources and provenance
 
+**November 6 launch audit:** a fresh source set reconciles 122 completed games,
+including one Week 9 game, at November 6, 16:42:59 Eastern. The packaging check is
+separate, at 17:23:42 Eastern. The [launch package](LAUNCH_PACKAGE.md) retains all
+39 verified members, including candidate/prior-comparison inputs, both source
+sets' CC-BY-4.0 attribution/licenses and the exact site ZIP. Full offline restore
+and real browser checks pass. This is local retention only; other research stores
+and remote/publication controls remain unfinished. See the
+[audit](audits/2026-11-06-launch-package.json).
+
 **November 5 readiness audit:** fresh captures of the four public sources pass
 the [frozen Explorer readiness policy](SOURCE_READINESS.md) at November 5,
 19:04:28 America/New_York (November 6, 00:04:28 UTC). The unpublished candidate

@@ -1,54 +1,48 @@
 # Project status
 
-Updated: November 5, 2026, America/New_York.
+Updated: November 6, 2026, America/New_York.
 
 ## Current unit
 
-The [source-readiness and Explorer candidate unit](docs/SOURCE_READINESS.md) is
-implemented on `codex/explorer-source-readiness`, from owner-merged PR #16 / main
-`6a60be5`. Main CI was green; there were no open PRs, reviews or unfinished local
-changes. A frozen operational policy checks recent retrieval, upstream asset age,
-per-team chart recency, the full 272-game / 32-team schedule and clock-based
-completed-game reconciliation. Missing/stale inputs block explicitly; malformed
-or corrupted inputs error. No player model, benchmark or qualification rule changed.
+The [portable Explorer launch package](docs/LAUNCH_PACKAGE.md) is implemented on
+`codex/explorer-launch-package`, from owner-merged PR #17 / main `72a2c7d`.
+Main CI passed; no open PR, review feedback or unfinished local changes were
+present. The new package binds an exact candidate/site, a packaging-time source
+recheck and all current/prior-comparison replay inputs. Optional isolated frontend
+builds preserve the canonical public pointer and dist. No service was introduced.
 
-The new immutable candidate has **121 completed games / 14,851 scoped pass-run
-plays / 562 players through Week 8**, at November 5, 19:04:28 America/New_York
-(`2026-11-06T00:04:28.116468+00:00`). All four fresh receipts pass at that cutoff,
-and all 32 teams have recent embedded chart snapshots. All 93 earlier games are
-preserved; 28 games are added and two existing team-context rows changed. The
-comparison records those changes while preserving original objects. It is not a
-claim that player names/roles or every earlier source field stayed unchanged.
+Fresh source captures produce **122 completed games / 14,960 scoped plays / 562
+players** at November 6, 16:42:59 America/New_York
+(`2026-11-06T21:42:59.542615+00:00`). This retains all 121 previous games and adds
+`2026_09_JAX_BAL`, the first represented Week 9 game. Week 9 is partial. One older
+HOU team-context row changed; the comparison does not enumerate all player/name
+changes or infer their cause. The UI now says “Includes Week 9” and explicitly
+explains that the latest included week may be partial.
 
-Candidate ID:
-`a1a5fc0401401380e3c11291c96cc197f31e05947c0bd8141df879fe49cb6da8`.
-The producer is `65e4cda9a945e93bd6b64b46b024984fbf3c05b3`. Full source/candidate
-replay passed with Python networking blocked, and the actual payload passes the
-existing frontend Zod contract. The old Week 6 receipts remain reproducible but
-fail readiness at the new cutoff: 41 operational blockers and 28 unresolved games.
-See the [audit](docs/audits/2026-11-05-source-readiness.json) and
-[learning report](docs/learning/2026-11-05.md).
+The final static site is **1,401,742 bytes**, SHA-256
+`374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375`.
+Two isolated builds are identical. The launch package is **76,595,272 bytes**,
+SHA-256 `e61bb2abb3e655db7a5cef08adb64d2bd41f6c85ea50c5654a2d6d4d086473ee`.
+The candidate/source producer is `4ea8705419a211af61b884a2472938bb545d8db5`;
+the final site/packager producer is `d973e8bdea397e106d863114a3642be7b400208b`.
+The source recheck is frozen at November 6, 17:23:42 Eastern. Restoring later does
+not renew freshness or authorize publication. See the
+[audit](docs/audits/2026-11-06-launch-package.json) and
+[learning report](docs/learning/2026-11-06.md).
 
-The candidate has 553 recorded sack credits and 170 interceptions. Four flagged
-sacks remain unallocated, three names unresolved, and 16 defensive chart cells
-blocked (eight IDL, four CB, four S). All 242 chart team-games use retrospective
-evidence. CAVAA and defensive snaps remain null for every player; all 17 modules
-remain **not admitted**. Source readiness is evaluated at the recorded cutoff;
-a later replay does not renew freshness or authorize publication now.
+The candidate has 554 allocated sack credits and 172 interceptions. Four sacks,
+two names and 16 defensive chart cells retain missingness. All 244 chart
+team-games remain retrospective. CAVAA and defensive snaps stay null, and all 17
+modules remain **not admitted**. No model, benchmark, opportunity, qualification
+or uncertainty-calibration rule changed.
 
-**No public pointer changed.** The locally staged website still uses the archived
-Week 6 view. Preparation creates unpublished candidates only; it does not deploy,
-schedule production refresh, or provide hosted rollback. Source readiness is one
-prerequisite, not ranking or publication approval. No new dependency, paid service
-or recurring charge was introduced.
-
-**Off-machine retention remains blocked.** The browser is still signed out,
-there are no GitHub releases, the connector lacks binary release-asset upload,
-and no authenticated upload CLI is available. Yesterday's [recovery archive](docs/RECOVERY.md)
-remains verified locally; it covers the old Explorer dependency set only, not this
-new candidate or the other research stores. Complete authenticated upload and an
-independent download/restore when access becomes available. Continue independent
-launch preparation rather than waiting on authentication.
+**The package remains local and unpublished.** The canonical staged data pointer
+still selects Week 6. Independent restored-site browser checks do not constitute
+deployment. No remote release asset or authenticated upload CLI was available;
+the connector cannot upload binary assets. This run does not claim new browser
+sign-in status. The package now includes the candidate and its prior comparison,
+but not every historical release or the other research stores. Remote retention,
+independent production refresh and hosted last-good publication remain unfinished.
 
 There are 61/112 accepted pairs in the 2025/2026 windows, including eight/five QB
 changes. On changed-QB pairs, joint-model mean absolute change error exceeds the
@@ -120,7 +114,7 @@ That earlier exposure unit did not refresh the completed-game inventory.
 
 The previously staged 2026 view has 93 completed games, 11,441 included pass/run
 plays, 32 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not November 5 live coverage or
+23:50:38.680415 UTC; this is an archived snapshot, not November 6 live coverage or
 the new unpublished candidate.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
@@ -141,28 +135,26 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-332 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile and
-whitespace checks pass locally. The 18 new Python tests exercise actual synthetic
-capture/replay/Explorer chains, not live downloads or invented model behavior.
-Existing Python 3.11/3.12/3.13 and dashboard/12 Chromium scenarios remain in hosted
-CI; results for the pushed commit are recorded on the PR. The actual new payload
-passes the frontend schema. No UI code changed or new manual browser QA is claimed. Coverage
-remains informational; the October 25 percentage is not today's measurement.
+344 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile
+and whitespace checks pass locally, along with all 12 Chromium scenarios. Twelve
+new Python regressions cover the package and isolated-build boundaries. The
+existing browser load test now checks partial-week wording. Hosted Python
+3.11/3.12/3.13 and dashboard results for the pushed commit are reported on the PR.
+Real replay and restored-site browser checks are separate from synthetic CI tests.
+The old coverage percentage remains informational, not today's measurement.
 
-## Next highest-priority unit — November 6
+## Next highest-priority unit — November 7
 
-Prepare the usable exploratory launch: package the reviewed Week 8 candidate with
-current source readiness, browser verification and deployment/retention controls.
-Recheck freshness at the actual publication attempt; do not promote an old saved
-positive decision. Preserve the archived Week 6 view and original/corrected
-versions. Weekly production execution must remain independent of Codex and keep
-last-good output when sources or validation fail. No scored leaderboard is yet
-scientifically admissible.
+Complete the exploratory website deployment and off-machine retention, verify an
+independent remote download/restore, and establish production refresh with
+last-good-output preservation. Use authenticated release/hosting access or a
+reviewed GitHub-native workflow; report any blocked activation honestly. Recheck
+source freshness at the publication attempt. Retain all original/corrected
+versions. The existing package's positive decision cannot authorize a later push.
 
-When authenticated release-upload access is available, retain the prepared
-archives in the canonical repository's releases and verify a separate download/
-restore against committed digests. The new candidate and other research stores
-also need durable retention. No paid infrastructure without owner approval.
+The new package covers its exact current/prior Explorer dependencies only. Other
+research stores and the full weekly history still need durable retention. Keep
+production execution independent of Codex and make no paid purchases/upgrades.
 
 No admitted ranking is presently supported. An exploratory release must state
 that the unified-MVP objective remains unfinished. Preserve the November 7 target
@@ -183,8 +175,8 @@ player uncertainty, broader exposure, a module that passes admission,
 ranked/history views, durable off-machine snapshot retention, deployment and independent production refresh
 remain unfinished. Source receipts and generated exports remain local and ignored
 by Git; a hash alone cannot restore missing bytes. Source readiness and candidate
-preparation now work, but no production publisher or current-time deployment gate
-is implemented. The current public-data rights
+preparation and portable launch packages now work, but no production publisher
+or current-time deployment gate is implemented. The current public-data rights
 review does not admit a PFR workload dependency.
 
 An exploratory site without admitted CAVAA does not fulfill the MVP-ranking

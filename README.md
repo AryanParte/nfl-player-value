@@ -71,6 +71,13 @@ preserves prior games and records changed team-context rows, with frozen offline
 replay and explicit stale-source failures. The staged site remains on Week 6;
 no public pointer or player-value admission changed.
 
+November 6 adds [portable Explorer launch packages](docs/LAUNCH_PACKAGE.md).
+Isolated website builds preserve the staged site. A package binds the exact
+candidate, saved website, fresh packaging check and current/prior replay inputs;
+restoration verifies all of them before exposing the recovered directory.
+This prepares an exploratory release; upload, deployment and scored rankings
+remain unfinished.
+
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -109,6 +116,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Static review bundles](docs/STATIC_REVIEW.md) | All-position availability, pinned evidence, offline builds and archived-data limits |
 | [Explorer recovery](docs/RECOVERY.md) | Exact retained inputs, attribution, verified restoration and remote-storage limits |
 | [Source readiness](docs/SOURCE_READINESS.md) | Frozen source-age/coverage checks and unpublished Explorer refresh candidates |
+| [Launch package](docs/LAUNCH_PACKAGE.md) | Isolated website builds, candidate-bound archives and verified portable restoration |
 | [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Positional contrasts](docs/CONTRASTS.md) | Benchmark accounting, joint conditional intervals, prefix isolation and narrow exposure diagnostics |
