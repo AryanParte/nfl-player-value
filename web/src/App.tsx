@@ -173,7 +173,7 @@ function Dashboard({
           <div className="eyebrow">
             <span className="live-dot" />
             {data.season} REGULAR SEASON <span className="slash">/</span>{" "}
-            THROUGH WEEK {data.coverage.through_week}
+            INCLUDES WEEK {data.coverage.through_week}
           </div>
           <h1 id="page-title">
             Defense Explorer<span className="title-dot">.</span>
@@ -186,6 +186,9 @@ function Dashboard({
             <span className="tag">ARCHIVED SNAPSHOT</span>
             <span>Cutoff {date(data.cutoff)} Eastern</span>
           </div>
+          <p className="filter-note">
+            Only completed games are included; the latest week may be partial.
+          </p>
         </div>
         <aside className="admission">
           <div className="field-art" aria-hidden="true">
