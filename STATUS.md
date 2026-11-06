@@ -1,44 +1,54 @@
 # Project status
 
-Updated: November 4, 2026, America/New_York.
+Updated: November 5, 2026, America/New_York.
 
 ## Current unit
 
-The [Explorer recovery unit](docs/RECOVERY.md) is implemented on
-`codex/explorer-recovery-archive`, from owner-merged PR #15 / main `7100dd6`.
-Main CI was green; no open PRs, review feedback or unfinished local changes were
-present. The new command records only files actually read by full verified replay,
-retains source attribution/licenses and the exact saved site ZIP, and restores
-into a new directory only after successful replay from the candidate stores.
-Hash, inventory, cutoff, license, write or replay failure cannot replace existing
-restores or advance a public pointer. No dependency or service was added.
+The [source-readiness and Explorer candidate unit](docs/SOURCE_READINESS.md) is
+implemented on `codex/explorer-source-readiness`, from owner-merged PR #16 / main
+`6a60be5`. Main CI was green; there were no open PRs, reviews or unfinished local
+changes. A frozen operational policy checks recent retrieval, upstream asset age,
+per-team chart recency, the full 272-game / 32-team schedule and clock-based
+completed-game reconciliation. Missing/stale inputs block explicitly; malformed
+or corrupted inputs error. No player model, benchmark or qualification rule changed.
 
-Two packs from committed code, with Python networking blocked, produced the same
-32,538,960-byte archive, SHA-256
-`8e02013401689bc70b7f6bbb8d2523c39a68a7544d141847dfb75aea34592387`.
-The producer is `0cf7e7c7aaf40d723ca1135753862988d2a91df9`; this later
-documentation commit records the result. The fresh restore verifies all 20 files:
-17 source/derived store members, attribution, the saved review ZIP and recovery
-manifest. All 51 store reads during replay were confined to staging. Original
-dependencies and the local public pointer remained unchanged; corruption and
-existing-destination rejection were also exercised on the real archive. See the
-[audit](docs/audits/2026-11-04-recovery.json) and
-[learning report](docs/learning/2026-11-04.md).
+The new immutable candidate has **121 completed games / 14,851 scoped pass-run
+plays / 562 players through Week 8**, at November 5, 19:04:28 America/New_York
+(`2026-11-06T00:04:28.116468+00:00`). All four fresh receipts pass at that cutoff,
+and all 32 teams have recent embedded chart snapshots. All 93 earlier games are
+preserved; 28 games are added and two existing team-context rows changed. The
+comparison records those changes while preserving original objects. It is not a
+claim that player names/roles or every earlier source field stayed unchanged.
 
-**Off-machine retention is still blocked.** GitHub Releases is the proposed
-destination, but the connected tool has no binary release-upload capability,
-the browser is signed out, and no authenticated release-upload CLI is available.
-Nothing was uploaded, purchased or deployed. An authenticated upload followed by
-an independent download/restore is still required. The archive covers only this
-2026 Explorer chain, not historical participation or model research stores.
+Candidate ID:
+`a1a5fc0401401380e3c11291c96cc197f31e05947c0bd8141df879fe49cb6da8`.
+The producer is `65e4cda9a945e93bd6b64b46b024984fbf3c05b3`. Full source/candidate
+replay passed with Python networking blocked, and the actual payload passes the
+existing frontend Zod contract. The old Week 6 receipts remain reproducible but
+fail readiness at the new cutoff: 41 operational blockers and 28 unresolved games.
+See the [audit](docs/audits/2026-11-05-source-readiness.json) and
+[learning report](docs/learning/2026-11-05.md).
 
-The unchanged [static review ZIP](docs/STATIC_REVIEW.md) is 1,190,657 bytes,
-SHA-256 `ffcffe5dfdde266274203407fc36e18e01d81206aff0736089372be36e09cffb`.
-It retains the October 22 / Week 6 game coverage and separate November 2 review
-date. All 17 modules remain **not admitted**, unavailable values stay null, and
-no source refresh or production publisher is claimed. First-unit CAVAA, benchmark
-sensitivities and participation policies are unchanged. The existing desktop/
-mobile interface and independent availability/Explorer panels were not modified.
+The candidate has 553 recorded sack credits and 170 interceptions. Four flagged
+sacks remain unallocated, three names unresolved, and 16 defensive chart cells
+blocked (eight IDL, four CB, four S). All 242 chart team-games use retrospective
+evidence. CAVAA and defensive snaps remain null for every player; all 17 modules
+remain **not admitted**. Source readiness is evaluated at the recorded cutoff;
+a later replay does not renew freshness or authorize publication now.
+
+**No public pointer changed.** The locally staged website still uses the archived
+Week 6 view. Preparation creates unpublished candidates only; it does not deploy,
+schedule production refresh, or provide hosted rollback. Source readiness is one
+prerequisite, not ranking or publication approval. No new dependency, paid service
+or recurring charge was introduced.
+
+**Off-machine retention remains blocked.** The browser is still signed out,
+there are no GitHub releases, the connector lacks binary release-asset upload,
+and no authenticated upload CLI is available. Yesterday's [recovery archive](docs/RECOVERY.md)
+remains verified locally; it covers the old Explorer dependency set only, not this
+new candidate or the other research stores. Complete authenticated upload and an
+independent download/restore when access becomes available. Continue independent
+launch preparation rather than waiting on authentication.
 
 There are 61/112 accepted pairs in the 2025/2026 windows, including eight/five QB
 changes. On changed-QB pairs, joint-model mean absolute change error exceeds the
@@ -106,11 +116,12 @@ cutoff does not advance either archived game cohort: 2025 retains 272 games /
 32,813 plays, and 2026 retains the 93-game / 11,441-play Week 6 snapshot below.
 Unobserved offensive workloads stay null, and that upstream roster payload makes
 no denominator/admission claims. The new selected exposure diagnostic is separate.
-No completed-game inventory was refreshed in this unit.
+That earlier exposure unit did not refresh the completed-game inventory.
 
-The saved 2026 view has 93 completed games, 11,441 included pass/run plays, 32
-teams and 518 players through Week 6. Its fixed cutoff is October 22 at
-23:50:38.680415 UTC; this is an archived snapshot, not November 4 live coverage.
+The previously staged 2026 view has 93 completed games, 11,441 included pass/run
+plays, 32 teams and 518 players through Week 6. Its fixed cutoff is October 22 at
+23:50:38.680415 UTC; this is an archived snapshot, not November 5 live coverage or
+the new unpublished candidate.
 Recorded credits total 425 sacks and 130 interceptions. Four additional flagged
 sacks remain unallocated. There are 92 players without a verified chart role,
 one unresolved roster name and ten blocked defensive team-game-role cells:
@@ -130,24 +141,28 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-314 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile and
-whitespace checks pass locally. The 22 new Python cases cover the recovery
-boundary. Existing Python matrix and 12 Chromium scenarios remain in hosted CI;
-results for this branch are reported on the PR. No new visual behavior or browser
-scenario was introduced. The October 25 coverage baseline of 90.15% remains
-informational; it is not today's measurement or attribution evidence. Real archive
-packing/restoration was independently exercised offline. The learning report
-records verification limits and defects corrected during self-review.
+332 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile and
+whitespace checks pass locally. The 18 new Python tests exercise actual synthetic
+capture/replay/Explorer chains, not live downloads or invented model behavior.
+Existing Python 3.11/3.12/3.13 and dashboard/12 Chromium scenarios remain in hosted
+CI; results for the pushed commit are recorded on the PR. The actual new payload
+passes the frontend schema. No UI code changed or new manual browser QA is claimed. Coverage
+remains informational; the October 25 percentage is not today's measurement.
 
-## Next highest-priority unit — November 5
+## Next highest-priority unit — November 6
 
-When authenticated release-upload access is available, retain the prepared archive
-in the canonical GitHub repository's releases, download it independently and
-verify restoration against the committed digest. Preserve prior assets. Continue
-current-source readiness, deployment preparation and independent refresh with
-last-good-output handling even while remote access is blocked. The November 4
-archive is verified local recovery, not completion of remote retention or those
-production tasks. Retention of other research stores also remains outstanding.
+Prepare the usable exploratory launch: package the reviewed Week 8 candidate with
+current source readiness, browser verification and deployment/retention controls.
+Recheck freshness at the actual publication attempt; do not promote an old saved
+positive decision. Preserve the archived Week 6 view and original/corrected
+versions. Weekly production execution must remain independent of Codex and keep
+last-good output when sources or validation fail. No scored leaderboard is yet
+scientifically admissible.
+
+When authenticated release-upload access is available, retain the prepared
+archives in the canonical repository's releases and verify a separate download/
+restore against committed digests. The new candidate and other research stores
+also need durable retention. No paid infrastructure without owner approval.
 
 No admitted ranking is presently supported. An exploratory release must state
 that the unified-MVP objective remains unfinished. Preserve the November 7 target
@@ -166,8 +181,10 @@ contrast/conditional-interval, calibration, transition and partial qualification
 experiments now run, and formal non-admission decisions are recorded. Calibrated
 player uncertainty, broader exposure, a module that passes admission,
 ranked/history views, durable off-machine snapshot retention, deployment and independent production refresh
-remain unfinished. Source receipts and generated exports are local and ignored
-by Git; a hash alone cannot restore missing bytes. The current public-data rights
+remain unfinished. Source receipts and generated exports remain local and ignored
+by Git; a hash alone cannot restore missing bytes. Source readiness and candidate
+preparation now work, but no production publisher or current-time deployment gate
+is implemented. The current public-data rights
 review does not admit a PFR workload dependency.
 
 An exploratory site without admitted CAVAA does not fulfill the MVP-ranking

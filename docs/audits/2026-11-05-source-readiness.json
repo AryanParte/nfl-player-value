@@ -1,0 +1,639 @@
+{
+  "audited_at": "2026-11-06T00:07:10.168469+00:00",
+  "candidate": {
+    "code_revision": "65e4cda9a945e93bd6b64b46b024984fbf3c05b3",
+    "coverage": {
+      "completed_games": 121,
+      "expected_role_cells": 242,
+      "included_plays": 14851,
+      "players": 562,
+      "role_cells": [
+        {
+          "blocked_cells": 8,
+          "complete_cells": 234,
+          "role": "IDL"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 242,
+          "role": "EDGE"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 242,
+          "role": "LB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 238,
+          "role": "CB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 238,
+          "role": "S"
+        }
+      ],
+      "through_week": 8
+    },
+    "cutoff": "2026-11-06T00:04:28.116468+00:00",
+    "explorer_report": "184947d5facca96851ab7e0c0897b0794df0e550bd1d1ea6ba30b6c32ae2716f",
+    "explorer_snapshot": "fa0273a6e0dc27c77252901ac523ae210e3e47b7d867ad5043820f0c05d0d5a4",
+    "kind": "explorer_refresh_candidate",
+    "offensive_report": "760b4606b34af7701d6edd68011112a9852a329bb4b7635a3c254a576751400a",
+    "previous_comparison": {
+      "added_game_ids": [
+        "2026_07_CIN_BAL",
+        "2026_07_CLE_TEN",
+        "2026_07_DAL_PHI",
+        "2026_07_DEN_ARI",
+        "2026_07_GB_DET",
+        "2026_07_IND_MIN",
+        "2026_07_KC_SEA",
+        "2026_07_LA_LV",
+        "2026_07_MIA_NYJ",
+        "2026_07_NE_CHI",
+        "2026_07_NYG_HOU",
+        "2026_07_PIT_NO",
+        "2026_07_SF_ATL",
+        "2026_07_TB_CAR",
+        "2026_08_ARI_DAL",
+        "2026_08_ATL_TB",
+        "2026_08_BAL_BUF",
+        "2026_08_CAR_GB",
+        "2026_08_CHI_SEA",
+        "2026_08_CLE_PIT",
+        "2026_08_IND_JAX",
+        "2026_08_KC_DEN",
+        "2026_08_LAC_LA",
+        "2026_08_LV_NYJ",
+        "2026_08_MIN_DET",
+        "2026_08_NE_MIA",
+        "2026_08_PHI_WAS",
+        "2026_08_TEN_CIN"
+      ],
+      "changed_existing_team_games": [
+        {
+          "game_id": "2026_04_DAL_HOU",
+          "team": "HOU"
+        },
+        {
+          "game_id": "2026_06_WAS_SF",
+          "team": "WAS"
+        }
+      ],
+      "scope": "Team context rows only; changes can reflect source corrections or code. Player/name changes are not enumerated."
+    },
+    "previous_explorer": "497f59523ffd5f608937d82dda6a5d2abf1a8621d92ba7031df94b3a1f605435",
+    "published": false,
+    "ranking_ready": false,
+    "readiness_policy_sha256": "f7a17acc7dcdd6d53bafc9697647db1a8481c96b3ba02ec70b90343c05057052",
+    "readiness_report": "ec37310423e6a277cce7c6b082e8e7d0cfc4358b26a11e0437bd2202bb57f704",
+    "schema_version": 1,
+    "season": 2026
+  },
+  "candidate_cutoff": "2026-11-06T00:04:28.116468+00:00",
+  "candidate_id": "a1a5fc0401401380e3c11291c96cc197f31e05947c0bd8141df879fe49cb6da8",
+  "code_revision": "65e4cda9a945e93bd6b64b46b024984fbf3c05b3",
+  "explorer_observations": {
+    "audit": {
+      "allocated_credits": {
+        "interceptions": 170,
+        "sacks": 553.0
+      },
+      "flagged_events": {
+        "interceptions": 170,
+        "sacks": 557
+      },
+      "unallocated_flagged_events": {
+        "interceptions": 0,
+        "sacks": 4.0
+      },
+      "unknown_event_flags": {
+        "interceptions": 0,
+        "sacks": 0
+      }
+    },
+    "chart_issues": 16,
+    "coverage": {
+      "completed_games": 121,
+      "expected_role_cells": 242,
+      "included_plays": 14851,
+      "players": 562,
+      "role_cells": [
+        {
+          "blocked_cells": 8,
+          "complete_cells": 234,
+          "role": "IDL"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 242,
+          "role": "EDGE"
+        },
+        {
+          "blocked_cells": 0,
+          "complete_cells": 242,
+          "role": "LB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 238,
+          "role": "CB"
+        },
+        {
+          "blocked_cells": 4,
+          "complete_cells": 238,
+          "role": "S"
+        }
+      ],
+      "through_week": 8
+    },
+    "event_issues": 4,
+    "name_issues": 3,
+    "retrospective_chart_team_games": 242
+  },
+  "kind": "explorer_source_readiness_audit",
+  "latest_depth_by_team": {
+    "ARI": "2026-11-05T15:23:13+00:00",
+    "ATL": "2026-11-05T15:23:13+00:00",
+    "BAL": "2026-11-05T15:23:13+00:00",
+    "BUF": "2026-11-05T15:23:13+00:00",
+    "CAR": "2026-11-05T15:23:13+00:00",
+    "CHI": "2026-11-05T15:23:13+00:00",
+    "CIN": "2026-11-05T15:23:13+00:00",
+    "CLE": "2026-11-05T15:23:13+00:00",
+    "DAL": "2026-11-05T15:23:13+00:00",
+    "DEN": "2026-11-05T15:23:13+00:00",
+    "DET": "2026-11-05T15:23:13+00:00",
+    "GB": "2026-11-05T15:23:13+00:00",
+    "HOU": "2026-11-05T15:23:13+00:00",
+    "IND": "2026-11-05T15:23:13+00:00",
+    "JAX": "2026-11-05T15:23:13+00:00",
+    "KC": "2026-11-05T15:23:13+00:00",
+    "LA": "2026-11-05T15:23:13+00:00",
+    "LAC": "2026-11-05T15:23:13+00:00",
+    "LV": "2026-11-05T15:23:13+00:00",
+    "MIA": "2026-11-05T15:23:13+00:00",
+    "MIN": "2026-11-05T15:23:13+00:00",
+    "NE": "2026-11-05T15:23:13+00:00",
+    "NO": "2026-11-05T15:23:13+00:00",
+    "NYG": "2026-11-05T15:23:13+00:00",
+    "NYJ": "2026-11-05T15:23:13+00:00",
+    "PHI": "2026-11-05T15:23:13+00:00",
+    "PIT": "2026-11-05T15:23:13+00:00",
+    "SEA": "2026-11-05T15:23:13+00:00",
+    "SF": "2026-11-05T15:23:13+00:00",
+    "TB": "2026-11-05T15:23:13+00:00",
+    "TEN": "2026-11-05T15:23:13+00:00",
+    "WAS": "2026-11-05T15:23:13+00:00"
+  },
+  "limitations": [
+    "Source freshness is verified only at the explicit candidate cutoff; replay is not a new current-time check.",
+    "Full source and candidate bytes remain local; remote retention and deployment are unfinished.",
+    "No model, benchmark, eligibility or position admission changed. All 17 modules remain unadmitted."
+  ],
+  "local_checks": {
+    "frontend_contracts": 27,
+    "hosted_ci": "reported separately on PR",
+    "make_check": "passed",
+    "python_tests": 332
+  },
+  "old_archive_check": {
+    "blockers": [
+      {
+        "reason": "retrieval_too_old",
+        "scope": "schedules"
+      },
+      {
+        "reason": "upstream_update_too_old",
+        "scope": "schedules"
+      },
+      {
+        "reason": "retrieval_too_old",
+        "scope": "pbp"
+      },
+      {
+        "reason": "upstream_update_too_old",
+        "scope": "pbp"
+      },
+      {
+        "reason": "retrieval_too_old",
+        "scope": "depth_charts"
+      },
+      {
+        "reason": "upstream_update_too_old",
+        "scope": "depth_charts"
+      },
+      {
+        "reason": "retrieval_too_old",
+        "scope": "rosters"
+      },
+      {
+        "reason": "upstream_update_too_old",
+        "scope": "rosters"
+      },
+      {
+        "reason": "unresolved_or_no_completed_games",
+        "scope": "game_coverage"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:ARI"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:ATL"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:BAL"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:BUF"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:CAR"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:CHI"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:CIN"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:CLE"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:DAL"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:DEN"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:DET"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:GB"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:HOU"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:IND"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:JAX"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:KC"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:LA"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:LAC"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:LV"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:MIA"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:MIN"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:NE"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:NO"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:NYG"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:NYJ"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:PHI"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:PIT"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:SEA"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:SF"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:TB"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:TEN"
+      },
+      {
+        "reason": "team_snapshot_too_old",
+        "scope": "depth_charts:WAS"
+      }
+    ],
+    "cutoff": "2026-11-06T00:04:28.116468+00:00",
+    "readiness_report": "45f0efcd1d11fd8a9a941d1fb963658687122ec76ef8ce4aeed06c54b807829f",
+    "ready_for_explorer_build": false,
+    "unresolved_games": [
+      {
+        "game_id": "2026_07_CIN_BAL",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_CLE_TEN",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_DAL_PHI",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_DEN_ARI",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_GB_DET",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_IND_MIN",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_KC_SEA",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_LA_LV",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_MIA_NYJ",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_NE_CHI",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_NYG_HOU",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_PIT_NO",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_SF_ATL",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_07_TB_CAR",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_ARI_DAL",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_ATL_TB",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_BAL_BUF",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_CAR_GB",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_CHI_SEA",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_CLE_PIT",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_IND_JAX",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_KC_DEN",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_LAC_LA",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_LV_NYJ",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_MIN_DET",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_NE_MIA",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_PHI_WAS",
+        "reason": "missing_pbp"
+      },
+      {
+        "game_id": "2026_08_TEN_CIN",
+        "reason": "missing_pbp"
+      }
+    ]
+  },
+  "policy": {
+    "completion_policy": "clock-marker-schedule-v2",
+    "depth_team_snapshot_hours": 48,
+    "expected_teams": [
+      "ARI",
+      "ATL",
+      "BAL",
+      "BUF",
+      "CAR",
+      "CHI",
+      "CIN",
+      "CLE",
+      "DAL",
+      "DEN",
+      "DET",
+      "GB",
+      "HOU",
+      "IND",
+      "JAX",
+      "KC",
+      "LA",
+      "LAC",
+      "LV",
+      "MIA",
+      "MIN",
+      "NE",
+      "NO",
+      "NYG",
+      "NYJ",
+      "PHI",
+      "PIT",
+      "SEA",
+      "SF",
+      "TB",
+      "TEN",
+      "WAS"
+    ],
+    "games_per_team": 17,
+    "pending_started_games": "block_entire_candidate",
+    "regular_season_games": 272,
+    "required_sources": {
+      "depth_charts": {
+        "retrieval_hours": 6,
+        "upstream_hours": 48
+      },
+      "pbp": {
+        "retrieval_hours": 6,
+        "upstream_hours": 96
+      },
+      "rosters": {
+        "retrieval_hours": 6,
+        "upstream_hours": 48
+      },
+      "schedules": {
+        "retrieval_hours": 6,
+        "upstream_hours": 2
+      }
+    },
+    "season": 2026,
+    "version": "explorer-source-readiness-2026-v1"
+  },
+  "policy_sha256": "f7a17acc7dcdd6d53bafc9697647db1a8481c96b3ba02ec70b90343c05057052",
+  "python_version": "3.13.2",
+  "readiness_report": "ec37310423e6a277cce7c6b082e8e7d0cfc4358b26a11e0437bd2202bb57f704",
+  "schedule_inventory": {
+    "complete": true,
+    "duplicate_team_weeks": [],
+    "regular_games": 272,
+    "team_game_counts": {
+      "ARI": 17,
+      "ATL": 17,
+      "BAL": 17,
+      "BUF": 17,
+      "CAR": 17,
+      "CHI": 17,
+      "CIN": 17,
+      "CLE": 17,
+      "DAL": 17,
+      "DEN": 17,
+      "DET": 17,
+      "GB": 17,
+      "HOU": 17,
+      "IND": 17,
+      "JAX": 17,
+      "KC": 17,
+      "LA": 17,
+      "LAC": 17,
+      "LV": 17,
+      "MIA": 17,
+      "MIN": 17,
+      "NE": 17,
+      "NO": 17,
+      "NYG": 17,
+      "NYJ": 17,
+      "PHI": 17,
+      "PIT": 17,
+      "SEA": 17,
+      "SF": 17,
+      "TB": 17,
+      "TEN": 17,
+      "WAS": 17
+    }
+  },
+  "schema_version": 1,
+  "source_checks": {
+    "depth_charts": {
+      "available": true,
+      "receipt_id": "d56a2973407c36a6e742733012658db993446f9ce9e28cfe83b363e575fa4b2f",
+      "retrieval_age_seconds": 5.725112,
+      "retrieved_at": "2026-11-06T00:04:22.391356+00:00",
+      "updated_at": "2026-11-05T15:23:27Z",
+      "upstream_age_seconds": 31261.116468
+    },
+    "pbp": {
+      "available": true,
+      "receipt_id": "88d60122dccb2754a260ef342c0e8f689b3402f877240e968570c568155f081d",
+      "retrieval_age_seconds": 7.833133,
+      "retrieved_at": "2026-11-06T00:04:20.283335+00:00",
+      "updated_at": "2026-11-05T17:22:00Z",
+      "upstream_age_seconds": 24148.116468
+    },
+    "rosters": {
+      "available": true,
+      "receipt_id": "befe566e2545cdcdd33e355b480079865f0d9aa754815df16c37f3b1ab3e4770",
+      "retrieval_age_seconds": 0.680987,
+      "retrieved_at": "2026-11-06T00:04:27.435481+00:00",
+      "updated_at": "2026-11-05T15:26:31Z",
+      "upstream_age_seconds": 31077.116468
+    },
+    "schedules": {
+      "available": true,
+      "receipt_id": "153d85c5efe2b696aad06ba9e6a240b7d07b4e8bec9ab3fb9d91d44601aa6cdb",
+      "retrieval_age_seconds": 0.115659,
+      "retrieved_at": "2026-11-06T00:04:28.000809+00:00",
+      "updated_at": "2026-11-05T23:46:00Z",
+      "upstream_age_seconds": 1108.116468
+    }
+  },
+  "verification": {
+    "actual_payload_passes_frontend_zod_schema": true,
+    "all_cavaa_and_snap_values_null": true,
+    "candidate_replayed": true,
+    "network_blocked_during_preparation_and_replay": true,
+    "old_archive_blocked_at_new_cutoff": true,
+    "prior_explorer_bytes_unchanged": true,
+    "prior_game_set_preserved": true,
+    "public_pointer_sha256": "3b905af67f26dab3570b1a3dc2933d4abc39990f00721cc35eb22ca94359b170",
+    "public_pointer_unchanged": true,
+    "published": false,
+    "ranking_ready": false,
+    "readiness_replayed": true
+  }
+}

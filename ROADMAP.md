@@ -134,10 +134,23 @@ authenticated release-upload access; historical/model research stores remain
 outside this narrow recovery artifact. Local recovery is not durable remote
 retention, deployment or ranking admission.
 
-November 5 priority: finish authenticated off-machine upload and independent
-restore when access is available; progress source readiness, deployment and
-independent refresh with last-good-output protection through November 7. No paid
-infrastructure without owner approval; do not pause other preparation for auth.
+November 5 progress: [source readiness and immutable Explorer candidates](docs/SOURCE_READINESS.md)
+now check four source receipts, retrieval/upstream ages, all 32 teams' chart ages,
+the full schedule inventory and completed-game reconciliation. The real candidate
+has 121 games / 14,851 plays / 562 players through Week 8, adding 28 games and
+recording two changed earlier team-context rows. Offline replay and the frontend
+contract pass; old Week 6 inputs correctly fail at the new cutoff. Eighteen
+regressions protect stale/missing/corrupt inputs, frozen replay and preservation
+of prior candidates. No public pointer, model or admission decision changed. See
+the [audit](docs/audits/2026-11-05-source-readiness.json).
+
+November 6 priority: package the exploratory launch with current-time source
+checks, browser verification and deployment/retention controls. Finish authenticated
+off-machine upload and independent restore when access is available; continue
+other preparation while access is blocked. The new candidate also needs retention.
+Production scheduling and last-good publication remain unfinished. No paid
+infrastructure without owner approval.
+
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without
 invented fills or outcome-selected cohorts. Preserve the frozen evidence and

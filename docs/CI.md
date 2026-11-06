@@ -65,6 +65,14 @@ license scope, null-value review contracts, corrupt/missing inputs, unsafe archi
 members, failed writes/replay/rename and preservation of earlier restores. The
 real archived Explorer chain is separately restored with networking blocked;
 ordinary CI still uses synthetic raw replay boundaries, not live NFL downloads.
+
+November 5 adds 18 [source-readiness regressions](SOURCE_READINESS.md), through
+actual synthetic capture/replay and Explorer builders. They cover freshness
+boundaries, missing team charts, incomplete schedule inventories, started games,
+rehashed manifest edits, failed builds and preserved prior objects/pointers.
+The dated real-source audit separately checks offline replay and the actual
+frontend schema; neither is evidence of player attribution or publication readiness.
+
 Expand that list when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports
@@ -158,7 +166,7 @@ on *every* rejected refresh.
 
 | Gate | Existing foundation | Remaining acceptance test |
 | --- | --- | --- |
-| Completed games and source readiness | Terminal-event/score reconciliation and receipt cutoffs | Required-feed quorum, expected completed-game set and source-specific freshness policy; reject stale/missing feeds without replacing last good release |
+| Completed games and source readiness | Four-source Explorer gate with frozen age policy, complete season inventory and terminal-event/score reconciliation; immutable candidate preparation | Bind a new actual-time assessment to the publication attempt; integrate ranking-specific sources and preserve last good release on stale/missing feeds. Replaying an old positive decision does not renew freshness |
 | Historically available evidence | Retrieval timestamps, retrospective labels, exact-week roster joins and corrected `SeasonExposure` observed-by handling | Enforce acknowledged retrospective versus vintage evidence at model entry; validate exact stint/denominator policy |
 | Exact model/benchmark versions | Hashed plans, model artifacts and numerical replay | Release manifest binds admitted model, first-unit benchmark, both sensitivity definitions, qualification and schema versions |
 | Accounting and uncertainty | Additive outcome conservation and independent solver references | First-unit contrasts conserve the allocated shared components; joint player/benchmark uncertainty and negative season totals survive serialization |

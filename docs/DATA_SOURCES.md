@@ -1,5 +1,15 @@
 # Data sources and provenance
 
+**November 5 readiness audit:** fresh captures of the four public sources pass
+the [frozen Explorer readiness policy](SOURCE_READINESS.md) at November 5,
+19:04:28 America/New_York (November 6, 00:04:28 UTC). The unpublished candidate
+contains 121 completed games / 14,851 scoped plays / 562 players through Week 8.
+All 32 teams have recent embedded chart snapshots; all 242 chart team-games are
+still retrospective evidence. The old Week 6 inputs remain reproducible but fail
+readiness at this new cutoff. Exact receipts, age checks and coverage are recorded
+in the [audit](audits/2026-11-05-source-readiness.json). This does not refresh the
+staged public pointer, validate attribution or extend the previous recovery ZIP.
+
 **November 4 recovery scope:** the [Explorer recovery archive](RECOVERY.md) retains
 the exact previously captured 2026 PBP/schedule/chart/roster dependency set with
 original receipts, archived CC-BY-4.0 license bytes and attribution. It does not
