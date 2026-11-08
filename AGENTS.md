@@ -45,12 +45,38 @@ implementation to main, or force-push. The only direct main commit was the empty
 repository bootstrap. If prerequisite work is awaiting review, continue a
 coherent existing PR or use an explicitly documented stacked PR.
 
-Implement one meaningful unit, add appropriate tests, run `make check`, inspect
+Complete a substantial coherent deliverable, using multiple reviewable commits
+when useful. One small component, one commit or one failed experiment is not a
+stopping rule. For modeling work include implementation, bounded experiments,
+failure analysis, justified fixes/alternatives, verification and a decision.
+Continue through recoverable problems within available capacity. Add appropriate tests, run `make check`, inspect
 the complete diff, fix defects, rerun affected checks, and update `STATUS.md`,
 `ROADMAP.md`, and `docs/learning/YYYY-MM-DD.md`. Commit and push verified work,
 open/update a PR and report it. Explain what changed, why, statistical concepts,
 verification, limitations, review focus, and next steps. Do not claim checks or
 experiments ran when only their design exists.
+
+## Model-first execution reset — November 7
+
+The original launch target was missed. Scoring is the critical path. Pause optional
+infrastructure expansion unless it fixes a concrete blocker. Follow the measured
+milestones in `docs/MILESTONES.md`; distinguish implementation, passing software
+tests and scientific evidence. Do not repeat an unmeasured “60% remaining” estimate
+or invent a completion percentage. No percentage without an explicit measured
+denominator, weighting and uncertainty.
+
+The next modeling milestone is a defensibly validated, clearly scoped contribution
+module with reproducible season-to-date first-unit CAVAA and both sensitivities.
+It is intermediate work toward the cross-position product. Defense and Explorer
+remain required; unsupported contributions stay unavailable. A pending merge or
+hosting access issue cannot block independent modeling work.
+
+Freeze new model alternatives, validation windows, simulation assumptions and
+decision rules before inspecting new results. Already examined test outcomes
+cannot become a tuning set. Review requirements against the stated observational
+estimand; document scientific reasons before changing them. Do not manufacture
+passes by widening intervals, relaxing gates or adding complexity. Report milestone
+evidence, blockers and next actions before activity counts.
 
 ## Engineering conventions
 

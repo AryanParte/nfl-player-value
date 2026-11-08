@@ -35,21 +35,31 @@ If claiming or checking fails, perform no repository mutation. Read-only diagnos
 
 If the owning run is conclusively stopped and its token is available, release normally. Otherwise a human operator must first confirm the owning Codex run and any delegated writers have stopped and inspect unfinished changes. Obtain the common directory with `git rev-parse --path-format=absolute --git-common-dir`, then move its `nfl-player-value-development.lock` directory to a unique archival name in that same directory. Preserve the archived metadata for diagnosis; never run an age-based deletion job. Only then claim a new lease. Missing or malformed metadata also requires this recovery procedure; it is not permission to steal a lease.
 
-## Execute one coherent engineering unit
+## Execute one substantial coherent deliverable
 
 1. Claim the lease and inspect `AGENTS.md`, `ROADMAP.md`, current project status, and recent learning reports. Inspect `git status`, branches, and worktrees before doing anything that could overwrite local changes.
 2. Check ownership, fetch the canonical remote safely, and inspect recent commits, open PRs, review feedback, and CI results. Do not reset, clean, force-push, or overwrite unfinished work. Do not pull over a dirty tree. Resolve uncertainty about ownership before changing another run's work.
-3. Select the highest-priority unfinished task that fits the launch scope. Prefer finishing or repairing an existing coherent PR to duplicating it. With an unmerged foundation PR, continue its branch for a coherent extension or use an explicitly stacked PR with the correct feature-branch base. A missing merge is not authorization to merge.
-4. Work on a `codex/` feature branch. Implement a meaningful unit, add tests for material behavior and failure cases, and run required checks. Keep model fitting and historical experiments offline. Preserve provenance and distinguish absent data from zero contribution.
+3. Put the scoring model on the critical path. Read `docs/MILESTONES.md`, select a substantial model-centered deliverable, and pause optional infrastructure except concrete blockers. Inspect PR status rather than assuming a pending merge; continue independent modeling work on a coherent branch or documented stack. A missing merge is not authorization to merge or to stop useful model work.
+4. Work on a `codex/` feature branch. A modeling deliverable includes implementation, meaningful bounded experiments, failure analysis, justified fixes/alternatives, verification and a documented decision. One component, commit or negative result is not an automatic stopping point. Use multiple reviewable commits and continue through recoverable problems within capacity. Freeze alternatives and validation rules before evaluating new results; never tune on already inspected tests. Keep fitting offline, preserve provenance and distinguish absence from zero.
 5. Critically review the actual diff. Check statistical estimands, time leakage, double-counting, source licenses, reproducibility, missing-data behavior, and truthful UI labeling where relevant. Fix discovered defects and rerun affected checks. Do not turn those checks into filler documentation when they are inapplicable to the change.
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-An independently useful partial unit is acceptable when a larger task is too broad. Unverified code must not be presented as complete. If data or identification limits prevent a defensible ranking, expose the coverage limitation and continue the required defensive workstream rather than inventing scores.
+An independently useful partial milestone is acceptable when genuinely blocked or
+capacity-limited, with the remaining work explicit. It is not permission to stop
+at a proposal, small component or first failed experiment. Unverified code is not
+complete. If identification prevents a defensible ranking, diagnose the failure,+evaluate the bounded alternatives and preserve the defensive workstream. Never
+invent a score or relax validation to manufacture progress.
 
 ## Learning report contents
 
-Each daily report explains what was built and why it matters; the engineering decisions; the statistical/ML ideas the owner should understand; the checks actually performed and their results; remaining uncertainty; what to review; and the next task. Record meaningful failures as well as successes. Never fabricate activity or add empty commits to satisfy a daily target.
+Lead each report with the scoring/product milestone: implemented behavior, evidence
+that passes, remaining blockers and next concrete action. Distinguish implementation,
+software verification and scientific validation. Then explain decisions, concepts,
+actual experiments/failures, uncertainty, review focus and PR. Do not optimize or
+report success primarily in lines, commits or test counts. No completion percentage
+without a measured backlog basis and uncertainty; the previous “60% remaining”
+claim is not an established estimate. Never fabricate activity.
 
 ## Production refresh is independent
 
