@@ -48,7 +48,8 @@ If the owning run is conclusively stopped and its token is available, release no
 An independently useful partial milestone is acceptable when genuinely blocked or
 capacity-limited, with the remaining work explicit. It is not permission to stop
 at a proposal, small component or first failed experiment. Unverified code is not
-complete. If identification prevents a defensible ranking, diagnose the failure,+evaluate the bounded alternatives and preserve the defensive workstream. Never
+complete. If identification prevents a defensible ranking, diagnose the failure,
+evaluate the bounded alternatives and preserve the defensive workstream. Never
 invent a score or relax validation to manufacture progress.
 
 ## Learning report contents

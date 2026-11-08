@@ -49,7 +49,18 @@ As a secondary transfer check, fit 2026 weeks 1–6 and predict completed weeks 
 from the archived November 7 snapshot. Those later sources were used in Explorer;
 their model errors have not been inspected. Do not describe them as a prospective
 blind test. Finally fit all completed 2026 games for the season research ledger.
-The new 2024 sources and weekly rosters must pass existing ingestion/replay checks.
+The new 2024 PBP/schedules and 2026 sources must pass existing ingestion/replay checks.
+
+**Source amendment before fitting:** GitHub's 2024 weekly and season roster assets
+all lack a published digest (March 14, 2025 uploads). Ordinary ingestion correctly
+rejects them. Preserve that production gate. A separate retrospective-only adapter
+pins weekly asset 237398166, update time and size, verifies unchanged release
+metadata before/after download, and archives metadata, local SHA-256 and schema
+audit. A local checksum establishes replay integrity, not an upstream checksum or
+historical availability. This narrow exception preserves the same-week identity
+definition and the untouched 2024 validation windows. It cannot authorize a
+production ranking or other legacy asset. No model outcomes were inspected before
+this amendment; a changed asset requires a new reviewed source policy.
 
 Held-out games/teams/QBs never expand a training vocabulary or estimate variance
 components; unseen random effects predict zero and are counted. Report paired
