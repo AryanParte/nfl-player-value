@@ -88,6 +88,17 @@ the original stores. Optional isolated frontend builds preserve the canonical
 staged pointer and output. These are local preparation/retention boundaries;
 hosted publication, off-machine storage and independent refresh remain unfinished.
 
+November 7 connects these boundaries in a [GitHub-native production workflow](PRODUCTION_REFRESH.md).
+A read-only job captures/builds/tests; a separate publisher binds the archive hash
+and producer revision, replays and rechecks current-time readiness, uploads a new
+draft release and independently downloads/replays its assets before retaining it.
+Only the verified public site reaches Pages. The entire workflow is serialized;
+failed prepublication gates leave the prior hosted site intact. The archive index
+tracks retained candidates, which may differ from the last deployed site. No
+local development timer, mutable ranking database or new runtime dependency is
+introduced. The workflow still requires owner merges, Pages configuration and a
+successful hosted trial; those operational results are not inferred from tests.
+
 The [positional contrast layer](CONTRASTS.md) adds an offline research CLI on top
 of the offensive/weekly-roster chain and a depth-chart receipt. Each cumulative
 window selects its own depth evidence before identity consistency checks, then

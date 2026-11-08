@@ -86,6 +86,15 @@ class ProductionTests(unittest.TestCase):
             self.assertFalse(self.destination.exists())
             self.assertFalse(self.site.exists())
 
+    def test_repackaging_an_older_site_does_not_make_it_current_workflow_output(self):
+        body, _ = self.case.package(code_revision="e" * 40)
+        pin = sha256(body)
+        (self.directory / (pin + ".zip")).write_bytes(body)
+        (self.directory / "release.json").write_bytes(json_bytes(record_for(body)))
+        with self.assertRaisesRegex(ValueError, "site producer differs"):
+            self.verify(expected_pin=pin, expected_revision="e" * 40)
+        self.assertFalse(self.site.exists())
+
     def test_rehashed_wrong_metadata_extra_keys_and_corrupt_archive_fail(self):
         for changes in (
             {"ranking_ready": True},
