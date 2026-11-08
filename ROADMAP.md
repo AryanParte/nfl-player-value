@@ -155,13 +155,20 @@ and its saved site passes desktop/mobile checks. See the
 [audit](docs/audits/2026-11-06-launch-package.json) and
 [learning report](docs/learning/2026-11-06.md).
 
-November 7 priority: finish the exploratory website's deployment and off-machine
-retention, verify a separate remote download/restore, and establish the independent
-production refresh/publisher with last-good-output protection. Authenticate the
-required release/hosting access or use a reviewed GitHub-native workflow; do not
-wait on auth without reporting its effect on launch. Reassess sources at the
-actual publication attempt. The local package is not a deployed website or an
-admitted CAVAA leaderboard. No paid infrastructure without owner approval.
+November 7 implements the [GitHub-native Explorer refresh/publisher](docs/PRODUCTION_REFRESH.md),
+stacked on PR #18. It captures/builds/tests with read-only access, verifies the
+exact workflow producer and content hash, downloads/replays draft release assets
+before retaining them, and rechecks freshness before requesting Pages deployment.
+Failed prepublication gates preserve the prior website. A local real-source
+bootstrap rehearsal covers 122 games / 14,960 plays / 562 players; it is not a
+remote upload or deployment. Existing CI, the model policies and both Codex
+development schedules remain unchanged. See the November 7 learning report.
+
+Next priority: owner review/merges, Pages configuration and the first hosted
+bootstrap. Verify actual off-machine recovery and deployment/failure behavior
+before claiming production is active. The November 7 unified-MVP objective is
+unmet: all 17 modules remain unadmitted. Keep the exploratory release accurately
+labeled and preserve the outstanding statistical work; no paid infrastructure.
 
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without

@@ -1,77 +1,54 @@
 # Project status
 
-Updated: November 6, 2026, America/New_York.
+Updated: November 7, 2026, America/New_York.
 
 ## Current unit
 
-The [portable Explorer launch package](docs/LAUNCH_PACKAGE.md) is implemented on
-`codex/explorer-launch-package`, from owner-merged PR #17 / main `72a2c7d`.
-Main CI passed; no open PR, review feedback or unfinished local changes were
-present. The new package binds an exact candidate/site, a packaging-time source
-recheck and all current/prior-comparison replay inputs. Optional isolated frontend
-builds preserve the canonical public pointer and dist. No service was introduced.
+The [independent Explorer production workflow](docs/PRODUCTION_REFRESH.md) is
+implemented on `codex/explorer-production-refresh`, stacked on pending PR #18
+(`codex/explorer-launch-package`, `6d370bf`). Canonical main remains `72a2c7d`.
+PR #18's hosted matrix/dashboard CI passed; no review feedback or unfinished local
+changes were present at the start. No prerequisite has been merged by an agent.
 
-Fresh source captures produce **122 completed games / 14,960 scoped plays / 562
-players** at November 6, 16:42:59 America/New_York
-(`2026-11-06T21:42:59.542615+00:00`). This retains all 121 previous games and adds
-`2026_09_JAX_BAL`, the first represented Week 9 game. Week 9 is partial. One older
-HOU team-context row changed; the comparison does not enumerate all player/name
-changes or infer their cause. The UI now says “Includes Week 9” and explicitly
-explains that the latest included week may be partial.
+The read-only build job restores the previous retained candidate, captures all
+four sources, checks readiness, builds and replays the launch package, and tests
+its actual site on desktop/mobile Chromium. The publisher receives the independent
+archive pin and exact producer revision. It creates a new draft release, verifies
+an independent download/replay before exposing the archive, and rechecks freshness
+immediately before a Pages request. Existing public releases are never overwritten.
+Failed prepublication steps preserve the last deployed website. No new Python/npm
+dependency or paid service is introduced; the Codex development timer is unchanged.
 
-The final static site is **1,401,742 bytes**, SHA-256
-`374bd52fa53f799a9dda97c9a5bd861341b66d830cba5cf3a311a6069feb6375`.
-Two isolated builds are identical. The launch package is **76,595,272 bytes**,
-SHA-256 `e61bb2abb3e655db7a5cef08adb64d2bd41f6c85ea50c5654a2d6d4d086473ee`.
-The candidate/source producer is `4ea8705419a211af61b884a2472938bb545d8db5`;
-the final site/packager producer is `d973e8bdea397e106d863114a3642be7b400208b`.
-The source recheck is frozen at November 6, 17:23:42 Eastern. Restoring later does
-not renew freshness or authorize publication. See the
-[audit](docs/audits/2026-11-06-launch-package.json) and
-[learning report](docs/learning/2026-11-06.md).
+A real **local bootstrap rehearsal** captured 122 completed games / 14,960 scoped
+plays / 562 players at November 7, 20:41:17 America/New_York
+(`2026-11-08T01:41:17.891273+00:00`). Week 9 remains partial. The package is
+39,278,287 bytes, SHA-256
+`0b04b9015ccf1140edbb338e858b2ef535a70e47a8a6f6e57db3328b29520199`,
+produced by `d6d4688291298f81c7fcf150377e4de1f7830759`.
+This rehearsal used an explicitly initialized local bootstrap state: no remote
+previous-release command, upload, download or Pages deployment occurred. The
+production transport boundaries were tested with fake GitHub calls and real
+synthetic archive replay. The public release listing was empty when inspected.
+The 23-member archive restored successfully, with a fresh publication check at
+20:44:06 Eastern. The actual restored site passed desktop/mobile Chromium at a
+project subpath without intercepting data requests. All 122 November 6 games are
+still present, and the canonical staged Week 6 pointer is unchanged. See the
+[audit](docs/audits/2026-11-07-production-refresh.json) and
+[learning report](docs/learning/2026-11-07.md).
 
-The candidate has 554 allocated sack credits and 172 interceptions. Four sacks,
-two names and 16 defensive chart cells retain missingness. All 244 chart
-team-games remain retrospective. CAVAA and defensive snaps stay null, and all 17
-modules remain **not admitted**. No model, benchmark, opportunity, qualification
-or uncertainty-calibration rule changed.
+**The November 7 unified-MVP objective remains unmet.** All 17 modules are still
+not admitted, CAVAA and defensive snaps remain null, and no real ranking is
+published. The production workflow is reviewable code, not an activated service.
+It requires owner merges, Pages configuration and a successful hosted trial.
+Current-time data readiness does not establish attribution, calibration or
+cross-position comparability. Historical model experiments remain frozen at their
+original cohorts; refreshing the Explorer does not refresh those models.
 
-**The package remains local and unpublished.** The canonical staged data pointer
-still selects Week 6. Independent restored-site browser checks do not constitute
-deployment. No remote release asset or authenticated upload CLI was available;
-the connector cannot upload binary assets. This run does not claim new browser
-sign-in status. The package now includes the candidate and its prior comparison,
-but not every historical release or the other research stores. Remote retention,
-independent production refresh and hosted last-good publication remain unfinished.
-
-There are 61/112 accepted pairs in the 2025/2026 windows, including eight/five QB
-changes. On changed-QB pairs, joint-model mean absolute change error exceeds the
-role baseline by 0.00254/0.00449 EPA per play. Only four/two identity-swap
-diagnostics have both actors represented in training; the others remain null.
-Small, selected and dependent samples do not establish attribution or causal
-absence effects. Target mix measures recorded usage, not cast quality. This
-audit supplies bounded evidence for the documented decision, not an admission.
-
-**The primary intervals fail the stronger-signal stress tests.** Matched-prior
-coverage is 94.85/94.94%, but fixed-signal coverage is only 0.96–1.94% in 2025 and
-0.88–1.13% in archived 2026. Those are simulated truths, not measured real-player
-errors. Game-cluster sampling variance does not repair shrinkage bias. All 6,144
-synthetic-response fits retain the declared settings; no penalty, threshold,
-benchmark or admission decision is changed to improve these results.
-
-The preceding manual CI/reliability work is merged. Its Python matrix, Ruff,
-coverage diagnostics, frontend/browser checks and optional dependency audit remain
-intact. This unit adds no dependencies, services or schedules.
-
-The required **Defense Explorer foundation and first React/TypeScript dashboard**
-are implemented. The Python exporter rebuilds scoped observed evidence from the
-archived 2026 inputs; the browser verifies the hash and strict data contract before
-showing players, filters, chart coverage, team EPA and provenance. See the
-[contract](docs/DEFENSE_EXPLORER.md), [audit](docs/audits/2026-10-25-defense-explorer.json)
-and [learning report](docs/learning/2026-10-25.md).
-
-This unit targets main with no stacked dependency. Agents must not merge this
-work or enable auto-merge.
+The required defensive information-loss experiment and Defense Explorer are
+implemented. The stronger-signal uncertainty experiments still fail severely,
+and observed QB-change diagnostics do not establish an attribution increment.
+No benchmark, penalty, qualification, uncertainty or admission rule changed to
+meet the calendar deadline. Research details remain in the measured evidence below.
 
 ## Measured evidence
 
@@ -135,51 +112,40 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-344 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile
-and whitespace checks pass locally, along with all 12 Chromium scenarios. Twelve
-new Python regressions cover the package and isolated-build boundaries. The
-existing browser load test now checks partial-week wording. Hosted Python
-3.11/3.12/3.13 and dashboard results for the pushed commit are reported on the PR.
-Real replay and restored-site browser checks are separate from synthetic CI tests.
+357 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile
+and whitespace checks pass locally, along with all 12 existing Chromium scenarios
+and two actual-release browser checks. Thirteen new Python regressions cover the
+production boundaries. actionlint 1.7.12 passes without ShellCheck integration.
+Hosted Python 3.11/3.12/3.13 and dashboard results for the pushed commit are
+reported on the PR. No hosted production result is inferred from these checks.
 The old coverage percentage remains informational, not today's measurement.
 
-## Next highest-priority unit — November 7
+## Next highest-priority unit
 
-Complete the exploratory website deployment and off-machine retention, verify an
-independent remote download/restore, and establish production refresh with
-last-good-output preservation. Use authenticated release/hosting access or a
-reviewed GitHub-native workflow; report any blocked activation honestly. Recheck
-source freshness at the publication attempt. Retain all original/corrected
-versions. The existing package's positive decision cannot authorize a later push.
+Review/merge PR #18 and the stacked production workflow through the owner's
+normal process, configure this repository's Pages source/environment, then run
+one manual bootstrap from main. Verify the actual remote release download/replay,
+public content hash, desktop/mobile rendering and failure preservation. The
+connector cannot upload binary assets, dispatch a new workflow or inspect/configure
+Pages settings; this run does not claim that those hosted operations succeeded.
+The checked-in main-only workflow supplies the reviewed execution path after merge.
 
-The new package covers its exact current/prior Explorer dependencies only. Other
-research stores and the full weekly history still need durable retention. Keep
-production execution independent of Codex and make no paid purchases/upgrades.
-
-No admitted ranking is presently supported. An exploratory release must state
-that the unified-MVP objective remains unfinished. Preserve the November 7 target
-without retuning on examined outcomes, promoting selected exposure to general
-eligibility, or labeling a retrospective Week 6 view as current NFL rankings.
-
-Defensive follow-up still requires a permitted live workload source, actual
-live-like missingness, verified positions, additional seasons, absence cases and
-player uncertainty. Do not convert the Explorer's event counts into scores.
+Use the production runbook for retries and retained drafts. Do not weaken freshness
+or completion gates to activate it. Scheduled refresh is Tuesday/Friday at 16:17
+UTC and is independent of both Codex development automations. Public GitHub hosting
+is the intended zero-cost route; no purchases/upgrades have been made or authorized.
 
 ## Unfinished release gates
 
-The local exploratory website is usable, but no 2026 CAVAA score is published and
-no position has passed attribution/comparability admission. The first offensive
-contrast/conditional-interval, calibration, transition and partial qualification
-experiments now run, and formal non-admission decisions are recorded. Calibrated
-player uncertainty, broader exposure, a module that passes admission,
-ranked/history views, durable off-machine snapshot retention, deployment and independent production refresh
-remain unfinished. Source receipts and generated exports remain local and ignored
-by Git; a hash alone cannot restore missing bytes. Source readiness and candidate
-preparation and portable launch packages now work, but no production publisher
-or current-time deployment gate is implemented. The current public-data rights
-review does not admit a PFR workload dependency.
+Actual hosted retention/deployment and independent refresh have not yet been
+verified. Preserve all original/corrected release packages; their current/prior
+Explorer closures do not retain every research store. The 128 MiB archive bound
+requires a reviewed growth strategy if exceeded. Administrative deletion and
+out-of-band deployment remain outside the workflow's guarantees.
 
-An exploratory site without admitted CAVAA does not fulfill the MVP-ranking
-objective. November 7 remains the target and that scientific release risk remains
-open. Today's run changes no schedule, purchases nothing, and does not modify NFL
-Opponent Intelligence. Production refresh remains independent of Codex.
+Calibrated player uncertainty, general exposure/stints, defensible attribution,
+cross-position admission and ranked/history views remain incomplete. Defense
+requires permitted workload sources, live-like missingness, verified roles,
+additional seasons and absence/uncertainty evidence. Do not convert event counts
+into scores or tune on the already observed evaluation outcomes. An exploratory
+website does not satisfy the original MVP-ranking objective.

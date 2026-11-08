@@ -1,0 +1,132 @@
+{
+  "all_cavaa_and_defensive_snaps_null": true,
+  "allocated_credits": {
+    "interceptions": 172,
+    "sacks": 554.0
+  },
+  "canonical_pointer_sha256": "3b905af67f26dab3570b1a3dc2933d4abc39990f00721cc35eb22ca94359b170",
+  "canonical_pointer_unchanged": true,
+  "comparison_with_local_november_6_snapshot": {
+    "added_game_ids": [],
+    "prior_games": 122,
+    "purpose": "audit only; bootstrap package has no prior retained release",
+    "retained_games": 122
+  },
+  "coverage": {
+    "completed_games": 122,
+    "expected_role_cells": 244,
+    "included_plays": 14960,
+    "players": 562,
+    "role_cells": [
+      {
+        "blocked_cells": 8,
+        "complete_cells": 236,
+        "role": "IDL"
+      },
+      {
+        "blocked_cells": 0,
+        "complete_cells": 244,
+        "role": "EDGE"
+      },
+      {
+        "blocked_cells": 0,
+        "complete_cells": 244,
+        "role": "LB"
+      },
+      {
+        "blocked_cells": 4,
+        "complete_cells": 240,
+        "role": "CB"
+      },
+      {
+        "blocked_cells": 4,
+        "complete_cells": 240,
+        "role": "S"
+      }
+    ],
+    "through_week": 9
+  },
+  "date_eastern": "2026-11-07",
+  "development_automations_changed": false,
+  "existing_chromium_regressions_passed": 12,
+  "explorer_snapshot": "2dd3714636d588a24f5cc4c1a3921d279a2d839fe2823a34171ba2838f44b9f8",
+  "fresh_publication_check": {
+    "archive_sha256": "0b04b9015ccf1140edbb338e858b2ef535a70e47a8a6f6e57db3328b29520199",
+    "checked_at": "2026-11-08T01:44:06.939444+00:00",
+    "ranking_ready": false,
+    "ready_for_explorer_deployment": true
+  },
+  "frontend_contracts_passed": 27,
+  "hosted_deployment_verified": false,
+  "kind": "local_production_refresh_rehearsal",
+  "launch_archive_members": 23,
+  "name_issue_count": 2,
+  "offline_production_regressions_passed": 13,
+  "producer_revision": "d6d4688291298f81c7fcf150377e4de1f7830759",
+  "python_tests_passed": 357,
+  "ranking_ready": false,
+  "real_restored_site_chromium": {
+    "data_interception": false,
+    "passed": 2,
+    "subpath": "/nfl-player-value/",
+    "widths": [
+      1440,
+      390
+    ]
+  },
+  "release_record": {
+    "archive_bytes": 39278287,
+    "archive_sha256": "0b04b9015ccf1140edbb338e858b2ef535a70e47a8a6f6e57db3328b29520199",
+    "candidate_id": "c36d727f63b0a2d9cbc84d4d07b623f5aba14e11c81b235f5403d8136b4bdf7a",
+    "code_revision": "d6d4688291298f81c7fcf150377e4de1f7830759",
+    "explorer_report": "6ba30df20b09e6c17f4ddb8983d2c3bfdfd3a65a8e913dda097f2edd187915da",
+    "game_cutoff": "2026-11-08T01:41:17.891273+00:00",
+    "kind": "retained_explorer_candidate",
+    "previous_retained_tag": null,
+    "ranking_ready": false,
+    "schema_version": 1,
+    "tag": "explorer-2026-0b04b9015ccf1140edbb338e858b2ef535a70e47a8a6f6e57db3328b29520199"
+  },
+  "remote_retention_verified": false,
+  "review_archive_sha256": "2e9c37172e1bd102f48cc632c02a8d962257836eb14aa37e0ae0a0ad82f89d54",
+  "schema_version": 1,
+  "scope": "Local bootstrap with real public captures; no remote upload/download/deployment. GitHub transport tests use fakes.",
+  "sources": {
+    "depth_charts": {
+      "receipt_id": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+      "retrieved_at": "2026-11-08T01:41:13.201404+00:00",
+      "rows": 759077,
+      "upstream_updated_at": "2026-11-07T13:54:20Z"
+    },
+    "pbp": {
+      "receipt_id": "d44259bc0a7eb99c4a25f8f8585fafca3159292a9330d7ae95733ce569488510",
+      "retrieved_at": "2026-11-08T01:41:10.636438+00:00",
+      "rows": 21347,
+      "upstream_updated_at": "2026-11-07T15:40:07Z"
+    },
+    "rosters": {
+      "receipt_id": "d5be5bc9ac9492d9da9ba305cf080bcef8bb73d455e8fd4b38eb905b23799695",
+      "retrieved_at": "2026-11-08T01:41:17.808958+00:00",
+      "rows": 3069,
+      "upstream_updated_at": "2026-11-07T13:57:48Z"
+    },
+    "schedules": {
+      "receipt_id": "efb6387ff638d527066b0104964b39d754c16419ef812d34aeb215c10b043db5",
+      "retrieved_at": "2026-11-08T01:41:12.166277+00:00",
+      "rows": 7548,
+      "upstream_updated_at": "2026-11-08T01:36:44Z"
+    }
+  },
+  "stacked_on_pr": 18,
+  "unallocated_flagged_events": {
+    "interceptions": 0,
+    "sacks": 4.0
+  },
+  "workflow_validation": {
+    "distribution_archive_sha256": "aba9ced2dee8d27fecca3dc7feb1a7f9a52caefa1eb46f3271ea66b6e0e6953f",
+    "passed": true,
+    "shellcheck_integration": false,
+    "tool": "actionlint",
+    "version": "1.7.12"
+  }
+}

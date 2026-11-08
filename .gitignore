@@ -23,3 +23,5 @@ work/
 web/public/data/
 web/test-results/
 web/playwright-report/
+web/production-results/
+web/production-report/

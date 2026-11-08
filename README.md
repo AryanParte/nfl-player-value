@@ -78,6 +78,13 @@ restoration verifies all of them before exposing the recovered directory.
 This prepares an exploratory release; upload, deployment and scored rankings
 remain unfinished.
 
+November 7 adds the [independent Explorer refresh and publication workflow](docs/PRODUCTION_REFRESH.md).
+It captures sources, tests the restored website, rechecks freshness, verifies an
+independent release-asset download before exposing the archive, and requests Pages
+deployment only after the gates pass. It preserves prior releases and never
+publishes CAVAA scores. Activation and hosted end-to-end validation remain pending;
+this implementation is stacked on the unmerged launch-package PR #18.
+
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
 views and independent production publication remain open. Unsupported scores stay
@@ -117,6 +124,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Explorer recovery](docs/RECOVERY.md) | Exact retained inputs, attribution, verified restoration and remote-storage limits |
 | [Source readiness](docs/SOURCE_READINESS.md) | Frozen source-age/coverage checks and unpublished Explorer refresh candidates |
 | [Launch package](docs/LAUNCH_PACKAGE.md) | Isolated website builds, candidate-bound archives and verified portable restoration |
+| [Production refresh](docs/PRODUCTION_REFRESH.md) | Main-only Explorer workflow, release retention, Pages gates and activation runbook |
 | [Defensive model comparison](docs/DEFENSE_MODEL.md) | Frozen paired-view fits, aggregation/rank loss, selection audit and numerical replay |
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Positional contrasts](docs/CONTRASTS.md) | Benchmark accounting, joint conditional intervals, prefix isolation and narrow exposure diagnostics |

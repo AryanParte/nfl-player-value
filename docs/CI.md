@@ -184,7 +184,20 @@ on *every* rejected refresh.
 | Reproducibility and retention | Append-only local objects, exact source/model replay; verified local recovery of the archived Explorer dependency set | Independent download/restore from durable retained bytes; other research stores and all previous weekly/corrected releases remain retrievable |
 | Publication failure recovery | Local atomic object-before-pointer ordering and failure tests | Deployment-store concurrency, immutable release index, monotonic/corrected cutoff policy, rollback and failed-refresh end-to-end tests |
 
-These gates do not yet constitute a production ranking validator. Durable remote
-retention, weekly refresh, deployment and admitted 2026 rankings remain launch
-blockers. The statistical gaps include broader stint evidence, calibrated player
-uncertainty and defensible attribution; packaging cannot pass those gates.
+November 7 adds 13 [production-boundary regressions](PRODUCTION_REFRESH.md), plus
+desktop/mobile browser checks against the real restored site in the production
+workflow. Existing PR CI remains offline and unchanged. Synthetic sources undergo
+real replay; fake GitHub transport tests draft/upload/download/publish ordering
+and refusal on network failures. Wrong independent hashes/revisions, corrupted
+handoffs, stale sources, source failures, reset attempts and existing-site writes
+fail explicitly. A real-source rehearsal is reported separately in the dated
+learning log; it is not evidence that remote retention or Pages activation passed.
+The new workflow was checked locally using checksum-verified actionlint 1.7.12
+(without its optional ShellCheck integration); no actionlint runtime dependency
+was added to the package or hosted pipeline.
+
+The new main-only workflow implements Explorer retention and publication gates;
+merging, Pages configuration and hosted end-to-end verification remain open.
+These gates are not a production ranking validator. The statistical gaps include
+broader stint evidence, calibrated player uncertainty and defensible attribution;
+publishing an Explorer cannot pass those gates.
