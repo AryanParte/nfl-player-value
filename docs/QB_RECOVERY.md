@@ -125,3 +125,28 @@ Method references: the [statsmodels mixed-effects model specification](https://w
 describes ML/REML variance-component estimation; [estimability](https://cran.r-project.org/web/packages/estimability/index.html)
 documents linear-function estimability checks. We use the existing NumPy/SciPy
 stack and independent algebraic tests, without importing or copying either package.
+
+## Bounded variance-control follow-up (declared after the first run)
+
+The first frozen run's matched-hierarchy coverage was 87.09% (MC SE 1.22 percentage
+points), versus 94.50% and 93.79% in its fixed-signal trials. The 2024 test and 2026
+transfer improvement intervals both cross zero. These windows are now consumed;
+no alternative will be selected or tuned on them.
+
+Before calculating the follow-up, freeze [this diagnostic control](../config/qb-variance-control-v1.json):
+128 new matched-hierarchy draws, new seed, identical fixed design and declared true
+variance components. Compare the unchanged reestimated-REML estimator with an
+**oracle that knows the simulation's variance components and residual variance**.
+The oracle's interval comes from that specified sampling model, without fitting a
+width multiplier. The dense-marginal algebra reference already validates its
+formula. This isolates a possible cause of undercoverage: conditioning on
+uncertain estimated variance components, especially boundary estimates. It does
+not prove this is the only cause and cannot validate real-world variance choices.
+
+This is failure analysis after inspected results, not a new held-out model
+competition or permission to publish oracle intervals. Neither estimator may
+alter real-season scores, existing model selection, interval gates or admission.
+If the oracle succeeds but empirical Bayes fails, prioritize integrating or
+validating variance-component uncertainty and stronger identifying information;
+do not simply widen real intervals. If both fail, inspect the algebra/simulation
+specification before proposing another model.
