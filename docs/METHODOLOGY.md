@@ -134,3 +134,24 @@ penalty, position admission or cumulative season-value policy changes.
 Prediction accuracy supports the outcome model but does not establish correct player attribution. Cross-position admission requires a comparable estimand, benchmark, opportunity definition, accounting policy, and meaningful validation. Unsupported contributions stay unmeasured; missing is not zero. See [evaluation](EVALUATION.md) and the required [defensive experiment](DEFENSE_EXPERIMENT.md).
 
 Research foundations include [nflWAR](https://arxiv.org/html/1802.00998v2), [football adjusted plus-minus](https://ideas.repec.org/a/bpj/jqsprt/v17y2021i4p313-364n4.html), and [causal limitations of feature relevance](https://proceedings.mlr.press/v108/janzing20a.html). These motivate methods and cautions; none validates this project's unbuilt 2026 metric.
+
+
+## November 7 QB model-recovery decision
+
+The [preregistered recovery](QB_RECOVERY.md) and [measured decision](QB_RECOVERY_RESULTS.md)
+replace optional infrastructure with the scoring critical path. A preplay QB
+dropback module learns separate QB/team/opponent/game variances, preserves the
+first-unit benchmark and both sensitivities, and produces cumulative research
+contrasts from every completed 2026 game. No source, qualification or admission
+policy is silently relaxed; the retrospective 2024 roster integrity exception is
+explicit and isolated from production ingestion.
+
+The fresh 2024 test and archived 2026 transfer increments remain inconclusive.
+Fixed-signal calibration improves, but hierarchy coverage and QB/team allocation
+remain inadequate. An independently preregistered known-variance control diagnoses
+variance estimation/boundary effects; its synthetic knowledge cannot set real
+intervals. Full-design non-estimability identifies dependence on hierarchical
+assumptions, not a requirement to identify causal effects. These results do not
+admit QB CAVAA or establish cross-position comparability. Every revealed test is
+now consumed. Future model changes require a frozen rationale and new validation;
+no scalar interval inflation or outcome-driven gate changes are authorized.

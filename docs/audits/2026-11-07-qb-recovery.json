@@ -1,0 +1,801 @@
+{
+  "audit_date": "2026-11-07",
+  "automation": {
+    "id": "daily-nfl-player-value-engineering",
+    "identity_status_target_and_recurrence_verified_unchanged": true,
+    "other_project_modified": false,
+    "prompt_updated": true,
+    "schedule": "19:30 America/New_York daily"
+  },
+  "calibration": {
+    "fixed_game_dependence": {
+      "fixed_precision": {
+        "boundary_replicates": {
+          "defense": 0,
+          "game": 0,
+          "offense": 0,
+          "qb": 0
+        },
+        "coverage": 0.0,
+        "failures": [],
+        "mean_absolute_player_bias_ep": 37.7053102056191,
+        "mean_interval_width_ep": 23.128152909110092,
+        "mean_signed_error_ep": -0.004328304725716466,
+        "monte_carlo_se": 0.0,
+        "passes_admission": false,
+        "requested_replicates": 128,
+        "rmse_ep": 47.086410406861226,
+        "severe_undercoverage": true,
+        "successful_replicates": 128,
+        "valid_for_decision": true
+      },
+      "joint": {
+        "boundary_replicates": {
+          "defense": 39,
+          "game": 0,
+          "offense": 17,
+          "qb": 0
+        },
+        "coverage": 0.9379111842105263,
+        "failures": [],
+        "mean_absolute_player_bias_ep": 18.7485586593338,
+        "mean_interval_width_ep": 92.83759480965732,
+        "mean_signed_error_ep": -0.16679159329010287,
+        "monte_carlo_se": 0.009631805042560757,
+        "passes_admission": false,
+        "requested_replicates": 128,
+        "rmse_ep": 33.486524057081695,
+        "severe_undercoverage": false,
+        "successful_replicates": 128,
+        "valid_for_decision": true
+      },
+      "synthetic_truth_response_sha256": "8b5f733415672db0267b79d3385713f43386fba1880d0f8f46c22e81bf93515f"
+    },
+    "fixed_iid": {
+      "fixed_precision": {
+        "boundary_replicates": {
+          "defense": 0,
+          "game": 0,
+          "offense": 0,
+          "qb": 0
+        },
+        "coverage": 0.0,
+        "failures": [],
+        "mean_absolute_player_bias_ep": 37.69829181114736,
+        "mean_interval_width_ep": 28.322438029871137,
+        "mean_signed_error_ep": -0.017547102523217725,
+        "monte_carlo_se": 0.0,
+        "passes_admission": false,
+        "requested_replicates": 128,
+        "rmse_ep": 47.017243920721384,
+        "severe_undercoverage": true,
+        "successful_replicates": 128,
+        "valid_for_decision": true
+      },
+      "joint": {
+        "boundary_replicates": {
+          "defense": 0,
+          "game": 61,
+          "offense": 11,
+          "qb": 0
+        },
+        "coverage": 0.9450383771929824,
+        "failures": [],
+        "mean_absolute_player_bias_ep": 14.970024619810271,
+        "mean_interval_width_ep": 85.59141542770483,
+        "mean_signed_error_ep": -0.3497529602948906,
+        "monte_carlo_se": 0.004831193457402811,
+        "passes_admission": false,
+        "requested_replicates": 128,
+        "rmse_ep": 29.26995494399005,
+        "severe_undercoverage": false,
+        "successful_replicates": 128,
+        "valid_for_decision": true
+      },
+      "synthetic_truth_response_sha256": "5e7ffbb0d121f0314501ddcc89cbf0c8b77bb2902eef36bdf9497869d66e24ae"
+    },
+    "matched_hierarchy": {
+      "fixed_precision": {
+        "boundary_replicates": {
+          "defense": 0,
+          "game": 0,
+          "offense": 0,
+          "qb": 0
+        },
+        "coverage": 0.29125548245614036,
+        "failures": [],
+        "mean_absolute_player_bias_ep": 2.9100738794324013,
+        "mean_interval_width_ep": 28.403272262145492,
+        "mean_signed_error_ep": -0.20994994948814694,
+        "monte_carlo_se": 0.005291214315316168,
+        "passes_admission": false,
+        "requested_replicates": 128,
+        "rmse_ep": 46.91742068337677,
+        "severe_undercoverage": true,
+        "successful_replicates": 128,
+        "valid_for_decision": true
+      },
+      "joint": {
+        "boundary_replicates": {
+          "defense": 7,
+          "game": 0,
+          "offense": 31,
+          "qb": 2
+        },
+        "coverage": 0.8708881578947368,
+        "failures": [],
+        "mean_absolute_player_bias_ep": 1.917276267975028,
+        "mean_interval_width_ep": 81.40501686240995,
+        "mean_signed_error_ep": -0.09554639287520104,
+        "monte_carlo_se": 0.01222819222310174,
+        "passes_admission": false,
+        "requested_replicates": 128,
+        "rmse_ep": 32.35294448479861,
+        "severe_undercoverage": true,
+        "successful_replicates": 128,
+        "valid_for_decision": true
+      },
+      "synthetic_truth_response_sha256": "f586c5a83c05e62d91636238a18b607d2d179ed155d4dee3dba597261fac37ee"
+    }
+  },
+  "cohorts": {
+    "current": {
+      "actor_issue_plays_retained": 37,
+      "dropback_exclusions": {
+        "non_qb_dropback": 12,
+        "outside_dropback_scope": 5952
+      },
+      "excluded": {},
+      "input_plays": 14960,
+      "modeled_dropbacks": 8996,
+      "modeled_games": 122,
+      "modeled_team_games": 244,
+      "retained_plays": 14960,
+      "rows_sha256": "af72dbea78446fd0836dbdd52084b73985b078bb25bb5bf0e8e66c7487f8c441"
+    },
+    "refit": {
+      "actor_issue_plays_retained": 87,
+      "dropback_exclusions": {
+        "non_qb_dropback": 31,
+        "outside_dropback_scope": 10104,
+        "unresolved_weekly_roster_identity": 2
+      },
+      "excluded": {},
+      "input_plays": 25450,
+      "modeled_dropbacks": 15313,
+      "modeled_games": 208,
+      "modeled_team_games": 416,
+      "retained_plays": 25450,
+      "rows_sha256": "c7344e05ac8420b70bbec855e7fc011cb7119ef23fca8742beb585a99e7ac1db"
+    },
+    "test": {
+      "actor_issue_plays_retained": 24,
+      "dropback_exclusions": {
+        "non_qb_dropback": 9,
+        "outside_dropback_scope": 3117
+      },
+      "excluded": {},
+      "input_plays": 7885,
+      "modeled_dropbacks": 4759,
+      "modeled_games": 64,
+      "modeled_team_games": 128,
+      "retained_plays": 7885,
+      "rows_sha256": "97ecc5a86074ab1f8563ee68b9bd8b918c6ee802e2d065169077e408fdd3bc97"
+    },
+    "train": {
+      "actor_issue_plays_retained": 64,
+      "dropback_exclusions": {
+        "non_qb_dropback": 23,
+        "outside_dropback_scope": 7453,
+        "unresolved_weekly_roster_identity": 1
+      },
+      "excluded": {},
+      "input_plays": 18532,
+      "modeled_dropbacks": 11055,
+      "modeled_games": 152,
+      "modeled_team_games": 304,
+      "retained_plays": 18532,
+      "rows_sha256": "58948a73b0e10256e9bb5a451488f4b1702f51ac717900cdaa0cbb6fd2995e0c"
+    },
+    "transfer_test": {
+      "actor_issue_plays_retained": 10,
+      "dropback_exclusions": {
+        "non_qb_dropback": 3,
+        "outside_dropback_scope": 1522
+      },
+      "excluded": {},
+      "input_plays": 3519,
+      "modeled_dropbacks": 1994,
+      "modeled_games": 29,
+      "modeled_team_games": 58,
+      "retained_plays": 3519,
+      "rows_sha256": "218f47281485563e9b93c5f79cce5a312d5a0a0500ac751be645df76c5fdf71e"
+    },
+    "transfer_train": {
+      "actor_issue_plays_retained": 27,
+      "dropback_exclusions": {
+        "non_qb_dropback": 9,
+        "outside_dropback_scope": 4430
+      },
+      "excluded": {},
+      "input_plays": 11441,
+      "modeled_dropbacks": 7002,
+      "modeled_games": 93,
+      "modeled_team_games": 186,
+      "retained_plays": 11441,
+      "rows_sha256": "787c7ba84788bbf5ac4715f8664a491bf421333ae547fb845ac1a069266fe55d"
+    },
+    "validation": {
+      "actor_issue_plays_retained": 23,
+      "dropback_exclusions": {
+        "non_qb_dropback": 8,
+        "outside_dropback_scope": 2651,
+        "unresolved_weekly_roster_identity": 1
+      },
+      "excluded": {},
+      "input_plays": 6918,
+      "modeled_dropbacks": 4258,
+      "modeled_games": 56,
+      "modeled_team_games": 112,
+      "retained_plays": 6918,
+      "rows_sha256": "2626025c0cf2e240a4b9f383801c3107ccbfeb55d5cc5f56cc4856444b9f91c9"
+    }
+  },
+  "control_plan_commit": "30ad71a",
+  "decision": "not_admitted",
+  "deployment": {
+    "browser": "signed_out",
+    "main": "1ee248610e01babd76009c49553bfb3e004c7982",
+    "main_ci": "https://github.com/AryanParte/nfl-player-value/actions/runs/42438446244",
+    "main_ci_result": "success",
+    "new_workflow_dispatch_and_pages_configuration_connector": "unavailable",
+    "pr_18": "owner_merged",
+    "pr_19": "owner_merged",
+    "production_run_observed": false,
+    "public_site": "https://aryanparte.github.io/nfl-player-value/",
+    "public_site_observation": "Site not found (404)"
+  },
+  "environment": {
+    "numpy": "2.2.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.2",
+    "scipy": "1.15.3"
+  },
+  "fitted_season_variances": {
+    "boundary_groups": [
+      "offense"
+    ],
+    "effect_variances": {
+      "defense": 0.0036930842247128596,
+      "game": 0.00044260093946181425,
+      "offense": 2.4068750579517875e-06,
+      "qb": 0.015519918135389844
+    },
+    "noise_variance": 2.4068750579517864,
+    "optimizer_attempts": [
+      {
+        "converged": true,
+        "iterations": 29,
+        "objective": 8033.011262873075,
+        "start": 10.0
+      },
+      {
+        "converged": true,
+        "iterations": 27,
+        "objective": 8033.011262874211,
+        "start": 100.0
+      },
+      {
+        "converged": true,
+        "iterations": 23,
+        "objective": 8033.011262882834,
+        "start": 1000.0
+      }
+    ],
+    "variance_ratios": {
+      "defense": 651.7249300315979,
+      "game": 5438.025190092127,
+      "offense": 999999.9999999995,
+      "qb": 155.08297382467657
+    }
+  },
+  "identification": {
+    "columns": 260,
+    "contrast_relative_cutoff": 1e-08,
+    "gram_relative_cutoff": 1e-10,
+    "interpretation": "Unrestricted fixed-effect identifiability; hierarchical allocation additionally assumes exchangeability and variance components.",
+    "nonestimable_contrasts": 57,
+    "numerical_rank": 194
+  },
+  "initial_plan_commit": "40ecdd6",
+  "input_spec": {
+    "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+    "input_reports": {
+      "current": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+      "current_roster": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238",
+      "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+      "historical": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+      "historical_roster": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+    }
+  },
+  "next_unit": "Freeze and test historical transition identification plus multi-season QB/team-season variance uncertainty; include existing defensive design diagnosis; reserve fresh validation.",
+  "objects": {
+    "models": "4662b474c5a4dc1bf473485a20d3bec6aafd4a8430ad9804092dea201fd16d5a",
+    "predictions": "0b3fa9312c84e22a6e46033eeb3df70f8cd67cadca279d7152e2bd48cc869c5e"
+  },
+  "plan_sha256": "7ce866062de52d01f056157de13b342e5d3c8f3096d21ca680c2a6a1228bd775",
+  "prediction": {
+    "test": {
+      "fixed_precision": {
+        "against_team": {
+          "candidate_minus_reference_rmse": 0.0009038633397839835,
+          "percentile_95_interval": [
+            -0.0010811283632939316,
+            0.002849437830634754
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261108
+        },
+        "games": 64,
+        "mae": 1.1330832562064859,
+        "plays": 4759,
+        "prediction_minus_observation_bias": -0.012403156080711214,
+        "rmse": 1.5429657326098176,
+        "team_game_mean_epa_rmse": 0.32006011652494964,
+        "unseen_appearances": {
+          "game": 4759,
+          "qb": 266
+        }
+      },
+      "joint": {
+        "against_team": {
+          "candidate_minus_reference_rmse": -0.0001710396478005194,
+          "percentile_95_interval": [
+            -0.0009918413627348465,
+            0.000631092253822163
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261108
+        },
+        "games": 64,
+        "mae": 1.1315476863021567,
+        "plays": 4759,
+        "prediction_minus_observation_bias": -0.018651604330608862,
+        "rmse": 1.5418908296222331,
+        "team_game_mean_epa_rmse": 0.3082304580490962,
+        "unseen_appearances": {
+          "game": 4759,
+          "qb": 266
+        }
+      },
+      "qb_proxy": {
+        "against_team": {
+          "candidate_minus_reference_rmse": 0.00013671202579557118,
+          "percentile_95_interval": [
+            -0.0010541621002997602,
+            0.0013554207566589867
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261108
+        },
+        "games": 64,
+        "mae": 1.1314448787637401,
+        "plays": 4759,
+        "prediction_minus_observation_bias": -0.020729075478905904,
+        "rmse": 1.5421985812958292,
+        "team_game_mean_epa_rmse": 0.3089244543315819,
+        "unseen_appearances": {
+          "game": 4759,
+          "qb": 266
+        }
+      },
+      "team": {
+        "games": 64,
+        "mae": 1.1326730299913659,
+        "plays": 4759,
+        "prediction_minus_observation_bias": -0.01329467650302786,
+        "rmse": 1.5420618692700336,
+        "team_game_mean_epa_rmse": 0.30846791467416396,
+        "unseen_appearances": {
+          "game": 4759
+        }
+      }
+    },
+    "transfer": {
+      "fixed_precision": {
+        "against_team": {
+          "candidate_minus_reference_rmse": 0.001730341556084758,
+          "percentile_95_interval": [
+            -0.0017763511035845836,
+            0.005543852784099246
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261109
+        },
+        "games": 29,
+        "mae": 1.1846646881336202,
+        "plays": 1994,
+        "prediction_minus_observation_bias": 0.014585825137684787,
+        "rmse": 1.6161147484175107,
+        "team_game_mean_epa_rmse": 0.36438029603880395,
+        "unseen_appearances": {
+          "game": 1994,
+          "qb": 73
+        }
+      },
+      "joint": {
+        "against_team": {
+          "candidate_minus_reference_rmse": -0.00011451816903940149,
+          "percentile_95_interval": [
+            -0.0023940907168205185,
+            0.0024183127472259865
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261109
+        },
+        "games": 29,
+        "mae": 1.1824572664786974,
+        "plays": 1994,
+        "prediction_minus_observation_bias": 0.010709011684556673,
+        "rmse": 1.6142698886923865,
+        "team_game_mean_epa_rmse": 0.3520055204595758,
+        "unseen_appearances": {
+          "game": 1994,
+          "qb": 73
+        }
+      },
+      "qb_proxy": {
+        "against_team": {
+          "candidate_minus_reference_rmse": -0.00011461461058370759,
+          "percentile_95_interval": [
+            -0.002394507935907314,
+            0.002418967402916555
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261109
+        },
+        "games": 29,
+        "mae": 1.182457223759304,
+        "plays": 1994,
+        "prediction_minus_observation_bias": 0.010708741769243335,
+        "rmse": 1.6142697922508422,
+        "team_game_mean_epa_rmse": 0.35200510363250265,
+        "unseen_appearances": {
+          "game": 1994,
+          "qb": 73
+        }
+      },
+      "team": {
+        "games": 29,
+        "mae": 1.1827820326960357,
+        "plays": 1994,
+        "prediction_minus_observation_bias": 0.009417409131348966,
+        "rmse": 1.614384406861426,
+        "team_game_mean_epa_rmse": 0.35108390229868874,
+        "unseen_appearances": {
+          "game": 1994
+        }
+      }
+    },
+    "validation": {
+      "fixed_precision": {
+        "against_team": {
+          "candidate_minus_reference_rmse": 0.0015530367753933128,
+          "percentile_95_interval": [
+            -0.0007923657050412202,
+            0.004075204312561626
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261107
+        },
+        "games": 56,
+        "mae": 1.1221991319247964,
+        "plays": 4258,
+        "prediction_minus_observation_bias": -0.07160288634445906,
+        "rmse": 1.5558707911104186,
+        "team_game_mean_epa_rmse": 0.28828838170213933,
+        "unseen_appearances": {
+          "game": 4258,
+          "qb": 74
+        }
+      },
+      "joint": {
+        "against_team": {
+          "candidate_minus_reference_rmse": -0.00030848904383429243,
+          "percentile_95_interval": [
+            -0.0010411201110350431,
+            0.0003847635524448388
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261107
+        },
+        "games": 56,
+        "mae": 1.1220139442403891,
+        "plays": 4258,
+        "prediction_minus_observation_bias": -0.0612813235854496,
+        "rmse": 1.554009265291191,
+        "team_game_mean_epa_rmse": 0.26803966378226207,
+        "unseen_appearances": {
+          "game": 4258,
+          "qb": 74
+        }
+      },
+      "qb_proxy": {
+        "against_team": {
+          "candidate_minus_reference_rmse": -0.000476978137738282,
+          "percentile_95_interval": [
+            -0.0017162400441770697,
+            0.0006429531568200972
+          ],
+          "player_uncertainty": false,
+          "replicates": 1000,
+          "resampling_unit": "game",
+          "seed": 20261107
+        },
+        "games": 56,
+        "mae": 1.1221342167394932,
+        "plays": 4258,
+        "prediction_minus_observation_bias": -0.05883562983227974,
+        "rmse": 1.553840776197287,
+        "team_game_mean_epa_rmse": 0.2664086816382923,
+        "unseen_appearances": {
+          "game": 4258,
+          "qb": 74
+        }
+      },
+      "team": {
+        "games": 56,
+        "mae": 1.1224833919396493,
+        "plays": 4258,
+        "prediction_minus_observation_bias": -0.0636608339562163,
+        "rmse": 1.5543177543350253,
+        "team_game_mean_epa_rmse": 0.26869981002216237,
+        "unseen_appearances": {
+          "game": 4258
+        }
+      }
+    }
+  },
+  "rankings_published": false,
+  "recovery_code_revision": "dc8a9945438d0898e59f5e7ae8da290eaf3f2e03",
+  "recovery_report": "f53411d6685ddc9eced484db196fca69dc4aef2f0524273c736f933ec3eb254c",
+  "retrospective_roster_amendment_commit": "46e3d44",
+  "season": {
+    "allocation_witness": {
+      "connected_components": 32,
+      "example": {
+        "features": [
+          "offense/ARI",
+          "qb/00-0033119",
+          "qb/00-0035289"
+        ],
+        "max_absolute_contrast_change_ep": 80.1640625,
+        "max_prediction_change_ep": 0.0,
+        "shift_per_dropback_ep": 0.25
+      },
+      "meaning": "QB-versus-team allocations differ under identical play predictions; independent random-effects assumptions select one allocation."
+    },
+    "benchmark_audit": {
+      "benchmark_ready": true,
+      "blocked_reasons": [],
+      "candidate_players": 57,
+      "first_unit_zero_opportunity_players": [],
+      "observed_players": 57
+    },
+    "cumulative_component_ep": -57.02406514143285,
+    "games": 122,
+    "max_accounting_error": 8.881784197001252e-16,
+    "negative_player_estimates": 36,
+    "players": 57,
+    "plays": 8996,
+    "qualification_denominators_complete": 23,
+    "qualification_scope": "Existing full-QB exposure diagnostic is reported separately; partial dropback module does not redefine its opportunity threshold.",
+    "ranking_ready": false
+  },
+  "sensitivity": [
+    {
+      "max_absolute_contrast_change_ep": 13.970429771966025,
+      "median_absolute_contrast_change_ep": 2.7896032382804377,
+      "qb_variance_multiplier": 0.5
+    },
+    {
+      "max_absolute_contrast_change_ep": 12.300670704827649,
+      "median_absolute_contrast_change_ep": 2.6791162848838708,
+      "qb_variance_multiplier": 2.0
+    }
+  ],
+  "source_provenance": {
+    "current": {
+      "game_cohort_cutoff": "2026-11-08T01:41:17.891273+00:00",
+      "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+      "roster_audit": {
+        "actor_issue_counts": {
+          "primary_position_unreviewed": 5
+        },
+        "actor_role_counts": {
+          "P": 4,
+          "QB": 272,
+          "RB": 622,
+          "TE": 519,
+          "WR": 947
+        },
+        "actor_rows_with_resolved_role": 2364,
+        "all_player_game_issue_counts": {
+          "primary_position_unreviewed": 12968
+        },
+        "completed_team_games": 244,
+        "observed_offensive_player_games": 2369,
+        "observed_offensive_players": 504,
+        "player_game_rows": 20021,
+        "player_games_without_observed_offensive_participation": 17652,
+        "team_games_with_retrospective_roster_retrieval": 244,
+        "team_games_with_roster_retrieved_before_kickoff": 0,
+        "team_games_without_roster_rows": 0,
+        "weekly_observations": 22285
+      },
+      "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+      "roster_retrieval": {
+        "data": "2026-11-08T02:43:38.393326+00:00",
+        "license": "2026-11-08T02:43:38.669743+00:00",
+        "metadata": "2026-11-08T02:43:38.053864+00:00"
+      },
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "source_receipts": {
+        "pbp": "d44259bc0a7eb99c4a25f8f8585fafca3159292a9330d7ae95733ce569488510",
+        "schedules": "efb6387ff638d527066b0104964b39d754c16419ef812d34aeb215c10b043db5"
+      },
+      "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+    },
+    "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+    "historical": {
+      "game_cohort_cutoff": "2026-11-08T02:47:26.367479+00:00",
+      "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+      "roster_audit": {
+        "actor_issue_counts": {
+          "conflicting_secondary_identity": 9,
+          "primary_position_unreviewed": 26
+        },
+        "actor_role_counts": {
+          "P": 9,
+          "QB": 646,
+          "RB": 1409,
+          "TE": 1088,
+          "WR": 2117
+        },
+        "actor_rows_with_resolved_role": 5269,
+        "all_player_game_issue_counts": {
+          "conflicting_secondary_identity": 64,
+          "primary_position_unreviewed": 29020
+        },
+        "completed_team_games": 544,
+        "observed_offensive_player_games": 5304,
+        "observed_offensive_players": 597,
+        "player_game_rows": 44466,
+        "player_games_without_observed_offensive_participation": 39162,
+        "team_games_with_retrospective_roster_retrieval": 544,
+        "team_games_with_roster_retrieved_before_kickoff": 0,
+        "team_games_without_roster_rows": 0,
+        "weekly_observations": 46579
+      },
+      "roster_integrity_policy": "retrospective-2024-weekly-roster-local-hash-v1",
+      "roster_retrieval": {
+        "after": "2026-11-08T02:43:36.729160+00:00",
+        "before": "2026-11-08T02:43:36.136466+00:00",
+        "data": "2026-11-08T02:43:36.533455+00:00",
+        "license": "2026-11-08T02:43:37.349842+00:00"
+      },
+      "source_attribution": {
+        "pbp": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "schedules": {
+          "attribution": "Lee Sharpe (nfldata) via nflverse",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        },
+        "weekly_rosters": {
+          "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+          "license_id": "CC-BY-4.0",
+          "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+        }
+      },
+      "source_receipts": {
+        "pbp": "114f88bc9bf7c5990eb2fb1b885a2bbf230b54f66adbe0e509381379dc07b97d",
+        "schedules": "19dfe7aefa63c1b36628fa61b663cf896f930178c04da3b4c92d07e4ce84c492"
+      },
+      "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+    }
+  },
+  "timezone": "America/New_York",
+  "unit": "QB dropback model recovery and execution reset",
+  "variance_control_code_revision": "af6c55e48197a8a1c197ee24711a972556cf804d",
+  "variance_control_plan": {
+    "control_version": 1,
+    "estimators": [
+      "empirical_bayes",
+      "known_variances"
+    ],
+    "purpose": "diagnose conditional hyperparameter uncertainty; never admission",
+    "replicates": 128,
+    "scenario": "matched_hierarchy",
+    "seed": 2026110701
+  },
+  "variance_control_report": "4b1fe26e4b42fa940e5a2c0da0041d6d107874dee7b3bd891addcdd9b0b89308",
+  "variance_control_results": {
+    "empirical_bayes": {
+      "coverage": 0.8832236842105263,
+      "failures": [],
+      "mean_absolute_player_bias_ep": 1.6655159998617655,
+      "mean_interval_width_ep": 82.65280694190169,
+      "mean_signed_error_ep": 0.09384763189506021,
+      "monte_carlo_se": 0.00887373045631273,
+      "passes_admission": false,
+      "requested_replicates": 128,
+      "rmse_ep": 31.707376268090833,
+      "severe_undercoverage": false,
+      "successful_replicates": 128,
+      "valid_for_decision": true
+    },
+    "known_variances": {
+      "coverage": 0.9499725877192983,
+      "failures": [],
+      "mean_absolute_player_bias_ep": 1.2761696222934888,
+      "mean_interval_width_ep": 93.53852425411317,
+      "mean_signed_error_ep": 0.11027305068467387,
+      "monte_carlo_se": 0.0023114322749204553,
+      "passes_admission": false,
+      "requested_replicates": 128,
+      "rmse_ep": 28.774698898768,
+      "severe_undercoverage": false,
+      "successful_replicates": 128,
+      "valid_for_decision": true
+    }
+  },
+  "verification": {
+    "current_pr_hosted_ci": "Reported on PR after push; separate from this local validation record",
+    "frontend_contracts": 27,
+    "make_check": "passed",
+    "python_tests": 373,
+    "recovery_replayed_with_http_forbidden": true,
+    "replay_tolerance": {
+      "absolute": 1e-09,
+      "relative": 1e-08
+    },
+    "research_objects_off_machine_retention": "unfinished",
+    "variance_control_replayed_with_http_forbidden": true
+  }
+}

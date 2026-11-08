@@ -1,0 +1,8 @@
+{
+  "control_version": 1,
+  "seed": 2026110701,
+  "replicates": 128,
+  "scenario": "matched_hierarchy",
+  "estimators": ["empirical_bayes", "known_variances"],
+  "purpose": "diagnose conditional hyperparameter uncertainty; never admission"
+}

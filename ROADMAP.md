@@ -2,6 +2,35 @@
 
 Target release: **November 7, 2026**. Research and design were approved on October 18. This roadmap deliberately reserves time for validation and release repair rather than adding increasingly elaborate models.
 
+## November 7 execution reset: scoring first
+
+The target arrived without a usable CAVAA ranking. The dated sections below are
+delivery history/plans, not evidence that their calendar milestones were met.
+The active backlog is [M1–M6](docs/MILESTONES.md), separating implementation,
+passing evidence, blockers and the next concrete action; no completion percentage
+is justified. Pause optional infrastructure unless it removes a concrete blocker.
+
+The first substantial recovery unit is complete: four preregistered QB dropback
+alternatives, new historical/transfer windows, cumulative 2026 contrasts, fresh
+calibration, allocation/sensitivity diagnostics, an additional known-variance
+control and a [documented non-admission decision](docs/QB_RECOVERY_RESULTS.md).
+The unit identifies variance estimation/boundaries and QB/team confounding as
+remaining problems; it does not claim the scoring milestone is complete.
+
+Next substantial unit: freeze and test a multi-season QB/team-season design using
+historical transitions and explicit variance-component uncertainty; include a
+bounded variance/identifiability diagnosis for the existing rich/degraded defensive
+designs. Reserve uninspected validation evidence. Continue through recoverable
+problems and justified alternatives; no arbitrary interval inflation, penalty
+search on consumed tests or automatic stop at one failed experiment.
+
+PRs #18/#19 are merged; main CI passed. Authenticated Pages/bootstrap access remains
+unavailable, so deployment cannot hold up modeling. Produce the first admitted,
+reproducible contribution module, then connect its honest estimates/explanations
+and history to the existing dashboard. Cross-position coverage remains the goal;
+unsupported modules stay explicitly unavailable. Update milestone evidence each
+run, using multiple reviewable commits where useful; never merge as an agent.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.
@@ -164,8 +193,10 @@ bootstrap rehearsal covers 122 games / 14,960 plays / 562 players; it is not a
 remote upload or deployment. Existing CI, the model policies and both Codex
 development schedules remain unchanged. See the November 7 learning report.
 
-Next priority: owner review/merges, Pages configuration and the first hosted
-bootstrap. Verify actual off-machine recovery and deployment/failure behavior
+At the end of the earlier production unit, the next operational action was owner
+review/merges, Pages configuration and the first hosted bootstrap. The owner has
+since merged #18/#19; the model-first reset above supersedes that priority.
+Verify actual off-machine recovery and deployment/failure behavior
 before claiming production is active. The November 7 unified-MVP objective is
 unmet: all 17 modules remain unadmitted. Keep the exploratory release accurately
 labeled and preserve the outstanding statistical work; no paid infrastructure.
@@ -234,4 +265,4 @@ The fallback for failed comparability is a clearly scoped supported-position boa
 
 Refresh after completed games when required feeds are available. Publish the Week 10 snapshot after Week 10 completion and source checks, then continue weekly. Track unsupported-position research explicitly. Tracking attribution, graph interaction models, elaborate current-form models, and commercial feeds are later work, not dependencies for launch.
 
-Each development run should deliver one coherent verified unit, update status and learning notes, and open or update a PR. A blocked run should record the actual obstacle; filler commits are not progress.
+Each development run should complete a substantial coherent deliverable: implementation, meaningful experiments where applicable, failure analysis, justified fixes/alternatives, verification and a documented decision. Update milestone evidence, status and learning notes, and open or update a PR. One component, commit or negative result is not an automatic stopping point. Record real blockers; filler commits are not progress.
