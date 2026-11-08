@@ -16,6 +16,7 @@ from nfl_value.qb_math import (
     predict,
     row_features,
 )
+from nfl_value.qb_variance_control import control_experiment, oracle, validate_control
 from test_baseline import play
 
 
@@ -126,6 +127,33 @@ class QBMathTests(unittest.TestCase):
         self.assertEqual(output[0]["components"]["qb"], 0)
         self.assertEqual(output[0]["components"]["game"], 0)
         self.assertEqual(model, before)
+
+    def test_oracle_uses_known_synthetic_variances_and_never_admits_scores(self):
+        d = design(rows(), "joint")
+        p = plan()
+        y = np.random.default_rng(30).normal(size=len(d.x))
+        mean, covariance = oracle(d, y, p)
+        penalty = np.zeros(len(d.names))
+        sigma2 = p["simulation_noise_sd"] ** 2
+        for group, indices in zip(d.groups, d.group_indices):
+            penalty[indices] = sigma2 / p["simulation_effect_sd"][group] ** 2
+        inverse = np.linalg.inv(d.gram + np.diag(penalty))
+        np.testing.assert_allclose(mean, inverse @ d.x.T @ y, atol=1e-10)
+        np.testing.assert_allclose(covariance, sigma2 * inverse, atol=1e-10)
+        c = {
+            "control_version": 1,
+            "seed": 8,
+            "replicates": 2,
+            "scenario": "matched_hierarchy",
+            "estimators": ["empirical_bayes", "known_variances"],
+            "purpose": "diagnose conditional hyperparameter uncertainty; never admission",
+        }
+        l = np.array([contrast(d.names, "00-0000001", 20, {"00-0000001": 0.5, "00-0000002": 0.5})])
+        result = control_experiment(d, l, p, c)
+        self.assertEqual(result, control_experiment(d, l, p, c))
+        self.assertFalse(result["known_variances"]["passes_admission"])
+        with self.assertRaises(ValueError):
+            validate_control({**c, "scenario": "fixed_iid"})
 
     def test_invalid_contrasts_and_responses_fail(self):
         d = design(rows(), "joint")
