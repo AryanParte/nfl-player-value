@@ -43,7 +43,7 @@ class LegacyRosterTests(unittest.TestCase):
             ],
         }
 
-        def fetch(url):
+        def fetch(url, max_bytes=None):
             body = (
                 json_bytes(meta)
                 if url == spec.metadata_url
@@ -99,11 +99,29 @@ class LegacyRosterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             asset(json_bytes(changed))
 
-    def test_changed_capture_and_corrupted_schema_do_not_publish(self):
+    def test_invalid_retrieval_chronology_publishes_no_receipt(self):
+        spec, _, original = self.source()
+
+        def fetch(url, max_bytes=None):
+            value = original(url)
+            return (
+                Download(value.body, "2026-11-06T20:00:00+00:00", {})
+                if url == spec.license_url
+                else value
+            )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            store = SnapshotStore(Path(tmp))
+            with self.assertRaisesRegex(ValueError, "chronology"):
+                capture_legacy(store, code_revision="a" * 40, fetch=fetch)
+            self.assertFalse((Path(tmp) / "manifests").exists())
+            self.assertFalse((Path(tmp) / "objects").exists())
+
+    def test_changed_during_capture_does_not_publish(self):
         spec, meta, original = self.source()
         calls = 0
 
-        def fetch(url):
+        def fetch(url, max_bytes=None):
             nonlocal calls
             if url == spec.metadata_url:
                 calls += 1

@@ -2,53 +2,54 @@
 
 Updated: November 7, 2026, America/New_York.
 
-## Current unit
+## Current scoring milestone
 
-The [independent Explorer production workflow](docs/PRODUCTION_REFRESH.md) is
-implemented on `codex/explorer-production-refresh`, stacked on pending PR #18
-(`codex/explorer-launch-package`, `6d370bf`). Canonical main remains `72a2c7d`.
-PR #18's hosted matrix/dashboard CI passed; no review feedback or unfinished local
-changes were present at the start. No prerequisite has been merged by an agent.
+The November 7 MVP target was missed. The owner requested an execution reset:
+scoring is the critical path, optional infrastructure is paused, and each run must
+complete substantial implementation/experiments/diagnosis/verification/decision.
+There is no measured completion percentage. Use the six evidence-based
+[milestones](docs/MILESTONES.md), not an unmeasured “60% remaining” claim.
 
-The read-only build job restores the previous retained candidate, captures all
-four sources, checks readiness, builds and replays the launch package, and tests
-its actual site on desktop/mobile Chromium. The publisher receives the independent
-archive pin and exact producer revision. It creates a new draft release, verifies
-an independent download/replay before exposing the archive, and rechecks freshness
-immediately before a Pages request. Existing public releases are never overwritten.
-Failed prepublication steps preserve the last deployed website. No new Python/npm
-dependency or paid service is introduced; the Codex development timer is unchanged.
+On `codex/qb-model-recovery`, the [bounded QB recovery study](docs/QB_RECOVERY_RESULTS.md)
+now produces cumulative first-unit and sensitivity research contrasts for **57 QBs,
+122 completed 2026 games and 8,996 dropbacks**. All negative values and completed
+games remain. Attribution, benchmark and unexplained components conserve EPA.
 
-A real **local bootstrap rehearsal** captured 122 completed games / 14,960 scoped
-plays / 562 players at November 7, 20:41:17 America/New_York
-(`2026-11-08T01:41:17.891273+00:00`). Week 9 remains partial. The package is
-39,278,287 bytes, SHA-256
-`0b04b9015ccf1140edbb338e858b2ef535a70e47a8a6f6e57db3328b29520199`,
-produced by `d6d4688291298f81c7fcf150377e4de1f7830759`.
-This rehearsal used an explicitly initialized local bootstrap state: no remote
-previous-release command, upload, download or Pages deployment occurred. The
-production transport boundaries were tested with fake GitHub calls and real
-synthetic archive replay. The public release listing was empty when inspected.
-The 23-member archive restored successfully, with a fresh publication check at
-20:44:06 Eastern. The actual restored site passed desktop/mobile Chromium at a
-project subpath without intercepting data requests. All 122 November 6 games are
-still present, and the canonical staged Week 6 pointer is unchanged. See the
-[audit](docs/audits/2026-11-07-production-refresh.json) and
-[learning report](docs/learning/2026-11-07.md).
+**Decision: no admission.** Learned variance components improve fixed-signal
+calibration to 94.50%/93.79%, but matched-hierarchy coverage is 87.09%; fresh
+failure-analysis draws give 88.32%, versus 95.00% with known synthetic variances.
+The 2024 final-test and 2026 transfer predictive intervals both cross zero.
+QB/team allocation remains consequentially assumption-dependent: a witness that preserves every play prediction changes a season contrast by 80.16 EP, and variance sensitivities
+move contrasts by up to 13.97 EP. Full details and exact hashes are in the
+[research audit](docs/audits/2026-11-07-qb-recovery.json). None is a ranked MVP score.
 
-**The November 7 unified-MVP objective remains unmet.** All 17 modules are still
-not admitted, CAVAA and defensive snaps remain null, and no real ranking is
-published. The production workflow is reviewable code, not an activated service.
-It requires owner merges, Pages configuration and a successful hosted trial.
-Current-time data readiness does not establish attribution, calibration or
-cross-position comparability. Historical model experiments remain frozen at their
-original cohorts; refreshing the Explorer does not refresh those models.
+Twenty-three QB participation denominators satisfy the existing narrow proof;
+34 remain unresolved. Qualification is separate from model/benchmark membership.
+All 17 modules remain unadmitted. The defensive information-loss experiment and
+Defense Explorer remain required and delivered; unsupported value remains null.
 
-The required defensive information-loss experiment and Defense Explorer are
-implemented. The stronger-signal uncertainty experiments still fail severely,
-and observed QB-change diagnostics do not establish an attribution increment.
-No benchmark, penalty, qualification, uncertainty or admission rule changed to
-meet the calendar deadline. Research details remain in the measured evidence below.
+Next: preregister and complete a bounded multi-season QB/team-season recovery unit
+using historical transitions and variance-component uncertainty, plus the same
+identifiability/variance diagnosis on the existing defensive designs. Do not tune
+on the now-consumed 2024 or archived 2026 tests. A positive contribution module
+still needs calibrated, stable first-unit estimates and justified admission.
+
+## Deployment and execution state
+
+PRs #18 and #19 were merged by the owner; canonical main is `1ee2486` and its
+hosted matrix/dashboard CI passed. The Explorer release/retention/refresh workflow
+is merged code, not an activated website. Current inspection found no production
+run, a signed-out browser, and “Site not found” at the Pages URL. Authenticated
+Pages configuration and a manual bootstrap remain blocked by access. The
+[production runbook](docs/PRODUCTION_REFRESH.md) already supplies the steps;
+this did not block independent model work. An Explorer deployment would still
+not be an admitted CAVAA leaderboard.
+
+The existing daily automation prompt and repository instructions now prioritize
+model milestones and substantial coherent runs. Its identity, ACTIVE status,
+target chat and **7:30 PM America/New_York** recurrence remain unchanged. The
+other NFL project and its automation were not touched. No purchases or new runtime
+dependencies. The current PR's verification is recorded separately from main CI.
 
 ## Measured evidence
 
@@ -112,28 +113,27 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-357 Python tests, 27 frontend contracts, Ruff, TypeScript/format/build, compile
-and whitespace checks pass locally, along with all 12 existing Chromium scenarios
-and two actual-release browser checks. Thirteen new Python regressions cover the
-production boundaries. actionlint 1.7.12 passes without ShellCheck integration.
-Hosted Python 3.11/3.12/3.13 and dashboard results for the pushed commit are
-reported on the PR. No hosted production result is inferred from these checks.
-The old coverage percentage remains informational, not today's measurement.
+The recovery unit passes `make check`: 373 Python tests, 27 frontend contracts,
+Ruff/adopted formatting, TypeScript, production build, compile and whitespace.
+The full real-source recovery and variance control replay with HTTP forbidden.
+Earlier production browser rehearsals remain documented in their dated audit;
+this model-only run does not represent them as a new hosted deployment check.
+Hosted CI for the new PR is reported separately. Existing coverage remains
+informational, not a fresh coverage measurement.
 
 ## Next highest-priority unit
 
-Review/merge PR #18 and the stacked production workflow through the owner's
-normal process, configure this repository's Pages source/environment, then run
-one manual bootstrap from main. Verify the actual remote release download/replay,
-public content hash, desktop/mobile rendering and failure preservation. The
-connector cannot upload binary assets, dispatch a new workflow or inspect/configure
-Pages settings; this run does not claim that those hosted operations succeeded.
-The checked-in main-only workflow supplies the reviewed execution path after merge.
+Complete the model-centered M1/M2 unit described above, with the mandatory M4
+recovery diagnosis included. Do not allow deployment access to displace this work.
+Reserve fresh evaluation evidence and record a decision after meaningful trials,
+not merely another isolated component or unsuccessful fit.
 
-Use the production runbook for retries and retained drafts. Do not weaken freshness
-or completion gates to activate it. Scheduled refresh is Tuesday/Friday at 16:17
-UTC and is independent of both Codex development automations. Public GitHub hosting
-is the intended zero-cost route; no purchases/upgrades have been made or authorized.
+The bounded operational action remains authenticated Pages setup and one manual
+Explorer bootstrap from main, followed by actual remote download/replay and
+live-site verification. PRs #18/#19 no longer await merge. Preserve freshness,
+completion and last-valid-publication safeguards. Weekly production refresh is
+Tuesday/Friday at 16:17 UTC, independently of development. No paid service is
+required or approved; the current access limitation is explicit in M6.
 
 ## Unfinished release gates
 

@@ -9,8 +9,9 @@ are unchanged. A successful deployment cannot substitute for attribution evidenc
 
 ## Activation and access
 
-This work is stacked on PR #18. Review and merge prerequisites and this PR through
-the owner's normal process; agents must not merge them. In this repository's
+PRs #18 and #19 were merged by the owner on November 7; merged main CI passed.
+A subsequent inspection found no production run, a signed-out browser and a
+Pages Site not found response. Activation remains unverified. In this repository's
 Settings → Pages, choose **GitHub Actions** as the publishing source. Configure
 the `github-pages` environment for main only. No custom domain, secret or paid
 service is required for a public repository. This document does not claim those

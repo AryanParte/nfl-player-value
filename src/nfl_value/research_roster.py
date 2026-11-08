@@ -26,7 +26,9 @@ def asset(metadata):
         raise ValueError("legacy roster release/asset mismatch")
     a = matches[0]
     if (
-        a["id"] != ASSET_ID
+        type(a["id"]) is not int
+        or type(a["size"]) is not int
+        or a["id"] != ASSET_ID
         or a["updated_at"] != UPDATED_AT
         or a.get("digest") is not None
         or a["browser_download_url"] != spec.download_url
@@ -40,15 +42,18 @@ def capture_legacy(store, *, code_revision, fetch=fetch_public):
     if not re.fullmatch(r"[0-9a-f]{40}", code_revision):
         raise ValueError("committed revision required")
     spec = source_spec("weekly_rosters", 2024)
-    before = fetch(spec.metadata_url)
+    before = fetch(spec.metadata_url, 4 * 1024 * 1024)
     version = asset(before.body)
-    data = fetch(spec.download_url)
-    after = fetch(spec.metadata_url)
+    data = fetch(spec.download_url, version["size"])
+    after = fetch(spec.metadata_url, 4 * 1024 * 1024)
     if version != asset(after.body) or len(data.body) != version["size"]:
         raise ValueError("legacy roster changed during capture")
     audit = audit_csv(data.body, spec, observed_at=data.fetched_at)
-    license_record = fetch(spec.license_url)
+    license_record = fetch(spec.license_url, 256 * 1024)
     _check_license(license_record.body, spec)
+    times = [aware_time(record.fetched_at) for record in (before, data, after, license_record)]
+    if times != sorted(times) or times[0] < aware_time(UPDATED_AT):
+        raise ValueError("invalid legacy retrieval chronology")
     saved = {
         "policy": POLICY,
         "code_revision": code_revision,

@@ -102,9 +102,10 @@ class QBMathTests(unittest.TestCase):
         l = contrast(d.names, "00-0000001", 20, {"00-0000001": 0.5, "00-0000002": 0.5})
         self.assertAlmostEqual(float(l.sum()), 0)
         self.assertGreater(float(l @ cov @ l), 0)
-        self.assertAlmostEqual(
-            float(l @ np.array(model["coefficients"])), -float(-l @ np.array(model["coefficients"]))
-        )
+        known = np.zeros(len(d.names))
+        known[d.names.index("qb/00-0000001")] = -0.2
+        known[d.names.index("qb/00-0000002")] = 0.4
+        self.assertAlmostEqual(float(l @ known), -6.0)
 
     def test_nullspace_detects_qb_team_allocation_and_cold_uncertainty(self):
         d = design(rows(), "joint", extra_qbs=["00-9999999"])

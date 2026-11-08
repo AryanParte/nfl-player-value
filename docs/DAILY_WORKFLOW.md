@@ -64,7 +64,7 @@ claim is not an established estimate. Never fabricate activity.
 
 ## Production refresh is independent
 
-The deployed weekly ranking refresh must operate independently of this Codex development heartbeat. It consumes completed games, records exact source versions/cutoffs, computes reproducible outputs, and preserves prior weekly snapshots. A delayed development run must not stop publication of already validated production models. Production workflow concurrency and atomic publication need their own controls when that workstream is implemented.
+The deployed weekly ranking refresh must operate independently of this Codex development heartbeat. It consumes completed games, records exact source versions/cutoffs, computes reproducible outputs, and preserves prior weekly snapshots. A delayed development run must not stop publication of already validated production models. The merged Explorer production workflow has separate concurrency, retention and publication controls; its hosted activation remains unverified. It does not yet publish CAVAA rankings.
 
 The 7:30 PM development schedule is separated from the existing Opponent Intelligence 8:00 AM schedule. Distinct repositories, environments, caches, and ports prevent accidental cross-project changes. The time difference reduces routine contention, but a long run can still overlap: inspect active work and defer expensive local fitting when the machine is busy. Never alter the other project's schedule or workspace as a workaround.
 

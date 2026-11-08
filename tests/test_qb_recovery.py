@@ -167,6 +167,14 @@ class QBRecoveryTests(unittest.TestCase):
                 player["benchmarks"]["first_unit"]["expected_points"],
             )
             self.assertFalse(player["ranking_ready"])
+        self.assertAlmostEqual(
+            sum(
+                p["benchmarks"]["opportunity_weighted"]["expected_points"]
+                for p in results["player_contrasts"]
+            ),
+            0.0,
+            places=10,
+        )
         for p in results["evaluation"]["season"]:
             self.assertAlmostEqual(
                 p["observed_epa"],
