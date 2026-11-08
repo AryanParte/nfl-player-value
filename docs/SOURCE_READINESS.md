@@ -1,5 +1,9 @@
 # Source readiness and Explorer refresh candidates
 
+The [launch-package command](LAUNCH_PACKAGE.md) now binds an exact candidate to
+its saved website and replay inputs, reassessing source readiness at the actual
+packaging attempt. That check remains distinct from a future publication attempt.
+
 This unit adds an operational gate between archived source receipts and a new
 Defense Explorer candidate. It does not admit CAVAA, deploy a website, or advance
 any public pointer. A fresh source file is not evidence of valid attribution.

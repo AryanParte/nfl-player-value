@@ -1,5 +1,10 @@
 # Archived static review bundles
 
+November 6 adds optional `--isolated` builds that leave the canonical public
+pointer and dist untouched. The [launch package](LAUNCH_PACKAGE.md) binds a saved
+site to its exact refresh candidate and retains candidate/prior-comparison replay
+inputs with a new packaging-time readiness assessment. Neither command deploys.
+
 The dashboard exposes the [November 2 module decisions](ADMISSION.md) alongside
 the Defense Explorer. All 17 contribution modules remain unadmitted, with scope,
 seven validation gates and links to the exact reviewed evidence. This is an

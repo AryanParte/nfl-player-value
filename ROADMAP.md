@@ -144,12 +144,24 @@ regressions protect stale/missing/corrupt inputs, frozen replay and preservation
 of prior candidates. No public pointer, model or admission decision changed. See
 the [audit](docs/audits/2026-11-05-source-readiness.json).
 
-November 6 priority: package the exploratory launch with current-time source
-checks, browser verification and deployment/retention controls. Finish authenticated
-off-machine upload and independent restore when access is available; continue
-other preparation while access is blocked. The new candidate also needs retention.
-Production scheduling and last-good publication remain unfinished. No paid
-infrastructure without owner approval.
+November 6 progress: [portable Explorer launch packages](docs/LAUNCH_PACKAGE.md)
+bind the exact candidate/site, a new packaging-time source assessment and all
+current/prior-comparison replay dependencies. Optional isolated builds preserve
+the canonical staged site. Twelve new Python regressions cover missing, stale,
+corrupt or mismatched evidence, complete restoration and failure cleanup. The UI
+now says the latest included week may be partial; a completed game from Week 9
+does not imply complete Week 9 coverage. The 39-member package restores exactly,
+and its saved site passes desktop/mobile checks. See the
+[audit](docs/audits/2026-11-06-launch-package.json) and
+[learning report](docs/learning/2026-11-06.md).
+
+November 7 priority: finish the exploratory website's deployment and off-machine
+retention, verify a separate remote download/restore, and establish the independent
+production refresh/publisher with last-good-output protection. Authenticate the
+required release/hosting access or use a reviewed GitHub-native workflow; do not
+wait on auth without reporting its effect on launch. Reassess sources at the
+actual publication attempt. The local package is not a deployed website or an
+admitted CAVAA leaderboard. No paid infrastructure without owner approval.
 
 The now-measured selective exposure rule cannot be promoted to general
 eligibility. Resolve historical missing chart evidence and broader stints without

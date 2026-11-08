@@ -66,6 +66,12 @@ test("loads evidence, labels synthetic data, and exposes provenance without scor
     page.getByRole("heading", { name: "Observed is not attributed." }),
   ).toBeVisible();
   await expect(page.getByText("Not estimated", { exact: true })).toBeVisible();
+  await expect(page.locator(".hero")).toContainText(
+    `INCLUDES WEEK ${fixture.coverage.through_week}`,
+  );
+  await expect(page.locator(".hero")).toContainText(
+    "Only completed games are included; the latest week may be partial.",
+  );
 });
 
 test("filters by role and team, handles empty search and reset", async ({

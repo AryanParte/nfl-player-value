@@ -24,7 +24,7 @@ from nfl_value.review_bundle import (
     save_archive,
     stage_review,
 )
-from nfl_value.review_cli import build_review, main
+from nfl_value.review_cli import build_review, build_workspace, main
 from test_defense_explorer import payload
 
 
@@ -288,3 +288,28 @@ class ReviewBundleTests(unittest.TestCase):
             patch("sys.stderr"),
         ):
             self.assertEqual(main(["a" * 64]), 1)
+
+    def test_isolated_workspace_copies_tracked_only_and_cleans_on_failure(self):
+        modules = self.root / "web/node_modules"
+        modules.mkdir()
+        public = self.root / "web/public/data"
+        public.mkdir(parents=True)
+        (public / "latest.json").write_bytes(b"prior pointer")
+        (self.root / "web/.env").write_bytes(b"not a build input")
+        with patch(
+            "nfl_value.review_cli.subprocess.check_output", return_value=b"web/package-lock.json\0"
+        ):
+            with self.assertRaisesRegex(OSError, "compile failed"):
+                with build_workspace(self.root, True) as staging:
+                    self.assertNotEqual(staging, self.root)
+                    self.assertEqual(
+                        (staging / "web/package-lock.json").read_bytes(),
+                        (self.root / "web/package-lock.json").read_bytes(),
+                    )
+                    self.assertFalse((staging / "web/.env").exists())
+                    self.assertFalse((staging / "web/public").exists())
+                    self.assertEqual((staging / "web/node_modules").resolve(), modules)
+                    raise OSError("compile failed")
+        self.assertEqual((public / "latest.json").read_bytes(), b"prior pointer")
+        self.assertFalse(staging.exists())
+        self.assertEqual(list((self.root / "work").iterdir()), [])
