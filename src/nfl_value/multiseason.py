@@ -23,8 +23,17 @@ def predict(model, rows):
     Unseen exposure is recorded and retained. New-game random intercepts are zero;
     evaluating a future week never refits variance weights or expands vocabulary.
     """
+    coefficients = np.asarray(model["coefficients"], dtype=float)
+    if (
+        len(set(model["names"])) != len(model["names"])
+        or coefficients.shape != (len(model["names"]),)
+        or not np.isfinite(coefficients).all()
+    ):
+        raise ValueError("invalid frozen model coefficients or vocabulary")
     x, unseen = matrix(rows, model["names"], model["variant"])
-    predictions = x @ np.asarray(model["coefficients"])
+    predictions = x @ coefficients
+    if not np.isfinite(predictions).all():
+        raise ValueError("nonfinite future prediction")
     training_games = set(model["training_games"])
     if any(p["game_id"] in training_games for p in rows):
         raise ValueError("future evaluation overlaps fitting games")
@@ -42,6 +51,8 @@ def predict(model, rows):
         dict(
             game_id=p["game_id"],
             play_id=p["play_id"],
+            offense_team=p["offense_team"],
+            qb=p["qb"],
             observed_epa=p["offense_epa"],
             predicted_epa=float(predictions[i]),
         )
@@ -168,7 +179,9 @@ def experiment(datasets, first_unit, *, cutoff, plan, progress=lambda _: None):
             "posterior_cell_weights": fit["weights"][:, 0].tolist(),
             "training_rows_sha256": row_digest(rows),
             "training_games": prepared.game_names,
-            "last_training_kickoff": max(p["scheduled_kickoff"] for p in rows),
+            "last_training_kickoff": max(rows, key=lambda p: aware_time(p["scheduled_kickoff"]))[
+                "scheduled_kickoff"
+            ],
             "future_test": plan["future_test"],
             "ranking_ready": False,
         }

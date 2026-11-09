@@ -99,6 +99,14 @@ class MultiSeasonTests(unittest.TestCase):
         self.assertEqual(len(output), 1)
         self.assertEqual(unseen, {"innovation": 1, "qb": 1})
         self.assertEqual(model, before)
+        broken = deepcopy(model)
+        broken["coefficients"][0] = float("nan")
+        with self.assertRaisesRegex(ValueError, "frozen model"):
+            predict(broken, [future])
+        broken = deepcopy(model)
+        broken["names"][0] = broken["names"][1]
+        with self.assertRaisesRegex(ValueError, "frozen model"):
+            predict(broken, [future])
         future["week"] = 11
         with self.assertRaisesRegex(ValueError, "reserved"):
             predict(model, [future])
