@@ -17,12 +17,18 @@ control and a [documented non-admission decision](docs/QB_RECOVERY_RESULTS.md).
 The unit identifies variance estimation/boundaries and QB/team confounding as
 remaining problems; it does not claim the scoring milestone is complete.
 
-Next substantial unit: freeze and test a multi-season QB/team-season design using
-historical transitions and explicit variance-component uncertainty; include a
-bounded variance/identifiability diagnosis for the existing rich/degraded defensive
-designs. Reserve uninspected validation evidence. Continue through recoverable
-problems and justified alternatives; no arbitrary interval inflation, penalty
-search on consumed tests or automatic stop at one failed experiment.
+November 8 completes that [multi-season unit](docs/MULTISEASON_RESULTS.md): four
+alternatives, variance integration, three new calibration generators, fresh
+known-ratio failure controls, cumulative 2026 contrasts and the required defensive
+diagnosis. Matched-prior coverage passes an internal check; off-grid coverage
+remains below nominal. Historical links do not remove allocation ambiguity.
+
+Next substantial unit: preregister one continuous-variance integration candidate,
+test numerical accuracy, fresh calibration and prior sensitivity, and preserve
+the frozen models for the uninspected 2026 Week 10 comparison. The new controls
+point toward variance estimation/support; they do not justify arbitrary wider
+intervals or adding innovation variance just to manufacture coverage. Complete
+a documented observational-estimand decision, not another small component.
 
 PRs #18/#19 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,
