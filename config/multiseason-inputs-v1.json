@@ -1,0 +1,21 @@
+{
+  "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+  "input_reports": {
+    "seasons": {
+      "2024": {
+        "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+        "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+      },
+      "2025": {
+        "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+        "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+      },
+      "2026": {
+        "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+        "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+      }
+    },
+    "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+    "defense": "62f3bfabba7ca58f1f4c3b3b9e3c8993b327ca96772ab232d63666e9819433c9"
+  }
+}

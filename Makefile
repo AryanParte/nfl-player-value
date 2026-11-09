@@ -18,7 +18,10 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  src/nfl_value/production.py src/nfl_value/production_cli.py tests/test_production.py \
  src/nfl_value/qb_math.py src/nfl_value/qb_recovery.py src/nfl_value/qb_simulation.py \
  src/nfl_value/qb_recovery_cli.py src/nfl_value/qb_variance_control.py src/nfl_value/research_roster.py \
- tests/test_qb_math.py tests/test_qb_recovery.py tests/test_research_roster.py
+ tests/test_qb_math.py tests/test_qb_recovery.py tests/test_research_roster.py \
+ src/nfl_value/variance_mixture.py src/nfl_value/multiseason_math.py src/nfl_value/multiseason.py \
+ src/nfl_value/multiseason_simulation.py src/nfl_value/multiseason_cli.py src/nfl_value/defense_variance.py \
+ tests/test_variance_mixture.py tests/test_multiseason.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests
