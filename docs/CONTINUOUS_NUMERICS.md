@@ -40,3 +40,14 @@ Save real candidate checkpoints before the expensive simulations so their
 numerical failures survive interruption. Checkpoints remain diagnostic only;
 build/replay recompute all fits. Do not release any score from an underconverged
 fit. Sealed Week 10 outcomes, admission policy and production remain unchanged.
+
+Execution note: the serial repair attempt was interrupted only to add bounded
+parallel execution after its runtime proved costly. Its real fits and completed
+trial hashes are retained in the [geometry audit](audits/2026-11-09-importance-geometry.json).
+`--workers 1|2|4` changes scheduling only; every response has private target/RNG
+state and results are collected in replicate order. The regression requires
+identical serial/parallel trial results and unchanged shared design arrays.
+The final run starts again from the archive, recomputing **every** requested
+trial. It does not resume by selecting favorable saved checkpoints. Use one BLAS
+thread with parallel workers to bound local CPU contention. There is no new
+statistical alternative, precision threshold, draw selection or paid compute.

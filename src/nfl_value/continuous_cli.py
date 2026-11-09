@@ -88,13 +88,17 @@ def load_context(raw, inputs, parent_store, plan, progress=lambda _: None):
     return {"parent": parent, "models": models, "rows": rows, "current": current, "values": values}
 
 
-def run(raw, inputs, parent_store, plan, progress=lambda _: None, checkpoint=lambda *_: None):
+def run(
+    raw, inputs, parent_store, plan, progress=lambda _: None, checkpoint=lambda *_: None, workers=1
+):
     return experiment(
-        load_context(raw, inputs, parent_store, plan, progress), plan, progress, checkpoint
+        load_context(raw, inputs, parent_store, plan, progress), plan, progress, checkpoint, workers
     )
 
 
-def replay_experiment(raw, inputs, parent_store, output, report_id, progress=lambda _: None):
+def replay_experiment(
+    raw, inputs, parent_store, output, report_id, progress=lambda _: None, workers=1
+):
     saved = json.loads(output.read(report_id, manifest=True))
     if (
         saved["experiment"] != "continuous-variance-recovery-v1"
@@ -106,7 +110,9 @@ def replay_experiment(raw, inputs, parent_store, output, report_id, progress=lam
         raise ValueError("unsupported continuous replay environment/policy")
     models = json.loads(output.read(saved["objects"]["models"]))
     results = json.loads(output.read(saved["objects"]["predictions"]))
-    actual, actual_models, actual_results = run(raw, inputs, parent_store, saved["plan"], progress)
+    actual, actual_models, actual_results = run(
+        raw, inputs, parent_store, saved["plan"], progress, workers=workers
+    )
     expected = {
         k: v
         for k, v in saved.items()
@@ -120,6 +126,7 @@ def replay_experiment(raw, inputs, parent_store, output, report_id, progress=lam
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--workers", type=int, choices=(1, 2, 4), default=1)
     parser.add_argument("--raw-store", type=Path, default=Path("data/raw/source-snapshots"))
     parser.add_argument("--input-store", type=Path, default=Path("data/derived/offensive-inputs"))
     parser.add_argument("--parent-store", type=Path, default=Path("data/derived/multiseason"))
@@ -150,12 +157,12 @@ def main(argv=None):
                 )
 
             report, models, results = run(
-                *stores, json.loads(args.plan.read_text()), progress, checkpoint
+                *stores, json.loads(args.plan.read_text()), progress, checkpoint, args.workers
             )
             rid, saved = save(output, report, models, results, code_revision=revision)
         else:
             rid = args.report_id
-            saved = replay_experiment(*stores, output, rid, progress)
+            saved = replay_experiment(*stores, output, rid, progress, args.workers)
         print(
             json.dumps(
                 {

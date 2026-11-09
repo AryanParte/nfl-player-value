@@ -12,6 +12,7 @@ import numpy as np
 from nfl_value.baseline_cli import save
 from nfl_value.continuous_cli import replay_experiment
 from nfl_value.continuous_recovery import (
+    calibration,
     experiment,
     predict_frozen,
     simulate,
@@ -28,6 +29,18 @@ from test_multiseason import datasets, plan as previous_plan
 
 
 class ContinuousRecoveryTests(unittest.TestCase):
+    def test_bounded_parallel_execution_reproduces_every_trial_and_failure(self):
+        d, _ = design(self.context["rows"], "evolving", scoring_season=2026)
+        l = np.eye(len(d.names))[:2]
+        p = {**self.plan, "simulation_scenarios": ["continuous_prior"]}
+        before = d.gram.copy()
+        serial = calibration(d, l, previous_plan(), p, lambda _: None, lambda *_: None, workers=1)
+        parallel = calibration(d, l, previous_plan(), p, lambda _: None, lambda *_: None, workers=2)
+        self.assertEqual(serial, parallel)
+        np.testing.assert_array_equal(d.gram, before)
+        with self.assertRaises(ValueError):
+            calibration(d, l, previous_plan(), p, lambda _: None, lambda *_: None, workers=0)
+
     @classmethod
     def setUpClass(cls):
         data, first = datasets()

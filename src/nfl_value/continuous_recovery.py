@@ -1,6 +1,7 @@
 """One continuous-variance candidate; numerical and scientific success stay separate."""
 
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 import json
 from math import isfinite
 
@@ -180,13 +181,15 @@ def summarize_trials(trials, requested, players):
     return report
 
 
-def calibration(prepared, l, parent_plan, plan, progress, checkpoint):
+def calibration(prepared, l, parent_plan, plan, progress, checkpoint, workers=1):
+    if type(workers) is not int or workers not in (1, 2, 4):
+        raise ValueError("one, two or four bounded numerical workers required")
     reports, all_trials = {}, {}
     for scenario in plan["simulation_scenarios"]:
         beta, y = simulate(prepared, parent_plan, plan, scenario)
         trials = []
-        for rep in range(plan["simulation_replicates"]):
-            progress(f"{scenario}: replicate {rep + 1}/{plan['simulation_replicates']}")
+
+        def fit_trial(rep):
             trial = {"replicate": rep, "truth": (l @ beta[:, rep]).tolist()}
             try:
                 target = Target(
@@ -206,8 +209,15 @@ def calibration(prepared, l, parent_plan, plan, progress, checkpoint):
                 )
             except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:
                 trial.update(numerical_valid=False, error=str(exc))
-            trials.append(trial)
-            checkpoint(scenario, trial)
+            return trial
+
+        # Response-local RNG/targets and read-only design; ordered map retains
+        # the same results and failure denominator across worker counts.
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            for trial in executor.map(fit_trial, range(plan["simulation_replicates"])):
+                trials.append(trial)
+                checkpoint(scenario, trial)
+                progress(f"{scenario}: completed {len(trials)}/{plan['simulation_replicates']}")
         reports[scenario] = {
             **summarize_trials(trials, plan["simulation_replicates"], len(l)),
             "synthetic_responses_sha256": sha256(y.astype("<f8").tobytes()),
@@ -224,7 +234,7 @@ def predict_frozen(model, rows):
     return predict(model, rows)
 
 
-def experiment(context, plan, progress=lambda _: None, checkpoint=lambda *_: None):
+def experiment(context, plan, progress=lambda _: None, checkpoint=lambda *_: None, workers=1):
     validate_plan(plan)
     parent = context["parent"]
     old_models = context["models"]
@@ -349,7 +359,7 @@ def experiment(context, plan, progress=lambda _: None, checkpoint=lambda *_: Non
             },
         )
     trials, results["calibration_trials"] = calibration(
-        *primary, parent_plan, plan, progress, checkpoint
+        *primary, parent_plan, plan, progress, checkpoint, workers
     )
     report = {
         "experiment": "continuous-variance-recovery-v1",
