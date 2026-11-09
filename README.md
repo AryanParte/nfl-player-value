@@ -2,9 +2,22 @@
 
 An independent research and software project for estimating **Context-Adjusted Value Above Average (CAVAA)**: a player's cumulative expected-point contribution beyond an ordinary first-unit player at the same position, under comparable observed circumstances.
 
-The target is a usable 2026 season-to-date leaderboard and interactive website by **November 7, 2026**. Week 10 rankings follow completion of those games and availability of the required data; November 7 is not a promise of Week 10 results.
+The **November 7, 2026** MVP target was missed. A defensibly validated season-to-date
+leaderboard remains the objective. Completed software and research estimates do
+not yet constitute an admitted player-value ranking.
 
 ## Current status
+
+As of November 8, the [multi-season recovery unit](docs/MULTISEASON_RESULTS.md)
+produces reproducible research contrasts for 57 QBs across 122 archived 2026 games,
+with first-unit and sensitivity benchmarks. Matched-prior calibration passes an
+internal check, but off-grid uncertainty and QB/team attribution remain unresolved.
+The required defensive follow-up confirms substantial information loss from
+aggregation. **All 17 modules remain unadmitted.** The Explorer is not a deployed
+CAVAA leaderboard; Pages activation and durable research retention remain open.
+See the [milestone backlog](docs/MILESTONES.md) and [latest learning report](docs/learning/2026-11-08.md).
+The frozen Week 10 evaluation is not yet observed. The summaries below are
+development history at their stated archive cutoffs, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit
 selection and historical defensive research inputs are implemented. October 22
@@ -129,6 +142,7 @@ CAVAA is an observational estimate conditional on measured context and opportuni
 | [Baseline experiment](docs/BASELINE.md) | Frozen splits, regularized fitting, role ablation, outcome accounting and numerical replay |
 | [Positional contrasts](docs/CONTRASTS.md) | Benchmark accounting, joint conditional intervals, prefix isolation and narrow exposure diagnostics |
 | [Calibration stress tests](docs/CALIBRATION.md) | Known-truth coverage, shrinkage bias, clustered noise, exact aliases and offline replay |
+| [Multi-season recovery decision](docs/MULTISEASON_RESULTS.md) | Variance integration, new calibration/failure controls, historical links and defensive information loss |
 | [Open-source audit](docs/OPEN_SOURCE.md) | Dependencies and research implementations considered |
 | [Project status](STATUS.md) | Completed work, active limitations, and next task |
 | [Daily workflow](docs/DAILY_WORKFLOW.md) | Independent development runs, locking, verification, and PR rules |
@@ -161,11 +175,11 @@ npm --prefix web ci --ignore-scripts --no-fund
 make check PYTHON=.venv/bin/python
 ```
 
-This runs 250 offline Python tests and 13 frontend contract tests, checks Python
+This runs the offline Python suite and frontend contract tests, checks Python
 lint/adopted formatting and frontend formatting/TypeScript, builds the dashboard,
 compiles Python and checks whitespace. See [CI and release gates](docs/CI.md) for
 coverage reports, browser diagnostics and the optional manual dependency audit.
-The separate [Chromium suite](web/README.md) covers eight browser scenarios.
+The separate [Chromium suite](web/README.md) verifies browser behavior and data/admission labels.
 Tests cover the data/benchmark/qualification contracts, locking, known-effect and
 collinearity simulations, leakage, numerical solving and accounting. Real historical
 evaluation is separate from synthetic CI evidence; see the [offensive audit](docs/audits/2026-10-23-offensive-baseline.json)

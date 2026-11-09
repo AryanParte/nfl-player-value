@@ -59,7 +59,12 @@ The existing daily automation prompt and repository instructions prioritize
 model milestones and substantial coherent runs. No automation settings changed;
 its **7:30 PM America/New_York** recurrence is preserved. The
 other NFL project and its automation were not touched. No purchases or new runtime
-dependencies. The current PR's verification is recorded separately from main CI.
+dependencies. [PR #21](https://github.com/AryanParte/nfl-player-value/pull/21)
+contains the recovery unit; local checks and both offline real-source replays
+passed. Hosted [CI 42560126083](https://github.com/AryanParte/nfl-player-value/actions/runs/42560126083)
+passed for source/analysis head `134a3c8` (Python matrix and dashboard/Chromium).
+The learning report distinguishes this evidence from scientific admission and
+the subsequent documentation-only head.
 
 ## Measured evidence
 
