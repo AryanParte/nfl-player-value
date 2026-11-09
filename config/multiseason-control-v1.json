@@ -1,0 +1,9 @@
+{
+  "plan_version": 1,
+  "source_report": "2e6708b65c30b2da606859aa14726228238082d887d05d76ed870606ef7180e6",
+  "seed": 2026110802,
+  "replicates": 128,
+  "scenario": "continuous_hierarchy",
+  "controls": ["integrated", "known_ratios", "known_ratios_shared_innovation"],
+  "changes_real_model": false
+}
