@@ -1,7 +1,6 @@
 """One continuous-variance candidate; numerical and scientific success stay separate."""
 
 from collections import Counter
-from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import get_context
 import socket
 import json
@@ -24,13 +23,23 @@ KEYS = set(
 
 def validate_plan(plan):
     if (
-        set(plan) not in (KEYS, KEYS | {"numerical_proposal"})
+        set(plan)
+        not in (
+            KEYS,
+            KEYS | {"numerical_proposal"},
+            KEYS | {"numerical_proposal", "diagnostic_trial_cap"},
+        )
         or type(plan["plan_version"]) is not int
         or plan["plan_version"] != 1
     ):
         raise ValueError("unsupported continuous recovery plan")
     if "numerical_proposal" in plan and plan["numerical_proposal"] != "stratified_student_t5_v1":
         raise ValueError("unreviewed numerical proposal")
+    if "diagnostic_trial_cap" in plan and (
+        type(plan["diagnostic_trial_cap"]) is not int
+        or not 1 <= plan["diagnostic_trial_cap"] <= plan["simulation_replicates"]
+    ):
+        raise ValueError("invalid diagnostic cap; requested denominator must remain intact")
     if (
         plan["variants"] != ["evolving", "team"]
         or plan["simulation_scenarios"]
@@ -141,8 +150,11 @@ def summarize_trials(trials, requested, players):
     valid = [t for t in trials if t.get("numerical_valid")]
     report = {
         "requested_replicates": requested,
+        "attempted_replicates": len(trials),
+        "unattempted_replicates": requested - len(trials),
         "numerically_valid_replicates": len(valid),
-        "failed_replicates": requested - len(valid),
+        "failed_replicates": len(trials) - len(valid),
+        "unverified_replicates": requested - len(valid),
         "all_numerically_valid": len(valid) == requested,
         "passes_admission": False,
     }
@@ -240,6 +252,7 @@ def calibration(prepared, l, parent_plan, plan, progress, checkpoint, workers=1)
     if type(workers) is not int or workers not in (1, 2, 4):
         raise ValueError("one, two or four bounded numerical workers required")
     reports, all_trials = {}, {}
+    executed = plan.get("diagnostic_trial_cap", plan["simulation_replicates"])
     for scenario in plan["simulation_scenarios"]:
         beta, y = simulate(prepared, parent_plan, plan, scenario)
         trials = []
@@ -250,20 +263,23 @@ def calibration(prepared, l, parent_plan, plan, progress, checkpoint, workers=1)
             for trial in iterator:
                 trials.append(trial)
                 checkpoint(scenario, trial)
-                progress(f"{scenario}: completed {len(trials)}/{plan['simulation_replicates']}")
+                progress(
+                    f"{scenario}: completed {len(trials)}/{executed}; requested {plan['simulation_replicates']}"
+                )
 
         if workers == 1:
-            collect(fit_trial(context, rep) for rep in range(plan["simulation_replicates"]))
+            collect(fit_trial(context, rep) for rep in range(executed))
         else:
             # Spawn avoids forking a live BLAS runtime. Copy context once per
             # worker, not once per response; ordered collection is deterministic.
-            with ProcessPoolExecutor(
-                max_workers=workers,
-                mp_context=get_context("spawn"),
+            # Pool's public context manager terminates this run's workers on
+            # interruption, rather than waiting for all queued fits at exit.
+            with get_context("spawn").Pool(
+                processes=workers,
                 initializer=initialize_worker,
                 initargs=(context,),
             ) as executor:
-                collect(executor.map(worker_trial, range(plan["simulation_replicates"])))
+                collect(executor.imap(worker_trial, range(executed)))
         reports[scenario] = {
             **summarize_trials(trials, plan["simulation_replicates"], len(l)),
             "synthetic_responses_sha256": sha256(y.astype("<f8").tobytes()),

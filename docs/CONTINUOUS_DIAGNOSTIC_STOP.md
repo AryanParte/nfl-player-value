@@ -28,3 +28,9 @@ the weak team/game-variance tails. Preregister a staged pilot and compute budget
 before another full calibration campaign. Preserve the original 64-draw plans,
 all checkpoint stores, the no-admission decision and sealed Week 10 outcomes.
 Do not add complexity or change variance priors in response to a favorable subset.
+
+The interrupted executor also exposed slow shutdown of queued work. The final
+bounded process pool uses its public context manager to terminate only its own
+workers on interruption. Serial/process results and absence of leftover children
+are regression-tested. The earlier remaining workers were identified by exact
+parent/child command lines and terminated; their checkpoints were preserved.

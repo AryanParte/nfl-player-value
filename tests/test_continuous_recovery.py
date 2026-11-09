@@ -2,7 +2,7 @@
 
 from copy import deepcopy
 from concurrent.futures import ProcessPoolExecutor
-from multiprocessing import get_context
+from multiprocessing import active_children, get_context
 import socket
 from datetime import datetime, timezone
 from pathlib import Path
@@ -65,9 +65,24 @@ class ContinuousRecoveryTests(unittest.TestCase):
         l = np.eye(len(d.names))[:2]
         p = {**self.plan, "simulation_scenarios": ["continuous_prior"]}
         before = d.gram.copy()
+        children = {p.pid for p in active_children()}
         serial = calibration(d, l, previous_plan(), p, lambda _: None, lambda *_: None, workers=1)
         parallel = calibration(d, l, previous_plan(), p, lambda _: None, lambda *_: None, workers=2)
         self.assertEqual(serial, parallel)
+        self.assertEqual({p.pid for p in active_children()}, children)
+        capped = calibration(
+            d,
+            l,
+            previous_plan(),
+            {**p, "diagnostic_trial_cap": 1},
+            lambda _: None,
+            lambda *_: None,
+            workers=1,
+        )
+        self.assertEqual(capped[0]["continuous_prior"]["requested_replicates"], 2)
+        self.assertEqual(capped[0]["continuous_prior"]["attempted_replicates"], 1)
+        self.assertEqual(capped[0]["continuous_prior"]["unattempted_replicates"], 1)
+        self.assertEqual(capped[1]["continuous_prior"], [serial[1]["continuous_prior"][0]])
         np.testing.assert_array_equal(d.gram, before)
         with self.assertRaises(ValueError):
             calibration(d, l, previous_plan(), p, lambda _: None, lambda *_: None, workers=0)
@@ -165,6 +180,12 @@ class ContinuousRecoveryTests(unittest.TestCase):
         self.assertEqual(report["failed_replicates"], 1)
         self.assertFalse(report["all_numerically_valid"])
         self.assertFalse(report["passes_admission"])
+        partial = summarize_trials([good, {"replicate": 1, "numerical_valid": False}], 4, 2)
+        self.assertEqual(partial["attempted_replicates"], 2)
+        self.assertEqual(partial["unattempted_replicates"], 2)
+        self.assertEqual(partial["failed_replicates"], 1)
+        self.assertEqual(partial["all_trial_coverage_bounds"], [1 / 8, 7 / 8])
+        self.assertFalse(partial["all_numerically_valid"])
         for scenario in self.report["calibration"].values():
             self.assertEqual(scenario["requested_replicates"], 2)
             self.assertEqual(scenario["failed_replicates"], 2)
