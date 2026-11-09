@@ -10,7 +10,7 @@ from scipy.optimize import brentq
 from scipy.special import stdtr
 from scipy.stats import multivariate_normal, multivariate_t
 
-from nfl_value.continuous_math import Target, compare, integrate, proposal
+from nfl_value.continuous_math import Target, compare, integrate, proposal, quantiles
 from nfl_value.variance_mixture import normalized_weights, system
 
 
@@ -21,6 +21,41 @@ def plan():
 
 
 class ContinuousMathTests(unittest.TestCase):
+    def test_exact_mixture_quantiles_match_independent_roots_and_ignore_zero_mass_brackets(self):
+        result = dict(
+            location=np.array([[[-1.0], [2.0]], [[3.0], [4.0]], [[1e20], [-1e20]]]),
+            diagonal=np.array([[1.0, 4.0], [4.0, 1.0], [1e40, 1e40]]),
+            scale=np.array([[5.0], [10.0], [5.0]]),
+            shape=5.0,
+            weights=np.array([[0.3], [0.7], [0.0]]),
+        )
+        low, high = quantiles(result, 40)
+        for col in range(2):
+
+            def cdf(value):
+                return sum(
+                    result["weights"][j, 0]
+                    * stdtr(
+                        10,
+                        (value - result["location"][j, col, 0])
+                        / np.sqrt(result["diagonal"][j, col] * result["scale"][j, 0] / 5),
+                    )
+                    for j in range(2)
+                )
+
+            for probability, values in [(0.025, low), (0.975, high)]:
+                self.assertAlmostEqual(
+                    values[col, 0],
+                    brentq(lambda x: cdf(x) - probability, -100, 100, xtol=1e-12),
+                    places=9,
+                )
+        point = {**result, "diagonal": np.zeros((3, 2))}
+        a, b = quantiles(point, 40)
+        np.testing.assert_array_equal(a[:, 0], [-1.0, 2.0])
+        np.testing.assert_array_equal(b[:, 0], [3.0, 4.0])
+        with self.assertRaisesRegex(ValueError, "root accuracy"):
+            quantiles(result, 1)
+
     def test_stratified_heavy_tailed_proposal_targets_same_integral_and_nested_prefix(self):
         mean, cov = np.array([2.0, -1.0]), np.array([[2.0, 0.3], [0.3, 0.5]])
         p = {**plan(), "numerical_proposal": "stratified_student_t5_v1"}

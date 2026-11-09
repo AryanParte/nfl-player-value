@@ -5,10 +5,10 @@ from dataclasses import dataclass
 import numpy as np
 from scipy.linalg import solve_triangular
 from scipy.optimize import minimize
-from scipy.special import gammaincinv, logsumexp, ndtri
+from scipy.special import gammaincinv, gammaln, logsumexp, ndtri, stdtr, stdtrit
 from scipy.stats import multivariate_t, qmc
 
-from nfl_value.variance_mixture import cell, interval, moments, normalized_weights, response_stats
+from nfl_value.variance_mixture import cell, moments, normalized_weights, response_stats
 
 
 def normal_logpdf(points, mean, covariance):
@@ -243,9 +243,77 @@ def packed(cases, log_weights):
     }
 
 
+def quantiles(result, iterations):
+    """Solve the exact mixture CDF with safeguarded Newton steps.
+
+    Zero floating-point weights contribute exactly zero to the represented CDF;
+    they must not determine its search bracket. No positive weight is discarded.
+    Exhausted, uncertified roots are errors, not approximate accepted endpoints.
+    """
+    if result["weights"].shape[1] != 1:
+        raise ValueError("continuous quantiles require one response")
+    keep = result["weights"][:, 0] > 0
+    weights = result["weights"][keep, 0]
+    location = result["location"][keep, :, 0]
+    scales = np.sqrt(result["diagonal"][keep] * result["scale"][keep, 0, None] / result["shape"])
+    safe = np.where(scales > 0, scales, 1.0)
+    df = 2 * result["shape"]
+    log_constant = gammaln((df + 1) / 2) - gammaln(df / 2) - 0.5 * np.log(df * np.pi)
+    answers = []
+    for probability in (0.025, 0.975):
+        component = location + float(stdtrit(df, probability)) * scales
+        low, high = component.min(axis=0), component.max(axis=0)
+        current = np.clip(weights @ component, low, high)
+        done = low == high
+        current[done] = low[done]
+        for col in np.flatnonzero(np.all(scales == 0, axis=0) & ~done):
+            order = np.argsort(location[:, col])
+            current[col] = location[
+                order[np.searchsorted(np.cumsum(weights[order]), probability)], col
+            ]
+            done[col] = True
+        for _ in range(iterations):
+            active = np.flatnonzero(~done)
+            if not len(active):
+                break
+            z = (current[None, active] - location[:, active]) / safe[:, active]
+            cdfs = np.where(
+                scales[:, active] > 0,
+                stdtr(df, z),
+                (current[None, active] >= location[:, active]).astype(float),
+            )
+            cdf = weights @ cdfs
+            with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
+                density = np.exp(
+                    log_constant - np.log(safe[:, active]) - ((df + 1) / 2) * np.log1p(z * z / df)
+                )
+                density = weights @ np.where(scales[:, active] > 0, density, 0.0)
+                step = np.divide(
+                    cdf - probability, density, out=np.full(len(active), np.nan), where=density > 0
+                )
+            below = cdf < probability
+            low[active] = np.where(below, current[active], low[active])
+            high[active] = np.where(below, high[active], current[active])
+            tolerance = 2e-12 * (1 + np.abs(current[active]))
+            converged = (np.isfinite(step) & (np.abs(step) <= tolerance)) | (
+                high[active] - low[active] <= 2 * tolerance
+            )
+            done[active[converged]] = True
+            pending = active[~converged]
+            candidate = current[pending] - step[~converged]
+            interior = (
+                np.isfinite(candidate) & (candidate > low[pending]) & (candidate < high[pending])
+            )
+            current[pending] = np.where(interior, candidate, (low[pending] + high[pending]) / 2)
+        if not done.all() or not np.isfinite(current).all():
+            raise ValueError("continuous mixture quantile failed its root accuracy check")
+        answers.append(current[:, None])
+    return tuple(answers)
+
+
 def describe(result, iterations):
     mean, variance = moments(result)
-    low, high = interval(result, iterations=iterations)
+    low, high = quantiles(result, iterations)
     return {
         "mean": mean[:, 0],
         "sd": np.sqrt(np.maximum(variance[:, 0], 0)),

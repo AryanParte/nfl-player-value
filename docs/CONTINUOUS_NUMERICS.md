@@ -51,3 +51,21 @@ The final run starts again from the archive, recomputing **every** requested
 trial. It does not resume by selecting favorable saved checkpoints. Use one BLAS
 thread with parallel workers to bound local CPU contention. There is no new
 statistical alternative, precision threshold, draw selection or paid compute.
+
+The first parallel execution was also interrupted to remove a measured interval
+calculation bottleneck. The final source computes the **same mixture quantiles**
+with safeguarded Newton steps using the exact Student-t CDF and density, within
+the declared 40-iteration cap. A root must satisfy its numerical accuracy check;
+failure raises an error. Zero floating-point weights contribute zero to this
+represented CDF and no longer set extreme search brackets; no positive weight or
+failed conditional solve is dropped. This is an inference implementation fix,
+not a new posterior, interval probability or admission threshold.
+
+Independent scalar roots, known-normal integration, zero-mass/extreme-bound
+fixtures and point masses pass. On one fixed synthetic 1,024-component,
+57-contrast fixture, bisection took 0.541 seconds and the safeguarded solver took
+0.100 seconds; endpoints differed by at most 9.85e-12. This is a local benchmark,
+not a promised NFL-study runtime. A sparse Gram multiplication benchmark was
+slower (0.0050 versus 0.0014 seconds), so that proposed optimization was rejected.
+The final build and network-blocked independent build recompute every draw from
+the archive. Earlier incomplete attempts cannot supply a calibration pass.
