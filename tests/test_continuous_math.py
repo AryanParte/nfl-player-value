@@ -8,7 +8,7 @@ import numpy as np
 from scipy.integrate import quad
 from scipy.optimize import brentq
 from scipy.special import stdtr
-from scipy.stats import multivariate_normal
+from scipy.stats import multivariate_normal, multivariate_t
 
 from nfl_value.continuous_math import Target, compare, integrate, proposal
 from nfl_value.variance_mixture import normalized_weights, system
@@ -21,6 +21,30 @@ def plan():
 
 
 class ContinuousMathTests(unittest.TestCase):
+    def test_stratified_heavy_tailed_proposal_targets_same_integral_and_nested_prefix(self):
+        mean, cov = np.array([2.0, -1.0]), np.array([[2.0, 0.3], [0.3, 0.5]])
+        p = {**plan(), "numerical_proposal": "stratified_student_t5_v1"}
+        target = lambda x: multivariate_normal.logpdf(x, mean=mean, cov=cov)
+        geometry = proposal(target, 2, p)
+        points, correction = geometry.draw_stratified(11, 412)
+        density = geometry.masses[0] * multivariate_normal.pdf(
+            points, mean=geometry.means[0], cov=geometry.covariances[0]
+        )
+        for j in range(1, len(geometry.means)):
+            density += geometry.masses[j] * multivariate_t.pdf(
+                points, loc=geometry.means[j], shape=geometry.covariances[j], df=5
+            )
+        mass = np.tile(geometry.masses, 2**11)
+        np.testing.assert_allclose(np.exp(correction), density / mass, rtol=1e-13)
+        weights = normalized_weights(np.array([target(x) for x in points]) - correction)
+        np.testing.assert_allclose(weights @ points, mean, atol=0.01)
+        centered = points - mean
+        np.testing.assert_allclose((centered.T * weights) @ centered, cov, atol=0.025)
+        prefix, _ = geometry.draw_stratified(9, 412)
+        np.testing.assert_array_equal(prefix, points[: len(prefix)])
+        with self.assertRaisesRegex(ValueError, "stratified"):
+            geometry.draw(7, 412)
+
     def test_proposal_density_and_normal_integral(self):
         mean, cov = np.array([2.0, -1.0]), np.array([[2.0, 0.3], [0.3, 0.5]])
         target = lambda x: multivariate_normal.logpdf(x, mean=mean, cov=cov)
@@ -40,11 +64,18 @@ class ContinuousMathTests(unittest.TestCase):
         np.testing.assert_array_equal(prefix, points[:512])
 
     def test_random_effect_integral_matches_independent_scalar_quadrature(self):
+        for policy in [None, "stratified_student_t5_v1"]:
+            with self.subTest(policy=policy):
+                self.check_scalar_reference(policy)
+
+    def check_scalar_reference(self, policy):
         rng = np.random.default_rng(412)
         x = np.column_stack([np.ones(24), np.tile([-1.0, 1.0], 12)])
         y = 0.5 + 1.5 * x[:, 1] + rng.normal(size=24)
         d = system(x, ["context/intercept", "qb/a"], 1)
         p = plan()
+        if policy is not None:
+            p["numerical_proposal"] = policy
         t = Target(d, y, ["qb"], {"noise_prior_shape": 3.0, "noise_prior_scale": 4.5}, p)
         l = np.array([[0.0, 1.0]])
         fit, summary, mode, diagnostic = integrate(t, l, p)

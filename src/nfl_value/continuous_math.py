@@ -5,8 +5,8 @@ from dataclasses import dataclass
 import numpy as np
 from scipy.linalg import solve_triangular
 from scipy.optimize import minimize
-from scipy.special import logsumexp, ndtri
-from scipy.stats import qmc
+from scipy.special import gammaincinv, logsumexp, ndtri
+from scipy.stats import multivariate_t, qmc
 
 from nfl_value.variance_mixture import cell, interval, moments, normalized_weights, response_stats
 
@@ -47,8 +47,11 @@ class Proposal:
     masses: np.ndarray
     attempts: list
     mode: np.ndarray
+    student_df: int | None = None
 
     def draw(self, power, seed):
+        if self.student_df is not None:
+            raise ValueError("Student-t proposal requires stratified sampling")
         uniform = qmc.Sobol(d=len(self.mode) + 1, scramble=True, seed=seed).random_base2(power)
         if np.any((uniform <= 0) | (uniform >= 1)):
             raise ValueError("non-interior Sobol coordinate")
@@ -63,12 +66,41 @@ class Proposal:
             )
         return points, self.logpdf(points)
 
+    def draw_stratified(self, power, seed):
+        """N balanced nodes per component; log mass corrects deterministic allocation.
+
+        Integral f = sum_j mass_j E_qj[f / q_mixture]. With equal N in each
+        component, the common 1/N cancels in self-normalization. Interleaving
+        components preserves complete, exactly nested power-of-two prefixes.
+        """
+        batches = []
+        d = len(self.mode)
+        for j, (mean, covariance) in enumerate(zip(self.means, self.covariances)):
+            uniform = qmc.Sobol(d=d + 1, scramble=True, seed=seed + j * 10000).random_base2(power)
+            if np.any((uniform <= 0) | (uniform >= 1)):
+                raise ValueError("non-interior stratified Sobol coordinate")
+            z = ndtri(uniform[:, :d])
+            if j and self.student_df is not None:
+                chi_square = 2 * gammaincinv(self.student_df / 2, uniform[:, d])
+                z *= np.sqrt(self.student_df / chi_square)[:, None]
+            batches.append(
+                mean + np.einsum("ij,kj->ik", z, np.linalg.cholesky(covariance), optimize=False)
+            )
+        points = np.stack(batches, axis=1).reshape(-1, d)
+        log_mass = np.tile(np.log(self.masses), 2**power)
+        return points, self.logpdf(points) - log_mass
+
     def logpdf(self, points):
         return logsumexp(
             np.stack(
                 [
-                    np.log(w) + normal_logpdf(points, m, c)
-                    for w, m, c in zip(self.masses, self.means, self.covariances)
+                    np.log(w)
+                    + (
+                        multivariate_t.logpdf(points, loc=m, shape=c, df=self.student_df)
+                        if j and self.student_df is not None
+                        else normal_logpdf(points, m, c)
+                    )
+                    for j, (w, m, c) in enumerate(zip(self.masses, self.means, self.covariances))
                 ]
             ),
             axis=0,
@@ -137,6 +169,7 @@ def proposal(log_target, dimensions, plan):
         np.array([mass] + [(1 - mass) / len(modes)] * len(modes)),
         attempts,
         modes[0][0],
+        5 if plan.get("numerical_proposal") == "stratified_student_t5_v1" else None,
     )
 
 
@@ -247,9 +280,9 @@ def integrate(
 ):
     geometry = proposal(target.log_target, len(target.groups), plan)
     # Generate the largest balanced net once; every power uses its nested prefix.
-    nodes = [
-        geometry.draw(max(plan["sobol_powers"]), s + seed_offset) for s in plan["scramble_seeds"]
-    ]
+    stratified = geometry.student_df is not None
+    draw = geometry.draw_stratified if stratified else geometry.draw
+    nodes = [draw(max(plan["sobol_powers"]), s + seed_offset) for s in plan["scramble_seeds"]]
     cases, base_logs = [[], []], [[], []]
     shifts = (
         [0.0, *plan["qb_prior_mean_shifts"]] if sensitivities and "qb" in target.groups else [0.0]
@@ -257,7 +290,7 @@ def integrate(
     previous, history, descriptions, convergence = {}, [], {}, {}
     evaluated = 0
     for power in plan["sobol_powers"]:
-        size = 2**power
+        size = 2**power * (len(geometry.means) if stratified else 1)
         for j in range(2):
             points, log_q = nodes[j]
             for i in range(evaluated, size):
@@ -320,6 +353,7 @@ def integrate(
         "mode_attempts": geometry.attempts,
         "mode": geometry.mode.tolist(),
         "proposal_components": len(geometry.means),
+        "numerical_proposal": plan.get("numerical_proposal", "gaussian_mixture_v1"),
         "prior_sensitivity": {
             str(s): {
                 "valid": convergence[s],

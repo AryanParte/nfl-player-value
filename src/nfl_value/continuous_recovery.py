@@ -20,8 +20,14 @@ KEYS = set(
 
 
 def validate_plan(plan):
-    if set(plan) != KEYS or type(plan["plan_version"]) is not int or plan["plan_version"] != 1:
+    if (
+        set(plan) not in (KEYS, KEYS | {"numerical_proposal"})
+        or type(plan["plan_version"]) is not int
+        or plan["plan_version"] != 1
+    ):
         raise ValueError("unsupported continuous recovery plan")
+    if "numerical_proposal" in plan and plan["numerical_proposal"] != "stratified_student_t5_v1":
+        raise ValueError("unreviewed numerical proposal")
     if (
         plan["variants"] != ["evolving", "team"]
         or plan["simulation_scenarios"]
@@ -333,6 +339,15 @@ def experiment(context, plan, progress=lambda _: None, checkpoint=lambda *_: Non
                 raise ValueError("player totals differ from nonduplicated play contributions")
             results.update(estimates=estimates, play_ledger=play_ledger)
             fits[variant]["max_accounting_error_ep"] = error
+        checkpoint(
+            "real_candidate",
+            {
+                "variant": variant,
+                "model": model,
+                "diagnostics": diagnostic,
+                "estimates": results.get("estimates") if variant == "evolving" else None,
+            },
+        )
     trials, results["calibration_trials"] = calibration(
         *primary, parent_plan, plan, progress, checkpoint
     )

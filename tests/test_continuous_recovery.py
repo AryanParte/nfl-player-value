@@ -58,6 +58,7 @@ class ContinuousRecoveryTests(unittest.TestCase):
             "simulation_replicates": 2,
             "sobol_powers": [7, 8],
             "minimum_effective_samples": 1e9,
+            "numerical_proposal": "stratified_student_t5_v1",
         }
         cls.report, cls.models, cls.result = experiment(cls.context, cls.plan)
 
