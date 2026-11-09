@@ -187,3 +187,33 @@ variance candidate needs a new frozen rationale, numerical integration checks,
 new draws and prior sensitivity; do not inflate intervals or add complexity to
 manufacture coverage. The saved models and 2026 Week 10 prospective window remain
 frozen. Fresh prediction is necessary evidence and still cannot prove allocation.
+
+## Continuous-variance numerical acceptance (November 9)
+
+The [continuous plan](CONTINUOUS_VARIANCE.md) separates numerical integration
+from model calibration. Independent and nested posterior means/endpoints must
+agree within the frozen fractions of posterior SD, with adequate effective
+samples. Failure at the cap leaves the candidate numerically unverified. It must
+not enter the prospective comparison or imply that its interval is calibrated.
+
+The [one bounded numerical repair](CONTINUOUS_NUMERICS.md) keeps the exact target
+distribution and scientific decision rules. Heavy-tailed, stratified proposals
+change sampling efficiency; full importance-density corrections preserve the
+posterior. The interrupted attempt and completed checkpoints are retained.
+Repeated synthetic responses check this numerical change; they do not constitute
+an independent second scientific experiment. No selected unfavorable trial can
+disappear from the requested calibration denominator. Success-only coverage is
+explicitly conditional, with all-trial bounds that include failed/unverified draws.
+
+Independent known-normal and scalar-quadrature references supplement the inherited
+observation-space likelihood checks. Numerical agreement is necessary but not a
+proof of exact integration. Conditional calibration under a proper random-effect
+generator remains different from NFL model adequacy, correct attribution or
+cross-position comparability. The Week 10 prospective window stays sealed.
+
+The [completed diagnostic scope](CONTINUOUS_RESULTS.md) has eight attempts per
+generator, not all 64 requested fits. The [predeclared scope stop](CONTINUOUS_DIAGNOSTIC_STOP.md)
+retains 56 unattempted fits in each denominator. Both real candidates fail
+numerical accuracy; no complete calibration or observational admission follows
+from this study. An independent numerical reference and small runtime pilot must
+precede another full calibration campaign.

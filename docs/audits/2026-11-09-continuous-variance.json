@@ -1,0 +1,706 @@
+{
+  "date": "2026-11-09",
+  "report_id": "ad45a2cbf0889d4ebebd13cb17dba54a420881453beb9058f44cb0f5dda2cab1",
+  "producer_revision": "099cce5fbff08c13e33322b707b7c80aa402d74c",
+  "parent_report": "2e6708b65c30b2da606859aa14726228238082d887d05d76ed870606ef7180e6",
+  "parent_code_revision": "015319bc6e404502e73d25beba5ce53eb500ed6e",
+  "plan_sha256": "7583950357a0e4d13ec80c24c12ba8ecfeea3b8e7c56d187f29aaf18cda44000",
+  "objects": {
+    "models": "1096cdc8553e98088306114b37cd467797bee10ecbe00ad96c0f419a2d37c889",
+    "predictions": "9a188b103bda99a717eae544918caa0155a75c2c0084e3358d0028c1d916898f"
+  },
+  "environment": {
+    "numpy": "2.2.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.2",
+    "scipy": "1.15.3"
+  },
+  "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+  "season": {
+    "benchmark_audit": {
+      "benchmark_ready": true,
+      "blocked_reasons": [],
+      "candidate_players": 57,
+      "first_unit_zero_opportunity_players": [],
+      "observed_players": 57
+    },
+    "games": 122,
+    "historical_opportunities_in_scoring_total": 0,
+    "negative_player_estimates": 38,
+    "players": 57,
+    "plays": 8996,
+    "qualification_denominators_complete": 23,
+    "ranking_ready": false,
+    "season": 2026
+  },
+  "real_fits": {
+    "evolving": {
+      "valid": false,
+      "nodes_per_scramble": 4096,
+      "numerical_proposal": "stratified_student_t5_v1",
+      "prior_sensitivity": {
+        "-1.3862943611198906": {
+          "max_mean_change": 0.3729789507404391,
+          "valid": false
+        },
+        "1.3862943611198906": {
+          "max_mean_change": 0.3892546561374459,
+          "valid": false
+        }
+      },
+      "last_checks": {
+        "-1.3862943611198906": {
+          "independent_difference": {
+            "endpoint": 0.03830724032944548,
+            "mean": 0.035805745457492905
+          },
+          "minimum_effective_samples": 72.66861323804125,
+          "nested_difference": {
+            "endpoint": 0.034499956073882336,
+            "mean": 0.02753973468688127
+          },
+          "valid": false
+        },
+        "0.0": {
+          "independent_difference": {
+            "endpoint": 0.03968489483385371,
+            "mean": 0.03775478846568369
+          },
+          "minimum_effective_samples": 76.17386881915446,
+          "nested_difference": {
+            "endpoint": 0.03558843268969723,
+            "mean": 0.02741406839591004
+          },
+          "valid": false
+        },
+        "1.3862943611198906": {
+          "independent_difference": {
+            "endpoint": 0.041010830332788746,
+            "mean": 0.03970634344497413
+          },
+          "minimum_effective_samples": 79.881448416711,
+          "nested_difference": {
+            "endpoint": 0.03662094130138995,
+            "mean": 0.027183315175641723
+          },
+          "valid": false
+        }
+      },
+      "max_accounting_error_ep": 1.7763568394002505e-15
+    },
+    "team": {
+      "valid": false,
+      "nodes_per_scramble": 4096,
+      "numerical_proposal": "stratified_student_t5_v1",
+      "prior_sensitivity": {},
+      "last_checks": {
+        "0.0": {
+          "independent_difference": {
+            "endpoint": 0.005549677379848792,
+            "mean": 0.006310544615178037
+          },
+          "minimum_effective_samples": 205.79971643501327,
+          "nested_difference": {
+            "endpoint": 0.01119308421217044,
+            "mean": 0.01169492234145037
+          },
+          "valid": false
+        }
+      }
+    }
+  },
+  "diagnostic_scenarios": {
+    "continuous_hierarchy": {
+      "all_numerically_valid": false,
+      "all_trial_coverage_bounds": [
+        0.044407894736842105,
+        0.9975328947368421
+      ],
+      "attempted_replicates": 8,
+      "failed_replicates": 5,
+      "meaning": "Success-only summaries condition on numerical convergence; any failed trial prevents a calibration pass. Bounds retain all requested trials.",
+      "nominal_shortfall_exceeds_two_mcse": false,
+      "numerically_valid_replicates": 3,
+      "passes_admission": false,
+      "requested_replicates": 64,
+      "synthetic_responses_sha256": "86f0bfdd4442645be60f589ba59c906423b84403be24359eca0ea2c537044424",
+      "unattempted_replicates": 56,
+      "unverified_replicates": 61,
+      "success_only_integrated": {
+        "coverage": 0.9473684210526315,
+        "mean_absolute_player_bias_ep": 10.497412527018342,
+        "mean_interval_width_ep": 77.8000644369477,
+        "mean_signed_error_ep": 0.10194481342412101,
+        "monte_carlo_se": 0.02679868827459557,
+        "passes_admission": false,
+        "replicates": 3,
+        "rmse_ep": 28.324902303386544,
+        "severe_undercoverage": false
+      },
+      "success_only_mode": {
+        "coverage": 0.9532163742690059,
+        "mean_absolute_player_bias_ep": 10.338871070594314,
+        "mean_interval_width_ep": 78.79446879765395,
+        "mean_signed_error_ep": 0.12328785817609622,
+        "monte_carlo_se": 0.023391812865497075,
+        "passes_admission": false,
+        "replicates": 3,
+        "rmse_ep": 28.08507471808779,
+        "severe_undercoverage": false
+      },
+      "attempts": [
+        {
+          "replicate": 0,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.025957707610093448,
+                "mean": 0.036467699498664075
+              },
+              "minimum_effective_samples": 210.9622272856707,
+              "nested_difference": {
+                "endpoint": 0.011791391842503931,
+                "mean": 0.011156039247034165
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 1,
+          "numerical_valid": true,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.007807915836192562,
+                "mean": 0.006817023973720474
+              },
+              "minimum_effective_samples": 321.7775870057772,
+              "nested_difference": {
+                "endpoint": 0.006901321657889627,
+                "mean": 0.003979436628801725
+              },
+              "valid": true
+            }
+          }
+        },
+        {
+          "replicate": 2,
+          "numerical_valid": true,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.009470513742638145,
+                "mean": 0.004710438897538725
+              },
+              "minimum_effective_samples": 233.38267852766543,
+              "nested_difference": {
+                "endpoint": 0.012473852267425825,
+                "mean": 0.006381489244261104
+              },
+              "valid": true
+            }
+          }
+        },
+        {
+          "replicate": 3,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.16808476425432622,
+                "mean": 0.1870169336795972
+              },
+              "minimum_effective_samples": 10.237188633442798,
+              "nested_difference": {
+                "endpoint": 0.09166066528947746,
+                "mean": 0.08762124587298308
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 4,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.016284880273598056,
+                "mean": 0.018503334862799377
+              },
+              "minimum_effective_samples": 174.6031747620196,
+              "nested_difference": {
+                "endpoint": 0.0061155803606731665,
+                "mean": 0.006375846386018303
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 5,
+          "numerical_valid": true,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.01975422821002988,
+                "mean": 0.007609230720595634
+              },
+              "minimum_effective_samples": 297.93406586197256,
+              "nested_difference": {
+                "endpoint": 0.0016348859576828846,
+                "mean": 0.001158285913544614
+              },
+              "valid": true
+            }
+          }
+        },
+        {
+          "replicate": 6,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.06325677109816133,
+                "mean": 0.05555504309549592
+              },
+              "minimum_effective_samples": 39.62732764450039,
+              "nested_difference": {
+                "endpoint": 0.04602461797630324,
+                "mean": 0.04971148619063416
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 7,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.12725884853573308,
+                "mean": 0.08805214489285028
+              },
+              "minimum_effective_samples": 10.042248973247732,
+              "nested_difference": {
+                "endpoint": 0.11181370176989928,
+                "mean": 0.0752600047869793
+              },
+              "valid": false
+            }
+          }
+        }
+      ]
+    },
+    "continuous_prior": {
+      "all_numerically_valid": false,
+      "all_trial_coverage_bounds": [
+        0.06112938596491228,
+        0.9986293859649122
+      ],
+      "attempted_replicates": 8,
+      "failed_replicates": 4,
+      "meaning": "Success-only summaries condition on numerical convergence; any failed trial prevents a calibration pass. Bounds retain all requested trials.",
+      "nominal_shortfall_exceeds_two_mcse": false,
+      "numerically_valid_replicates": 4,
+      "passes_admission": false,
+      "requested_replicates": 64,
+      "synthetic_responses_sha256": "d0d58c139d9042f3985af20a5e33f7ad20d95783c9b31132ff4ebfd696feb7d7",
+      "unattempted_replicates": 56,
+      "unverified_replicates": 60,
+      "success_only_integrated": {
+        "coverage": 0.9780701754385965,
+        "mean_absolute_player_bias_ep": 3.302942179679035,
+        "mean_interval_width_ep": 30.772821054606005,
+        "mean_signed_error_ep": -0.11232417792271701,
+        "monte_carlo_se": 0.008398483401371384,
+        "passes_admission": false,
+        "replicates": 4,
+        "rmse_ep": 9.89247153877268,
+        "severe_undercoverage": false
+      },
+      "success_only_mode": {
+        "coverage": 0.9780701754385965,
+        "mean_absolute_player_bias_ep": 3.2976115689459977,
+        "mean_interval_width_ep": 30.362327290793406,
+        "mean_signed_error_ep": -0.11189694181707478,
+        "monte_carlo_se": 0.008398483401371384,
+        "passes_admission": false,
+        "replicates": 4,
+        "rmse_ep": 9.884729640814642,
+        "severe_undercoverage": false
+      },
+      "attempts": [
+        {
+          "replicate": 0,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.05787422143618991,
+                "mean": 0.012277614890612808
+              },
+              "minimum_effective_samples": 132.05813643086137,
+              "nested_difference": {
+                "endpoint": 0.021784125950464767,
+                "mean": 0.005509909630940687
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 1,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.023618798887680658,
+                "mean": 0.00277735575393641
+              },
+              "minimum_effective_samples": 833.539387856986,
+              "nested_difference": {
+                "endpoint": 0.057835708460699305,
+                "mean": 0.010801086557004328
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 2,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.030892527791348177,
+                "mean": 0.015399402167818304
+              },
+              "minimum_effective_samples": 167.21783361140305,
+              "nested_difference": {
+                "endpoint": 0.04958312359329688,
+                "mean": 0.013486087649920904
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 3,
+          "numerical_valid": true,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.015707828784408927,
+                "mean": 0.0011552334390211925
+              },
+              "minimum_effective_samples": 398.9694948904534,
+              "nested_difference": {
+                "endpoint": 0.01766910741878443,
+                "mean": 0.00298941466888493
+              },
+              "valid": true
+            }
+          }
+        },
+        {
+          "replicate": 4,
+          "numerical_valid": true,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.01680524091028544,
+                "mean": 0.009850592816959982
+              },
+              "minimum_effective_samples": 694.5079571469265,
+              "nested_difference": {
+                "endpoint": 0.015705622316574547,
+                "mean": 0.004155630254453846
+              },
+              "valid": true
+            }
+          }
+        },
+        {
+          "replicate": 5,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.030252509358220457,
+                "mean": 0.020409559470816106
+              },
+              "minimum_effective_samples": 132.19684370082456,
+              "nested_difference": {
+                "endpoint": 0.032466946271044315,
+                "mean": 0.014095786465864214
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 6,
+          "numerical_valid": true,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.005930514012768561,
+                "mean": 0.006454065296630278
+              },
+              "minimum_effective_samples": 204.06480882846952,
+              "nested_difference": {
+                "endpoint": 0.006145245359685572,
+                "mean": 0.004071684147532118
+              },
+              "valid": true
+            }
+          }
+        },
+        {
+          "replicate": 7,
+          "numerical_valid": true,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.010097356447749676,
+                "mean": 0.006894181174162101
+              },
+              "minimum_effective_samples": 388.42363415876713,
+              "nested_difference": {
+                "endpoint": 0.013219014955232273,
+                "mean": 0.0025549617572019775
+              },
+              "valid": true
+            }
+          }
+        }
+      ]
+    },
+    "fixed_year_changes": {
+      "all_numerically_valid": false,
+      "all_trial_coverage_bounds": [
+        0.0,
+        1.0
+      ],
+      "attempted_replicates": 8,
+      "failed_replicates": 8,
+      "meaning": "Success-only summaries condition on numerical convergence; any failed trial prevents a calibration pass. Bounds retain all requested trials.",
+      "numerically_valid_replicates": 0,
+      "passes_admission": false,
+      "requested_replicates": 64,
+      "synthetic_responses_sha256": "cddc35054728faff3dbfb72eedc5af1895df16a8eb5a1914b6c521420aa1c7c3",
+      "unattempted_replicates": 56,
+      "unverified_replicates": 64,
+      "attempts": [
+        {
+          "replicate": 0,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.10314086802964051,
+                "mean": 0.08923599874894138
+              },
+              "minimum_effective_samples": 17.981910264941707,
+              "nested_difference": {
+                "endpoint": 0.078134909755954,
+                "mean": 0.09023777927145624
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 1,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.023350172709737833,
+                "mean": 0.02829128124741966
+              },
+              "minimum_effective_samples": 256.29915319485116,
+              "nested_difference": {
+                "endpoint": 0.004395965086504112,
+                "mean": 0.004246054315129938
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 2,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.250032145418289,
+                "mean": 0.37741531666253164
+              },
+              "minimum_effective_samples": 7.388910915241278,
+              "nested_difference": {
+                "endpoint": 0.17826145567309165,
+                "mean": 0.22515195096294927
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 3,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.0226548649025552,
+                "mean": 0.015341873088403542
+              },
+              "minimum_effective_samples": 996.5984816370923,
+              "nested_difference": {
+                "endpoint": 0.0033394094738254283,
+                "mean": 0.004193403795024064
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 4,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.07553927898062004,
+                "mean": 0.03754283321069733
+              },
+              "minimum_effective_samples": 33.963132779014,
+              "nested_difference": {
+                "endpoint": 0.024719918230896205,
+                "mean": 0.0163467255091975
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 5,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.1795242631893682,
+                "mean": 0.2304726037344292
+              },
+              "minimum_effective_samples": 28.509257912543813,
+              "nested_difference": {
+                "endpoint": 0.08394179023959587,
+                "mean": 0.12327155756447318
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 6,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.6019980334427784,
+                "mean": 0.5511691130144445
+              },
+              "minimum_effective_samples": 2.464839459178286,
+              "nested_difference": {
+                "endpoint": 0.23505611094092782,
+                "mean": 0.15426497296066385
+              },
+              "valid": false
+            }
+          }
+        },
+        {
+          "replicate": 7,
+          "numerical_valid": false,
+          "error": null,
+          "final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.0976468548822851,
+                "mean": 0.0839057026519199
+              },
+              "minimum_effective_samples": 18.834922355232365,
+              "nested_difference": {
+                "endpoint": 0.045654831462134754,
+                "mean": 0.03212885615369732
+              },
+              "valid": false
+            }
+          }
+        }
+      ]
+    }
+  },
+  "verification": {
+    "independent_full_diagnostic_build": true,
+    "python_internet_sockets_blocked_in_rebuild_and_workers": true,
+    "byte_identical_manifest_models_results": true,
+    "rebuild_script_sha256": "7aac053404cee9392dca76012cf8d79c732839808e4cb4bb2f41d3ee8a16467d",
+    "stores": [
+      "data/derived/continuous-variance-diagnostic",
+      "data/derived/continuous-variance-diagnostic-offline"
+    ],
+    "python_tests": 396,
+    "frontend_contracts": 27,
+    "local_make_check": "passed",
+    "local_browser_retest": false,
+    "hosted_ci": {
+      "run_id": 42709632251,
+      "source_revision": "099cce5fbff08c13e33322b707b7c80aa402d74c",
+      "conclusion": "success",
+      "jobs": [
+        "contracts (3.11)",
+        "contracts (3.12)",
+        "contracts (3.13)",
+        "dashboard including Chromium"
+      ]
+    }
+  },
+  "decision": "No admission; incomplete calibration and numerically invalid real-data candidates. Conditional success-only summaries are not evidence of nominal coverage.",
+  "ranking_ready": false,
+  "accounting": {
+    "max_game_ledger_error_ep": 2.220446049250313e-16,
+    "all_estimates_explicitly_numerically_invalid_uncalibrated_unadmitted": true,
+    "negative_diagnostic_estimates": {
+      "equal_player": 33,
+      "first_unit": 38,
+      "opportunity_weighted": 36
+    }
+  }
+}

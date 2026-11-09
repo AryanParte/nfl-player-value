@@ -5,7 +5,7 @@
     6.406408493855057,
     6.625679329667787
   ],
-  "proposal_covariances": [
+  "proposal_scale_matrices": [
     [
       [
         9.0,

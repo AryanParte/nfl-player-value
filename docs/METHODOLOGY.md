@@ -183,3 +183,27 @@ variance candidate needs a new frozen rationale, numerical integration checks,
 new draws and prior sensitivity; do not inflate intervals or add complexity to
 manufacture coverage. The saved models and 2026 Week 10 prospective window remain
 frozen. Fresh prediction is necessary evidence and still cannot prove allocation.
+
+## Continuous variance candidate (November 9)
+
+The [frozen continuous candidate](CONTINUOUS_VARIANCE.md) replaces the finite
+precision grid with independent Normal(log(400), 3²) priors on log precision.
+This removes the coarse support restriction while leaving the outcome model,
+first-unit benchmark, both sensitivities and noise prior intact. It estimates
+observational QB dropback contrasts under explicit hierarchical assumptions;
+team-season effects remain coarse cast/scheme controls, not measured individual
+protection or receiver quality. No new post-play mediator is adjusted away.
+
+Historical opportunities contribute no 2026 points. The season ledger retains
+every archived completed game's observed QB dropbacks and negative contributions.
+It distributes the estimated season-level QB effect over that player's observed
+opportunities; it is not a play-specific causal reward or a time-varying weekly
+skill estimate. A new fitted version may revise earlier contributions and must
+not overwrite a previously published version. Benchmarks remain independent of
+qualification. Unresolved stints and unsupported positions stay unavailable.
+
+Changing an integration proposal does not change these priors or the estimand:
+the [numerical repair](CONTINUOUS_NUMERICS.md) corrects every draw by its exact
+mixture density. Numerical precision, simulated coverage, fresh prediction and
+attribution/admission are separate findings. A wider computed interval by itself
+is no evidence of progress. Neither this study nor its commands publish scores.

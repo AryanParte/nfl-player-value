@@ -313,32 +313,41 @@
     "continuous_hierarchy": {
       "requested_replicates": 64,
       "numerically_valid_replicates": 0,
-      "failed_replicates": 64,
       "all_trial_coverage_bounds": [
         0.0,
         1.0
       ],
-      "passes_admission": false
+      "passes_admission": false,
+      "attempted_replicates": 0,
+      "unattempted_replicates": 64,
+      "numerically_failed_replicates": 0,
+      "failed_or_unverified_replicates": 64
     },
     "continuous_prior": {
       "requested_replicates": 64,
       "numerically_valid_replicates": 2,
-      "failed_replicates": 62,
       "all_trial_coverage_bounds": [
         0.03070175438596491,
         0.9994517543859649
       ],
-      "passes_admission": false
+      "passes_admission": false,
+      "attempted_replicates": 5,
+      "unattempted_replicates": 59,
+      "numerically_failed_replicates": 3,
+      "failed_or_unverified_replicates": 62
     },
     "fixed_year_changes": {
       "requested_replicates": 64,
       "numerically_valid_replicates": 0,
-      "failed_replicates": 64,
       "all_trial_coverage_bounds": [
         0.0,
         1.0
       ],
-      "passes_admission": false
+      "passes_admission": false,
+      "attempted_replicates": 0,
+      "unattempted_replicates": 64,
+      "numerically_failed_replicates": 0,
+      "failed_or_unverified_replicates": 64
     }
   },
   "source_revision": "5a0a808",

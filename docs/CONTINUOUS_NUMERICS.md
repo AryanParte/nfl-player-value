@@ -1,5 +1,11 @@
 # Numerical repair frozen November 9, before its results
 
+Execution outcome: the full-calibration intentions below were subsequently
+bounded by the separately committed [diagnostic scope stop](CONTINUOUS_DIAGNOSTIC_STOP.md).
+The [final result](CONTINUOUS_RESULTS.md) attempts eight of 64 requested fits per
+generator; it does not claim that every requested fit was executed. The original
+plans and the distinction between planned and completed work are preserved.
+
 The initial Gaussian-importance attempt in `5a0a808` reached its numerical cap
 without validating either real candidate. Its completed simulation checkpoints
 are preserved in the [attempt audit](audits/2026-11-09-numerical-attempt.json);

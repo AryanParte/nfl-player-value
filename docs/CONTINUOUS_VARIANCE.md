@@ -103,3 +103,33 @@ Reference: [SciPy Sobol documentation](https://docs.scipy.org/doc/scipy/referenc
 explains power-of-two draws and scrambling; installed NumPy/SciPy pins stay
 unchanged. [Stan calibration guidance](https://mc-stan.org/docs/stan-users-guide/simulation-based-calibration.html)
 distinguishes inference checks under a generator from empirical model adequacy.
+
+## Reproduction and review
+
+The implementation uses the existing pinned NumPy/SciPy optional dependencies;
+ordinary CI uses small synthetic cases, not NFL downloads or the full experiment.
+`continuous_math.py` contains the density/conditional integration and numerical
+checks; `continuous_recovery.py` contains the frozen study and signed season
+accounting. `continuous_cli.py` replays the parent's archived sources, verifies
+the exact design/population and recomputes the benchmark weights before fitting.
+
+The completed scope and exact commands are in [the result report](CONTINUOUS_RESULTS.md).
+Use `config/continuous-variance-diagnostic-v1.json` to reproduce its eight attempts
+per generator. The original default config preserves the planned Gaussian/full
+study; invoking it is not a replay of the final diagnostic artifact.
+
+Use the recorded producing revision and environment for numerical reproduction.
+Builds require committed source. Both commands use local immutable stores;
+replay verifies every output hash and recalculates all configured attempts rather
+than trusting checkpoints. A diagnostic cap retains unattempted requested trials
+in the report's denominator. Checkpoints are diagnostic objects only. Research
+artifacts are ignored by Git; the committed audit records their IDs and evidence.
+A failed numerical check cannot become a valid frozen prediction candidate.
+Neither command publishes rankings, changes a website pointer or refreshes data.
+
+Regression tests compare known-normal integration and a one-dimensional random
+effect with independent SciPy quadrature, in addition to the inherited dense
+observation-space likelihood checks. They force convergence failure, preserve
+its requested denominator, verify signed cumulative accounting and reject altered
+source/model populations or corrupted/mismatched replay outputs. These software
+checks do not establish NFL uncertainty calibration or correct player attribution.

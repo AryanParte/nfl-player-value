@@ -151,7 +151,7 @@ def main(argv=None):
 
             def checkpoint(scenario, trial):
                 # Content-addressed checkpoints aid failure diagnosis; never reused as
-                # input to a build or replay, which both recompute every requested draw.
+                # input to build/replay, which recompute every configured attempt.
                 output.put(
                     json_bytes({"code_revision": revision, "scenario": scenario, "trial": trial})
                 )

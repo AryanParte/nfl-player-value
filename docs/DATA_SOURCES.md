@@ -1,5 +1,14 @@
 # Data sources and provenance
 
+November 9 [participation-release metadata audit](audits/2026-11-09-defense-availability.json):
+the public `pbp_participation` release still lists no 2026 asset. This check
+retrieved metadata only; no reserved game outcomes were downloaded. It does not
+establish absence from every provider. Historical FTN/nflverse participation
+derivatives retain their source-specific CC-BY-SA attribution. The continuous
+variance experiment reuses the exact November 8 research manifest and November 7
+evening 2026 game archive; this audit does not advance that game cutoff or certify
+live workload coverage. Unsupported defensive contributions remain unavailable.
+
 **November 6 launch audit:** a fresh source set reconciles 122 completed games,
 including one Week 9 game, at November 6, 16:42:59 Eastern. The packaging check is
 separate, at 17:23:42 Eastern. The [launch package](LAUNCH_PACKAGE.md) retains all
