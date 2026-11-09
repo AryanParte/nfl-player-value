@@ -4,7 +4,6 @@ from collections import Counter
 import json
 
 import numpy as np
-from scipy.special import logsumexp
 
 from nfl_value.baseline import prepare_plays
 from nfl_value.contrast_cohorts import exposure_diagnostic, make_cohorts
@@ -15,7 +14,7 @@ from nfl_value.multiseason_simulation import calibration
 from nfl_value.qb_math import row_digest
 from nfl_value.qb_recovery import prepare
 from nfl_value.source_audit import aware_time
-from nfl_value.variance_mixture import integrate, interval, moments
+from nfl_value.variance_mixture import integrate, interval, moments, normalized_weights
 
 
 def predict(model, rows):
@@ -268,7 +267,7 @@ def experiment(datasets, first_unit, *, cutoff, plan, progress=lambda _: None):
                     )
                     + tilt * np.log([c["precision"]["qb"] for c in cells])[:, None]
                 )
-                changed_weights = np.exp(log_weights - logsumexp(log_weights, axis=0))
+                changed_weights = normalized_weights(log_weights)
                 changed, _ = moments(fit, changed_weights)
                 difference = changed[: len(players), 0] - point[: len(players), 0]
                 sensitivity.append(

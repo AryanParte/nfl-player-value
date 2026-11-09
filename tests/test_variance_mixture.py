@@ -7,10 +7,19 @@ from scipy.optimize import brentq
 from scipy.special import logsumexp, stdtr
 
 from nfl_value.variance_mixture import cell, integrate, interval, modal_interval, moments
-from nfl_value.variance_mixture import response_stats, system
+from nfl_value.variance_mixture import normalized_weights, response_stats, system
 
 
 class VarianceMixtureTests(unittest.TestCase):
+    def test_large_likelihood_offset_keeps_weights_strictly_normalized(self):
+        logs = np.array([[0.0, -10.0], [-1.0, 0.0], [-2.0, -1.0]])
+        expected = normalized_weights(logs)
+        actual = normalized_weights(logs - 1e9)
+        np.testing.assert_array_equal(actual, expected)
+        np.testing.assert_allclose(actual.sum(axis=0), 1.0, atol=1e-15, rtol=0)
+        with self.assertRaises(ValueError):
+            normalized_weights([[-np.inf], [-np.inf]])
+
     def setUp(self):
         rng = np.random.default_rng(20261108)
         self.x = np.column_stack([np.ones(24), rng.normal(size=24), np.tile([1.0, 0.0], 12)])

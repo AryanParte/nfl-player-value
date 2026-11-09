@@ -60,6 +60,21 @@ def response_stats(prepared, y):
     return {"cross": np.asarray(prepared.x.T @ y), "yty": np.sum(y * y, axis=0), "game_y": gy}
 
 
+def normalized_weights(log_weights):
+    """Normalize after removing the large common likelihood offset.
+
+    Subtracting logsumexp directly from a large-magnitude likelihood loses enough
+    precision to violate a strict probability sum. A final division avoids that
+    cancellation; it does not relax any validation tolerance.
+    """
+    log_weights = np.asarray(log_weights, dtype=float)
+    maximum = np.max(log_weights, axis=0)
+    if np.any(np.isnan(log_weights)) or not np.isfinite(maximum).all():
+        raise ValueError("finite normalizable posterior likelihood required")
+    values = np.exp(log_weights - maximum)
+    return values / np.sum(values, axis=0)
+
+
 def marginal_stats(prepared, stats, game_precision):
     """Only game precision changes the marginalized sufficient statistics."""
     gram, cross, yty = prepared.gram.copy(), stats["cross"].copy(), stats["yty"].copy()
@@ -174,7 +189,7 @@ def integrate(prepared, y, contrasts, cells, *, shape, scale, progress=lambda _:
         if (i + 1) % 125 == 0:
             progress(f"Integrated {i + 1}/{len(cells)} variance cells")
     log_weights = np.asarray(log_weights)
-    weights = np.exp(log_weights - logsumexp(log_weights, axis=0))
+    weights = normalized_weights(log_weights)
     result = {
         "location": np.asarray(locations),
         "diagonal": np.asarray(diagonals),
