@@ -1,0 +1,347 @@
+{
+  "attempt": "initial_gaussian_proposal",
+  "complete": false,
+  "completed_trials": [
+    {
+      "object_id": "939a3b5775f25a87e6532e2aed15287f76ce74ebdd661f3498a4f4f3d32a1403",
+      "scenario": "continuous_prior",
+      "replicate": 0,
+      "numerical_valid": false,
+      "error": null,
+      "last_check": [
+        {
+          "checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.025732016340926155,
+                "mean": 0.004693398441396127
+              },
+              "minimum_effective_samples": 386.2674287510349,
+              "nested_difference": {
+                "endpoint": 0.04673852357782084,
+                "mean": 0.0051570939050680845
+              },
+              "valid": false
+            }
+          },
+          "power": 11
+        }
+      ],
+      "mode_attempts": [
+        {
+          "iterations": 20,
+          "point": [
+            0.7442786677213797,
+            6.894654409360268,
+            9.081612591657326,
+            6.178567960158327
+          ],
+          "relative_objective": -4499.317818230891,
+          "success": true
+        },
+        {
+          "iterations": 25,
+          "point": [
+            0.744281605298579,
+            6.894693338979176,
+            9.081623940305702,
+            6.178558105831664
+          ],
+          "relative_objective": -4499.317818232259,
+          "success": true
+        },
+        {
+          "iterations": 20,
+          "point": [
+            0.7442832575346338,
+            6.895152842878954,
+            9.082286659916724,
+            6.178536789847331
+          ],
+          "relative_objective": -4499.317818092386,
+          "success": true
+        }
+      ]
+    },
+    {
+      "object_id": "6ed73bee54cd9399533d9315fc292af05674785bf7606729a9a3dfd99ede1f7d",
+      "scenario": "continuous_prior",
+      "replicate": 1,
+      "numerical_valid": true,
+      "error": null,
+      "last_check": [
+        {
+          "checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.019706934025071413,
+                "mean": 0.0021247703568312674
+              },
+              "minimum_effective_samples": 928.7955885788576,
+              "nested_difference": {
+                "endpoint": 0.0024409449901404475,
+                "mean": 0.001107932427020133
+              },
+              "valid": true
+            }
+          },
+          "power": 11
+        }
+      ],
+      "mode_attempts": [
+        {
+          "iterations": 13,
+          "point": [
+            8.879993027714784,
+            5.4431731897140185,
+            5.049004517513065,
+            1.6612125652926049
+          ],
+          "relative_objective": -2394.9503829836613,
+          "success": true
+        },
+        {
+          "iterations": 16,
+          "point": [
+            8.879733446152565,
+            5.4431343775264605,
+            5.049031394103155,
+            1.6612146346598444
+          ],
+          "relative_objective": -2394.950383009418,
+          "success": true
+        },
+        {
+          "iterations": 21,
+          "point": [
+            8.879712432445157,
+            5.443127003341402,
+            5.049027921239892,
+            1.6612123686429257
+          ],
+          "relative_objective": -2394.950383008865,
+          "success": true
+        }
+      ]
+    },
+    {
+      "object_id": "010df643d67c39bfd48f0d9f4b71da704995a3f65bc313547d051ad3bd280d08",
+      "scenario": "continuous_prior",
+      "replicate": 2,
+      "numerical_valid": false,
+      "error": null,
+      "last_check": [
+        {
+          "checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.2621930072020719,
+                "mean": 0.08860891004593173
+              },
+              "minimum_effective_samples": 23.572604050150233,
+              "nested_difference": {
+                "endpoint": 0.15125819148297065,
+                "mean": 0.08013252575780576
+              },
+              "valid": false
+            }
+          },
+          "power": 11
+        }
+      ],
+      "mode_attempts": [
+        {
+          "iterations": 18,
+          "point": [
+            9.350995403034588,
+            7.994699832561262,
+            7.519044913758085,
+            7.141458433978547
+          ],
+          "relative_objective": -35.055092415364925,
+          "success": true
+        },
+        {
+          "iterations": 14,
+          "point": [
+            9.350994600380934,
+            7.994699782269905,
+            7.51904501970946,
+            7.141459789162082
+          ],
+          "relative_objective": -35.05509241524851,
+          "success": true
+        },
+        {
+          "iterations": 13,
+          "point": [
+            9.350992013970245,
+            7.994703658082593,
+            7.519045971149017,
+            7.141465827153572
+          ],
+          "relative_objective": -35.05509241507389,
+          "success": true
+        }
+      ]
+    },
+    {
+      "object_id": "61c23b80aab3472e60a8e7907b96f8ce8e86486358b01d6b6f1dce76b503f458",
+      "scenario": "continuous_prior",
+      "replicate": 3,
+      "numerical_valid": false,
+      "error": null,
+      "last_check": [
+        {
+          "checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.29548663890710547,
+                "mean": 0.07853688105436481
+              },
+              "minimum_effective_samples": 88.87867969901941,
+              "nested_difference": {
+                "endpoint": 0.21866833423872323,
+                "mean": 0.0593153583537569
+              },
+              "valid": false
+            }
+          },
+          "power": 11
+        }
+      ],
+      "mode_attempts": [
+        {
+          "iterations": 17,
+          "point": [
+            8.176690402075558,
+            5.126649144440871,
+            8.327637959426383,
+            7.639710231267373
+          ],
+          "relative_objective": -18.388317551347427,
+          "success": true
+        },
+        {
+          "iterations": 13,
+          "point": [
+            8.176691450908354,
+            5.1266491013907824,
+            8.327640013810543,
+            7.639705181097659
+          ],
+          "relative_objective": -18.38831755137653,
+          "success": true
+        },
+        {
+          "iterations": 18,
+          "point": [
+            8.176676382698014,
+            5.126648358299453,
+            8.3276181479301,
+            7.639689259701623
+          ],
+          "relative_objective": -18.38831755166757,
+          "success": true
+        }
+      ]
+    },
+    {
+      "object_id": "e2efa25a87d82fe4691bb9a6e46c604d90d9d0acc1cdec89562d3bbd214d2840",
+      "scenario": "continuous_prior",
+      "replicate": 4,
+      "numerical_valid": true,
+      "error": null,
+      "last_check": [
+        {
+          "checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.011044626126773326,
+                "mean": 0.0029432047371122446
+              },
+              "minimum_effective_samples": 201.00278221327216,
+              "nested_difference": {
+                "endpoint": 0.006800546827867804,
+                "mean": 0.002610062209381504
+              },
+              "valid": true
+            }
+          },
+          "power": 9
+        }
+      ],
+      "mode_attempts": [
+        {
+          "iterations": 13,
+          "point": [
+            5.645721812144742,
+            2.907927327018535,
+            2.896680880951328,
+            6.081633226884601
+          ],
+          "relative_objective": -616.6825996814587,
+          "success": true
+        },
+        {
+          "iterations": 15,
+          "point": [
+            5.645715303584719,
+            2.9079264595757763,
+            2.8966799413598405,
+            6.081629500721627
+          ],
+          "relative_objective": -616.6825996816915,
+          "success": true
+        },
+        {
+          "iterations": 27,
+          "point": [
+            5.645718580250679,
+            2.907928641674904,
+            2.896680755560256,
+            6.081623971025284
+          ],
+          "relative_objective": -616.6825996821281,
+          "success": true
+        }
+      ]
+    }
+  ],
+  "ranking_ready": false,
+  "scenarios": {
+    "continuous_hierarchy": {
+      "requested_replicates": 64,
+      "numerically_valid_replicates": 0,
+      "failed_replicates": 64,
+      "all_trial_coverage_bounds": [
+        0.0,
+        1.0
+      ],
+      "passes_admission": false
+    },
+    "continuous_prior": {
+      "requested_replicates": 64,
+      "numerically_valid_replicates": 2,
+      "failed_replicates": 62,
+      "all_trial_coverage_bounds": [
+        0.03070175438596491,
+        0.9994517543859649
+      ],
+      "passes_admission": false
+    },
+    "fixed_year_changes": {
+      "requested_replicates": 64,
+      "numerically_valid_replicates": 0,
+      "failed_replicates": 64,
+      "all_trial_coverage_bounds": [
+        0.0,
+        1.0
+      ],
+      "passes_admission": false
+    }
+  },
+  "source_revision": "5a0a808",
+  "stderr_sha256": "d2f299f52c6194a6a6c9ef5e28f1a2410d3abd7feaa62eca464f8ab42759ae6f",
+  "stop_reason": "Real candidates failed numerical cap; early trials demonstrate inadequate proposal tails. Stopped before completing calibration, not a scientific rejection or pass. No missing trials treated as successful."
+}

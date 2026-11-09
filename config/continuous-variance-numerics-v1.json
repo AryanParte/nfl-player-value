@@ -1,0 +1,59 @@
+{
+  "plan_version": 1,
+  "parent_report": "2e6708b65c30b2da606859aa14726228238082d887d05d76ed870606ef7180e6",
+  "variants": [
+    "evolving",
+    "team"
+  ],
+  "log_precision_mean": 5.991464547107982,
+  "log_precision_sd": 3.0,
+  "qb_prior_mean_shifts": [
+    -1.3862943611198906,
+    1.3862943611198906
+  ],
+  "proposal_prior_mass": 0.1,
+  "proposal_covariance_multiplier": 1.5,
+  "proposal_covariance_eigen_bounds": [
+    1e-06,
+    36.0
+  ],
+  "optimizer_start_offsets": [
+    -2.0,
+    0.0,
+    2.0
+  ],
+  "optimizer_bound_prior_sds": 8.0,
+  "optimizer_max_iterations": 100,
+  "hessian_step": 0.02,
+  "sobol_powers": [
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "scramble_seeds": [
+    2026110901,
+    2026110902
+  ],
+  "minimum_effective_samples": 128.0,
+  "maximum_standardized_mean_difference": 0.01,
+  "maximum_standardized_endpoint_difference": 0.02,
+  "quantile_iterations": 40,
+  "simulation_replicates": 64,
+  "simulation_seed": 20261109,
+  "simulation_scenarios": [
+    "continuous_prior",
+    "continuous_hierarchy",
+    "fixed_year_changes"
+  ],
+  "failure_policy": "retain_failed_trials_no_calibration_pass",
+  "future_test": {
+    "season": 2026,
+    "weeks": [
+      10
+    ],
+    "fitting_update_allowed": false
+  },
+  "numerical_proposal": "stratified_student_t5_v1"
+}
