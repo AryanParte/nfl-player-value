@@ -15,6 +15,7 @@ from nfl_value.defense_variance import diagnose
 from nfl_value.ingestion import SnapshotStore
 from nfl_value.multiseason import experiment, predict
 from nfl_value.multiseason_cli import replay_experiment
+from nfl_value.multiseason_control import controls
 from nfl_value.multiseason_math import allocation_witness, contrast, design, validate_plan
 from nfl_value.multiseason_simulation import simulate, summary
 from nfl_value.qb_recovery import prepare
@@ -174,6 +175,31 @@ class MultiSeasonTests(unittest.TestCase):
         degraded["team_games"][0]["defense_epa_total"] += 1
         with self.assertRaises(ValueError):
             diagnose(rich, degraded, plan())
+
+    def test_fresh_controls_keep_primary_prior_and_use_distinct_known_innovation(self):
+        p = plan()
+        diagnostic = json.loads(Path("config/multiseason-control-v1.json").read_text())
+        diagnostic["replicates"] = 4
+        rows, _ = prepare(
+            self.data[2026][0], self.data[2026][1], season=2026, low_week=1, high_week=3
+        )
+        d, _ = design(rows, "evolving", scoring_season=2026)
+        players = sorted({row["qb"] for row in rows})
+        l = np.array(
+            [
+                contrast(d.names, player, 10, {v: 1 / len(players) for v in players}, season=2026)
+                for player in players
+            ]
+        )
+        before = deepcopy(p)
+        result = controls(d, l, p, diagnostic)
+        self.assertEqual(p, before)
+        self.assertEqual(result["known_precision_ratios"]["qb"], 36.0)
+        self.assertEqual(result["known_precision_ratios"]["innovation"], 100.0)
+        self.assertFalse(result["ranking_ready"])
+        self.assertEqual(set(result["results"]), set(diagnostic["controls"]))
+        with self.assertRaisesRegex(ValueError, "fresh"):
+            controls(d, l, p, {**diagnostic, "seed": p["simulation_seed"]})
 
     def test_replay_checks_structure_numeric_results_and_artifact_hashes(self):
         report = {**self.report, "input_reports": {}, "evidence_cutoff": self.cutoff.isoformat()}
