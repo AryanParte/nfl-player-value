@@ -1,7 +1,9 @@
 """One continuous-variance candidate; numerical and scientific success stay separate."""
 
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import get_context
+import socket
 import json
 from math import isfinite
 
@@ -181,6 +183,59 @@ def summarize_trials(trials, requested, players):
     return report
 
 
+_WORKER_CONTEXT = None
+
+
+def initialize_worker(context):
+    """Spawned numerical workers have private arrays and no Internet access."""
+    global _WORKER_CONTEXT
+    _WORKER_CONTEXT = context
+    original_socket = socket.socket
+
+    def deny(*args, **kwargs):
+        raise AssertionError("network forbidden in numerical worker")
+
+    def local_socket(*args, **kwargs):
+        sock = original_socket(*args, **kwargs)
+        if sock.family != socket.AF_UNIX:
+            sock.close()
+            deny()
+        return sock
+
+    # Local process IPC is allowed; Internet connections and DNS are not.
+    socket.socket = local_socket
+    socket.create_connection = deny
+    socket.getaddrinfo = deny
+
+
+def fit_trial(context, rep):
+    prepared, l, parent_plan, plan, scenario, beta, y = context
+    trial = {"replicate": rep, "truth": (l @ beta[:, rep]).tolist()}
+    try:
+        target = Target(
+            prepared, y[:, rep], ["qb", "offense", "defense", "game"], parent_plan, plan
+        )
+        _, s, mode, diagnostic = integrate(
+            target,
+            l,
+            plan,
+            seed_offset=1000 + 100 * plan["simulation_scenarios"].index(scenario) + rep,
+        )
+        trial.update(
+            numerical_valid=diagnostic["valid"],
+            diagnostics=diagnostic,
+            **{k: s[k].tolist() for k in ["mean", "low", "high"]},
+            **{"mode_" + k: mode[k].tolist() for k in ["mean", "low", "high"]},
+        )
+    except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:
+        trial.update(numerical_valid=False, error=str(exc))
+    return trial
+
+
+def worker_trial(rep):
+    return fit_trial(_WORKER_CONTEXT, rep)
+
+
 def calibration(prepared, l, parent_plan, plan, progress, checkpoint, workers=1):
     if type(workers) is not int or workers not in (1, 2, 4):
         raise ValueError("one, two or four bounded numerical workers required")
@@ -189,35 +244,26 @@ def calibration(prepared, l, parent_plan, plan, progress, checkpoint, workers=1)
         beta, y = simulate(prepared, parent_plan, plan, scenario)
         trials = []
 
-        def fit_trial(rep):
-            trial = {"replicate": rep, "truth": (l @ beta[:, rep]).tolist()}
-            try:
-                target = Target(
-                    prepared, y[:, rep], ["qb", "offense", "defense", "game"], parent_plan, plan
-                )
-                _, s, mode, diagnostic = integrate(
-                    target,
-                    l,
-                    plan,
-                    seed_offset=1000 + 100 * plan["simulation_scenarios"].index(scenario) + rep,
-                )
-                trial.update(
-                    numerical_valid=diagnostic["valid"],
-                    diagnostics=diagnostic,
-                    **{k: s[k].tolist() for k in ["mean", "low", "high"]},
-                    **{"mode_" + k: mode[k].tolist() for k in ["mean", "low", "high"]},
-                )
-            except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:
-                trial.update(numerical_valid=False, error=str(exc))
-            return trial
+        context = prepared, l, parent_plan, plan, scenario, beta, y
 
-        # Response-local RNG/targets and read-only design; ordered map retains
-        # the same results and failure denominator across worker counts.
-        with ThreadPoolExecutor(max_workers=workers) as executor:
-            for trial in executor.map(fit_trial, range(plan["simulation_replicates"])):
+        def collect(iterator):
+            for trial in iterator:
                 trials.append(trial)
                 checkpoint(scenario, trial)
                 progress(f"{scenario}: completed {len(trials)}/{plan['simulation_replicates']}")
+
+        if workers == 1:
+            collect(fit_trial(context, rep) for rep in range(plan["simulation_replicates"]))
+        else:
+            # Spawn avoids forking a live BLAS runtime. Copy context once per
+            # worker, not once per response; ordered collection is deterministic.
+            with ProcessPoolExecutor(
+                max_workers=workers,
+                mp_context=get_context("spawn"),
+                initializer=initialize_worker,
+                initargs=(context,),
+            ) as executor:
+                collect(executor.map(worker_trial, range(plan["simulation_replicates"])))
         reports[scenario] = {
             **summarize_trials(trials, plan["simulation_replicates"], len(l)),
             "synthetic_responses_sha256": sha256(y.astype("<f8").tobytes()),

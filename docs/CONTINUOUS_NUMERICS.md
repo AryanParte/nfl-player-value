@@ -69,3 +69,11 @@ not a promised NFL-study runtime. A sparse Gram multiplication benchmark was
 slower (0.0050 versus 0.0014 seconds), so that proposed optimization was rejected.
 The final build and network-blocked independent build recompute every draw from
 the archive. Earlier incomplete attempts cannot supply a calibration pass.
+
+Full-design threaded execution remained too slow despite the verified interval
+speedup. The final executor uses at most four spawned processes, initialized with
+one private copy of the design/response arrays per scenario. The same serial-
+parallel identity test passes; spawning avoids forking a live BLAS runtime.
+Numerical workers reject Internet sockets and DNS, while allowing local process
+IPC. A separate test verifies that boundary. Interrupted threaded checkpoints
+remain in their original ignored stores; the final study recomputes all draws.

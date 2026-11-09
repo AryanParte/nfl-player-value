@@ -1,6 +1,9 @@
 """Cumulative accounting, consumed draws, failure denominators and replay contracts."""
 
 from copy import deepcopy
+from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import get_context
+import socket
 from datetime import datetime, timezone
 from pathlib import Path
 import tempfile
@@ -13,6 +16,7 @@ from nfl_value.baseline_cli import save
 from nfl_value.continuous_cli import replay_experiment
 from nfl_value.continuous_recovery import (
     calibration,
+    initialize_worker,
     experiment,
     predict_frozen,
     simulate,
@@ -28,7 +32,34 @@ from test_continuous_math import plan
 from test_multiseason import datasets, plan as previous_plan
 
 
+def probe_worker_network():
+    blocked = []
+    for action in [
+        lambda: socket.getaddrinfo("127.0.0.1", 9),
+        lambda: socket.socket(socket.AF_INET),
+    ]:
+        try:
+            action()
+        except AssertionError:
+            blocked.append(True)
+        else:
+            blocked.append(False)
+    a, b = socket.socketpair()
+    a.close()
+    b.close()
+    return blocked
+
+
 class ContinuousRecoveryTests(unittest.TestCase):
+    def test_spawned_workers_forbid_network_but_allow_local_ipc(self):
+        with ProcessPoolExecutor(
+            max_workers=1,
+            mp_context=get_context("spawn"),
+            initializer=initialize_worker,
+            initargs=(None,),
+        ) as executor:
+            self.assertEqual(executor.submit(probe_worker_network).result(timeout=30), [True, True])
+
     def test_bounded_parallel_execution_reproduces_every_trial_and_failure(self):
         d, _ = design(self.context["rows"], "evolving", scoring_season=2026)
         l = np.eye(len(d.names))[:2]
