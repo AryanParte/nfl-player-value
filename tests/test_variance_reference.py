@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from time import perf_counter
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 from scipy.integrate import quad
@@ -100,10 +101,26 @@ class ReferenceMathTests(unittest.TestCase):
         result = reference_integral(target, l, transport, summaries, p)
         self.assertTrue(result["valid"], result)
         self.assertLess(result["checks"]["0.0"]["maximum_endpoint_cdf_difference"], 0.001)
+        with patch.object(target, "conditional", wraps=target.conditional) as conditional:
+            cached = reference_integral(
+                target, l, transport, summaries, {**p, "reference_cache_nodes": 1024}
+            )
+            calls = conditional.call_count
+        stats = cached.pop("cache")
+        self.assertEqual(cached, result)
+        self.assertEqual(calls, stats["misses"])
+        self.assertEqual(stats["hits"] + calls, result["evaluations"])
+        self.assertLess(calls, result["evaluations"] / 2)
+        self.assertLessEqual(stats["retained"], 1024)
         broken = deepcopy(summaries)
         broken[0.0]["low"] += 0.5
         failed = reference_integral(target, l, transport, broken, p)
         self.assertFalse(failed["valid"])
+        cached_failed = reference_integral(
+            target, l, transport, broken, {**p, "reference_cache_nodes": 1024}
+        )
+        cached_failed.pop("cache")
+        self.assertEqual(cached_failed, failed)
         self.assertFalse(
             reference_integral(
                 target, l, transport, summaries, {**p, "cubature_max_subdivisions": 0}

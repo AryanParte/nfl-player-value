@@ -1,0 +1,48 @@
+{
+  "plan_version": 1,
+  "parent_report": "ad45a2cbf0889d4ebebd13cb17dba54a420881453beb9058f44cb0f5dda2cab1",
+  "cases": [
+    "real_evolving",
+    "real_team",
+    "continuous_prior_0",
+    "continuous_hierarchy_0",
+    "fixed_year_changes_0"
+  ],
+  "prior_mass_per_axis": 0.1,
+  "axis_grid_points": 97,
+  "prior_span_sd": 8.0,
+  "local_span_sd": 6.0,
+  "scramble_seeds": [
+    2026111001,
+    2026111002
+  ],
+  "sobol_powers": [
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "minimum_effective_samples": 128.0,
+  "maximum_standardized_mean_difference": 0.01,
+  "maximum_standardized_endpoint_difference": 0.02,
+  "cubature_rule": "genz-malik",
+  "cubature_rtol": 0.0001,
+  "cubature_atol": 1e-06,
+  "cubature_max_subdivisions": 192,
+  "reference_mean_tolerance_sd": 0.01,
+  "reference_endpoint_cdf_tolerance": 0.001,
+  "maximum_target_evaluations_per_case": 90000,
+  "maximum_seconds_per_case": 900,
+  "maximum_seconds_total": 3600,
+  "failure_policy": "retain_all_cases_no_calibration_or_admission",
+  "future_test": {
+    "season": 2026,
+    "weeks": [
+      10
+    ],
+    "fitting_update_allowed": false
+  },
+  "reference_transport": "independent_student_t5_moments",
+  "reference_cache_nodes": 1024
+}

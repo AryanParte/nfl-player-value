@@ -207,3 +207,24 @@ the [numerical repair](CONTINUOUS_NUMERICS.md) corrects every draw by its exact
 mixture density. Numerical precision, simulated coverage, fresh prediction and
 attribution/admission are separate findings. A wider computed interval by itself
 is no evidence of progress. Neither this study nor its commands publish scores.
+
+## Independent numerical reference (November 10)
+
+The [bounded pilot](VARIANCE_REFERENCE.md) changes numerical integration, not the
+continuous candidate's scientific assumptions. Axis conditional density curves
+construct a full-support proposal; exact joint-density corrections preserve
+dependence among QB, team and game variance parameters. They are not estimated
+posterior marginals or additional player-quality features. First-unit and both
+sensitivity contrasts retain shared player/benchmark covariance.
+
+A [separate smooth transform](VARIANCE_REFERENCE_SMOOTH.md) supplies deterministic
+adaptive cubature as an independent numerical check. Agreement can establish
+useful numerical evidence for this fixed target, not correctness of the target's
+allocation assumptions. The five pilot cases include three already consumed
+synthetic stress draws, so their outcomes cannot supply a fresh calibration pass.
+Every resulting estimate remains uncalibrated and unadmitted. No context variable,
+benchmark population, qualification rule or defensive admission changes here.
+
+[Exact bounded node reuse](VARIANCE_REFERENCE_REUSE.md) removes repeated solves
+in the pinned reference rule. Identical cached/uncached integrals are required;
+this changes computing cost, not the scientific target or acceptance rules.

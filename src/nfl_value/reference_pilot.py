@@ -35,7 +35,7 @@ KEYS = set(
 
 def validate_plan(plan):
     if (
-        set(plan) not in (KEYS, KEYS | {"reference_transport"})
+        not KEYS <= set(plan) <= KEYS | {"reference_transport", "reference_cache_nodes"}
         or type(plan["plan_version"]) is not int
         or plan["plan_version"] != 1
     ):
@@ -45,6 +45,10 @@ def validate_plan(plan):
         and plan["reference_transport"] != "independent_student_t5_moments"
     ):
         raise ValueError("unreviewed reference transform")
+    if "reference_cache_nodes" in plan and (
+        type(plan["reference_cache_nodes"]) is not int or plan["reference_cache_nodes"] != 1024
+    ):
+        raise ValueError("unreviewed reference cache bound")
     if (
         plan["cases"] != CASES
         or plan["failure_policy"] != "retain_all_cases_no_calibration_or_admission"

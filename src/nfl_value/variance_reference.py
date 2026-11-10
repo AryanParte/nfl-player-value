@@ -1,6 +1,7 @@
 """Axis-CDF transport with independent deterministic cubature for one fixed target."""
 
 from dataclasses import dataclass
+from functools import lru_cache
 from time import perf_counter
 
 import numpy as np
@@ -275,44 +276,43 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
     log_reference = target.log_target(transport.mode) - coordinates.logpdf(transport.mode)[0]
     calls = 0
 
+    @lru_cache(maxsize=plan.get("reference_cache_nodes", 0))
+    def node(point, log_q):
+        point = np.asarray(point)
+        c = target.conditional(point, contrasts)
+        scale = np.sqrt(c["diagonal"] * c["posterior_scale"][0] / c["posterior_shape"])
+        safe = np.where(scale > 0, scale, 1.0)
+        location = c["location"][:, 0]
+        values = []
+        for shift in shifts:
+            s = summaries[shift]
+            if np.any(s["sd"] <= 0):
+                raise ValueError("strictly positive contrast SD required for reference")
+            log_weight = (
+                c["log_likelihood"][0] + target.prior(point, shift)[0] - log_q - log_reference
+            )
+            weight = np.exp(log_weight)
+            cdfs = [
+                np.where(
+                    scale > 0,
+                    stdtr(2 * c["posterior_shape"], (s[k] - location) / safe),
+                    (s[k] >= location).astype(float),
+                )
+                for k in ["low", "high"]
+            ]
+            # A mass offset avoids a near-zero relative-error denominator.
+            # Subtract it after normalization and propagate the full error.
+            values.extend(
+                weight
+                * np.r_[1.0, 1.0 + (location - s["mean"]) / s["sd"], *(1.0 + f for f in cdfs)]
+            )
+        return values
+
     def integrand(unit):
         nonlocal calls
         eta = coordinates.transform(unit)
         log_q = coordinates.logpdf(eta)
-        output = []
-        for i, point in enumerate(eta):
-            c = target.conditional(point, contrasts)
-            scale = np.sqrt(c["diagonal"] * c["posterior_scale"][0] / c["posterior_shape"])
-            safe = np.where(scale > 0, scale, 1.0)
-            location = c["location"][:, 0]
-            values = []
-            for shift in shifts:
-                s = summaries[shift]
-                if np.any(s["sd"] <= 0):
-                    raise ValueError("strictly positive contrast SD required for reference")
-                log_weight = (
-                    c["log_likelihood"][0]
-                    + target.prior(point, shift)[0]
-                    - log_q[i]
-                    - log_reference
-                )
-                weight = np.exp(log_weight)
-                cdfs = [
-                    np.where(
-                        scale > 0,
-                        stdtr(2 * c["posterior_shape"], (s[k] - location) / safe),
-                        (s[k] >= location).astype(float),
-                    )
-                    for k in ["low", "high"]
-                ]
-                # Add a known mass term so relative cubature tolerances are not
-                # driven by an arbitrarily near-zero centered integral. Subtract
-                # it after normalization, propagating the mass error as well.
-                values.extend(
-                    weight
-                    * np.r_[1.0, 1.0 + (location - s["mean"]) / s["sd"], *(1.0 + f for f in cdfs)]
-                )
-            output.append(values)
+        output = [node(tuple(point), float(q)) for point, q in zip(eta, log_q)]
         calls += len(eta)
         if calls // 10000 != (calls - len(eta)) // 10000:
             progress(f"deterministic reference evaluated {calls} nodes")
@@ -357,7 +357,7 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
             maximum_endpoint_cdf_difference=float(cdf_difference.max()),
             maximum_endpoint_cdf_difference_plus_error=cdf_upper,
         )
-    return dict(
+    result = dict(
         valid=all(v["valid"] for v in checks.values()),
         status=r.status,
         subdivisions=int(r.subdivisions),
@@ -365,3 +365,11 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
         checks=checks,
         error_is_estimated_not_rigorous=True,
     )
+    if plan.get("reference_cache_nodes"):
+        result["cache"] = dict(
+            capacity=plan["reference_cache_nodes"],
+            hits=node.cache_info().hits,
+            misses=node.cache_info().misses,
+            retained=node.cache_info().currsize,
+        )
+    return result
