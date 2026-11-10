@@ -23,3 +23,22 @@ only `reference_transport: independent_student_t5_moments`. Verify the moments
 against independent quadrature and keep the original known-answer assertion.
 Do not run more numerical alternatives if this fails the bounded NFL pilot; record
 the failure and diagnose it. Consumed numerical tests are not fresh calibration.
+
+The smooth known-answer reference then met the external mean/CDF error checks,
+but its internal relative-error controller still exhausted subdivisions on the
+near-zero **centered mean integral** (maximum mean error plus estimate 0.000272
+SD, endpoint CDF error plus estimate 0.000477). This reflects a poor numerical
+scale for relative integration accuracy. Precondition that integral by adding one
+copy of the target mass, then subtract one after normalization. Propagate both
+numerator and mass errors for the shifted integral before applying the unchanged
+external check. This exact linear identity changes neither the posterior mean
+nor any tolerance or interval. Keep the assertion that the reference converges;
+the reference status cannot be ignored because another check happens to pass.
+
+Apply that same mass-offset identity to the two CDF integrals as well: otherwise
+the 0.025-tail integral still makes the internal relative tolerance far tighter
+than the unchanged normalized-CDF error requirement. All three ratio-integrand
+types are thus computed on the mass scale, with one subtracted afterward and
+conservative error propagation using the full shifted numerator. No positivity
+assumption is made about the centered-mean integrand. The externally assessed
+posterior means, CDF values, acceptance thresholds and budgets are unchanged.
