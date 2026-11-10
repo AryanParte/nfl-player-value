@@ -1,82 +1,85 @@
 # Project status
 
-Updated: November 9, 2026, America/New_York.
+Updated: November 10, 2026, America/New_York.
 
 ## Current scoring milestone
 
-The November 7 MVP target was missed. The owner requested an execution reset:
-scoring is the critical path, optional infrastructure is paused, and each run must
-complete substantial implementation/experiments/diagnosis/verification/decision.
-There is no measured completion percentage. Use the six evidence-based
-[milestones](docs/MILESTONES.md), not an unmeasured “60% remaining” claim.
+The November 7 MVP target was missed. Scoring remains the critical path and
+optional infrastructure is paused. There is no measured completion percentage.
+Use the six evidence-based [milestones](docs/MILESTONES.md).
 
-The [continuous-variance unit](docs/CONTINUOUS_RESULTS.md) is implemented and
-evaluated on `codex/continuous-variance-recovery`, stacked on PR #21. It replaces
-the prior grid with continuous variance integration, diagnoses failed importance
-sampling, implements one target-preserving numerical repair and completes a
-bounded diagnostic study plus independent offline rebuild. The fit retains 48,776
-verified 2024–26 training dropbacks; only **57 QBs / 122 archived 2026 games /
-8,996 dropbacks** add current-season points. All three benchmarks, negative
-contributions and nonduplicated accounting remain intact. The source archive
-ends November 7 at 20:41:17 Eastern; this is not November 9 live game coverage.
+The [numerical-reference unit](docs/VARIANCE_REFERENCE_RESULTS.md) implements a
+more stable sampler for the existing continuous-variance QB model, an independent
+adaptive reference, exact node reuse and complete error diagnostics within fixed
+work limits. It retains **57 QBs / 122 archived 2026 games / 8,996 dropbacks**;
+48,776 historical/current dropbacks inform estimation. The archive ends November 7
+at 20:41:17 Eastern, not November 10 live coverage. All three benchmarks, negative
+contributions, season-only accounting and separate qualification remain intact.
 
-**Decision: no admission.** Both real candidates fail frozen numerical checks.
-The QB fit's minimum effective sample size is 76.17 versus the required 128;
-independent mean disagreement is 0.03775 posterior SD versus 0.01. The team
-control fails nested mean convergence. Both prior sensitivities are numerically
-invalid, so small apparent shifts cannot establish robustness. Weight concentration
-in weak team/game variance tails is a concrete numerical blocker, not evidence
-that the continuous prior itself is statistically invalid.
+**Decision: no admission.** All five original sampler checks pass, including both
+real QB prior sensitivities. The primary QB minimum effective sample size rises
+from 76.17 to 1,077.07; independent mean disagreement falls from 0.03775 to 0.00696
+posterior SD. Every original reference exhausts 90,000 solves. Two independent
+builds reproduce the manifest, models and results byte-for-byte, including failures.
+The exact-reuse follow-up retains complete reference estimates; both real models
+still fail. The QB primary mean discrepancy plus estimated error is 0.02449 SD
+(limit 0.01), and endpoint-CDF discrepancy plus estimated error is 0.03256
+(limit 0.001). The team control also remains nonconverged. Raw numerical agreement
+without an accurate reference is insufficient. All five follow-up references fail;
+none is omitted. The follow-up also reproduces
+byte-for-byte offline, with model/result bytes unchanged from the original pilot.
+The linked result/audit records every case and exact evidence.
 
-The original calibration requested 64 fits per generator. The documented scope
-stop completes eight each, with **4 / 3 / 0 numerically valid**, 17 total numerical
-failures and 168 unattempted fits. Every omission remains in the requested
-denominator; success-only coverage is not a calibration pass. Full calibration is
-unfinished. The [result audit](docs/audits/2026-11-09-continuous-variance.json)
-records identical manifest/model/result hashes from two independent builds, one
-with Python Internet access blocked. That verifies reproducibility, not accuracy
-or attribution. All saved estimates are explicitly invalid and unadmitted.
-**2026 Week 10 stays reserved and uninspected.**
+This is a numerical pilot, not fresh calibration. Its three synthetic draws were
+already consumed. The earlier 192-fit calibration remains unfinished and Week 10
+remains sealed/uninspected. QB/team allocation remains assumption-dependent. All
+17 modules remain unadmitted; no research estimate is presented as an MVP score.
+
+Next: preregister and validate a more efficient independent reference, with
+unchanged posterior/accuracy rules. The measured all-axis subdivision cost makes
+dimension-adaptive refinement a bounded next candidate; prove its error behavior
+on known targets before reusing these consumed stress cases. Do not launch another
+full calibration campaign until numerical reliability passes. Then complete fresh
+calibration, prospective evaluation and the observational admission review.
+
+## Other product milestones
 
 Twenty-three QB participation denominators satisfy the existing narrow proof;
-34 remain unresolved. Qualification is separate from model/benchmark membership.
-All 17 modules remain unadmitted. The required defensive follow-up retains the
-same 131 games / 15,803 plays / 895 defenders: aggregation reduces residualized
-player rank from 856 to 193. These are diagnostics, not defensive CAVAA. Live
-workloads, defensive uncertainty and cross-position comparability remain open.
-The November 9 participation-release metadata audit finds no 2026-named asset
-among 46 assets; this is a gap in the checked feed, not a claim about every provider.
+34 remain unresolved, not automatically ineligible. Qualification stays independent
+of benchmark/model populations. Exact stints and missed-game evidence remain open.
 
-Next: preregister a small independent numerical-reference pilot for the weak
-nuisance-variance tails, with explicit runtime limits, before another full
-calibration campaign. Require numerical agreement on the frozen real design and
-difficult synthetic cases first. Then complete fresh calibration, the sealed
-prospective comparison and the observational-estimand/admission decision. Do not
-repeat the implemented candidate or turn its selected successful trials into a
-pass. No consumed-test tuning, interval inflation or arbitrary gate relaxation.
+The required defensive experiment and Defense Explorer remain intact. The same
+131 games / 15,803 plays / 895 defenders show residualized rank falling from 856
+to 193 after aggregation. These are diagnostics, not defensive CAVAA. November 10
+metadata still finds no 2026-named participation asset among 46 in the checked
+release; that is not absence across every provider. Live workloads, defensive
+uncertainty and cross-position comparability remain unfinished.
+
+The dashboard exposes data limitations and module availability. It has no admitted
+CAVAA leaderboard or ranked history. Its next scoring input must be the first
+validated contribution module with benchmarks, uncertainty and scope preserved.
 
 ## Deployment and execution state
 
-PRs #18, #19 and #20 were merged by the owner; inspected main is `6eb68ed` and
-its hosted matrix/dashboard CI passed. The Explorer release/retention/refresh
-workflow is merged code, not an activated website. November 9 API inspection
-reports `has_pages: false` and no production run among all 47 returned workflow runs.
-The signed-out browser/Site-not-found observation is from November 7; browser
-authentication was not rechecked today. Pages setup/bootstrap remain unfinished. The
-[production runbook](docs/PRODUCTION_REFRESH.md) already supplies the steps;
-this did not block independent model work. An Explorer deployment would still
-not be an admitted CAVAA leaderboard.
+PRs #18/#19/#20 were owner-merged; inspected main remains `6eb68ed`. The Explorer
+workflow is merged preparation, not an activated website. November 10 API reports
+`has_pages: false`; the browser visibly shows Sign in and No releases published.
+Local `gh` is absent; the connector cannot configure Pages or dispatch the workflow.
+No settings changed. Authenticated Pages/bootstrap and remote retention/replay
+remain unfinished, as described in the [runbook](docs/PRODUCTION_REFRESH.md).
+This did not block modeling. Explorer deployment would not admit CAVAA scores.
 
-The existing daily automation prompt and repository instructions prioritize
-model milestones and substantial coherent runs. No automation settings changed;
-its **7:30 PM America/New_York** recurrence is preserved. The
-other NFL project and its automation were not touched. No purchases or new runtime
-dependencies. [PR #22](https://github.com/AryanParte/nfl-player-value/pull/22)
-contains this unit and depends on still-open PR #21. Local `make check` passes:
-396 Python tests, 27 frontend contracts, Ruff/adopted formatting, TypeScript/build,
-compile and whitespace. The independent real-data diagnostic rebuild is byte
-identical. Hosted CI evidence, exact heads and review focus are recorded in the
-[learning report](docs/learning/2026-11-09.md), separately from scientific admission.
+[PR #23](https://github.com/AryanParte/nfl-player-value/pull/23) is stacked on PR #22,
+which depends on PR #21. Local `make check` passes 404 Python tests, 27 frontend
+contracts, Ruff/adopted formatting, TypeScript/build, compile and whitespace.
+Hosted Python 3.11/3.12/3.13 and dashboard/Chromium checks pass on the producing
+source. See the [learning report](docs/learning/2026-11-10.md) for exact CI evidence,
+review focus and scientific limits. Tests passing is separate from model admission.
+
+No automation settings, other repository, dependency or paid service changed.
+The existing **7:30 PM America/New_York** development recurrence is preserved;
+production refresh remains independent. No merge, force-push or main implementation
+push was performed.
 
 ## Earlier measured evidence (unchanged archives)
 

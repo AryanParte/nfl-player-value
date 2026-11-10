@@ -32,13 +32,23 @@ is unfinished and no module is admitted. Weight concentration in weak team/game
 variance tails is the next concrete numerical problem, not evidence for changing
 priors or inflating intervals. The archive remains November 7 evening coverage.
 
-Next substantial unit: preregister a small independent numerical-reference pilot
-for those tails, including runtime limits, before another full calibration
-campaign. Require reliable frozen real-design integration first; retain failed
-trials, original plans and sealed Week 10 outcomes. Then evaluate fresh calibration,
-the prospective comparison and the observational-estimand/admission decision.
-The intermediate scoring milestone still has not passed. Defense remains required;
-the new source-metadata audit finds no 2026 participation asset in the checked feed.
+November 10 completes the [independent numerical-reference unit](docs/VARIANCE_REFERENCE_RESULTS.md):
+all five original QMC stress checks pass; every original deterministic reference
+exhausts its solve budget. Exact node reuse and a budget-aware complete-subdivision
+checkpoint preserve error estimates in the follow-up. All five follow-up references
+fail, so no contribution module is admitted. Both versions independently reproduce
+all failures offline, with identical model/result bytes between versions. This
+consumed-case pilot is not fresh calibration.
+
+Next substantial unit: preregister a more efficient independent reference under
+the unchanged posterior and accuracy requirements. Diagnose the measured all-axis
+subdivision cost; validate dimension-adaptive refinement on known targets before
+the same consumed numerical stress cases. Require numerical reliability before a
+fresh full calibration campaign, prospective comparison and observational admission.
+Do not turn small raw discrepancies into a pass by discarding reference error.
+The source archive remains November 7 evening coverage, and Week 10 stays sealed.
+Defense remains required; the November 10 checked participation release has no
+2026-named asset. This does not establish absence across every provider.
 
 PRs #18/#19 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,
