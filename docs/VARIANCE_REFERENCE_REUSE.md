@@ -36,3 +36,21 @@ statistical alternative. Do not increase budgets or tolerance thresholds. Retain
 every failure and unattempted case. Independently rebuild cached results offline;
 report any incomplete or nonidentical verification. No new calibration or Week 10
 outcomes are opened, and no pilot alone admits CAVAA.
+
+Before the cached follow-up, fix the uncached failure diagnostic as well: an
+exception halfway through a region discards the last complete error estimate.
+For the pinned rule and reviewed 2–4 dimensions, reserve enough solves for the
+initial rule and every child of a complete subdivision. The high rule has
+`1 + 2*d*(d+1) + 2**d` distinct nodes; each split has `2**d` children. Set the
+effective subdivision ceiling to the lesser of 192 and what the remaining
+90,000-solve budget guarantees. Cross-region cache hits may leave spare budget;
+do not spend it adaptively to chase a pass. Retain the last completed estimates,
+error estimates, effective ceiling and explicit nonconvergence. The time limit
+can still interrupt the calculation and must remain an explicit failure.
+
+This adds no solves beyond the declared limit, changes no cubature rule or
+acceptance threshold, and cannot mark a nonconverged reference valid. Verify a
+deliberately constrained actual two-effect model against the same complete
+subdivision computed with an unconstrained solve budget. The cached NFL follow-up
+has not yet run; the original five-case runs continue unchanged in memory under
+their producing revision.

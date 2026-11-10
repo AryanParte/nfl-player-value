@@ -321,6 +321,23 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
             raise ValueError("nonfinite reference integrand")
         return result
 
+    subdivision_limit = plan["cubature_max_subdivisions"]
+    budget_limited = False
+    if isinstance(target, BoundedTarget) and plan.get("reference_cache_nodes"):
+        # Pinned Genz-Malik repeats the high rule for its error; the low rule
+        # is a subset. Our cache can retain an entire rule pair (at most 155
+        # requests in the four-dimensional pilot). Charge the worst-case
+        # distinct solves, including every child of a complete subdivision.
+        d = len(target.groups)
+        if plan["cubature_rule"] != "genz-malik" or d not in (2, 3, 4):
+            raise ValueError("unreviewed cached reference work bound")
+        region_nodes = 1 + 2 * d * (d + 1) + 2**d
+        available = target.evaluation_limit - target.evaluations
+        affordable = (available - region_nodes) // (2**d * region_nodes)
+        if affordable < 1:
+            raise BudgetExceeded("budget cannot retain one complete reference subdivision")
+        subdivision_limit = min(subdivision_limit, affordable)
+        budget_limited = subdivision_limit < plan["cubature_max_subdivisions"]
     r = cubature(
         integrand,
         np.zeros(len(target.groups)),
@@ -328,7 +345,7 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
         rule=plan["cubature_rule"],
         rtol=plan["cubature_rtol"],
         atol=plan["cubature_atol"],
-        max_subdivisions=plan["cubature_max_subdivisions"],
+        max_subdivisions=subdivision_limit,
     )
     checks = {}
     for j, shift in enumerate(shifts):
@@ -366,6 +383,8 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
         error_is_estimated_not_rigorous=True,
     )
     if plan.get("reference_cache_nodes"):
+        result["subdivision_limit"] = subdivision_limit
+        result["subdivision_limit_from_solve_budget"] = budget_limited
         result["cache"] = dict(
             capacity=plan["reference_cache_nodes"],
             hits=node.cache_info().hits,

@@ -99,6 +99,8 @@ class ReferencePilotTests(unittest.TestCase):
             ("maximum_target_evaluations_per_case", True),
             ("prior_mass_per_axis", 1),
             ("future_test", {}),
+            ("reference_cache_nodes", True),
+            ("reference_cache_nodes", 2048),
         ]:
             with self.subTest(key=key), self.assertRaises(ValueError):
                 validate_plan({**plan(), key: value})

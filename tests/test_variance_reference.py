@@ -107,6 +107,8 @@ class ReferenceMathTests(unittest.TestCase):
             )
             calls = conditional.call_count
         stats = cached.pop("cache")
+        cached.pop("subdivision_limit")
+        cached.pop("subdivision_limit_from_solve_budget")
         self.assertEqual(cached, result)
         self.assertEqual(calls, stats["misses"])
         self.assertEqual(stats["hits"] + calls, result["evaluations"])
@@ -120,6 +122,8 @@ class ReferenceMathTests(unittest.TestCase):
             target, l, transport, broken, {**p, "reference_cache_nodes": 1024}
         )
         cached_failed.pop("cache")
+        cached_failed.pop("subdivision_limit")
+        cached_failed.pop("subdivision_limit_from_solve_budget")
         self.assertEqual(cached_failed, failed)
         self.assertFalse(
             reference_integral(
@@ -177,6 +181,38 @@ class ReferenceMathTests(unittest.TestCase):
         t.deadline = perf_counter() - 1
         with self.assertRaises(BudgetExceeded):
             t.log_target(np.array([3.0]))
+
+    def test_solve_budget_retains_complete_failed_reference_estimate(self):
+        x = np.column_stack([np.ones(24), np.tile([-1, 1], 12), np.repeat([-1, 1], 12)])
+        d = system(x, ["context/intercept", "qb/a", "offense/a"], 1)
+        old = json.loads(Path("config/continuous-variance-v1.json").read_text())
+        target = BoundedTarget(
+            d,
+            x[:, 1] + np.random.default_rng(642).normal(size=24),
+            ["qb", "offense"],
+            {"noise_prior_shape": 3, "noise_prior_scale": 4.5},
+            old,
+            evaluation_limit=50000,
+            deadline=perf_counter() + 60,
+        )
+        p = {**plan(), "reference_cache_nodes": 1024}
+        geometry = build_transport(target, p)
+        l = np.array([[0.0, 1.0, -1.0]])
+        _, summaries, _ = qmc_integrate(target, l, geometry, p)
+        before = target.evaluations
+        target.evaluation_limit = before + 120
+        result = reference_integral(target, l, geometry, summaries, p)
+        self.assertFalse(result["valid"])
+        self.assertEqual(result["status"], "not_converged")
+        self.assertTrue(result["subdivision_limit_from_solve_budget"])
+        self.assertEqual(result["subdivisions"], 1)
+        self.assertGreater(result["checks"]["0.0"]["estimated_mass_error"], 0)
+        self.assertLessEqual(target.evaluations, target.evaluation_limit)
+        target.evaluation_limit = 50000
+        same = reference_integral(
+            target, l, geometry, summaries, {**p, "cubature_max_subdivisions": 1}
+        )
+        self.assertEqual(same["checks"], result["checks"])
 
 
 if __name__ == "__main__":
