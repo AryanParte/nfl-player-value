@@ -10,6 +10,7 @@ from scipy.special import ndtr, ndtri, stdtr, stdtrit
 from scipy.stats import qmc, t
 
 from nfl_value.continuous_math import Target, compare, describe, packed, proposal
+from nfl_value.dimension_cubature import integrate as dimension_integrate
 
 
 class BudgetExceeded(ValueError):
@@ -333,19 +334,22 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
             raise ValueError("unreviewed cached reference work bound")
         region_nodes = 1 + 2 * d * (d + 1) + 2**d
         available = target.evaluation_limit - target.evaluations
-        affordable = (available - region_nodes) // (2**d * region_nodes)
+        children = 2 if plan.get("reference_subdivision") == "largest_fourth_difference" else 2**d
+        affordable = (available - region_nodes) // (children * region_nodes)
         if affordable < 1:
             raise BudgetExceeded("budget cannot retain one complete reference subdivision")
         subdivision_limit = min(subdivision_limit, affordable)
         budget_limited = subdivision_limit < plan["cubature_max_subdivisions"]
-    r = cubature(
+    adaptive = plan.get("reference_subdivision") == "largest_fourth_difference"
+    integrate = dimension_integrate if adaptive else cubature
+    r = integrate(
         integrand,
         np.zeros(len(target.groups)),
         np.ones(len(target.groups)),
-        rule=plan["cubature_rule"],
         rtol=plan["cubature_rtol"],
         atol=plan["cubature_atol"],
         max_subdivisions=subdivision_limit,
+        **({} if adaptive else {"rule": plan["cubature_rule"]}),
     )
     checks = {}
     for j, shift in enumerate(shifts):
@@ -391,4 +395,7 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
             misses=node.cache_info().misses,
             retained=node.cache_info().currsize,
         )
+    if adaptive:
+        result["subdivision_strategy"] = "largest_fourth_difference"
+        result["axis_splits"] = r.axis_splits
     return result

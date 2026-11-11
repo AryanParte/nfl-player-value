@@ -35,7 +35,9 @@ KEYS = set(
 
 def validate_plan(plan):
     if (
-        not KEYS <= set(plan) <= KEYS | {"reference_transport", "reference_cache_nodes"}
+        not KEYS
+        <= set(plan)
+        <= KEYS | {"reference_transport", "reference_cache_nodes", "reference_subdivision"}
         or type(plan["plan_version"]) is not int
         or plan["plan_version"] != 1
     ):
@@ -49,6 +51,12 @@ def validate_plan(plan):
         type(plan["reference_cache_nodes"]) is not int or plan["reference_cache_nodes"] != 1024
     ):
         raise ValueError("unreviewed reference cache bound")
+    if "reference_subdivision" in plan and (
+        plan["reference_subdivision"] != "largest_fourth_difference"
+        or plan.get("reference_cache_nodes") != 1024
+        or plan.get("reference_transport") != "independent_student_t5_moments"
+    ):
+        raise ValueError("unreviewed reference subdivision")
     if (
         plan["cases"] != CASES
         or plan["failure_policy"] != "retain_all_cases_no_calibration_or_admission"
@@ -57,7 +65,7 @@ def validate_plan(plan):
         raise ValueError("unreviewed cases, admission or future-window policy")
     for key, low, high in [
         ("axis_grid_points", 9, 257),
-        ("cubature_max_subdivisions", 1, 512),
+        ("cubature_max_subdivisions", 1, 2048 if "reference_subdivision" in plan else 512),
         ("maximum_target_evaluations_per_case", 1, 90000),
         ("maximum_seconds_per_case", 1, 900),
         ("maximum_seconds_total", 1, 3600),
