@@ -24,6 +24,16 @@ connector still exposes neither Pages configuration nor workflow dispatch.
 No settings were changed. Authenticated bootstrap remains a concrete operational
 blocker; it did not block the independent numerical-reference modeling unit.
 
+November 11 audit: the first observed scheduled
+[run 42908770888](https://github.com/AryanParte/nfl-player-value/actions/runs/42908770888)
+failed on November 10 at the previous-release restore step: `no retained Explorer;
+first manual run requires bootstrap`. Offline regression gates passed; capture
+and publication were skipped. This is the intended safeguard before an explicit
+first bootstrap, not an ingestion or model failure. The repository API still
+reports `has_pages: false`; connector capabilities still lack Pages configuration
+and workflow dispatch. Retrying the unchanged scheduled job would repeat the same
+blocker. No bootstrap bypass, workflow/schedule change or publication occurred.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed

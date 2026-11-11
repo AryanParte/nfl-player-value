@@ -45,12 +45,15 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For the active recovery evidence, read `docs/VARIANCE_REFERENCE_RESULTS.md` and its
-linked frozen plans, following the parent evidence in `docs/CONTINUOUS_RESULTS.md`
-and `docs/CONTINUOUS_DIAGNOSTIC_STOP.md`. The continuous candidate and independent
-numerical-reference pilot are implemented; do not repeat them as unfinished
-implementation tasks. Follow the pilot's actual decision before another full
-campaign. Exact node reuse changes computing cost, not the posterior or gates.
+For the active recovery evidence, read `docs/DIMENSION_REFERENCE_RESULTS.md` and
+its frozen plans, following the parent `docs/VARIANCE_REFERENCE_RESULTS.md` and
+continuous-study evidence. Binary adaptive refinement and the correlation-aware
+reference follow-up are implemented and evaluated; do not repeat them as new
+implementation tasks. Preserve the team control's version-specific pass and the
+real QB failures. Do not carry a pass between different numerical versions or
+promote the correlation-aware transform merely because it is more elaborate.
+Follow the actual decision before another full campaign. Shared QMC geometry is
+not independent football evidence, and exact replay is not statistical calibration.
 The 64-per-scenario calibration remains unfinished. Keep attempted
 failures distinct from unattempted trials, both in the requested denominator;
 success-only coverage never certifies the complete study. Preserve the sealed

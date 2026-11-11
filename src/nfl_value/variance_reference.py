@@ -6,10 +6,12 @@ from time import perf_counter
 
 import numpy as np
 from scipy.integrate import cubature
+from scipy.linalg import solve_triangular
 from scipy.special import ndtr, ndtri, stdtr, stdtrit
 from scipy.stats import qmc, t
 
 from nfl_value.continuous_math import Target, compare, describe, packed, proposal
+from nfl_value.dimension_cubature import integrate as dimension_integrate
 
 
 class BudgetExceeded(ValueError):
@@ -147,6 +149,62 @@ class SmoothReferenceTransport:
         )
 
 
+class WhitenedReferenceTransport:
+    """Full-support product-t transform; geometry is not a posterior covariance claim."""
+
+    def __init__(self, geometry):
+        self.mean = np.asarray(geometry["mean"], dtype=float)
+        self.covariance = np.asarray(geometry["covariance"], dtype=float)
+        if (
+            self.mean.ndim != 1
+            or self.covariance.shape != (len(self.mean), len(self.mean))
+            or not np.isfinite(self.mean).all()
+            or not np.isfinite(self.covariance).all()
+            or not np.allclose(self.covariance, self.covariance.T, rtol=0, atol=1e-12)
+        ):
+            raise ValueError("finite symmetric reference geometry required")
+        if np.linalg.eigvalsh(self.covariance).min() <= 0:
+            raise ValueError("positive definite reference geometry required")
+        try:
+            self.factor = np.linalg.cholesky(self.covariance * 3 / 5)
+        except np.linalg.LinAlgError as exc:
+            raise ValueError("positive definite reference geometry required") from exc
+
+    def transform(self, unit):
+        unit = np.asarray(unit)
+        if (
+            unit.ndim != 2
+            or unit.shape[1] != len(self.mean)
+            or not np.isfinite(unit).all()
+            or np.any((unit <= 0) | (unit >= 1))
+        ):
+            raise ValueError("interior reference coordinates required")
+        return self.mean + np.einsum("ij,kj->ik", stdtrit(5, unit), self.factor, optimize=False)
+
+    def logpdf(self, eta):
+        z = solve_triangular(self.factor, (np.atleast_2d(eta) - self.mean).T, lower=True).T
+        return np.sum(t.logpdf(z, 5), axis=1) - np.log(np.diag(self.factor)).sum()
+
+
+def weighted_geometry(points, weights):
+    points, weights = np.asarray(points), np.asarray(weights)
+    if (
+        points.ndim != 2
+        or weights.shape != (len(points),)
+        or not np.isfinite(points).all()
+        or not np.isfinite(weights).all()
+        or np.any(weights < 0)
+        or not np.isclose(weights.sum(), 1, rtol=0, atol=1e-12)
+    ):
+        raise ValueError("finite normalized reference weights required")
+    mean = weights @ points
+    centered = points - mean
+    covariance = np.einsum("ni,nj,n->ij", centered, centered, weights, optimize=False)
+    geometry = dict(mean=mean.tolist(), covariance=covariance.tolist())
+    WhitenedReferenceTransport(geometry)
+    return geometry
+
+
 def build_transport(target, plan):
     model = target.plan
     geometry = proposal(target.log_target, len(target.groups), model)
@@ -253,6 +311,10 @@ def qmc_integrate(
     result["game_mean"] = result["weights"][:, 0] @ np.array(
         [c["game_mean"][:, 0] for c in combined]
     )
+    if plan.get("reference_transport") == "posterior_whitened_product_student_t5":
+        result["reference_geometry"] = weighted_geometry(
+            np.vstack([eta[:evaluated] for eta, _ in nodes]), result["weights"][:, 0]
+        )
     return (
         result,
         summaries,
@@ -264,7 +326,16 @@ def qmc_integrate(
     )
 
 
-def reference_integral(target, contrasts, transport, summaries, plan, progress=lambda _: None):
+def reference_integral(
+    target,
+    contrasts,
+    transport,
+    summaries,
+    plan,
+    progress=lambda _: None,
+    *,
+    reference_geometry=None,
+):
     """Integrate conditional means and endpoint CDFs using an independent rule."""
     shifts = list(summaries)
     n = len(contrasts)
@@ -273,6 +344,10 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
         if plan.get("reference_transport") == "independent_student_t5_moments"
         else transport
     )
+    if plan.get("reference_transport") == "posterior_whitened_product_student_t5":
+        if reference_geometry is None:
+            raise ValueError("recorded posterior reference geometry required")
+        coordinates = WhitenedReferenceTransport(reference_geometry)
     log_reference = target.log_target(transport.mode) - coordinates.logpdf(transport.mode)[0]
     calls = 0
 
@@ -333,19 +408,22 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
             raise ValueError("unreviewed cached reference work bound")
         region_nodes = 1 + 2 * d * (d + 1) + 2**d
         available = target.evaluation_limit - target.evaluations
-        affordable = (available - region_nodes) // (2**d * region_nodes)
+        children = 2 if plan.get("reference_subdivision") == "largest_fourth_difference" else 2**d
+        affordable = (available - region_nodes) // (children * region_nodes)
         if affordable < 1:
             raise BudgetExceeded("budget cannot retain one complete reference subdivision")
         subdivision_limit = min(subdivision_limit, affordable)
         budget_limited = subdivision_limit < plan["cubature_max_subdivisions"]
-    r = cubature(
+    adaptive = plan.get("reference_subdivision") == "largest_fourth_difference"
+    integrate = dimension_integrate if adaptive else cubature
+    r = integrate(
         integrand,
         np.zeros(len(target.groups)),
         np.ones(len(target.groups)),
-        rule=plan["cubature_rule"],
         rtol=plan["cubature_rtol"],
         atol=plan["cubature_atol"],
         max_subdivisions=subdivision_limit,
+        **({} if adaptive else {"rule": plan["cubature_rule"]}),
     )
     checks = {}
     for j, shift in enumerate(shifts):
@@ -391,4 +469,10 @@ def reference_integral(target, contrasts, transport, summaries, plan, progress=l
             misses=node.cache_info().misses,
             retained=node.cache_info().currsize,
         )
+    if adaptive:
+        result["subdivision_strategy"] = "largest_fourth_difference"
+        result["axis_splits"] = r.axis_splits
+    if reference_geometry is not None:
+        result["geometry"] = reference_geometry
+        result["geometry_uses_primary_qmc"] = True
     return result

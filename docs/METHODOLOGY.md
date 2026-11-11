@@ -228,3 +228,12 @@ benchmark population, qualification rule or defensive admission changes here.
 [Exact bounded node reuse](VARIANCE_REFERENCE_REUSE.md) removes repeated solves
 in the pinned reference rule. Identical cached/uncached integrals are required;
 this changes computing cost, not the scientific target or acceptance rules.
+
+The November 11 [dimension-adaptive reference](VARIANCE_REFERENCE_ADAPTIVE.md)
+changes spatial refinement under the same work/error limits. Its
+[correlation-aware follow-up](VARIANCE_REFERENCE_WHITENED.md) uses weighted
+log-precision moments only to choose full-support integration coordinates. Those
+moments are not substituted for posterior variance uncertainty; each node retains
+the original target and exact transformation density. The geometry shares QMC
+information, so independence refers to integration method, not data or all code.
+No player, team, benchmark, opportunity or admission definition changes.

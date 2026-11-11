@@ -40,15 +40,21 @@ fail, so no contribution module is admitted. Both versions independently reprodu
 all failures offline, with identical model/result bytes between versions. This
 consumed-case pilot is not fresh calibration.
 
-Next substantial unit: preregister a more efficient independent reference under
-the unchanged posterior and accuracy requirements. Diagnose the measured all-axis
-subdivision cost; validate dimension-adaptive refinement on known targets before
-the same consumed numerical stress cases. Require numerical reliability before a
-fresh full calibration campaign, prospective comparison and observational admission.
-Do not turn small raw discrepancies into a pass by discarding reference error.
-The source archive remains November 7 evening coverage, and Week 10 stays sealed.
-Defense remains required; the November 10 checked participation release has no
-2026-named asset. This does not establish absence across every provider.
+November 11 implements and evaluates [binary reference refinement and a
+correlation-aware alternative](docs/DIMENSION_REFERENCE_RESULTS.md), with frozen
+plans, known-answer controls, complete case retention and independent replay. The
+first version passes the team control but not the QB or three consumed stress
+cases. The second loses the real team pass; improved-looking raw agreement cannot
+override nonconvergence or reference error. No contribution module is admitted.
+
+Next substantial unit: preregister a bounded higher-order independent reference
+comparison, with known correlated/skewed/tail controls before the same consumed
+stress cases. Do not automatically repeat covariance whitening or change the
+posterior/accuracy gates. Numerical reliability must precede fresh calibration,
+prospective evidence and observational admission. The archive stays November 7
+evening coverage and Week 10 remains sealed. Defense remains mandatory; the
+November 11 checked participation release has no 2026-named asset, which does
+not establish absence across every provider.
 
 PRs #18/#19 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,
