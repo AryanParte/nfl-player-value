@@ -159,3 +159,31 @@ assumptions, not a requirement to identify causal effects. These results do not
 admit QB CAVAA or establish cross-position comparability. Every revealed test is
 now consumed. Future model changes require a frozen rationale and new validation;
 no scalar interval inflation or outcome-driven gate changes are authorized.
+
+
+## November 8 multi-season decision
+
+The [frozen multi-season study](MULTISEASON.md), [fresh failure control](MULTISEASON_CONTROL.md)
+and [measured decision](MULTISEASON_RESULTS.md) integrate variance uncertainty and
+historical QB/team-season information. Only archived 2026 opportunities contribute
+season points; the first-unit benchmark and both sensitivities remain separate
+from qualification. All 17 public modules remain unadmitted.
+
+Matched-finite-prior coverage is 95.13%, but off-grid coverage is 90.78% and a fresh
+control gives 89.56% versus 94.34% with unavailable true variance ratios. Avoiding
+the severe-undercoverage flag is not a nominal-95% pass. Known ratios cannot set
+real intervals. Small sensitivity within the same coarse grid is not robustness
+to different variance assumptions. Historical links leave important QB/team
+allocation ambiguity; null directions describe assumptions rather than impose a
+causal-identification requirement on an observational estimand.
+
+The required defensive follow-up measures a residualized player-rank loss from
+856 to 193 on identical rich/degraded populations. Its unweighted mean contrasts
+are not positional CAVAA, and its likelihoods have different observational units.
+No defensive uncertainty or cross-position comparability pass is claimed.
+
+All newly inspected simulation outcomes are consumed. One subsequent continuous-
+variance candidate needs a new frozen rationale, numerical integration checks,
+new draws and prior sensitivity; do not inflate intervals or add complexity to
+manufacture coverage. The saved models and 2026 Week 10 prospective window remain
+frozen. Fresh prediction is necessary evidence and still cannot prove allocation.

@@ -45,6 +45,14 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
+For the active recovery evidence, read `docs/MULTISEASON_RESULTS.md` and its
+linked frozen plans. Preserve the sealed Week 10 window and saved model versions.
+Passing matched-prior coverage or avoiding a severe-undercoverage flag is not
+general calibration. Known-variance controls use unavailable synthetic knowledge;
+never install their ratios or wider intervals as an NFL uncertainty fix. New
+failure-analysis hypotheses require new preregistered draws, not a rerun selected
+to improve the previous result.
+
 An independently useful partial milestone is acceptable when genuinely blocked or
 capacity-limited, with the remaining work explicit. It is not permission to stop
 at a proposal, small component or first failed experiment. Unverified code is not

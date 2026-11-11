@@ -1,6 +1,6 @@
 # Project status
 
-Updated: November 7, 2026, America/New_York.
+Updated: November 8, 2026, America/New_York.
 
 ## Current scoring milestone
 
@@ -10,46 +10,61 @@ complete substantial implementation/experiments/diagnosis/verification/decision.
 There is no measured completion percentage. Use the six evidence-based
 [milestones](docs/MILESTONES.md), not an unmeasured “60% remaining” claim.
 
-On `codex/qb-model-recovery`, the [bounded QB recovery study](docs/QB_RECOVERY_RESULTS.md)
-now produces cumulative first-unit and sensitivity research contrasts for **57 QBs,
-122 completed 2026 games and 8,996 dropbacks**. All negative values and completed
-games remain. Attribution, benchmark and unexplained components conserve EPA.
+PR #20 was owner-merged and main CI passed. The next substantial unit on
+`codex/multiseason-variance-recovery` is implemented and evaluated:
+[four alternatives, variance integration, fresh calibration, failure controls and
+defensive information loss](docs/MULTISEASON_RESULTS.md). The fit uses 48,776
+verified 2024–26 dropbacks, but only **57 QBs / 122 archived 2026 games / 8,996
+dropbacks** contribute current-season points. All three benchmarks, negative
+contributions and nonduplicated accounting remain intact. This is the November 7
+evening archive, not refreshed November 8 game coverage.
 
-**Decision: no admission.** Learned variance components improve fixed-signal
-calibration to 94.50%/93.79%, but matched-hierarchy coverage is 87.09%; fresh
-failure-analysis draws give 88.32%, versus 95.00% with known synthetic variances.
-The 2024 final-test and 2026 transfer predictive intervals both cross zero.
-QB/team allocation remains consequentially assumption-dependent: a witness that preserves every play prediction changes a season contrast by 80.16 EP, and variance sensitivities
-move contrasts by up to 13.97 EP. Full details and exact hashes are in the
-[research audit](docs/audits/2026-11-07-qb-recovery.json). None is a ranked MVP score.
+**Decision: no admission.** Integrated coverage is 95.13% under the finite prior,
+90.78% off-grid and 92.06% for fixed year changes. Fresh failure controls give
+89.56% versus 94.34% with known synthetic ratios. Those unavailable ratios cannot
+set real intervals. Variance estimation/support remains a material problem;
+absence of the severe <90% flag is not a 95% calibration pass. The constant-QB
+alternative changes a contrast by 25.54 EP; prediction-preserving allocation
+shifts still allow 80.16 EP changes. Small prior sensitivity on a coarse grid is
+not broad robustness. See the [audit](docs/audits/2026-11-08-multiseason.json).
+No fresh predictive pass is claimed: **2026 Week 10 stays reserved and uninspected**.
 
 Twenty-three QB participation denominators satisfy the existing narrow proof;
 34 remain unresolved. Qualification is separate from model/benchmark membership.
-All 17 modules remain unadmitted. The defensive information-loss experiment and
-Defense Explorer remain required and delivered; unsupported value remains null.
+All 17 modules remain unadmitted. The required defensive follow-up retains the
+same 131 games / 15,803 plays / 895 defenders: aggregation reduces residualized
+player rank from 856 to 193. These are diagnostics, not defensive CAVAA. Live
+workloads, defensive uncertainty and cross-position comparability remain open.
 
-Next: preregister and complete a bounded multi-season QB/team-season recovery unit
-using historical transitions and variance-component uncertainty, plus the same
-identifiability/variance diagnosis on the existing defensive designs. Do not tune
-on the now-consumed 2024 or archived 2026 tests. A positive contribution module
-still needs calibrated, stable first-unit estimates and justified admission.
+Next: preregister **one** continuous-variance integration candidate, verify its
+numerical accuracy, run fresh calibration/prior sensitivity and preserve the
+locked Week 10 comparison against the team control. Do not add innovation
+variance merely to manufacture coverage: the new control does not establish it
+as the first fix. Complete an observational-estimand/admission decision. No
+consumed-test tuning, scalar interval inflation or arbitrary gate relaxation.
 
 ## Deployment and execution state
 
-PRs #18 and #19 were merged by the owner; canonical main is `1ee2486` and its
-hosted matrix/dashboard CI passed. The Explorer release/retention/refresh workflow
-is merged code, not an activated website. Current inspection found no production
-run, a signed-out browser, and “Site not found” at the Pages URL. Authenticated
-Pages configuration and a manual bootstrap remain blocked by access. The
+PRs #18, #19 and #20 were merged by the owner; inspected main is `6eb68ed` and
+its hosted matrix/dashboard CI passed. The Explorer release/retention/refresh
+workflow is merged code, not an activated website. November 8 API inspection
+reports `has_pages: false` and no production run among all 40 workflow runs.
+The signed-out browser/Site-not-found observation is from November 7; browser
+authentication was not rechecked today. Pages setup/bootstrap remain unfinished. The
 [production runbook](docs/PRODUCTION_REFRESH.md) already supplies the steps;
 this did not block independent model work. An Explorer deployment would still
 not be an admitted CAVAA leaderboard.
 
-The existing daily automation prompt and repository instructions now prioritize
-model milestones and substantial coherent runs. Its identity, ACTIVE status,
-target chat and **7:30 PM America/New_York** recurrence remain unchanged. The
+The existing daily automation prompt and repository instructions prioritize
+model milestones and substantial coherent runs. No automation settings changed;
+its **7:30 PM America/New_York** recurrence is preserved. The
 other NFL project and its automation were not touched. No purchases or new runtime
-dependencies. The current PR's verification is recorded separately from main CI.
+dependencies. [PR #21](https://github.com/AryanParte/nfl-player-value/pull/21)
+contains the recovery unit; local checks and both offline real-source replays
+passed. Hosted [CI 42560126083](https://github.com/AryanParte/nfl-player-value/actions/runs/42560126083)
+passed for source/analysis head `134a3c8` (Python matrix and dashboard/Chromium).
+The learning report distinguishes this evidence from scientific admission and
+the subsequent documentation-only head.
 
 ## Measured evidence
 

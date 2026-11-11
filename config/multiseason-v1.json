@@ -1,0 +1,23 @@
+{
+  "plan_version": 1,
+  "seasons": [2024, 2025, 2026],
+  "scoring_season": 2026,
+  "primary": "evolving",
+  "variants": ["evolving", "persistent", "team", "qb_proxy"],
+  "precision_grid": [4.0, 40.0, 400.0, 4000.0, 40000.0],
+  "innovation_sd_ratio": 1.0,
+  "noise_prior_shape": 3.0,
+  "noise_prior_scale": 4.5,
+  "prior_qb_precision_tilts": [-0.5, 0.5],
+  "simulation_replicates": 128,
+  "simulation_seed": 20261108,
+  "simulation_scenarios": ["finite_hierarchy", "continuous_hierarchy", "fixed_year_changes"],
+  "stress_effect_sd": {"qb": 0.25, "innovation": 0.15, "offense": 0.15, "defense": 0.10, "game": 0.20},
+  "stress_noise_sd": 1.5,
+  "quantile_iterations": 48,
+  "null_relative_cutoff": 1e-10,
+  "future_test": {"season": 2026, "weeks": [10], "fitting_update_allowed": false},
+  "defense_through_week": 10,
+  "defense_team_precision": 50.0,
+  "defense_context_precision": 1.0
+}
