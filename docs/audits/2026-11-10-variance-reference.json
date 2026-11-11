@@ -1,0 +1,902 @@
+{
+  "admitted_modules": 0,
+  "audit_date": "2026-11-10",
+  "automation_changed": false,
+  "benchmark_member_counts": {
+    "equal_player": 57,
+    "first_unit": 37,
+    "opportunity_weighted": 57
+  },
+  "benchmark_weight_sums": {
+    "equal_player": 1.0,
+    "first_unit": 1.0,
+    "opportunity_weighted": 1.0
+  },
+  "benchmark_weights_sha256": "e3566b96506ea9d3238338b57fecda7c1cf996925ec77a264828f329a9b2966d",
+  "cached_model_and_result_bytes_identical_to_uncached": true,
+  "cached_qmc_diagnostics_identical_to_uncached": true,
+  "cases_attempted_per_pilot": 5,
+  "decision": "No admission. Every sampler passes; all independent references fail. Preserve target and gates; validate a more efficient independent reference before fresh calibration.",
+  "defense": {
+    "asset_count": 46,
+    "checked_date": "2026-11-10",
+    "defenders": 895,
+    "games": 131,
+    "historical_experiment_unchanged": true,
+    "latest_asset_updated_at": "2026-02-10T18:54:08Z",
+    "plays": 15803,
+    "release_id": 71636554,
+    "residualized_rank_aggregate": 193,
+    "residualized_rank_rich": 856,
+    "scope": "Metadata only; no reserved outcomes opened. Checked-feed absence is not all-provider absence.",
+    "season_2026_assets": [],
+    "url": "https://api.github.com/repos/nflverse/nflverse-data/releases/tags/pbp_participation"
+  },
+  "deployment": {
+    "browser_signed_in": false,
+    "browser_visible_no_releases_published": true,
+    "checked_date": "2026-11-10",
+    "connector_can_dispatch_or_configure_pages": false,
+    "hosted_deployment_verified": false,
+    "local_gh_available": false,
+    "repository_api_has_pages": false,
+    "settings_changed": false
+  },
+  "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+  "experiment": "bounded independent numerical-reference pilot",
+  "fresh_calibration_trials": 0,
+  "independent_builds_per_version": 2,
+  "input_reports": {
+    "defense": "62f3bfabba7ca58f1f4c3b3b9e3c8993b327ca96772ab232d63666e9819433c9",
+    "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+    "seasons": {
+      "2024": {
+        "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+        "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+      },
+      "2025": {
+        "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+        "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+      },
+      "2026": {
+        "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+        "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+      }
+    }
+  },
+  "other_repository_changed": false,
+  "parent_code_revision": "099cce5fbff08c13e33322b707b7c80aa402d74c",
+  "parent_report": "ad45a2cbf0889d4ebebd13cb17dba54a420881453beb9058f44cb0f5dda2cab1",
+  "purchases_or_new_dependencies": false,
+  "repository": {
+    "base_pr": 22,
+    "base_pr_dependency": 21,
+    "main": "6eb68ed4f824bc2f566e6efd0ddf22c28545e40d",
+    "parents_open_at_final_check": true,
+    "pr": 23
+  },
+  "runs": {
+    "cached": {
+      "all_case_seconds_excluding_source_replay": 1275.6893442082219,
+      "calibration_completed": false,
+      "cases": {
+        "continuous_hierarchy_0": {
+          "contrasts": 57,
+          "dimensions": 4,
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.010809685180167224,
+                "mean": 0.005801926165709104
+              },
+              "minimum_effective_samples": 611.1549712783099,
+              "nested_difference": {
+                "endpoint": 0.01091806787915205,
+                "mean": 0.006111159247630247
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "reference": {
+            "cache": {
+              "capacity": 1024,
+              "hits": 144354,
+              "misses": 83961,
+              "retained": 1024
+            },
+            "checks": {
+              "0.0": {
+                "estimated_mass_error": 4.919373096944993e-05,
+                "mass": 0.003785606416618862,
+                "maximum_endpoint_cdf_difference": 0.00017243093012906524,
+                "maximum_endpoint_cdf_difference_plus_error": 0.05231972121602587,
+                "maximum_mean_difference_plus_error_sd": 0.03447869477334357,
+                "maximum_mean_difference_sd": 0.003242833026019021,
+                "valid": false
+              }
+            },
+            "error_is_estimated_not_rigorous": true,
+            "evaluations": 228315,
+            "status": "not_converged",
+            "subdivision_limit": 92,
+            "subdivision_limit_from_solve_budget": true,
+            "subdivisions": 92,
+            "valid": false
+          },
+          "status": "failed",
+          "target_evaluations": 89744
+        },
+        "continuous_prior_0": {
+          "contrasts": 57,
+          "dimensions": 4,
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.016690255064447327,
+                "mean": 0.002005268064793611
+              },
+              "minimum_effective_samples": 1621.5399038072494,
+              "nested_difference": {
+                "endpoint": 0.011256985508015621,
+                "mean": 0.0019455619875572358
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "reference": {
+            "cache": {
+              "capacity": 1024,
+              "hits": 144354,
+              "misses": 83961,
+              "retained": 1024
+            },
+            "checks": {
+              "0.0": {
+                "estimated_mass_error": 0.0011855808401667065,
+                "mass": 0.02339933850202289,
+                "maximum_endpoint_cdf_difference": 0.0015589672808872246,
+                "maximum_endpoint_cdf_difference_plus_error": 0.21118129006022038,
+                "maximum_mean_difference_plus_error_sd": 0.11500460826819267,
+                "maximum_mean_difference_sd": 0.0049559810750575695,
+                "valid": false
+              }
+            },
+            "error_is_estimated_not_rigorous": true,
+            "evaluations": 228315,
+            "status": "not_converged",
+            "subdivision_limit": 92,
+            "subdivision_limit_from_solve_budget": true,
+            "subdivisions": 92,
+            "valid": false
+          },
+          "status": "failed",
+          "target_evaluations": 89646
+        },
+        "fixed_year_changes_0": {
+          "contrasts": 57,
+          "dimensions": 4,
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.008174304376438747,
+                "mean": 0.008754401822471796
+              },
+              "minimum_effective_samples": 819.7119313344713,
+              "nested_difference": {
+                "endpoint": 0.003748620583981568,
+                "mean": 0.0026962954687696794
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "reference": {
+            "cache": {
+              "capacity": 1024,
+              "hits": 144354,
+              "misses": 83961,
+              "retained": 1024
+            },
+            "checks": {
+              "0.0": {
+                "estimated_mass_error": 0.000130257201765505,
+                "mass": 0.0009470353686237597,
+                "maximum_endpoint_cdf_difference": 0.0018638833507488295,
+                "maximum_endpoint_cdf_difference_plus_error": 0.6324462893820483,
+                "maximum_mean_difference_plus_error_sd": 0.3588732058997777,
+                "maximum_mean_difference_sd": 0.022995319316897578,
+                "valid": false
+              }
+            },
+            "error_is_estimated_not_rigorous": true,
+            "evaluations": 228315,
+            "status": "not_converged",
+            "subdivision_limit": 92,
+            "subdivision_limit_from_solve_budget": true,
+            "subdivisions": 92,
+            "valid": false
+          },
+          "status": "failed",
+          "target_evaluations": 89600
+        },
+        "real_evolving": {
+          "contrasts": 171,
+          "dimensions": 4,
+          "max_accounting_error_ep": 8.881784197001252e-16,
+          "qmc_final_checks": {
+            "-1.3862943611198906": {
+              "independent_difference": {
+                "endpoint": 0.00927747108739499,
+                "mean": 0.006694497012541669
+              },
+              "minimum_effective_samples": 1068.522742543388,
+              "nested_difference": {
+                "endpoint": 0.005927777019748002,
+                "mean": 0.0027987303421883034
+              },
+              "valid": true
+            },
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.009711450054260674,
+                "mean": 0.006957927542434263
+              },
+              "minimum_effective_samples": 1077.070749865279,
+              "nested_difference": {
+                "endpoint": 0.006419398147567964,
+                "mean": 0.0031249442505213373
+              },
+              "valid": true
+            },
+            "1.3862943611198906": {
+              "independent_difference": {
+                "endpoint": 0.010058493005368608,
+                "mean": 0.007154393352837961
+              },
+              "minimum_effective_samples": 1073.8579802361319,
+              "nested_difference": {
+                "endpoint": 0.006973230873254243,
+                "mean": 0.0034965392576482225
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "reference": {
+            "cache": {
+              "capacity": 1024,
+              "hits": 144354,
+              "misses": 83961,
+              "retained": 1024
+            },
+            "checks": {
+              "-1.3862943611198906": {
+                "estimated_mass_error": 0.00032618732734583124,
+                "mass": 0.040883284176834685,
+                "maximum_endpoint_cdf_difference": 0.0007298388567153133,
+                "maximum_endpoint_cdf_difference_plus_error": 0.032407308560238594,
+                "maximum_mean_difference_plus_error_sd": 0.023479148092181327,
+                "maximum_mean_difference_sd": 0.006657377014871346,
+                "valid": false
+              },
+              "0.0": {
+                "estimated_mass_error": 0.00035953618418906876,
+                "mass": 0.04494746808042971,
+                "maximum_endpoint_cdf_difference": 0.0008366269681822289,
+                "maximum_endpoint_cdf_difference_plus_error": 0.03256088115692197,
+                "maximum_mean_difference_plus_error_sd": 0.024489988041487342,
+                "maximum_mean_difference_sd": 0.007780053761567984,
+                "valid": false
+              },
+              "1.3862943611198906": {
+                "estimated_mass_error": 0.0003220464987360089,
+                "mass": 0.040013750538680115,
+                "maximum_endpoint_cdf_difference": 0.0009423218633052496,
+                "maximum_endpoint_cdf_difference_plus_error": 0.03285700388081815,
+                "maximum_mean_difference_plus_error_sd": 0.02594529240124401,
+                "maximum_mean_difference_sd": 0.009045122712871945,
+                "valid": false
+              }
+            },
+            "error_is_estimated_not_rigorous": true,
+            "evaluations": 228315,
+            "status": "not_converged",
+            "subdivision_limit": 92,
+            "subdivision_limit_from_solve_budget": true,
+            "subdivisions": 92,
+            "valid": false
+          },
+          "status": "failed",
+          "target_evaluations": 89599
+        },
+        "real_team": {
+          "contrasts": 211,
+          "dimensions": 3,
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.004019689435365623,
+                "mean": 0.0029632484269554397
+              },
+              "minimum_effective_samples": 814.4179619742932,
+              "nested_difference": {
+                "endpoint": 0.002551507204014075,
+                "mean": 0.0011377804408452279
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 1024,
+          "reference": {
+            "cache": {
+              "capacity": 1024,
+              "hits": 89146,
+              "misses": 50721,
+              "retained": 1024
+            },
+            "checks": {
+              "0.0": {
+                "estimated_mass_error": 6.513361564186133e-05,
+                "mass": 0.054929703524868846,
+                "maximum_endpoint_cdf_difference": 8.437913536740727e-05,
+                "maximum_endpoint_cdf_difference_plus_error": 0.004768726477864694,
+                "maximum_mean_difference_plus_error_sd": 0.0035136525087779906,
+                "maximum_mean_difference_sd": 0.0010146113624835973,
+                "valid": false
+              }
+            },
+            "error_is_estimated_not_rigorous": true,
+            "evaluations": 139867,
+            "status": "not_converged",
+            "subdivision_limit": 192,
+            "subdivision_limit_from_solve_budget": false,
+            "subdivisions": 192,
+            "valid": false
+          },
+          "status": "failed",
+          "target_evaluations": 53941
+        }
+      },
+      "code_revision": "f496ffdb27ecca9744eabd7ed36db69396713943",
+      "environment": {
+        "numpy": "2.2.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2",
+        "scipy": "1.15.3"
+      },
+      "independent_manifest_model_result_byte_equal": true,
+      "independent_python_internet_sockets_dns_blocked": true,
+      "independent_store": "data/derived/variance-reference-cached-offline",
+      "independent_wall_seconds": {
+        "continuous_hierarchy_0": 285.833851542091,
+        "continuous_prior_0": 287.12459191679955,
+        "fixed_year_changes_0": 284.18376874993555,
+        "real_evolving": 369.7572084579151,
+        "real_team": 48.81827608286403
+      },
+      "numerical_pilot_passed": false,
+      "objects": {
+        "models": "969823d70ceabc6cb5c7dec3e7065a1e23ff547c6275e9322fad71f04d320c51",
+        "predictions": "b55976166828f825cd9343e30dc3a2a08e306e3b4136f755dc40ff80addd64c9"
+      },
+      "plan": {
+        "axis_grid_points": 97,
+        "cases": [
+          "real_evolving",
+          "real_team",
+          "continuous_prior_0",
+          "continuous_hierarchy_0",
+          "fixed_year_changes_0"
+        ],
+        "cubature_atol": 1e-06,
+        "cubature_max_subdivisions": 192,
+        "cubature_rtol": 0.0001,
+        "cubature_rule": "genz-malik",
+        "failure_policy": "retain_all_cases_no_calibration_or_admission",
+        "future_test": {
+          "fitting_update_allowed": false,
+          "season": 2026,
+          "weeks": [
+            10
+          ]
+        },
+        "local_span_sd": 6.0,
+        "maximum_seconds_per_case": 900,
+        "maximum_seconds_total": 3600,
+        "maximum_standardized_endpoint_difference": 0.02,
+        "maximum_standardized_mean_difference": 0.01,
+        "maximum_target_evaluations_per_case": 90000,
+        "minimum_effective_samples": 128.0,
+        "parent_report": "ad45a2cbf0889d4ebebd13cb17dba54a420881453beb9058f44cb0f5dda2cab1",
+        "plan_version": 1,
+        "prior_mass_per_axis": 0.1,
+        "prior_span_sd": 8.0,
+        "reference_cache_nodes": 1024,
+        "reference_endpoint_cdf_tolerance": 0.001,
+        "reference_mean_tolerance_sd": 0.01,
+        "reference_transport": "independent_student_t5_moments",
+        "scramble_seeds": [
+          2026111001,
+          2026111002
+        ],
+        "sobol_powers": [
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "plan_sha256": "99b4cea83ad66a6fd04d8f9effbdfde5efc0284ab46fbdbd789dddb577f516b7",
+      "ranking_ready": false,
+      "report_id": "98ceb32af881404c22a1221b27012da7ef427e4c218d1808b4a83ccc7d0b77c4",
+      "store": "data/derived/variance-reference-cached",
+      "wall_seconds": {
+        "continuous_hierarchy_0": 286.0012454581447,
+        "continuous_prior_0": 287.0495219579898,
+        "fixed_year_changes_0": 284.2048092498444,
+        "real_evolving": 369.620307209203,
+        "real_team": 48.813460333039984
+      }
+    },
+    "uncached": {
+      "all_case_seconds_excluding_source_replay": 2855.468750543194,
+      "calibration_completed": false,
+      "cases": {
+        "continuous_hierarchy_0": {
+          "budget_exhausted": true,
+          "contrasts": 57,
+          "dimensions": 4,
+          "error": "declared target evaluation/time budget exhausted",
+          "failed_stage": "reference",
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.010809685180167224,
+                "mean": 0.005801926165709104
+              },
+              "minimum_effective_samples": 611.1549712783099,
+              "nested_difference": {
+                "endpoint": 0.01091806787915205,
+                "mean": 0.006111159247630247
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "status": "failed",
+          "target_evaluations": 90000
+        },
+        "continuous_prior_0": {
+          "budget_exhausted": true,
+          "contrasts": 57,
+          "dimensions": 4,
+          "error": "declared target evaluation/time budget exhausted",
+          "failed_stage": "reference",
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.016690255064447327,
+                "mean": 0.002005268064793611
+              },
+              "minimum_effective_samples": 1621.5399038072494,
+              "nested_difference": {
+                "endpoint": 0.011256985508015621,
+                "mean": 0.0019455619875572358
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "status": "failed",
+          "target_evaluations": 90000
+        },
+        "fixed_year_changes_0": {
+          "budget_exhausted": true,
+          "contrasts": 57,
+          "dimensions": 4,
+          "error": "declared target evaluation/time budget exhausted",
+          "failed_stage": "reference",
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.008174304376438747,
+                "mean": 0.008754401822471796
+              },
+              "minimum_effective_samples": 819.7119313344713,
+              "nested_difference": {
+                "endpoint": 0.003748620583981568,
+                "mean": 0.0026962954687696794
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "status": "failed",
+          "target_evaluations": 90000
+        },
+        "real_evolving": {
+          "budget_exhausted": true,
+          "contrasts": 171,
+          "dimensions": 4,
+          "error": "declared target evaluation/time budget exhausted",
+          "failed_stage": "reference",
+          "max_accounting_error_ep": 8.881784197001252e-16,
+          "qmc_final_checks": {
+            "-1.3862943611198906": {
+              "independent_difference": {
+                "endpoint": 0.00927747108739499,
+                "mean": 0.006694497012541669
+              },
+              "minimum_effective_samples": 1068.522742543388,
+              "nested_difference": {
+                "endpoint": 0.005927777019748002,
+                "mean": 0.0027987303421883034
+              },
+              "valid": true
+            },
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.009711450054260674,
+                "mean": 0.006957927542434263
+              },
+              "minimum_effective_samples": 1077.070749865279,
+              "nested_difference": {
+                "endpoint": 0.006419398147567964,
+                "mean": 0.0031249442505213373
+              },
+              "valid": true
+            },
+            "1.3862943611198906": {
+              "independent_difference": {
+                "endpoint": 0.010058493005368608,
+                "mean": 0.007154393352837961
+              },
+              "minimum_effective_samples": 1073.8579802361319,
+              "nested_difference": {
+                "endpoint": 0.006973230873254243,
+                "mean": 0.0034965392576482225
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 2048,
+          "status": "failed",
+          "target_evaluations": 90000
+        },
+        "real_team": {
+          "budget_exhausted": true,
+          "contrasts": 211,
+          "dimensions": 3,
+          "error": "declared target evaluation/time budget exhausted",
+          "failed_stage": "reference",
+          "qmc_final_checks": {
+            "0.0": {
+              "independent_difference": {
+                "endpoint": 0.004019689435365623,
+                "mean": 0.0029632484269554397
+              },
+              "minimum_effective_samples": 814.4179619742932,
+              "nested_difference": {
+                "endpoint": 0.002551507204014075,
+                "mean": 0.0011377804408452279
+              },
+              "valid": true
+            }
+          },
+          "qmc_nodes_per_scramble": 1024,
+          "status": "failed",
+          "target_evaluations": 90000
+        }
+      },
+      "code_revision": "1b5b7452116c7063464765a8b1f3d9c29860dc7e",
+      "environment": {
+        "numpy": "2.2.6",
+        "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2",
+        "scipy": "1.15.3"
+      },
+      "independent_manifest_model_result_byte_equal": true,
+      "independent_python_internet_sockets_dns_blocked": true,
+      "independent_store": "data/derived/variance-reference-offline",
+      "independent_wall_seconds": {
+        "continuous_hierarchy_0": 632.4885606670287,
+        "continuous_prior_0": 634.9604074999224,
+        "fixed_year_changes_0": 628.1746161668561,
+        "real_evolving": 785.66333999997,
+        "real_team": 174.083568375092
+      },
+      "numerical_pilot_passed": false,
+      "objects": {
+        "models": "969823d70ceabc6cb5c7dec3e7065a1e23ff547c6275e9322fad71f04d320c51",
+        "predictions": "b55976166828f825cd9343e30dc3a2a08e306e3b4136f755dc40ff80addd64c9"
+      },
+      "plan": {
+        "axis_grid_points": 97,
+        "cases": [
+          "real_evolving",
+          "real_team",
+          "continuous_prior_0",
+          "continuous_hierarchy_0",
+          "fixed_year_changes_0"
+        ],
+        "cubature_atol": 1e-06,
+        "cubature_max_subdivisions": 192,
+        "cubature_rtol": 0.0001,
+        "cubature_rule": "genz-malik",
+        "failure_policy": "retain_all_cases_no_calibration_or_admission",
+        "future_test": {
+          "fitting_update_allowed": false,
+          "season": 2026,
+          "weeks": [
+            10
+          ]
+        },
+        "local_span_sd": 6.0,
+        "maximum_seconds_per_case": 900,
+        "maximum_seconds_total": 3600,
+        "maximum_standardized_endpoint_difference": 0.02,
+        "maximum_standardized_mean_difference": 0.01,
+        "maximum_target_evaluations_per_case": 90000,
+        "minimum_effective_samples": 128.0,
+        "parent_report": "ad45a2cbf0889d4ebebd13cb17dba54a420881453beb9058f44cb0f5dda2cab1",
+        "plan_version": 1,
+        "prior_mass_per_axis": 0.1,
+        "prior_span_sd": 8.0,
+        "reference_endpoint_cdf_tolerance": 0.001,
+        "reference_mean_tolerance_sd": 0.01,
+        "reference_transport": "independent_student_t5_moments",
+        "scramble_seeds": [
+          2026111001,
+          2026111002
+        ],
+        "sobol_powers": [
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "plan_sha256": "b1d20118ee2568dc21c04687212864302bdc8c1a7e86a5b4785405a61da7eefd",
+      "ranking_ready": false,
+      "report_id": "25be7d6692ce1504f4f5511a6c2bd141fb64ff982abae0e968ef00c5bb4d6a29",
+      "store": "data/derived/variance-reference",
+      "wall_seconds": {
+        "continuous_hierarchy_0": 633.1577043749858,
+        "continuous_prior_0": 635.0958442091942,
+        "fixed_year_changes_0": 628.2621161669958,
+        "real_evolving": 785.0900154591072,
+        "real_team": 173.86307033291087
+      }
+    }
+  },
+  "season": {
+    "benchmark_audit": {
+      "benchmark_ready": true,
+      "blocked_reasons": [],
+      "candidate_players": 57,
+      "first_unit_zero_opportunity_players": [],
+      "observed_players": 57
+    },
+    "games": 122,
+    "historical_opportunities_in_scoring_total": 0,
+    "negative_player_estimates": 38,
+    "players": 57,
+    "plays": 8996,
+    "qualification_denominators_complete": 23,
+    "ranking_ready": false,
+    "season": 2026
+  },
+  "source_provenance": {
+    "defense": {
+      "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "derived_participation_license": "CC-BY-SA-4.0",
+      "historical_availability": "retrospectively_retrieved_postseason_participation",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+      "source_receipts": {
+        "participation": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      }
+    },
+    "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+    "seasons": {
+      "2024": {
+        "game_cohort_cutoff": "2026-11-08T02:47:26.367479+00:00",
+        "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "conflicting_secondary_identity": 9,
+            "primary_position_unreviewed": 26
+          },
+          "actor_role_counts": {
+            "P": 9,
+            "QB": 646,
+            "RB": 1409,
+            "TE": 1088,
+            "WR": 2117
+          },
+          "actor_rows_with_resolved_role": 5269,
+          "all_player_game_issue_counts": {
+            "conflicting_secondary_identity": 64,
+            "primary_position_unreviewed": 29020
+          },
+          "completed_team_games": 544,
+          "observed_offensive_player_games": 5304,
+          "observed_offensive_players": 597,
+          "player_game_rows": 44466,
+          "player_games_without_observed_offensive_participation": 39162,
+          "team_games_with_retrospective_roster_retrieval": 544,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 46579
+        },
+        "roster_integrity_policy": "retrospective-2024-weekly-roster-local-hash-v1",
+        "roster_retrieval": {
+          "after": "2026-11-08T02:43:36.729160+00:00",
+          "before": "2026-11-08T02:43:36.136466+00:00",
+          "data": "2026-11-08T02:43:36.533455+00:00",
+          "license": "2026-11-08T02:43:37.349842+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "114f88bc9bf7c5990eb2fb1b885a2bbf230b54f66adbe0e509381379dc07b97d",
+          "schedules": "19dfe7aefa63c1b36628fa61b663cf896f930178c04da3b4c92d07e4ce84c492"
+        },
+        "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+      },
+      "2025": {
+        "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+        "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "primary_position_unreviewed": 24
+          },
+          "actor_role_counts": {
+            "K": 1,
+            "P": 6,
+            "QB": 652,
+            "RB": 1410,
+            "TE": 1123,
+            "WR": 2131
+          },
+          "actor_rows_with_resolved_role": 5323,
+          "all_player_game_issue_counts": {
+            "primary_position_unreviewed": 29102
+          },
+          "completed_team_games": 544,
+          "observed_offensive_player_games": 5347,
+          "observed_offensive_players": 601,
+          "player_game_rows": 44669,
+          "player_games_without_observed_offensive_participation": 39322,
+          "team_games_with_retrospective_roster_retrieval": 544,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 46849
+        },
+        "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+        "roster_retrieval": {
+          "data": "2026-10-26T20:49:45.882775+00:00",
+          "license": "2026-10-26T20:49:46.970669+00:00",
+          "metadata": "2026-10-26T20:49:45.668629+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+          "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+        },
+        "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+      },
+      "2026": {
+        "game_cohort_cutoff": "2026-11-08T01:41:17.891273+00:00",
+        "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "primary_position_unreviewed": 5
+          },
+          "actor_role_counts": {
+            "P": 4,
+            "QB": 272,
+            "RB": 622,
+            "TE": 519,
+            "WR": 947
+          },
+          "actor_rows_with_resolved_role": 2364,
+          "all_player_game_issue_counts": {
+            "primary_position_unreviewed": 12968
+          },
+          "completed_team_games": 244,
+          "observed_offensive_player_games": 2369,
+          "observed_offensive_players": 504,
+          "player_game_rows": 20021,
+          "player_games_without_observed_offensive_participation": 17652,
+          "team_games_with_retrospective_roster_retrieval": 244,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 22285
+        },
+        "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+        "roster_retrieval": {
+          "data": "2026-11-08T02:43:38.393326+00:00",
+          "license": "2026-11-08T02:43:38.669743+00:00",
+          "metadata": "2026-11-08T02:43:38.053864+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "d44259bc0a7eb99c4a25f8f8585fafca3159292a9330d7ae95733ce569488510",
+          "schedules": "efb6387ff638d527066b0104964b39d754c16419ef812d34aeb215c10b043db5"
+        },
+        "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+      }
+    }
+  },
+  "unattempted_in_each_pilot": 0,
+  "verification": {
+    "cached_source_ci_conclusion": "success",
+    "cached_source_ci_run": 42895375490,
+    "cross_platform_nfl_replay_claimed": false,
+    "dashboard_chromium_passed": true,
+    "frontend_contracts": 27,
+    "local_make_check_passed": true,
+    "python_matrix": [
+      "3.11",
+      "3.12",
+      "3.13"
+    ],
+    "python_tests": 404,
+    "same_host_pinned_environment_rebuilds": true
+  },
+  "week_10_outcomes_inspected": false
+}

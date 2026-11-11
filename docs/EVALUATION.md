@@ -217,3 +217,25 @@ retains 56 unattempted fits in each denominator. Both real candidates fail
 numerical accuracy; no complete calibration or observational admission follows
 from this study. An independent numerical reference and small runtime pilot must
 precede another full calibration campaign.
+
+## Numerical-reference pilot (November 10)
+
+The [frozen five-case pilot](VARIANCE_REFERENCE.md) retains the existing
+independent/nested QMC mean/endpoint checks and adds an independent deterministic
+reference. The reference must converge and meet explicit posterior-mean and
+endpoint-CDF discrepancy limits after propagating both numerator and normalizing
+mass error estimates. Its estimated error is not a rigorous bound. Smooth
+reference coordinates and an exact mass-offset identity fix poor numerical
+conditioning observed in known-answer controls; all tolerances remain unchanged.
+The documented [repair chronology](VARIANCE_REFERENCE_SMOOTH.md) precedes NFL results.
+
+Evaluation and time caps are enforced, and each of the five declared cases is
+retained as passed, failed or unattempted. A success cannot silently omit a hard
+case. Timing is execution metadata, separate from the reproducible numerical
+artifact. A replay must match all case decisions and mathematical outputs;
+wall-clock stopping can make an interrupted or time-limited run irreproducible,
+which must be reported rather than ignored. Passing software tests and analytic
+references do not constitute fresh NFL or uncertainty validation. Bounded exact
+node reuse must preserve the uncached reference's numerical outputs and failure
+decisions; its [frozen execution policy](VARIANCE_REFERENCE_REUSE.md) keeps the
+same case selection, model, tolerances and resource limits.

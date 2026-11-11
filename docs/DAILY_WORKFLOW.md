@@ -45,13 +45,13 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For the active recovery evidence, read `docs/CONTINUOUS_RESULTS.md`,
-`docs/CONTINUOUS_DIAGNOSTIC_STOP.md` and their linked frozen plans, following the
-parent evidence in `docs/MULTISEASON_RESULTS.md`. The continuous candidate was
-implemented; do not repeat it as an unfinished implementation task. Its real fits
-fail numerical accuracy and the 64-per-scenario calibration was not completed.
-Before another full campaign, preregister a small numerical-reference pilot and
-compute budget that address the observed nuisance-variance tails. Keep attempted
+For the active recovery evidence, read `docs/VARIANCE_REFERENCE_RESULTS.md` and its
+linked frozen plans, following the parent evidence in `docs/CONTINUOUS_RESULTS.md`
+and `docs/CONTINUOUS_DIAGNOSTIC_STOP.md`. The continuous candidate and independent
+numerical-reference pilot are implemented; do not repeat them as unfinished
+implementation tasks. Follow the pilot's actual decision before another full
+campaign. Exact node reuse changes computing cost, not the posterior or gates.
+The 64-per-scenario calibration remains unfinished. Keep attempted
 failures distinct from unattempted trials, both in the requested denominator;
 success-only coverage never certifies the complete study. Preserve the sealed
 Week 10 window and saved model versions.

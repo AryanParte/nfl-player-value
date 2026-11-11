@@ -17,6 +17,13 @@ the `github-pages` environment for main only. No custom domain, secret or paid
 service is required for a public repository. This document does not claim those
 settings have been configured or that deployment has succeeded.
 
+November 10 access check: the repository API still reports `has_pages: false`.
+The in-app browser visibly shows **Sign in** and **No releases published** on the
+canonical repository. The local environment has no `gh` executable, and the
+connector still exposes neither Pages configuration nor workflow dispatch.
+No settings were changed. Authenticated bootstrap remains a concrete operational
+blocker; it did not block the independent numerical-reference modeling unit.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed

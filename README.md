@@ -8,18 +8,18 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-As of November 9, the [continuous-variance recovery diagnostics](docs/CONTINUOUS_RESULTS.md)
-reproduce exactly offline but fail the frozen real-data numerical checks. Of eight
-attempted fits in each of three simulation scenarios, 4/3/0 are numerically valid;
-the full 64-per-scenario calibration remains unfinished. These are diagnostics,
-not usable MVP scores. The same 57 QBs / 122 archived 2026 games retain first-unit
-and sensitivity benchmarks, signed accounting and separate qualification.
-**All 17 modules remain unadmitted.** Defensive participation information loss
-and missing live coverage remain explicit. The Explorer is not a deployed CAVAA
-leaderboard; Pages activation and durable research retention remain open.
-See the [milestone backlog](docs/MILESTONES.md) and [latest learning report](docs/learning/2026-11-09.md).
-The frozen Week 10 evaluation is not yet observed. The summaries below are
-development history at their stated archive cutoffs, not current source freshness.
+As of November 10, the [numerical-reference pilot](docs/VARIANCE_REFERENCE_RESULTS.md)
+passes all five original sampler checks, but all five independent reference checks
+fail. Exact work reuse retains measurable errors; both real models still fail
+the reference requirements. Both versions reproduce byte-for-byte in independent
+offline builds. This is numerical research, not fresh uncertainty calibration or
+usable MVP scores. The same 57 QBs / 122 archived 2026 games retain all three benchmarks,
+signed accounting and separate qualification. The data archive ends November 7.
+**All 17 modules remain unadmitted.** Defense Explorer remains required; live
+workloads and cross-position attribution are unfinished. Browser sign-in and Pages
+activation remain blocked. See the [milestone backlog](docs/MILESTONES.md) and
+[latest learning report](docs/learning/2026-11-10.md). Week 10 stays sealed.
+The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit
 selection and historical defensive research inputs are implemented. October 22
