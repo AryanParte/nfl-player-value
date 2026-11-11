@@ -8,17 +8,18 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-As of November 10, the [numerical-reference pilot](docs/VARIANCE_REFERENCE_RESULTS.md)
-passes all five original sampler checks, but all five independent reference checks
-fail. Exact work reuse retains measurable errors; both real models still fail
-the reference requirements. Both versions reproduce byte-for-byte in independent
-offline builds. This is numerical research, not fresh uncertainty calibration or
-usable MVP scores. The same 57 QBs / 122 archived 2026 games retain all three benchmarks,
-signed accounting and separate qualification. The data archive ends November 7.
-**All 17 modules remain unadmitted.** Defense Explorer remains required; live
-workloads and cross-position attribution are unfinished. Browser sign-in and Pages
-activation remain blocked. See the [milestone backlog](docs/MILESTONES.md) and
-[latest learning report](docs/learning/2026-11-10.md). Week 10 stays sealed.
+As of November 11, [dimension-adaptive numerical recovery](docs/DIMENSION_REFERENCE_RESULTS.md)
+makes the team-only reference pass, but the QB reference remains unverified within
+its fixed budget. A preregistered correlation-aware alternative worsens both real
+references; it is not promoted. Point estimates retain the same first-unit and
+both sensitivity benchmarks, signed season accounting and separate qualification.
+The archive covers 57 QBs / 122 completed 2026 games and ends November 7.
+**All 17 modules remain unadmitted.** No fresh calibration or usable MVP ranking
+is claimed. Defense Explorer and live defensive coverage remain required.
+The first observed scheduled Explorer refresh failed at the intended initial
+bootstrap safeguard, before capture/publication; no Pages site is active.
+See the [milestone backlog](docs/MILESTONES.md), [results](docs/DIMENSION_REFERENCE_RESULTS.md)
+and [latest learning report](docs/learning/2026-11-11.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit

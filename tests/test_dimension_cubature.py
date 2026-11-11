@@ -67,6 +67,7 @@ class DimensionCubatureTests(unittest.TestCase):
         l = np.array([[1.0, -1.0], [1.0, 1.0]])
         geometry = build_transport(target, p)
         fit, summaries, diagnostic = qmc_integrate(target, l, geometry, p)
+        self.assertFalse(diagnostic["valid"])
         r = reference_integral(
             target, l, geometry, summaries, p, reference_geometry=fit["reference_geometry"]
         )

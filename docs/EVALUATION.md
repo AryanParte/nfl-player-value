@@ -239,3 +239,22 @@ references do not constitute fresh NFL or uncertainty validation. Bounded exact
 node reuse must preserve the uncached reference's numerical outputs and failure
 decisions; its [frozen execution policy](VARIANCE_REFERENCE_REUSE.md) keeps the
 same case selection, model, tolerances and resource limits.
+
+## Dimension-adaptive numerical reference (November 11)
+
+The [frozen binary-refinement plan](VARIANCE_REFERENCE_ADAPTIVE.md) keeps the
+posterior and error gates fixed while selecting one local refinement direction.
+Analytic polynomial and anisotropic Gaussian integrals check its actual error,
+not just its success flag. The following
+[correlation-aware coordinates](VARIANCE_REFERENCE_WHITENED.md) use primary-QMC
+geometry but a separate adaptive integration method, with exact density/Jacobian
+correction. Shared geometry is disclosed; neither calculation is independent
+football evidence. There is no guarantee for arbitrary untested integrands.
+
+A known correlated control has inaccurate QMC endpoints: both the sampler's own
+diagnostics and the deterministic reference reject them. Separate scalar
+Normal/Student-t convolution roots verify the correct interval. Preserve that
+regression, complete failed references and every consumed stress case. A numerical
+pass is separate from fresh calibration, predictive validation and observational
+admission. No expected coverage requirement, prior, scientific threshold or
+eligibility policy changes in this numerical unit.
