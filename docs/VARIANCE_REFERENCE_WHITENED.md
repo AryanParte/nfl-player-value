@@ -48,3 +48,15 @@ failure and the specific next action; no hidden unlimited retry.
 
 The original study, intermediate failures and source revisions remain reproducible.
 Week 10 stays sealed. Defense/qualification/module admission are unchanged.
+
+## Known-answer verification before NFL follow-up
+
+The analytical test exposed two issues. Floating-point Cholesky alone accepted
+a singular covariance after scaling; an explicit positive-eigenvalue check now
+rejects it without adding a ridge. A more correlated known target produced QMC
+endpoints that the converged reference rejected (CDF disagreement about 0.00261).
+That rejection is retained as a regression test. Independent one-dimensional
+Normal-plus-Student-t convolution and root finding provide the correct endpoints;
+the same reference passes them. No numerical tolerance or NFL model changed to
+make the inaccurate endpoint pass. Density/Jacobian, exact proposal moments,
+unchanged QMC estimates and deliberate wrong-endpoint tests pass before this run.

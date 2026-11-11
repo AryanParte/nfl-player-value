@@ -42,9 +42,9 @@ def validate_plan(plan):
         or plan["plan_version"] != 1
     ):
         raise ValueError("unsupported reference plan schema")
-    if (
-        "reference_transport" in plan
-        and plan["reference_transport"] != "independent_student_t5_moments"
+    if "reference_transport" in plan and plan["reference_transport"] not in (
+        "independent_student_t5_moments",
+        "posterior_whitened_product_student_t5",
     ):
         raise ValueError("unreviewed reference transform")
     if "reference_cache_nodes" in plan and (
@@ -54,9 +54,14 @@ def validate_plan(plan):
     if "reference_subdivision" in plan and (
         plan["reference_subdivision"] != "largest_fourth_difference"
         or plan.get("reference_cache_nodes") != 1024
-        or plan.get("reference_transport") != "independent_student_t5_moments"
+        or plan.get("reference_transport")
+        not in ("independent_student_t5_moments", "posterior_whitened_product_student_t5")
     ):
         raise ValueError("unreviewed reference subdivision")
+    if plan.get("reference_transport") == "posterior_whitened_product_student_t5" and (
+        plan.get("reference_subdivision") != "largest_fourth_difference"
+    ):
+        raise ValueError("whitened reference requires reviewed binary refinement")
     if (
         plan["cases"] != CASES
         or plan["failure_policy"] != "retain_all_cases_no_calibration_or_admission"
@@ -241,7 +246,15 @@ def experiment(
             )
             checkpoint(name + "_qmc", r)
             stage = "reference"
-            r["reference"] = reference_integral(target, l, transport, summaries, plan, progress)
+            r["reference"] = reference_integral(
+                target,
+                l,
+                transport,
+                summaries,
+                plan,
+                progress,
+                reference_geometry=fit.get("reference_geometry"),
+            )
             r["numerical_valid"] = bool(r["qmc"]["valid"] and r["reference"]["valid"])
             r["status"] = "passed" if r["numerical_valid"] else "failed"
         except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:

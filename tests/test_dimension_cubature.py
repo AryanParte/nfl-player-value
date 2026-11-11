@@ -8,22 +8,119 @@ from time import perf_counter
 import unittest
 
 import numpy as np
+from scipy.integrate import quad
 from scipy.integrate._rules import GenzMalikCubature
-from scipy.special import erf
+from scipy.optimize import brentq
+from scipy.special import erf, stdtr
+from scipy.stats import norm
 
 from nfl_value.dimension_cubature import Rule, integrate
 from nfl_value.reference_pilot import validate_plan
 from nfl_value.variance_mixture import system
 from nfl_value.variance_reference import (
     BoundedTarget,
+    WhitenedReferenceTransport,
     build_transport,
     qmc_integrate,
     reference_integral,
+    weighted_geometry,
 )
 from test_variance_reference import AnalyticTarget
 
 
 class DimensionCubatureTests(unittest.TestCase):
+    def test_whitened_density_jacobian_moments_and_invalid_geometry(self):
+        points = np.array([[-2.0, -3.0], [-1.0, 0.0], [0.0, 1.0], [3.0, 4.0], [1.0, -2.0]])
+        weights = np.array([0.1, 0.2, 0.2, 0.4, 0.1])
+        geometry = weighted_geometry(points, weights)
+        transform = WhitenedReferenceTransport(geometry)
+        np.testing.assert_allclose(transform.mean, np.average(points, axis=0, weights=weights))
+        np.testing.assert_allclose(
+            transform.covariance, np.cov(points.T, aweights=weights, bias=True)
+        )
+        np.testing.assert_allclose(
+            transform.factor @ transform.factor.T * 5 / 3, transform.covariance
+        )
+        u = np.array([[0.21, 0.76]])
+        h = np.eye(2) * 1e-6
+        jacobian = np.column_stack(
+            [
+                (transform.transform(u + step)[0] - transform.transform(u - step)[0]) / 2e-6
+                for step in h
+            ]
+        )
+        expected = -np.linalg.slogdet(jacobian)[1]
+        self.assertAlmostEqual(transform.logpdf(transform.transform(u))[0], expected, places=8)
+        for cov in [[[1.0, 2.0], [2.0, 1.0]], [[1.0, 1.0], [1.0, 1.0]], [[1.0, 2.0], [0.0, 1.0]]]:
+            with self.assertRaises(ValueError):
+                WhitenedReferenceTransport({"mean": [0.0, 0.0], "covariance": cov})
+        with self.assertRaises(ValueError):
+            weighted_geometry(points, weights * 2)
+        with self.assertRaises(ValueError):
+            transform.transform(np.array([[0.0, 0.5]]))
+
+    def test_whitened_correlated_target_keeps_qmc_estimates_and_error_gates(self):
+        p = json.loads(Path("config/variance-reference-whitened-v1.json").read_text())
+        validate_plan(p)
+        target = AnalyticTarget()
+        target.covariance = np.array([[0.5, 0.8], [0.8, 2.0]])
+        l = np.array([[1.0, -1.0], [1.0, 1.0]])
+        geometry = build_transport(target, p)
+        fit, summaries, diagnostic = qmc_integrate(target, l, geometry, p)
+        r = reference_integral(
+            target, l, geometry, summaries, p, reference_geometry=fit["reference_geometry"]
+        )
+        # The more correlated control exposes inaccurate QMC endpoints. Do not
+        # weaken the independent gate to accept them. Check the reference itself
+        # against separate one-dimensional Normal + Student-t convolution roots.
+        self.assertEqual(r["status"], "converged")
+        self.assertFalse(r["valid"])
+        self.assertTrue(r["geometry_uses_primary_qmc"])
+        exact = deepcopy(summaries)
+        s = exact[0.0]
+        s["mean"] = l @ target.mean
+        normal_var = np.einsum("ij,jk,ik->i", l, target.covariance, l)
+        noise_var = np.einsum("ij,jk,ik->i", l, target.noise, l)
+        s["sd"] = np.sqrt(normal_var + noise_var * 10 / 9)
+        for key, probability in [("low", 0.025), ("high", 0.975)]:
+            endpoints = []
+            for mean, variance, noise in zip(s["mean"], normal_var, noise_var):
+
+                def cdf(q):
+                    return quad(
+                        lambda z: (
+                            norm.pdf(z)
+                            * stdtr(20, (q - mean - np.sqrt(variance) * z) / np.sqrt(noise))
+                        ),
+                        -10,
+                        10,
+                        epsabs=1e-11,
+                    )[0]
+
+                endpoints.append(
+                    brentq(lambda q: cdf(q) - probability, mean - 20, mean + 20, xtol=1e-11)
+                )
+            s[key] = np.array(endpoints)
+        correct = reference_integral(
+            target, l, geometry, exact, p, reference_geometry=fit["reference_geometry"]
+        )
+        self.assertTrue(correct["valid"], correct)
+        old = {**p, "reference_transport": "independent_student_t5_moments"}
+        old_fit, old_summaries, old_diagnostic = qmc_integrate(target, l, geometry, old)
+        self.assertEqual(diagnostic, old_diagnostic)
+        np.testing.assert_array_equal(fit["coefficient_mean"], old_fit["coefficient_mean"])
+        for key in ["mean", "sd", "low", "high"]:
+            np.testing.assert_array_equal(summaries[0.0][key], old_summaries[0.0][key])
+        bad = deepcopy(exact)
+        bad[0.0]["high"] -= 0.5
+        self.assertFalse(
+            reference_integral(
+                target, l, geometry, bad, p, reference_geometry=fit["reference_geometry"]
+            )["valid"]
+        )
+        with self.assertRaisesRegex(ValueError, "geometry"):
+            reference_integral(target, l, geometry, summaries, p)
+
     def test_actual_random_effect_budget_retains_complete_reference(self):
         p = json.loads(Path("config/variance-reference-adaptive-v1.json").read_text())
         model = json.loads(Path("config/continuous-variance-v1.json").read_text())
