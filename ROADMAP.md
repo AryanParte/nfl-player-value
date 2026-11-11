@@ -23,12 +23,22 @@ known-ratio failure controls, cumulative 2026 contrasts and the required defensi
 diagnosis. Matched-prior coverage passes an internal check; off-grid coverage
 remains below nominal. Historical links do not remove allocation ambiguity.
 
-Next substantial unit: preregister one continuous-variance integration candidate,
-test numerical accuracy, fresh calibration and prior sensitivity, and preserve
-the frozen models for the uninspected 2026 Week 10 comparison. The new controls
-point toward variance estimation/support; they do not justify arbitrary wider
-intervals or adding innovation variance just to manufacture coverage. Complete
-a documented observational-estimand decision, not another small component.
+November 9 implements and evaluates that [continuous-variance candidate](docs/CONTINUOUS_RESULTS.md),
+one target-preserving proposal repair, exact mixture intervals and independent
+offline reconstruction. Both real fits fail numerical accuracy. The documented
+scope stop completes eight attempts per generator with 4/3/0 numerically valid;
+56 per generator remain unattempted in the original denominator. Full calibration
+is unfinished and no module is admitted. Weight concentration in weak team/game
+variance tails is the next concrete numerical problem, not evidence for changing
+priors or inflating intervals. The archive remains November 7 evening coverage.
+
+Next substantial unit: preregister a small independent numerical-reference pilot
+for those tails, including runtime limits, before another full calibration
+campaign. Require reliable frozen real-design integration first; retain failed
+trials, original plans and sealed Week 10 outcomes. Then evaluate fresh calibration,
+the prospective comparison and the observational-estimand/admission decision.
+The intermediate scoring milestone still has not passed. Defense remains required;
+the new source-metadata audit finds no 2026 participation asset in the checked feed.
 
 PRs #18/#19 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,

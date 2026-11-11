@@ -1,6 +1,6 @@
 # Project status
 
-Updated: November 8, 2026, America/New_York.
+Updated: November 9, 2026, America/New_York.
 
 ## Current scoring milestone
 
@@ -10,24 +10,33 @@ complete substantial implementation/experiments/diagnosis/verification/decision.
 There is no measured completion percentage. Use the six evidence-based
 [milestones](docs/MILESTONES.md), not an unmeasured “60% remaining” claim.
 
-PR #20 was owner-merged and main CI passed. The next substantial unit on
-`codex/multiseason-variance-recovery` is implemented and evaluated:
-[four alternatives, variance integration, fresh calibration, failure controls and
-defensive information loss](docs/MULTISEASON_RESULTS.md). The fit uses 48,776
-verified 2024–26 dropbacks, but only **57 QBs / 122 archived 2026 games / 8,996
-dropbacks** contribute current-season points. All three benchmarks, negative
-contributions and nonduplicated accounting remain intact. This is the November 7
-evening archive, not refreshed November 8 game coverage.
+The [continuous-variance unit](docs/CONTINUOUS_RESULTS.md) is implemented and
+evaluated on `codex/continuous-variance-recovery`, stacked on PR #21. It replaces
+the prior grid with continuous variance integration, diagnoses failed importance
+sampling, implements one target-preserving numerical repair and completes a
+bounded diagnostic study plus independent offline rebuild. The fit retains 48,776
+verified 2024–26 training dropbacks; only **57 QBs / 122 archived 2026 games /
+8,996 dropbacks** add current-season points. All three benchmarks, negative
+contributions and nonduplicated accounting remain intact. The source archive
+ends November 7 at 20:41:17 Eastern; this is not November 9 live game coverage.
 
-**Decision: no admission.** Integrated coverage is 95.13% under the finite prior,
-90.78% off-grid and 92.06% for fixed year changes. Fresh failure controls give
-89.56% versus 94.34% with known synthetic ratios. Those unavailable ratios cannot
-set real intervals. Variance estimation/support remains a material problem;
-absence of the severe <90% flag is not a 95% calibration pass. The constant-QB
-alternative changes a contrast by 25.54 EP; prediction-preserving allocation
-shifts still allow 80.16 EP changes. Small prior sensitivity on a coarse grid is
-not broad robustness. See the [audit](docs/audits/2026-11-08-multiseason.json).
-No fresh predictive pass is claimed: **2026 Week 10 stays reserved and uninspected**.
+**Decision: no admission.** Both real candidates fail frozen numerical checks.
+The QB fit's minimum effective sample size is 76.17 versus the required 128;
+independent mean disagreement is 0.03775 posterior SD versus 0.01. The team
+control fails nested mean convergence. Both prior sensitivities are numerically
+invalid, so small apparent shifts cannot establish robustness. Weight concentration
+in weak team/game variance tails is a concrete numerical blocker, not evidence
+that the continuous prior itself is statistically invalid.
+
+The original calibration requested 64 fits per generator. The documented scope
+stop completes eight each, with **4 / 3 / 0 numerically valid**, 17 total numerical
+failures and 168 unattempted fits. Every omission remains in the requested
+denominator; success-only coverage is not a calibration pass. Full calibration is
+unfinished. The [result audit](docs/audits/2026-11-09-continuous-variance.json)
+records identical manifest/model/result hashes from two independent builds, one
+with Python Internet access blocked. That verifies reproducibility, not accuracy
+or attribution. All saved estimates are explicitly invalid and unadmitted.
+**2026 Week 10 stays reserved and uninspected.**
 
 Twenty-three QB participation denominators satisfy the existing narrow proof;
 34 remain unresolved. Qualification is separate from model/benchmark membership.
@@ -35,20 +44,23 @@ All 17 modules remain unadmitted. The required defensive follow-up retains the
 same 131 games / 15,803 plays / 895 defenders: aggregation reduces residualized
 player rank from 856 to 193. These are diagnostics, not defensive CAVAA. Live
 workloads, defensive uncertainty and cross-position comparability remain open.
+The November 9 participation-release metadata audit finds no 2026-named asset
+among 46 assets; this is a gap in the checked feed, not a claim about every provider.
 
-Next: preregister **one** continuous-variance integration candidate, verify its
-numerical accuracy, run fresh calibration/prior sensitivity and preserve the
-locked Week 10 comparison against the team control. Do not add innovation
-variance merely to manufacture coverage: the new control does not establish it
-as the first fix. Complete an observational-estimand/admission decision. No
-consumed-test tuning, scalar interval inflation or arbitrary gate relaxation.
+Next: preregister a small independent numerical-reference pilot for the weak
+nuisance-variance tails, with explicit runtime limits, before another full
+calibration campaign. Require numerical agreement on the frozen real design and
+difficult synthetic cases first. Then complete fresh calibration, the sealed
+prospective comparison and the observational-estimand/admission decision. Do not
+repeat the implemented candidate or turn its selected successful trials into a
+pass. No consumed-test tuning, interval inflation or arbitrary gate relaxation.
 
 ## Deployment and execution state
 
 PRs #18, #19 and #20 were merged by the owner; inspected main is `6eb68ed` and
 its hosted matrix/dashboard CI passed. The Explorer release/retention/refresh
-workflow is merged code, not an activated website. November 8 API inspection
-reports `has_pages: false` and no production run among all 40 workflow runs.
+workflow is merged code, not an activated website. November 9 API inspection
+reports `has_pages: false` and no production run among all 47 returned workflow runs.
 The signed-out browser/Site-not-found observation is from November 7; browser
 authentication was not rechecked today. Pages setup/bootstrap remain unfinished. The
 [production runbook](docs/PRODUCTION_REFRESH.md) already supplies the steps;
@@ -59,14 +71,14 @@ The existing daily automation prompt and repository instructions prioritize
 model milestones and substantial coherent runs. No automation settings changed;
 its **7:30 PM America/New_York** recurrence is preserved. The
 other NFL project and its automation were not touched. No purchases or new runtime
-dependencies. [PR #21](https://github.com/AryanParte/nfl-player-value/pull/21)
-contains the recovery unit; local checks and both offline real-source replays
-passed. Hosted [CI 42560126083](https://github.com/AryanParte/nfl-player-value/actions/runs/42560126083)
-passed for source/analysis head `134a3c8` (Python matrix and dashboard/Chromium).
-The learning report distinguishes this evidence from scientific admission and
-the subsequent documentation-only head.
+dependencies. [PR #22](https://github.com/AryanParte/nfl-player-value/pull/22)
+contains this unit and depends on still-open PR #21. Local `make check` passes:
+396 Python tests, 27 frontend contracts, Ruff/adopted formatting, TypeScript/build,
+compile and whitespace. The independent real-data diagnostic rebuild is byte
+identical. Hosted CI evidence, exact heads and review focus are recorded in the
+[learning report](docs/learning/2026-11-09.md), separately from scientific admission.
 
-## Measured evidence
+## Earlier measured evidence (unchanged archives)
 
 | Season/window | Compared role-players | Complete benchmark roles | Narrow exposure proven | Participation passes at 0.75× / 1× / 1.25× |
 | --- | ---: | --- | ---: | --- |
@@ -128,12 +140,12 @@ aggregation. See [the prior audit](docs/audits/2026-10-24-defensive-model.json).
 The richer model is not ground truth, and the degraded historical view is not
 verified live-feed coverage.
 
-The recovery unit passes `make check`: 373 Python tests, 27 frontend contracts,
+The earlier recovery unit passed `make check`: 373 Python tests, 27 frontend contracts,
 Ruff/adopted formatting, TypeScript, production build, compile and whitespace.
 The full real-source recovery and variance control replay with HTTP forbidden.
 Earlier production browser rehearsals remain documented in their dated audit;
 this model-only run does not represent them as a new hosted deployment check.
-Hosted CI for the new PR is reported separately. Existing coverage remains
+Hosted CI for that earlier PR is recorded in its learning report. Existing coverage remains
 informational, not a fresh coverage measurement.
 
 ## Next highest-priority unit

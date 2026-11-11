@@ -8,14 +8,16 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-As of November 8, the [multi-season recovery unit](docs/MULTISEASON_RESULTS.md)
-produces reproducible research contrasts for 57 QBs across 122 archived 2026 games,
-with first-unit and sensitivity benchmarks. Matched-prior calibration passes an
-internal check, but off-grid uncertainty and QB/team attribution remain unresolved.
-The required defensive follow-up confirms substantial information loss from
-aggregation. **All 17 modules remain unadmitted.** The Explorer is not a deployed
-CAVAA leaderboard; Pages activation and durable research retention remain open.
-See the [milestone backlog](docs/MILESTONES.md) and [latest learning report](docs/learning/2026-11-08.md).
+As of November 9, the [continuous-variance recovery diagnostics](docs/CONTINUOUS_RESULTS.md)
+reproduce exactly offline but fail the frozen real-data numerical checks. Of eight
+attempted fits in each of three simulation scenarios, 4/3/0 are numerically valid;
+the full 64-per-scenario calibration remains unfinished. These are diagnostics,
+not usable MVP scores. The same 57 QBs / 122 archived 2026 games retain first-unit
+and sensitivity benchmarks, signed accounting and separate qualification.
+**All 17 modules remain unadmitted.** Defensive participation information loss
+and missing live coverage remain explicit. The Explorer is not a deployed CAVAA
+leaderboard; Pages activation and durable research retention remain open.
+See the [milestone backlog](docs/MILESTONES.md) and [latest learning report](docs/learning/2026-11-09.md).
 The frozen Week 10 evaluation is not yet observed. The summaries below are
 development history at their stated archive cutoffs, not current source freshness.
 
@@ -96,7 +98,8 @@ It captures sources, tests the restored website, rechecks freshness, verifies an
 independent release-asset download before exposing the archive, and requests Pages
 deployment only after the gates pass. It preserves prior releases and never
 publishes CAVAA scores. Activation and hosted end-to-end validation remain pending;
-this implementation is stacked on the unmerged launch-package PR #18.
+PRs #18 and #19 have since been merged by the owner. Hosted activation remains
+unverified; an Explorer release would still not be an admitted CAVAA leaderboard.
 
 **No real CAVAA ranking is produced yet.** Broader stint verification, defensive
 validation, calibrated player uncertainty, attribution/admission, ranking/history
