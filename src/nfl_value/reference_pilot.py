@@ -29,7 +29,7 @@ CASES = [
     "fixed_year_changes_0",
 ]
 KEYS = set(
-    "plan_version parent_report cases prior_mass_per_axis axis_grid_points prior_span_sd local_span_sd scramble_seeds sobol_powers minimum_effective_samples maximum_standardized_mean_difference maximum_standardized_endpoint_difference cubature_rule cubature_rtol cubature_atol cubature_max_subdivisions reference_mean_tolerance_sd reference_endpoint_cdf_tolerance maximum_target_evaluations_per_case maximum_seconds_per_case maximum_seconds_total failure_policy future_test".split()
+    "plan_version parent_report cases prior_mass_per_axis axis_grid_points prior_span_sd local_span_sd scramble_seeds sobol_powers minimum_effective_samples maximum_standardized_mean_difference maximum_standardized_endpoint_difference cubature_rule cubature_rtol cubature_atol reference_mean_tolerance_sd reference_endpoint_cdf_tolerance maximum_target_evaluations_per_case maximum_seconds_per_case maximum_seconds_total failure_policy future_test".split()
 )
 
 
@@ -37,11 +37,31 @@ def validate_plan(plan):
     if (
         not KEYS
         <= set(plan)
-        <= KEYS | {"reference_transport", "reference_cache_nodes", "reference_subdivision"}
+        <= KEYS
+        | {
+            "reference_transport",
+            "reference_cache_nodes",
+            "reference_subdivision",
+            "reference_sparse_level",
+            "cubature_max_subdivisions",
+        }
         or type(plan["plan_version"]) is not int
         or plan["plan_version"] != 1
     ):
         raise ValueError("unsupported reference plan schema")
+    sparse = plan["cubature_rule"] == "smolyak-fejer2"
+    if sparse:
+        level = plan.get("reference_sparse_level")
+        if (
+            type(level) is not int
+            or not 4 <= level <= 9
+            or plan.get("reference_transport") != "independent_student_t5_moments"
+            or {"reference_cache_nodes", "reference_subdivision", "cubature_max_subdivisions"}
+            & set(plan)
+        ):
+            raise ValueError("unreviewed sparse reference policy")
+    elif "reference_sparse_level" in plan or "cubature_max_subdivisions" not in plan:
+        raise ValueError("reference rule and work policy disagree")
     if "reference_transport" in plan and plan["reference_transport"] not in (
         "independent_student_t5_moments",
         "posterior_whitened_product_student_t5",
@@ -75,6 +95,8 @@ def validate_plan(plan):
         ("maximum_seconds_per_case", 1, 900),
         ("maximum_seconds_total", 1, 3600),
     ]:
+        if key == "cubature_max_subdivisions" and sparse:
+            continue
         if type(plan[key]) is not int or not low <= plan[key] <= high:
             raise ValueError("invalid bounded reference size")
     for key in [
@@ -92,7 +114,10 @@ def validate_plan(plan):
         v = plan[key]
         if isinstance(v, bool) or not isinstance(v, (int, float)) or not np.isfinite(v) or v <= 0:
             raise ValueError("positive finite reference policy required")
-    if plan["prior_mass_per_axis"] >= 1 or plan["cubature_rule"] != "genz-malik":
+    if plan["prior_mass_per_axis"] >= 1 or plan["cubature_rule"] not in (
+        "genz-malik",
+        "smolyak-fejer2",
+    ):
         raise ValueError("full-support proposal and reviewed reference rule required")
     powers = plan["sobol_powers"]
     seeds = plan["scramble_seeds"]
