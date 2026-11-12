@@ -1,7 +1,7 @@
 # Higher-order reference — frozen November 12 plan
 
 Freeze before implementation or new numerical outcomes. PRs #21–#24 are now
-owner-merged; `main` at `ba353dc` passes hosted CI. November 11 binary refinement
+merged; `main` at `ba353dc` passes hosted CI. November 11 binary refinement
 passes only the real team control; whitening passes none of the five cases.
 These failures remain evidence. The next M1/M2 experiment changes integration
 order, not the football model or the standard required for a usable score.

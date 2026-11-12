@@ -237,3 +237,13 @@ moments are not substituted for posterior variance uncertainty; each node retain
 the original target and exact transformation density. The geometry shares QMC
 information, so independence refers to integration method, not data or all code.
 No player, team, benchmark, opportunity or admission definition changes.
+
+The November 12 [higher-order reference](HIGHER_ORDER_REFERENCE.md) uses nested
+open Fejer rules and a Smolyak sum instead of local low-order subdivision. Its
+negative quadrature weights are mathematical integration weights, never player
+opportunities or posterior probabilities. A separately frozen
+[tensor comparison](HIGHER_ORDER_TENSOR.md) tests two public SciPy quadrature
+rules on known targets. Both tensor alternatives fail the complete controls and
+are explicitly blocked from the archived pilot. Full-support normal coordinates
+in that control do not replace the original log-precision prior. No numerical
+method changes the CAVAA estimand, first-unit membership or season ledger.

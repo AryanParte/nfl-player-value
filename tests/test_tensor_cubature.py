@@ -10,6 +10,7 @@ import numpy as np
 from scipy.stats import multivariate_normal
 
 from nfl_value.reference_pilot import validate_plan
+from nfl_value.sparse_cubature import integrate as sparse_integrate
 from nfl_value.tensor_controls import run, select
 from nfl_value.tensor_cubature import integrate, rule
 from nfl_value.variance_reference import NormalReferenceTransport, build_transport
@@ -17,6 +18,17 @@ from test_variance_reference import AnalyticTarget
 
 
 class TensorTests(unittest.TestCase):
+    def test_exact_zero_with_relative_only_tolerance_is_not_nan_or_failure(self):
+        f = lambda x: np.zeros((len(x), 2))
+        results = [sparse_integrate(f, 2, rtol=1e-4, atol=0, max_level=4, max_evaluations=1000)]
+        for method in ["gauss-legendre", "gauss-hermite"]:
+            results.append(integrate(f, 2, method=method, rtol=1e-4, atol=0, max_evaluations=1000))
+        for result in results:
+            self.assertEqual(result.status, "converged")
+            np.testing.assert_array_equal(result.estimate, 0)
+            np.testing.assert_array_equal(result.error, 0)
+            self.assertEqual(result.history[-1]["maximum_error_ratio"], 0)
+
     def test_known_control_rejections_cannot_be_promoted_to_nfl_reference(self):
         plans = {
             f"gauss-{m}": json.loads(Path(f"config/variance-reference-{m}-v1.json").read_text())

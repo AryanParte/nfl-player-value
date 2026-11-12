@@ -71,7 +71,7 @@ def moment_control(method, dimensions, *, tail=False):
 
 
 class MixingTarget:
-    """Correlated skew-normal mixture with exactly specified Student-t conditionals."""
+    """Correlated Gaussian mixture with exactly specified Student-t conditionals."""
 
     def __init__(self, model_plan):
         self.groups = ["qb", "offense"]

@@ -1,6 +1,6 @@
 # Project status
 
-Updated: November 11, 2026, America/New_York.
+Updated: November 12, 2026, America/New_York.
 
 ## Current scoring milestone
 
@@ -8,44 +8,38 @@ The November 7 MVP target was missed. Scoring remains the critical path; optiona
 infrastructure is paused. There is no measured completion percentage. Track the
 six [milestones](docs/MILESTONES.md), separating implementation from evidence.
 
-The [dimension-adaptive recovery unit](docs/DIMENSION_REFERENCE_RESULTS.md) replaces
-all-axis reference subdivision with bounded binary refinement, then evaluates a
-preregistered correlation-aware coordinate alternative. The first version makes
-the real team control pass. The QB reference improves but still fails: mean
-discrepancy plus estimated error 0.011921 posterior SD and endpoint-CDF discrepancy
-plus error 0.008648, versus unchanged 0.01/0.001 limits. Three consumed stress
-cases also fail. The complete first version independently reproduces byte-for-byte
-with network access forbidden; estimates, intervals, coefficients and ledgers are
-unchanged from November 10 except numerical-status flags.
+The [higher-order reference unit](docs/HIGHER_ORDER_REFERENCE_RESULTS.md) implements
+nested sparse quadrature and evaluates two additional tensor alternatives on
+known answers. The sparse real QB reference fails: mean discrepancy plus error
+0.015804 posterior SD and endpoint-CDF discrepancy plus error 0.005090, versus
+unchanged 0.01/0.001 limits. The real team control also fails. Gauss–Hermite
+accurately integrates basic moments but fails the interval control; Gauss–Legendre
+also understates some control errors. Neither tensor candidate is selected, and
+both are explicitly blocked from the archived-data runner.
 
-The correlation-aware follow-up does not improve the real models: both references
-are nonconverged and fail. Its QB primary diagnostics are 0.030987 SD / 0.044315
-CDF. The team control loses its first-version pass. Known-answer tests preserve an
-inaccurate QMC-interval rejection and verify correct endpoints using independent
-scalar convolution. An invalid singular geometry is rejected without adding a ridge.
-All original error gates, posterior assumptions and solve/time budgets remain fixed.
-See the linked results/audit for every case, artifact and decision.
+The frozen posterior, source archive, QMC seeds/stopping rules, benchmark policies,
+accuracy limits and solve/time budgets remain unchanged. All five sparse cases
+finish and fail; full manifests/models/results independently rebuild byte-for-byte
+with networking blocked. Their model/result bytes also equal November 11. All
+failures are retained in the linked results/audit. Numerical-reference controls
+are not new calibration or evidence of correct football attribution. No
+contribution module is admitted.
 
-Both complete five-case versions independently reproduce byte-for-byte offline:
-binary refinement passes 1/5 and the follow-up 0/5, with no omitted cases or time
-cap failures. All point estimates, intervals and ledgers remain unchanged. The
-optional extra-QMC follow-up is not triggered because the references themselves
-are nonconverged. This unit supplies no fresh calibration evidence.
+The same 57 QBs / 122 archived completed 2026 games / 8,996 dropbacks retain
+first-unit/equal-player/opportunity-weighted contrasts, negative values and
+nonduplicated season-only accounting. Training across 2024–26 totals 48,776
+dropbacks, without adding historical points. Coverage ends November 7 at 20:41:17
+Eastern, not November 12 live coverage. The 192-fit calibration remains unfinished;
+no fresh calibration or Week 10 outcomes are used. QB/team allocation continues
+to depend on explicit hierarchical assumptions.
 
-**No contribution module is admitted.** The same 57 QBs / 122 archived completed
-2026 games / 8,996 dropbacks retain first-unit/equal-player/opportunity-weighted
-contrasts, negative values and nonduplicated season-only accounting. Training
-across 2024–26 totals 48,776 dropbacks, without adding historical points. Coverage ends
-November 7 at 20:41:17 Eastern, not November 11 live coverage. The existing 192-fit
-calibration remains unfinished; no fresh calibration or Week 10 outcomes are used.
-QB/team allocation still depends on hierarchical assumptions.
-
-Next: stop treating a changed coordinate system as a sufficient accuracy remedy.
-Preregister a bounded higher-order reference comparison on known correlated and
-skewed/tail targets before the same consumed numerical stress cases. Preserve the
-posterior and functional accuracy limits, and retain the failed alternatives.
-Numerical reliability must precede fresh calibration, prospective prediction and
-the observational admission review. No scores are published to meet a deadline.
+Next: preregister a replicated randomized-integration reference with independently
+checked numerical-error coverage, separate scrambles/proposal and known correlated,
+skewed and tail controls. Preserve the posterior and functional accuracy limits;
+do not repeat failed higher-order rules or call extra primary samples an independent
+reference. Numerical reliability must precede fresh calibration, prospective
+prediction and the observational admission review. This next method is not yet
+implemented or validated. No score is published to satisfy a calendar target.
 
 ## Other product milestones
 
@@ -55,7 +49,7 @@ Eligibility stays independent of the model and benchmark populations.
 
 The required defensive information-loss experiment and Defense Explorer remain
 intact: same 131 games / 15,803 plays / 895 defenders, residualized rank 856 versus
-193 after aggregation. November 11 metadata has no 2026-named asset among 46 in
+193 after aggregation. November 12 metadata has no 2026-named asset among 46 in
 the checked participation release; this is not absence across every provider or
 a game-level snap-count audit. Live lineup/role evidence, defensive uncertainty
 and cross-position comparability remain unfinished. All 17 modules stay unadmitted.
@@ -66,23 +60,23 @@ contribution module with scope, benchmarks and uncertainty preserved.
 
 ## Deployment and execution state
 
-PRs #18/#19/#20 were owner-merged; inspected main remains `6eb68ed`. A scheduled
-[Explorer run](https://github.com/AryanParte/nfl-player-value/actions/runs/42908770888)
-failed at the expected first-bootstrap safeguard: no retained Explorer exists.
-Offline gates passed; capture and publishing were skipped. The API still reports
-no Pages site. The connector cannot configure Pages or dispatch a bootstrap.
-See the [runbook](docs/PRODUCTION_REFRESH.md); no bypass or settings change occurred.
-This operational blocker did not replace independent model work. Explorer-only
-deployment would not admit an MVP leaderboard.
+PRs #18–#24 are merged; inspected main is `ba353dc` and its CI passed. The latest
+scheduled [Explorer run](https://github.com/AryanParte/nfl-player-value/actions/runs/42908770888)
+still fails at the first-bootstrap safeguard: no retained Explorer exists.
+Offline gates passed; capture/publishing were skipped. The API reports no Pages
+site; the connector lacks settings/dispatch and local `gh` is absent. See the
+[runbook](docs/PRODUCTION_REFRESH.md). No bypass or settings change occurred.
+Explorer-only deployment would not admit an MVP leaderboard.
 
-[PR #24](https://github.com/AryanParte/nfl-player-value/pull/24) is stacked on #23,
-which depends on #22/#21. Local `make check` passes 411 Python tests and 27 frontend
-contracts, Ruff/adopted formatting, TypeScript/build, syntax and whitespace. Hosted
-Python 3.11/3.12/3.13 and dashboard/Chromium pass on both producing source commits.
-The [learning report](docs/learning/2026-11-11.md) explains evidence, failures and
-review focus. Passing software tests is separate from statistical validation.
+[PR #25](https://github.com/AryanParte/nfl-player-value/pull/25) targets current main.
+Local `make check` passes 423 Python tests and 27 frontend contracts, Ruff/adopted
+formatting, TypeScript/build, syntax and whitespace. Hosted Python 3.11/3.12/3.13
+and dashboard/Chromium pass on both producing source commits; final-head status
+is reported in the PR; the [learning report](docs/learning/2026-11-12.md) records
+source verification and review focus. Passing software tests is separate from
+statistical validation.
 
-No new dependency, paid service, automation change, merge or other-repository edit.
+No new dependency, paid service, automation change, agent merge or other-repository edit.
 The daily **7:30 PM America/New_York** identity/schedule is preserved; weekly
 production refresh remains independent. Research stores remain locally retained;
 byte-identical local replay does not establish durable remote storage.

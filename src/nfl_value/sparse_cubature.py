@@ -150,7 +150,10 @@ def integrate(f, dimensions, *, rtol, atol, max_level, max_evaluations):
             if len(previous) >= 2
             else np.full_like(estimate, np.inf)
         )
-        ratio = float(np.max(error / (atol + rtol * np.abs(estimate))))
+        tolerance = atol + rtol * np.abs(estimate)
+        ratios = np.divide(error, tolerance, out=np.full_like(error, np.inf), where=tolerance > 0)
+        ratios[(tolerance == 0) & (error == 0)] = 0
+        ratio = float(np.max(ratios))
         converged = level >= 4 and ratio <= 1
         history.append(
             dict(

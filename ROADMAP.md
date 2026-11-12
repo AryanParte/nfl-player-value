@@ -47,16 +47,24 @@ first version passes the team control but not the QB or three consumed stress
 cases. The second loses the real team pass; improved-looking raw agreement cannot
 override nonconvergence or reference error. No contribution module is admitted.
 
-Next substantial unit: preregister a bounded higher-order independent reference
-comparison, with known correlated/skewed/tail controls before the same consumed
-stress cases. Do not automatically repeat covariance whitening or change the
-posterior/accuracy gates. Numerical reliability must precede fresh calibration,
-prospective evidence and observational admission. The archive stays November 7
-evening coverage and Week 10 remains sealed. Defense remains mandatory; the
-November 11 checked participation release has no 2026-named asset, which does
-not establish absence across every provider.
+November 12 implements the [higher-order comparison](docs/HIGHER_ORDER_REFERENCE_RESULTS.md):
+nested sparse quadrature, independent analytic controls and a predeclared dense
+rule comparison. The real QB/team sparse references fail; neither tensor
+alternative passes all controls, so both are blocked from the archived runner.
+No posterior, accuracy threshold or admission rule changes, and no new calibration
+is claimed. The archive remains November 7 evening coverage.
 
-PRs #18/#19 are merged; main CI passed. Authenticated Pages/bootstrap access remains
+Next substantial unit: preregister a replicated randomized numerical reference
+with known-answer error-coverage controls, independent scrambles/proposal and
+explicit dependence/multiple-function limitations. This is not implemented yet.
+Hold the posterior and functional accuracy limits fixed. Do not repeat failed
+whitening/tensor comparisons or silently run extra primary samples as validation.
+Numerical reliability must precede fresh calibration, prospective evidence and
+observational admission. Week 10 remains sealed. Defense stays mandatory; the
+November 12 participation metadata still has no 2026-named asset in the checked
+release, which does not establish absence across every provider.
+
+PRs #18–#24 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,
 reproducible contribution module, then connect its honest estimates/explanations
 and history to the existing dashboard. Cross-position coverage remains the goal;
