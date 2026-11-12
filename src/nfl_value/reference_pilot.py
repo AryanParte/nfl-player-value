@@ -50,6 +50,10 @@ def validate_plan(plan):
     ):
         raise ValueError("unsupported reference plan schema")
     sparse = plan["cubature_rule"] == "smolyak-fejer2"
+    if plan["cubature_rule"] in ("gauss-legendre", "gauss-hermite"):
+        raise ValueError(
+            "tensor alternatives failed frozen controls; archived pilot not authorized"
+        )
     if sparse:
         level = plan.get("reference_sparse_level")
         if (

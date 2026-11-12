@@ -13,6 +13,7 @@ from scipy.stats import qmc, t
 from nfl_value.continuous_math import Target, compare, describe, packed, proposal
 from nfl_value.dimension_cubature import integrate as dimension_integrate
 from nfl_value.sparse_cubature import integrate as sparse_integrate
+from nfl_value.tensor_cubature import integrate as tensor_integrate
 
 
 class BudgetExceeded(ValueError):
@@ -148,6 +149,23 @@ class SmoothReferenceTransport:
         return np.sum(
             t.logpdf((np.atleast_2d(eta) - self.mean) / self.scale, 5) - np.log(self.scale), axis=1
         )
+
+
+class NormalReferenceTransport:
+    """Full-support affine normal coordinates for Gauss-Hermite integration only."""
+
+    def __init__(self, transport):
+        moments = np.array([a.moments() for a in transport.axes])
+        self.mean, self.scale = moments[:, 0], np.sqrt(moments[:, 1])
+        if not np.isfinite(moments).all() or np.any(self.scale <= 0):
+            raise ValueError("positive normal reference scales required")
+
+    def transform(self, normal):
+        return self.mean + self.scale * np.asarray(normal)
+
+    def logpdf(self, eta):
+        z = (np.atleast_2d(eta) - self.mean) / self.scale
+        return np.sum(-(z**2) / 2 - np.log(self.scale) - np.log(2 * np.pi) / 2, axis=1)
 
 
 class WhitenedReferenceTransport:
@@ -349,6 +367,8 @@ def reference_integral(
         if reference_geometry is None:
             raise ValueError("recorded posterior reference geometry required")
         coordinates = WhitenedReferenceTransport(reference_geometry)
+    if plan.get("reference_transport") == "independent_normal_moments":
+        coordinates = NormalReferenceTransport(transport)
     log_reference = target.log_target(transport.mode) - coordinates.logpdf(transport.mode)[0]
     calls = 0
 
@@ -398,6 +418,7 @@ def reference_integral(
         return result
 
     sparse = plan["cubature_rule"] == "smolyak-fejer2"
+    tensor = plan["cubature_rule"] in ("gauss-legendre", "gauss-hermite")
     subdivision_limit = plan.get("cubature_max_subdivisions", 0)
     budget_limited = False
     if isinstance(target, BoundedTarget) and plan.get("reference_cache_nodes"):
@@ -417,21 +438,26 @@ def reference_integral(
         subdivision_limit = min(subdivision_limit, affordable)
         budget_limited = subdivision_limit < plan["cubature_max_subdivisions"]
     adaptive = plan.get("reference_subdivision") == "largest_fourth_difference"
-    if sparse:
+    if sparse or tensor:
         available = (
             target.evaluation_limit - target.evaluations
             if isinstance(target, BoundedTarget)
             else plan["maximum_target_evaluations_per_case"]
         )
-        if available < 1:
-            raise BudgetExceeded("budget cannot retain a complete sparse level")
-        r = sparse_integrate(
+        if available < (7 ** len(target.groups) if tensor else 1):
+            raise BudgetExceeded("budget cannot retain a complete reference rule")
+        integrate = tensor_integrate if tensor else sparse_integrate
+        r = integrate(
             integrand,
             len(target.groups),
             rtol=plan["cubature_rtol"],
             atol=plan["cubature_atol"],
-            max_level=plan["reference_sparse_level"],
             max_evaluations=available,
+            **(
+                {"method": plan["cubature_rule"]}
+                if tensor
+                else {"max_level": plan["reference_sparse_level"]}
+            ),
         )
     else:
         integrate = dimension_integrate if adaptive else cubature
@@ -486,6 +512,8 @@ def reference_integral(
             level_limit_from_solve_budget=r.level_limit < plan["reference_sparse_level"],
             level_history=r.history,
         )
+    elif tensor:
+        result.update(rule=plan["cubature_rule"], order=r.order, order_history=r.history)
     else:
         result["subdivisions"] = int(r.subdivisions)
     if plan.get("reference_cache_nodes"):
