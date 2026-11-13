@@ -1,5 +1,9 @@
 # Density holdout and covariance stabilization — frozen November 13
 
+**Pre-result amendment:** use [the tail-compatible curved control](DENSITY_HOLDOUT_TAIL_AMENDMENT.md)
+and `config/density-holdout-v2.json`. The initial design below is preserved. No
+density comparison, coverage trial or archived study ran under version 1.
+
 PR #26 is merged at `e28bdb2`; its negative numerical evidence is unchanged.
 Freeze this document and `config/density-holdout-v1.json` before implementing or
 evaluating this study. No posterior, CAVAA benchmark, qualification, source cohort,
