@@ -218,7 +218,13 @@ def season_outputs(context, d, fit, summaries, matrices, numerical_valid):
 
 
 def experiment(
-    context, continuous_parent, plan, progress=lambda _: None, checkpoint=lambda *_: None
+    context,
+    continuous_parent,
+    plan,
+    progress=lambda _: None,
+    checkpoint=lambda *_: None,
+    *,
+    reference_evaluator=None,
 ):
     validate_plan(plan)
     if continuous_parent["plan"]["future_test"] != plan["future_test"]:
@@ -275,15 +281,18 @@ def experiment(
             )
             checkpoint(name + "_qmc", r)
             stage = "reference"
-            r["reference"] = reference_integral(
-                target,
-                l,
-                transport,
-                summaries,
-                plan,
-                progress,
-                reference_geometry=fit.get("reference_geometry"),
-            )
+            if reference_evaluator is None:
+                r["reference"] = reference_integral(
+                    target,
+                    l,
+                    transport,
+                    summaries,
+                    plan,
+                    progress,
+                    reference_geometry=fit.get("reference_geometry"),
+                )
+            else:
+                r["reference"] = reference_evaluator(name, target, l, summaries, progress)
             r["numerical_valid"] = bool(r["qmc"]["valid"] and r["reference"]["valid"])
             r["status"] = "passed" if r["numerical_valid"] else "failed"
         except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:

@@ -279,3 +279,39 @@ the same experiment. Repeated numerical controls are not fresh calibration or
 evidence of correct football attribution. Preserve all failures and the sealed
 Week 10 window; [complete results](HIGHER_ORDER_REFERENCE_RESULTS.md) record the
 case-level decisions and independent replay.
+
+## Replicated numerical-error coverage (November 12 manual follow-up)
+
+The [frozen randomized study](RANDOMIZED_REFERENCE.md) checks actual error against
+analytic masses/means/variances and independently solved scalar-convolution
+endpoints. Independent replicate integrals supply approximate Student-t/Fieller
+sets; individual points within a Sobol net do not supply independent errors.
+All trials remain in denominators, and unbounded mass/ratio sets fail explicitly.
+Positive mass uncertainty, signed ratios, multiple quantities and all QB-prior
+sensitivities remain in the numerical check. Exact reproduction is not coverage.
+
+Initial local-t/prior-mixture proposals fail precision. A predeclared density-only
+adaptation repairs known-answer precision but fails the 128-trial tail coverage
+gate. Its failure is retained. The original lower-bound test has only 0.540714
+pass probability at true 95% coverage and n=128. The subsequent fixed 1,024-trial
+audit preserves the exact proposal geometries and every original gate, adds a
+joint undercoverage test, uses fresh randomizations, and has no optional stopping
+or follow-on retries. This rationale is committed before those new outcomes.
+
+All four fixed confirmation gates pass: measured joint coverage is 94.34–95.31%
+and precision passes in 99.12–100% of trials. Binomial uncertainty and all marginal
+tests are retained in the [results](RANDOMIZED_REFERENCE_RESULTS.md). These reused
+diagnostic functions with fresh numerical randomizations do not supply fresh
+football validation. Empirical coverage is conditional on the four proposals and
+integrands tested; it is not a guarantee for NFL tail behavior or a larger family
+of functionals. The raw deterministic integration stopping indicator is replaced
+by positive mass and ratio uncertainty for this fixed randomized design, with
+the same 0.01 posterior-SD mean and 0.001 endpoint-CDF accuracy requirements.
+
+The archived pilot is authorized only by a complete verified control certificate.
+It retains all five cases and the original primary-QMC checks/work caps. No
+extra primary samples, interval inflation, selective case removal or calibration
+claim follows a reference failure. Report point discrepancy and numerical error
+separately: an inconclusive reference cannot establish a biased football estimate.
+The 192-fit player calibration, prospective prediction and observational admission
+remain distinct outstanding decisions. No module is admitted by this study.

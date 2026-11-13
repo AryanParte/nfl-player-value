@@ -54,17 +54,27 @@ alternative passes all controls, so both are blocked from the archived runner.
 No posterior, accuracy threshold or admission rule changes, and no new calibration
 is claimed. The archive remains November 7 evening coverage.
 
-Next substantial unit: preregister a replicated randomized numerical reference
-with known-answer error-coverage controls, independent scrambles/proposal and
-explicit dependence/multiple-function limitations. This is not implemented yet.
-Hold the posterior and functional accuracy limits fixed. Do not repeat failed
-whitening/tensor comparisons or silently run extra primary samples as validation.
-Numerical reliability must precede fresh calibration, prospective evidence and
-observational admission. Week 10 remains sealed. Defense stays mandatory; the
-November 12 participation metadata still has no 2026-named asset in the checked
-release, which does not establish absence across every provider.
+The additional November 12 manual unit implements the
+[replicated randomized reference](docs/RANDOMIZED_REFERENCE_RESULTS.md). Two initial
+proposals and the first density-adapted study fail; a separately frozen larger
+confirmation of unchanged geometry passes all four known-answer gates. The real
+QB reference still fails because numerical uncertainty is too large, while the
+team-only control passes. These are numerical findings, not fresh calibration or
+admission. Failed studies remain immutable and replayable.
 
-PRs #18–#24 are merged; main CI passed. Authenticated Pages/bootstrap access remains
+Next substantial unit: freeze a density-only holdout study of sampling-proposal
+instability and poor importance overlap. Compare the existing fitted mixture with
+one scientifically justified stabilized proposal, using independent pilot and
+validation randomizations and retained known answers. Low effective pilot counts
+and covariance-floor hits motivate this hypothesis; they do not prove it. Keep
+the posterior, functional limits, full case list and negative evidence fixed.
+Do not automatically increase primary samples or call more familiar cases fresh
+calibration. Numerical reliability precedes the unfinished 192-fit calibration,
+prospective evidence and observational admission. Week 10 remains sealed. Defense
+stays mandatory; the earlier November 12 participation metadata audit found no
+2026-named asset in the checked release, not absence across every provider.
+
+PRs #18–#25 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,
 reproducible contribution module, then connect its honest estimates/explanations
 and history to the existing dashboard. Cross-position coverage remains the goal;
