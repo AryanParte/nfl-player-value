@@ -25,6 +25,7 @@ from nfl_value.randomized_controls import (
 from nfl_value.replicated_reference import (
     SamplingProposal,
     confidence_sets,
+    diagnose_reference,
     functional_check,
     replicate_integrals,
 )
@@ -35,6 +36,63 @@ def plan():
 
 
 class ReplicateTests(unittest.TestCase):
+    def test_failure_diagnosis_separates_error_and_disagreement_in_saved_order(self):
+        z = np.linspace(-1, 1, 32)
+        raw = np.column_stack(
+            [
+                np.ones(32),
+                0.02 + 0.0005 * z,
+                0.025 + 0.02 * z,
+                np.full(32, 0.975),
+                np.ones(32),
+                -0.003 + 0.1 * z,
+                np.full(32, 0.025),
+                np.full(32, 0.975),
+            ]
+        )
+        shifts = [0.0, -1.0]
+        b = confidence_sets(raw, [-1, 0, 0, 0, -1, 4, 4, 4])
+        checks = {}
+        for j, shift in enumerate(shifts):
+            valid, difference = functional_check(
+                {k: b[k][j * 4 + 1 : j * 4 + 4] for k in ["estimate", "low", "high"]},
+                np.array([0, 0.025, 0.975]),
+                np.array([0.01, 0.001, 0.001]),
+            )
+            checks[str(shift)] = dict(
+                valid=valid,
+                maximum_mean_difference_plus_error_sd=float(difference[0]),
+                maximum_endpoint_cdf_difference_plus_error=float(difference[1:].max()),
+            )
+        ref = json.loads(
+            json_bytes(
+                dict(
+                    valid=False,
+                    checks=checks,
+                    simultaneous_critical=b["critical"],
+                    replicate_integrals=raw.tolist(),
+                    bounds={k: v.tolist() for k, v in b.items() if k != "critical"},
+                )
+            )
+        )
+        d = diagnose_reference(ref, contrasts=1, shifts=shifts, plan=plan())
+        self.assertEqual(d["0.0"]["mean_sd"]["confidence_sets_outside_tolerance"], 1)
+        self.assertEqual(d["0.0"]["lower_cdf"]["point_tolerance_failures"], 0)
+        self.assertEqual(d["0.0"]["lower_cdf"]["numerical_error_exceeds_tolerance"], 1)
+        self.assertEqual(d["-1.0"]["mean_sd"]["point_tolerance_failures"], 0)
+        self.assertEqual(d["-1.0"]["mean_sd"]["confidence_sets_outside_tolerance"], 0)
+        self.assertEqual(d["-1.0"]["mean_sd"]["numerical_error_exceeds_tolerance"], 1)
+        self.assertAlmostEqual(d["0.0"]["maximum_mass_replicate_share"], 1 / 32)
+        with self.assertRaisesRegex(ValueError, "functional order"):
+            diagnose_reference(ref, contrasts=1, shifts=sorted(shifts), plan=plan())
+        corrupt = deepcopy(ref)
+        corrupt["bounds"]["low"][1] += 0.01
+        with self.assertRaisesRegex(ValueError, "confidence sets"):
+            diagnose_reference(corrupt, contrasts=1, shifts=shifts, plan=plan())
+        for count, order in [(2, shifts), (1, [0.0, 0.0]), (0, shifts)]:
+            with self.assertRaises(ValueError):
+                diagnose_reference(ref, contrasts=count, shifts=order, plan=plan())
+
     def test_adapted_sampling_mixture_retains_weighted_modes_and_exact_density(self):
         points = np.r_[np.linspace(-2.5, -1.5, 40), np.linspace(1.5, 2.5, 40)][:, None]
         weights = np.r_[np.full(40, 0.7 / 40), np.full(40, 0.3 / 40)]

@@ -7,6 +7,7 @@ from scipy.special import gammaincinv, logsumexp, ndtri, stdtr
 from scipy.stats import multivariate_t, qmc, t
 
 from nfl_value.continuous_math import hessian, normal_logpdf, proposal
+from nfl_value.ingestion import json_bytes
 from nfl_value.variance_reference import BoundedTarget, BudgetExceeded
 
 
@@ -182,6 +183,77 @@ def functional_check(bounds, expected, tolerances):
     )
     discrepancy = np.abs(bounds["estimate"] - expected) + error
     return bool(np.all(discrepancy <= tolerances)), discrepancy
+
+
+def diagnose_reference(reference, *, contrasts, shifts, plan):
+    """Separate disagreement from imprecision without refitting or changing gates.
+
+    Pass the integrand's declared shift order, not JSON dictionary iteration order.
+    Recompute all saved bounds/checks from raw replicates before reporting them.
+    A set excluding the tolerance is evidence of numerical disagreement under
+    the approximate confidence construction, never proof of football model bias.
+    """
+    if type(contrasts) is not int or contrasts < 1 or not shifts or len(set(shifts)) != len(shifts):
+        raise ValueError("positive contrast count and unique ordered shifts required")
+    n, width = contrasts, 1 + 3 * contrasts
+    raw = np.asarray(reference["replicate_integrals"], float)
+    if raw.shape != (plan["replicates"], width * len(shifts)):
+        raise ValueError("raw replicate dimensions differ from declared functionals")
+    den = [k * width if j else -1 for k in range(len(shifts)) for j in range(width)]
+    bounds = confidence_sets(raw, den)
+    expected_bounds = {k: v.tolist() for k, v in bounds.items() if k != "critical"}
+    if json_bytes(expected_bounds) != json_bytes(reference["bounds"]) or (
+        bounds["critical"] != reference["simultaneous_critical"]
+    ):
+        raise ValueError("saved reference confidence sets do not reproduce")
+    checks, diagnoses = {}, {}
+    for k, shift in enumerate(shifts):
+        quantities = {}
+        for label, start, stop, truth, tolerance in [
+            ("mean_sd", 1, 1 + n, 0.0, plan["reference_mean_tolerance_sd"]),
+            ("lower_cdf", 1 + n, 1 + 2 * n, 0.025, plan["reference_endpoint_cdf_tolerance"]),
+            ("upper_cdf", 1 + 2 * n, width, 0.975, plan["reference_endpoint_cdf_tolerance"]),
+        ]:
+            sl = slice(k * width + start, k * width + stop)
+            estimate, low, high = (bounds[j][sl] for j in ["estimate", "low", "high"])
+            gap = np.abs(estimate - truth)
+            error = np.maximum(np.abs(low - estimate), np.abs(high - estimate))
+            total = gap + error
+            worst = int(total.argmax())
+            nearest = np.maximum(np.maximum(low - truth, truth - high), 0)
+            quantities[label] = dict(
+                maximum_point_discrepancy=float(gap.max()),
+                maximum_numerical_error=float(error.max()),
+                maximum_difference_plus_error=float(total.max()),
+                worst_contrast_index=worst,
+                worst_point_discrepancy=float(gap[worst]),
+                worst_numerical_error=float(error[worst]),
+                point_tolerance_failures=int(np.count_nonzero(gap > tolerance)),
+                numerical_error_exceeds_tolerance=int(np.count_nonzero(error > tolerance)),
+                confidence_sets_outside_tolerance=int(np.count_nonzero(nearest > tolerance)),
+                contrasts=n,
+            )
+        mean = quantities["mean_sd"]["maximum_difference_plus_error"]
+        cdf = max(
+            quantities[j]["maximum_difference_plus_error"] for j in ["lower_cdf", "upper_cdf"]
+        )
+        checks[str(shift)] = dict(
+            valid=bool(
+                mean <= plan["reference_mean_tolerance_sd"]
+                and cdf <= plan["reference_endpoint_cdf_tolerance"]
+            ),
+            maximum_mean_difference_plus_error_sd=mean,
+            maximum_endpoint_cdf_difference_plus_error=cdf,
+        )
+        quantities["maximum_mass_replicate_share"] = float(
+            raw[:, k * width].max() / raw[:, k * width].sum()
+        )
+        diagnoses[str(shift)] = quantities
+    if json_bytes(checks) != json_bytes(reference["checks"]) or reference["valid"] is not all(
+        c["valid"] for c in checks.values()
+    ):
+        raise ValueError("reference decisions or functional order do not reproduce")
+    return diagnoses
 
 
 def reference_integral(
