@@ -1,0 +1,35 @@
+{
+  "plan_version": 3,
+  "base_seed": 2026111214,
+  "replicates": 32,
+  "nodes_per_replicate": 2048,
+  "selection_trials": 0,
+  "confirmation_trials": 1024,
+  "proposals": [
+    "adaptive-mixture"
+  ],
+  "student_df": 5,
+  "prior_proposal_mass": 0.1,
+  "confidence_level": 0.95,
+  "coverage_lower_bound": 0.9,
+  "minimum_precision_fraction": 0.9,
+  "marginal_undercoverage_alpha": 0.00035714285714285714,
+  "reference_mean_tolerance_sd": 0.01,
+  "reference_endpoint_cdf_tolerance": 0.001,
+  "parent_plan": "config/variance-reference-sparse-v1.json",
+  "failure_policy": "retain_all_trials_no_calibration_or_admission",
+  "future_test": {
+    "season": 2026,
+    "weeks": [
+      10
+    ],
+    "fitting_update_allowed": false
+  },
+  "preceding_failed_report": "a3ec189abc21fc3d42c1319ab3df74dbcd9ec4f1168a2bb520192c373ecc96cc",
+  "frozen_geometry_sha256": [
+    "821a4bcfdf27ddd545c03c4effe2147bf04a39f6d4b1a9dd13a1b235a8760268",
+    "d35cdd53e02a526b83c83262e49f20950061d93b8cc1dd08cd9c968b8326a6e7",
+    "701d4d90a017b6939284bb3406c1ef180585da06a9e6e6c6ad71b7cfb8ee3a56",
+    "bfed767bd2039e1af70e11a697c6a06fcf1899fdfd312c3b5eb7304f8d8806c0"
+  ]
+}
