@@ -121,3 +121,21 @@ this particular weighted proposal. Independent RQMC replicates give approximate
 error assessments ([SciPy's pinned QMC documentation](https://docs.scipy.org/doc/scipy-1.15.3/reference/stats.qmc.html));
 the tests here measure their limitations. No new dependency, paid service or
 automation change. Defense/Explorer and the original cross-position goal remain.
+
+## Software compatibility correction after controls, before the archived functional pilot
+
+The first implementation compared the entire control model plan to the archived
+plan. The latter additionally contains exactly `diagnostic_trial_cap=8` and
+`numerical_proposal="stratified_student_t5_v1"`, retained from the November 9
+primary-runner repair. Neither changes this reference's fitted geometry:
+`fit_proposal` extracts the optimizer/Hessian means and covariance, then explicitly
+uses the existing Student-t pilot; it does not use the primary Proposal object's
+sampling-family field. The calibration cap is unused here.
+
+The compatibility check now requires the exact control plan **plus those two
+specific archived settings**, rejecting missing/changed settings, extra keys or
+any changed model parameter. Before the archived functional pilot, all five known
+targets' two trial-zero proposal geometries and exact functionals were recomputed
+under the full archived policy and matched the saved control bytes exactly.
+Both ordinary and offline control studies retain their original report ID.
+No numerical result, accuracy gate, prior or declared experiment changes.

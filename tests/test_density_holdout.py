@@ -13,7 +13,7 @@ from scipy.special import stdtr
 from scipy.stats import norm, t
 
 from nfl_value.adaptive_proposal import AdaptiveProposal, shrink_covariance, weighted_mixture
-from nfl_value.density_cli import load, pilot, save, validate_pilot_manifest
+from nfl_value.density_cli import load, pilot, save, validate_model_policy, validate_pilot_manifest
 from nfl_value.density_holdout import (
     CurvedTarget,
     StabilizedProposal,
@@ -36,6 +36,27 @@ def plan():
 
 
 class DensityTests(unittest.TestCase):
+    def test_archived_policy_accepts_only_the_two_exact_recorded_runner_extensions(self):
+        control = json.loads(Path("config/continuous-variance-v1.json").read_text())
+        archived = {
+            **control,
+            "diagnostic_trial_cap": 8,
+            "numerical_proposal": "stratified_student_t5_v1",
+        }
+        validate_model_policy(control, archived)
+        for changed in [
+            control,
+            {**archived, "diagnostic_trial_cap": 9},
+            {**archived, "numerical_proposal": "unreviewed"},
+            {**archived, "log_precision_sd": 4},
+            {**archived, "minimum_effective_samples": 1},
+            {**archived, "extra": True},
+        ]:
+            with self.assertRaisesRegex(ValueError, "policies differ"):
+                validate_model_policy(control, changed)
+        with self.assertRaises(ValueError):
+            validate_model_policy(archived, archived)
+
     def test_supplied_proposal_integrates_independent_signed_student_t_answers(self):
         location = np.array([-2.0, 0.0])
         scale = np.sqrt(0.2)

@@ -185,12 +185,22 @@ def validate_archived(result):
                 raise ValueError("archived density entropy changed")
 
 
+def validate_model_policy(control_plan, archived_plan):
+    # These exact archived runner settings do not enter fit_proposal's returned
+    # geometry or any known-target functional. Bind them rather than ignoring
+    # arbitrary extras. Every actual model/numerical parameter must still match.
+    extensions = dict(diagnostic_trial_cap=8, numerical_proposal="stratified_student_t5_v1")
+    if set(extensions) & set(control_plan) or json_bytes(archived_plan) != json_bytes(
+        {**control_plan, **extensions}
+    ):
+        raise ValueError("coverage and archived model policies differ")
+
+
 def pilot(stores, controls, rid, primary_plan, progress=lambda _: None, checkpoint=lambda *_: None):
     certificate, _ = authorize(controls, rid)
     plan = certificate["plan"]
     context, parent = load_inputs(*stores, primary_plan, progress)
-    if json_bytes(parent["plan"]) != json_bytes(certificate["model_plan"]):
-        raise ValueError("coverage and archived model policies differ")
+    validate_model_policy(certificate["model_plan"], parent["plan"])
 
     def reference(name, target, contrasts, summaries, progress):
         index = 100 + CASES.index(name)
