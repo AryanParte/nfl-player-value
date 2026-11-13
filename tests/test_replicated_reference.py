@@ -15,7 +15,13 @@ from nfl_value.adaptive_proposal import AdaptiveProposal, weighted_mixture
 from nfl_value.ingestion import SnapshotStore, json_bytes
 from nfl_value.randomized_cli import load, save
 from nfl_value.randomized_pilot import run as run_pilot
-from nfl_value.randomized_controls import coverage_decision, select, validate_plan, validate_result
+from nfl_value.randomized_controls import (
+    coverage_decision,
+    select,
+    validate_plan,
+    validate_result,
+    fixture_truth_bytes,
+)
 from nfl_value.replicated_reference import (
     SamplingProposal,
     confidence_sets,
@@ -226,7 +232,15 @@ class ReplicateTests(unittest.TestCase):
                 )
                 for j in range(p["selection_trials"])
             ]
-            records.append(dict(fixture=i, trials=trials, decision=coverage_decision(trials, p)))
+            records.append(
+                dict(
+                    fixture=i,
+                    dimensions=min(i + 2, 4),
+                    exact=json.loads(fixture_truth_bytes(i)),
+                    trials=trials,
+                    decision=coverage_decision(trials, p),
+                )
+            )
         result = dict(
             experiment="replicated-reference-controls-v1",
             plan=p,
@@ -256,7 +270,7 @@ class ReplicateTests(unittest.TestCase):
             bad["objects"]["study"] = "f" * 64
             with self.assertRaises((ValueError, OSError)):
                 load(output, output.put(json_bytes(bad), manifest=True))
-        for mutation in ["flag", "omit", "duplicate", "decision", "entropy"]:
+        for mutation in ["flag", "omit", "duplicate", "decision", "entropy", "truth"]:
             bad = deepcopy(result)
             case = bad["selection"]["local-t"][0]
             if mutation == "flag":
@@ -267,8 +281,10 @@ class ReplicateTests(unittest.TestCase):
                 case["trials"][1] = deepcopy(case["trials"][0])
             elif mutation == "decision":
                 case["decision"]["passed"] = True
-            else:
+            elif mutation == "entropy":
                 case["trials"][0]["entropy"][1] = 1
+            else:
+                case["exact"]["high"][0] += 1
             with self.assertRaises(ValueError):
                 validate_result(bad)
 

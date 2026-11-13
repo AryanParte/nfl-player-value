@@ -1,6 +1,7 @@
 """Frozen analytic targets and coverage experiment; never NFL calibration."""
 
 from copy import deepcopy
+from functools import lru_cache
 
 import numpy as np
 from scipy.integrate import quad
@@ -141,6 +142,12 @@ class KnownTarget:
             )
 
         return f
+
+
+@lru_cache(maxsize=4)
+def fixture_truth_bytes(index):
+    """Bind evidence to the declared mathematical answers, not editable metadata."""
+    return json_bytes({k: v.tolist() for k, v in KnownTarget(index, {}).exact().items()})
 
 
 def assess_trial(replicas, plan):
@@ -327,6 +334,10 @@ def validate_result(result):
         if [c["fixture"] for c in cases] != list(range(4)):
             raise ValueError("missing or duplicated analytic fixture")
         for i, case in enumerate(cases):
+            if case["dimensions"] != min(i + 2, 4) or json_bytes(
+                case["exact"]
+            ) != fixture_truth_bytes(i):
+                raise ValueError("analytic fixture answers or dimensions changed")
             if fixed and sha256(json_bytes(case["geometry"])) != p["frozen_geometry_sha256"][i]:
                 raise ValueError("confirmation geometry changed")
             if [r["trial"] for r in case["trials"]] != list(range(count)):
