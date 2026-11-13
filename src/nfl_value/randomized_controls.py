@@ -14,7 +14,7 @@ from nfl_value.replicated_reference import (
     functional_check,
     replicate_integrals,
 )
-from nfl_value.ingestion import json_bytes
+from nfl_value.ingestion import json_bytes, sha256
 from nfl_value.adaptive_proposal import fit_adaptive
 
 
@@ -39,8 +39,22 @@ def validate_plan(p):
         failure_policy="retain_all_trials_no_calibration_or_admission",
         future_test=dict(season=2026, weeks=[10], fitting_update_allowed=False),
     )
-    if p.get("plan_version") == 2:
-        expected.update(plan_version=2, base_seed=2026111214, proposals=["adaptive-mixture"])
+    if p.get("plan_version") in (2, 3):
+        expected.update(
+            plan_version=p["plan_version"], base_seed=2026111214, proposals=["adaptive-mixture"]
+        )
+    if p.get("plan_version") == 3:
+        expected.update(
+            selection_trials=0,
+            confirmation_trials=1024,
+            preceding_failed_report="a3ec189abc21fc3d42c1319ab3df74dbcd9ec4f1168a2bb520192c373ecc96cc",
+            frozen_geometry_sha256=[
+                "821a4bcfdf27ddd545c03c4effe2147bf04a39f6d4b1a9dd13a1b235a8760268",
+                "d35cdd53e02a526b83c83262e49f20950061d93b8cc1dd08cd9c968b8326a6e7",
+                "701d4d90a017b6939284bb3406c1ef180585da06a9e6e6c6ad71b7cfb8ee3a56",
+                "bfed767bd2039e1af70e11a697c6a06fcf1899fdfd312c3b5eb7304f8d8806c0",
+            ],
+        )
     if json_bytes(p) != json_bytes(expected):
         raise ValueError("randomized study differs from frozen design")
 
@@ -175,7 +189,7 @@ def coverage_decision(records, plan):
     rejects = sum(r["wrong_endpoints_rejected"] for r in complete)
     errors = np.array([r["bounds"]["estimate"] for r in complete])
     expected = np.array([1, 0, 0, 0.025, 0.025, 0.975, 0.975])
-    return dict(
+    decision = dict(
         trials=n,
         complete=len(complete),
         simultaneous_coverage=k / n,
@@ -197,6 +211,14 @@ def coverage_decision(records, plan):
             and rejects == n
         ),
     )
+    if plan["plan_version"] == 3:
+        decision["simultaneous_undercoverage_pvalue"] = float(
+            binomtest(k, n, 0.95, alternative="less").pvalue
+        )
+        decision["passed"] = bool(
+            decision["passed"] and decision["simultaneous_undercoverage_pvalue"] >= 0.01 / 4
+        )
+    return decision
 
 
 def select(selection, proposals):
@@ -214,9 +236,15 @@ def experiment(plan, model_plan, progress=lambda _: None, checkpoint=lambda *_: 
     validate_plan(plan)
     fixtures = [KnownTarget(i, model_plan) for i in range(4)]
     geometries = [
-        fit_adaptive(t, plan, i) if plan["plan_version"] == 2 else fit_proposal(t)
+        fit_adaptive(t, plan, i) if plan["plan_version"] in (2, 3) else fit_proposal(t)
         for i, t in enumerate(fixtures)
     ]
+    if (
+        plan["plan_version"] == 3
+        and [sha256(json_bytes(g.diagnostics)) for g in geometries]
+        != plan["frozen_geometry_sha256"]
+    ):
+        raise ValueError("fixed confirmation geometry differs from failed study")
     answers = [t.exact() for t in fixtures]
 
     def stage(method, number, count):
@@ -254,9 +282,14 @@ def experiment(plan, model_plan, progress=lambda _: None, checkpoint=lambda *_: 
             progress(f"stage {number} {method} fixture {i}: {result['decision']}")
         return cases
 
-    selection = {m: stage(m, 0, plan["selection_trials"]) for m in plan["proposals"]}
-    candidate = select(selection, plan["proposals"])
-    confirmation = stage(candidate, 1, plan["confirmation_trials"]) if candidate else []
+    fixed = plan["plan_version"] == 3
+    selection = (
+        {} if fixed else {m: stage(m, 0, plan["selection_trials"]) for m in plan["proposals"]}
+    )
+    candidate = plan["proposals"][0] if fixed else select(selection, plan["proposals"])
+    confirmation = (
+        stage(candidate, 5 if fixed else 1, plan["confirmation_trials"]) if candidate else []
+    )
     passed = bool(
         candidate is not None
         and len(confirmation) == 4
@@ -280,12 +313,13 @@ def validate_result(result):
     """Recompute the selection decision from every retained replicate, not flags."""
     p = result["plan"]
     validate_plan(p)
+    fixed = p["plan_version"] == 3
     if (
         result["experiment"] != "replicated-reference-controls-v1"
         or result["nfl_data_used"] is not False
         or result["calibration_completed"] is not False
         or result["ranking_ready"] is not False
-        or set(result["selection"]) != set(p["proposals"])
+        or set(result["selection"]) != (set() if fixed else set(p["proposals"]))
     ):
         raise ValueError("invalid numerical control evidence scope")
 
@@ -293,6 +327,8 @@ def validate_result(result):
         if [c["fixture"] for c in cases] != list(range(4)):
             raise ValueError("missing or duplicated analytic fixture")
         for i, case in enumerate(cases):
+            if fixed and sha256(json_bytes(case["geometry"])) != p["frozen_geometry_sha256"][i]:
+                raise ValueError("confirmation geometry changed")
             if [r["trial"] for r in case["trials"]] != list(range(count)):
                 raise ValueError("missing or duplicated coverage trial")
             for trial, r in enumerate(case["trials"]):
@@ -310,13 +346,14 @@ def validate_result(result):
             if json_bytes(coverage_decision(case["trials"], p)) != json_bytes(case["decision"]):
                 raise ValueError("coverage decision does not reproduce")
 
-    for method in p["proposals"]:
-        check_cases(result["selection"][method], 0, p["selection_trials"])
-    selected = select(result["selection"], p["proposals"])
+    if not fixed:
+        for method in p["proposals"]:
+            check_cases(result["selection"][method], 0, p["selection_trials"])
+    selected = p["proposals"][0] if fixed else select(result["selection"], p["proposals"])
     if selected != result["selected_before_confirmation"]:
         raise ValueError("candidate selection differs")
     if selected:
-        check_cases(result["confirmation"], 1, p["confirmation_trials"])
+        check_cases(result["confirmation"], 5 if fixed else 1, p["confirmation_trials"])
     elif result["confirmation"]:
         raise ValueError("unselected method cannot enter confirmation")
     passed = bool(selected and all(c["decision"]["passed"] for c in result["confirmation"]))

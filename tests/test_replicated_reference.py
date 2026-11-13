@@ -14,6 +14,7 @@ from nfl_value.adaptive_proposal import AdaptiveProposal, weighted_mixture
 
 from nfl_value.ingestion import SnapshotStore, json_bytes
 from nfl_value.randomized_cli import load, save
+from nfl_value.randomized_pilot import run as run_pilot
 from nfl_value.randomized_controls import coverage_decision, select, validate_plan, validate_result
 from nfl_value.replicated_reference import (
     SamplingProposal,
@@ -244,6 +245,9 @@ class ReplicateTests(unittest.TestCase):
             rid, manifest = save(output, result, dict(synthetic=True), "a" * 40)
             _, replayed = load(output, rid)
             self.assertEqual(result, replayed)
+            # Invalid controls fail before even trying to read archived stores.
+            with self.assertRaisesRegex(ValueError, "before NFL inputs"):
+                run_pilot([None] * 4, output, rid, {})
             bad = deepcopy(manifest)
             bad["controls_passed"] = True
             with self.assertRaisesRegex(ValueError, "mismatch"):
