@@ -8,18 +8,17 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-As of November 11, [dimension-adaptive numerical recovery](docs/DIMENSION_REFERENCE_RESULTS.md)
-makes the team-only reference pass, but the QB reference remains unverified within
-its fixed budget. A preregistered correlation-aware alternative worsens both real
-references; it is not promoted. Point estimates retain the same first-unit and
-both sensitivity benchmarks, signed season accounting and separate qualification.
+As of November 12, [higher-order numerical recovery](docs/HIGHER_ORDER_REFERENCE_RESULTS.md)
+still fails the real QB reference. Two tensor alternatives are rejected by their
+known-answer controls; neither is promoted. Signed season accounting, first-unit
+and both sensitivity benchmarks, and separate qualification are preserved.
 The archive covers 57 QBs / 122 completed 2026 games and ends November 7.
 **All 17 modules remain unadmitted.** No fresh calibration or usable MVP ranking
 is claimed. Defense Explorer and live defensive coverage remain required.
-The first observed scheduled Explorer refresh failed at the intended initial
-bootstrap safeguard, before capture/publication; no Pages site is active.
-See the [milestone backlog](docs/MILESTONES.md), [results](docs/DIMENSION_REFERENCE_RESULTS.md)
-and [latest learning report](docs/learning/2026-11-11.md). Week 10 stays sealed.
+Explorer deployment still needs its first authenticated bootstrap; no Pages site
+is active. PRs #21–#24 are merged, and model work continues independently.
+See the [milestone backlog](docs/MILESTONES.md), [results](docs/HIGHER_ORDER_REFERENCE_RESULTS.md)
+and [latest learning report](docs/learning/2026-11-12.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit

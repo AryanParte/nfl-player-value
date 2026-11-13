@@ -1,0 +1,2262 @@
+{
+  "benchmark_players": {
+    "equal_player": 57,
+    "first_unit": 37,
+    "opportunity_weighted": 57
+  },
+  "benchmark_weights_sha256": "e3566b96506ea9d3238338b57fecda7c1cf996925ec77a264828f329a9b2966d",
+  "calibration_completed": false,
+  "cases": {
+    "continuous_hierarchy_0": {
+      "contrasts": 57,
+      "dimensions": 4,
+      "numerical_valid": false,
+      "qmc": {
+        "history": [
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.08809417857524193,
+                  "mean": 0.05124670666100984
+                },
+                "minimum_effective_samples": 132.42220154383364,
+                "nested_difference": null,
+                "valid": false
+              }
+            },
+            "power": 9
+          },
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.050131006532768016,
+                  "mean": 0.030829925220594318
+                },
+                "minimum_effective_samples": 303.8497455603352,
+                "nested_difference": {
+                  "endpoint": 0.017720108181114125,
+                  "mean": 0.01541629810839619
+                },
+                "valid": false
+              }
+            },
+            "power": 10
+          },
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.010809685180167224,
+                  "mean": 0.005801926165709104
+                },
+                "minimum_effective_samples": 611.1549712783099,
+                "nested_difference": {
+                  "endpoint": 0.01091806787915205,
+                  "mean": 0.006111159247630247
+                },
+                "valid": true
+              }
+            },
+            "power": 11
+          }
+        ],
+        "nodes_per_scramble": 2048,
+        "valid": true
+      },
+      "reference": {
+        "checks": {
+          "0.0": {
+            "estimated_mass_error": 0.0010860350425664685,
+            "mass": 0.004185228357853146,
+            "maximum_endpoint_cdf_difference": 0.0018597861038386135,
+            "maximum_endpoint_cdf_difference_plus_error": 1.4105640043439238,
+            "maximum_mean_difference_plus_error_sd": 0.8406441329304911,
+            "maximum_mean_difference_sd": 0.0137347307917417,
+            "valid": false
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 65537,
+        "level": 8,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 9,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 49,
+            "level": 2,
+            "maximum_error_ratio": 26729.034859242052
+          },
+          {
+            "evaluations": 209,
+            "level": 3,
+            "maximum_error_ratio": 35217.07338949594
+          },
+          {
+            "evaluations": 769,
+            "level": 4,
+            "maximum_error_ratio": 35254.80352039245
+          },
+          {
+            "evaluations": 2561,
+            "level": 5,
+            "maximum_error_ratio": 12605.164864943143
+          },
+          {
+            "evaluations": 7937,
+            "level": 6,
+            "maximum_error_ratio": 19258.162462028144
+          },
+          {
+            "evaluations": 23297,
+            "level": 7,
+            "maximum_error_ratio": 10582.790709023442
+          },
+          {
+            "evaluations": 65537,
+            "level": 8,
+            "maximum_error_ratio": 1215.498772286034
+          }
+        ],
+        "level_limit": 8,
+        "level_limit_from_solve_budget": true,
+        "rule": "smolyak-fejer2",
+        "status": "not_converged",
+        "valid": false
+      },
+      "response_sha256": "ca06c973e4ae8b9e92435c2ea021ab7bea54bb833cdf1604a6b795c4517acd0e",
+      "status": "failed",
+      "target_evaluations": 71320,
+      "transport": {
+        "axis_knots": [
+          194,
+          195,
+          194,
+          194
+        ],
+        "mode": [
+          4.016762544506024,
+          4.768829550972321,
+          5.523695968087904,
+          4.144591945738921
+        ],
+        "optimizer_attempts": [
+          {
+            "iterations": 26,
+            "point": [
+              4.016762544506024,
+              4.768829550972321,
+              5.523695968087904,
+              4.144591945738921
+            ],
+            "relative_objective": -197.05892105353996,
+            "success": true
+          },
+          {
+            "iterations": 12,
+            "point": [
+              4.01676333455159,
+              4.768827431227181,
+              5.52369295542212,
+              4.144592434169288
+            ],
+            "relative_objective": -197.05892105353996,
+            "success": true
+          },
+          {
+            "iterations": 20,
+            "point": [
+              4.01676283990456,
+              4.768830404888359,
+              5.523696133889879,
+              4.144591485851051
+            ],
+            "relative_objective": -197.05892105365638,
+            "success": true
+          }
+        ]
+      }
+    },
+    "continuous_prior_0": {
+      "contrasts": 57,
+      "dimensions": 4,
+      "numerical_valid": false,
+      "qmc": {
+        "history": [
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.01945943514397793,
+                  "mean": 0.0029378971462302762
+                },
+                "minimum_effective_samples": 403.76741700169725,
+                "nested_difference": null,
+                "valid": false
+              }
+            },
+            "power": 9
+          },
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.03827257688878864,
+                  "mean": 0.005040492834072864
+                },
+                "minimum_effective_samples": 810.2138354895258,
+                "nested_difference": {
+                  "endpoint": 0.009877725106497794,
+                  "mean": 0.001143667032718956
+                },
+                "valid": false
+              }
+            },
+            "power": 10
+          },
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.016690255064447327,
+                  "mean": 0.002005268064793611
+                },
+                "minimum_effective_samples": 1621.5399038072494,
+                "nested_difference": {
+                  "endpoint": 0.011256985508015621,
+                  "mean": 0.0019455619875572358
+                },
+                "valid": true
+              }
+            },
+            "power": 11
+          }
+        ],
+        "nodes_per_scramble": 2048,
+        "valid": true
+      },
+      "reference": {
+        "checks": {
+          "0.0": {
+            "estimated_mass_error": 0.001230115494379524,
+            "mass": 0.023340776417719672,
+            "maximum_endpoint_cdf_difference": 0.0010765810476002016,
+            "maximum_endpoint_cdf_difference_plus_error": 0.21978882374740638,
+            "maximum_mean_difference_plus_error_sd": 0.18711518177368505,
+            "maximum_mean_difference_sd": 0.005382813974715073,
+            "valid": false
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 65537,
+        "level": 8,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 9,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 49,
+            "level": 2,
+            "maximum_error_ratio": 6238.409099105678
+          },
+          {
+            "evaluations": 209,
+            "level": 3,
+            "maximum_error_ratio": 4018.032728000706
+          },
+          {
+            "evaluations": 769,
+            "level": 4,
+            "maximum_error_ratio": 3132.4897677801673
+          },
+          {
+            "evaluations": 2561,
+            "level": 5,
+            "maximum_error_ratio": 3530.2366319817174
+          },
+          {
+            "evaluations": 7937,
+            "level": 6,
+            "maximum_error_ratio": 1509.7256978971416
+          },
+          {
+            "evaluations": 23297,
+            "level": 7,
+            "maximum_error_ratio": 961.6808224141076
+          },
+          {
+            "evaluations": 65537,
+            "level": 8,
+            "maximum_error_ratio": 841.4021358341607
+          }
+        ],
+        "level_limit": 8,
+        "level_limit_from_solve_budget": true,
+        "rule": "smolyak-fejer2",
+        "status": "not_converged",
+        "valid": false
+      },
+      "response_sha256": "3b20385fd20e93331dde4c78f802b103f5c05477cd7e2a36e7f85c73a55f3b32",
+      "status": "failed",
+      "target_evaluations": 71222,
+      "transport": {
+        "axis_knots": [
+          195,
+          194,
+          195,
+          194
+        ],
+        "mode": [
+          0.7442786677213797,
+          6.894654409360268,
+          9.081612591657326,
+          6.178567960158327
+        ],
+        "optimizer_attempts": [
+          {
+            "iterations": 20,
+            "point": [
+              0.7442786677213797,
+              6.894654409360268,
+              9.081612591657326,
+              6.178567960158327
+            ],
+            "relative_objective": -4499.317818230891,
+            "success": true
+          },
+          {
+            "iterations": 25,
+            "point": [
+              0.744281605298579,
+              6.894693338979176,
+              9.081623940305702,
+              6.178558105831664
+            ],
+            "relative_objective": -4499.317818232259,
+            "success": true
+          },
+          {
+            "iterations": 20,
+            "point": [
+              0.7442832575346338,
+              6.895152842878954,
+              9.082286659916724,
+              6.178536789847331
+            ],
+            "relative_objective": -4499.317818092386,
+            "success": true
+          }
+        ]
+      }
+    },
+    "fixed_year_changes_0": {
+      "contrasts": 57,
+      "dimensions": 4,
+      "numerical_valid": false,
+      "qmc": {
+        "history": [
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.017810688262147347,
+                  "mean": 0.019514795589797535
+                },
+                "minimum_effective_samples": 199.17289876833263,
+                "nested_difference": null,
+                "valid": false
+              }
+            },
+            "power": 9
+          },
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.029115159862730344,
+                  "mean": 0.00682063940772222
+                },
+                "minimum_effective_samples": 401.503382477913,
+                "nested_difference": {
+                  "endpoint": 0.011010366534239225,
+                  "mean": 0.0010573613236729837
+                },
+                "valid": false
+              }
+            },
+            "power": 10
+          },
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.008174304376438747,
+                  "mean": 0.008754401822471796
+                },
+                "minimum_effective_samples": 819.7119313344713,
+                "nested_difference": {
+                  "endpoint": 0.003748620583981568,
+                  "mean": 0.0026962954687696794
+                },
+                "valid": true
+              }
+            },
+            "power": 11
+          }
+        ],
+        "nodes_per_scramble": 2048,
+        "valid": true
+      },
+      "reference": {
+        "checks": {
+          "0.0": {
+            "estimated_mass_error": 0.001311519267995518,
+            "mass": 0.0016325853056657535,
+            "maximum_endpoint_cdf_difference": 0.008022240744489782,
+            "maximum_endpoint_cdf_difference_plus_error": 16.846121579046724,
+            "maximum_mean_difference_plus_error_sd": 9.669999644826783,
+            "maximum_mean_difference_sd": 0.08613952732919194,
+            "valid": false
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 65537,
+        "level": 8,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 9,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 49,
+            "level": 2,
+            "maximum_error_ratio": 0.03519460221196088
+          },
+          {
+            "evaluations": 209,
+            "level": 3,
+            "maximum_error_ratio": 8.259703908672325
+          },
+          {
+            "evaluations": 769,
+            "level": 4,
+            "maximum_error_ratio": 42.77139631908918
+          },
+          {
+            "evaluations": 2561,
+            "level": 5,
+            "maximum_error_ratio": 3681.188599777573
+          },
+          {
+            "evaluations": 7937,
+            "level": 6,
+            "maximum_error_ratio": 6287.977148232101
+          },
+          {
+            "evaluations": 23297,
+            "level": 7,
+            "maximum_error_ratio": 5987.565724263066
+          },
+          {
+            "evaluations": 65537,
+            "level": 8,
+            "maximum_error_ratio": 2137.471111144408
+          }
+        ],
+        "level_limit": 8,
+        "level_limit_from_solve_budget": true,
+        "rule": "smolyak-fejer2",
+        "status": "not_converged",
+        "valid": false
+      },
+      "response_sha256": "e27b7e595d5d3aee1ab3326632f3f4f5eb815756f4f054709a3fcfe031ec8ba1",
+      "status": "failed",
+      "target_evaluations": 71176,
+      "transport": {
+        "axis_knots": [
+          194,
+          194,
+          194,
+          195
+        ],
+        "mode": [
+          3.4037449634012393,
+          4.735943793255827,
+          4.9253995644480675,
+          0.025277946587543967
+        ],
+        "optimizer_attempts": [
+          {
+            "iterations": 14,
+            "point": [
+              3.4037449634012393,
+              4.735943793255827,
+              4.9253995644480675,
+              0.025277946587543967
+            ],
+            "relative_objective": -12264.21579303543,
+            "success": true
+          },
+          {
+            "iterations": 18,
+            "point": [
+              3.4037162108615413,
+              4.736574295680782,
+              4.925036165739507,
+              0.02527076757801228
+            ],
+            "relative_objective": -12264.215793205163,
+            "success": true
+          },
+          {
+            "iterations": 26,
+            "point": [
+              3.40372065834858,
+              4.736547186767154,
+              4.925082610331889,
+              0.0252737096109519
+            ],
+            "relative_objective": -12264.215793207113,
+            "success": true
+          }
+        ]
+      }
+    },
+    "real_evolving": {
+      "contrasts": 171,
+      "dimensions": 4,
+      "max_accounting_error_ep": 8.881784197001252e-16,
+      "numerical_valid": false,
+      "qmc": {
+        "history": [
+          {
+            "checks": {
+              "-1.3862943611198906": {
+                "independent_difference": {
+                  "endpoint": 0.022850226238581853,
+                  "mean": 0.01317465338355856
+                },
+                "minimum_effective_samples": 256.8775243323882,
+                "nested_difference": null,
+                "valid": false
+              },
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.025004987580957413,
+                  "mean": 0.014864570432858786
+                },
+                "minimum_effective_samples": 255.06848601686718,
+                "nested_difference": null,
+                "valid": false
+              },
+              "1.3862943611198906": {
+                "independent_difference": {
+                  "endpoint": 0.027090516557005395,
+                  "mean": 0.016690860501792894
+                },
+                "minimum_effective_samples": 249.31195644183805,
+                "nested_difference": null,
+                "valid": false
+              }
+            },
+            "power": 9
+          },
+          {
+            "checks": {
+              "-1.3862943611198906": {
+                "independent_difference": {
+                  "endpoint": 0.018890773582831994,
+                  "mean": 0.01271334503102965
+                },
+                "minimum_effective_samples": 525.9873463395016,
+                "nested_difference": {
+                  "endpoint": 0.014501206605549967,
+                  "mean": 0.005725314029304602
+                },
+                "valid": false
+              },
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.020019836561433708,
+                  "mean": 0.013697663344871736
+                },
+                "minimum_effective_samples": 526.0558368430077,
+                "nested_difference": {
+                  "endpoint": 0.013871561376575874,
+                  "mean": 0.005196015040645112
+                },
+                "valid": false
+              },
+              "1.3862943611198906": {
+                "independent_difference": {
+                  "endpoint": 0.020957048824829724,
+                  "mean": 0.014637645870619304
+                },
+                "minimum_effective_samples": 519.4105974679148,
+                "nested_difference": {
+                  "endpoint": 0.013224553961814146,
+                  "mean": 0.004599049755821841
+                },
+                "valid": false
+              }
+            },
+            "power": 10
+          },
+          {
+            "checks": {
+              "-1.3862943611198906": {
+                "independent_difference": {
+                  "endpoint": 0.00927747108739499,
+                  "mean": 0.006694497012541669
+                },
+                "minimum_effective_samples": 1068.522742543388,
+                "nested_difference": {
+                  "endpoint": 0.005927777019748002,
+                  "mean": 0.0027987303421883034
+                },
+                "valid": true
+              },
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.009711450054260674,
+                  "mean": 0.006957927542434263
+                },
+                "minimum_effective_samples": 1077.070749865279,
+                "nested_difference": {
+                  "endpoint": 0.006419398147567964,
+                  "mean": 0.0031249442505213373
+                },
+                "valid": true
+              },
+              "1.3862943611198906": {
+                "independent_difference": {
+                  "endpoint": 0.010058493005368608,
+                  "mean": 0.007154393352837961
+                },
+                "minimum_effective_samples": 1073.8579802361319,
+                "nested_difference": {
+                  "endpoint": 0.006973230873254243,
+                  "mean": 0.0034965392576482225
+                },
+                "valid": true
+              }
+            },
+            "power": 11
+          }
+        ],
+        "nodes_per_scramble": 2048,
+        "valid": true
+      },
+      "reference": {
+        "checks": {
+          "-1.3862943611198906": {
+            "estimated_mass_error": 4.527579219129749e-05,
+            "mass": 0.04078217977341189,
+            "maximum_endpoint_cdf_difference": 0.000713278601516619,
+            "maximum_endpoint_cdf_difference_plus_error": 0.005001883228522256,
+            "maximum_mean_difference_plus_error_sd": 0.012345280316378267,
+            "maximum_mean_difference_sd": 0.0068904087227725785,
+            "valid": false
+          },
+          "0.0": {
+            "estimated_mass_error": 4.955408907466602e-05,
+            "mass": 0.04483960330002887,
+            "maximum_endpoint_cdf_difference": 0.0008266186509947801,
+            "maximum_endpoint_cdf_difference_plus_error": 0.005089858823688739,
+            "maximum_mean_difference_plus_error_sd": 0.015804111125647318,
+            "maximum_mean_difference_sd": 0.007995526078729887,
+            "valid": false
+          },
+          "1.3862943611198906": {
+            "estimated_mass_error": 8.95673332772365e-05,
+            "mass": 0.039921142185266656,
+            "maximum_endpoint_cdf_difference": 0.0009487108595226598,
+            "maximum_endpoint_cdf_difference_plus_error": 0.01031685247190971,
+            "maximum_mean_difference_plus_error_sd": 0.02083304467898206,
+            "maximum_mean_difference_sd": 0.009288716289498122,
+            "valid": false
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 65537,
+        "level": 8,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 9,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 49,
+            "level": 2,
+            "maximum_error_ratio": 61103.37869603305
+          },
+          {
+            "evaluations": 209,
+            "level": 3,
+            "maximum_error_ratio": 48387.861887915686
+          },
+          {
+            "evaluations": 769,
+            "level": 4,
+            "maximum_error_ratio": 12962.099100686106
+          },
+          {
+            "evaluations": 2561,
+            "level": 5,
+            "maximum_error_ratio": 7053.938946311039
+          },
+          {
+            "evaluations": 7937,
+            "level": 6,
+            "maximum_error_ratio": 3454.0432828156004
+          },
+          {
+            "evaluations": 23297,
+            "level": 7,
+            "maximum_error_ratio": 665.5843487885743
+          },
+          {
+            "evaluations": 65537,
+            "level": 8,
+            "maximum_error_ratio": 74.77549368190583
+          }
+        ],
+        "level_limit": 8,
+        "level_limit_from_solve_budget": true,
+        "rule": "smolyak-fejer2",
+        "status": "not_converged",
+        "valid": false
+      },
+      "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+      "status": "failed",
+      "target_evaluations": 71175,
+      "transport": {
+        "axis_knots": [
+          194,
+          194,
+          194,
+          194
+        ],
+        "mode": [
+          5.9585050690472645,
+          6.840741333928842,
+          6.406408493855057,
+          6.625679329667787
+        ],
+        "optimizer_attempts": [
+          {
+            "iterations": 21,
+            "point": [
+              5.9585050690472645,
+              6.840741333928842,
+              6.406408493855057,
+              6.625679329667787
+            ],
+            "relative_objective": -2.7382293829577975,
+            "success": true
+          },
+          {
+            "iterations": 10,
+            "point": [
+              5.958504776013785,
+              6.84074407572908,
+              6.406408440539558,
+              6.62567822997824
+            ],
+            "relative_objective": -2.73822938289959,
+            "success": true
+          },
+          {
+            "iterations": 19,
+            "point": [
+              5.958505049158324,
+              6.840741441271133,
+              6.406408514237003,
+              6.625679341373683
+            ],
+            "relative_objective": -2.73822938289959,
+            "success": true
+          }
+        ]
+      }
+    },
+    "real_team": {
+      "contrasts": 211,
+      "dimensions": 3,
+      "numerical_valid": false,
+      "qmc": {
+        "history": [
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.003637981236985308,
+                  "mean": 0.0022463597318787376
+                },
+                "minimum_effective_samples": 404.17086249003853,
+                "nested_difference": null,
+                "valid": false
+              }
+            },
+            "power": 9
+          },
+          {
+            "checks": {
+              "0.0": {
+                "independent_difference": {
+                  "endpoint": 0.004019689435365623,
+                  "mean": 0.0029632484269554397
+                },
+                "minimum_effective_samples": 814.4179619742932,
+                "nested_difference": {
+                  "endpoint": 0.002551507204014075,
+                  "mean": 0.0011377804408452279
+                },
+                "valid": true
+              }
+            },
+            "power": 10
+          }
+        ],
+        "nodes_per_scramble": 1024,
+        "valid": true
+      },
+      "reference": {
+        "checks": {
+          "0.0": {
+            "estimated_mass_error": 2.39309014409443e-05,
+            "mass": 0.054920663399411866,
+            "maximum_endpoint_cdf_difference": 8.415577886544678e-05,
+            "maximum_endpoint_cdf_difference_plus_error": 0.001852617842359823,
+            "maximum_mean_difference_plus_error_sd": 0.0020411754822840253,
+            "maximum_mean_difference_sd": 0.0010199933343462142,
+            "valid": false
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 47103,
+        "level": 9,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 7,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 31,
+            "level": 2,
+            "maximum_error_ratio": 33044.391344652635
+          },
+          {
+            "evaluations": 111,
+            "level": 3,
+            "maximum_error_ratio": 287696.62198614655
+          },
+          {
+            "evaluations": 351,
+            "level": 4,
+            "maximum_error_ratio": 38738.48878312584
+          },
+          {
+            "evaluations": 1023,
+            "level": 5,
+            "maximum_error_ratio": 6331.642761622746
+          },
+          {
+            "evaluations": 2815,
+            "level": 6,
+            "maximum_error_ratio": 1184.1982836067004
+          },
+          {
+            "evaluations": 7423,
+            "level": 7,
+            "maximum_error_ratio": 37.165006876304446
+          },
+          {
+            "evaluations": 18943,
+            "level": 8,
+            "maximum_error_ratio": 37.18063628217474
+          },
+          {
+            "evaluations": 47103,
+            "level": 9,
+            "maximum_error_ratio": 5.32213120742616
+          }
+        ],
+        "level_limit": 9,
+        "level_limit_from_solve_budget": false,
+        "rule": "smolyak-fejer2",
+        "status": "not_converged",
+        "valid": false
+      },
+      "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+      "status": "failed",
+      "target_evaluations": 50323,
+      "transport": {
+        "axis_knots": [
+          194,
+          194,
+          195
+        ],
+        "mode": [
+          5.5072348883063516,
+          6.456295619091447,
+          6.371458574400489
+        ],
+        "optimizer_attempts": [
+          {
+            "iterations": 16,
+            "point": [
+              5.5072348883063516,
+              6.456295619091447,
+              6.371458574400489
+            ],
+            "relative_objective": -3.4470288220327348,
+            "success": true
+          },
+          {
+            "iterations": 8,
+            "point": [
+              5.507234296827752,
+              6.456293572878765,
+              6.371458948353085
+            ],
+            "relative_objective": -3.44702882214915,
+            "success": true
+          },
+          {
+            "iterations": 14,
+            "point": [
+              5.507234102362443,
+              6.456295040271546,
+              6.3714555673222195
+            ],
+            "relative_objective": -3.4470288222655654,
+            "success": true
+          }
+        ]
+      }
+    }
+  },
+  "cases_attempted": 5,
+  "cases_passed": 0,
+  "checked_on": "2026-11-12",
+  "decision": "No reference or contribution module promoted. All five sparse cases fail; both tensor rules fail known-answer selection and are blocked from archived pilots. No extra-QMC follow-up, fresh calibration, Week 10 access or admission.",
+  "environment": {
+    "numpy": "2.2.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.2",
+    "scipy": "1.15.3"
+  },
+  "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+  "experiment": "higher-order-reference-comparison",
+  "external_state": {
+    "checked_on": "2026-11-12",
+    "main": "ba353dc51f7330bc1d5ed04d6daa3bbcb9ef6a1c",
+    "merged_prs": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "pages": {
+      "default_branch": "main",
+      "has_pages": false
+    },
+    "participation": {
+      "assets": 46,
+      "assets_2026": [],
+      "latest_asset_update": "2026-02-10T18:54:08Z",
+      "release": 71636554,
+      "tag": "pbp_participation"
+    },
+    "pr": 25,
+    "scheduled_runs": [
+      {
+        "conclusion": "failure",
+        "created_at": "2026-11-10T21:49:36Z",
+        "event": "schedule",
+        "id": 42908770888,
+        "name": "Refresh and publish Defense Explorer",
+        "sha": "6eb68ed4f824bc2f566e6efd0ddf22c28545e40d",
+        "status": "completed",
+        "url": "https://github.com/AryanParte/nfl-player-value/actions/runs/42908770888"
+      }
+    ],
+    "source_ci": {
+      "conclusion": "success",
+      "id": 43293203358,
+      "sha": "418abd062b71e4a47f630e6d870bbcbf082d4c41"
+    },
+    "tensor_source": "a251069984bd45a30ba57449d386d3cbc780555c"
+  },
+  "input_reports": {
+    "defense": "62f3bfabba7ca58f1f4c3b3b9e3c8993b327ca96772ab232d63666e9819433c9",
+    "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+    "seasons": {
+      "2024": {
+        "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+        "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+      },
+      "2025": {
+        "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+        "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+      },
+      "2026": {
+        "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+        "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+      }
+    }
+  },
+  "numerical_pilot_passed": false,
+  "objects": {
+    "models": "969823d70ceabc6cb5c7dec3e7065a1e23ff547c6275e9322fad71f04d320c51",
+    "predictions": "b55976166828f825cd9343e30dc3a2a08e306e3b4136f755dc40ff80addd64c9"
+  },
+  "parent_comparison": {
+    "benchmark_qualification_and_season_identical": true,
+    "estimates_intervals_ledgers_models_identical_without_numerical_flags": {
+      "models": true,
+      "predictions": true
+    },
+    "object_bytes_identical": {
+      "models": true,
+      "predictions": true
+    },
+    "qmc_histories_identical": true,
+    "report_id": "4337d5270ca066e47679b4fef014454c40434f08a4cea8f7be624e749e810433"
+  },
+  "parent_report": "ad45a2cbf0889d4ebebd13cb17dba54a420881453beb9058f44cb0f5dda2cab1",
+  "plan": {
+    "axis_grid_points": 97,
+    "cases": [
+      "real_evolving",
+      "real_team",
+      "continuous_prior_0",
+      "continuous_hierarchy_0",
+      "fixed_year_changes_0"
+    ],
+    "cubature_atol": 1e-06,
+    "cubature_rtol": 0.0001,
+    "cubature_rule": "smolyak-fejer2",
+    "failure_policy": "retain_all_cases_no_calibration_or_admission",
+    "future_test": {
+      "fitting_update_allowed": false,
+      "season": 2026,
+      "weeks": [
+        10
+      ]
+    },
+    "local_span_sd": 6.0,
+    "maximum_seconds_per_case": 900,
+    "maximum_seconds_total": 3600,
+    "maximum_standardized_endpoint_difference": 0.02,
+    "maximum_standardized_mean_difference": 0.01,
+    "maximum_target_evaluations_per_case": 90000,
+    "minimum_effective_samples": 128.0,
+    "parent_report": "ad45a2cbf0889d4ebebd13cb17dba54a420881453beb9058f44cb0f5dda2cab1",
+    "plan_version": 1,
+    "prior_mass_per_axis": 0.1,
+    "prior_span_sd": 8.0,
+    "reference_endpoint_cdf_tolerance": 0.001,
+    "reference_mean_tolerance_sd": 0.01,
+    "reference_sparse_level": 9,
+    "reference_transport": "independent_student_t5_moments",
+    "scramble_seeds": [
+      2026111001,
+      2026111002
+    ],
+    "sobol_powers": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  "plan_sha256": "f054f867742a0a49db2f5aa7178c5c2e94769068d8bdc4bdf1419e8f6871c4c1",
+  "ranking_ready": false,
+  "replay": {
+    "all_object_bytes_identical": true,
+    "manifest_bytes_identical": true,
+    "network_forbidden": true
+  },
+  "report_id": "5e443e3f10ece581299557bf55441f47a43eb6cdfea9d2bb2ace4bc427b346d3",
+  "season": {
+    "benchmark_audit": {
+      "benchmark_ready": true,
+      "blocked_reasons": [],
+      "candidate_players": 57,
+      "first_unit_zero_opportunity_players": [],
+      "observed_players": 57
+    },
+    "games": 122,
+    "historical_opportunities_in_scoring_total": 0,
+    "negative_player_estimates": 38,
+    "players": 57,
+    "plays": 8996,
+    "qualification_denominators_complete": 23,
+    "ranking_ready": false,
+    "season": 2026
+  },
+  "source_provenance": {
+    "defense": {
+      "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "derived_participation_license": "CC-BY-SA-4.0",
+      "historical_availability": "retrospectively_retrieved_postseason_participation",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+      "source_receipts": {
+        "participation": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      }
+    },
+    "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+    "seasons": {
+      "2024": {
+        "game_cohort_cutoff": "2026-11-08T02:47:26.367479+00:00",
+        "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "conflicting_secondary_identity": 9,
+            "primary_position_unreviewed": 26
+          },
+          "actor_role_counts": {
+            "P": 9,
+            "QB": 646,
+            "RB": 1409,
+            "TE": 1088,
+            "WR": 2117
+          },
+          "actor_rows_with_resolved_role": 5269,
+          "all_player_game_issue_counts": {
+            "conflicting_secondary_identity": 64,
+            "primary_position_unreviewed": 29020
+          },
+          "completed_team_games": 544,
+          "observed_offensive_player_games": 5304,
+          "observed_offensive_players": 597,
+          "player_game_rows": 44466,
+          "player_games_without_observed_offensive_participation": 39162,
+          "team_games_with_retrospective_roster_retrieval": 544,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 46579
+        },
+        "roster_integrity_policy": "retrospective-2024-weekly-roster-local-hash-v1",
+        "roster_retrieval": {
+          "after": "2026-11-08T02:43:36.729160+00:00",
+          "before": "2026-11-08T02:43:36.136466+00:00",
+          "data": "2026-11-08T02:43:36.533455+00:00",
+          "license": "2026-11-08T02:43:37.349842+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "114f88bc9bf7c5990eb2fb1b885a2bbf230b54f66adbe0e509381379dc07b97d",
+          "schedules": "19dfe7aefa63c1b36628fa61b663cf896f930178c04da3b4c92d07e4ce84c492"
+        },
+        "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+      },
+      "2025": {
+        "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+        "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "primary_position_unreviewed": 24
+          },
+          "actor_role_counts": {
+            "K": 1,
+            "P": 6,
+            "QB": 652,
+            "RB": 1410,
+            "TE": 1123,
+            "WR": 2131
+          },
+          "actor_rows_with_resolved_role": 5323,
+          "all_player_game_issue_counts": {
+            "primary_position_unreviewed": 29102
+          },
+          "completed_team_games": 544,
+          "observed_offensive_player_games": 5347,
+          "observed_offensive_players": 601,
+          "player_game_rows": 44669,
+          "player_games_without_observed_offensive_participation": 39322,
+          "team_games_with_retrospective_roster_retrieval": 544,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 46849
+        },
+        "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+        "roster_retrieval": {
+          "data": "2026-10-26T20:49:45.882775+00:00",
+          "license": "2026-10-26T20:49:46.970669+00:00",
+          "metadata": "2026-10-26T20:49:45.668629+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+          "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+        },
+        "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+      },
+      "2026": {
+        "game_cohort_cutoff": "2026-11-08T01:41:17.891273+00:00",
+        "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "primary_position_unreviewed": 5
+          },
+          "actor_role_counts": {
+            "P": 4,
+            "QB": 272,
+            "RB": 622,
+            "TE": 519,
+            "WR": 947
+          },
+          "actor_rows_with_resolved_role": 2364,
+          "all_player_game_issue_counts": {
+            "primary_position_unreviewed": 12968
+          },
+          "completed_team_games": 244,
+          "observed_offensive_player_games": 2369,
+          "observed_offensive_players": 504,
+          "player_game_rows": 20021,
+          "player_games_without_observed_offensive_participation": 17652,
+          "team_games_with_retrospective_roster_retrieval": 244,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 22285
+        },
+        "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+        "roster_retrieval": {
+          "data": "2026-11-08T02:43:38.393326+00:00",
+          "license": "2026-11-08T02:43:38.669743+00:00",
+          "metadata": "2026-11-08T02:43:38.053864+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "d44259bc0a7eb99c4a25f8f8585fafca3159292a9330d7ae95733ce569488510",
+          "schedules": "efb6387ff638d527066b0104964b39d754c16419ef812d34aeb215c10b043db5"
+        },
+        "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+      }
+    }
+  },
+  "source_revision": "418abd062b71e4a47f630e6d870bbcbf082d4c41",
+  "sparse_known_controls": [
+    {
+      "dimensions": 2,
+      "error": [
+        1.1071033180840895e-06,
+        4.052567850442678e-05,
+        3.668153583792886e-05,
+        4.9452542997171275e-05,
+        6.0431908472766125e-06
+      ],
+      "estimate": [
+        1.0000000052584697,
+        -0.05999988837876653,
+        0.16000006736661646,
+        1.1660000734199647,
+        1.3559999531442086
+      ],
+      "evaluations": 9217,
+      "kind": "known_mixture",
+      "level": 9,
+      "maximum_error_ratio": 5.789391875190427,
+      "status": "not_converged"
+    },
+    {
+      "dimensions": 3,
+      "error": [
+        5.204446479944813e-05,
+        0.00010700061044037681,
+        7.386963520669748e-05,
+        9.08925704152801e-05,
+        0.0003028491685090922,
+        0.0006088151268081444,
+        0.0005120283217840368
+      ],
+      "estimate": [
+        0.9999998454707327,
+        -0.059970107583227045,
+        0.05000837922442109,
+        0.15999018727259,
+        1.166095423236341,
+        0.9124685986958897,
+        1.3559789542936493
+      ],
+      "evaluations": 47103,
+      "kind": "known_mixture",
+      "level": 9,
+      "maximum_error_ratio": 15.292331845153052,
+      "status": "not_converged"
+    },
+    {
+      "dimensions": 4,
+      "error": [
+        0.0008870802243116233,
+        0.001177984306719132,
+        0.0008988181861854021,
+        3.101333994184748e-05,
+        0.0010534546445572308,
+        0.004792131429265907,
+        0.0018423671439140464,
+        0.0011217097599331707,
+        0.0030900980032989487
+      ],
+      "estimate": [
+        1.0000925547575965,
+        -0.060011433165437625,
+        0.013424369785413956,
+        0.08669336867321784,
+        0.15992573248482506,
+        1.1659002674480894,
+        0.9199958811429192,
+        0.9829661035462527,
+        1.3564524442258314
+      ],
+      "evaluations": 65537,
+      "kind": "known_mixture",
+      "level": 8,
+      "maximum_error_ratio": 383.71072281529825,
+      "status": "not_converged"
+    },
+    {
+      "kind": "endpoint_control",
+      "result": {
+        "checks": {
+          "0.0": {
+            "estimated_mass_error": 1.0293589610376798e-05,
+            "mass": 0.7505268086038898,
+            "maximum_endpoint_cdf_difference": 1.507632207964349e-08,
+            "maximum_endpoint_cdf_difference_plus_error": 5.37295621365336e-05,
+            "maximum_mean_difference_plus_error_sd": 5.8219956546191674e-05,
+            "maximum_mean_difference_sd": 5.1051767702148254e-08,
+            "valid": true
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 9217,
+        "level": 9,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 5,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 17,
+            "level": 2,
+            "maximum_error_ratio": 3440.3266775951824
+          },
+          {
+            "evaluations": 49,
+            "level": 3,
+            "maximum_error_ratio": 3649.1278937490083
+          },
+          {
+            "evaluations": 129,
+            "level": 4,
+            "maximum_error_ratio": 848.4678871877112
+          },
+          {
+            "evaluations": 321,
+            "level": 5,
+            "maximum_error_ratio": 632.8103930598485
+          },
+          {
+            "evaluations": 769,
+            "level": 6,
+            "maximum_error_ratio": 163.99450697158304
+          },
+          {
+            "evaluations": 1793,
+            "level": 7,
+            "maximum_error_ratio": 11.206893559967337
+          },
+          {
+            "evaluations": 4097,
+            "level": 8,
+            "maximum_error_ratio": 3.208538834404017
+          },
+          {
+            "evaluations": 9217,
+            "level": 9,
+            "maximum_error_ratio": 0.4386845528006465
+          }
+        ],
+        "level_limit": 9,
+        "level_limit_from_solve_budget": false,
+        "rule": "smolyak-fejer2",
+        "status": "converged",
+        "valid": true
+      }
+    },
+    {
+      "kind": "endpoint_control",
+      "result": {
+        "checks": {
+          "0.0": {
+            "estimated_mass_error": 1.0293589610376798e-05,
+            "mass": 0.7505268086038898,
+            "maximum_endpoint_cdf_difference": 0.01796545784929371,
+            "maximum_endpoint_cdf_difference_plus_error": 0.018013138039553758,
+            "maximum_mean_difference_plus_error_sd": 5.8219956546191674e-05,
+            "maximum_mean_difference_sd": 5.1051767702148254e-08,
+            "valid": false
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 9217,
+        "level": 9,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 5,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 17,
+            "level": 2,
+            "maximum_error_ratio": 3440.3266775951824
+          },
+          {
+            "evaluations": 49,
+            "level": 3,
+            "maximum_error_ratio": 3649.1278937490083
+          },
+          {
+            "evaluations": 129,
+            "level": 4,
+            "maximum_error_ratio": 848.4678871877112
+          },
+          {
+            "evaluations": 321,
+            "level": 5,
+            "maximum_error_ratio": 632.8103930598485
+          },
+          {
+            "evaluations": 769,
+            "level": 6,
+            "maximum_error_ratio": 163.99450697158304
+          },
+          {
+            "evaluations": 1793,
+            "level": 7,
+            "maximum_error_ratio": 11.206893559967337
+          },
+          {
+            "evaluations": 4097,
+            "level": 8,
+            "maximum_error_ratio": 3.208538834404017
+          },
+          {
+            "evaluations": 9217,
+            "level": 9,
+            "maximum_error_ratio": 0.4386845528006465
+          }
+        ],
+        "level_limit": 9,
+        "level_limit_from_solve_budget": false,
+        "rule": "smolyak-fejer2",
+        "status": "converged",
+        "valid": false
+      }
+    },
+    {
+      "kind": "endpoint_control",
+      "result": {
+        "checks": {
+          "0.0": {
+            "estimated_mass_error": 0.11470421530627757,
+            "mass": 0.7865199572661532,
+            "maximum_endpoint_cdf_difference": 0.023200646508349763,
+            "maximum_endpoint_cdf_difference_plus_error": 0.696194074796051,
+            "maximum_mean_difference_plus_error_sd": 0.6748673652555237,
+            "maximum_mean_difference_sd": 0.061160625973320615,
+            "valid": false
+          }
+        },
+        "error_is_estimated_not_rigorous": true,
+        "evaluations": 17,
+        "level": 2,
+        "level_history": [
+          {
+            "evaluations": 1,
+            "level": 0,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 5,
+            "level": 1,
+            "maximum_error_ratio": null
+          },
+          {
+            "evaluations": 17,
+            "level": 2,
+            "maximum_error_ratio": 3440.3266775951824
+          }
+        ],
+        "level_limit": 2,
+        "level_limit_from_solve_budget": true,
+        "rule": "smolyak-fejer2",
+        "status": "not_converged",
+        "valid": false
+      }
+    }
+  ],
+  "stores": [
+    "data/derived/variance-reference-sparse",
+    "data/derived/variance-reference-sparse-offline"
+  ],
+  "tensor_controls": {
+    "calibration": false,
+    "controls": {
+      "gauss-hermite": {
+        "controls_passed": false,
+        "correct_endpoints": {
+          "checks": {
+            "0.0": {
+              "estimated_mass_error": 0.0002156405040812853,
+              "mass": 0.5092490034082466,
+              "maximum_endpoint_cdf_difference": 0.00019588096124491944,
+              "maximum_endpoint_cdf_difference_plus_error": 0.0025749442734691024,
+              "maximum_mean_difference_plus_error_sd": 0.010831928604228195,
+              "maximum_mean_difference_sd": 0.0012972770672547984,
+              "valid": false
+            }
+          },
+          "error_is_estimated_not_rigorous": true,
+          "evaluations": 395,
+          "order": 15,
+          "order_history": [
+            {
+              "evaluations": 49,
+              "maximum_error_ratio": null,
+              "order": 7
+            },
+            {
+              "evaluations": 170,
+              "maximum_error_ratio": 1267.2510076836834,
+              "order": 11
+            },
+            {
+              "evaluations": 395,
+              "maximum_error_ratio": 89.19887467951017,
+              "order": 15
+            }
+          ],
+          "rule": "gauss-hermite",
+          "status": "not_converged",
+          "valid": false
+        },
+        "incorrect_endpoints": {
+          "checks": {
+            "0.0": {
+              "estimated_mass_error": 0.0002156405040812853,
+              "mass": 0.5092490034082466,
+              "maximum_endpoint_cdf_difference": 0.018043041618942435,
+              "maximum_endpoint_cdf_difference_plus_error": 0.018978280279631835,
+              "maximum_mean_difference_plus_error_sd": 0.010831928604228195,
+              "maximum_mean_difference_sd": 0.0012972770672547984,
+              "valid": false
+            }
+          },
+          "error_is_estimated_not_rigorous": true,
+          "evaluations": 395,
+          "order": 15,
+          "order_history": [
+            {
+              "evaluations": 49,
+              "maximum_error_ratio": null,
+              "order": 7
+            },
+            {
+              "evaluations": 170,
+              "maximum_error_ratio": 1267.2510076836834,
+              "order": 11
+            },
+            {
+              "evaluations": 395,
+              "maximum_error_ratio": 89.19887467951017,
+              "order": 15
+            }
+          ],
+          "rule": "gauss-hermite",
+          "status": "not_converged",
+          "valid": false
+        },
+        "moments": [
+          {
+            "dimensions": 2,
+            "error": [
+              1.8297536819034121e-09,
+              5.642549509582914e-09,
+              1.2328633275561638e-08,
+              3.13697161202775e-07,
+              7.179216288122348e-09
+            ],
+            "estimate": [
+              0.9999999999983566,
+              -0.060000000064525494,
+              0.15999999996663422,
+              1.1660000000100375,
+              1.3560000000190167
+            ],
+            "estimated_error_covers_actual": true,
+            "evaluations": 395,
+            "expected": [
+              1.0,
+              -0.06000000000000004,
+              0.16000000000000003,
+              1.1660000000000001,
+              1.3560000000000003
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 49,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 170,
+                "maximum_error_ratio": 3.841550226817304,
+                "order": 11
+              },
+              {
+                "evaluations": 395,
+                "maximum_error_ratio": 0.002667492867347768,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 6.45254544240359e-11,
+            "order": 15,
+            "status": "converged",
+            "tail": false,
+            "valid": true
+          },
+          {
+            "dimensions": 3,
+            "error": [
+              2.243080166053346e-09,
+              6.5073895841376985e-09,
+              1.977906005241208e-09,
+              9.284536967203858e-09,
+              3.142880023565553e-07,
+              6.64363703217763e-08,
+              1.6814651448981976e-09
+            ],
+            "estimate": [
+              0.9999999999982357,
+              -0.06000000006458843,
+              0.04999999996770782,
+              0.1599999999992344,
+              1.1660000000101713,
+              0.912500000009689,
+              1.3559999999977461
+            ],
+            "estimated_error_covers_actual": true,
+            "evaluations": 5049,
+            "expected": [
+              1.0,
+              -0.06000000000000004,
+              0.05,
+              0.16000000000000003,
+              1.1660000000000001,
+              0.9125000000000001,
+              1.3560000000000003
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 343,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 1674,
+                "maximum_error_ratio": 3.8619042653288034,
+                "order": 11
+              },
+              {
+                "evaluations": 5049,
+                "maximum_error_ratio": 0.0026725170268183415,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 6.458839019174434e-11,
+            "order": 15,
+            "status": "converged",
+            "tail": false,
+            "valid": true
+          },
+          {
+            "dimensions": 4,
+            "error": [
+              3.878604326601476e-09,
+              2.16307543807253e-08,
+              3.1414439661681945e-08,
+              1.9303144571956837e-09,
+              8.660918088444911e-09,
+              3.210615609594569e-07,
+              8.919795346291121e-08,
+              3.865375163157757e-09,
+              4.2533571775749125e-09
+            ],
+            "estimate": [
+              0.9999999999976767,
+              -0.0600000000559962,
+              0.01333333328835946,
+              0.08666666666625343,
+              0.15999999999854222,
+              1.1660000000178246,
+              0.919555555564551,
+              0.9828888888865983,
+              1.3559999999972292
+            ],
+            "estimated_error_covers_actual": true,
+            "evaluations": 67667,
+            "expected": [
+              1.0,
+              -0.06000000000000004,
+              0.013333333333333315,
+              0.08666666666666663,
+              0.16000000000000003,
+              1.1660000000000001,
+              0.9195555555555557,
+              0.982888888888889,
+              1.3560000000000003
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 2401,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 17042,
+                "maximum_error_ratio": 12.44656099906513,
+                "order": 11
+              },
+              {
+                "evaluations": 67667,
+                "maximum_error_ratio": 0.013463331309527897,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 5.599615909845923e-11,
+            "order": 15,
+            "status": "converged",
+            "tail": false,
+            "valid": true
+          },
+          {
+            "dimensions": 4,
+            "error": [
+              0.010169908155583909,
+              0.06716799085880998,
+              8.448334107026439e-15,
+              8.360358427868714e-15,
+              8.353660326788532e-15,
+              0.4417212426757855,
+              0.010169908155582576,
+              0.010169908155582354,
+              0.010169908155582354
+            ],
+            "estimate": [
+              0.9971608816061772,
+              0.1768578549692306,
+              1.603759806083139e-17,
+              2.7114051023059332e-18,
+              -2.326428347881538e-19,
+              1.7604792632802495,
+              0.9971608816061771,
+              0.9971608816061771,
+              0.9971608816061771
+            ],
+            "estimated_error_covers_actual": true,
+            "evaluations": 67667,
+            "expected": [
+              1.0,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              1.95,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 2401,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 17042,
+                "maximum_error_ratio": 7804.6521656268915,
+                "order": 11
+              },
+              {
+                "evaluations": 67667,
+                "maximum_error_ratio": 3594.603548770821,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 0.18952073671975045,
+            "order": 15,
+            "status": "not_converged",
+            "tail": true,
+            "valid": true
+          }
+        ]
+      },
+      "gauss-legendre": {
+        "controls_passed": false,
+        "correct_endpoints": {
+          "checks": {
+            "0.0": {
+              "estimated_mass_error": 0.006880339917593958,
+              "mass": 0.750020927980108,
+              "maximum_endpoint_cdf_difference": 0.0010917826379756024,
+              "maximum_endpoint_cdf_difference_plus_error": 0.03820269912503255,
+              "maximum_mean_difference_plus_error_sd": 0.03932212567394979,
+              "maximum_mean_difference_sd": 0.00022927073066503212,
+              "valid": false
+            }
+          },
+          "error_is_estimated_not_rigorous": true,
+          "evaluations": 395,
+          "order": 15,
+          "order_history": [
+            {
+              "evaluations": 49,
+              "maximum_error_ratio": null,
+              "order": 7
+            },
+            {
+              "evaluations": 170,
+              "maximum_error_ratio": 867.8037133954327,
+              "order": 11
+            },
+            {
+              "evaluations": 395,
+              "maximum_error_ratio": 291.80436673689326,
+              "order": 15
+            }
+          ],
+          "rule": "gauss-legendre",
+          "status": "not_converged",
+          "valid": false
+        },
+        "incorrect_endpoints": {
+          "checks": {
+            "0.0": {
+              "estimated_mass_error": 0.006880339917593958,
+              "mass": 0.750020927980108,
+              "maximum_endpoint_cdf_difference": 0.017740455001413413,
+              "maximum_endpoint_cdf_difference_plus_error": 0.0542088365208837,
+              "maximum_mean_difference_plus_error_sd": 0.03932212567394979,
+              "maximum_mean_difference_sd": 0.00022927073066503212,
+              "valid": false
+            }
+          },
+          "error_is_estimated_not_rigorous": true,
+          "evaluations": 395,
+          "order": 15,
+          "order_history": [
+            {
+              "evaluations": 49,
+              "maximum_error_ratio": null,
+              "order": 7
+            },
+            {
+              "evaluations": 170,
+              "maximum_error_ratio": 867.8037133954327,
+              "order": 11
+            },
+            {
+              "evaluations": 395,
+              "maximum_error_ratio": 291.80436673689326,
+              "order": 15
+            }
+          ],
+          "rule": "gauss-legendre",
+          "status": "not_converged",
+          "valid": false
+        },
+        "moments": [
+          {
+            "dimensions": 2,
+            "error": [
+              0.00407600285353358,
+              0.005397157542915816,
+              0.002325985773015162,
+              0.007916306526525682,
+              0.05152156804651293
+            ],
+            "estimate": [
+              0.9982030152425855,
+              -0.06391827693914942,
+              0.15850710398903795,
+              1.1537974070077632,
+              1.3455416779342804
+            ],
+            "estimated_error_covers_actual": false,
+            "evaluations": 395,
+            "expected": [
+              1.0,
+              -0.06000000000000004,
+              0.16000000000000003,
+              1.1660000000000001,
+              1.3560000000000003
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 49,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 170,
+                "maximum_error_ratio": 10974.41123169479,
+                "order": 11
+              },
+              {
+                "evaluations": 395,
+                "maximum_error_ratio": 730.1519686881816,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 0.012202592992236916,
+            "order": 15,
+            "status": "not_converged",
+            "tail": false,
+            "valid": false
+          },
+          {
+            "dimensions": 3,
+            "error": [
+              0.005994364843081337,
+              0.00540501705786649,
+              0.0022527435472462476,
+              0.0011915981392456078,
+              0.0039429503117513216,
+              0.013969929417402126,
+              0.04622287909075756
+            ],
+            "estimate": [
+              0.998207971755414,
+              -0.06363741859870822,
+              0.04845693937206304,
+              0.15962109867067198,
+              1.1526285822055065,
+              0.9068529766346803,
+              1.3448639770635564
+            ],
+            "estimated_error_covers_actual": false,
+            "evaluations": 5049,
+            "expected": [
+              1.0,
+              -0.06000000000000004,
+              0.05,
+              0.16000000000000003,
+              1.1660000000000001,
+              0.9125000000000001,
+              1.3560000000000003
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 343,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 1674,
+                "maximum_error_ratio": 10550.405719033517,
+                "order": 11
+              },
+              {
+                "evaluations": 5049,
+                "maximum_error_ratio": 734.0041463595394,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 0.01337141779449369,
+            "order": 15,
+            "status": "not_converged",
+            "tail": false,
+            "valid": false
+          },
+          {
+            "dimensions": 4,
+            "error": [
+              0.008317062013635891,
+              0.0054606332413838785,
+              0.0030543695542922487,
+              0.0012651122720626234,
+              0.0011763076240204648,
+              0.0002036352399502847,
+              0.014207567006367413,
+              0.01650867719267498,
+              0.04284777425939428
+            ],
+            "estimate": [
+              0.998071946341371,
+              -0.06376053068293566,
+              0.011303528346241482,
+              0.08636603697103862,
+              0.15965832147616688,
+              1.1520742092498049,
+              0.9127189556002,
+              0.9768392261588984,
+              1.344656894014675
+            ],
+            "estimated_error_covers_actual": false,
+            "evaluations": 67667,
+            "expected": [
+              1.0,
+              -0.06000000000000004,
+              0.013333333333333315,
+              0.08666666666666663,
+              0.16000000000000003,
+              1.1660000000000001,
+              0.9195555555555557,
+              0.982888888888889,
+              1.3560000000000003
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 2401,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 17042,
+                "maximum_error_ratio": 19756.925562249537,
+                "order": 11
+              },
+              {
+                "evaluations": 67667,
+                "maximum_error_ratio": 1433.7388176504207,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 0.013925790750195288,
+            "order": 15,
+            "status": "not_converged",
+            "tail": false,
+            "valid": false
+          },
+          {
+            "dimensions": 4,
+            "error": [
+              0.023993626089111028,
+              0.07124853608599957,
+              8.763860523628768e-15,
+              8.74013513077617e-15,
+              8.699248321016606e-15,
+              0.34350483930364023,
+              0.030524241805701725,
+              0.030524241805701503,
+              0.030524241805701725
+            ],
+            "estimate": [
+              0.9887221256505414,
+              0.11916964570375803,
+              4.087272783680901e-17,
+              4.066012256704818e-17,
+              5.000485473895364e-17,
+              1.3661183089175821,
+              0.9842003461601961,
+              0.9842003461601961,
+              0.9842003461601961
+            ],
+            "estimated_error_covers_actual": false,
+            "evaluations": 67667,
+            "expected": [
+              1.0,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              1.95,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "false_convergence": false,
+            "history": [
+              {
+                "evaluations": 2401,
+                "maximum_error_ratio": null,
+                "order": 7
+              },
+              {
+                "evaluations": 17042,
+                "maximum_error_ratio": 8197.848863900874,
+                "order": 11
+              },
+              {
+                "evaluations": 67667,
+                "maximum_error_ratio": 5515.88848121511,
+                "order": 15
+              }
+            ],
+            "maximum_actual_error": 0.5838816910824178,
+            "order": 15,
+            "status": "not_converged",
+            "tail": true,
+            "valid": false
+          }
+        ]
+      }
+    },
+    "nfl_data_used": false,
+    "selected": null
+  },
+  "tensor_controls_offline_exact_replay": true,
+  "tensor_controls_sha256": "9cf5d9bbaace9e46438db794f8df64a3e27bcdef4f3d6a178ce0e11ec9969588",
+  "time_cap_failures": 0,
+  "uncertainty_calibrated": false,
+  "verification": {
+    "final_head_status": "See PR #25 checks; source runs do not certify later commits",
+    "frontend_contracts": 27,
+    "generated_data_and_artifacts_ignored": true,
+    "local_make_check": "passed",
+    "python_matrix_sources": [
+      {
+        "conclusion": "success",
+        "run_id": 43293203358,
+        "sha": "418abd062b71e4a47f630e6d870bbcbf082d4c41"
+      },
+      {
+        "conclusion": "success",
+        "run_id": 43295274818,
+        "sha": "a251069984bd45a30ba57449d386d3cbc780555c"
+      }
+    ],
+    "python_tests": 423,
+    "self_review_zero_tolerance_fix": "Exact-zero relative-only integrals no longer fail from 0/0; the positive-atol pilot is unchanged."
+  },
+  "wall_seconds": {
+    "offline": {
+      "continuous_hierarchy_0": 512.6488843748812,
+      "continuous_prior_0": 594.5298722090665,
+      "fixed_year_changes_0": 474.73818824999034,
+      "real_evolving": 711.1908371248282,
+      "real_team": 96.54541604104452
+    },
+    "ordinary": {
+      "continuous_hierarchy_0": 526.4385082500521,
+      "continuous_prior_0": 579.6705392079893,
+      "fixed_year_changes_0": 489.34428512491286,
+      "real_evolving": 700.691346625099,
+      "real_team": 101.32948933308944
+    }
+  },
+  "wall_seconds_total": {
+    "offline": 2389.653197999811,
+    "ordinary": 2397.4741685411427
+  }
+}

@@ -45,15 +45,18 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For the active recovery evidence, read `docs/DIMENSION_REFERENCE_RESULTS.md` and
-its frozen plans, following the parent `docs/VARIANCE_REFERENCE_RESULTS.md` and
-continuous-study evidence. Binary adaptive refinement and the correlation-aware
-reference follow-up are implemented and evaluated; do not repeat them as new
-implementation tasks. Preserve the team control's version-specific pass and the
-real QB failures. Do not carry a pass between different numerical versions or
-promote the correlation-aware transform merely because it is more elaborate.
-Follow the actual decision before another full campaign. Shared QMC geometry is
-not independent football evidence, and exact replay is not statistical calibration.
+For active recovery evidence, read `docs/HIGHER_ORDER_REFERENCE_RESULTS.md` and
+its frozen plans, following the prior dimension-adaptive and continuous studies.
+Sparse higher-order integration fails the real QB/team references. Both tensor
+alternatives fail known-answer selection and are blocked from the archived runner;
+do not treat their configurations as approved candidates or repeat them as new
+work. Preserve the November 11 team control's version-specific binary-rule pass
+without transferring it to another integrator. Next, freeze a replicated randomized
+reference and its numerical-error coverage controls before new results. Independent
+scrambles are not independent football data; numerical error and player uncertainty
+are distinct. No method may be promoted merely for passing software tests.
+Keep the posterior and functional accuracy limits fixed, preserve every failure,
+and document shared implementation/proposal dependence. Exact replay is not calibration.
 The 64-per-scenario calibration remains unfinished. Keep attempted
 failures distinct from unattempted trials, both in the requested denominator;
 success-only coverage never certifies the complete study. Preserve the sealed

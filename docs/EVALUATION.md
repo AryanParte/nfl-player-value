@@ -258,3 +258,24 @@ regression, complete failed references and every consumed stress case. A numeric
 pass is separate from fresh calibration, predictive validation and observational
 admission. No expected coverage requirement, prior, scientific threshold or
 eligibility policy changes in this numerical unit.
+
+## Higher-order numerical controls (November 12)
+
+The [frozen sparse rule](HIGHER_ORDER_REFERENCE.md) requires two small complete
+level increments before checking the unchanged normalized mean/CDF tolerances.
+Node counts and integer-angle nesting are independently verified; the integrator
+retains only complete levels at the work cap. Error indicators are estimates,
+not rigorous bounds for arbitrary integrands. Correlated/skewed moment controls
+honestly retain nonconvergence; a correct scalar-convolution interval passes and
+an incorrect one is rejected.
+
+The [frozen tensor follow-up](HIGHER_ORDER_TENSOR.md) selects neither candidate.
+Gauss–Hermite resolves the basic known moments but fails the interval control at
+the fixed order cap. Gauss–Legendre also underestimates error on some controls;
+these cases do not falsely declare convergence. The archived pilot rejects both
+configurations explicitly, while the analytical study remains reproducible.
+Do not increase order or relax an indicator after looking at results and call it
+the same experiment. Repeated numerical controls are not fresh calibration or
+evidence of correct football attribution. Preserve all failures and the sealed
+Week 10 window; [complete results](HIGHER_ORDER_REFERENCE_RESULTS.md) record the
+case-level decisions and independent replay.

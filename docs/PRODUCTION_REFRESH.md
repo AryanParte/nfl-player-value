@@ -34,6 +34,13 @@ reports `has_pages: false`; connector capabilities still lack Pages configuratio
 and workflow dispatch. Retrying the unchanged scheduled job would repeat the same
 blocker. No bootstrap bypass, workflow/schedule change or publication occurred.
 
+November 12 recheck: PRs #21–#24 are merged and `ba353dc` main CI passes.
+The same November 10 scheduled run remains the latest scheduled attempt; the API
+still reports `has_pages=false`. The connector exposes neither Pages configuration
+nor workflow dispatch, and local `gh` is absent. No deployment, bootstrap,
+schedule change or other-repository action occurred. This access blocker remains
+independent of the unresolved scoring validation.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed
