@@ -15,6 +15,7 @@ from nfl_value.replicated_reference import (
     replicate_integrals,
 )
 from nfl_value.ingestion import json_bytes
+from nfl_value.adaptive_proposal import fit_adaptive
 
 
 def validate_plan(p):
@@ -38,6 +39,8 @@ def validate_plan(p):
         failure_policy="retain_all_trials_no_calibration_or_admission",
         future_test=dict(season=2026, weeks=[10], fitting_update_allowed=False),
     )
+    if p.get("plan_version") == 2:
+        expected.update(plan_version=2, base_seed=2026111214, proposals=["adaptive-mixture"])
     if json_bytes(p) != json_bytes(expected):
         raise ValueError("randomized study differs from frozen design")
 
@@ -210,7 +213,10 @@ def select(selection, proposals):
 def experiment(plan, model_plan, progress=lambda _: None, checkpoint=lambda *_: None):
     validate_plan(plan)
     fixtures = [KnownTarget(i, model_plan) for i in range(4)]
-    geometries = [fit_proposal(t) for t in fixtures]
+    geometries = [
+        fit_adaptive(t, plan, i) if plan["plan_version"] == 2 else fit_proposal(t)
+        for i, t in enumerate(fixtures)
+    ]
     answers = [t.exact() for t in fixtures]
 
     def stage(method, number, count):

@@ -8,6 +8,9 @@ import unittest
 
 import numpy as np
 from scipy.stats import multivariate_normal, t
+from scipy.integrate import quad
+
+from nfl_value.adaptive_proposal import AdaptiveProposal, weighted_mixture
 
 from nfl_value.ingestion import SnapshotStore, json_bytes
 from nfl_value.randomized_cli import load, save
@@ -25,6 +28,52 @@ def plan():
 
 
 class ReplicateTests(unittest.TestCase):
+    def test_adapted_sampling_mixture_retains_weighted_modes_and_exact_density(self):
+        points = np.r_[np.linspace(-2.5, -1.5, 40), np.linspace(1.5, 2.5, 40)][:, None]
+        weights = np.r_[np.full(40, 0.7 / 40), np.full(40, 0.3 / 40)]
+        means, covariances, masses, diagnostics = weighted_mixture(points, weights, [1701, 4])
+        repeated = weighted_mixture(points, weights, [1701, 4])
+        for a, b in zip((means, covariances, masses), repeated[:3]):
+            np.testing.assert_array_equal(a, b)
+        self.assertEqual(diagnostics, repeated[3])
+        self.assertLess(means.min(), -1.5)
+        self.assertGreater(means.max(), 1.5)
+        self.assertAlmostEqual(float((masses @ means)[0]), float((weights @ points)[0]), delta=0.03)
+        self.assertGreater(covariances.min(), 0)
+        proposal = AdaptiveProposal(
+            np.zeros(1),
+            np.eye(1),
+            np.zeros(1),
+            np.eye(1) * 9,
+            diagnostics,
+            means,
+            covariances * 1.5,
+            masses,
+        )
+        integral = quad(
+            lambda x: np.exp(proposal.logpdf([[x]], "adaptive-mixture")[0]), -40, 40, epsabs=1e-10
+        )[0]
+        self.assertAlmostEqual(integral, 1, places=9)
+        counts = []
+        result = replicate_integrals(
+            lambda x, q: (
+                counts.append(len(x)) or np.column_stack([np.ones(len(x)), np.full(len(x), -2)])
+            ),
+            proposal,
+            "adaptive-mixture",
+            entropy=[1701, 2],
+            replicates=4,
+            nodes=128,
+        )
+        self.assertEqual(counts, [32] * 16)
+        np.testing.assert_allclose(result, np.tile([1, -2], (4, 1)), atol=1e-14)
+        with self.assertRaises(ValueError):
+            weighted_mixture(points, np.zeros(80), [17])
+        adaptive = json.loads(Path("config/randomized-reference-adaptive-v1.json").read_text())
+        validate_plan(adaptive)
+        with self.assertRaises(ValueError):
+            validate_plan({**adaptive, "base_seed": plan()["base_seed"]})
+
     def test_ratio_sets_match_independent_quadratic_inversion(self):
         rng = np.random.default_rng(1701)
         samples = rng.multivariate_normal(

@@ -30,7 +30,7 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  src/nfl_value/sparse_cubature.py tests/test_sparse_cubature.py \
  src/nfl_value/tensor_cubature.py src/nfl_value/tensor_controls.py tests/test_tensor_cubature.py \
  src/nfl_value/replicated_reference.py src/nfl_value/randomized_controls.py \
- src/nfl_value/randomized_cli.py tests/test_replicated_reference.py
+ src/nfl_value/randomized_cli.py src/nfl_value/adaptive_proposal.py tests/test_replicated_reference.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests

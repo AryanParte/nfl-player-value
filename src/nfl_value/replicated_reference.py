@@ -187,7 +187,12 @@ def functional_check(bounds, expected, tolerances):
 def reference_integral(
     target, contrasts, summaries, plan, method, case_index, progress=lambda _: None
 ):
-    sampling = fit_proposal(target)
+    if method == "adaptive-mixture":
+        from nfl_value.adaptive_proposal import fit_adaptive
+
+        sampling = fit_adaptive(target, plan, case_index)
+    else:
+        sampling = fit_proposal(target)
     offset = target.log_target(sampling.mean) - sampling.logpdf(sampling.mean, method)[0]
     n = len(contrasts)
     width = 1 + 3 * n
