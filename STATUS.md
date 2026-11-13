@@ -8,22 +8,22 @@ The November 7 MVP target was missed. Scoring remains the critical path; optiona
 infrastructure is paused. There is no measured completion percentage. Track the
 six [milestones](docs/MILESTONES.md), separating implementation from evidence.
 
-The [higher-order reference unit](docs/HIGHER_ORDER_REFERENCE_RESULTS.md) implements
-nested sparse quadrature and evaluates two additional tensor alternatives on
-known answers. The sparse real QB reference fails: mean discrepancy plus error
-0.015804 posterior SD and endpoint-CDF discrepancy plus error 0.005090, versus
-unchanged 0.01/0.001 limits. The real team control also fails. Gauss–Hermite
-accurately integrates basic moments but fails the interval control; Gauss–Legendre
-also understates some control errors. Neither tensor candidate is selected, and
-both are explicitly blocked from the archived-data runner.
+The additional manual [replicated randomized-reference unit](docs/RANDOMIZED_REFERENCE_RESULTS.md)
+implements numerical-error coverage controls, density-only sampling adaptation,
+verified control certificates and archived model evaluation. Both initial proposals
+fail; the first adapted study also fails its tail coverage gate. A separately
+frozen, more informative confirmation retains the identical proposal and all
+limits: its four known-answer gates pass with 94.34–95.31% measured joint coverage
+and 99.12–100% precision. Earlier failures remain unchanged and independently replay.
 
-The frozen posterior, source archive, QMC seeds/stopping rules, benchmark policies,
-accuracy limits and solve/time budgets remain unchanged. All five sparse cases
-finish and fail; full manifests/models/results independently rebuild byte-for-byte
-with networking blocked. Their model/result bytes also equal November 11. All
-failures are retained in the linked results/audit. Numerical-reference controls
-are not new calibration or evidence of correct football attribution. No
-contribution module is admitted.
+This does not clear the scoring gate. The real QB reference fails at worst
+0.030273 posterior SD / 0.001951 CDF discrepancy plus numerical error, above the
+unchanged 0.01 / 0.001 limits. The team-only control passes. In the real QB case,
+reference uncertainty dominates the failure; no confidence set establishes a
+beyond-tolerance disagreement with the primary calculation. Known-answer coverage
+is not guaranteed precision for the NFL target or player-uncertainty calibration.
+All five cases finish: one passes and four fail. The independent offline rebuild
+has identical manifest/model/result bytes. No contribution module is admitted.
 
 The same 57 QBs / 122 archived completed 2026 games / 8,996 dropbacks retain
 first-unit/equal-player/opportunity-weighted contrasts, negative values and
@@ -31,15 +31,18 @@ nonduplicated season-only accounting. Training across 2024–26 totals 48,776
 dropbacks, without adding historical points. Coverage ends November 7 at 20:41:17
 Eastern, not November 12 live coverage. The 192-fit calibration remains unfinished;
 no fresh calibration or Week 10 outcomes are used. QB/team allocation continues
-to depend on explicit hierarchical assumptions.
+to depend on explicit hierarchical assumptions. Full case outcomes, provenance,
+offline reconstruction and the failure decomposition are in the linked results.
 
-Next: preregister a replicated randomized-integration reference with independently
-checked numerical-error coverage, separate scrambles/proposal and known correlated,
-skewed and tail controls. Preserve the posterior and functional accuracy limits;
-do not repeat failed higher-order rules or call extra primary samples an independent
-reference. Numerical reliability must precede fresh calibration, prospective
-prediction and the observational admission review. This next method is not yet
-implemented or validated. No score is published to satisfy a calendar target.
+Next: freeze a density-only holdout study of proposal instability/poor importance
+overlap, comparing the current fit with one justified stabilized proposal. The
+QB density pilot has only 187.6 effective samples from 4,096 points and a selected
+mixture fit that hits covariance floors. The hierarchy stress pilot has only
+5.8 effective samples and all three fitting starts reach their iteration cap.
+These are warning signs, not a proven cause. Measure held-out precision before
+another NFL comparison. Preserve the posterior, functional limits and failures;
+do not automatically escalate primary samples. Numerical reliability must precede fresh calibration, prospective
+prediction and observational admission. No score is published to satisfy a date.
 
 ## Other product milestones
 
@@ -60,7 +63,8 @@ contribution module with scope, benchmarks and uncertainty preserved.
 
 ## Deployment and execution state
 
-PRs #18–#24 are merged; inspected main is `ba353dc` and its CI passed. The latest
+PRs #18–#25 are merged; inspected main is `55e8f02` and its CI passed. The earlier
+November 12 deployment audit found that the latest
 scheduled [Explorer run](https://github.com/AryanParte/nfl-player-value/actions/runs/42908770888)
 still fails at the first-bootstrap safeguard: no retained Explorer exists.
 Offline gates passed; capture/publishing were skipped. The API reports no Pages
@@ -68,13 +72,13 @@ site; the connector lacks settings/dispatch and local `gh` is absent. See the
 [runbook](docs/PRODUCTION_REFRESH.md). No bypass or settings change occurred.
 Explorer-only deployment would not admit an MVP leaderboard.
 
-[PR #25](https://github.com/AryanParte/nfl-player-value/pull/25) targets current main.
-Local `make check` passes 423 Python tests and 27 frontend contracts, Ruff/adopted
+[PR #26](https://github.com/AryanParte/nfl-player-value/pull/26) targets current main.
+Local checks pass 432 Python tests and 27 frontend contracts, Ruff/adopted
 formatting, TypeScript/build, syntax and whitespace. Hosted Python 3.11/3.12/3.13
-and dashboard/Chromium pass on both producing source commits; final-head status
-is reported in the PR; the [learning report](docs/learning/2026-11-12.md) records
-source verification and review focus. Passing software tests is separate from
-statistical validation.
+and dashboard/Chromium pass on the producing pilot source; final-head status is
+reported in the PR. The [learning report](docs/learning/2026-11-12.md) distinguishes
+this additional manual unit from the earlier daily run. Passing software tests
+is separate from statistical validation.
 
 No new dependency, paid service, automation change, agent merge or other-repository edit.
 The daily **7:30 PM America/New_York** identity/schedule is preserved; weekly

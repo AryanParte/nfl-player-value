@@ -8,16 +8,17 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-As of November 12, [higher-order numerical recovery](docs/HIGHER_ORDER_REFERENCE_RESULTS.md)
-still fails the real QB reference. Two tensor alternatives are rejected by their
-known-answer controls; neither is promoted. Signed season accounting, first-unit
-and both sensitivity benchmarks, and separate qualification are preserved.
-The archive covers 57 QBs / 122 completed 2026 games and ends November 7.
-**All 17 modules remain unadmitted.** No fresh calibration or usable MVP ranking
-is claimed. Defense Explorer and live defensive coverage remain required.
-Explorer deployment still needs its first authenticated bootstrap; no Pages site
-is active. PRs #21–#24 are merged, and model work continues independently.
-See the [milestone backlog](docs/MILESTONES.md), [results](docs/HIGHER_ORDER_REFERENCE_RESULTS.md)
+The November 12 manual [randomized-reference study](docs/RANDOMIZED_REFERENCE_RESULTS.md)
+passes its larger known-answer numerical-error coverage audit after retaining two
+failed studies. The archived real QB reference still fails its accuracy gate,
+mainly because reference uncertainty is too large; the team-only control passes.
+This is numerical progress, not calibrated player attribution or a usable ranking.
+Signed season accounting, first-unit and both sensitivity benchmarks, and separate
+qualification are preserved for 57 QBs / 122 archived games ending November 7.
+**All 17 modules remain unadmitted.** Defense Explorer and live defensive coverage
+remain required. The earlier November 12 deployment audit still found no active
+Pages site; authenticated bootstrap is outstanding. PRs #18–#25 are merged.
+See the [milestone backlog](docs/MILESTONES.md), [results](docs/RANDOMIZED_REFERENCE_RESULTS.md)
 and [latest learning report](docs/learning/2026-11-12.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 

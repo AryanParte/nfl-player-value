@@ -247,3 +247,22 @@ rules on known targets. Both tensor alternatives fail the complete controls and
 are explicitly blocked from the archived pilot. Full-support normal coordinates
 in that control do not replace the original log-precision prior. No numerical
 method changes the CAVAA estimand, first-unit membership or season ledger.
+
+The November 12 manual [randomized reference](RANDOMIZED_REFERENCE.md) computes
+mass and signed mean/CDF integrals under independent scrambled Sobol replicates.
+It propagates numerator/denominator covariance through Fieller confidence sets.
+These are **numerical** uncertainty estimates, separate from the player posterior.
+Density-only [proposal adaptation](RANDOMIZED_REFERENCE_ADAPTATION.md) changes
+sampling efficiency with exact density corrections; it does not fit new football
+effects, change priors or widen player intervals. No primary-QMC samples or known
+control answers train that proposal. Shared target/conditional code and the Sobol
+family remain explicit dependencies, so this is not wholly independent model code.
+
+Both initial proposals and the first adapted study fail. A larger, separately
+frozen [confirmation](RANDOMIZED_REFERENCE_CONFIRMATION.md) of the identical
+adapted geometry passes its four known-answer gates. This permits a numerical
+pilot only. It cannot validate player attribution, resolve QB/team aliasing or
+admit a contribution module. The [results](RANDOMIZED_REFERENCE_RESULTS.md) retain
+the failures and distinguish primary/reference disagreement from uncertainty in
+the reference itself. Scientific mean/CDF limits, benchmarks, eligibility and
+the full archived season ledger remain unchanged.

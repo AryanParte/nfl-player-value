@@ -201,3 +201,16 @@ merging, Pages configuration and hosted end-to-end verification remain open.
 These gates are not a production ranking validator. The statistical gaps include
 broader stint evidence, calibrated player uncertainty and defensible attribution;
 publishing an Explorer cannot pass those gates.
+
+The November 12 manual randomized-reference unit keeps the existing CI workflows
+and dependencies. Small unittest regressions verify Fieller inversion against
+independent quadratic roots, signed/zero contrasts, mixture-density correction,
+repeatable independent randomizations, explicit unbounded intervals, known-answer
+binding and rejection of incomplete or inconsistent study evidence. Failed
+control certificates are rejected before archived NFL inputs are loaded. New
+Python modules join the existing incremental formatting check.
+
+The full coverage studies and five-case archived pilot are deliberately separate
+from ordinary PR CI. Their frozen plans, raw replicate artifacts and independent
+offline rebuilds are scientific/numerical evidence, not assertions that the
+model is valid because unit tests passed. No additional service or secret is used.

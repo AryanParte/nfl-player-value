@@ -45,18 +45,20 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read `docs/HIGHER_ORDER_REFERENCE_RESULTS.md` and
-its frozen plans, following the prior dimension-adaptive and continuous studies.
-Sparse higher-order integration fails the real QB/team references. Both tensor
-alternatives fail known-answer selection and are blocked from the archived runner;
-do not treat their configurations as approved candidates or repeat them as new
-work. Preserve the November 11 team control's version-specific binary-rule pass
-without transferring it to another integrator. Next, freeze a replicated randomized
-reference and its numerical-error coverage controls before new results. Independent
-scrambles are not independent football data; numerical error and player uncertainty
-are distinct. No method may be promoted merely for passing software tests.
-Keep the posterior and functional accuracy limits fixed, preserve every failure,
-and document shared implementation/proposal dependence. Exact replay is not calibration.
+For active recovery evidence, read `docs/RANDOMIZED_REFERENCE_RESULTS.md` and its
+three frozen plans. Preserve the earlier sparse/tensor failures. Both initial
+randomized proposals and the first adapted study fail; the larger fixed audit of
+unchanged geometry passes four known-answer gates. The real QB reference still
+fails from excessive numerical uncertainty, while the team control passes.
+Neither is calibration or admission. Next freeze a density-only holdout study of
+proposal instability/poor overlap against one justified stabilized alternative.
+Low pilot effective counts and covariance-floor hits are hypotheses to test, not
+proof. Do not choose a new proposal from consumed NFL outcomes, retry seeds,
+relax functional limits or automatically escalate primary samples. Recompute
+failure decomposition from raw replicate evidence; preserve the declared prior-
+setting order rather than sorted JSON-key order. Independent scrambles are not
+independent football data. Shared target/conditional code remains a limitation.
+Exact replay is not calibration, and failed/unattempted cases remain visible.
 The 64-per-scenario calibration remains unfinished. Keep attempted
 failures distinct from unattempted trials, both in the requested denominator;
 success-only coverage never certifies the complete study. Preserve the sealed
