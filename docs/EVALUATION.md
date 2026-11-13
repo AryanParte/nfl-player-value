@@ -315,3 +315,28 @@ claim follows a reference failure. Report point discrepancy and numerical error
 separately: an inconclusive reference cannot establish a biased football estimate.
 The 192-fit player calibration, prospective prediction and observational admission
 remain distinct outstanding decisions. No module is admitted by this study.
+
+## Paired density holdouts (November 13)
+
+The [frozen plan](DENSITY_HOLDOUT.md), its pre-result [tail amendment](DENSITY_HOLDOUT_TAIL_AMENDMENT.md)
+and `config/density-holdout-v2.json` declare one stabilized proposal, 32 paired
+fits for each of five known targets and four pairs for each of the five consumed
+archived targets. Proposal fitting uses density-only pilot points. Independent
+holdout points estimate log-score gain and normalized second moments; raw
+replicates, training-point/weight hashes, all starts and convergence flags remain
+available. Descriptive intervals across pilot fits are not admission tests.
+
+Coverage uses only pilot zero, never a proposal selected for a favorable result.
+Exactly 1,024 fresh numerical trials per known target retain the original
+mass/mean/CDF accuracy limits and wrong-endpoint rejection. Every requested trial
+remains in the denominator. Joint and marginal binomial undercoverage checks,
+positive bounded Fieller sets and precision must all pass. A failed control blocks
+the optional archived CAVAA reference; density-only failure analysis may still
+run. No additional confirmation retry is allowed within this frozen study.
+
+The archived numerical pilot, if authorized, preserves primary-QMC samples and
+the existing five-case budgets. Independent reconstruction disables sockets and
+DNS after imports, and compares the immutable manifests and all study objects.
+Prior studies remain untouched. This unit does not consume new calibration draws
+or the sealed Week 10 outcomes. No known-answer or density-overlap result can
+validate the QB/team attribution assumptions by itself.
