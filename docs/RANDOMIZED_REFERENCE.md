@@ -14,6 +14,7 @@ adaptive stopping, seed search or within-net iid standard errors. Derive each
 scramble from `SeedSequence([base_seed, stage, fixture_or_case, trial, replicate,
 component])`. Different stages/cases/trials/components have distinct entropy.
 Use the existing pinned NumPy/SciPy implementation and record its environment.
+Use 52-bit Sobol coordinates; reject exact 0/1 rather than clipping an endpoint.
 
 For each replicate retain unbiased unnormalized integrals: mass and weighted
 conditional means/CDFs. Pool these integrals before dividing; do not average
