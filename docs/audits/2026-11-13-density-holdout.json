@@ -1,0 +1,3686 @@
+{
+  "admitted_modules": 0,
+  "archived_density": {
+    "cases": {
+      "continuous_hierarchy_0": {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 1,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              37.37041670525556,
+              377.76950065068263
+            ],
+            "selected_nonconverged": 0,
+            "selected_with_clipping": 3
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 6,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              37.37041670525556,
+              377.76950065068263
+            ],
+            "selected_nonconverged": 2,
+            "selected_with_clipping": 0
+          }
+        },
+        "density_summary": {
+          "complete": 4,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.04371899448723704,
+              1.3729724325042336
+            ],
+            "mean": 0.6646267190084982
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -6.017130241993652,
+              -0.4834438887651249
+            ],
+            "mean": -3.2502870653793883
+          },
+          "requested": 4,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -4.4431026965303655,
+              0.5948555119006809
+            ],
+            "mean": -1.9241235923148423
+          },
+          "unattempted": 0
+        },
+        "response_sha256": "ca06c973e4ae8b9e92435c2ea021ab7bea54bb833cdf1604a6b795c4517acd0e",
+        "target": 103,
+        "target_evaluations": 50066,
+        "trial_detail_scope": "every trial",
+        "trials": [
+          {
+            "c2_existing": 1164.827774762666,
+            "c2_stabilized": 353.8181445126132,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 93,
+                    "restart": 0,
+                    "weighted_log_likelihood": -0.04816900570891451
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -0.21102837018580825
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 66,
+                    "restart": 2,
+                    "weighted_log_likelihood": -0.04816908199405044
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.00036802463847266704,
+                "pilot_effective_samples": 377.76950065068263,
+                "selected_restart": 0,
+                "sha256": "4d851ac2e43aaf16a6b31a084959e549700c6e02e344294096ef5abd8b53645c"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      41.4784868828149,
+                      918.7550986476127,
+                      1087.3505138773237
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -0.21407436711587072
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1156.7129682228838,
+                      761.9761308131762,
+                      40.88130401814281
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -0.2142398794246233
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      53.88322059895326,
+                      1342.9498366498094,
+                      7.605140767006518
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -0.18250143706965688
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.012812864223442064,
+                "pilot_effective_samples": 377.76950065068263,
+                "selected_restart": 2,
+                "sha256": "2c9ed2b3ebb3a57d7a905553e314b6f419b11f09748806011077370948404735"
+              }
+            },
+            "heldout_log_score_gain": 0.49713992147009495,
+            "log_c2_ratio": -1.1915454571793025,
+            "status": "complete",
+            "training_log_score_gain": -0.14711783137733947,
+            "trial": 0
+          },
+          {
+            "c2_existing": 434.35305392453336,
+            "c2_stabilized": 1.892664699808151,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 100,
+                    "converged": true,
+                    "iterations": 44,
+                    "restart": 0,
+                    "weighted_log_likelihood": 3.094602552254466
+                  },
+                  {
+                    "clipped_eigenvalues": 167,
+                    "converged": true,
+                    "iterations": 72,
+                    "restart": 1,
+                    "weighted_log_likelihood": 3.0946017406674584
+                  },
+                  {
+                    "clipped_eigenvalues": 131,
+                    "converged": true,
+                    "iterations": 49,
+                    "restart": 2,
+                    "weighted_log_likelihood": 3.094602688502696
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.4999999999985988e-06,
+                "pilot_effective_samples": 37.37041670525556,
+                "selected_restart": 2,
+                "sha256": "e96537199ac5716626246e112a34867b5738ac33133c3e399b2da2eed2adbb12"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      157.37173333825527,
+                      2.825322847211118,
+                      1315.2209079390925
+                    ],
+                    "converged": true,
+                    "iterations": 52,
+                    "restart": 0,
+                    "weighted_log_likelihood": -0.1634610191247361
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      2.8461316576015987,
+                      1301.0683757610132,
+                      191.51763165608773
+                    ],
+                    "converged": true,
+                    "iterations": 87,
+                    "restart": 1,
+                    "weighted_log_likelihood": -0.16324784127838204
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      2.8797493781777193,
+                      1282.1784019592594,
+                      243.27457677712607
+                    ],
+                    "converged": true,
+                    "iterations": 39,
+                    "restart": 2,
+                    "weighted_log_likelihood": -0.16297894818447894
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.013556815652740459,
+                "pilot_effective_samples": 37.37041670525556,
+                "selected_restart": 2,
+                "sha256": "57a4ce583ad5d1f0b58848cd028d5ee3b8965ed18949c314f4c041f4420b4004"
+              }
+            },
+            "heldout_log_score_gain": 0.6386183329526535,
+            "log_c2_ratio": -5.4358719615210145,
+            "status": "complete",
+            "training_log_score_gain": -3.244479823903112,
+            "trial": 1
+          },
+          {
+            "c2_existing": 3500.731588418596,
+            "c2_stabilized": 168.5906298669078,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 252,
+                    "converged": true,
+                    "iterations": 94,
+                    "restart": 0,
+                    "weighted_log_likelihood": 2.9428237768033685
+                  },
+                  {
+                    "clipped_eigenvalues": 18,
+                    "converged": true,
+                    "iterations": 23,
+                    "restart": 1,
+                    "weighted_log_likelihood": 1.4055039846170352
+                  },
+                  {
+                    "clipped_eigenvalues": 23,
+                    "converged": true,
+                    "iterations": 18,
+                    "restart": 2,
+                    "weighted_log_likelihood": 3.045635801654599
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.4999999999990086e-06,
+                "pilot_effective_samples": 41.10925247613473,
+                "selected_restart": 2,
+                "sha256": "f1bec57928c8d5aecd79bdf1f7e21586d73ea665fe210d9fb6d00818a66cfaab"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1356.7783186826803,
+                      6.690561206016893,
+                      4.679474776922674
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -0.2750199342239247
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1357.0220024323046,
+                      6.632067286061389,
+                      4.68888078696799
+                    ],
+                    "converged": true,
+                    "iterations": 24,
+                    "restart": 1,
+                    "weighted_log_likelihood": -0.27505519300986425
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      4.668764117528274,
+                      1355.5368173965105,
+                      11.503892981022886
+                    ],
+                    "converged": true,
+                    "iterations": 84,
+                    "restart": 2,
+                    "weighted_log_likelihood": -0.2746237828182956
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.012165715431270943,
+                "pilot_effective_samples": 41.10925247613473,
+                "selected_restart": 2,
+                "sha256": "e7da9adedc6a439af6f9bcb31201f5293c70b5fc7bfe1e63e0cc63c56538babb"
+              }
+            },
+            "heldout_log_score_gain": 1.2843697571757848,
+            "log_c2_ratio": -3.033253782989491,
+            "status": "complete",
+            "training_log_score_gain": -3.2733291311567565,
+            "trial": 2
+          },
+          {
+            "c2_existing": 84.19534855874265,
+            "c2_stabilized": 2.9822039781073033,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 198,
+                    "converged": true,
+                    "iterations": 74,
+                    "restart": 0,
+                    "weighted_log_likelihood": 0.866616766536038
+                  },
+                  {
+                    "clipped_eigenvalues": 5,
+                    "converged": true,
+                    "iterations": 38,
+                    "restart": 1,
+                    "weighted_log_likelihood": 0.24758014348780855
+                  },
+                  {
+                    "clipped_eigenvalues": 85,
+                    "converged": true,
+                    "iterations": 54,
+                    "restart": 2,
+                    "weighted_log_likelihood": 0.606312776745361
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.4999999999988222e-06,
+                "pilot_effective_samples": 248.48281164338212,
+                "selected_restart": 0,
+                "sha256": "b7d229bb1336fe01bc373f1d88630fa91639ca5300315d4215b9d9593eb5e59b"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      224.1848711944096,
+                      1269.9228627446857,
+                      3.1928793118948655
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -0.16387439562622866
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1275.1069160452355,
+                      216.92841578621366,
+                      3.2117317244835464
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -0.16375623853501492
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      689.6153811992427,
+                      6.373252709110722,
+                      1122.5126283269212
+                    ],
+                    "converged": true,
+                    "iterations": 86,
+                    "restart": 2,
+                    "weighted_log_likelihood": -0.18984416812632326
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.014521693260910577,
+                "pilot_effective_samples": 248.48281164338212,
+                "selected_restart": 1,
+                "sha256": "84f3a29521b9e60858ff03cfb17dcf0c1579f7a6ffeb0cdb7d2d2da47a114600"
+              }
+            },
+            "heldout_log_score_gain": 0.2383788644354595,
+            "log_c2_ratio": -3.3404770598277445,
+            "status": "complete",
+            "training_log_score_gain": -1.0315675828221607,
+            "trial": 3
+          }
+        ]
+      },
+      "continuous_prior_0": {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 3,
+            "complete": 3,
+            "pilot_effective_sample_range": [
+              227.27060665804166,
+              650.7127109652293
+            ],
+            "selected_nonconverged": 1,
+            "selected_with_clipping": 2
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 6,
+            "complete": 3,
+            "pilot_effective_sample_range": [
+              227.27060665804166,
+              650.7127109652293
+            ],
+            "selected_nonconverged": 3,
+            "selected_with_clipping": 0
+          }
+        },
+        "density_summary": {
+          "complete": 3,
+          "diagnostic_only": true,
+          "failed": 1,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.06616309744570922,
+              0.398572159421828
+            ],
+            "mean": 0.1662045309880594
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -2.149386410569829,
+              -1.5880353598147845
+            ],
+            "mean": -1.8687108851923069
+          },
+          "requested": 4,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -1.8259868114031408,
+              0.8268520269463957
+            ],
+            "mean": -0.49956739222837254
+          },
+          "unattempted": 0
+        },
+        "response_sha256": "3b20385fd20e93331dde4c78f802b103f5c05477cd7e2a36e7f85c73a55f3b32",
+        "target": 102,
+        "target_evaluations": 39209,
+        "trial_detail_scope": "every trial",
+        "trials": [
+          {
+            "error": "359-th leading minor of the array is not positive definite",
+            "status": "failed",
+            "trial": 0
+          },
+          {
+            "c2_existing": 13.090585139729843,
+            "c2_stabilized": 1.7770599823282638,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -4.110537858323028
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -4.20779146889517
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -4.205430816296694
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.0002119098833230351,
+                "pilot_effective_samples": 586.6931881968444,
+                "selected_restart": 0,
+                "sha256": "39dbaa9471d8b715b8d8631aad11dd22032aea7d19eb55658b785cdfb88b5aad"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      43.81535905801008,
+                      255.14769575394368,
+                      1067.4200597385939
+                    ],
+                    "converged": true,
+                    "iterations": 62,
+                    "restart": 0,
+                    "weighted_log_likelihood": -4.22326731559156
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      52.92714119174052,
+                      491.3225591214493,
+                      853.8714891905109
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -4.221642834090051
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1058.4034460420585,
+                      264.4825457975145,
+                      44.23920027218871
+                    ],
+                    "converged": true,
+                    "iterations": 54,
+                    "restart": 2,
+                    "weighted_log_likelihood": -4.223276065334344
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.015242174810180151,
+                "pilot_effective_samples": 586.6931881968444,
+                "selected_restart": 1,
+                "sha256": "2522304cbd9552c26166a9289f727753b83f54483eab4ca6d56a0484911ccac7"
+              }
+            },
+            "heldout_log_score_gain": 0.17765265778768732,
+            "log_c2_ratio": -1.9969329767705808,
+            "status": "complete",
+            "training_log_score_gain": -0.11000208675783457,
+            "trial": 1
+          },
+          {
+            "c2_existing": 19.297888931213638,
+            "c2_stabilized": 3.2422329614530097,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 24,
+                    "converged": true,
+                    "iterations": 80,
+                    "restart": 0,
+                    "weighted_log_likelihood": -4.078449998343249
+                  },
+                  {
+                    "clipped_eigenvalues": 49,
+                    "converged": true,
+                    "iterations": 73,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.976178499772599
+                  },
+                  {
+                    "clipped_eigenvalues": 43,
+                    "converged": true,
+                    "iterations": 91,
+                    "restart": 2,
+                    "weighted_log_likelihood": -4.078450066828353
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.4999999998511452e-06,
+                "pilot_effective_samples": 650.7127109652293,
+                "selected_restart": 1,
+                "sha256": "2765f3348331cc6691101c1018dbb476686aeb8fc82a71230e696bfb5b0e1be1"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      2.5204505104798063,
+                      154.9117318082141,
+                      1113.378959547273
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -4.264974530345415
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1113.2493480128508,
+                      1.0003097426255048,
+                      147.35025464684142
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -4.258606602360945
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      143.8393630409442,
+                      1.0003107183172428,
+                      1116.752069169172
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -4.258498279290912
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.014496993702068011,
+                "pilot_effective_samples": 650.7127109652293,
+                "selected_restart": 2,
+                "sha256": "5986eb4beb90f8279166eba71a3997450379026feb081f1992877de79dc0c1dd"
+              }
+            },
+            "heldout_log_score_gain": 0.06746680547044821,
+            "log_c2_ratio": -1.7837334300672885,
+            "status": "complete",
+            "training_log_score_gain": -0.28048072576998395,
+            "trial": 2
+          },
+          {
+            "c2_existing": 55.31709667031615,
+            "c2_stabilized": 8.913934925327233,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 117,
+                    "converged": true,
+                    "iterations": 96,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.143335005938447
+                  },
+                  {
+                    "clipped_eigenvalues": 49,
+                    "converged": true,
+                    "iterations": 67,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.643678509736108
+                  },
+                  {
+                    "clipped_eigenvalues": 14,
+                    "converged": true,
+                    "iterations": 48,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.526667583072965
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.499999999974382e-06,
+                "pilot_effective_samples": 227.27060665804166,
+                "selected_restart": 0,
+                "sha256": "5c28d2610c884fce58b8567f6d83891c1f0457b8e7001ff1baafb7f7143f927a"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      13.022395698719906,
+                      187.2394882450334,
+                      1111.667461311462
+                    ],
+                    "converged": true,
+                    "iterations": 52,
+                    "restart": 0,
+                    "weighted_log_likelihood": -4.2618061173342365
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      335.4741577258567,
+                      1073.5608294010597,
+                      13.223900821246229
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -4.262657235644557
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1114.4820153424448,
+                      20.37641391517179,
+                      12.201455949921835
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -4.2578988405822145
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.012565210241263123,
+                "pilot_effective_samples": 227.27060665804166,
+                "selected_restart": 2,
+                "sha256": "10281edcc24a902a3bc8527a745233facb88b947adf7b25e0e0e43e90b3a296a"
+              }
+            },
+            "heldout_log_score_gain": 0.2534941297060426,
+            "log_c2_ratio": -1.8254662487390512,
+            "status": "complete",
+            "training_log_score_gain": -1.108219364157299,
+            "trial": 3
+          }
+        ]
+      },
+      "fixed_year_changes_0": {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 0,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              12.433952167970562,
+              187.79195688632518
+            ],
+            "selected_nonconverged": 0,
+            "selected_with_clipping": 4
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 3,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              12.433952167970562,
+              187.79195688632518
+            ],
+            "selected_nonconverged": 1,
+            "selected_with_clipping": 0
+          }
+        },
+        "density_summary": {
+          "complete": 4,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              0.02768253639529783,
+              0.6320933990057478
+            ],
+            "mean": 0.3298879677005228
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -4.1746525112937345,
+              -0.5337953779654458
+            ],
+            "mean": -2.3542239446295903
+          },
+          "requested": 4,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -6.6195181652085875,
+              0.415803280468356
+            ],
+            "mean": -3.101857442370116
+          },
+          "unattempted": 0
+        },
+        "response_sha256": "e27b7e595d5d3aee1ab3326632f3f4f5eb815756f4f054709a3fcfe031ec8ba1",
+        "target": 104,
+        "target_evaluations": 49922,
+        "trial_detail_scope": "every trial",
+        "trials": [
+          {
+            "c2_existing": 268.3614838729631,
+            "c2_stabilized": 13.552216894245417,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 49,
+                    "converged": true,
+                    "iterations": 25,
+                    "restart": 0,
+                    "weighted_log_likelihood": 2.899060305705481
+                  },
+                  {
+                    "clipped_eigenvalues": 124,
+                    "converged": true,
+                    "iterations": 36,
+                    "restart": 1,
+                    "weighted_log_likelihood": 4.2057204271637705
+                  },
+                  {
+                    "clipped_eigenvalues": 127,
+                    "converged": true,
+                    "iterations": 46,
+                    "restart": 2,
+                    "weighted_log_likelihood": 2.906562212421653
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.5e-06,
+                "pilot_effective_samples": 17.364314437648613,
+                "selected_restart": 1,
+                "sha256": "dcbf1ca1804fd5089eadc6c02f8a2b767ee2cc22fc0a3191dc502b02908a7346"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      152.07932872115163,
+                      1.2770047129742002,
+                      100.07311989567576
+                    ],
+                    "converged": true,
+                    "iterations": 57,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.1903891558580824
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      99.97228641785831,
+                      1.277019635111078,
+                      152.22067737450809
+                    ],
+                    "converged": true,
+                    "iterations": 65,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.1904041963502814
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      100.07553606949025,
+                      152.07594249433046,
+                      1.2770043585062831
+                    ],
+                    "converged": true,
+                    "iterations": 66,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.1903887724494446
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.0032104217566138165,
+                "pilot_effective_samples": 17.364314437648613,
+                "selected_restart": 2,
+                "sha256": "22e42484f44f16942b56ac3bb2bbb1ed9764f3bb9466a2dc76b5fbf1d950e786"
+              }
+            },
+            "heldout_log_score_gain": 0.40677333471245963,
+            "log_c2_ratio": -2.98578474971654,
+            "status": "complete",
+            "training_log_score_gain": -5.424417070656441,
+            "trial": 0
+          },
+          {
+            "c2_existing": 213.75263637629635,
+            "c2_stabilized": 6.6574043178641045,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 85,
+                    "converged": true,
+                    "iterations": 52,
+                    "restart": 0,
+                    "weighted_log_likelihood": 2.84605144465131
+                  },
+                  {
+                    "clipped_eigenvalues": 86,
+                    "converged": true,
+                    "iterations": 50,
+                    "restart": 1,
+                    "weighted_log_likelihood": 2.8460518275536324
+                  },
+                  {
+                    "clipped_eigenvalues": 16,
+                    "converged": true,
+                    "iterations": 11,
+                    "restart": 2,
+                    "weighted_log_likelihood": 2.751567405580936
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.4999999999334336e-06,
+                "pilot_effective_samples": 12.433952167970562,
+                "selected_restart": 1,
+                "sha256": "41e0c26ec509255698ae6d6f872f8ded00864d0c248d4e3f59c225d6adb9d61d"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1.2281627419353158,
+                      2.139013031473079,
+                      174.57751273651095
+                    ],
+                    "converged": true,
+                    "iterations": 66,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.3278453228590466
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      197.64697898891387,
+                      48.74459196946668,
+                      2.0246803024561575
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.3040307350684202
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      2.1443451042461934,
+                      162.76087898826248,
+                      1.010990502871761
+                    ],
+                    "converged": true,
+                    "iterations": 44,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.281578059393002
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.0030701237228606916,
+                "pilot_effective_samples": 12.433952167970562,
+                "selected_restart": 2,
+                "sha256": "bc619feb064fed4ddcc599c30c36394b7c64977d83eb4aebf3335674a8d9bb63"
+              }
+            },
+            "heldout_log_score_gain": 0.2008469349009877,
+            "log_c2_ratio": -3.469089775144327,
+            "status": "complete",
+            "training_log_score_gain": -4.202872075913138,
+            "trial": 1
+          },
+          {
+            "c2_existing": 49339.83823861852,
+            "c2_stabilized": 20781.113600448392,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 23,
+                    "converged": true,
+                    "iterations": 25,
+                    "restart": 0,
+                    "weighted_log_likelihood": 0.9597011087229738
+                  },
+                  {
+                    "clipped_eigenvalues": 16,
+                    "converged": true,
+                    "iterations": 16,
+                    "restart": 1,
+                    "weighted_log_likelihood": 1.1575026064598097
+                  },
+                  {
+                    "clipped_eigenvalues": 103,
+                    "converged": true,
+                    "iterations": 47,
+                    "restart": 2,
+                    "weighted_log_likelihood": 1.1689425182506097
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.499999999999582e-06,
+                "pilot_effective_samples": 39.93548480370804,
+                "selected_restart": 2,
+                "sha256": "6703e0b3d2a8078692cccd46ea37663d7620a9211c15b19b93c39db41d8f8104"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1.6244816110252054,
+                      256.07955027440835,
+                      7.938059733239838
+                    ],
+                    "converged": true,
+                    "iterations": 96,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.3288252641240206
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      272.895072046701,
+                      7.839257835585957,
+                      8.069719724321063
+                    ],
+                    "converged": true,
+                    "iterations": 84,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.2683619064585265
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1.6244801880743538,
+                      7.938076270288401,
+                      256.07927113399444
+                    ],
+                    "converged": true,
+                    "iterations": 89,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.3288251948487126
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.002917932125054125,
+                "pilot_effective_samples": 39.93548480370804,
+                "selected_restart": 1,
+                "sha256": "8cc5d5e72102073f07cd22108ff4f5b0c65e28dede030713c037fc1e99e6dfde"
+              }
+            },
+            "heldout_log_score_gain": 0.5612534050549741,
+            "log_c2_ratio": -0.8646872583448141,
+            "status": "complete",
+            "training_log_score_gain": -2.437487932575051,
+            "trial": 2
+          },
+          {
+            "c2_existing": 68.66195226221159,
+            "c2_stabilized": 8.430543365257828,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 72,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.0446953342083498
+                  },
+                  {
+                    "clipped_eigenvalues": 44,
+                    "converged": true,
+                    "iterations": 55,
+                    "restart": 1,
+                    "weighted_log_likelihood": -0.8617039216926997
+                  },
+                  {
+                    "clipped_eigenvalues": 3,
+                    "converged": true,
+                    "iterations": 33,
+                    "restart": 2,
+                    "weighted_log_likelihood": -0.8313178663129874
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.4999999999993055e-06,
+                "pilot_effective_samples": 187.79195688632518,
+                "selected_restart": 2,
+                "sha256": "d47ff1552ebcb52b4bc8d23f9724a89debbb1311b8dc58372a535eab7dc6c248"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      954.2275556266512,
+                      12.512607359141358,
+                      139.78721199025085
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.253506228691353
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      69.38431183002295,
+                      1.0267918709858395,
+                      152.27682602772967
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.1446438635521854
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      110.57821428705822,
+                      7.001197526021133,
+                      160.04163056178112
+                    ],
+                    "converged": true,
+                    "iterations": 75,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.146362511002177
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.004654923891699815,
+                "pilot_effective_samples": 187.79195688632518,
+                "selected_restart": 1,
+                "sha256": "df75856dfe65d0deb23887bf6718cd7ce2983a268a0f7c10443a50cf41f51c0d"
+              }
+            },
+            "heldout_log_score_gain": 0.15067819613366967,
+            "log_c2_ratio": -2.09733399531268,
+            "status": "complete",
+            "training_log_score_gain": -0.34265269033583395,
+            "trial": 3
+          }
+        ]
+      },
+      "real_evolving": {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 1,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              75.86185974630123,
+              234.50094573365647
+            ],
+            "selected_nonconverged": 1,
+            "selected_with_clipping": 2
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 4,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              75.86185974630123,
+              234.50094573365647
+            ],
+            "selected_nonconverged": 0,
+            "selected_with_clipping": 0
+          }
+        },
+        "density_summary": {
+          "complete": 4,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              0.014729223231766675,
+              0.6222020293600892
+            ],
+            "mean": 0.31846562629592795
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -3.033131881366346,
+              0.2701843814088656
+            ],
+            "mean": -1.3814737499787404
+          },
+          "requested": 4,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -2.1648091025117875,
+              0.47036220513127236
+            ],
+            "mean": -0.8472234486902575
+          },
+          "unattempted": 0
+        },
+        "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+        "target": 100,
+        "target_evaluations": 49922,
+        "trial_detail_scope": "every trial",
+        "trials": [
+          {
+            "c2_existing": 37.36032225105475,
+            "c2_stabilized": 32.22479314794323,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 45,
+                    "converged": true,
+                    "iterations": 91,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.0929459833745128
+                  },
+                  {
+                    "clipped_eigenvalues": 38,
+                    "converged": true,
+                    "iterations": 46,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.1196199724052525
+                  },
+                  {
+                    "clipped_eigenvalues": 32,
+                    "converged": true,
+                    "iterations": 42,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.0512224840809754
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.5000000000213262e-06,
+                "pilot_effective_samples": 142.85777853086748,
+                "selected_restart": 2,
+                "sha256": "867cedc50a584e2e6d4264d1f7cfd659649f930f8491fecbc5ff87cb284852f7"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      519.8808691500468,
+                      6.4495326676250615,
+                      154.9986266694155
+                    ],
+                    "converged": true,
+                    "iterations": 90,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.838840174815922
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      3.432008721494995,
+                      263.7034199519274,
+                      181.891153069504
+                    ],
+                    "converged": true,
+                    "iterations": 92,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.8947513236998574
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      759.2727251321745,
+                      99.46550675308215,
+                      3.138097582991235
+                    ],
+                    "converged": true,
+                    "iterations": 17,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.87089188073907
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.0820412098314242,
+                "pilot_effective_samples": 142.85777853086748,
+                "selected_restart": 0,
+                "sha256": "a93fcb79f6b39e3351db9e10c4b04fd353f6f6492439bd06259802e37dcb06f6"
+              }
+            },
+            "heldout_log_score_gain": 0.24207121228699904,
+            "log_c2_ratio": -0.14787310907558449,
+            "status": "complete",
+            "training_log_score_gain": -0.8127873943340325,
+            "trial": 0
+          },
+          {
+            "c2_existing": 12.18034430247783,
+            "c2_stabilized": 2.2472677509485495,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 41,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.5227775318805508
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 47,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.471638384127025
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 57,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.2473297302172983
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 9.030601189590108e-05,
+                "pilot_effective_samples": 155.96278400616762,
+                "selected_restart": 2,
+                "sha256": "de6eb4ccb283f34064a930fc24adbc41bcd0e86a968e645e9df172801d83767b"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      11.219376713267438,
+                      604.4980528207375,
+                      127.16863655376746
+                    ],
+                    "converged": true,
+                    "iterations": 70,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.711682343934907
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      11.038072031890659,
+                      128.88412108398077,
+                      594.0736059782437
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.711944731660661
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      10.787869792380516,
+                      126.72235734481302,
+                      597.4412510880161
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.7132941310269802
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.07825079108128256,
+                "pilot_effective_samples": 155.96278400616762,
+                "selected_restart": 0,
+                "sha256": "264c019e99d31b012db973ab73c3cb8c4bd085c6bb2482d1c3ea869691ae94af"
+              }
+            },
+            "heldout_log_score_gain": 0.3008784975383533,
+            "log_c2_ratio": -1.6901083843326137,
+            "status": "complete",
+            "training_log_score_gain": -0.5091271582749349,
+            "trial": 1
+          },
+          {
+            "c2_existing": 26.93228084164787,
+            "c2_stabilized": 1.9716070368969447,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 28,
+                    "converged": true,
+                    "iterations": 29,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.9217052872648064
+                  },
+                  {
+                    "clipped_eigenvalues": 35,
+                    "converged": true,
+                    "iterations": 59,
+                    "restart": 1,
+                    "weighted_log_likelihood": -2.823970060339017
+                  },
+                  {
+                    "clipped_eigenvalues": 46,
+                    "converged": true,
+                    "iterations": 56,
+                    "restart": 2,
+                    "weighted_log_likelihood": -2.816212057172467
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.4999999998709806e-06,
+                "pilot_effective_samples": 75.86185974630123,
+                "selected_restart": 0,
+                "sha256": "1144372786a5fcb42b67e47defbfa1809351764bf56383492f8b18cbf45eb53d"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      3.6352844209867268,
+                      580.3111595530231,
+                      8.016800604243578
+                    ],
+                    "converged": true,
+                    "iterations": 98,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.962066920664335
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      8.103385023466023,
+                      578.4316271640758,
+                      3.6389808379395694
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.9613552158345615
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      8.314187741183034,
+                      1028.40829992058,
+                      36.0427447980376
+                    ],
+                    "converged": true,
+                    "iterations": 96,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.9305639994997215
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.09026226086824041,
+                "pilot_effective_samples": 75.86185974630123,
+                "selected_restart": 2,
+                "sha256": "9324363f87fb5b87053a68041e4bc960a5c399196ae584fb0f455a2064d3f74a"
+              }
+            },
+            "heldout_log_score_gain": 0.5876573511345843,
+            "log_c2_ratio": -2.614476633460963,
+            "status": "complete",
+            "training_log_score_gain": -2.000968818449805,
+            "trial": 2
+          },
+          {
+            "c2_existing": 9.247349450809038,
+            "c2_stabilized": 3.1610368521784413,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 34,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.8343587619510124
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 74,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.8756482149185985
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.8025963543042556
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.009572117610916466,
+                "pilot_effective_samples": 234.50094573365647,
+                "selected_restart": 2,
+                "sha256": "bedd958883f062003c50428b3483de45365c8e5331a63ffb38f23f4dfe79b650"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      64.70763074028659,
+                      34.66576727331679,
+                      965.8002463323306
+                    ],
+                    "converged": true,
+                    "iterations": 83,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.84571520390975
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      94.5387756498968,
+                      20.310114228200362,
+                      257.6862517132411
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.860475342758917
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      80.25238707649659,
+                      794.5701964630524,
+                      29.52526029103959
+                    ],
+                    "converged": true,
+                    "iterations": 88,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.844496863841222
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.06346513735003223,
+                "pilot_effective_samples": 234.50094573365647,
+                "selected_restart": 2,
+                "sha256": "032740fd3cbd1314728393c84c51d7d9156e58e4a9f56c389db0ccaee81c403f"
+              }
+            },
+            "heldout_log_score_gain": 0.14325544422377523,
+            "log_c2_ratio": -1.0734368730458,
+            "status": "complete",
+            "training_log_score_gain": -0.06601042370225711,
+            "trial": 3
+          }
+        ]
+      },
+      "real_team": {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 2,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              297.15775889901374,
+              662.5566203494488
+            ],
+            "selected_nonconverged": 1,
+            "selected_with_clipping": 1
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 4,
+            "complete": 4,
+            "pilot_effective_sample_range": [
+              297.15775889901374,
+              662.5566203494488
+            ],
+            "selected_nonconverged": 1,
+            "selected_with_clipping": 0
+          }
+        },
+        "density_summary": {
+          "complete": 4,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.027421377705515837,
+              0.08469945972935844
+            ],
+            "mean": 0.0286390410119213
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -0.5010797091082968,
+              0.17257067504557672
+            ],
+            "mean": -0.16425451703136007
+          },
+          "requested": 4,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.04890685234617873,
+              0.0076186030756419595
+            ],
+            "mean": -0.020644124635268386
+          },
+          "unattempted": 0
+        },
+        "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+        "target": 101,
+        "target_evaluations": 49744,
+        "trial_detail_scope": "every trial",
+        "trials": [
+          {
+            "c2_existing": 1.5368713627850032,
+            "c2_stabilized": 1.4397584524330318,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.7602975460817185
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 61,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.7602956945732373
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 84,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.7602988892398028
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.07574612897676913,
+                "pilot_effective_samples": 662.5566203494488,
+                "selected_restart": 1,
+                "sha256": "df2c47e8f3bc1164aee9fd6f7c2865e707abb1d0b141355dafebaed12bda1801"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      10.424883212432709,
+                      273.36762011639644,
+                      1272.6827054928435
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.7660643987302707
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      279.98753457265315,
+                      10.416514141992245,
+                      1266.9391585626065
+                    ],
+                    "converged": true,
+                    "iterations": 48,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.7660896968508033
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      370.83483694674345,
+                      1200.4612848335123,
+                      7.336496169825571
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.7739071650204838
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.07707598607486131,
+                "pilot_effective_samples": 662.5566203494488,
+                "selected_restart": 0,
+                "sha256": "76c9e133cb9801257a76b1c7da4e1acc4c67a86ee814bc2ef3c281566f484afd"
+              }
+            },
+            "heldout_log_score_gain": 0.012429706779867544,
+            "log_c2_ratio": -0.06527340920338129,
+            "status": "complete",
+            "training_log_score_gain": -0.008463620125272868,
+            "trial": 0
+          },
+          {
+            "c2_existing": 1.3651269496061629,
+            "c2_stabilized": 1.3705004115719377,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 53,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.8045677807389202
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 32,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.8218029041480426
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 48,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.8241754158960717
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.06410934147370505,
+                "pilot_effective_samples": 297.15775889901374,
+                "selected_restart": 0,
+                "sha256": "32ec86e6af2024c8c2aac21d662785e9988fa1b9c10f8fb9385008836900c7ca"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      37.53119824751187,
+                      14.339236106048277,
+                      1411.2155599209734
+                    ],
+                    "converged": true,
+                    "iterations": 49,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.8084965472723176
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1311.4089437847608,
+                      323.5644930588815,
+                      7.378959442640343
+                    ],
+                    "converged": true,
+                    "iterations": 51,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.8291938301857973
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      6.655082260479679,
+                      419.1503129205962,
+                      1247.1567909573453
+                    ],
+                    "converged": true,
+                    "iterations": 97,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.830766931960459
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.06932372691771106,
+                "pilot_effective_samples": 297.15775889901374,
+                "selected_restart": 0,
+                "sha256": "6bc8fe62de506d2e50dd6d139ca9e0a7586be9288b03fbb1faf88a6d60cd3e1b"
+              }
+            },
+            "heldout_log_score_gain": -0.005335703266981387,
+            "log_c2_ratio": 0.003928509381673981,
+            "status": "complete",
+            "training_log_score_gain": -0.014718779152051846,
+            "trial": 1
+          },
+          {
+            "c2_existing": 1.7241047259593743,
+            "c2_stabilized": 1.5235031388726459,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 58,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.750038297810023
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 83,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.7500381466519817
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.7153932080581127
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.05740544501587711,
+                "pilot_effective_samples": 462.756823700699,
+                "selected_restart": 2,
+                "sha256": "f275406fff75bee89beeaa52d059feebf8269867258570a14f71ee50ee7f8176"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1357.4249196047417,
+                      5.0110308783029325,
+                      84.35266294199162
+                    ],
+                    "converged": true,
+                    "iterations": 84,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.7437555805842253
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1359.0870536709513,
+                      15.819324256148441,
+                      83.2037811501146
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.7473705178920098
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      60.349617103856815,
+                      14.333718475334619,
+                      1405.5115315898365
+                    ],
+                    "converged": true,
+                    "iterations": 82,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.7215530761375537
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.06798559193019152,
+                "pilot_effective_samples": 462.756823700699,
+                "selected_restart": 2,
+                "sha256": "ed6e8f4b4409db541058bbe4c2e14f9c3719a613545714e7e79a1e92790ab544"
+              }
+            },
+            "heldout_log_score_gain": 0.030846279532646584,
+            "log_c2_ratio": -0.12369553656747596,
+            "status": "complete",
+            "training_log_score_gain": -0.012390375852077215,
+            "trial": 2
+          },
+          {
+            "c2_existing": 2.165783320504118,
+            "c2_stabilized": 1.3509451723430719,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 37,
+                    "converged": true,
+                    "iterations": 48,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.7085412771748656
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.7447087071348832
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 82,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.7683879909563203
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 1.500000000010413e-06,
+                "pilot_effective_samples": 439.8028028297104,
+                "selected_restart": 0,
+                "sha256": "ae8e6047aa96e87a57413352884211fa8f0e765f466e101c06f6c3b2687c1e9c"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      8.27524694438165,
+                      1403.38138852453,
+                      74.0859643766725
+                    ],
+                    "converged": true,
+                    "iterations": 49,
+                    "restart": 0,
+                    "weighted_log_likelihood": -1.7691664416791437
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      386.76163821480606,
+                      1350.299024130954,
+                      21.288998115771943
+                    ],
+                    "converged": true,
+                    "iterations": 42,
+                    "restart": 1,
+                    "weighted_log_likelihood": -1.75296999387828
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1328.3524317367715,
+                      425.3272988051311,
+                      19.360453135039634
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -1.7531969022447336
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.060868267416990536,
+                "pilot_effective_samples": 439.8028028297104,
+                "selected_restart": 1,
+                "sha256": "d35ad440eba6c330540210086993c2b13b12090d77d8569c05ec0a3ac6dd1b7b"
+              }
+            },
+            "heldout_log_score_gain": 0.07661588100215246,
+            "log_c2_ratio": -0.471977631736257,
+            "status": "complete",
+            "training_log_score_gain": -0.047003723411671625,
+            "trial": 3
+          }
+        ]
+      }
+    },
+    "code_revision": "7f921462b00f91f03ded4f80e0fa0b7f9cdaa3b6",
+    "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+    "input_reports": {
+      "defense": "62f3bfabba7ca58f1f4c3b3b9e3c8993b327ca96772ab232d63666e9819433c9",
+      "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+      "seasons": {
+        "2024": {
+          "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+          "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+        },
+        "2025": {
+          "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+          "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+        },
+        "2026": {
+          "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+          "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+        }
+      }
+    },
+    "offline_manifest_equal": true,
+    "offline_study_equal": true,
+    "report_id": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+    "source_provenance": {
+      "defense": {
+        "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
+        "cutoff": "2026-10-22T00:14:02.583978+00:00",
+        "derived_participation_license": "CC-BY-SA-4.0",
+        "historical_availability": "retrospectively_retrieved_postseason_participation",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+        "source_receipts": {
+          "participation": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+          "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+          "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+        }
+      },
+      "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+      "seasons": {
+        "2024": {
+          "game_cohort_cutoff": "2026-11-08T02:47:26.367479+00:00",
+          "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+          "roster_audit": {
+            "actor_issue_counts": {
+              "conflicting_secondary_identity": 9,
+              "primary_position_unreviewed": 26
+            },
+            "actor_role_counts": {
+              "P": 9,
+              "QB": 646,
+              "RB": 1409,
+              "TE": 1088,
+              "WR": 2117
+            },
+            "actor_rows_with_resolved_role": 5269,
+            "all_player_game_issue_counts": {
+              "conflicting_secondary_identity": 64,
+              "primary_position_unreviewed": 29020
+            },
+            "completed_team_games": 544,
+            "observed_offensive_player_games": 5304,
+            "observed_offensive_players": 597,
+            "player_game_rows": 44466,
+            "player_games_without_observed_offensive_participation": 39162,
+            "team_games_with_retrospective_roster_retrieval": 544,
+            "team_games_with_roster_retrieved_before_kickoff": 0,
+            "team_games_without_roster_rows": 0,
+            "weekly_observations": 46579
+          },
+          "roster_integrity_policy": "retrospective-2024-weekly-roster-local-hash-v1",
+          "roster_retrieval": {
+            "after": "2026-11-08T02:43:36.729160+00:00",
+            "before": "2026-11-08T02:43:36.136466+00:00",
+            "data": "2026-11-08T02:43:36.533455+00:00",
+            "license": "2026-11-08T02:43:37.349842+00:00"
+          },
+          "source_attribution": {
+            "pbp": {
+              "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            },
+            "schedules": {
+              "attribution": "Lee Sharpe (nfldata) via nflverse",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            },
+            "weekly_rosters": {
+              "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            }
+          },
+          "source_receipts": {
+            "pbp": "114f88bc9bf7c5990eb2fb1b885a2bbf230b54f66adbe0e509381379dc07b97d",
+            "schedules": "19dfe7aefa63c1b36628fa61b663cf896f930178c04da3b4c92d07e4ce84c492"
+          },
+          "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+        },
+        "2025": {
+          "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+          "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+          "roster_audit": {
+            "actor_issue_counts": {
+              "primary_position_unreviewed": 24
+            },
+            "actor_role_counts": {
+              "K": 1,
+              "P": 6,
+              "QB": 652,
+              "RB": 1410,
+              "TE": 1123,
+              "WR": 2131
+            },
+            "actor_rows_with_resolved_role": 5323,
+            "all_player_game_issue_counts": {
+              "primary_position_unreviewed": 29102
+            },
+            "completed_team_games": 544,
+            "observed_offensive_player_games": 5347,
+            "observed_offensive_players": 601,
+            "player_game_rows": 44669,
+            "player_games_without_observed_offensive_participation": 39322,
+            "team_games_with_retrospective_roster_retrieval": 544,
+            "team_games_with_roster_retrieved_before_kickoff": 0,
+            "team_games_without_roster_rows": 0,
+            "weekly_observations": 46849
+          },
+          "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+          "roster_retrieval": {
+            "data": "2026-10-26T20:49:45.882775+00:00",
+            "license": "2026-10-26T20:49:46.970669+00:00",
+            "metadata": "2026-10-26T20:49:45.668629+00:00"
+          },
+          "source_attribution": {
+            "pbp": {
+              "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            },
+            "schedules": {
+              "attribution": "Lee Sharpe (nfldata) via nflverse",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            },
+            "weekly_rosters": {
+              "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            }
+          },
+          "source_receipts": {
+            "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+            "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+          },
+          "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+        },
+        "2026": {
+          "game_cohort_cutoff": "2026-11-08T01:41:17.891273+00:00",
+          "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+          "roster_audit": {
+            "actor_issue_counts": {
+              "primary_position_unreviewed": 5
+            },
+            "actor_role_counts": {
+              "P": 4,
+              "QB": 272,
+              "RB": 622,
+              "TE": 519,
+              "WR": 947
+            },
+            "actor_rows_with_resolved_role": 2364,
+            "all_player_game_issue_counts": {
+              "primary_position_unreviewed": 12968
+            },
+            "completed_team_games": 244,
+            "observed_offensive_player_games": 2369,
+            "observed_offensive_players": 504,
+            "player_game_rows": 20021,
+            "player_games_without_observed_offensive_participation": 17652,
+            "team_games_with_retrospective_roster_retrieval": 244,
+            "team_games_with_roster_retrieved_before_kickoff": 0,
+            "team_games_without_roster_rows": 0,
+            "weekly_observations": 22285
+          },
+          "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+          "roster_retrieval": {
+            "data": "2026-11-08T02:43:38.393326+00:00",
+            "license": "2026-11-08T02:43:38.669743+00:00",
+            "metadata": "2026-11-08T02:43:38.053864+00:00"
+          },
+          "source_attribution": {
+            "pbp": {
+              "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            },
+            "schedules": {
+              "attribution": "Lee Sharpe (nfldata) via nflverse",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            },
+            "weekly_rosters": {
+              "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+              "license_id": "CC-BY-4.0",
+              "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+            }
+          },
+          "source_receipts": {
+            "pbp": "d44259bc0a7eb99c4a25f8f8585fafca3159292a9330d7ae95733ce569488510",
+            "schedules": "efb6387ff638d527066b0104964b39d754c16419ef812d34aeb215c10b043db5"
+          },
+          "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+        }
+      }
+    },
+    "study_sha256": "347f32b53c8273fffb69dcb7c32880e87554e281f00f0d6a70e51d67e57a109a"
+  },
+  "calibration_completed": false,
+  "compatibility_verification": {
+    "accepted_archived_extensions": {
+      "diagnostic_trial_cap": 8,
+      "numerical_proposal": "stratified_student_t5_v1"
+    },
+    "both_trial_zero_proposal_geometries_byte_equal": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "exact_known_functionals_equal": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "controls": {
+    "cases": [
+      {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 27,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              889.057968217509,
+              1565.6237122434059
+            ],
+            "selected_nonconverged": 14,
+            "selected_with_clipping": 0
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 5,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              889.057968217509,
+              1565.6237122434059
+            ],
+            "selected_nonconverged": 4,
+            "selected_with_clipping": 0
+          }
+        },
+        "coverage_decision": {
+          "bias": [
+            -1.5821884360445182e-06,
+            -9.484332892314686e-06,
+            2.3372011451030455e-07,
+            -3.92059269320455e-08,
+            -9.084222637560646e-07,
+            4.990929427517443e-07,
+            -9.720022386972005e-08
+          ],
+          "complete": 1024,
+          "empirical_sd": [
+            0.00010611679740987431,
+            0.00014703749631271877,
+            0.00014931235592009184,
+            3.13902841594781e-05,
+            2.249077887315646e-05,
+            3.1241941670755215e-05,
+            2.6529018655665225e-05
+          ],
+          "joint_undercoverage_pvalue": 0.2208902706780578,
+          "marginal_coverage": [
+            0.94921875,
+            0.9521484375,
+            0.94921875,
+            0.951171875,
+            0.951171875,
+            0.9375,
+            0.9521484375
+          ],
+          "marginal_undercoverage_pvalues": [
+            0.47428148041769475,
+            0.6438086202536526,
+            0.47428148041769475,
+            0.5883700431522605,
+            0.5883700431522605,
+            0.04240669751247171,
+            0.6438086202536526
+          ],
+          "maximum_replicate_mass_share": 0.03132939061339427,
+          "passed": true,
+          "precision_fraction": 1.0,
+          "simultaneous_coverage": 0.9443359375,
+          "simultaneous_coverage_one_sided_95_lower": 0.9310776483763326,
+          "trials": 1024,
+          "wrong_endpoint_rejections": 1024
+        },
+        "coverage_geometry_sha256": "8ef5123ff4e6fd3ba3b6aa51cb7f2ab50f0fb6c9afcb6a4e3ee3ea4d03650362",
+        "density_summary": {
+          "complete": 32,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.006875624538777016,
+              -0.002453732598615463
+            ],
+            "mean": -0.00466467856869624
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              0.0026400308842439426,
+              0.010363609797979338
+            ],
+            "mean": 0.00650182034111164
+          },
+          "requested": 32,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.012917110528293656,
+              -0.007224833708020356
+            ],
+            "mean": -0.010070972118157006
+          },
+          "unattempted": 0
+        },
+        "target": 0,
+        "trial_detail_scope": "trial zero and all failures; complete raw evidence retained in the linked study",
+        "trials": [
+          {
+            "c2_existing": 1.208444899875178,
+            "c2_stabilized": 1.2264413471802145,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 28,
+                    "restart": 0,
+                    "weighted_log_likelihood": -2.800482047771692
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 28,
+                    "restart": 1,
+                    "weighted_log_likelihood": -2.8004547414583234
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -2.7997489105817674
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.24786526037968148,
+                "pilot_effective_samples": 1066.2871038975823,
+                "selected_restart": 2,
+                "sha256": "4b9c62d7ab8b3b1ecfafc9d7e3eaa8f975a63b1d9a2ee4c577b0f83683c032e3"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1533.4312411978046,
+                      72.29138352085835,
+                      1506.6603540206777
+                    ],
+                    "converged": true,
+                    "iterations": 29,
+                    "restart": 0,
+                    "weighted_log_likelihood": -2.8021905226184285
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1551.3702751273865,
+                      72.24363759752309,
+                      1563.8212314695736
+                    ],
+                    "converged": true,
+                    "iterations": 16,
+                    "restart": 1,
+                    "weighted_log_likelihood": -2.802147384285308
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      70.72674084168918,
+                      1073.2256358486197,
+                      1693.597116869955
+                    ],
+                    "converged": true,
+                    "iterations": 69,
+                    "restart": 2,
+                    "weighted_log_likelihood": -2.8021103411334565
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.2776281997836174,
+                "pilot_effective_samples": 1066.2871038975823,
+                "selected_restart": 2,
+                "sha256": "8ef5123ff4e6fd3ba3b6aa51cb7f2ab50f0fb6c9afcb6a4e3ee3ea4d03650362"
+              }
+            },
+            "heldout_log_score_gain": -0.010348995482067682,
+            "log_c2_ratio": 0.014782435969263324,
+            "status": "complete",
+            "training_log_score_gain": -0.010823996537495082,
+            "trial": 0
+          }
+        ]
+      },
+      {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 25,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              253.68509361560726,
+              1124.7811555472585
+            ],
+            "selected_nonconverged": 5,
+            "selected_with_clipping": 8
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 20,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              253.68509361560726,
+              1124.7811555472585
+            ],
+            "selected_nonconverged": 8,
+            "selected_with_clipping": 0
+          }
+        },
+        "coverage_decision": {
+          "bias": [
+            3.107300108107225e-06,
+            -6.594083934093643e-06,
+            -3.852090469276921e-06,
+            1.7177527322151387e-06,
+            -3.7689027517634477e-07,
+            1.399425214598793e-07,
+            6.896617890106427e-07
+          ],
+          "complete": 1024,
+          "empirical_sd": [
+            0.00018976312784071348,
+            0.00022734987516590647,
+            0.00021877210486059397,
+            5.3290065117311127e-05,
+            2.26698750561688e-05,
+            4.048451800797093e-05,
+            2.507190157504579e-05
+          ],
+          "joint_undercoverage_pvalue": 0.3121426125710412,
+          "marginal_coverage": [
+            0.9619140625,
+            0.953125,
+            0.947265625,
+            0.9345703125,
+            0.9521484375,
+            0.9541015625,
+            0.947265625
+          ],
+          "marginal_undercoverage_pvalues": [
+            0.9698306060578599,
+            0.6966911154190152,
+            0.36359349461725937,
+            0.016918563789523552,
+            0.6438086202536526,
+            0.7460553278968169,
+            0.36359349461725937
+          ],
+          "maximum_replicate_mass_share": 0.03141647024435609,
+          "passed": true,
+          "precision_fraction": 1.0,
+          "simultaneous_coverage": 0.9462890625,
+          "simultaneous_coverage_one_sided_95_lower": 0.9332215624844679,
+          "trials": 1024,
+          "wrong_endpoint_rejections": 1024
+        },
+        "coverage_geometry_sha256": "61a3a4a50179344201a1d4698b6f6ad55e4583ec784777503617bc58358e507c",
+        "density_summary": {
+          "complete": 32,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.0011448710591055247,
+              0.022736569939057878
+            ],
+            "mean": 0.010795849439976177
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -0.03020826579232297,
+              0.0025982293483779936
+            ],
+            "mean": -0.013805018221972488
+          },
+          "requested": 32,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.17462362724925978,
+              -0.08081229615682499
+            ],
+            "mean": -0.1277179617030424
+          },
+          "unattempted": 0
+        },
+        "target": 1,
+        "trial_detail_scope": "trial zero and all failures; complete raw evidence retained in the linked study",
+        "trials": [
+          {
+            "c2_existing": 1.4970868322343416,
+            "c2_stabilized": 1.352286784394266,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 34,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.607410614788068
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 28,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.8416898543800837
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 27,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.6074104825380777
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.0008398342064819856,
+                "pilot_effective_samples": 328.39834244064605,
+                "selected_restart": 2,
+                "sha256": "32bf03d7451fca1dfb9271224a740d68d1caa5d34e2ea07ed3a17750316cb8a1"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      25.830211870321815,
+                      1192.457781458695,
+                      1420.8009794236484
+                    ],
+                    "converged": true,
+                    "iterations": 84,
+                    "restart": 0,
+                    "weighted_log_likelihood": -3.879103189284745
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1378.8278444121736,
+                      25.84425853165772,
+                      1416.9410363272111
+                    ],
+                    "converged": true,
+                    "iterations": 55,
+                    "restart": 1,
+                    "weighted_log_likelihood": -3.879134979238109
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1549.6546490582737,
+                      39.51817594533234,
+                      17.802890031115567
+                    ],
+                    "converged": true,
+                    "iterations": 68,
+                    "restart": 2,
+                    "weighted_log_likelihood": -3.868454935590435
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.23886082437221356,
+                "pilot_effective_samples": 328.39834244064605,
+                "selected_restart": 2,
+                "sha256": "61a3a4a50179344201a1d4698b6f6ad55e4583ec784777503617bc58358e507c"
+              }
+            },
+            "heldout_log_score_gain": 0.08341017497571984,
+            "log_c2_ratio": -0.10172403415826388,
+            "status": "complete",
+            "training_log_score_gain": -0.29103997348064325,
+            "trial": 0
+          }
+        ]
+      },
+      {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 28,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              50.5997503013245,
+              783.3297322889956
+            ],
+            "selected_nonconverged": 4,
+            "selected_with_clipping": 24
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 32,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              50.5997503013245,
+              783.3297322889956
+            ],
+            "selected_nonconverged": 5,
+            "selected_with_clipping": 0
+          }
+        },
+        "coverage_decision": {
+          "bias": [
+            4.23177951414111e-06,
+            -8.491197227074687e-06,
+            1.1234029008568655e-05,
+            -1.9435141850009108e-06,
+            -3.1263688806126844e-06,
+            -1.0611672263127758e-06,
+            -1.3851427081990053e-06
+          ],
+          "complete": 1024,
+          "empirical_sd": [
+            0.00032409741660496306,
+            0.00040959193468262096,
+            0.0003750829998416772,
+            7.038211517375381e-05,
+            5.856273027120471e-05,
+            7.112317396156561e-05,
+            6.909372679181636e-05
+          ],
+          "joint_undercoverage_pvalue": 0.9791064156113073,
+          "marginal_coverage": [
+            0.9462890625,
+            0.9541015625,
+            0.9609375,
+            0.951171875,
+            0.9462890625,
+            0.955078125,
+            0.94140625
+          ],
+          "marginal_undercoverage_pvalues": [
+            0.3121426125710412,
+            0.7460553278968169,
+            0.957487895909818,
+            0.5883700431522605,
+            0.3121426125710412,
+            0.7911291947093705,
+            0.1185051018075781
+          ],
+          "maximum_replicate_mass_share": 0.03151118907109194,
+          "passed": true,
+          "precision_fraction": 1.0,
+          "simultaneous_coverage": 0.962890625,
+          "simultaneous_coverage_one_sided_95_lower": 0.9516407874687802,
+          "trials": 1024,
+          "wrong_endpoint_rejections": 1024
+        },
+        "coverage_geometry_sha256": "01ebcab5b0fbd9dbb92a7b14f0aaf4036c5da9f4c61f703800be4bd0f2b81547",
+        "density_summary": {
+          "complete": 32,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              0.045477871715996286,
+              0.10024414227151737
+            ],
+            "mean": 0.07286100699375683
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -0.2204544685585607,
+              -0.053495998467142855
+            ],
+            "mean": -0.1369752335128518
+          },
+          "requested": 32,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -1.1193653584079255,
+              -0.5581738354074031
+            ],
+            "mean": -0.8387695969076643
+          },
+          "unattempted": 0
+        },
+        "target": 2,
+        "trial_detail_scope": "trial zero and all failures; complete raw evidence retained in the linked study",
+        "trials": [
+          {
+            "c2_existing": 1.496353056400191,
+            "c2_stabilized": 1.4862271481411342,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -4.935741777697888
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 36,
+                    "restart": 1,
+                    "weighted_log_likelihood": -4.892817234151337
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 71,
+                    "restart": 2,
+                    "weighted_log_likelihood": -4.935979788006099
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.09132088370552677,
+                "pilot_effective_samples": 423.11292698332517,
+                "selected_restart": 1,
+                "sha256": "809d1683a703049916a48e876b0c72f23285420fb781d40790327d9aee121379"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1096.0421119958146,
+                      1382.6396639033032,
+                      19.649001296775555
+                    ],
+                    "converged": true,
+                    "iterations": 37,
+                    "restart": 0,
+                    "weighted_log_likelihood": -4.955424271360524
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      13.864804825075995,
+                      18.900788887946035,
+                      1446.0802067904488
+                    ],
+                    "converged": true,
+                    "iterations": 42,
+                    "restart": 1,
+                    "weighted_log_likelihood": -4.951606104659934
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1118.365854267934,
+                      19.638779348292314,
+                      1312.391240405059
+                    ],
+                    "converged": true,
+                    "iterations": 63,
+                    "restart": 2,
+                    "weighted_log_likelihood": -4.955448868303161
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.2199491531057708,
+                "pilot_effective_samples": 423.11292698332517,
+                "selected_restart": 1,
+                "sha256": "01ebcab5b0fbd9dbb92a7b14f0aaf4036c5da9f4c61f703800be4bd0f2b81547"
+              }
+            },
+            "heldout_log_score_gain": -0.009372794214431988,
+            "log_c2_ratio": -0.00679005858625645,
+            "status": "complete",
+            "training_log_score_gain": -0.07722062811303544,
+            "trial": 0
+          }
+        ]
+      },
+      {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 83,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              995.0354720920154,
+              1532.360408597307
+            ],
+            "selected_nonconverged": 28,
+            "selected_with_clipping": 3
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 41,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              995.0354720920154,
+              1532.360408597307
+            ],
+            "selected_nonconverged": 19,
+            "selected_with_clipping": 0
+          }
+        },
+        "coverage_decision": {
+          "bias": [
+            3.3280691682513464e-06,
+            1.922847942677783e-05,
+            -3.3389593294069103e-06,
+            5.628139939015814e-06,
+            -1.2318588573020928e-06,
+            1.4124690610461954e-06,
+            8.523828929352106e-07
+          ],
+          "complete": 1024,
+          "empirical_sd": [
+            0.00019000132550930403,
+            0.0003842443031662894,
+            0.0003133220161774856,
+            0.00015786675213568042,
+            8.75039433445366e-05,
+            0.00011936187238634117,
+            8.48912876365565e-05
+          ],
+          "joint_undercoverage_pvalue": 0.36359349461725937,
+          "marginal_coverage": [
+            0.9453125,
+            0.9462890625,
+            0.947265625,
+            0.9453125,
+            0.94921875,
+            0.9599609375,
+            0.951171875
+          ],
+          "marginal_undercoverage_pvalues": [
+            0.2643843775616285,
+            0.3121426125710412,
+            0.36359349461725937,
+            0.2643843775616285,
+            0.47428148041769475,
+            0.9414910939416319,
+            0.5883700431522605
+          ],
+          "maximum_replicate_mass_share": 0.03138077192350679,
+          "passed": true,
+          "precision_fraction": 1.0,
+          "simultaneous_coverage": 0.947265625,
+          "simultaneous_coverage_one_sided_95_lower": 0.9342950785884135,
+          "trials": 1024,
+          "wrong_endpoint_rejections": 1024
+        },
+        "coverage_geometry_sha256": "3ad53ef1790a3f43df05e2d23039b08233f75a9c1dc1d741cfb417ab0734390b",
+        "density_summary": {
+          "complete": 32,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              -9.895069559152014e-05,
+              0.0070442361861902635
+            ],
+            "mean": 0.0034726427452993714
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -0.01237031581499688,
+              0.0005815434179415584
+            ],
+            "mean": -0.005894386198527661
+          },
+          "requested": 32,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.045702279409828926,
+              -0.0007963894534009433
+            ],
+            "mean": -0.023249334431614935
+          },
+          "unattempted": 0
+        },
+        "target": 3,
+        "trial_detail_scope": "trial zero and all failures; complete raw evidence retained in the linked study",
+        "trials": [
+          {
+            "c2_existing": 1.3753355760108108,
+            "c2_stabilized": 1.3697852145761809,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -5.832695485283087
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -5.832819231975943
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -5.832078760869546
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.6370266342037303,
+                "pilot_effective_samples": 1391.55958034823,
+                "selected_restart": 2,
+                "sha256": "f5126358e2c9c2ae095b27bd59e9cac222575c6fefa845f0af5b30653e9adc1b"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1244.7928492465348,
+                      17.704341851542996,
+                      1287.034992028433
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -5.83361645838435
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1396.8592855074303,
+                      1259.8481609344706,
+                      18.15047399627896
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 1,
+                    "weighted_log_likelihood": -5.833757392658336
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1382.025515124201,
+                      16.999795713041344,
+                      1383.5572628485131
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -5.833379372189135
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.9969854617202814,
+                "pilot_effective_samples": 1391.55958034823,
+                "selected_restart": 2,
+                "sha256": "3ad53ef1790a3f43df05e2d23039b08233f75a9c1dc1d741cfb417ab0734390b"
+              }
+            },
+            "heldout_log_score_gain": 0.0014669288714753168,
+            "log_c2_ratio": -0.00404380675497062,
+            "status": "complete",
+            "training_log_score_gain": -0.0041599098624321585,
+            "trial": 0
+          }
+        ]
+      },
+      {
+        "all_fit_diagnostics": {
+          "adaptive-mixture": {
+            "any_start_nonconverged": 95,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              1430.9358017865068,
+              1456.8895479329913
+            ],
+            "selected_nonconverged": 31,
+            "selected_with_clipping": 0
+          },
+          "stabilized-mixture": {
+            "any_start_nonconverged": 95,
+            "complete": 32,
+            "pilot_effective_sample_range": [
+              1430.9358017865068,
+              1456.8895479329913
+            ],
+            "selected_nonconverged": 31,
+            "selected_with_clipping": 0
+          }
+        },
+        "coverage_decision": {
+          "bias": [
+            7.893643219958335e-06,
+            -4.140459654981311e-06,
+            1.0584431201321325e-05,
+            7.045625529708555e-06,
+            -3.669406414205656e-07,
+            2.2724412240826553e-07,
+            2.2059179042299704e-06
+          ],
+          "complete": 1024,
+          "empirical_sd": [
+            0.0001926134253910915,
+            0.00031008779716841425,
+            0.0003087380290730267,
+            0.00011447768138744875,
+            8.232813922384013e-05,
+            0.00011422806611966824,
+            7.172915191821716e-05
+          ],
+          "joint_undercoverage_pvalue": 0.9858917595804958,
+          "marginal_coverage": [
+            0.94921875,
+            0.9560546875,
+            0.9521484375,
+            0.953125,
+            0.9501953125,
+            0.9541015625,
+            0.94921875
+          ],
+          "marginal_undercoverage_pvalues": [
+            0.47428148041769475,
+            0.8313687857146526,
+            0.6438086202536526,
+            0.6966911154190152,
+            0.5314725561271472,
+            0.7460553278968169,
+            0.47428148041769475
+          ],
+          "maximum_replicate_mass_share": 0.031388768875652326,
+          "passed": true,
+          "precision_fraction": 1.0,
+          "simultaneous_coverage": 0.9638671875,
+          "simultaneous_coverage_one_sided_95_lower": 0.9527376442572159,
+          "trials": 1024,
+          "wrong_endpoint_rejections": 1024
+        },
+        "coverage_geometry_sha256": "e4c3bbdcd72c8a761ad142408a40b00a8ef18bb32fdaf6baffb84dcf11aee47d",
+        "density_summary": {
+          "complete": 32,
+          "diagnostic_only": true,
+          "failed": 0,
+          "heldout_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.0011219698611122284,
+              0.0014351375702897112
+            ],
+            "mean": 0.00015658385458874142
+          },
+          "log_c2_ratio": {
+            "descriptive_95_interval": [
+              -0.002733923704715732,
+              0.0013909037743660162
+            ],
+            "mean": -0.000671509965174858
+          },
+          "requested": 32,
+          "training_log_score_gain": {
+            "descriptive_95_interval": [
+              -0.0015303162679557876,
+              0.00033215427187659305
+            ],
+            "mean": -0.0005990809980395972
+          },
+          "unattempted": 0
+        },
+        "target": 4,
+        "trial_detail_scope": "trial zero and all failures; complete raw evidence retained in the linked study",
+        "trials": [
+          {
+            "c2_existing": 1.3587126196002581,
+            "c2_stabilized": 1.3609049769719073,
+            "geometries": {
+              "adaptive-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -5.675735209459722
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": true,
+                    "iterations": 88,
+                    "restart": 1,
+                    "weighted_log_likelihood": -5.672579754983901
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -5.674407599519364
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.5923597886438946,
+                "pilot_effective_samples": 1439.2650852139707,
+                "selected_restart": 1,
+                "sha256": "6817edaf6c2585106dd744bab23dff5acab910e0e606f207ec1e5354d5335506"
+              },
+              "stabilized-mixture": {
+                "attempts": [
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1038.3775278182115,
+                      756.5737711034066,
+                      1356.3901104035465
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 0,
+                    "weighted_log_likelihood": -5.675784628232462
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1154.3590277895285,
+                      1097.4827525692535,
+                      903.7072291390313
+                    ],
+                    "converged": true,
+                    "iterations": 86,
+                    "restart": 1,
+                    "weighted_log_likelihood": -5.672608133370574
+                  },
+                  {
+                    "clipped_eigenvalues": 0,
+                    "component_effective_samples": [
+                      1164.0878576986597,
+                      971.7608276709711,
+                      768.1579695621805
+                    ],
+                    "converged": false,
+                    "iterations": 100,
+                    "restart": 2,
+                    "weighted_log_likelihood": -5.674444893883072
+                  }
+                ],
+                "minimum_final_covariance_eigenvalue": 0.6143584214773441,
+                "pilot_effective_samples": 1439.2650852139707,
+                "selected_restart": 1,
+                "sha256": "e4c3bbdcd72c8a761ad142408a40b00a8ef18bb32fdaf6baffb84dcf11aee47d"
+              }
+            },
+            "heldout_log_score_gain": -0.0010644034567102946,
+            "log_c2_ratio": 0.0016122544943869904,
+            "status": "complete",
+            "training_log_score_gain": -0.0011437231707963763,
+            "trial": 0
+          }
+        ]
+      }
+    ],
+    "code_revision": "7f921462b00f91f03ded4f80e0fa0b7f9cdaa3b6",
+    "controls_passed": true,
+    "offline_manifest_equal": true,
+    "offline_study_equal": true,
+    "report_id": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+    "study_sha256": "7dcf387edbe8fca9f4d471fc2b22d25ee7c1f91b192f99035c9bb6ba3344ecf2"
+  },
+  "date": "2026-11-13",
+  "decision": "No scoring admission. Five known-answer coverage gates pass; team numerical control passes, QB and three stress cases fail. Freeze target-preserving conditional-factorization repair/equivalence before further proposal tuning; retain posterior, accuracy gates and sealed Week 10.",
+  "deployment": {
+    "browser_signed_out": true,
+    "capture_and_publish_skipped": true,
+    "failure_stage": "Restore last retained candidate: first manual bootstrap required",
+    "has_pages": false,
+    "latest_observed_scheduled_run": 42908770888,
+    "main": "e28bdb2ab20fc9ce4906bfc579aac1c706aac06c",
+    "merged_prs_through": 26,
+    "settings_or_schedules_changed": false
+  },
+  "design_commit": "aefe914",
+  "failure_trace": {
+    "calibration_completed": false,
+    "code_revision": "49a0d056a382ee4636af5c02a7c376b6282c3c98",
+    "conditional_evaluations": 2345,
+    "error": "359-th leading minor of the array is not positive definite",
+    "failures": [
+      {
+        "coordinates": [
+          0.3028078398605809,
+          -52.993971024370325,
+          15.755043874750797,
+          9.50037335662291
+        ],
+        "eigenvalue_maximum": 6956209.927493263,
+        "eigenvalue_minimum": -1.7899018956157188e-10,
+        "error": "359-th leading minor of the array is not positive definite",
+        "evaluations": 2345,
+        "fixed_count": 19,
+        "groups": [
+          "qb",
+          "offense",
+          "defense",
+          "game"
+        ],
+        "matrix_dimension": 525,
+        "matrix_maximum_absolute_entry": 6956208.916700534,
+        "matrix_scale_roundoff": 1.544588885125821e-09,
+        "matrix_sha256": "ffdb9e179f8c19b0680774180c7152f8055302ce6287d80773d065c0e2290e90",
+        "matrix_symmetry_error": 1.1368683772161603e-13,
+        "nonpositive_eigenvalues": 2,
+        "precisions": [
+          1.3536543210454357,
+          9.660749251529577e-24,
+          6955504.196039036,
+          13364.715703410577
+        ],
+        "smallest_random_penalty": 9.660749251529577e-24
+      }
+    ],
+    "numerical_repair_attempted": false,
+    "original_error": "359-th leading minor of the array is not positive definite",
+    "original_trial_replaced": false,
+    "parent_density_report": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+    "ranking_ready": false,
+    "report_id": "368eb66e0b2aa55b1978df999ae83f66fc8f054b9e194ed2b9e19f55e189aaf0",
+    "response_sha256": "3b20385fd20e93331dde4c78f802b103f5c05477cd7e2a36e7f85c73a55f3b32",
+    "same_failure_reproduced": true
+  },
+  "new_nfl_outcomes_used": false,
+  "numerical_pilot": {
+    "cases": {
+      "continuous_hierarchy_0": {
+        "failure_diagnosis": {
+          "0.0": {
+            "lower_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 57,
+              "maximum_difference_plus_error": 0.0021373010714582814,
+              "maximum_numerical_error": 0.0020079673915405806,
+              "maximum_point_discrepancy": 0.00024259836559144612,
+              "numerical_error_exceeds_tolerance": 27,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 3,
+              "worst_numerical_error": 0.0020079673915405806,
+              "worst_point_discrepancy": 0.00012933367991770084
+            },
+            "maximum_mass_replicate_share": 0.04167093260734484,
+            "mean_sd": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 57,
+              "maximum_difference_plus_error": 0.05171590095818149,
+              "maximum_numerical_error": 0.047716519632611205,
+              "maximum_point_discrepancy": 0.003999381325570285,
+              "numerical_error_exceeds_tolerance": 36,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 10,
+              "worst_numerical_error": 0.047716519632611205,
+              "worst_point_discrepancy": 0.003999381325570285
+            },
+            "upper_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 57,
+              "maximum_difference_plus_error": 0.0026322365933417746,
+              "maximum_numerical_error": 0.002481682176848854,
+              "maximum_point_discrepancy": 0.00021300033438464983,
+              "numerical_error_exceeds_tolerance": 28,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 10,
+              "worst_numerical_error": 0.002481682176848854,
+              "worst_point_discrepancy": 0.00015055441649292067
+            }
+          }
+        },
+        "numerical_valid": false,
+        "primary_qmc_valid": true,
+        "reference_checks": {
+          "0.0": {
+            "maximum_endpoint_cdf_difference_plus_error": 0.0026322365933417746,
+            "maximum_mean_difference_plus_error_sd": 0.05171590095818149,
+            "valid": false
+          }
+        },
+        "response_sha256": "ca06c973e4ae8b9e92435c2ea021ab7bea54bb833cdf1604a6b795c4517acd0e",
+        "status": "failed",
+        "target_evaluations": 75415
+      },
+      "continuous_prior_0": {
+        "budget_exhausted": false,
+        "error": "359-th leading minor of the array is not positive definite",
+        "failed_stage": "reference",
+        "numerical_valid": false,
+        "primary_qmc_valid": true,
+        "response_sha256": "3b20385fd20e93331dde4c78f802b103f5c05477cd7e2a36e7f85c73a55f3b32",
+        "status": "failed",
+        "target_evaluations": 7215
+      },
+      "fixed_year_changes_0": {
+        "failure_diagnosis": {
+          "0.0": {
+            "lower_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 57,
+              "maximum_difference_plus_error": 0.0046407793453517796,
+              "maximum_numerical_error": 0.004238003889100353,
+              "maximum_point_discrepancy": 0.000854748741789129,
+              "numerical_error_exceeds_tolerance": 39,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 45,
+              "worst_numerical_error": 0.0037860306035626505,
+              "worst_point_discrepancy": 0.000854748741789129
+            },
+            "maximum_mass_replicate_share": 0.09673296171152766,
+            "mean_sd": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 57,
+              "maximum_difference_plus_error": 0.08179002110948337,
+              "maximum_numerical_error": 0.06777574104747054,
+              "maximum_point_discrepancy": 0.015354234080277722,
+              "numerical_error_exceeds_tolerance": 40,
+              "point_tolerance_failures": 4,
+              "worst_contrast_index": 24,
+              "worst_numerical_error": 0.06777574104747054,
+              "worst_point_discrepancy": 0.014014280062012835
+            },
+            "upper_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 57,
+              "maximum_difference_plus_error": 0.004670366011459426,
+              "maximum_numerical_error": 0.0042543036510377386,
+              "maximum_point_discrepancy": 0.0008253334847090343,
+              "numerical_error_exceeds_tolerance": 36,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 4,
+              "worst_numerical_error": 0.0042543036510377386,
+              "worst_point_discrepancy": 0.0004160623604216873
+            }
+          }
+        },
+        "numerical_valid": false,
+        "primary_qmc_valid": true,
+        "reference_checks": {
+          "0.0": {
+            "maximum_endpoint_cdf_difference_plus_error": 0.004670366011459426,
+            "maximum_mean_difference_plus_error_sd": 0.08179002110948337,
+            "valid": false
+          }
+        },
+        "response_sha256": "e27b7e595d5d3aee1ab3326632f3f4f5eb815756f4f054709a3fcfe031ec8ba1",
+        "status": "failed",
+        "target_evaluations": 75271
+      },
+      "real_evolving": {
+        "failure_diagnosis": {
+          "-1.3862943611198906": {
+            "lower_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.0009987094847665572,
+              "maximum_numerical_error": 0.00018654312553084695,
+              "maximum_point_discrepancy": 0.000826759934933436,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 18,
+              "worst_numerical_error": 0.0001719495498331211,
+              "worst_point_discrepancy": 0.000826759934933436
+            },
+            "maximum_mass_replicate_share": 0.0320053139177001,
+            "mean_sd": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.011564183378800975,
+              "maximum_numerical_error": 0.002375587919401123,
+              "maximum_point_discrepancy": 0.009428486434029763,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 84,
+              "worst_numerical_error": 0.002135696944771212,
+              "worst_point_discrepancy": 0.009428486434029763
+            },
+            "upper_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.0009630290307952594,
+              "maximum_numerical_error": 0.00015952419526765738,
+              "maximum_point_discrepancy": 0.0008068920418226044,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 84,
+              "worst_numerical_error": 0.00015613698897265493,
+              "worst_point_discrepancy": 0.0008068920418226044
+            }
+          },
+          "0.0": {
+            "lower_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.0011418480702563467,
+              "maximum_numerical_error": 0.0002090154433324505,
+              "maximum_point_discrepancy": 0.0009328326269238962,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 18,
+              "worst_numerical_error": 0.0002090154433324505,
+              "worst_point_discrepancy": 0.0009328326269238962
+            },
+            "maximum_mass_replicate_share": 0.03202618435987324,
+            "mean_sd": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.012779806305336771,
+              "maximum_numerical_error": 0.002526982652311934,
+              "maximum_point_discrepancy": 0.010494271566736078,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 5,
+              "worst_contrast_index": 84,
+              "worst_numerical_error": 0.0022855347386006933,
+              "worst_point_discrepancy": 0.010494271566736078
+            },
+            "upper_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.0010784120584665935,
+              "maximum_numerical_error": 0.00017936049964073497,
+              "maximum_point_discrepancy": 0.0009013983182958318,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 84,
+              "worst_numerical_error": 0.00017701374017076166,
+              "worst_point_discrepancy": 0.0009013983182958318
+            }
+          },
+          "1.3862943611198906": {
+            "lower_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.0013083844545354988,
+              "maximum_numerical_error": 0.000264032258016713,
+              "maximum_point_discrepancy": 0.0010443521965187857,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 1,
+              "worst_contrast_index": 18,
+              "worst_numerical_error": 0.000264032258016713,
+              "worst_point_discrepancy": 0.0010443521965187857
+            },
+            "maximum_mass_replicate_share": 0.0320451619022041,
+            "mean_sd": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.01422790752242969,
+              "maximum_numerical_error": 0.002770232267165376,
+              "maximum_point_discrepancy": 0.011702541306202515,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 10,
+              "worst_contrast_index": 84,
+              "worst_numerical_error": 0.0025253662162271744,
+              "worst_point_discrepancy": 0.011702541306202515
+            },
+            "upper_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 171,
+              "maximum_difference_plus_error": 0.0012154958305240493,
+              "maximum_numerical_error": 0.0002222478298969932,
+              "maximum_point_discrepancy": 0.0010089669497936882,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 2,
+              "worst_contrast_index": 80,
+              "worst_numerical_error": 0.00020652888073036113,
+              "worst_point_discrepancy": 0.0010089669497936882
+            }
+          }
+        },
+        "max_accounting_error_ep": 8.881784197001252e-16,
+        "numerical_valid": false,
+        "primary_qmc_valid": true,
+        "reference_checks": {
+          "-1.3862943611198906": {
+            "maximum_endpoint_cdf_difference_plus_error": 0.0009987094847665572,
+            "maximum_mean_difference_plus_error_sd": 0.011564183378800975,
+            "valid": false
+          },
+          "0.0": {
+            "maximum_endpoint_cdf_difference_plus_error": 0.0011418480702563467,
+            "maximum_mean_difference_plus_error_sd": 0.012779806305336771,
+            "valid": false
+          },
+          "1.3862943611198906": {
+            "maximum_endpoint_cdf_difference_plus_error": 0.0013083844545354988,
+            "maximum_mean_difference_plus_error_sd": 0.01422790752242969,
+            "valid": false
+          }
+        },
+        "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+        "status": "failed",
+        "target_evaluations": 75270
+      },
+      "real_team": {
+        "failure_diagnosis": {
+          "0.0": {
+            "lower_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 211,
+              "maximum_difference_plus_error": 0.000199567625413323,
+              "maximum_numerical_error": 0.000126603789678683,
+              "maximum_point_discrepancy": 7.752603531220592e-05,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 75,
+              "worst_numerical_error": 0.000126603789678683,
+              "worst_point_discrepancy": 7.296383573464002e-05
+            },
+            "maximum_mass_replicate_share": 0.03133914700746405,
+            "mean_sd": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 211,
+              "maximum_difference_plus_error": 0.002051184149668075,
+              "maximum_numerical_error": 0.0010126704116669642,
+              "maximum_point_discrepancy": 0.0010501140644159682,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 75,
+              "worst_numerical_error": 0.0010126704116669642,
+              "worst_point_discrepancy": 0.001038513738001111
+            },
+            "upper_cdf": {
+              "confidence_sets_outside_tolerance": 0,
+              "contrasts": 211,
+              "maximum_difference_plus_error": 0.00013921512333070485,
+              "maximum_numerical_error": 5.964996285678925e-05,
+              "maximum_point_discrepancy": 7.95651604739156e-05,
+              "numerical_error_exceeds_tolerance": 0,
+              "point_tolerance_failures": 0,
+              "worst_contrast_index": 75,
+              "worst_numerical_error": 5.964996285678925e-05,
+              "worst_point_discrepancy": 7.95651604739156e-05
+            }
+          }
+        },
+        "numerical_valid": true,
+        "primary_qmc_valid": true,
+        "reference_checks": {
+          "0.0": {
+            "maximum_endpoint_cdf_difference_plus_error": 0.000199567625413323,
+            "maximum_mean_difference_plus_error_sd": 0.002051184149668075,
+            "valid": true
+          }
+        },
+        "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+        "status": "passed",
+        "target_evaluations": 72852
+      }
+    },
+    "code_revision": "f3e854c9e9c4c295e943266e6fbac5f75b0757e3",
+    "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+    "numerical_pilot_passed": false,
+    "objects": {
+      "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+      "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+    },
+    "offline_manifest_equal": true,
+    "offline_objects_equal": true,
+    "prior_primary_values_equal_without_validity_flags": {
+      "models": true,
+      "predictions": true
+    },
+    "prior_report": "eee8529ba317ca804e7702fd43aadd2989f1fac16065a6821774f28f6f5199e0",
+    "report_id": "00e774dff2fedec35cb7d3326e0df34c76bf57e892eb31979ad138f88774d761",
+    "season": {
+      "benchmark_audit": {
+        "benchmark_ready": true,
+        "blocked_reasons": [],
+        "candidate_players": 57,
+        "first_unit_zero_opportunity_players": [],
+        "observed_players": 57
+      },
+      "benchmark_weights": {
+        "equal_player": {
+          "00-0023459": 0.017543859649122806,
+          "00-0026498": 0.017543859649122806,
+          "00-0027973": 0.017543859649122806,
+          "00-0028986": 0.017543859649122806,
+          "00-0029604": 0.017543859649122806,
+          "00-0030565": 0.017543859649122806,
+          "00-0031503": 0.017543859649122806,
+          "00-0032268": 0.017543859649122806,
+          "00-0032950": 0.017543859649122806,
+          "00-0033077": 0.017543859649122806,
+          "00-0033106": 0.017543859649122806,
+          "00-0033119": 0.017543859649122806,
+          "00-0033537": 0.017543859649122806,
+          "00-0033662": 0.017543859649122806,
+          "00-0033873": 0.017543859649122806,
+          "00-0034771": 0.017543859649122806,
+          "00-0034796": 0.017543859649122806,
+          "00-0034855": 0.017543859649122806,
+          "00-0034857": 0.017543859649122806,
+          "00-0034869": 0.017543859649122806,
+          "00-0035228": 0.017543859649122806,
+          "00-0035289": 0.017543859649122806,
+          "00-0035704": 0.017543859649122806,
+          "00-0035710": 0.017543859649122806,
+          "00-0035993": 0.017543859649122806,
+          "00-0036212": 0.017543859649122806,
+          "00-0036264": 0.017543859649122806,
+          "00-0036355": 0.017543859649122806,
+          "00-0036389": 0.017543859649122806,
+          "00-0036442": 0.017543859649122806,
+          "00-0036971": 0.017543859649122806,
+          "00-0037834": 0.017543859649122806,
+          "00-0038102": 0.017543859649122806,
+          "00-0038128": 0.017543859649122806,
+          "00-0038400": 0.017543859649122806,
+          "00-0038416": 0.017543859649122806,
+          "00-0038476": 0.017543859649122806,
+          "00-0039107": 0.017543859649122806,
+          "00-0039150": 0.017543859649122806,
+          "00-0039163": 0.017543859649122806,
+          "00-0039164": 0.017543859649122806,
+          "00-0039732": 0.017543859649122806,
+          "00-0039851": 0.017543859649122806,
+          "00-0039910": 0.017543859649122806,
+          "00-0039917": 0.017543859649122806,
+          "00-0039918": 0.017543859649122806,
+          "00-0039923": 0.017543859649122806,
+          "00-0040234": 0.017543859649122806,
+          "00-0040668": 0.017543859649122806,
+          "00-0040676": 0.017543859649122806,
+          "00-0040691": 0.017543859649122806,
+          "00-0040743": 0.017543859649122806,
+          "00-0040981": 0.017543859649122806,
+          "00-0041117": 0.017543859649122806,
+          "00-0041194": 0.017543859649122806,
+          "00-0041251": 0.017543859649122806,
+          "00-0041562": 0.017543859649122806
+        },
+        "first_unit": {
+          "00-0023459": 0.03125,
+          "00-0026498": 0.03125,
+          "00-0029604": 0.03125,
+          "00-0030565": 0.03125,
+          "00-0031503": 0.017857142857142856,
+          "00-0033077": 0.03125,
+          "00-0033106": 0.03125,
+          "00-0033119": 0.03125,
+          "00-0033537": 0.03125,
+          "00-0033873": 0.03125,
+          "00-0034796": 0.027777777777777776,
+          "00-0034855": 0.03125,
+          "00-0034857": 0.03125,
+          "00-0034869": 0.03125,
+          "00-0035228": 0.03125,
+          "00-0035710": 0.03125,
+          "00-0036212": 0.00390625,
+          "00-0036264": 0.03125,
+          "00-0036355": 0.03125,
+          "00-0036389": 0.01953125,
+          "00-0036442": 0.03125,
+          "00-0036971": 0.03125,
+          "00-0037834": 0.03125,
+          "00-0038128": 0.03125,
+          "00-0038400": 0.01171875,
+          "00-0039150": 0.03125,
+          "00-0039163": 0.03125,
+          "00-0039732": 0.03125,
+          "00-0039851": 0.03125,
+          "00-0039910": 0.03125,
+          "00-0039917": 0.02734375,
+          "00-0039918": 0.03125,
+          "00-0039923": 0.004464285714285714,
+          "00-0040676": 0.03125,
+          "00-0040691": 0.008928571428571428,
+          "00-0040743": 0.03125,
+          "00-0040981": 0.003472222222222222
+        },
+        "opportunity_weighted": {
+          "00-0023459": 0.0345709204090707,
+          "00-0026498": 0.035126722987994664,
+          "00-0027973": 0.00011116051578479324,
+          "00-0028986": 0.0063361493997332145,
+          "00-0029604": 0.0329035126722988,
+          "00-0030565": 0.03023566029346376,
+          "00-0031503": 0.019786571809693197,
+          "00-0032268": 0.0063361493997332145,
+          "00-0032950": 0.005224544241885282,
+          "00-0033077": 0.036571809693196976,
+          "00-0033106": 0.02990217874610938,
+          "00-0033119": 0.03679413072476656,
+          "00-0033537": 0.034015117830146734,
+          "00-0033662": 0.005113383726100489,
+          "00-0033873": 0.028234771009337484,
+          "00-0034771": 0.00022232103156958648,
+          "00-0034796": 0.012449977767896843,
+          "00-0034855": 0.014895509115162294,
+          "00-0034857": 0.026345042240995997,
+          "00-0034869": 0.026122721209426412,
+          "00-0035228": 0.020453534904401955,
+          "00-0035289": 0.002334370831480658,
+          "00-0035704": 0.005669186305024455,
+          "00-0035710": 0.033236994219653176,
+          "00-0035993": 0.014450867052023121,
+          "00-0036212": 0.0003334815473543797,
+          "00-0036264": 0.03634948866162739,
+          "00-0036355": 0.028345931525122277,
+          "00-0036389": 0.01989773232547799,
+          "00-0036442": 0.032125389061805246,
+          "00-0036971": 0.027234326367274343,
+          "00-0037834": 0.02567807914628724,
+          "00-0038102": 0.0007781236104935527,
+          "00-0038128": 0.02501111605157848,
+          "00-0038400": 0.014339706536238329,
+          "00-0038416": 0.007781236104935527,
+          "00-0038476": 0.0006669630947087594,
+          "00-0039107": 0.00044464206313917296,
+          "00-0039150": 0.0329035126722988,
+          "00-0039163": 0.029568697198755003,
+          "00-0039164": 0.00044464206313917296,
+          "00-0039732": 0.029791018230324588,
+          "00-0039851": 0.030569141840818142,
+          "00-0039910": 0.01956425077812361,
+          "00-0039917": 0.020120053357047578,
+          "00-0039918": 0.020675855935971543,
+          "00-0039923": 0.0054468652734548685,
+          "00-0040234": 0.0003334815473543797,
+          "00-0040668": 0.0003334815473543797,
+          "00-0040676": 0.030902623388172522,
+          "00-0040691": 0.004224099599822144,
+          "00-0040743": 0.0329035126722988,
+          "00-0040981": 0.0050022232103156955,
+          "00-0041117": 0.004001778568252557,
+          "00-0041194": 0.002112049799911072,
+          "00-0041251": 0.01367274344152957,
+          "00-0041562": 0.0010004446420631393
+        }
+      },
+      "games": 122,
+      "historical_opportunities_in_scoring_total": 0,
+      "negative_player_estimates": 38,
+      "players": 57,
+      "plays": 8996,
+      "qualification_denominators_complete": 23,
+      "ranking_ready": false,
+      "season": 2026
+    }
+  },
+  "participation_metadata": {
+    "assets": 46,
+    "checked_at": "2026-11-13T19:53:49Z",
+    "named_2026_assets": [],
+    "release_id": 71636554,
+    "repository": "nflverse/nflverse-data",
+    "scope": "Release metadata only; not a game-level snap audit or all-provider absence.",
+    "tag": "pbp_participation"
+  },
+  "plan_file": "config/density-holdout-v2.json",
+  "plan_sha256": "fcf7b732f28a453d9a3b916ffa8d155d6daa0b2c1a2c05dae7ec8377c044facd",
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/27",
+  "ranking_ready": false,
+  "tail_amendment_commit": "addf315",
+  "timezone": "America/New_York",
+  "verification": {
+    "legacy_four_geometry_hashes_unchanged": true,
+    "local_frontend_tests": 27,
+    "local_make_check_passed": true,
+    "local_python_tests": 441,
+    "new_dependencies": [],
+    "pilot_source_ci_passed": true,
+    "pilot_source_ci_run": 43503025511
+  },
+  "week_10_sealed": true
+}
