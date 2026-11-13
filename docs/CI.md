@@ -82,6 +82,15 @@ packaging and browser verification are recorded separately in the dated audit.
 The existing load scenario also requires the partial-week explanation; no browser
 scenario was duplicated to test a copy change.
 
+November 13 adds nine density/reference regressions without changing the CI stack.
+They check independent covariance algebra, dominant/rank-deficient pilots,
+analytical density ratios, bounded curved transformations and independent endpoint
+answers, supplied-proposal signed Student-t functionals, exact archived policy
+compatibility, complete failure denominators and corrupted coverage certificates.
+The fixed 5,120-trial study and archived NFL pilot run separately from CI;
+passing software tests does not certify numerical coverage or player attribution.
+The bounded failure-trace script is formatted and linted with the research modules.
+
 Expand adopted formatting when substantially editing other modules; this is not a claim
 that all legacy Python is formatter-clean. Explicit project configuration avoids
 inheriting unrelated parent-directory lint settings. Two existing unused imports
