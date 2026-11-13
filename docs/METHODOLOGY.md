@@ -271,6 +271,8 @@ The November 13 [paired density study](DENSITY_HOLDOUT.md) compares that sampler
 with one fixed covariance-stabilized alternative. It regularizes the sampling
 covariances toward the independently fitted curvature/global covariance, with
 strength determined by dimension and normalized pilot-weight concentration.
+The effective count here is a weight-concentration diagnostic for dependent net
+points, not an independent sample size or a football participation denominator.
 This changes the integration proposal, not any player/team variance prior. Both
 proposals see the same pilot; an independently sampled mixture evaluates their
 density overlap on the same holdout points with exact mixture probabilities.

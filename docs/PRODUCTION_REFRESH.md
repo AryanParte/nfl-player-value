@@ -41,6 +41,14 @@ nor workflow dispatch, and local `gh` is absent. No deployment, bootstrap,
 schedule change or other-repository action occurred. This access blocker remains
 independent of the unresolved scoring validation.
 
+November 13 recheck: PR #26 is merged at `e28bdb2` and main CI passes. The same
+November 10 scheduled run remains the latest observed scheduled attempt and fails
+before capture/publication at the initial-retention prerequisite. The repository
+API still reports `has_pages=false`. A fresh in-app browser inspection of the
+canonical repository visibly shows **Sign in**; no authenticated settings or
+bootstrap action is available through that session. No Pages setting, workflow,
+schedule or release was changed. Model experiments continued independently.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed
