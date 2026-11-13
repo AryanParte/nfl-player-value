@@ -257,9 +257,19 @@ def diagnose_reference(reference, *, contrasts, shifts, plan):
 
 
 def reference_integral(
-    target, contrasts, summaries, plan, method, case_index, progress=lambda _: None
+    target,
+    contrasts,
+    summaries,
+    plan,
+    method,
+    case_index,
+    progress=lambda _: None,
+    *,
+    sampling=None,
 ):
-    if method == "adaptive-mixture":
+    if sampling is not None:
+        sampling.components(method)
+    elif method == "adaptive-mixture":
         from nfl_value.adaptive_proposal import fit_adaptive
 
         sampling = fit_adaptive(target, plan, case_index)
