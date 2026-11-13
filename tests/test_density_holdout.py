@@ -5,11 +5,12 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 from scipy.integrate import quad
 from scipy.special import stdtr
-from scipy.stats import norm
+from scipy.stats import norm, t
 
 from nfl_value.adaptive_proposal import AdaptiveProposal, shrink_covariance, weighted_mixture
 from nfl_value.density_cli import load, pilot, save, validate_pilot_manifest
@@ -26,6 +27,7 @@ from nfl_value.density_holdout import (
     validate_plan,
 )
 from nfl_value.ingestion import SnapshotStore, json_bytes, sha256
+from nfl_value.replicated_reference import reference_integral
 import scipy
 
 
@@ -34,6 +36,64 @@ def plan():
 
 
 class DensityTests(unittest.TestCase):
+    def test_supplied_proposal_integrates_independent_signed_student_t_answers(self):
+        location = np.array([-2.0, 0.0])
+        scale = np.sqrt(0.2)
+
+        class Target:
+            def log_target(self, point):
+                return float(norm.logpdf(point[0]))
+
+            def prior(self, point, shift):
+                return np.array([self.log_target(point)])
+
+            def conditional(self, point, contrasts):
+                return dict(
+                    diagonal=np.ones(2),
+                    posterior_scale=np.array([2.0]),
+                    posterior_shape=10.0,
+                    location=location[:, None],
+                    log_likelihood=np.array([0.0]),
+                )
+
+        proposal = StabilizedProposal(
+            np.zeros(1),
+            np.eye(1),
+            np.zeros(1),
+            np.eye(1),
+            {"synthetic": True},
+            np.zeros((3, 1)),
+            np.ones((3, 1, 1)),
+            np.full(3, 1 / 3),
+        )
+        summaries = {
+            0.0: dict(
+                mean=location,
+                sd=np.full(2, scale * np.sqrt(20 / 18)),
+                low=location + scale * t.ppf(0.025, 20),
+                high=location + scale * t.ppf(0.975, 20),
+            )
+        }
+        with patch(
+            "nfl_value.replicated_reference.fit_proposal", side_effect=AssertionError("refit")
+        ):
+            result = reference_integral(
+                Target(),
+                np.eye(2),
+                summaries,
+                {**plan(), "replicates": 4, "nodes_per_replicate": 32},
+                "stabilized-mixture",
+                99,
+                sampling=proposal,
+            )
+        self.assertTrue(result["valid"])
+        self.assertEqual(result["geometry"], {"synthetic": True})
+        np.testing.assert_allclose(
+            result["bounds"]["estimate"],
+            [1, 0, 0, 0.025, 0.025, 0.975, 0.975],
+            atol=1e-13,
+        )
+
     def test_pilot_replay_rejects_policy_environment_and_admission_drift(self):
         p = plan()
         manifest = dict(
