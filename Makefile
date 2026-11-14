@@ -33,7 +33,9 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  src/nfl_value/randomized_cli.py src/nfl_value/randomized_pilot.py \
  src/nfl_value/adaptive_proposal.py tests/test_replicated_reference.py \
  src/nfl_value/density_holdout.py src/nfl_value/density_cli.py tests/test_density_holdout.py \
- scripts/trace_density_failure.py
+ scripts/trace_density_failure.py \
+ src/nfl_value/conditional_solver.py src/nfl_value/conditional_reference.py \
+ src/nfl_value/conditional_study.py src/nfl_value/conditional_cli.py tests/test_conditional_solver.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests
