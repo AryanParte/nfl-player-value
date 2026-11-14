@@ -110,7 +110,13 @@ class ConditionalSolverTests(unittest.TestCase):
         plan = json.loads(Path("config/conditional-solver-v1.json").read_text())
         report, _ = known_study(plan)
         self.assertEqual(len(report["cases"]), 72)
-        self.assertTrue(report["candidate_gates"]["exact_alias_qr"])
+        failures = [
+            {k: c[k] for k in ("family", "weak_precision", "game_precision")}
+            | {"result": c["candidate_results"]["exact_alias_qr"]}
+            for c in report["cases"]
+            if not c["candidate_results"]["exact_alias_qr"]["passed"]
+        ]
+        self.assertTrue(report["candidate_gates"]["exact_alias_qr"], failures)
         self.assertEqual(validate_known(report, plan), report["candidate_gates"])
         altered = deepcopy(plan)
         altered["variance_relative_tolerance"] *= 2
