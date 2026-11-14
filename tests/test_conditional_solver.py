@@ -110,6 +110,7 @@ class ConditionalSolverTests(unittest.TestCase):
         plan = json.loads(Path("config/conditional-solver-v1.json").read_text())
         report, _ = known_study(plan)
         self.assertEqual(len(report["cases"]), 72)
+        self.assertTrue(report["candidate_gates"]["exact_alias_qr"])
         self.assertEqual(validate_known(report, plan), report["candidate_gates"])
         altered = deepcopy(plan)
         altered["variance_relative_tolerance"] *= 2

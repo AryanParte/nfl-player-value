@@ -287,3 +287,22 @@ transformation with independently known answers and finite variance. Empirical
 coverage remains required: finite variance alone does not make the approximate
 numerical confidence construction reliable. No posterior interval, functional
 tolerance, source cutoff or benchmark changes in this study.
+
+## Conditional arithmetic repair (November 14)
+
+The [frozen solver study](CONDITIONAL_SOLVER.md) changes the conditional numerical
+calculation, not the continuous posterior. Exact binary aliases within a common-
+precision random-effect block and flat fixed context are reparameterized into
+observed coordinates and independent proper-prior directions. The latter are
+integrated analytically, and their full prior covariance is restored to requested
+contrasts. This does not impose zero-sum player effects or delete players.
+Different-precision blocks are not pooled; approximate aliases are not removed.
+
+Square-root prior rows and stable within-game/mean decomposition retain tiny
+positive precisions without adding jitter or subtracting nearly equal Gram
+matrices. The [results](CONDITIONAL_SOLVER_RESULTS.md) support this opt-in kernel
+on its bounded known-answer and archived checks. They do not show that every
+possible prior-tail configuration is reliable, resolve QB/team attribution, or
+admit scores. Existing integrated models and signed season ledgers remain
+unchanged. Functional integration, player calibration and observational admission
+are still separate requirements; no full posterior was recomputed in this unit.

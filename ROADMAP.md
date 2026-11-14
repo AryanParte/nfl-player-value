@@ -72,15 +72,24 @@ a 9.66e-24 precision lost at matrix roundoff scale. No jitter, prior change or
 scoring admission follows. Primary models, predictions and season ledgers retain
 their earlier object hashes.
 
-Next substantial unit: freeze a target-preserving conditional-factorization
-repair/equivalence study using exact aliases, weak precisions and independent
-known answers. Resolve that concrete failure before another proposal search.
-Then diagnose remaining primary/reference disagreement under separately declared
-randomizations and budgets; do not automatically enlarge primary nets or select
-a favorable density pilot. Numerical reliability precedes the unfinished 192-fit
-calibration, prospective evidence and observational admission. Week 10 stays
-sealed. Defense remains mandatory; November 13 metadata still finds no
-2026-named asset in the checked participation release, not all-provider absence.
+November 14 completes the [conditional-solver repair](docs/CONDITIONAL_SOLVER_RESULTS.md).
+Exact rational alias reduction preserves proper-prior uncertainty while a
+square-root factorization avoids the observed loss of tiny precisions. It passes
+72/72 independent known-answer cases and 85/85 archived equivalence coordinates.
+The exact failed point passes raw-row/permuted-basis checks and its previously
+failed density fit completes in 4,938 evaluations. All results independently
+reconstruct offline. Plain QR's 11 failures remain visible. This clears the
+observed conditional failure, not full numerical integration or player admission.
+
+Next substantial unit: freeze a repaired-kernel functional comparison with
+independent randomizations and bounded work. Diagnose primary/reference
+agreement and reference imprecision before the unfinished 192-fit calibration,
+prospective evidence and observational admission. Do not automatically enlarge
+primary nets or select a favorable proposal. The latest integrated QB accuracy
+result remains a failure at 0.014228 SD / 0.001308 CDF. Week 10 stays sealed.
+Defense remains mandatory; its latest participation metadata check is November 13,
+not a newly refreshed or all-provider coverage claim. PR #27 remains open and the
+conditional-solver branch is explicitly stacked on it; modeling continued.
 
 PRs #18–#26 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,

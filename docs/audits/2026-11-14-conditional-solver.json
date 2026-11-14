@@ -1,0 +1,1528 @@
+{
+  "archive_report": "fd42ac3140a010c5b89ec98c79403ff3524c2954a3927c688e0baa369247b00e",
+  "archive_source_revision": "57fa720ee3cf336577f935099cc3e519afd9474e",
+  "archive_study_sha256": "c626ce5b5265f19ddb06200f5adaaceba50afa8557a3bb09daabcdc4aa416cd1",
+  "archived_cases": {
+    "continuous_hierarchy_0": {
+      "aliases": {
+        "defense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "offense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "qb": {
+          "columns": 317,
+          "exact_rank": 212,
+          "nullity": 105,
+          "rational_basis_sha256": "c1dcd5a0eb87e21fcd9b25ad9a33ef0c2ab6b3d2640bfa43b82ef242dbe5a1df",
+          "unique_patterns": 212
+        }
+      },
+      "completed": 17,
+      "equivalence_passed": true,
+      "maximum_accounting_error": 8.881784197001252e-16,
+      "original_columns": 525,
+      "passed": 17,
+      "requested": 17,
+      "response_sha256": "ca06c973e4ae8b9e92435c2ea021ab7bea54bb833cdf1604a6b795c4517acd0e",
+      "retained_columns": 414,
+      "worst_metrics": {
+        "log_likelihood_absolute_error": 5.820766091346741e-11,
+        "mean_error_sd": 2.0828006937550715e-12,
+        "quadratic_relative_error": 1.880476895058771e-15,
+        "variance_relative_error": 4.2005114846404e-14
+      }
+    },
+    "continuous_prior_0": {
+      "aliases": {
+        "defense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "offense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "qb": {
+          "columns": 317,
+          "exact_rank": 212,
+          "nullity": 105,
+          "rational_basis_sha256": "c1dcd5a0eb87e21fcd9b25ad9a33ef0c2ab6b3d2640bfa43b82ef242dbe5a1df",
+          "unique_patterns": 212
+        }
+      },
+      "completed": 17,
+      "equivalence_passed": true,
+      "maximum_accounting_error": 8.881784197001252e-16,
+      "original_columns": 525,
+      "passed": 17,
+      "recorded_failure_point": {
+        "accounting": {
+          "penalized_quadratic_relative_error": 9.935214808644057e-16,
+          "row_reconstruction_maximum_error": 8.881784197001252e-16
+        },
+        "basis_comparison": {
+          "log_likelihood_absolute_error": 1.1641532182693481e-10,
+          "mean_error_sd": 3.733441039450528e-13,
+          "passed": true,
+          "quadratic_relative_error": 4.25794920370461e-15,
+          "variance_relative_error": 1.6593733038927444e-14
+        },
+        "coordinates": [
+          0.3028078398605809,
+          -52.993971024370325,
+          15.755043874750797,
+          9.50037335662291
+        ],
+        "legacy_point": {
+          "error": "359-th leading minor of the array is not positive definite",
+          "status": "failed"
+        },
+        "passed": true,
+        "raw_comparison": {
+          "log_likelihood_absolute_error": 2.9103830456733704e-11,
+          "mean_error_sd": 2.521520559781299e-13,
+          "passed": true,
+          "quadratic_relative_error": 1.419316401234866e-15,
+          "variance_relative_error": 1.2779256036615591e-14
+        },
+        "response_sha256": "3b20385fd20e93331dde4c78f802b103f5c05477cd7e2a36e7f85c73a55f3b32",
+        "status": "complete"
+      },
+      "requested": 17,
+      "response_sha256": "3b20385fd20e93331dde4c78f802b103f5c05477cd7e2a36e7f85c73a55f3b32",
+      "retained_columns": 414,
+      "worst_metrics": {
+        "log_likelihood_absolute_error": 2.9103830456733704e-11,
+        "mean_error_sd": 8.570159003166942e-13,
+        "quadratic_relative_error": 5.656673257474473e-16,
+        "variance_relative_error": 1.2295941821490546e-13
+      }
+    },
+    "fixed_year_changes_0": {
+      "aliases": {
+        "defense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "offense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "qb": {
+          "columns": 317,
+          "exact_rank": 212,
+          "nullity": 105,
+          "rational_basis_sha256": "c1dcd5a0eb87e21fcd9b25ad9a33ef0c2ab6b3d2640bfa43b82ef242dbe5a1df",
+          "unique_patterns": 212
+        }
+      },
+      "completed": 17,
+      "equivalence_passed": true,
+      "maximum_accounting_error": 8.881784197001252e-16,
+      "original_columns": 525,
+      "passed": 17,
+      "requested": 17,
+      "response_sha256": "e27b7e595d5d3aee1ab3326632f3f4f5eb815756f4f054709a3fcfe031ec8ba1",
+      "retained_columns": 414,
+      "worst_metrics": {
+        "log_likelihood_absolute_error": 8.731149137020111e-11,
+        "mean_error_sd": 1.2899736443471183e-12,
+        "quadratic_relative_error": 1.7156789315245083e-15,
+        "variance_relative_error": 8.230177861386552e-15
+      }
+    },
+    "real_evolving": {
+      "aliases": {
+        "defense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "offense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "qb": {
+          "columns": 317,
+          "exact_rank": 212,
+          "nullity": 105,
+          "rational_basis_sha256": "c1dcd5a0eb87e21fcd9b25ad9a33ef0c2ab6b3d2640bfa43b82ef242dbe5a1df",
+          "unique_patterns": 212
+        }
+      },
+      "completed": 17,
+      "equivalence_passed": true,
+      "maximum_accounting_error": 1.7763568394002505e-15,
+      "original_columns": 525,
+      "passed": 17,
+      "requested": 17,
+      "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+      "retained_columns": 414,
+      "worst_metrics": {
+        "log_likelihood_absolute_error": 4.656612873077393e-10,
+        "mean_error_sd": 3.374273739617474e-12,
+        "quadratic_relative_error": 1.790363639097629e-14,
+        "variance_relative_error": 1.697018091163749e-14
+      }
+    },
+    "real_team": {
+      "aliases": {
+        "defense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        },
+        "offense": {
+          "columns": 99,
+          "exact_rank": 96,
+          "nullity": 3,
+          "rational_basis_sha256": "af5763d8637ca3a2053a4bc8f90b96476b1e18523add59dd4be241c675c7f7b4",
+          "unique_patterns": 96
+        }
+      },
+      "completed": 17,
+      "equivalence_passed": true,
+      "maximum_accounting_error": 1.7763568394002505e-15,
+      "original_columns": 211,
+      "passed": 17,
+      "requested": 17,
+      "response_sha256": "fa0228572134bf9399f7481c7d23fa1ab2e6680923a726c7413df34e604b050f",
+      "retained_columns": 205,
+      "worst_metrics": {
+        "log_likelihood_absolute_error": 3.4924596548080444e-10,
+        "mean_error_sd": 2.72894184429932e-10,
+        "quadratic_relative_error": 1.100659449906989e-14,
+        "variance_relative_error": 3.835939636301522e-11
+      }
+    }
+  },
+  "costs_and_scope": {
+    "dependencies_added": false,
+    "other_repository_changed": false,
+    "paid_services_added": false,
+    "schedule_changed": false
+  },
+  "date": "2026-11-14",
+  "environment": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3"
+  },
+  "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+  "execution_diagnostics": {
+    "normal_archive": {
+      "timings": {
+        "continuous_hierarchy_0": 1.942375458078459,
+        "continuous_prior_0": 3.823765042005107,
+        "failed_fit_replay": 41.15173208294436,
+        "fixed_year_changes_0": 2.0307739158160985,
+        "real_evolving": 2.0654292081017047,
+        "real_team": 1.076338625047356
+      }
+    },
+    "normal_known": {
+      "timings": [
+        {
+          "family": "partition",
+          "seconds": 0.04819112503901124
+        },
+        {
+          "family": "duplicates",
+          "seconds": 0.04391712509095669
+        },
+        {
+          "family": "near_alias",
+          "seconds": 0.0445654580835253
+        },
+        {
+          "family": "cold_player",
+          "seconds": 0.040974708972498775
+        },
+        {
+          "family": "year_links",
+          "seconds": 0.06959012500010431
+        },
+        {
+          "family": "game_means",
+          "seconds": 0.06523862504400313
+        }
+      ]
+    },
+    "offline": {
+      "archive_timings": {
+        "continuous_hierarchy_0": 2.0052701660897583,
+        "continuous_prior_0": 3.711321957875043,
+        "failed_fit_replay": 40.54519983287901,
+        "fixed_year_changes_0": 2.0858632079325616,
+        "real_evolving": 1.9872408749070019,
+        "real_team": 1.1680991251487285
+      },
+      "known_timings": [
+        {
+          "family": "partition",
+          "seconds": 0.043603291967883706
+        },
+        {
+          "family": "duplicates",
+          "seconds": 0.0505047501064837
+        },
+        {
+          "family": "near_alias",
+          "seconds": 0.05697487504221499
+        },
+        {
+          "family": "cold_player",
+          "seconds": 0.04252029210329056
+        },
+        {
+          "family": "year_links",
+          "seconds": 0.06934829195961356
+        },
+        {
+          "family": "game_means",
+          "seconds": 0.05688245897181332
+        }
+      ]
+    }
+  },
+  "experiment": "conditional-solver-v1",
+  "failed_fit_replay": {
+    "conditional_evaluations": 4938,
+    "geometries": {
+      "adaptive-mixture": {
+        "attempts": [
+          {
+            "clipped_eigenvalues": 0,
+            "converged": false,
+            "iterations": 100,
+            "restart": 0,
+            "weighted_log_likelihood": -4.108018289088004
+          },
+          {
+            "clipped_eigenvalues": 0,
+            "converged": false,
+            "iterations": 100,
+            "restart": 1,
+            "weighted_log_likelihood": -4.164717963613138
+          },
+          {
+            "clipped_eigenvalues": 0,
+            "converged": false,
+            "iterations": 100,
+            "restart": 2,
+            "weighted_log_likelihood": -4.093314744858675
+          }
+        ],
+        "component_covariances": [
+          [
+            [
+              0.01620182053922485,
+              -0.013269797827386267,
+              -0.008058660614476456,
+              7.450638952040658e-05
+            ],
+            [
+              -0.013269797827386267,
+              5.688668620580954,
+              -0.17087871271440605,
+              -0.013332553369407198
+            ],
+            [
+              -0.008058660614476455,
+              -0.17087871271440608,
+              2.1562803714295797,
+              -0.07569606513900866
+            ],
+            [
+              7.450638952040662e-05,
+              -0.013332553369407198,
+              -0.07569606513900867,
+              0.2440833501743696
+            ]
+          ],
+          [
+            [
+              0.015588290678773514,
+              -0.023525425783866565,
+              0.03852908398335899,
+              -0.0052109370469620745
+            ],
+            [
+              -0.02352542578386656,
+              10.313886354855153,
+              -2.0653345011864666,
+              -0.6644985427980118
+            ],
+            [
+              0.03852908398335898,
+              -2.065334501186466,
+              5.162398149674864,
+              -0.42846606237559587
+            ],
+            [
+              -0.005210937046962075,
+              -0.6644985427980117,
+              -0.42846606237559587,
+              0.7614823283958361
+            ]
+          ],
+          [
+            [
+              0.028011416784942095,
+              -0.19893486504486782,
+              -0.051605138989476065,
+              -0.04947010625351485
+            ],
+            [
+              -0.19893486504486785,
+              14.510430785857224,
+              3.553970112890692,
+              3.493732034814598
+            ],
+            [
+              -0.051605138989476065,
+              3.553970112890692,
+              1.217320513179242,
+              0.9108393541816415
+            ],
+            [
+              -0.04947010625351485,
+              3.493732034814597,
+              0.9108393541816415,
+              0.8705861965181381
+            ]
+          ]
+        ],
+        "component_masses": [
+          0.6381780968153946,
+          0.3188873838466648,
+          0.04293451933794062
+        ],
+        "component_means": [
+          [
+            0.7410600914963517,
+            7.194418416125992,
+            9.485344502620134,
+            6.271411498168693
+          ],
+          [
+            0.7427585432477752,
+            8.27294307635839,
+            10.891112255013043,
+            6.841719635092405
+          ],
+          [
+            0.7201844280850921,
+            8.075272384143357,
+            9.117264155915139,
+            7.903772008729753
+          ]
+        ],
+        "density_pilot_entropy": [
+          2026111301,
+          10,
+          102,
+          0
+        ],
+        "geometry_uses_primary_qmc": false,
+        "learning_is_target_density_only": true,
+        "pilot_effective_samples": 837.0141925159999,
+        "pilot_initial_geometry": {
+          "clipped_eigenvalues": 0,
+          "covariance": [
+            [
+              0.01596874194227441,
+              -0.008415899084045421,
+              0.00010880820351456057,
+              0.0002923878331046321
+            ],
+            [
+              -0.008415899084045421,
+              7.550177827186353,
+              0.0024167200653983237,
+              0.0056197486649823295
+            ],
+            [
+              0.00010880820351456056,
+              0.0024167200653983237,
+              2.870177149969878,
+              -0.04888409099272754
+            ],
+            [
+              0.0002923878331046321,
+              0.005619748664982329,
+              -0.04888409099272753,
+              0.30462776501145516
+            ]
+          ],
+          "geometry_uses_primary_qmc": false,
+          "mode": [
+            0.7442786677318244,
+            6.894654398247289,
+            9.08161258736344,
+            6.178567960371954
+          ],
+          "optimizer_attempts": [
+            {
+              "iterations": 20,
+              "point": [
+                0.7442786677318244,
+                6.894654398247289,
+                9.08161258736344,
+                6.178567960371954
+              ],
+              "relative_objective": -4499.317818230862,
+              "success": true
+            },
+            {
+              "iterations": 25,
+              "point": [
+                0.744282533299477,
+                6.894692846702781,
+                9.08162641665573,
+                6.178564501842594
+              ],
+              "relative_objective": -4499.317818231764,
+              "success": true
+            },
+            {
+              "iterations": 21,
+              "point": [
+                0.7442818615843589,
+                6.894682384096859,
+                9.081624487653386,
+                6.178566480574921
+              ],
+              "relative_objective": -4499.3178182315605,
+              "success": true
+            }
+          ],
+          "raw_hessian_eigenvalues": [
+            0.1986704234812771,
+            0.5224465474060305,
+            4.939205787516723,
+            93.99071644126674
+          ]
+        },
+        "pilot_nodes": 4096,
+        "pilot_points_sha256": "f5848b82d6e1a7a4aa295752d818c71a2c2e58d10f6ddbb3ab7fce139e9c750a",
+        "pilot_weights_sha256": "8470bd54bbac462380eb2f805b23170970a36346c9e186a6f6cc7cb63f751471",
+        "selected_restart": 2
+      },
+      "stabilized-mixture": {
+        "attempts": [
+          {
+            "clipped_eigenvalues": 0,
+            "component_effective_samples": [
+              815.7499104447024,
+              45.63337260820314,
+              428.0058118599114
+            ],
+            "converged": false,
+            "iterations": 100,
+            "restart": 0,
+            "weighted_log_likelihood": -4.109947225937425
+          },
+          {
+            "clipped_eigenvalues": 0,
+            "component_effective_samples": [
+              73.30349823096876,
+              134.09195100193313,
+              1035.9530708029415
+            ],
+            "converged": true,
+            "iterations": 96,
+            "restart": 1,
+            "weighted_log_likelihood": -4.116231484392696
+          },
+          {
+            "clipped_eigenvalues": 0,
+            "component_effective_samples": [
+              1051.8528546276993,
+              199.00500947286483,
+              89.21885821906102
+            ],
+            "converged": true,
+            "iterations": 82,
+            "restart": 2,
+            "weighted_log_likelihood": -4.113308310895137
+          }
+        ],
+        "component_covariances": [
+          [
+            [
+              0.015710254026570614,
+              -0.012782694994764409,
+              -0.017920030477323955,
+              0.0017612653729633982
+            ],
+            [
+              -0.012782694994764409,
+              7.882980703080932,
+              -0.6079971507918918,
+              0.027930389959569327
+            ],
+            [
+              -0.017920030477323955,
+              -0.6079971507918918,
+              2.929710206820803,
+              0.04037693250645063
+            ],
+            [
+              0.0017612653729633984,
+              0.02793038995956933,
+              0.04037693250645063,
+              0.1941720099824868
+            ]
+          ],
+          [
+            [
+              0.01758493165526181,
+              -0.09224318574161347,
+              0.06881723891638962,
+              -0.05680423367728819
+            ],
+            [
+              -0.0922431857416135,
+              12.62455351680939,
+              -1.7519788975035473,
+              0.9541657503608048
+            ],
+            [
+              0.06881723891638962,
+              -1.7519788975035473,
+              4.105273558445065,
+              -1.1170762487622086
+            ],
+            [
+              -0.05680423367728819,
+              0.9541657503608048,
+              -1.1170762487622086,
+              1.1677189601797155
+            ]
+          ],
+          [
+            [
+              0.017178420300722915,
+              -0.02566783101956395,
+              -0.0014136358590215747,
+              0.0030693157766018358
+            ],
+            [
+              -0.02566783101956395,
+              5.756024111951561,
+              -0.1382596100785748,
+              0.3845880371529309
+            ],
+            [
+              -0.001413635859021575,
+              -0.1382596100785748,
+              1.1455724338449966,
+              0.03911526575482205
+            ],
+            [
+              0.003069315776601836,
+              0.3845880371529309,
+              0.03911526575482204,
+              0.5160409849729662
+            ]
+          ]
+        ],
+        "component_masses": [
+          0.5087577757043178,
+          0.11484026534503114,
+          0.3764019589506511
+        ],
+        "component_means": [
+          [
+            0.7437888570632081,
+            7.911927655202632,
+            10.176967450849109,
+            6.189197235377689
+          ],
+          [
+            0.7497131687505307,
+            7.781691069691073,
+            12.018504694418217,
+            7.3959122013116705
+          ],
+          [
+            0.733789475438495,
+            7.059631649905905,
+            8.926635685461402,
+            6.708810576737074
+          ]
+        ],
+        "density_pilot_entropy": [
+          2026111301,
+          10,
+          102,
+          0
+        ],
+        "geometry_uses_primary_qmc": false,
+        "global_effective_samples": 837.0141925159992,
+        "global_reference_covariance": [
+          [
+            0.011025591051903793,
+            -0.016334173323824162,
+            0.004498243850315715,
+            -0.0035301994150627324
+          ],
+          [
+            -0.01633417332382416,
+            5.28494778970099,
+            -0.10482011395741413,
+            0.11397040434403735
+          ],
+          [
+            0.004498243850315715,
+            -0.10482011395741413,
+            2.494513779500609,
+            0.023276721389057974
+          ],
+          [
+            -0.003530199415062732,
+            0.11397040434403735,
+            0.023276721389057974,
+            0.44356920864114174
+          ]
+        ],
+        "learning_is_target_density_only": true,
+        "pilot_effective_samples": 837.0141925159999,
+        "pilot_initial_geometry": {
+          "clipped_eigenvalues": 0,
+          "covariance": [
+            [
+              0.01596874194227441,
+              -0.008415899084045421,
+              0.00010880820351456057,
+              0.0002923878331046321
+            ],
+            [
+              -0.008415899084045421,
+              7.550177827186353,
+              0.0024167200653983237,
+              0.0056197486649823295
+            ],
+            [
+              0.00010880820351456056,
+              0.0024167200653983237,
+              2.870177149969878,
+              -0.04888409099272754
+            ],
+            [
+              0.0002923878331046321,
+              0.005619748664982329,
+              -0.04888409099272753,
+              0.30462776501145516
+            ]
+          ],
+          "geometry_uses_primary_qmc": false,
+          "mode": [
+            0.7442786677318244,
+            6.894654398247289,
+            9.08161258736344,
+            6.178567960371954
+          ],
+          "optimizer_attempts": [
+            {
+              "iterations": 20,
+              "point": [
+                0.7442786677318244,
+                6.894654398247289,
+                9.08161258736344,
+                6.178567960371954
+              ],
+              "relative_objective": -4499.317818230862,
+              "success": true
+            },
+            {
+              "iterations": 25,
+              "point": [
+                0.744282533299477,
+                6.894692846702781,
+                9.08162641665573,
+                6.178564501842594
+              ],
+              "relative_objective": -4499.317818231764,
+              "success": true
+            },
+            {
+              "iterations": 21,
+              "point": [
+                0.7442818615843589,
+                6.894682384096859,
+                9.081624487653386,
+                6.178566480574921
+              ],
+              "relative_objective": -4499.3178182315605,
+              "success": true
+            }
+          ],
+          "raw_hessian_eigenvalues": [
+            0.1986704234812771,
+            0.5224465474060305,
+            4.939205787516723,
+            93.99071644126674
+          ]
+        },
+        "pilot_nodes": 4096,
+        "pilot_points_sha256": "f5848b82d6e1a7a4aa295752d818c71a2c2e58d10f6ddbb3ab7fce139e9c750a",
+        "pilot_weights_sha256": "8470bd54bbac462380eb2f805b23170970a36346c9e186a6f6cc7cb63f751471",
+        "selected_restart": 0,
+        "shrinkage_pseudo_count": 6
+      }
+    },
+    "status": "complete",
+    "training_log_score_gain": -0.022306127391734026
+  },
+  "future_test": {
+    "fitting_update_allowed": false,
+    "season": 2026,
+    "weeks": [
+      10
+    ]
+  },
+  "independent_decimal_agreements": 72,
+  "known_controls": {
+    "augmented_qr": {
+      "completed": 72,
+      "failed": 11,
+      "failure_families": {
+        "duplicates": 3,
+        "game_means": 2,
+        "partition": 3,
+        "year_links": 3
+      },
+      "failures": [
+        {
+          "family": "partition",
+          "game_precision": 1e-24,
+          "result": {
+            "log_likelihood_absolute_error": 4.984698875887261e-08,
+            "mean_error_sd": 0.00012235493519420848,
+            "passed": false,
+            "quadratic_relative_error": 7.082186709448129e-10,
+            "variance_relative_error": 3.283361480150981e-05
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "partition",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 5.6115638358278375e-08,
+            "mean_error_sd": 0.00015342753632259244,
+            "passed": false,
+            "quadratic_relative_error": 1.1041770494207824e-09,
+            "variance_relative_error": 1.6413973041862207e-07
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "partition",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 5.7460781022200536e-08,
+            "mean_error_sd": 0.00017934761106329583,
+            "passed": false,
+            "quadratic_relative_error": 1.4659918962670418e-09,
+            "variance_relative_error": 1.2271392821084161e-07
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1e-24,
+          "result": {
+            "log_likelihood_absolute_error": 8.43510576942208e-08,
+            "mean_error_sd": 0.0005296566289348392,
+            "passed": false,
+            "quadratic_relative_error": 1.443304349142979e-08,
+            "variance_relative_error": 1.3261458286995045e-07
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 6.464183854859584e-08,
+            "mean_error_sd": 0.0004939668124838655,
+            "passed": false,
+            "quadratic_relative_error": 1.2299927678865075e-08,
+            "variance_relative_error": 1.3279388339326156e-07
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 7.359568598985788e-08,
+            "mean_error_sd": 0.0003760361474872036,
+            "passed": false,
+            "quadratic_relative_error": 6.707780424108371e-09,
+            "variance_relative_error": 1.4749613170465175e-07
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1e-24,
+          "result": {
+            "log_likelihood_absolute_error": 5.993388356273499e-06,
+            "mean_error_sd": 0.0007444335016028892,
+            "passed": false,
+            "quadratic_relative_error": 2.720845567115688e-08,
+            "variance_relative_error": 9.906916144652589e-05
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 3.2383573085326134e-06,
+            "mean_error_sd": 0.0008845855203203321,
+            "passed": false,
+            "quadratic_relative_error": 3.8348688614297034e-08,
+            "variance_relative_error": 6.970621819720041e-06
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 1.5497764280780757e-06,
+            "mean_error_sd": 0.0009334076509856347,
+            "passed": false,
+            "quadratic_relative_error": 5.79815935379235e-08,
+            "variance_relative_error": 5.095435316030865e-06
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 1.6803838320811337e-08,
+            "mean_error_sd": 7.528184106963118e-05,
+            "passed": false,
+            "quadratic_relative_error": 3.032813537040521e-10,
+            "variance_relative_error": 3.4921837649461246e-08
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 3.2274556360789575e-08,
+            "mean_error_sd": 0.00018522214878013458,
+            "passed": false,
+            "quadratic_relative_error": 2.1480670072114605e-09,
+            "variance_relative_error": 6.471603658634035e-08
+          },
+          "weak_precision": 1e-24
+        }
+      ],
+      "passed": 61,
+      "worst_completed_metrics": {
+        "log_likelihood_absolute_error": 5.993388356273499e-06,
+        "mean_error_sd": 0.0009334076509856347,
+        "quadratic_relative_error": 5.79815935379235e-08,
+        "variance_relative_error": 9.906916144652589e-05
+      }
+    },
+    "exact_alias_qr": {
+      "completed": 72,
+      "failed": 0,
+      "failure_families": {},
+      "failures": [],
+      "passed": 72,
+      "worst_completed_metrics": {
+        "log_likelihood_absolute_error": 9.544777412884287e-09,
+        "mean_error_sd": 7.011933450902906e-09,
+        "quadratic_relative_error": 8.636344521079577e-10,
+        "variance_relative_error": 1.0628611505127556e-09
+      }
+    },
+    "legacy": {
+      "completed": 72,
+      "failed": 44,
+      "failure_families": {
+        "cold_player": 4,
+        "duplicates": 8,
+        "game_means": 8,
+        "near_alias": 8,
+        "partition": 8,
+        "year_links": 8
+      },
+      "failures": [
+        {
+          "family": "partition",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "partition",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 10.258354845046682,
+            "mean_error_sd": 4.4957725215679056e-13,
+            "passed": false,
+            "quadratic_relative_error": 4.325455256358009e-16,
+            "variance_relative_error": 0.9999999987705633
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "partition",
+          "game_precision": 1000000.0,
+          "result": {
+            "error": "4-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "partition",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "partition",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 1.1041203137551747e-05,
+            "mean_error_sd": 7.624338501680152e-10,
+            "passed": false,
+            "quadratic_relative_error": 3.2440914422684274e-16,
+            "variance_relative_error": 2.2082650095872428e-05
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "partition",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 1.0089342310948268e-05,
+            "mean_error_sd": 2.8124453177202453e-10,
+            "passed": false,
+            "quadratic_relative_error": 3.442389495440063e-16,
+            "variance_relative_error": 2.0178888198850015e-05
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "partition",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1.0
+        },
+        {
+          "family": "partition",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1000000.0
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 10.063399094057004,
+            "mean_error_sd": 1.2059050750244334e-12,
+            "passed": false,
+            "quadratic_relative_error": 8.365459400221211e-16,
+            "variance_relative_error": 0.9999999981843062
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1000000.0,
+          "result": {
+            "error": "3-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 0.00020051958749434107,
+            "mean_error_sd": 9.3607283702872e-10,
+            "passed": false,
+            "quadratic_relative_error": 6.692367520175584e-16,
+            "variance_relative_error": 0.000400958769527832
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 5.2085507192600744e-05,
+            "mean_error_sd": 5.38111725233701e-10,
+            "passed": false,
+            "quadratic_relative_error": 9.197369535142463e-16,
+            "variance_relative_error": 0.00010417644037742838
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1.0
+        },
+        {
+          "family": "duplicates",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1000000.0
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 1.8309914082455805,
+            "mean_error_sd": 1.7355647916881352,
+            "passed": false,
+            "quadratic_relative_error": 0.12887777824102475,
+            "variance_relative_error": 1.1788325506030972
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1000000.0,
+          "result": {
+            "error": "3-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 0.0004001521433849575,
+            "mean_error_sd": 3.916283187335534e-05,
+            "passed": false,
+            "quadratic_relative_error": 9.433646646672644e-08,
+            "variance_relative_error": 0.0007985600795281821
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 0.0006532919160662232,
+            "mean_error_sd": 6.167362117829846e-05,
+            "passed": false,
+            "quadratic_relative_error": 1.400241148199596e-07,
+            "variance_relative_error": 0.0013043014516848268
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1.0
+        },
+        {
+          "family": "near_alias",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1000000.0
+        },
+        {
+          "family": "cold_player",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "cold_player",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "cold_player",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1.0
+        },
+        {
+          "family": "cold_player",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1000000.0
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1.0,
+          "result": {
+            "error": "4-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1000000.0,
+          "result": {
+            "error": "4-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 3.211095658173235e-05,
+            "mean_error_sd": 9.885851007178785e-10,
+            "passed": false,
+            "quadratic_relative_error": 1.7224745428915e-16,
+            "variance_relative_error": 0.0002150072800796548
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 0.0005478381486767603,
+            "mean_error_sd": 9.804895799413285e-10,
+            "passed": false,
+            "quadratic_relative_error": 1.6137894304797164e-16,
+            "variance_relative_error": 0.0006117216474239703
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1.0
+        },
+        {
+          "family": "year_links",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1000000.0
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1.0,
+          "result": {
+            "error": "5-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1000000.0,
+          "result": {
+            "error": "5-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-24
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1.0,
+          "result": {
+            "log_likelihood_absolute_error": 0.00031395527787481115,
+            "mean_error_sd": 2.8519265912360337e-09,
+            "passed": false,
+            "quadratic_relative_error": 1.7379671680169708e-16,
+            "variance_relative_error": 0.0006281077328414638
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1000000.0,
+          "result": {
+            "log_likelihood_absolute_error": 0.00029527048167210523,
+            "mean_error_sd": 1.7432411548635534e-09,
+            "passed": false,
+            "quadratic_relative_error": 3.37350905738033e-16,
+            "variance_relative_error": 0.0005907153669865736
+          },
+          "weak_precision": 1e-12
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1.0
+        },
+        {
+          "family": "game_means",
+          "game_precision": 1e-24,
+          "result": {
+            "error": "1-th leading minor of the array is not positive definite",
+            "passed": false
+          },
+          "weak_precision": 1000000.0
+        }
+      ],
+      "passed": 28,
+      "worst_completed_metrics": {
+        "log_likelihood_absolute_error": 10.258354845046682,
+        "mean_error_sd": 1.7355647916881352,
+        "quadratic_relative_error": 0.12887777824102475,
+        "variance_relative_error": 1.1788325506030972
+      }
+    }
+  },
+  "known_report": "e3c8608a76bd0f4b766220eaa31b3593de7806a1b6fcd6e7dda08aa12808b7ce",
+  "known_source_revision": "740884602173ec7af15d591b6336d6d9de71c373",
+  "known_study_sha256": "9ce7f0afed42c9c469aeb7c76f17c06faec79d71a7b57db488c2751fa7ee4706",
+  "offline_reconstruction": {
+    "archive": {
+      "all_objects_equal": true,
+      "manifest_equal": true,
+      "network_disabled": true
+    },
+    "known": {
+      "all_objects_equal": true,
+      "manifest_equal": true,
+      "network_disabled": true
+    }
+  },
+  "plan": {
+    "archive_coordinate_sd": 3.0,
+    "archive_log_likelihood_absolute_tolerance": 1e-05,
+    "archive_random_coordinates": 16,
+    "archive_seed": 2026111402,
+    "base_commit": "abab5fdb82f7b2c58fb9eb0732b4562ed27fd41c",
+    "candidates": [
+      "augmented_qr",
+      "exact_alias_qr"
+    ],
+    "decimal_digits": [
+      80,
+      110
+    ],
+    "density_report": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+    "failure_policy": "retain_all_no_jitter_no_threshold_change_no_admission",
+    "future_test": {
+      "fitting_update_allowed": false,
+      "season": 2026,
+      "weeks": [
+        10
+      ]
+    },
+    "game_precisions": [
+      1e-24,
+      1.0,
+      1000000.0
+    ],
+    "known_families": [
+      "partition",
+      "duplicates",
+      "near_alias",
+      "cold_player",
+      "year_links",
+      "game_means"
+    ],
+    "log_likelihood_absolute_tolerance": 1e-06,
+    "maximum_seconds_per_case": 900,
+    "maximum_seconds_total": 5400,
+    "maximum_trace_evaluations": 90000,
+    "mean_tolerance_sd": 1e-06,
+    "plan_version": 1,
+    "preferred_candidate": "exact_alias_qr",
+    "quadratic_relative_tolerance": 1e-09,
+    "seed": 2026111401,
+    "trace_report": "368eb66e0b2aa55b1978df999ae83f66fc8f054b9e194ed2b9e19f55e189aaf0",
+    "variance_relative_tolerance": 1e-06,
+    "weak_precisions": [
+      1e-24,
+      1e-12,
+      1.0,
+      1000000.0
+    ]
+  },
+  "plan_sha256": "e566d34f26979eca4993285c1c6e3a5d9ca8804a71694f03662a9085c7ebf797",
+  "production_audit": {
+    "conclusion": "failure",
+    "failed_step": "Restore last retained candidate (not necessarily last deployed)",
+    "has_pages": false,
+    "last_inspected_run": 43515405405,
+    "message": "no retained Explorer; first manual run requires bootstrap"
+  },
+  "scientific_decision": {
+    "calibration_completed": false,
+    "conditional_repair_passes_bounded_checks": true,
+    "full_integrated_numerical_pilot_recomputed": false,
+    "next": "Freeze functional numerical comparison using the repaired kernel before fresh player calibration and observational admission.",
+    "original_failure_replaced": false,
+    "ranking_ready": false
+  },
+  "verification": {
+    "frontend_contracts": 27,
+    "hosted_final_head": "Recorded in PR after push; not inferred from local tests",
+    "local_make_check": true,
+    "python_tests": 449
+  }
+}
