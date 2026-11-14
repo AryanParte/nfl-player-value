@@ -1,11 +1,19 @@
 """Independent prior restoration, exact/near alias and row-space checks."""
 
 import unittest
+from copy import deepcopy
+import json
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import numpy as np
 
 from nfl_value.conditional_reference import as_float, decimal_cell, reference_agreement
 from nfl_value.conditional_solver import SquareRootSystem, binary_nullspace
+from nfl_value.conditional_archive import SquareRootTarget
+from nfl_value.conditional_cli import load, save
+from nfl_value.conditional_study import known_study, validate_known, validate_plan
+from nfl_value.ingestion import SnapshotStore
 from nfl_value.variance_mixture import cell, response_stats, system
 
 
@@ -97,6 +105,60 @@ class ConditionalSolverTests(unittest.TestCase):
         for penalty in ([0, 0, 1], [1, 1, 1], [0, np.nan, 1]):
             with self.assertRaises(ValueError):
                 solver.cell(penalty, None, np.eye(3), 3, 4.5)
+
+    def test_known_certificate_binds_all_cases_metrics_plan_and_bytes(self):
+        plan = json.loads(Path("config/conditional-solver-v1.json").read_text())
+        report, _ = known_study(plan)
+        self.assertEqual(len(report["cases"]), 72)
+        self.assertEqual(validate_known(report, plan), report["candidate_gates"])
+        altered = deepcopy(plan)
+        altered["variance_relative_tolerance"] *= 2
+        with self.assertRaisesRegex(ValueError, "frozen"):
+            validate_plan(altered)
+        for mutation in ("case", "metric", "gate", "reference"):
+            broken = deepcopy(report)
+            if mutation == "case":
+                broken["cases"].pop()
+            elif mutation == "metric":
+                broken["cases"][0]["candidate_results"]["exact_alias_qr"]["mean_error_sd"] = 123
+            elif mutation == "reference":
+                broken["cases"][0]["reference"]["posterior_shape"] = "123"
+            else:
+                broken["candidate_gates"]["exact_alias_qr"] = not broken["candidate_gates"][
+                    "exact_alias_qr"
+                ]
+            with self.assertRaises(ValueError):
+                validate_known(broken, plan)
+        with TemporaryDirectory() as directory:
+            store = SnapshotStore(Path(directory))
+            rid = save(store, report, plan, "a" * 40)
+            manifest, restored = load(store, rid)
+            self.assertEqual(restored, report)
+            # Deliberately damage the object; the existing content-addressed
+            # store must reject it before any authorization is returned.
+            path = store.root / "objects" / manifest["objects"]["study"]
+            path.write_bytes(b"{}")
+            with self.assertRaises(ValueError):
+                load(store, rid)
+
+    def test_square_root_target_preserves_prior_and_enforces_budget(self):
+        from time import perf_counter
+
+        x = np.column_stack([np.ones(8), np.eye(2)[np.arange(8) % 2]])
+        s = system(x, ["context/intercept", "qb/a", "qb/b"], 1, [str(i // 2) for i in range(8)])
+        target = SquareRootTarget(
+            s,
+            np.arange(8),
+            ["qb", "game"],
+            {"noise_prior_shape": 3, "noise_prior_scale": 4.5},
+            {"log_precision_mean": 1, "log_precision_sd": 3},
+            evaluation_limit=1,
+            deadline=perf_counter() + 10,
+        )
+        answer = target.conditional([0, 0], np.eye(3))
+        self.assertTrue(np.isfinite(answer["log_likelihood"]).all())
+        with self.assertRaisesRegex(ValueError, "budget"):
+            target.conditional([0, 0], np.eye(3))
 
 
 if __name__ == "__main__":
