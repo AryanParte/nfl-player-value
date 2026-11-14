@@ -217,6 +217,7 @@ def validate_known(report, plan):
     ):
         raise ValueError("incomplete known-answer denominator or unsupported admission")
     gates = dict.fromkeys(plan["candidates"], True)
+    fixtures = {}
     for c, identity in zip(cases, expected):
         if (c["family"], c["weak_precision"], c["game_precision"]) != identity:
             raise ValueError("known-answer case order or identity differs")
@@ -225,6 +226,28 @@ def validate_known(report, plan):
             continue
         if c["status"] != "complete":
             raise ValueError("invalid known-answer case status")
+        if c["family"] not in fixtures:
+            fixtures[c["family"]] = known_case(c["family"], plan["seed"])
+        d, y, l, groups = fixtures[c["family"]]
+        penalty = np.zeros(len(d.names))
+        for group, indices in groups.items():
+            penalty[indices] = c["weak_precision"] if group == "qb" else 7.0
+        exact = decimal_cell(
+            d.x.toarray(),
+            y,
+            d.fixed_count,
+            penalty,
+            d.game_codes,
+            c["game_precision"],
+            l,
+            3.0,
+            4.5,
+            digits=plan["decimal_digits"][-1],
+        )
+        if c["response_sha256"] != sha256(y.astype("<f8").tobytes()) or json_bytes(
+            exact
+        ) != json_bytes(c["reference"]):
+            raise ValueError("known-answer reference differs from the frozen fixture")
         valid = reference_agreement(c["reference_lower_precision"], c["reference"])
         if valid is not c["reference_valid"]:
             raise ValueError("Decimal reference decision differs")

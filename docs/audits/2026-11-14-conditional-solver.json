@@ -1511,6 +1511,7 @@
     "last_inspected_run": 43515405405,
     "message": "no retained Explorer; first manual run requires bootstrap"
   },
+  "pull_request": "https://github.com/AryanParte/nfl-player-value/pull/28",
   "scientific_decision": {
     "calibration_completed": false,
     "conditional_repair_passes_bounded_checks": true,
@@ -1520,9 +1521,11 @@
     "ranking_ready": false
   },
   "verification": {
+    "certificate_rebound_to_frozen_decimal_answer": true,
     "frontend_contracts": 27,
     "hosted_final_head": "Recorded in PR after push; not inferred from local tests",
     "local_make_check": true,
+    "original_and_offline_reports_pass_stricter_loader": true,
     "python_tests": 449
   }
 }

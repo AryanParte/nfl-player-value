@@ -12,7 +12,7 @@ from nfl_value.conditional_reference import as_float, decimal_cell, reference_ag
 from nfl_value.conditional_solver import SquareRootSystem, binary_nullspace
 from nfl_value.conditional_archive import SquareRootTarget
 from nfl_value.conditional_cli import load, save
-from nfl_value.conditional_study import known_study, validate_known, validate_plan
+from nfl_value.conditional_study import comparison, known_study, validate_known, validate_plan
 from nfl_value.ingestion import SnapshotStore
 from nfl_value.variance_mixture import cell, response_stats, system
 
@@ -130,6 +130,19 @@ class ConditionalSolverTests(unittest.TestCase):
                 ]
             with self.assertRaises(ValueError):
                 validate_known(broken, plan)
+        # Self-consistent fake references/outputs must not authorize a kernel.
+        # The independent oracle is rebound to the frozen fixture on every load.
+        forged = deepcopy(report)
+        first = forged["cases"][0]
+        for key in ("reference", "reference_lower_precision"):
+            first[key]["location"][0][0] = "123"
+        for result in first["candidate_results"].values():
+            result["outputs"]["location"][0][0] = 123
+            result.update(
+                comparison(as_float(result["outputs"]), as_float(first["reference"]), plan)
+            )
+        with self.assertRaisesRegex(ValueError, "frozen fixture"):
+            validate_known(forged, plan)
         with TemporaryDirectory() as directory:
             store = SnapshotStore(Path(directory))
             rid = save(store, report, plan, "a" * 40)

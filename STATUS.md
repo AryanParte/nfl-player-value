@@ -64,7 +64,8 @@ defensibly validated contribution module with scope and uncertainty preserved.
 
 PRs #18–#26 are merged; inspected main remains e28bdb2. PR #27 is still open,
 without review feedback and with passing final CI. The new
-`codex/conditional-square-root` branch is explicitly stacked on its head abab5fd;
+[`codex/conditional-square-root` PR #28](https://github.com/AryanParte/nfl-player-value/pull/28)
+is explicitly stacked on its head abab5fd;
 no prerequisite was merged or overwritten.
 
 November 14 metadata still reports no Pages site. Newly inspected scheduled
@@ -78,7 +79,7 @@ still not constitute an admitted CAVAA leaderboard.
 
 Local make check passes 449 Python tests and 27 frontend contracts plus lint,
 formatting, TypeScript/build, syntax and whitespace. The strengthened preferred-
-solver gate passes its targeted rerun. Hosted CI for the new branch is reported
+solver gate and frozen-reference binding pass targeted reruns. Hosted CI for the new branch is reported
 in its PR after inspection; it is not inferred from local success. The
 [learning report](docs/learning/2026-11-14.md) leads with milestone outcomes,
 remaining scientific failures and the next concrete action.

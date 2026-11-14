@@ -52,6 +52,13 @@ ill-conditioned matrix or precision configuration. CI explicitly requires the
 preferred candidate's complete control gate, rather than merely checking that
 a failed result can be serialized.
 
+Post-study self-review tightened certificate loading: it now recomputes the
+independent high-precision answer from the frozen fixture and binds its response
+hash, rather than accepting two mutually consistent saved answers alone. A
+regression for altered answers and outputs that agree with each other must fail.
+Existing reports pass the stronger check unchanged; no numerical algorithm,
+control outcome or gate changed.
+
 Plain QR's eleven failures involve partitions, duplicates, year links and game
 means. Its maximum standardized mean error is 0.000933 and maximum relative
 variance error is 9.91e-5. Working with square roots helps but does not by itself
