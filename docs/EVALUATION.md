@@ -347,8 +347,8 @@ The [frozen conditional study](CONDITIONAL_SOLVER.md) requires independent
 80-/110-digit answers on all 72 small cases before archived use. It checks signed
 means, joint contrast variance, residual quadratics and integrated likelihoods,
 including exact/near aliases, prior-only players and tiny game precision. Plain
-QR fails eleven cases and is blocked; exact-alias QR passes the full gate without
-changing thresholds. The [results](CONDITIONAL_SOLVER_RESULTS.md) retain all
+QR fails eleven local cases and is blocked; exact-alias QR initially passes
+locally but later fails the hosted portability gate. The [results](CONDITIONAL_SOLVER_RESULTS.md) retain all
 candidate and baseline failures rather than replacing unsuccessful controls.
 
 Eighty-five archived coordinate comparisons and the recorded failure point pass
@@ -364,3 +364,13 @@ No new numerical-error coverage experiment, full posterior pilot, player
 calibration or admission follows automatically. The next functional comparison
 must be frozen separately with independent randomizations and unchanged scientific
 limits. Keep Week 10 sealed and the failed prior versions immutable.
+
+
+The [residual amendment](CONDITIONAL_RESIDUAL_AMENDMENT.md), frozen at `92d21ea`,
+requires the repaired candidate to pass the original 72 controls plus 72 controls
+from the new declared response seed. All 144 pass locally against independent
+80-/110-digit answers. The original 1e-9 quadratic limit remains unchanged;
+platform failure is never grounds for skipping this gate. Archived equivalence,
+failed-fit completion, offline replay and hosted Python portability must be reported
+separately for this amended candidate. Original results cannot authorize it by
+inheritance. No new football outcomes or post-result coverage tuning are used.

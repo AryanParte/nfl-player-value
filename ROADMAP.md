@@ -72,14 +72,16 @@ a 9.66e-24 precision lost at matrix roundoff scale. No jitter, prior change or
 scoring admission follows. Primary models, predictions and season ledgers retain
 their earlier object hashes.
 
-November 14 completes the [conditional-solver repair](docs/CONDITIONAL_SOLVER_RESULTS.md).
+November 14 implements the [conditional-solver repair](docs/CONDITIONAL_SOLVER_RESULTS.md).
 Exact rational alias reduction preserves proper-prior uncertainty while a
-square-root factorization avoids the observed loss of tiny precisions. It passes
-72/72 independent known-answer cases and 85/85 archived equivalence coordinates.
-The exact failed point passes raw-row/permuted-basis checks and its previously
-failed density fit completes in 4,938 evaluations. All results independently
-reconstruct offline. Plain QR's 11 failures remain visible. This clears the
-observed conditional failure, not full numerical integration or player admission.
+square-root factorization avoids losing tiny precisions. A hosted near-alias
+failure prompted a separately frozen original-residual correction. The repaired
+candidate passes 144/144 known answers (including 72 fresh synthetic responses)
+and 85/85 archived equivalence coordinates, with all original limits unchanged.
+The first compensated fit times out at 3,514 evaluations; one frozen exact-output
+throughput repair completes the same fit in 4,938 evaluations / 621.6 seconds,
+inside the original cap. Both attempts remain visible. This is arithmetic repair, not
+full numerical integration, player calibration or scoring admission.
 
 Next substantial unit: freeze a repaired-kernel functional comparison with
 independent randomizations and bounded work. Diagnose primary/reference

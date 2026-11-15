@@ -306,3 +306,13 @@ possible prior-tail configuration is reliable, resolve QB/team attribution, or
 admit scores. Existing integrated models and signed season ledgers remain
 unchanged. Functional integration, player calibration and observational admission
 are still separate requirements; no full posterior was recomputed in this unit.
+
+
+Hosted portability testing subsequently exposed cancellation in the QR residual
+quadratic. The separately frozen [amendment](CONDITIONAL_RESIDUAL_AMENDMENT.md)
+keeps coefficient/covariance fitting and all prior/benchmark definitions unchanged,
+but evaluates the original sparse-row penalized residual with compensated
+products/summation, including game penalties. No Decimal truth is substituted into
+production calculations. Original and fresh-response controls retain the exact
+same tolerances; the failed earlier candidate remains archived. This corrects
+arithmetic only, not attribution or uncertainty calibration.

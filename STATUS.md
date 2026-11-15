@@ -9,14 +9,18 @@ measured completion percentage. Scoring remains the critical path; optional
 infrastructure is paused. Track implementation, evidence and blockers separately
 in [M1–M6](docs/MILESTONES.md).
 
-The [conditional-solver unit](docs/CONDITIONAL_SOLVER_RESULTS.md) clears the
-observed factorization failure under the frozen bounded study. Its exact-alias
-square-root candidate passes all 72 known-answer cases against independent 80-
-and 110-digit references, all 85 archived coordinate comparisons, and raw-row /
-reordered-basis checks at the recorded failing point. Plain QR passes only 61/72;
-those failures remain recorded. The previously failed density fit now completes
-in 4,938 conditional evaluations without jitter, changed priors or relaxed gates.
-Independent network-disabled builds reproduce both manifests and all study bytes.
+The [conditional-solver unit](docs/CONDITIONAL_SOLVER_RESULTS.md) addresses the
+observed factorization failure under a frozen bounded study. The original
+exact-alias QR candidate passed locally but failed hosted near-alias residual
+checks. A preregistered compensated-original-residual correction passes **144/144**
+known answers (72 regression, 72 fresh-response cases) and **85/85** archived
+comparisons, with unchanged tolerances. Plain QR and the initial hosted failures
+remain visible. The first compensated fit times out at 3,514 evaluations / 900.1 seconds;
+a separately frozen, exact-output caching repair completes it in 4,938 evaluations /
+621.6 seconds under the original cap. All 85 archived outputs remain byte-identical.
+An independent network-disabled repeat reproduces the full manifest and every
+study object exactly; its fit takes 588.8 seconds.
+The default scoring model and earlier research artifacts are unchanged.
 
 This is conditional arithmetic/equivalence evidence, not a fresh full posterior,
 player calibration or scoring admission. The existing integrated real-QB check
@@ -77,10 +81,11 @@ browser/access limitation is not reported as a new login attempt. See the
 This operational blocker did not prevent model work; an Explorer deployment would
 still not constitute an admitted CAVAA leaderboard.
 
-Local make check passes 449 Python tests and 27 frontend contracts plus lint,
-formatting, TypeScript/build, syntax and whitespace. The strengthened preferred-
-solver gate and frozen-reference binding pass targeted reruns. Hosted CI for the new branch is reported
-in its PR after inspection; it is not inferred from local success. The
+Local make check passes 450 Python tests and 27 frontend contracts plus lint,
+formatting, TypeScript/build, syntax and whitespace. The 144-case gate, reference binding, compensated arithmetic and final executing-
+kernel guard pass ten affected tests. Hosted implementation run 43660479957 at
+9b599b1 passes 451 Python tests per version and 12 Chromium scenarios plus dashboard
+checks. Final reporting-head status is inspected separately in the PR. The
 [learning report](docs/learning/2026-11-14.md) leads with milestone outcomes,
 remaining scientific failures and the next concrete action.
 

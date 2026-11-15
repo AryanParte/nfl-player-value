@@ -9,10 +9,11 @@ not yet constitute an admitted player-value ranking.
 ## Current status
 
 The November 14 [conditional-solver study](docs/CONDITIONAL_SOLVER_RESULTS.md)
-repairs the observed factorization failure without changing the model. Its
-exact-alias square-root calculation passes 72 independent known-answer cases,
-85 archived coordinate comparisons and the recorded failure point; the formerly
-failed density fit now completes. Both studies reconstruct offline byte-exactly.
+repairs the observed factorization failure without changing the model. Hosted CI
+then exposed a near-alias residual error; a separately frozen compensated-residual
+repair passes 144 independent known-answer cases and all 85 archived coordinate
+comparisons, and completes the formerly blocked fit under its original runtime
+cap. Original failures remain recorded, with unchanged acceptance limits.
 Full numerical integration and player calibration remain unfinished; no new
 posterior fit or admitted ranking follows from this arithmetic milestone.
 Signed season accounting, the first-unit and both sensitivity benchmarks, and
