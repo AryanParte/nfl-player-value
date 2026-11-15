@@ -266,3 +266,24 @@ admit a contribution module. The [results](RANDOMIZED_REFERENCE_RESULTS.md) reta
 the failures and distinguish primary/reference disagreement from uncertainty in
 the reference itself. Scientific mean/CDF limits, benchmarks, eligibility and
 the full archived season ledger remain unchanged.
+
+The November 13 [paired density study](DENSITY_HOLDOUT.md) compares that sampler
+with one fixed covariance-stabilized alternative. It regularizes the sampling
+covariances toward the independently fitted curvature/global covariance, with
+strength determined by dimension and normalized pilot-weight concentration.
+The effective count here is a weight-concentration diagnostic for dependent net
+points, not an independent sample size or a football participation denominator.
+This changes the integration proposal, not any player/team variance prior. Both
+proposals see the same pilot; an independently sampled mixture evaluates their
+density overlap on the same holdout points with exact mixture probabilities.
+The original proposal remains available and its four saved control geometries
+reproduce exactly.
+
+Held-out log-score and normalized second-moment comparisons diagnose proposal
+quality; neither is a football score or an admission rule. A pre-result
+[tail amendment](DENSITY_HOLDOUT_TAIL_AMENDMENT.md) replaces a quadratic curved
+control, whose Gaussian importance variance is infinite, with a bounded-sine
+transformation with independently known answers and finite variance. Empirical
+coverage remains required: finite variance alone does not make the approximate
+numerical confidence construction reliable. No posterior interval, functional
+tolerance, source cutoff or benchmark changes in this study.

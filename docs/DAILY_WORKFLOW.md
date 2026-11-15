@@ -45,20 +45,25 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read `docs/RANDOMIZED_REFERENCE_RESULTS.md` and its
-three frozen plans. Preserve the earlier sparse/tensor failures. Both initial
-randomized proposals and the first adapted study fail; the larger fixed audit of
-unchanged geometry passes four known-answer gates. The real QB reference still
-fails from excessive numerical uncertainty, while the team control passes.
-Neither is calibration or admission. Next freeze a density-only holdout study of
-proposal instability/poor overlap against one justified stabilized alternative.
-Low pilot effective counts and covariance-floor hits are hypotheses to test, not
-proof. Do not choose a new proposal from consumed NFL outcomes, retry seeds,
-relax functional limits or automatically escalate primary samples. Recompute
-failure decomposition from raw replicate evidence; preserve the declared prior-
-setting order rather than sorted JSON-key order. Independent scrambles are not
-independent football data. Shared target/conditional code remains a limitation.
-Exact replay is not calibration, and failed/unattempted cases remain visible.
+For active recovery evidence, read `docs/DENSITY_HOLDOUT_RESULTS.md` and its frozen
+plans; preserve all earlier failures. Five known-answer coverage gates pass, but
+the archived numerical pilot retains one pass and four failures. Stabilization
+improves average density overlap but does not guarantee functional accuracy or
+stable individual pilots. The real QB check remains 0.014228 SD / 0.001308 CDF
+against unchanged 0.01 / 0.001 limits; no confidence set establishes primary bias.
+The failed prior-stress factorization reproduces at a 9.66e-24 precision, below
+matrix roundoff scale. Next freeze a target-preserving conditional-solver
+repair/equivalence study with exact-alias/weak-precision known answers. Do not
+substitute zero likelihood, add arbitrary jitter, change priors or select another
+seed to erase the failure. Retain the original artifacts, then diagnose remaining
+primary/reference disagreement with independent declared randomizations/budgets.
+Recompute failure decompositions from raw replicates in the declared prior-setting
+order; sorted JSON keys are not the integrand's functional order.
+Do not automatically enlarge primary samples or call reused cases fresh validation.
+Weight-based effective counts describe concentration, not independent observations.
+Shared conditional code remains a limitation. Exact replay is not calibration;
+failed/unattempted trials remain visible. No module is admitted by numerical
+coverage or by successful Explorer deployment.
 The 64-per-scenario calibration remains unfinished. Keep attempted
 failures distinct from unattempted trials, both in the requested denominator;
 success-only coverage never certifies the complete study. Preserve the sealed

@@ -62,19 +62,27 @@ QB reference still fails because numerical uncertainty is too large, while the
 team-only control passes. These are numerical findings, not fresh calibration or
 admission. Failed studies remain immutable and replayable.
 
-Next substantial unit: freeze a density-only holdout study of sampling-proposal
-instability and poor importance overlap. Compare the existing fitted mixture with
-one scientifically justified stabilized proposal, using independent pilot and
-validation randomizations and retained known answers. Low effective pilot counts
-and covariance-floor hits motivate this hypothesis; they do not prove it. Keep
-the posterior, functional limits, full case list and negative evidence fixed.
-Do not automatically increase primary samples or call more familiar cases fresh
-calibration. Numerical reliability precedes the unfinished 192-fit calibration,
-prospective evidence and observational admission. Week 10 remains sealed. Defense
-stays mandatory; the earlier November 12 participation metadata audit found no
-2026-named asset in the checked release, not absence across every provider.
+November 13 completes the [paired density/stabilization unit](docs/DENSITY_HOLDOUT_RESULTS.md).
+All five coverage gates pass on 5,120 completed known-answer trials; all 160 known
+and 19/20 archived density pairs finish. One conditional factorization failure
+remains. The five-case numerical pilot has one pass and four failures, all
+independently reproduced offline. Real-QB discrepancy plus error improves to
+0.014228 SD / 0.001308 CDF, still outside 0.01 / 0.001. A bounded trace reproduces
+a 9.66e-24 precision lost at matrix roundoff scale. No jitter, prior change or
+scoring admission follows. Primary models, predictions and season ledgers retain
+their earlier object hashes.
 
-PRs #18–#25 are merged; main CI passed. Authenticated Pages/bootstrap access remains
+Next substantial unit: freeze a target-preserving conditional-factorization
+repair/equivalence study using exact aliases, weak precisions and independent
+known answers. Resolve that concrete failure before another proposal search.
+Then diagnose remaining primary/reference disagreement under separately declared
+randomizations and budgets; do not automatically enlarge primary nets or select
+a favorable density pilot. Numerical reliability precedes the unfinished 192-fit
+calibration, prospective evidence and observational admission. Week 10 stays
+sealed. Defense remains mandatory; November 13 metadata still finds no
+2026-named asset in the checked participation release, not all-provider absence.
+
+PRs #18–#26 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,
 reproducible contribution module, then connect its honest estimates/explanations
 and history to the existing dashboard. Cross-position coverage remains the goal;

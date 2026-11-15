@@ -15,7 +15,30 @@ def bounded_covariance(covariance):
     return (vectors * np.clip(eigen, 1e-6, 36)) @ vectors.T, changed
 
 
-def weighted_mixture(points, weights, entropy):
+def shrink_covariance(covariance, weights, reference):
+    """Fixed proposal regularization, not a covariance posterior for football."""
+    w = np.asarray(weights, float)
+    c, ref = np.asarray(covariance, float), np.asarray(reference, float)
+    if (
+        c.ndim != 2
+        or c.shape[0] != c.shape[1]
+        or ref.shape != c.shape
+        or not np.isfinite([c, ref]).all()
+        or w.ndim != 1
+        or not np.isfinite(w).all()
+        or np.any(w < 0)
+        or w.sum() <= 0
+        or not np.isfinite(w.sum())
+    ):
+        raise ValueError("finite covariance, reference and positive weights required")
+    np.linalg.cholesky(ref)
+    w = w / w.sum()
+    effective = float(1 / (w @ w))
+    strength = len(c) + 2
+    return (effective * c + strength * ref) / (effective + strength), effective
+
+
+def weighted_mixture(points, weights, entropy, *, reference_covariance=None):
     x, w = np.asarray(points, float), np.asarray(weights, float)
     if (
         x.ndim != 2
@@ -25,12 +48,16 @@ def weighted_mixture(points, weights, entropy):
         or not np.isfinite(w).all()
         or np.any(w < 0)
         or w.sum() <= 0
+        or not np.isfinite(w.sum())
     ):
         raise ValueError("finite positively weighted pilot points required")
     w = w / w.sum()
     mean = w @ x
     centered = x - mean
-    global_cov, initial_clipping = bounded_covariance((centered * w[:, None]).T @ centered)
+    empirical = (centered * w[:, None]).T @ centered
+    if reference_covariance is not None:
+        empirical, global_effective = shrink_covariance(empirical, w, reference_covariance)
+    global_cov, initial_clipping = bounded_covariance(empirical)
     distance_scale = np.diag(global_cov)
     attempts = []
     fits = []
@@ -67,35 +94,41 @@ def weighted_mixture(points, weights, entropy):
                 local = responsibilities[:, j] / counts[j]
                 means[j] = local @ x
                 delta = x - means[j]
-                covariances[j], clipped = bounded_covariance((delta * local[:, None]).T @ delta)
+                covariance = (delta * local[:, None]).T @ delta
+                if reference_covariance is not None:
+                    covariance, _ = shrink_covariance(covariance, local, global_cov)
+                covariances[j], clipped = bounded_covariance(covariance)
                 clipping += clipped
             masses = np.maximum(counts, 0.01)
             masses /= masses.sum()
-        final = float(
-            w
-            @ logsumexp(
-                np.column_stack(
-                    [
-                        np.log(p) + normal_logpdf(x, m, c)
-                        for p, m, c in zip(masses, means, covariances)
-                    ]
-                ),
-                axis=1,
-            )
+        final_density = np.column_stack(
+            [np.log(p) + normal_logpdf(x, m, c) for p, m, c in zip(masses, means, covariances)]
         )
-        attempts.append(
-            dict(
-                restart=restart,
-                iterations=iteration + 1,
-                converged=converged,
-                weighted_log_likelihood=final,
-                clipped_eigenvalues=clipping,
-            )
+        final_total = logsumexp(final_density, axis=1)
+        final = float(w @ final_total)
+        attempt = dict(
+            restart=restart,
+            iterations=iteration + 1,
+            converged=converged,
+            weighted_log_likelihood=final,
+            clipped_eigenvalues=clipping,
         )
+        if reference_covariance is not None:
+            responsibilities = w[:, None] * np.exp(final_density - final_total[:, None])
+            normalized = responsibilities / responsibilities.sum(axis=0)
+            attempt["component_effective_samples"] = (1 / np.sum(normalized**2, axis=0)).tolist()
+        attempts.append(attempt)
         fits.append((means.copy(), covariances.copy(), masses.copy()))
     best = max(range(3), key=lambda j: attempts[j]["weighted_log_likelihood"])
     means, covariances, masses = fits[best]
-    return means, covariances, masses, dict(attempts=attempts, selected_restart=best)
+    diagnostics = dict(attempts=attempts, selected_restart=best)
+    if reference_covariance is not None:
+        diagnostics.update(
+            shrinkage_pseudo_count=len(mean) + 2,
+            global_effective_samples=global_effective,
+            global_reference_covariance=global_cov.tolist(),
+        )
+    return means, covariances, masses, diagnostics
 
 
 @dataclass
