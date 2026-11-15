@@ -47,6 +47,31 @@ def sampling():
 
 
 class TwoLevelTests(unittest.TestCase):
+    def test_frozen_alternative_preserves_work_and_rules_with_new_entropy(self):
+        first = plan()
+        alternative = json.loads(Path("config/repaired-functional-v2.json").read_text())
+        validate_plan(alternative)
+        for key in ("nodes_per_replicate", "correction_nodes_per_replicate"):
+            self.assertEqual(
+                first["replicates"] * first[key], alternative["replicates"] * alternative[key]
+            )
+        changed = {
+            "plan_version",
+            "base_seed",
+            "replicates",
+            "nodes_per_replicate",
+            "correction_nodes_per_replicate",
+            "preceding_design_sha256",
+            "failed_control_checkpoint_sha256",
+        }
+        self.assertEqual(
+            {k: v for k, v in first.items() if k not in changed},
+            {k: v for k, v in alternative.items() if k not in changed},
+        )
+        self.assertNotEqual(first["base_seed"], alternative["base_seed"])
+        with self.assertRaises(ValueError):
+            validate_plan({**alternative, "base_seed": first["base_seed"]})
+
     def test_known_runner_restores_the_fixture_policy_not_the_nfl_prior(self):
         geometry = dict(
             pilot_initial_geometry=dict(mode=[0.0, 0.0], covariance=np.eye(2).tolist()),

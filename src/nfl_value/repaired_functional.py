@@ -24,11 +24,14 @@ from nfl_value.two_level_reference import combine, integrate, restore_proposal, 
 from nfl_value.variance_reference import BudgetExceeded
 
 
-PLAN_HASH = "08212be5992c526863cb10fde04d80c5a8fc500acb6aa0cfd83edf080b430f10"
+PLAN_HASHES = {
+    1: "08212be5992c526863cb10fde04d80c5a8fc500acb6aa0cfd83edf080b430f10",
+    2: "cc8a57194b5c66719d8b18763b9e8d078066d3cbdce034b91090eabda1a811e3",
+}
 
 
 def validate_plan(plan):
-    if sha256(json_bytes(plan)) != PLAN_HASH:
+    if sha256(json_bytes(plan)) != PLAN_HASHES.get(plan.get("plan_version")):
         raise ValueError("repaired functional study differs from frozen design")
 
 
@@ -157,13 +160,14 @@ def validate_known(result):
 
 
 def save(output, result, revision, *, expected_kernel=None):
+    validate_plan(result["plan"])
     executing_kernel = kernel_hash()
     if expected_kernel is not None and expected_kernel != executing_kernel:
         raise ValueError("statistical source changed during execution")
     manifest = dict(
         experiment=result["experiment"],
         plan=result["plan"],
-        plan_sha256=PLAN_HASH,
+        plan_sha256=sha256(json_bytes(result["plan"])),
         code_revision=revision,
         kernel_sha256=executing_kernel,
         environment=environment({"plan_version": 2}),
@@ -177,7 +181,7 @@ def load(output, rid):
     manifest = json.loads(output.read(rid, manifest=True))
     validate_plan(manifest["plan"])
     if (
-        manifest["plan_sha256"] != PLAN_HASH
+        manifest["plan_sha256"] != sha256(json_bytes(manifest["plan"]))
         or manifest["ranking_ready"] is not False
         or manifest["environment"] != environment({"plan_version": 2})
         or manifest["kernel_sha256"] != kernel_hash()

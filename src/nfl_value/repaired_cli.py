@@ -24,11 +24,12 @@ from nfl_value.repaired_functional import (
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--output-store", type=Path, default=Path("data/derived/repaired-functional-controls")
+        "--output-store", type=Path, default=Path("data/derived/repaired-functional-allocation")
     )
     parser.add_argument(
-        "--controls-store", type=Path, default=Path("data/derived/repaired-functional-controls")
+        "--controls-store", type=Path, default=Path("data/derived/repaired-functional-allocation")
     )
+    parser.add_argument("--plan", type=Path, default=Path("config/repaired-functional-v2.json"))
     parser.add_argument("--offline", action="store_true")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("known")
@@ -53,11 +54,7 @@ def main(argv=None):
         else:
             revision = committed_revision()
         if args.command in ("known", "replay"):
-            plan = (
-                expected["plan"]
-                if expected
-                else json.loads(Path("config/repaired-functional-v1.json").read_text())
-            )
+            plan = expected["plan"] if expected else json.loads(args.plan.read_text())
             result, timings = known(
                 plan,
                 progress,
