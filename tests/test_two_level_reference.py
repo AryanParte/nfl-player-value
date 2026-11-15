@@ -282,12 +282,17 @@ class TwoLevelTests(unittest.TestCase):
             ):
                 with self.assertRaisesRegex(ValueError, "before NFL"):
                     authorize(output, rid)
-            m["kernel_sha256"] = "0" * 64
+            bad = deepcopy(m)
+            bad["kernel_sha256"] = "0" * 64
             with self.assertRaisesRegex(ValueError, "statistical code"):
-                load(output, output.put(json_bytes(m), manifest=True))
-            m["objects"]["study"] = "f" * 64
-            with self.assertRaises((ValueError, OSError)):
-                load(output, output.put(json_bytes(m), manifest=True))
+                load(output, output.put(json_bytes(bad), manifest=True))
+            missing = deepcopy(m)
+            missing["objects"]["study"] = "f" * 64
+            with self.assertRaises(FileNotFoundError):
+                load(output, output.put(json_bytes(missing), manifest=True))
+            (Path(directory) / "objects" / m["objects"]["study"]).write_bytes(b"corrupt")
+            with self.assertRaisesRegex(ValueError, "SHA-256 verification"):
+                load(output, rid)
 
     def test_saved_proposal_preserves_components_and_rejects_drift(self):
         g = dict(

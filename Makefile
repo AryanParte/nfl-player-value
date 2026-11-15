@@ -38,7 +38,8 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  src/nfl_value/conditional_study.py src/nfl_value/conditional_cli.py src/nfl_value/conditional_archive.py \
  tests/test_conditional_solver.py \
  src/nfl_value/repaired_functional.py src/nfl_value/repaired_cli.py \
- src/nfl_value/two_level_reference.py tests/test_two_level_reference.py
+ src/nfl_value/two_level_reference.py tests/test_two_level_reference.py \
+ scripts/diagnose_two_level_coverage.py tests/test_two_level_diagnosis.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests
