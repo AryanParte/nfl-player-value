@@ -12,14 +12,21 @@ from scipy.stats import norm, t
 
 from nfl_value.density_holdout import StabilizedProposal
 from nfl_value.ingestion import SnapshotStore, json_bytes
-from nfl_value.repaired_functional import authorize, load, save, validate_archive, validate_plan
+from nfl_value.repaired_functional import (
+    authorize,
+    known,
+    load,
+    save,
+    validate_archive,
+    validate_plan,
+)
 from nfl_value.replicated_reference import (
     conditional_integrand,
     confidence_sets,
     diagnose_reference,
     summarize_integrals,
 )
-from nfl_value.two_level_reference import combine, integrate, restore_proposal
+from nfl_value.two_level_reference import combine, integrate, restore_proposal, sampling_hash
 
 
 def plan():
@@ -40,12 +47,47 @@ def sampling():
 
 
 class TwoLevelTests(unittest.TestCase):
+    def test_known_runner_restores_the_fixture_policy_not_the_nfl_prior(self):
+        geometry = dict(
+            pilot_initial_geometry=dict(mode=[0.0, 0.0], covariance=np.eye(2).tolist()),
+            component_means=np.zeros((3, 2)).tolist(),
+            component_covariances=np.tile(np.eye(2), (3, 1, 1)).tolist(),
+            component_masses=[0.2, 0.3, 0.5],
+            geometry_uses_primary_qmc=False,
+            learning_is_target_density_only=True,
+        )
+        certificate = dict(model_plan=dict(log_precision_mean=6.0, log_precision_sd=3.0))
+        density = dict(cases=[dict(density=[dict(geometries={"stabilized-mixture": geometry})])])
+
+        def inspect(fine, coarse, sampling, **kwargs):
+            np.testing.assert_array_equal(sampling.prior_mean, np.zeros(2))
+            np.testing.assert_array_equal(sampling.prior_covariance, 9 * np.eye(2))
+            raise RuntimeError("probe reached exact fixture proposal")
+
+        with (
+            patch(
+                "nfl_value.repaired_functional.known_parents", return_value=(certificate, density)
+            ),
+            patch("nfl_value.repaired_functional.integrate", side_effect=inspect),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "probe reached"):
+                known(plan())
+
     def test_raw_levels_failure_denominator_and_archive_gate_cannot_be_forged(self):
         p = plan()
         shifts = [0.0, -1.0, 1.0]
         summaries = {s: {"mean": np.zeros(2)} for s in shifts}
         raw = np.tile([1.0, 0.0, 0.0, 0.025, 0.025, 0.975, 0.975] * 3, (32, 1))
-        reference = summarize_integrals(raw, summaries, p, sampling(), "stabilized-mixture")
+        s = sampling()
+        s.diagnostics = dict(
+            pilot_initial_geometry=dict(mode=[0.0], covariance=[[1.0]]),
+            component_means=s.mixture_means.tolist(),
+            component_covariances=s.mixture_covariances.tolist(),
+            component_masses=s.mixture_masses.tolist(),
+            geometry_uses_primary_qmc=False,
+            learning_is_target_density_only=True,
+        )
+        reference = summarize_integrals(raw, summaries, p, s, "stabilized-mixture")
         from nfl_value.ingestion import sha256
 
         record = dict(
@@ -55,7 +97,8 @@ class TwoLevelTests(unittest.TestCase):
             contrasts=2,
             shifts=shifts,
             entropy=[p["base_seed"], 1, 0, 0],
-            geometry_sha256=sha256(json_bytes({})),
+            geometry_sha256=sha256(json_bytes(s.diagnostics)),
+            sampling_sha256=sampling_hash(s),
             coarse=raw.tolist(),
             correction=np.zeros_like(raw).tolist(),
             reference=reference,
@@ -69,6 +112,7 @@ class TwoLevelTests(unittest.TestCase):
         cases["real_evolving"] = record
         result = dict(
             plan=p,
+            model_plan=dict(log_precision_mean=0.0, log_precision_sd=1.0),
             cases=cases,
             nfl_data_used=True,
             calibration_completed=False,
@@ -226,6 +270,8 @@ class TwoLevelTests(unittest.TestCase):
         result = dict(experiment="repaired-functional-controls-v1", plan=p, controls_passed=False)
         with tempfile.TemporaryDirectory() as directory:
             output = SnapshotStore(directory)
+            with self.assertRaisesRegex(ValueError, "changed during execution"):
+                save(output, result, "a" * 40, expected_kernel="0" * 64)
             rid, m = save(output, result, "a" * 40)
             with (
                 patch("nfl_value.repaired_functional.validate_known", return_value=False),

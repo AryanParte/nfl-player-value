@@ -7,7 +7,20 @@ is substituted for the target; the returned raw replicates retain both levels.
 import numpy as np
 
 from nfl_value.density_holdout import StabilizedProposal
+from nfl_value.ingestion import json_bytes, sha256
 from nfl_value.replicated_reference import replicate_integrals
+
+
+def sampling_hash(sampling):
+    """Bind the ordered full distribution, including its defensive component."""
+    return sha256(
+        json_bytes(
+            [
+                [mass, mean.tolist(), covariance.tolist(), df]
+                for mass, mean, covariance, df in sampling.components("stabilized-mixture")
+            ]
+        )
+    )
 
 
 def integrate(

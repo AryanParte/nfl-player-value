@@ -20,7 +20,7 @@ from nfl_value.replicated_reference import (
     diagnose_reference,
     summarize_integrals,
 )
-from nfl_value.two_level_reference import combine, integrate, restore_proposal
+from nfl_value.two_level_reference import combine, integrate, restore_proposal, sampling_hash
 from nfl_value.variance_reference import BudgetExceeded
 
 
@@ -50,14 +50,14 @@ def known_parents(plan):
     return m, density
 
 
-def known(plan, progress=lambda _: None):
+def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
     certificate, density = known_parents(plan)
     cases, timings = [], {}
     for index in range(5):
         begin = perf_counter()
         geometry = density["cases"][index]["density"][0]["geometries"]["stabilized-mixture"]
-        sampling = restore_proposal(geometry, certificate["model_plan"])
         target = known_target(index, certificate["model_plan"])
+        sampling = restore_proposal(geometry, target.plan)
         truth = json.loads(known_truth_bytes(index))
         fine = target.integrand({k: np.asarray(v) for k, v in truth.items()})
 
@@ -80,11 +80,8 @@ def known(plan, progress=lambda _: None):
                     nodes=plan["nodes_per_replicate"],
                     correction_nodes=plan["correction_nodes_per_replicate"],
                 )
-                record.update(
-                    **assess_trial(total, plan),
-                    coarse=base.tolist(),
-                    correction=correction.tolist(),
-                )
+                record.update(coarse=base.tolist(), correction=correction.tolist())
+                record.update(**assess_trial(total, plan))
             except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:
                 record["error"] = str(exc)
             records.append(record)
@@ -96,11 +93,13 @@ def known(plan, progress=lambda _: None):
                 target=index,
                 truth=truth,
                 geometry_sha256=sha256(json_bytes(geometry)),
+                sampling_sha256=sampling_hash(sampling),
                 records=records,
                 decision=decision,
             )
         )
         timings[str(index)] = perf_counter() - begin
+        checkpoint(str(index), cases[-1])
         progress(
             f"Known {index}: passed={decision['passed']}; coverage={decision['simultaneous_coverage']}"
         )
@@ -118,7 +117,7 @@ def known(plan, progress=lambda _: None):
 
 def validate_known(result):
     plan = result["plan"]
-    _, density = known_parents(plan)
+    certificate, density = known_parents(plan)
     if (
         result["experiment"] != "repaired-functional-controls-v1"
         or result["nfl_data_used"] is not False
@@ -129,9 +128,11 @@ def validate_known(result):
         raise ValueError("invalid known-answer scope or complete case denominator")
     for index, case in enumerate(result["cases"]):
         geometry = density["cases"][index]["density"][0]["geometries"]["stabilized-mixture"]
+        sampling = restore_proposal(geometry, known_target(index, certificate["model_plan"]).plan)
         if (
             json_bytes(case["truth"]) != known_truth_bytes(index)
             or case["geometry_sha256"] != sha256(json_bytes(geometry))
+            or case["sampling_sha256"] != sampling_hash(sampling)
             or [r["trial"] for r in case["records"]] != list(range(plan["coverage_trials"]))
         ):
             raise ValueError("known truth, geometry or trial denominator differs")
@@ -155,13 +156,16 @@ def validate_known(result):
     return passed
 
 
-def save(output, result, revision):
+def save(output, result, revision, *, expected_kernel=None):
+    executing_kernel = kernel_hash()
+    if expected_kernel is not None and expected_kernel != executing_kernel:
+        raise ValueError("statistical source changed during execution")
     manifest = dict(
         experiment=result["experiment"],
         plan=result["plan"],
         plan_sha256=PLAN_HASH,
         code_revision=revision,
-        kernel_sha256=kernel_hash(),
+        kernel_sha256=executing_kernel,
         environment=environment({"plan_version": 2}),
         objects={"study": output.put(json_bytes(result))},
         ranking_ready=False,
@@ -211,6 +215,8 @@ def validate_archive(result):
                 r["entropy"] != [p["base_seed"], 1, i, 0]
                 or json_bytes(total.tolist()) != json_bytes(r["reference"]["replicate_integrals"])
                 or r["geometry_sha256"] != sha256(json_bytes(r["reference"]["geometry"]))
+                or r["sampling_sha256"]
+                != sampling_hash(restore_proposal(r["reference"]["geometry"], result["model_plan"]))
             ):
                 raise ValueError("archived entropy, levels or geometry disagree")
             diagnosis = diagnose_reference(
@@ -345,6 +351,8 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
                 correction_nodes=correction,
                 progress=lambda s: progress(name + ": " + s),
             )
+            # Preserve completed raw work even when confidence construction fails.
+            record.update(coarse=base.tolist(), correction=delta.tolist())
             reference = summarize_integrals(total, summaries, plan, sampling, "stabilized-mixture")
             diagnosis = diagnose_reference(
                 reference, contrasts=len(contrasts), shifts=shifts, plan=plan
@@ -358,6 +366,7 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
                 shifts=shifts,
                 entropy=entropy,
                 geometry_sha256=sha256(json_bytes(geometry)),
+                sampling_sha256=sampling_hash(sampling),
                 reference=reference,
                 diagnosis=diagnosis,
                 coarse=base.tolist(),
@@ -387,6 +396,7 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
         cases=cases,
         control_report=control_id,
         primary_objects=primary["objects"],
+        model_plan=parent["plan"],
         source_provenance=parent["source_provenance"],
         evidence_cutoff=parent["evidence_cutoff"],
         season=primary["season"],

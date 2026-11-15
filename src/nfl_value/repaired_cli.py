@@ -10,7 +10,15 @@ import numpy as np
 
 from nfl_value.ingest_cli import committed_revision
 from nfl_value.ingestion import SnapshotStore, json_bytes
-from nfl_value.repaired_functional import archive, known, load, save, validate_known
+from nfl_value.repaired_functional import (
+    archive,
+    kernel_hash,
+    known,
+    load,
+    save,
+    validate_archive,
+    validate_known,
+)
 
 
 def main(argv=None):
@@ -37,6 +45,7 @@ def main(argv=None):
     controls = SnapshotStore(args.controls_store)
     progress = lambda s: print(s, file=sys.stderr, flush=True)
     try:
+        executing_kernel = kernel_hash()
         expected = None
         if args.command.startswith("replay"):
             expected, old_result = load(output, args.report_id)
@@ -49,7 +58,13 @@ def main(argv=None):
                 if expected
                 else json.loads(Path("config/repaired-functional-v1.json").read_text())
             )
-            result, timings = known(plan, progress)
+            result, timings = known(
+                plan,
+                progress,
+                lambda name, r: output.put(
+                    json_bytes(dict(code_revision=revision, case=name, record=r))
+                ),
+            )
             validate_known(result)
         else:
             control_id = old_result["control_report"] if expected else args.report_id
@@ -61,7 +76,8 @@ def main(argv=None):
                     json_bytes(dict(code_revision=revision, case=name, record=r))
                 ),
             )
-        rid, manifest = save(output, result, revision)
+            validate_archive(result)
+        rid, manifest = save(output, result, revision, expected_kernel=executing_kernel)
         if expected and (
             rid != args.report_id
             or json_bytes(manifest) != json_bytes(expected)

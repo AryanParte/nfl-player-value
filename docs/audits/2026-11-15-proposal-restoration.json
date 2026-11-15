@@ -1,0 +1,76 @@
+{
+  "verified_at": "2026-11-15T21:47:45Z",
+  "purpose": "Independent replay of all five preselected trial-zero saved proposal geometries; no new functional trials.",
+  "producing_statistical_source": "6259786df3e69a1118218dbcf51820994c641747",
+  "parent_density_controls": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+  "cases": [
+    {
+      "target": 0,
+      "geometry_exact": true,
+      "corrected_components_exact": true,
+      "incorrect_components_exact": false,
+      "prior_mean": [
+        0.0,
+        0.0
+      ],
+      "original_components_sha256": "fed7e00c554de048cfaaf1949a7f5798081a4612a7570dc3d01c582f15eeb6bf",
+      "wrong_components_sha256": "8b0cb2cf128ec519265d987e962f0f4ea7ddca494aab704fafe7f1d672b5ef73"
+    },
+    {
+      "target": 1,
+      "geometry_exact": true,
+      "corrected_components_exact": true,
+      "incorrect_components_exact": false,
+      "prior_mean": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_components_sha256": "6374f3526f13156c2f6db663b7fc96ef1d7de69cbaec4ee4e3f73e0a69334aef",
+      "wrong_components_sha256": "486e7ca5a9f661bf143d1eaf3360db8e26fe30a867552fb90a2ee6b5352030cb"
+    },
+    {
+      "target": 2,
+      "geometry_exact": true,
+      "corrected_components_exact": true,
+      "incorrect_components_exact": false,
+      "prior_mean": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_components_sha256": "ccfaee5b9b91a8d588ee0f820358b52fd0c6469e8b6d45e2612c6b38385462f9",
+      "wrong_components_sha256": "959a99a7b838b556eccaf74e43632166abc90e1deb8d21d35b81e969ad82359e"
+    },
+    {
+      "target": 3,
+      "geometry_exact": true,
+      "corrected_components_exact": true,
+      "incorrect_components_exact": false,
+      "prior_mean": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_components_sha256": "3a37aedce7c428f79dd6c2af44713ed32b839b0b70979708d7df2817c5fb6862",
+      "wrong_components_sha256": "3d1abc27a1e4f7952e9d6d1643da0d4d47d75ac6f7cbf89ae73ca9dc6d4be776"
+    },
+    {
+      "target": 4,
+      "geometry_exact": true,
+      "corrected_components_exact": true,
+      "incorrect_components_exact": false,
+      "prior_mean": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_components_sha256": "dbef232c2ead270db557f71bd8a98f1bc25a1e1d7c895d28593459776ebb3b96",
+      "wrong_components_sha256": "48958215161ec3242160e2059ebe8277baa4612d1de2972d8b2a2e54578a0321"
+    }
+  ],
+  "ranking_ready": false
+}
