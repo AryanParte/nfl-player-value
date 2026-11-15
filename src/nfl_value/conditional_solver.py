@@ -6,7 +6,6 @@ No numerical rank cutoff, diagonal jitter, or precision clipping is used.
 """
 
 from fractions import Fraction
-from itertools import chain
 from math import fsum
 
 import numpy as np
@@ -15,43 +14,60 @@ from scipy.linalg import qr, solve_triangular
 from nfl_value.ingestion import json_bytes, sha256
 
 
-def compensated_residual(design, coefficients, response):
-    """Original sparse row residuals using split products and accurate summation.
+class CompensatedRows:
+    """Cache invariant split products; retain the original fsum term order."""
 
-    Binary64 Dekker products retain multiplication roundoff without requiring
-    extended precision or platform-specific FMA. No model/reference substitution.
-    Overflow/underflow fails explicitly instead of promising an exact split
-    outside its representable range.
+    def __init__(self, design, response):
+        self.design = design.tocsr()
+        self.y = np.asarray(response, dtype=float)
+        if self.y.ndim != 2 or self.y.shape[0] != self.design.shape[0]:
+            raise ValueError("residual design and response shapes differ")
+        if not np.isfinite(self.design.data).all() or not np.isfinite(self.y).all():
+            raise ValueError("finite original residual inputs required")
+        self.left = self.design.data[:, None]
+        with np.errstate(over="raise", under="raise", invalid="raise"):
+            split = 134217729.0 * self.left
+            self.high_left = split - (split - self.left)
+            self.low_left = self.left - self.high_left
+        self.bounds = list(zip(self.design.indptr[:-1].tolist(), self.design.indptr[1:].tolist()))
+        self.responses = self.y.T.tolist()
+
+    def residual(self, coefficients):
+        b = np.asarray(coefficients, dtype=float)
+        if b.ndim != 2 or b.shape != (self.design.shape[1], self.y.shape[1]):
+            raise ValueError("residual design, coefficient and response shapes differ")
+        if not np.isfinite(b).all():
+            raise ValueError("finite original residual inputs required")
+        right = b[self.design.indices]
+        with np.errstate(over="raise", under="raise", invalid="raise"):
+            product = self.left * right
+            split_right = 134217729.0 * right
+            high_right = split_right - (split_right - right)
+            low_right = right - high_right
+            error = (
+                ((self.high_left * high_right - product) + self.high_left * low_right)
+                + self.low_left * high_right
+            ) + self.low_left * low_right
+        result = np.empty_like(self.y)
+        for j in range(self.y.shape[1]):
+            # Same ordered values as the original iterator, with bulk conversion
+            # and direct list iteration in fsum. No reordered arithmetic or cutoffs.
+            p, e = (-product[:, j]).tolist(), (-error[:, j]).tolist()
+            y = self.responses[j]
+            result[:, j] = [
+                fsum([y[i]] + p[start:end] + e[start:end])
+                for i, (start, end) in enumerate(self.bounds)
+            ]
+        return result
+
+
+def compensated_residual(design, coefficients, response):
+    """Original sparse residual with guarded binary64 Dekker products and fsum.
+
+    No extended precision, platform-specific FMA or reference-answer substitution.
+    Overflow/underflow fails rather than promising an unrepresentable exact split.
     """
-    a = design.tocsr()
-    b = np.asarray(coefficients, dtype=float)
-    y = np.asarray(response, dtype=float)
-    if b.ndim != 2 or y.shape != (a.shape[0], b.shape[1]) or b.shape[0] != a.shape[1]:
-        raise ValueError("residual design, coefficient and response shapes differ")
-    if not all(np.isfinite(v).all() for v in (a.data, b, y)):
-        raise ValueError("finite original residual inputs required")
-    left, right = a.data[:, None], b[a.indices]
-    with np.errstate(over="raise", under="raise", invalid="raise"):
-        product = left * right
-        split_left, split_right = 134217729.0 * left, 134217729.0 * right
-        high_left = split_left - (split_left - left)
-        high_right = split_right - (split_right - right)
-        low_left, low_right = left - high_left, right - high_right
-        error = (
-            ((high_left * high_right - product) + high_left * low_right) + low_left * high_right
-        ) + low_left * low_right
-    result = np.empty_like(y)
-    bounds = list(zip(a.indptr[:-1].tolist(), a.indptr[1:].tolist()))
-    for j in range(y.shape[1]):
-        # Convert in bulk: fsum receives the identical ordered binary64 values,
-        # without allocating a NumPy scalar for every term of every row.
-        p, e = (-product[:, j]).tolist(), (-error[:, j]).tolist()
-        response_values = y[:, j].tolist()
-        result[:, j] = [
-            fsum(chain((response_values[i],), p[start:end], e[start:end]))
-            for i, (start, end) in enumerate(bounds)
-        ]
-    return result
+    return CompensatedRows(design, response).residual(coefficients)
 
 
 def binary_nullspace(matrix):
@@ -189,6 +205,7 @@ class SquareRootSystem:
             raise ValueError("at least one response required")
         self.y = y
         self.original_residual = original_residual
+        self.original_rows = CompensatedRows(prepared.x, y) if original_residual else None
         self.game_indices = (
             [np.flatnonzero(prepared.game_codes == g) for g in range(len(prepared.game_names))]
             if original_residual
@@ -281,7 +298,7 @@ class SquareRootSystem:
             else np.empty((0, self.responses))
         )
         if self.original_residual:
-            residual = compensated_residual(prepared.x, full_mean, self.y)
+            residual = self.original_rows.residual(full_mean)
             game_penalty = np.zeros(self.responses)
             if prepared.game_names:
                 game_mean = (

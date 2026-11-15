@@ -165,10 +165,12 @@ class ConditionalSolverTests(unittest.TestCase):
         altered["variance_relative_tolerance"] *= 2
         with self.assertRaisesRegex(ValueError, "frozen"):
             validate_plan(altered)
-        for mutation in ("case", "metric", "gate", "reference"):
+        for mutation in ("case", "seed", "metric", "gate", "reference"):
             broken = deepcopy(report)
             if mutation == "case":
                 broken["cases"].pop()
+            elif mutation == "seed":
+                del broken["cases"][0]["seed"]
             elif mutation == "metric":
                 broken["cases"][0]["candidate_results"]["exact_alias_residual"]["mean_error_sd"] = (
                     123

@@ -244,6 +244,8 @@ def validate_known(report, plan):
     gates = dict.fromkeys(plan["candidates"], True)
     fixtures = {}
     for c, identity in zip(cases, expected):
+        if "seeds" in plan and "seed" not in c:
+            raise ValueError("amended control requires an explicit response seed")
         if (
             c.get("seed", plan["seed"]),
             c["family"],
