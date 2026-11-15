@@ -6,11 +6,47 @@ No numerical rank cutoff, diagonal jitter, or precision clipping is used.
 """
 
 from fractions import Fraction
+from itertools import chain
+from math import fsum
 
 import numpy as np
 from scipy.linalg import qr, solve_triangular
 
 from nfl_value.ingestion import json_bytes, sha256
+
+
+def compensated_residual(design, coefficients, response):
+    """Original sparse row residuals using split products and accurate summation.
+
+    Binary64 Dekker products retain multiplication roundoff without requiring
+    extended precision or platform-specific FMA. No model/reference substitution.
+    Overflow in splitting fails explicitly instead of returning a false residual.
+    """
+    a = design.tocsr()
+    b = np.asarray(coefficients, dtype=float)
+    y = np.asarray(response, dtype=float)
+    if b.ndim != 2 or y.shape != (a.shape[0], b.shape[1]) or b.shape[0] != a.shape[1]:
+        raise ValueError("residual design, coefficient and response shapes differ")
+    if not all(np.isfinite(v).all() for v in (a.data, b, y)):
+        raise ValueError("finite original residual inputs required")
+    left, right = a.data[:, None], b[a.indices]
+    with np.errstate(over="raise", invalid="raise"):
+        product = left * right
+        split_left, split_right = 134217729.0 * left, 134217729.0 * right
+        high_left = split_left - (split_left - left)
+        high_right = split_right - (split_right - right)
+        low_left, low_right = left - high_left, right - high_right
+        error = (
+            ((high_left * high_right - product) + high_left * low_right) + low_left * high_right
+        ) + low_left * low_right
+    result = np.empty_like(y)
+    for j in range(y.shape[1]):
+        p, e = -product[:, j], -error[:, j]
+        result[:, j] = [
+            fsum(chain((y[i, j],), p[start:end], e[start:end]))
+            for i, (start, end) in enumerate(zip(a.indptr[:-1], a.indptr[1:]))
+        ]
+    return result
 
 
 def binary_nullspace(matrix):
@@ -127,7 +163,16 @@ def _alias_transform(prepared, groups, *, remove_aliases, reverse_basis):
 class SquareRootSystem:
     """Prepared row-space computation for one design and one/more responses."""
 
-    def __init__(self, prepared, y, groups, *, exact_aliases=False, reverse_basis=False):
+    def __init__(
+        self,
+        prepared,
+        y,
+        groups,
+        *,
+        exact_aliases=False,
+        reverse_basis=False,
+        original_residual=False,
+    ):
         self.prepared = prepared
         self.groups = {g: np.asarray(indices) for g, indices in groups.items()}
         y = np.asarray(y, dtype=float)
@@ -138,6 +183,12 @@ class SquareRootSystem:
         if not y.shape[1]:
             raise ValueError("at least one response required")
         self.y = y
+        self.original_residual = original_residual
+        self.game_indices = (
+            [np.flatnonzero(prepared.game_codes == g) for g in range(len(prepared.game_names))]
+            if original_residual
+            else []
+        )
         self.transform, self.reduced_groups, self.removed, self.certificates = _alias_transform(
             prepared, self.groups, remove_aliases=exact_aliases, reverse_basis=reverse_basis
         )
@@ -217,7 +268,37 @@ class SquareRootSystem:
             factor.T, reduced_contrast.T, lower=True, check_finite=False
         )
         diagonal = np.sum(inverse_root * inverse_root, axis=0) + restored_variance
-        q = np.sum(upper[self.p :, self.p :] ** 2, axis=0)
+        full_mean = self.transform @ mean
+        game_mean = (
+            (self.game_y - self.game_x @ mean)
+            * (prepared.game_counts / (game_precision + prepared.game_counts))[:, None]
+            if prepared.game_names and need_games
+            else np.empty((0, self.responses))
+        )
+        if self.original_residual:
+            residual = compensated_residual(prepared.x, full_mean, self.y)
+            game_penalty = np.zeros(self.responses)
+            if prepared.game_names:
+                game_mean = (
+                    np.array(
+                        [
+                            [fsum(residual[indices, j]) for j in range(self.responses)]
+                            for indices in self.game_indices
+                        ]
+                    )
+                    / (game_precision + prepared.game_counts)[:, None]
+                )
+                residual -= game_mean[prepared.game_codes]
+                game_penalty = game_precision * np.sum(game_mean**2, axis=0)
+            q = (
+                np.sum(residual**2, axis=0)
+                + np.sum(penalty[:, None] * full_mean**2, axis=0)
+                + game_penalty
+            )
+            if not need_games:
+                game_mean = np.empty((0, self.responses))
+        else:
+            q = np.sum(upper[self.p :, self.p :] ** 2, axis=0)
         a = shape + (prepared.x.shape[0] - r) / 2
         b = scale + q / 2
         determinant = (
@@ -226,13 +307,6 @@ class SquareRootSystem:
             - np.log(reduced_penalty[r:]).sum()
         )
         likelihood = -0.5 * determinant - a * np.log(b)
-        full_mean = self.transform @ mean
-        game_mean = (
-            (self.game_y - self.game_x @ mean)
-            * (prepared.game_counts / (game_precision + prepared.game_counts))[:, None]
-            if prepared.game_names and need_games
-            else np.empty((0, self.responses))
-        )
         arrays = [full_mean, game_mean, diagonal, q, likelihood]
         if any(not np.isfinite(value).all() for value in arrays):
             raise ValueError("nonfinite square-root conditional result")

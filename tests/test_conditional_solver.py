@@ -2,6 +2,7 @@
 
 import unittest
 from copy import deepcopy
+from decimal import Decimal, localcontext
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -9,7 +10,11 @@ from tempfile import TemporaryDirectory
 import numpy as np
 
 from nfl_value.conditional_reference import as_float, decimal_cell, reference_agreement
-from nfl_value.conditional_solver import SquareRootSystem, binary_nullspace
+from nfl_value.conditional_solver import (
+    SquareRootSystem,
+    binary_nullspace,
+    compensated_residual,
+)
 from nfl_value.conditional_archive import SquareRootTarget
 from nfl_value.conditional_cli import load, save
 from nfl_value.conditional_study import comparison, known_study, validate_known, validate_plan
@@ -106,17 +111,53 @@ class ConditionalSolverTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 solver.cell(penalty, None, np.eye(3), 3, 4.5)
 
+    def test_compensated_original_residual_matches_independent_exact_products(self):
+        from scipy.sparse import csr_matrix
+
+        x = np.array([[1.0, 1.0, 1.0], [1.0, 1.0 + 1e-8, 0], [0, 0, 0]])
+        b = np.array([[1e16, -31737306.0], [1.0, 31737306.0], [-1e16, -0.3]])
+        y = np.array([[0.0, 0.1], [-1.0, 1.5], [2.0, -3.0]])
+        actual = compensated_residual(csr_matrix(x), b, y)
+        with localcontext() as ctx:
+            ctx.prec = 110
+            expected = np.array(
+                [
+                    [
+                        float(
+                            Decimal.from_float(y[i, j])
+                            - sum(
+                                (
+                                    Decimal.from_float(x[i, k]) * Decimal.from_float(b[k, j])
+                                    for k in range(x.shape[1])
+                                ),
+                                Decimal(0),
+                            )
+                        )
+                        for j in range(y.shape[1])
+                    ]
+                    for i in range(y.shape[0])
+                ]
+            )
+        np.testing.assert_array_equal(actual, expected)
+        self.assertEqual(actual[0, 0], -1.0)
+        with self.assertRaisesRegex(ValueError, "finite"):
+            compensated_residual(csr_matrix(x), b * np.nan, y)
+        with self.assertRaisesRegex(ValueError, "shapes"):
+            compensated_residual(csr_matrix(x), b, y[:1])
+        with self.assertRaises(FloatingPointError):
+            compensated_residual(csr_matrix([[1e308]]), np.ones((1, 1)), np.zeros((1, 1)))
+
     def test_known_certificate_binds_all_cases_metrics_plan_and_bytes(self):
-        plan = json.loads(Path("config/conditional-solver-v1.json").read_text())
+        plan = json.loads(Path("config/conditional-solver-v2.json").read_text())
         report, _ = known_study(plan)
-        self.assertEqual(len(report["cases"]), 72)
+        self.assertEqual(len(report["cases"]), 144)
         failures = [
-            {k: c[k] for k in ("family", "weak_precision", "game_precision")}
-            | {"result": c["candidate_results"]["exact_alias_qr"]}
+            {k: c[k] for k in ("seed", "family", "weak_precision", "game_precision")}
+            | {"result": c["candidate_results"]["exact_alias_residual"]}
             for c in report["cases"]
-            if not c["candidate_results"]["exact_alias_qr"]["passed"]
+            if not c["candidate_results"]["exact_alias_residual"]["passed"]
         ]
-        self.assertTrue(report["candidate_gates"]["exact_alias_qr"], failures)
+        self.assertTrue(report["candidate_gates"]["exact_alias_residual"], failures)
         self.assertEqual(validate_known(report, plan), report["candidate_gates"])
         altered = deepcopy(plan)
         altered["variance_relative_tolerance"] *= 2
@@ -127,12 +168,14 @@ class ConditionalSolverTests(unittest.TestCase):
             if mutation == "case":
                 broken["cases"].pop()
             elif mutation == "metric":
-                broken["cases"][0]["candidate_results"]["exact_alias_qr"]["mean_error_sd"] = 123
+                broken["cases"][0]["candidate_results"]["exact_alias_residual"]["mean_error_sd"] = (
+                    123
+                )
             elif mutation == "reference":
                 broken["cases"][0]["reference"]["posterior_shape"] = "123"
             else:
-                broken["candidate_gates"]["exact_alias_qr"] = not broken["candidate_gates"][
-                    "exact_alias_qr"
+                broken["candidate_gates"]["exact_alias_residual"] = not broken["candidate_gates"][
+                    "exact_alias_residual"
                 ]
             with self.assertRaises(ValueError):
                 validate_known(broken, plan)
@@ -172,6 +215,7 @@ class ConditionalSolverTests(unittest.TestCase):
             ["qb", "game"],
             {"noise_prior_shape": 3, "noise_prior_scale": 4.5},
             {"log_precision_mean": 1, "log_precision_sd": 3},
+            original_residual=True,
             evaluation_limit=1,
             deadline=perf_counter() + 10,
         )

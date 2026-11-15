@@ -15,12 +15,24 @@ from nfl_value.variance_reference import BudgetExceeded
 
 
 class SquareRootTarget(Target):
-    def __init__(self, *args, evaluation_limit, deadline, exact_aliases=True, **kwargs):
+    def __init__(
+        self,
+        *args,
+        evaluation_limit,
+        deadline,
+        exact_aliases=True,
+        original_residual=False,
+        **kwargs,
+    ):
         super().__init__(*args, **kwargs)
         self.evaluations = 0
         self.evaluation_limit, self.deadline = evaluation_limit, deadline
         self.solver = SquareRootSystem(
-            self.prepared, args[1], self.group_indices, exact_aliases=exact_aliases
+            self.prepared,
+            args[1],
+            self.group_indices,
+            exact_aliases=exact_aliases,
+            original_residual=original_residual,
         )
 
     def conditional(self, eta, contrasts, need_games=False, *, compressed=True):
@@ -122,7 +134,8 @@ def archived_study(
                     parent["plan"],
                     evaluation_limit=plan["maximum_trace_evaluations"],
                     deadline=deadline,
-                    exact_aliases=candidate == "exact_alias_qr",
+                    exact_aliases=candidate != "augmented_qr",
+                    original_residual=candidate == "exact_alias_residual",
                 )
             except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:
                 records[candidate] = {
@@ -199,7 +212,8 @@ def archived_study(
                         d,
                         y,
                         target.group_indices,
-                        exact_aliases=candidate == "exact_alias_qr",
+                        exact_aliases=candidate != "augmented_qr",
+                        original_residual=candidate == "exact_alias_residual",
                         reverse_basis=True,
                     )
                     if perf_counter() >= deadline:
@@ -276,6 +290,8 @@ def archived_study(
                 parent["plan"],
                 evaluation_limit=plan["maximum_trace_evaluations"],
                 deadline=deadline,
+                exact_aliases=preferred != "augmented_qr",
+                original_residual=preferred == "exact_alias_residual",
             )
             try:
                 pairs, gain = fit_pair(target, density["plan"], 102, 0)

@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
+import platform
 
 import numpy as np
 import scipy
@@ -11,6 +12,19 @@ import scipy
 from nfl_value.conditional_study import known_study, validate_known, validate_plan
 from nfl_value.ingestion import SnapshotStore, json_bytes, sha256
 from nfl_value.ingest_cli import committed_revision
+
+
+def environment(plan):
+    result = {"numpy": np.__version__, "scipy": scipy.__version__}
+    if plan["plan_version"] >= 2:
+        result.update(
+            python=platform.python_version(), system=platform.system(), machine=platform.machine()
+        )
+        result["linear_algebra_build"] = {
+            name: package.__config__.CONFIG.get("Build Dependencies", {})
+            for name, package in (("numpy", np), ("scipy", scipy))
+        }
+    return result
 
 
 def archive_inputs(plan, progress):
@@ -55,7 +69,7 @@ def run_archive(output, controls_store, control_id, revision, progress):
         "plan": plan,
         "plan_sha256": sha256(json_bytes(plan)),
         "code_revision": revision,
-        "environment": {"numpy": np.__version__, "scipy": scipy.__version__},
+        "environment": environment(plan),
         "control_report": control_id,
         "control_source_revision": certificate["code_revision"],
         "objects": {"study": output.put(json_bytes(result))},
@@ -72,7 +86,7 @@ def save(store, study, plan, revision):
         "plan": plan,
         "plan_sha256": sha256(json_bytes(plan)),
         "code_revision": revision,
-        "environment": {"numpy": np.__version__, "scipy": scipy.__version__},
+        "environment": environment(plan),
         "candidate_gates": study["candidate_gates"],
         "ranking_ready": False,
         "objects": {"study": store.put(json_bytes(study))},
@@ -86,7 +100,7 @@ def load(store, rid):
     if (
         manifest["experiment"] != "conditional-solver-controls-v1"
         or manifest["plan_sha256"] != sha256(json_bytes(manifest["plan"]))
-        or manifest["environment"] != {"numpy": np.__version__, "scipy": scipy.__version__}
+        or manifest["environment"] != environment(manifest["plan"])
         or manifest["ranking_ready"] is not False
     ):
         raise ValueError("conditional controls environment, plan or admission differs")
@@ -105,6 +119,7 @@ def main(argv=None):
     parser.add_argument(
         "--controls-store", type=Path, default=Path("data/derived/conditional-controls")
     )
+    parser.add_argument("--plan", type=Path, default=Path("config/conditional-solver-v2.json"))
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("known")
     sub.add_parser("replay").add_argument("report_id")
@@ -127,8 +142,7 @@ def main(argv=None):
                     expected["experiment"] != "conditional-solver-archive-v1"
                     or expected["plan_sha256"] != sha256(json_bytes(expected["plan"]))
                     or expected["ranking_ready"] is not False
-                    or expected["environment"]
-                    != {"numpy": np.__version__, "scipy": scipy.__version__}
+                    or expected["environment"] != environment(expected["plan"])
                 ):
                     raise ValueError("archive policy, environment or admission differs")
                 # Verify saved raw bytes before rebuilding. The rebuilt manifest
@@ -157,7 +171,7 @@ def main(argv=None):
             return 0
         if args.command == "known":
             revision = committed_revision()
-            plan = json.loads(Path("config/conditional-solver-v1.json").read_text())
+            plan = json.loads(args.plan.read_text())
             study, timings = known_study(plan, progress)
             rid = save(output, study, plan, revision)
         else:

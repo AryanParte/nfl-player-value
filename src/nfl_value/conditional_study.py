@@ -15,7 +15,10 @@ FROZEN_PLAN_SHA256 = "e566d34f26979eca4993285c1c6e3a5d9ca8804a71694f03662a9085c7
 
 
 def validate_plan(plan):
-    if sha256(json_bytes(plan)) != FROZEN_PLAN_SHA256:
+    if sha256(json_bytes(plan)) not in (
+        FROZEN_PLAN_SHA256,
+        "c9738097c0e6cbcc791852e5d8d7e58feb2ef3ec3c11295ca367a6a05472d712",
+    ):
         raise ValueError("conditional solver plan differs from the frozen design")
 
 
@@ -108,16 +111,20 @@ def comparison(actual, reference, plan, *, archived=False):
     }
 
 
-def known_study(plan, progress=lambda _: None):
-    validate_plan(plan)
+def _known_seed(plan, seed, deadline, progress):
     cases = []
     timings = []
-    deadline = perf_counter() + plan["maximum_seconds_total"]
     for family in plan["known_families"]:
         began = perf_counter()
-        d, y, l, groups = known_case(family, plan["seed"])
+        d, y, l, groups = known_case(family, seed)
         solvers = {
-            name: SquareRootSystem(d, y, groups, exact_aliases=name == "exact_alias_qr")
+            name: SquareRootSystem(
+                d,
+                y,
+                groups,
+                exact_aliases=name != "augmented_qr",
+                original_residual=name == "exact_alias_residual",
+            )
             for name in plan["candidates"]
         }
         stats = response_stats(d, y)
@@ -182,12 +189,29 @@ def known_study(plan, progress=lambda _: None):
                         "response_sha256": sha256(y.astype("<f8").tobytes()),
                         "candidate_results": results,
                         "legacy": baseline,
-                        "aliases": solvers["exact_alias_qr"].certificates,
+                        "aliases": solvers[plan["preferred_candidate"]].certificates,
                     }
                 )
         timings.append({"family": family, "seconds": perf_counter() - began})
         progress(f"Known controls complete: {family}")
-    expected = len(FAMILIES) * len(plan["weak_precisions"]) * len(plan["game_precisions"])
+    return cases, timings
+
+
+def known_study(plan, progress=lambda _: None):
+    validate_plan(plan)
+    deadline = perf_counter() + plan["maximum_seconds_total"]
+    cases, timings = [], []
+    seeds = plan.get("seeds", [plan["seed"]])
+    for seed in seeds:
+        current, elapsed = _known_seed(plan, seed, deadline, progress)
+        if "seeds" in plan:
+            for item in current + elapsed:
+                item["seed"] = seed
+        cases.extend(current)
+        timings.extend(elapsed)
+    expected = (
+        len(FAMILIES) * len(plan["weak_precisions"]) * len(plan["game_precisions"]) * len(seeds)
+    )
     gates = {
         name: len(cases) == expected
         and all(c.get("reference_valid") and c["candidate_results"][name]["passed"] for c in cases)
@@ -204,7 +228,8 @@ def known_study(plan, progress=lambda _: None):
 def validate_known(report, plan):
     validate_plan(plan)
     expected = [
-        (family, weak, game)
+        (seed, family, weak, game)
+        for seed in plan.get("seeds", [plan["seed"]])
         for family in FAMILIES
         for weak in plan["weak_precisions"]
         for game in plan["game_precisions"]
@@ -219,16 +244,22 @@ def validate_known(report, plan):
     gates = dict.fromkeys(plan["candidates"], True)
     fixtures = {}
     for c, identity in zip(cases, expected):
-        if (c["family"], c["weak_precision"], c["game_precision"]) != identity:
+        if (
+            c.get("seed", plan["seed"]),
+            c["family"],
+            c["weak_precision"],
+            c["game_precision"],
+        ) != identity:
             raise ValueError("known-answer case order or identity differs")
         if c["status"] == "unattempted":
             gates = dict.fromkeys(plan["candidates"], False)
             continue
         if c["status"] != "complete":
             raise ValueError("invalid known-answer case status")
-        if c["family"] not in fixtures:
-            fixtures[c["family"]] = known_case(c["family"], plan["seed"])
-        d, y, l, groups = fixtures[c["family"]]
+        key = (identity[0], c["family"])
+        if key not in fixtures:
+            fixtures[key] = known_case(c["family"], identity[0])
+        d, y, l, groups = fixtures[key]
         penalty = np.zeros(len(d.names))
         for group, indices in groups.items():
             penalty[indices] = c["weak_precision"] if group == "qb" else 7.0
