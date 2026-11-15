@@ -146,6 +146,8 @@ class ConditionalSolverTests(unittest.TestCase):
             compensated_residual(csr_matrix(x), b, y[:1])
         with self.assertRaises(FloatingPointError):
             compensated_residual(csr_matrix([[1e308]]), np.ones((1, 1)), np.zeros((1, 1)))
+        with self.assertRaises(FloatingPointError):
+            compensated_residual(csr_matrix([[1e-200]]), np.full((1, 1), 1e-200), np.zeros((1, 1)))
 
     def test_known_certificate_binds_all_cases_metrics_plan_and_bytes(self):
         plan = json.loads(Path("config/conditional-solver-v2.json").read_text())

@@ -20,7 +20,8 @@ def compensated_residual(design, coefficients, response):
 
     Binary64 Dekker products retain multiplication roundoff without requiring
     extended precision or platform-specific FMA. No model/reference substitution.
-    Overflow in splitting fails explicitly instead of returning a false residual.
+    Overflow/underflow fails explicitly instead of promising an exact split
+    outside its representable range.
     """
     a = design.tocsr()
     b = np.asarray(coefficients, dtype=float)
@@ -30,7 +31,7 @@ def compensated_residual(design, coefficients, response):
     if not all(np.isfinite(v).all() for v in (a.data, b, y)):
         raise ValueError("finite original residual inputs required")
     left, right = a.data[:, None], b[a.indices]
-    with np.errstate(over="raise", invalid="raise"):
+    with np.errstate(over="raise", under="raise", invalid="raise"):
         product = left * right
         split_left, split_right = 134217729.0 * left, 134217729.0 * right
         high_left = split_left - (split_left - left)
@@ -40,11 +41,15 @@ def compensated_residual(design, coefficients, response):
             ((high_left * high_right - product) + high_left * low_right) + low_left * high_right
         ) + low_left * low_right
     result = np.empty_like(y)
+    bounds = list(zip(a.indptr[:-1].tolist(), a.indptr[1:].tolist()))
     for j in range(y.shape[1]):
-        p, e = -product[:, j], -error[:, j]
+        # Convert in bulk: fsum receives the identical ordered binary64 values,
+        # without allocating a NumPy scalar for every term of every row.
+        p, e = (-product[:, j]).tolist(), (-error[:, j]).tolist()
+        response_values = y[:, j].tolist()
         result[:, j] = [
-            fsum(chain((y[i, j],), p[start:end], e[start:end]))
-            for i, (start, end) in enumerate(zip(a.indptr[:-1], a.indptr[1:]))
+            fsum(chain((response_values[i],), p[start:end], e[start:end]))
+            for i, (start, end) in enumerate(bounds)
         ]
     return result
 
