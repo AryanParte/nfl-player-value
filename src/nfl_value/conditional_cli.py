@@ -56,6 +56,9 @@ def run_archive(output, controls_store, control_id, revision, progress):
     plan = certificate["plan"]
     if certificate["candidate_gates"][plan["preferred_candidate"]] is not True:
         raise ValueError("preferred solver failed known-answer authorization")
+    current, _ = known_study(plan)
+    if json_bytes(current) != json_bytes(controls):
+        raise ValueError("saved controls do not reproduce with the executing kernel/platform")
     context, parent, density, trace = archive_inputs(plan, progress)
 
     def checkpoint(case, record):

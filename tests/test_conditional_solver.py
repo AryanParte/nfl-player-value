@@ -6,6 +6,7 @@ from decimal import Decimal, localcontext
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 import numpy as np
 
@@ -16,7 +17,7 @@ from nfl_value.conditional_solver import (
     compensated_residual,
 )
 from nfl_value.conditional_archive import SquareRootTarget
-from nfl_value.conditional_cli import load, save
+from nfl_value.conditional_cli import load, save, run_archive
 from nfl_value.conditional_study import comparison, known_study, validate_known, validate_plan
 from nfl_value.ingestion import SnapshotStore
 from nfl_value.variance_mixture import cell, response_stats, system
@@ -201,6 +202,13 @@ class ConditionalSolverTests(unittest.TestCase):
             rid = save(store, report, plan, "a" * 40)
             manifest, restored = load(store, rid)
             self.assertEqual(restored, report)
+            with patch(
+                "nfl_value.conditional_cli.archive_inputs",
+                side_effect=RuntimeError("verified controls reached input restoration"),
+            ) as inputs:
+                with self.assertRaisesRegex(RuntimeError, "verified controls reached"):
+                    run_archive(None, store, rid, "a" * 40, lambda _: None)
+                inputs.assert_called_once()
             # Deliberately damage the object; the existing content-addressed
             # store must reject it before any authorization is returned.
             path = store.root / "objects" / manifest["objects"]["study"]
@@ -227,6 +235,18 @@ class ConditionalSolverTests(unittest.TestCase):
         self.assertTrue(np.isfinite(answer["log_likelihood"]).all())
         with self.assertRaisesRegex(ValueError, "budget"):
             target.conditional([0, 0], np.eye(3))
+
+    def test_changed_executing_kernel_cannot_reuse_saved_control_authorization(self):
+        plan = json.loads(Path("config/conditional-solver-v2.json").read_text())
+        certificate = {"plan": plan, "candidate_gates": {"exact_alias_residual": True}}
+        with (
+            patch("nfl_value.conditional_cli.load", return_value=(certificate, {"saved": 1})),
+            patch("nfl_value.conditional_cli.known_study", return_value=({"saved": 2}, [])),
+            patch("nfl_value.conditional_cli.archive_inputs") as inputs,
+        ):
+            with self.assertRaisesRegex(ValueError, "executing kernel/platform"):
+                run_archive(None, None, "a" * 64, "b" * 40, lambda _: None)
+            inputs.assert_not_called()
 
 
 if __name__ == "__main__":
