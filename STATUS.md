@@ -1,6 +1,6 @@
 # Project status
 
-Updated: November 13, 2026, America/New_York.
+Updated: November 14, 2026, America/New_York.
 
 ## Current scoring milestone
 
@@ -9,40 +9,42 @@ measured completion percentage. Scoring remains the critical path; optional
 infrastructure is paused. Track implementation, evidence and blockers separately
 in [M1–M6](docs/MILESTONES.md).
 
-The [density-stabilization unit](docs/DENSITY_HOLDOUT_RESULTS.md) implements and
-evaluates one frozen alternative, independent paired density holdouts, five
-known-answer coverage controls and the gated archived numerical pilot. All 5,120
-control trials complete: joint coverage is 94.43–96.39%, precision is 100%, and
-all deliberately wrong endpoints are rejected. All 160 known-target density
-pairs and 19/20 archived pairs finish; one factorization failure remains recorded.
-Stabilization improves every real-QB held-out log score, but individual proposals
-still differ sharply in quality. This is numerical evidence, not player calibration.
+The [conditional-solver unit](docs/CONDITIONAL_SOLVER_RESULTS.md) addresses the
+observed factorization failure under a frozen bounded study. The original
+exact-alias QR candidate passed locally but failed hosted near-alias residual
+checks. A preregistered compensated-original-residual correction passes **144/144**
+known answers (72 regression, 72 fresh-response cases) and **85/85** archived
+comparisons, with unchanged tolerances. Plain QR and the initial hosted failures
+remain visible. The first compensated fit times out at 3,514 evaluations / 900.1 seconds;
+a separately frozen, exact-output caching repair completes it in 4,938 evaluations /
+621.6 seconds under the original cap. All 85 archived outputs remain byte-identical.
+An independent network-disabled repeat reproduces the full manifest and every
+study object exactly; its fit takes 588.8 seconds.
+The default scoring model and earlier research artifacts are unchanged.
 
-The real QB reference still fails: worst discrepancy plus numerical error is
-0.014228 posterior SD / 0.001308 CDF against unchanged 0.01 / 0.001 limits.
-Reference error is much smaller than in the previous run; remaining point
-discrepancies now matter, but no real-QB confidence set establishes an error
-outside tolerance. The team control passes. A separate frozen trace reproduces
-the prior-stress factorization failure: a 9.66e-24 precision is lost at matrix
-roundoff scale. No jitter, zero-likelihood substitution or altered prior repairs
-that failed trial. Full case decisions and replay evidence are in the results.
+This is conditional arithmetic/equivalence evidence, not a fresh full posterior,
+player calibration or scoring admission. The existing integrated real-QB check
+still fails at 0.014228 posterior SD / 0.001308 CDF against 0.01 / 0.001 limits.
+The repair does not recompute or supersede that result. The 192-fit calibration
+remains unfinished. All 17 modules remain unadmitted; unsupported contributions
+remain unavailable.
 
 The same 57 QBs / 122 completed archived 2026 games / 8,996 dropbacks retain
 first-unit/equal-player/opportunity-weighted contrasts, 38 negative first-unit
 estimates and nonduplicated season accounting. Training totals 48,776 dropbacks
 across 2024–26 without adding historical points. The game cohort ends November 7
 at 20:41:17 Eastern; the evidence cutoff is 2026-11-08T02:47:32.067979Z. This is
-not November 13 live coverage. No new calibration or sealed Week 10 outcomes enter
-this study. The 192-fit calibration remains unfinished. All 17 modules remain
-unadmitted, with unsupported contributions unavailable.
+not November 14 live coverage. No sealed Week 10 outcomes enter the new study.
+Existing model/prediction artifacts and all earlier failed experiments remain
+unchanged; the new solver is opt-in research code, not a default scoring change.
 
-Next: freeze a target-preserving conditional-solver repair/equivalence study using
-exact alias/weak-precision controls and an independent reference. Resolve the
-roundoff failure before another proposal search. Then diagnose remaining
-primary/reference disagreement with separately declared independent randomizations
-and work limits. Do not automatically enlarge primary samples, choose favorable
-pilots, change priors or relax accuracy limits. Numerical reliability precedes
-fresh calibration, prospective prediction and observational admission.
+Next: freeze the repaired-kernel functional numerical comparison with independent
+randomizations and declared work limits. Diagnose remaining primary/reference
+disagreement and reference imprecision before fresh player calibration,
+prospective prediction and observational admission. Do not automatically enlarge
+samples, choose favorable pilots or relax accuracy limits. The conditional repair
+is complete for its declared scope; do not restart that completed study as the
+next unit or claim it certifies every tail/configuration.
 
 ## Other product milestones
 
@@ -53,10 +55,10 @@ independent of benchmark membership and the model's observation population.
 
 The required defensive information-loss experiment and Defense Explorer remain
 intact: 131 games / 15,803 plays / 895 defenders, residualized rank 856 versus 193
-after aggregation. November 13 metadata still has no 2026-named asset among 46
-in the checked participation release. This is not all-provider absence or a
-snap-count audit. Live lineups, defensive uncertainty and cross-position
-comparability remain unfinished. Event counts are not invented CAVAA scores.
+after aggregation. The last participation metadata check is November 13: no
+2026-named asset among 46 in the checked release. It is not a November 14 refresh,
+all-provider absence or snap-count audit. Live lineups, defensive uncertainty and
+cross-position comparability remain unfinished. No event-count CAVAA is invented.
 
 The React/TypeScript dashboard has explanation/provenance and availability views,
 but no admitted leaderboard or ranked history. Its next scored input must be a
@@ -64,20 +66,28 @@ defensibly validated contribution module with scope and uncertainty preserved.
 
 ## Deployment and execution state
 
-PRs #18–#26 are merged; inspected main is e28bdb2 and its CI passes. November 13
-rechecks still show no Pages site, a signed-out in-app browser, and scheduled
-Explorer run 42908770888 blocked before capture/publication by the initial-retention
-safeguard. The connector lacks Pages configuration/dispatch. See the
+PRs #18–#26 are merged; inspected main remains e28bdb2. PR #27 is still open,
+without review feedback and with passing final CI. The new
+[`codex/conditional-square-root` PR #28](https://github.com/AryanParte/nfl-player-value/pull/28)
+is explicitly stacked on its head abab5fd;
+no prerequisite was merged or overwritten.
+
+November 14 metadata still reports no Pages site. Newly inspected scheduled
+Explorer run [43515405405](https://github.com/AryanParte/nfl-player-value/actions/runs/43515405405)
+fails at the initial-retention step with “first manual run requires bootstrap”,
+after its offline checks pass and before capture/publication. The earlier signed-out
+browser/access limitation is not reported as a new login attempt. See the
 [runbook](docs/PRODUCTION_REFRESH.md). No settings, schedules or release changed.
 This operational blocker did not prevent model work; an Explorer deployment would
 still not constitute an admitted CAVAA leaderboard.
 
-[PR #27](https://github.com/AryanParte/nfl-player-value/pull/27) targets current main.
-Local make check passes 441 Python tests and 27 frontend contracts plus lint,
-formatting, TypeScript/build, syntax and whitespace. Hosted Python 3.11/3.12/3.13
-and dashboard/Chromium pass on pilot source f3e854c; final-head CI is reported in
-the PR. The [learning report](docs/learning/2026-11-13.md) leads with milestone
-outcomes, numerical failures and next actions rather than activity counts.
+Local make check passes 450 Python tests and 27 frontend contracts plus lint,
+formatting, TypeScript/build, syntax and whitespace. The 144-case gate, reference binding, compensated arithmetic and final executing-
+kernel guard pass ten affected tests. Hosted implementation run 43660479957 at
+9b599b1 passes 451 Python tests per version and 12 Chromium scenarios plus dashboard
+checks. Final reporting-head status is inspected separately in the PR. The
+[learning report](docs/learning/2026-11-14.md) leads with milestone outcomes,
+remaining scientific failures and the next concrete action.
 
 No dependency, purchase, paid service, agent merge, other-repository edit or
 7:30 PM America/New_York automation change. Production refresh remains independent

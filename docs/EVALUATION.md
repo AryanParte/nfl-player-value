@@ -340,3 +340,37 @@ DNS after imports, and compares the immutable manifests and all study objects.
 Prior studies remain untouched. This unit does not consume new calibration draws
 or the sealed Week 10 outcomes. No known-answer or density-overlap result can
 validate the QB/team attribution assumptions by itself.
+
+## Conditional solver equivalence (November 14)
+
+The [frozen conditional study](CONDITIONAL_SOLVER.md) requires independent
+80-/110-digit answers on all 72 small cases before archived use. It checks signed
+means, joint contrast variance, residual quadratics and integrated likelihoods,
+including exact/near aliases, prior-only players and tiny game precision. Plain
+QR fails eleven local cases and is blocked; exact-alias QR initially passes
+locally but later fails the hosted portability gate. The [results](CONDITIONAL_SOLVER_RESULTS.md) retain all
+candidate and baseline failures rather than replacing unsuccessful controls.
+
+Eighty-five archived coordinate comparisons and the recorded failure point pass
+their declared checks; the formerly failed density fit now completes under its
+original cap. These consumed cases are numerical diagnostics. Raw-row and
+reordered-basis checks share the new algebra; they are not an independent
+arbitrary-precision NFL solve. Both full artifacts reconstruct with network
+access disabled, and software regression tests require the complete preferred
+control gate. The near-alias residual error lies close to its strict bound, so
+platform/implementation regressions must fail visibly rather than weaken it.
+
+No new numerical-error coverage experiment, full posterior pilot, player
+calibration or admission follows automatically. The next functional comparison
+must be frozen separately with independent randomizations and unchanged scientific
+limits. Keep Week 10 sealed and the failed prior versions immutable.
+
+
+The [residual amendment](CONDITIONAL_RESIDUAL_AMENDMENT.md), frozen at `92d21ea`,
+requires the repaired candidate to pass the original 72 controls plus 72 controls
+from the new declared response seed. All 144 pass locally against independent
+80-/110-digit answers. The original 1e-9 quadratic limit remains unchanged;
+platform failure is never grounds for skipping this gate. Archived equivalence,
+failed-fit completion, offline replay and hosted Python portability must be reported
+separately for this amended candidate. Original results cannot authorize it by
+inheritance. No new football outcomes or post-result coverage tuning are used.

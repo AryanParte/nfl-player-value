@@ -72,15 +72,26 @@ a 9.66e-24 precision lost at matrix roundoff scale. No jitter, prior change or
 scoring admission follows. Primary models, predictions and season ledgers retain
 their earlier object hashes.
 
-Next substantial unit: freeze a target-preserving conditional-factorization
-repair/equivalence study using exact aliases, weak precisions and independent
-known answers. Resolve that concrete failure before another proposal search.
-Then diagnose remaining primary/reference disagreement under separately declared
-randomizations and budgets; do not automatically enlarge primary nets or select
-a favorable density pilot. Numerical reliability precedes the unfinished 192-fit
-calibration, prospective evidence and observational admission. Week 10 stays
-sealed. Defense remains mandatory; November 13 metadata still finds no
-2026-named asset in the checked participation release, not all-provider absence.
+November 14 implements the [conditional-solver repair](docs/CONDITIONAL_SOLVER_RESULTS.md).
+Exact rational alias reduction preserves proper-prior uncertainty while a
+square-root factorization avoids losing tiny precisions. A hosted near-alias
+failure prompted a separately frozen original-residual correction. The repaired
+candidate passes 144/144 known answers (including 72 fresh synthetic responses)
+and 85/85 archived equivalence coordinates, with all original limits unchanged.
+The first compensated fit times out at 3,514 evaluations; one frozen exact-output
+throughput repair completes the same fit in 4,938 evaluations / 621.6 seconds,
+inside the original cap. Both attempts remain visible. This is arithmetic repair, not
+full numerical integration, player calibration or scoring admission.
+
+Next substantial unit: freeze a repaired-kernel functional comparison with
+independent randomizations and bounded work. Diagnose primary/reference
+agreement and reference imprecision before the unfinished 192-fit calibration,
+prospective evidence and observational admission. Do not automatically enlarge
+primary nets or select a favorable proposal. The latest integrated QB accuracy
+result remains a failure at 0.014228 SD / 0.001308 CDF. Week 10 stays sealed.
+Defense remains mandatory; its latest participation metadata check is November 13,
+not a newly refreshed or all-provider coverage claim. PR #27 remains open and the
+conditional-solver branch is explicitly stacked on it; modeling continued.
 
 PRs #18–#26 are merged; main CI passed. Authenticated Pages/bootstrap access remains
 unavailable, so deployment cannot hold up modeling. Produce the first admitted,

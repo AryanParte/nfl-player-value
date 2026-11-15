@@ -45,18 +45,25 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read `docs/DENSITY_HOLDOUT_RESULTS.md` and its frozen
-plans; preserve all earlier failures. Five known-answer coverage gates pass, but
-the archived numerical pilot retains one pass and four failures. Stabilization
-improves average density overlap but does not guarantee functional accuracy or
-stable individual pilots. The real QB check remains 0.014228 SD / 0.001308 CDF
-against unchanged 0.01 / 0.001 limits; no confidence set establishes primary bias.
-The failed prior-stress factorization reproduces at a 9.66e-24 precision, below
-matrix roundoff scale. Next freeze a target-preserving conditional-solver
-repair/equivalence study with exact-alias/weak-precision known answers. Do not
-substitute zero likelihood, add arbitrary jitter, change priors or select another
-seed to erase the failure. Retain the original artifacts, then diagnose remaining
-primary/reference disagreement with independent declared randomizations/budgets.
+For active recovery evidence, read `docs/CONDITIONAL_SOLVER_RESULTS.md` and its
+frozen plan and residual amendment. Hosted CI exposed a near-alias residual
+failure after the first local pass. The separately frozen compensated-original-
+residual candidate passes 144 known-answer cases (72 regression / 72 fresh
+synthetic responses) and 85 archived equivalence coordinates, with unchanged
+limits. The first compensated fit times out; a separately frozen caching repair
+completes the same fit in 621.6 seconds under the unchanged cap, retaining identical
+archived case outputs. The complete amended report reconstructs byte-exactly
+with networking disabled. Preserve both attempts and account for the added compute
+cost when freezing the next unit. Use only its explicitly versioned evidence,
+for subsequent work. Preserve every original failure/artifact; this remains an
+opt-in numerical kernel, not a default scoring change. Do not repeat the completed
+conditional-repair study as the next milestone or assert that it certifies every possible tail/configuration.
+Next freeze a functional numerical comparison using the repaired kernel, with
+independent randomizations and bounded work, before new player calibration.
+The latest full QB reference still fails 0.014228 SD / 0.001308 CDF against
+unchanged 0.01 / 0.001 limits. The new conditional study did not recompute it.
+No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
+selection is permitted. Preserve negative season values and benchmark covariance.
 Recompute failure decompositions from raw replicates in the declared prior-setting
 order; sorted JSON keys are not the integrand's functional order.
 Do not automatically enlarge primary samples or call reused cases fresh validation.

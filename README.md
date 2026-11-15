@@ -8,19 +8,22 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-The November 13 [density-stabilization study](docs/DENSITY_HOLDOUT_RESULTS.md)
-passes five known-answer numerical-error coverage controls and improves average
-sampling overlap on difficult archived targets. The real QB accuracy gate still
-fails; the team control passes, and a traced stress failure exposes an
-ill-conditioned conditional solve. All results reproduce offline. This is a
-numerical diagnosis, not calibrated attribution or a usable ranking.
+The November 14 [conditional-solver study](docs/CONDITIONAL_SOLVER_RESULTS.md)
+repairs the observed factorization failure without changing the model. Hosted CI
+then exposed a near-alias residual error; a separately frozen compensated-residual
+repair passes 144 independent known-answer cases and all 85 archived coordinate
+comparisons, and completes the formerly blocked fit under its original runtime
+cap. Original failures remain recorded, with unchanged acceptance limits.
+Full numerical integration and player calibration remain unfinished; no new
+posterior fit or admitted ranking follows from this arithmetic milestone.
 Signed season accounting, the first-unit and both sensitivity benchmarks, and
 separate qualification remain intact for 57 QBs / 122 archived games ending
 November 7. **All 17 modules remain unadmitted.** Defense Explorer and defensive
-coverage remain required. November 13 checks still find no Pages site and a
-signed-out browser; first bootstrap is outstanding. PRs #18–#26 are merged.
-See the [milestones](docs/MILESTONES.md), [results](docs/DENSITY_HOLDOUT_RESULTS.md)
-and [learning report](docs/learning/2026-11-13.md). Week 10 stays sealed.
+coverage remain required. November 14 metadata still finds no Pages site; the
+latest inspected Explorer run requires first bootstrap. PRs #18–#26 are merged;
+the solver branch is stacked on open PR #27.
+See the [milestones](docs/MILESTONES.md), [results](docs/CONDITIONAL_SOLVER_RESULTS.md)
+and [learning report](docs/learning/2026-11-14.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit
