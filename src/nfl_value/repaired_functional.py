@@ -160,10 +160,27 @@ def validate_known(result):
 
 
 def save(output, result, revision, *, expected_kernel=None):
+    from nfl_value.ingestion import MAX_DOWNLOAD_BYTES
+
     validate_plan(result["plan"])
     executing_kernel = kernel_hash()
     if expected_kernel is not None and expected_kernel != executing_kernel:
         raise ValueError("statistical source changed during execution")
+    body = json_bytes(result)
+    if len(body) > MAX_DOWNLOAD_BYTES:
+        cases = result["cases"]
+        if not isinstance(cases, (list, dict)) or not cases:
+            raise ValueError("large study requires complete case objects")
+        entries = enumerate(cases) if isinstance(cases, list) else cases.items()
+        body = json_bytes(
+            dict(
+                storage_format="repaired-functional-case-index-v1",
+                header={k: v for k, v in result.items() if k != "cases"},
+                case_kind="list" if isinstance(cases, list) else "mapping",
+                cases=[[str(k), output.put(json_bytes(v))] for k, v in entries],
+                logical_sha256=sha256(body),
+            )
+        )
     manifest = dict(
         experiment=result["experiment"],
         plan=result["plan"],
@@ -171,7 +188,7 @@ def save(output, result, revision, *, expected_kernel=None):
         code_revision=revision,
         kernel_sha256=executing_kernel,
         environment=environment({"plan_version": 2}),
-        objects={"study": output.put(json_bytes(result))},
+        objects={"study": output.put(body)},
         ranking_ready=False,
     )
     return output.put(json_bytes(manifest), manifest=True), manifest
@@ -188,6 +205,29 @@ def load(output, rid):
     ):
         raise ValueError("saved study environment or executing statistical code differs")
     result = json.loads(output.read(manifest["objects"]["study"]))
+    if "storage_format" in result:
+        index = result
+        if (
+            set(index) != {"storage_format", "header", "case_kind", "cases", "logical_sha256"}
+            or index["storage_format"] != "repaired-functional-case-index-v1"
+            or index["case_kind"] not in ("list", "mapping")
+            or not isinstance(index["header"], dict)
+            or "cases" in index["header"]
+            or not isinstance(index["cases"], list)
+            or len(index["cases"]) != 5
+            or any(not isinstance(x, list) or len(x) != 2 for x in index["cases"])
+        ):
+            raise ValueError("invalid complete study case index")
+        names = [x[0] for x in index["cases"]]
+        if any(not isinstance(k, str) for k in names) or len(set(names)) != len(names):
+            raise ValueError("invalid study case index names")
+        if index["case_kind"] == "list" and names != [str(i) for i in range(5)]:
+            raise ValueError("study case index order differs")
+        values = [json.loads(output.read(digest)) for _, digest in index["cases"]]
+        cases = values if index["case_kind"] == "list" else dict(zip(names, values))
+        result = dict(index["header"], cases=cases)
+        if sha256(json_bytes(result)) != index["logical_sha256"]:
+            raise ValueError("reconstructed logical study hash differs")
     if result["experiment"] != manifest["experiment"] or json_bytes(result["plan"]) != json_bytes(
         manifest["plan"]
     ):
