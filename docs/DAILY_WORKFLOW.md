@@ -45,23 +45,30 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read `docs/CONDITIONAL_SOLVER_RESULTS.md` and its
-frozen plan and residual amendment. Hosted CI exposed a near-alias residual
-failure after the first local pass. The separately frozen compensated-original-
-residual candidate passes 144 known-answer cases (72 regression / 72 fresh
-synthetic responses) and 85 archived equivalence coordinates, with unchanged
-limits. The first compensated fit times out; a separately frozen caching repair
-completes the same fit in 621.6 seconds under the unchanged cap, retaining identical
-archived case outputs. The complete amended report reconstructs byte-exactly
-with networking disabled. Preserve both attempts and account for the added compute
-cost when freezing the next unit. Use only its explicitly versioned evidence,
-for subsequent work. Preserve every original failure/artifact; this remains an
-opt-in numerical kernel, not a default scoring change. Do not repeat the completed
-conditional-repair study as the next milestone or assert that it certifies every possible tail/configuration.
-Next freeze a functional numerical comparison using the repaired kernel, with
-independent randomizations and bounded work, before new player calibration.
-The latest full QB reference still fails 0.014228 SD / 0.001308 CDF against
-unchanged 0.01 / 0.001 limits. The new conditional study did not recompute it.
+For active recovery evidence, read [the results](REPAIRED_FUNCTIONAL_RESULTS.md) and its
+frozen plans. The conditional repair is complete for its declared scope: 144
+known answers and 85 archived coordinates pass; the original failures remain.
+The repaired functional study now completes all controls and archived cases.
+After a verified restoration fix, the original allocation still under-covers one
+known endpoint. The single frozen equal-work alternative passes all five controls
+on 5,120 trials. Both complete numerical executions hit the aggregate-object size
+limit; source-verified staged recovery retains every replicate without changing
+computation or raising the 128 MiB bound. Control and NFL reconstructions are
+byte-exact, with numerical producer and packaging provenance distinct.
+
+Only the team control passes the five-case NFL pilot. Primary QB accuracy is
+0.015977 posterior SD / 0.001242 CDF including numerical error, against unchanged
+0.01 / 0.001 limits. Point discrepancies all pass; reference uncertainty prevents
+certification. The measured imprecision is almost entirely coarse integration.
+Do not repeat the completed solver repair, run another unplanned allocation
+retry, or increase fine-evaluation work as though it fixes coarse variance.
+Next freeze a bounded coarse-integral variance-reduction candidate: independently
+fitted zero-mean control variates with known expectations, separate fitting and
+fresh evaluation draws, unchanged coverage/precision gates and all five archived
+cases. That candidate is not yet implemented or validated. Keep known-answer
+coverage, numerical accuracy, player calibration and admission decisions separate.
+Preserve the entire failure sequence and all immutable primary artifacts.
+
 No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
 selection is permitted. Preserve negative season values and benchmark covariance.
 Recompute failure decompositions from raw replicates in the declared prior-setting
