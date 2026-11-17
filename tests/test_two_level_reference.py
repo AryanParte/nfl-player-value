@@ -73,6 +73,8 @@ class TwoLevelTests(unittest.TestCase):
             validate_plan({**alternative, "base_seed": first["base_seed"]})
 
     def test_known_runner_restores_the_fixture_policy_not_the_nfl_prior(self):
+        from nfl_value.coarse_control_study import known as controlled_known
+
         geometry = dict(
             pilot_initial_geometry=dict(mode=[0.0, 0.0], covariance=np.eye(2).tolist()),
             component_means=np.zeros((3, 2)).tolist(),
@@ -89,14 +91,22 @@ class TwoLevelTests(unittest.TestCase):
             np.testing.assert_array_equal(sampling.prior_covariance, 9 * np.eye(2))
             raise RuntimeError("probe reached exact fixture proposal")
 
-        with (
-            patch(
-                "nfl_value.repaired_functional.known_parents", return_value=(certificate, density)
+        for module, runner, integrator, settings in (
+            ("repaired_functional", known, "integrate", plan()),
+            (
+                "coarse_control_study",
+                controlled_known,
+                "integrate_controlled",
+                json.loads(Path("config/coarse-control-v1.json").read_text()),
             ),
-            patch("nfl_value.repaired_functional.integrate", side_effect=inspect),
         ):
-            with self.assertRaisesRegex(RuntimeError, "probe reached"):
-                known(plan())
+            with (
+                self.subTest(runner=module),
+                patch(f"nfl_value.{module}.known_parents", return_value=(certificate, density)),
+                patch(f"nfl_value.{module}.{integrator}", side_effect=inspect),
+            ):
+                with self.assertRaisesRegex(RuntimeError, "probe reached"):
+                    runner(settings)
 
     def test_raw_levels_failure_denominator_and_archive_gate_cannot_be_forged(self):
         p = plan()

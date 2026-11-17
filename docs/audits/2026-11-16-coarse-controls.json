@@ -1226,6 +1226,7 @@
   },
   "controls_passed": true,
   "numerical_pilot_passed": null,
+  "calibration_completed": false,
   "ranking_ready": false,
   "analysis": "paired_consumed_numerical_diagnostics_not_player_calibration",
   "numerical_variance_diagnostic": "sample variance of numerator minus known ratio times mass, divided by replicate count and squared mean mass; mass column uses direct variance",

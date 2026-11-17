@@ -372,3 +372,11 @@ Pointwise regression does not necessarily minimize randomized-integration error;
 objectives. The paired unadjusted calculation is retained as a diagnostic, never
 selected after observing a favorable result. Numerical confidence remains separate
 from player uncertainty, observational identification and position admission.
+
+The [completed results](COARSE_CONTROL_RESULTS.md) pass all known-answer numerical
+coverage gates but fail four of five archived comparisons. Independent offline
+reconstruction is exact. The tested pointwise-fit candidate is not adopted for
+certification or player calibration; its passing team control is not an individual
+CAVAA module. The paired plain comparison prevents attributing a seed-to-seed
+improvement to the new method. All priors, primary artifacts and admission rules
+remain unchanged.

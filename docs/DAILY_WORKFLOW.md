@@ -45,29 +45,28 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read [the results](REPAIRED_FUNCTIONAL_RESULTS.md) and its
-frozen plans. The conditional repair is complete for its declared scope: 144
-known answers and 85 archived coordinates pass; the original failures remain.
-The repaired functional study now completes all controls and archived cases.
-After a verified restoration fix, the original allocation still under-covers one
-known endpoint. The single frozen equal-work alternative passes all five controls
-on 5,120 trials. Both complete numerical executions hit the aggregate-object size
-limit; source-verified staged recovery retains every replicate without changing
-computation or raising the 128 MiB bound. Control and NFL reconstructions are
-byte-exact, with numerical producer and packaging provenance distinct.
+For active recovery evidence, read the [coarse-control results](COARSE_CONTROL_RESULTS.md)
+and [frozen design](COARSE_CONTROL_VARIATES.md). The preceding conditional repair
+and repaired functional studies remain immutable history. The new pointwise-fitted
+zero-mean controls pass all five fresh known-answer gates; two complete executions
+match the manifest and all objects. The real-QB comparison still fails at
+0.013312 SD / 0.001137 CDF, against unchanged 0.01 / 0.001. Its same-draw plain
+comparison is almost identical and slightly better. A better result than a previous
+seed does not establish a method improvement. All five archived cases complete
+within their original work/time limits; only the team control passes. Both full
+offline executions reproduce the manifest and all six objects. The bounded
+candidate is rejected for numerical certification; do not repeat this study as
+though its existing checks or experiments were unfinished.
 
-Only the team control passes the five-case NFL pilot. Primary QB accuracy is
-0.015977 posterior SD / 0.001242 CDF including numerical error, against unchanged
-0.01 / 0.001 limits. Point discrepancies all pass; reference uncertainty prevents
-certification. The measured imprecision is almost entirely coarse integration.
-Do not repeat the completed solver repair, run another unplanned allocation
-retry, or increase fine-evaluation work as though it fixes coarse variance.
-Next freeze a bounded coarse-integral variance-reduction candidate: independently
-fitted zero-mean control variates with known expectations, separate fitting and
-fresh evaluation draws, unchanged coverage/precision gates and all five archived
-cases. That candidate is not yet implemented or validated. Keep known-answer
-coverage, numerical accuracy, player calibration and admission decisions separate.
-Preserve the entire failure sequence and all immutable primary artifacts.
+Paired measurements show that smaller pointwise regression error is insufficient
+for better randomized integration. The proposed next candidate fits using independent integration-
+replicate means, with matching net sizes and fixed work. Freeze that design,
+separate fitting/evaluation entropy and fresh known-answer coverage before results.
+It is not implemented or admitted. Do not select the paired plain comparator after
+seeing results, repeat favorable seeds, add basis complexity blindly, or allocate
+more fine work as though it fixes coarse imprecision. Preserve the whole failure
+sequence and unchanged primary artifacts. Known-answer coverage, numerical
+agreement, player calibration and observational admission are different decisions.
 
 No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
 selection is permitted. Preserve negative season values and benchmark covariance.

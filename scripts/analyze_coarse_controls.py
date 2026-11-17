@@ -231,6 +231,7 @@ def main():
         cases=archive_summary(result) if archived else summary(result),
         controls_passed=result.get("controls_passed"),
         numerical_pilot_passed=result.get("numerical_pilot_passed"),
+        calibration_completed=result["calibration_completed"],
         ranking_ready=False,
         analysis="paired_consumed_numerical_diagnostics_not_player_calibration",
         numerical_variance_diagnostic=(
@@ -239,6 +240,20 @@ def main():
             else "sample variance of numerator minus known ratio times mass, divided by replicate count and squared mean mass; mass column uses direct variance"
         ),
     )
+    if archived:
+        audit.update(
+            {
+                k: result[k]
+                for k in (
+                    "control_report",
+                    "previous_reference",
+                    "primary_objects",
+                    "source_provenance",
+                    "evidence_cutoff",
+                    "season",
+                )
+            }
+        )
     if args.reconstruction:
         audit["independent_reconstruction_identical"] = verify_reconstruction(
             output, SnapshotStore(args.reconstruction)

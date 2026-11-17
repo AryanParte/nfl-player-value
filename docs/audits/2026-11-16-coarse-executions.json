@@ -1,0 +1,92 @@
+{
+  "scope": "observed_execution_receipts_and_metadata_not_new_model_evidence",
+  "run_date_eastern": "2026-11-16",
+  "numerical_producer_controls": "6487dca932d541d7e89a6b62d0a6b1bde0978e2b",
+  "numerical_producer_archive": "892e567349f370749fe86ce1bdaebe20c70a6eb9",
+  "receipts": {
+    "controls": {
+      "stdout_log_sha256": "de46058231679de771c638dbfc1b307d4910c934d60ba8776f3bd7a269f4f182",
+      "cli_result": {
+        "report_id": "413cd13dffb1a5a3d4f2d9f2659a8f733216dec2a381931dfac8a746caa6244a",
+        "controls_passed": true,
+        "numerical_pilot_passed": null,
+        "timings": {
+          "0": 452.9133992921561,
+          "1": 506.55521016707644,
+          "2": 575.391858750023,
+          "3": 591.1634305419866,
+          "4": 486.70469783316366
+        },
+        "ranking_ready": false
+      },
+      "sum_case_seconds": 2612.7285965844058
+    },
+    "controls_reconstruction": {
+      "stdout_log_sha256": "7642b5d8b2dd3bc0580e467484fd40b5e04af1b3bbe101e3301bc19aa74bcb76",
+      "cli_result": {
+        "report_id": "413cd13dffb1a5a3d4f2d9f2659a8f733216dec2a381931dfac8a746caa6244a",
+        "controls_passed": true,
+        "numerical_pilot_passed": null,
+        "timings": {
+          "0": 451.57601633295417,
+          "1": 505.7544358340092,
+          "2": 574.5411773328669,
+          "3": 590.2436097920872,
+          "4": 485.8455572910607
+        },
+        "ranking_ready": false
+      },
+      "sum_case_seconds": 2607.960796582978
+    },
+    "archive": {
+      "stdout_log_sha256": "88aff15e28b6c11241ac6ec11efff3676109a75a2853c98946770bce2a3cb300",
+      "cli_result": {
+        "report_id": "386f7ac8b89a6873c5ac0e41bf3ca150fcb063bbfd6f665367346c77f4e839fb",
+        "controls_passed": null,
+        "numerical_pilot_passed": false,
+        "timings": {
+          "real_evolving": 890.3309063750785,
+          "real_team": 326.45657283300534,
+          "continuous_prior_0": 852.6074733338319,
+          "continuous_hierarchy_0": 870.0597080830485,
+          "fixed_year_changes_0": 1591.9530592910014
+        },
+        "ranking_ready": false
+      },
+      "sum_case_seconds": 4531.407719915966
+    },
+    "archive_reconstruction": {
+      "stdout_log_sha256": "23ade2998b53d9b19e155f87440a2ae1fdd68f9283f0466893bc00dc621b3fae",
+      "cli_result": {
+        "report_id": "386f7ac8b89a6873c5ac0e41bf3ca150fcb063bbfd6f665367346c77f4e839fb",
+        "controls_passed": null,
+        "numerical_pilot_passed": false,
+        "timings": {
+          "real_evolving": 890.2597365831025,
+          "real_team": 327.0409357920289,
+          "continuous_prior_0": 852.4772552498616,
+          "continuous_hierarchy_0": 870.5073795409407,
+          "fixed_year_changes_0": 1591.5723624578677
+        },
+        "ranking_ready": false
+      },
+      "sum_case_seconds": 4531.8576696238015
+    }
+  },
+  "metadata_observations": {
+    "date_eastern": "2026-11-16",
+    "repository": {
+      "url": "https://api.github.com/repos/AryanParte/nfl-player-value",
+      "has_pages": false,
+      "default_branch": "main"
+    },
+    "participation_release": {
+      "url": "https://api.github.com/repos/nflverse/nflverse-data/releases/71636554",
+      "assets": 46,
+      "current_season_named_assets": [],
+      "scope": "checked release filenames only; not all-provider absence or game-level coverage"
+    }
+  },
+  "calibration_completed": false,
+  "ranking_ready": false
+}

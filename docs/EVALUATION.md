@@ -428,3 +428,11 @@ The study retains raw adjusted/unadjusted/correction vectors, coefficient hashes
 training-draw hashes and all gates. Reconstruct independently with networking
 blocked and preserve failed artifacts. Football data still ends November 7 evening;
 these are fresh numerical draws on consumed targets, not new football validation.
+
+The [completed results](COARSE_CONTROL_RESULTS.md) pass all known-answer numerical
+coverage gates but fail four of five archived comparisons. Independent offline
+reconstruction is exact. The tested pointwise-fit candidate is not adopted for
+certification or player calibration; its passing team control is not an individual
+CAVAA module. The paired plain comparison prevents attributing a seed-to-seed
+improvement to the new method. All priors, primary artifacts and admission rules
+remain unchanged.

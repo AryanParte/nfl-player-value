@@ -38,9 +38,13 @@ and exact mixture masses. No truncation, empirical replacement of the known
 expectation or zero-likelihood substitution. Validate these identities against
 independent Gaussian quadrature and signed analytical test functions.
 
-Fit one coefficient matrix per case/trial on **4,096 independent stratified
-proposal draws**, equally allocated to the four components, with component masses
-in the fitting weights. Fit an unpenalized intercept by weighted centering.
+Fit one coefficient matrix per case/trial on **4,096 stratified proposal draws
+independent of evaluation**, equally allocated to the four components, with component masses
+in the fitting weights. The pre-trial implementation uses scrambled Sobol nets;
+points within a net are dependent. Independence refers to fitting versus evaluation
+and to separate randomized replicates. This wording clarification changes no
+pre-trial sampler, design parameter or acceptance rule. Fit an unpenalized
+intercept by weighted centering.
 Scale columns by weighted empirical standard deviations; exactly constant
 columns receive zero coefficients. Use SVD ridge with penalty
 1e-6 times the largest squared singular value. No coefficient or basis selection,
