@@ -94,3 +94,27 @@ proposing a future design. Do not retry favorable seeds, widen intervals, change
 football priors or add basis complexity to obtain a pass. Participation,
 defensive comparability and the unified product remain required milestones.
 No deployment, automation, paid service or other-project change belongs here.
+
+## Packaging correction before full re-execution
+
+The first two targets passed in both executions of source cc83843. Target 2
+reached 1,024 trials, then its checkpoint exceeded the unchanged 128 MiB object
+limit; it was not saved and its gate is not certified. There is no complete
+control manifest and no archived NFL access from those attempts. Original logs
+and the two saved cases in each store are preserved in the failure audit.
+
+The correction stores an oversized case as contiguous blocks of at most 64
+complete trial records, with adaptive subdivision if a block exceeds the cap.
+Every object remains bounded; an oversized individual trial still fails. Indices
+bind order, counts, byte hashes and the original complete logical case hash.
+Checkpoints reference cases instead of embedding a second oversized copy.
+Corrupt, omitted, reordered or changed blocks fail validation.
+
+No integrand, fitting method, seed, trial count, threshold, target or benchmark
+changes. The complete package source fingerprint does change, so **all five
+targets are recomputed under the corrected committed source**, twice offline.
+Do not reuse the partial old output as a current certificate or relax the source
+guard. Compare the first two rebuilt cases with their retained original records.
+This is repair of a storage failure, not new independent statistical evidence
+from another seed. Archived builds will run sequentially to limit local resource
+contention; their original evaluation and time caps remain unchanged.

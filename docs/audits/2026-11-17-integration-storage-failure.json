@@ -1,0 +1,262 @@
+{
+  "attempts": [
+    {
+      "exit_code": 1,
+      "log_sha256": "a7a29e38ff89b6e27f95d73a37481be359bc08d2e5225cd1e8396bbdeaabfffd",
+      "retained_cases": [
+        {
+          "case": "0",
+          "case_sha256": "447cb9d5c0a646400c345bd0b9d8e3277a55eb7faf1443e3f52ead9d798e9fe6",
+          "checkpoint_sha256": "aa62b861c07bee5661cffef7d2ddbb724e1335e9a44d4d1d8a4eb7b6c8036708",
+          "complete": 1024,
+          "decision": {
+            "bias": [
+              -2.4606938819893287e-07,
+              5.866730251310902e-06,
+              -9.558983240443593e-06,
+              -1.2189912357782329e-06,
+              -7.573267748334223e-08,
+              -4.1037285114509103e-07,
+              -5.622818449735334e-07
+            ],
+            "complete": 1024,
+            "empirical_sd": [
+              9.141001193697713e-05,
+              0.00015229166149304744,
+              0.00015606439417361863,
+              5.0414650969539194e-05,
+              2.9489377250297775e-05,
+              3.830122636532224e-05,
+              2.939238753448484e-05
+            ],
+            "joint_undercoverage_pvalue": 0.5883700431522605,
+            "marginal_coverage": [
+              0.947265625,
+              0.9541015625,
+              0.955078125,
+              0.943359375,
+              0.95703125,
+              0.9462890625,
+              0.947265625
+            ],
+            "marginal_undercoverage_pvalues": [
+              0.36359349461725937,
+              0.7460553278968169,
+              0.7911291947093705,
+              0.1820146515983746,
+              0.8664757758264041,
+              0.3121426125710412,
+              0.36359349461725937
+            ],
+            "maximum_replicate_mass_share": 0.015686332344807978,
+            "passed": true,
+            "precision_fraction": 1.0,
+            "simultaneous_coverage": 0.951171875,
+            "simultaneous_coverage_one_sided_95_lower": 0.9386001864261831,
+            "trials": 1024,
+            "wrong_endpoint_rejections": 1024
+          }
+        },
+        {
+          "case": "1",
+          "case_sha256": "4739c083e19e9d4d234a7de83251d4cf7ef71f3628d10091fb74001beb204950",
+          "checkpoint_sha256": "55b6e763af9be2502522e0483cb3532baf8d90edeb76d179a5504743c85ef7f5",
+          "complete": 1024,
+          "decision": {
+            "bias": [
+              -2.6392296880173305e-06,
+              -7.740008890096579e-06,
+              2.6899744709723646e-06,
+              -1.4419624585100543e-06,
+              -3.69997601862293e-08,
+              1.2187450207923334e-06,
+              -1.3573203924144295e-06
+            ],
+            "complete": 1024,
+            "empirical_sd": [
+              0.00019114356211395568,
+              0.0002443232110762709,
+              0.0003052543809437031,
+              7.152327581935322e-05,
+              3.0437283463571707e-05,
+              5.276865626924354e-05,
+              2.8365450973177364e-05
+            ],
+            "joint_undercoverage_pvalue": 0.8664757758264041,
+            "marginal_coverage": [
+              0.9462890625,
+              0.9482421875,
+              0.9462890625,
+              0.947265625,
+              0.9404296875,
+              0.9619140625,
+              0.9521484375
+            ],
+            "marginal_undercoverage_pvalues": [
+              0.3121426125710412,
+              0.41795869027063265,
+              0.3121426125710412,
+              0.36359349461725937,
+              0.09362133209722248,
+              0.9698306060578599,
+              0.6438086202536526
+            ],
+            "maximum_replicate_mass_share": 0.015726473241018744,
+            "passed": true,
+            "precision_fraction": 1.0,
+            "simultaneous_coverage": 0.95703125,
+            "simultaneous_coverage_one_sided_95_lower": 0.9450945590666826,
+            "trials": 1024,
+            "wrong_endpoint_rejections": 1024
+          }
+        }
+      ],
+      "store": "data/derived/integration-controls",
+      "terminal_error": "stored object exceeds size limit",
+      "unattempted_targets": [
+        3,
+        4
+      ],
+      "unsaved_target": 2
+    },
+    {
+      "exit_code": 1,
+      "log_sha256": "a7a29e38ff89b6e27f95d73a37481be359bc08d2e5225cd1e8396bbdeaabfffd",
+      "retained_cases": [
+        {
+          "case": "0",
+          "case_sha256": "447cb9d5c0a646400c345bd0b9d8e3277a55eb7faf1443e3f52ead9d798e9fe6",
+          "checkpoint_sha256": "aa62b861c07bee5661cffef7d2ddbb724e1335e9a44d4d1d8a4eb7b6c8036708",
+          "complete": 1024,
+          "decision": {
+            "bias": [
+              -2.4606938819893287e-07,
+              5.866730251310902e-06,
+              -9.558983240443593e-06,
+              -1.2189912357782329e-06,
+              -7.573267748334223e-08,
+              -4.1037285114509103e-07,
+              -5.622818449735334e-07
+            ],
+            "complete": 1024,
+            "empirical_sd": [
+              9.141001193697713e-05,
+              0.00015229166149304744,
+              0.00015606439417361863,
+              5.0414650969539194e-05,
+              2.9489377250297775e-05,
+              3.830122636532224e-05,
+              2.939238753448484e-05
+            ],
+            "joint_undercoverage_pvalue": 0.5883700431522605,
+            "marginal_coverage": [
+              0.947265625,
+              0.9541015625,
+              0.955078125,
+              0.943359375,
+              0.95703125,
+              0.9462890625,
+              0.947265625
+            ],
+            "marginal_undercoverage_pvalues": [
+              0.36359349461725937,
+              0.7460553278968169,
+              0.7911291947093705,
+              0.1820146515983746,
+              0.8664757758264041,
+              0.3121426125710412,
+              0.36359349461725937
+            ],
+            "maximum_replicate_mass_share": 0.015686332344807978,
+            "passed": true,
+            "precision_fraction": 1.0,
+            "simultaneous_coverage": 0.951171875,
+            "simultaneous_coverage_one_sided_95_lower": 0.9386001864261831,
+            "trials": 1024,
+            "wrong_endpoint_rejections": 1024
+          }
+        },
+        {
+          "case": "1",
+          "case_sha256": "4739c083e19e9d4d234a7de83251d4cf7ef71f3628d10091fb74001beb204950",
+          "checkpoint_sha256": "55b6e763af9be2502522e0483cb3532baf8d90edeb76d179a5504743c85ef7f5",
+          "complete": 1024,
+          "decision": {
+            "bias": [
+              -2.6392296880173305e-06,
+              -7.740008890096579e-06,
+              2.6899744709723646e-06,
+              -1.4419624585100543e-06,
+              -3.69997601862293e-08,
+              1.2187450207923334e-06,
+              -1.3573203924144295e-06
+            ],
+            "complete": 1024,
+            "empirical_sd": [
+              0.00019114356211395568,
+              0.0002443232110762709,
+              0.0003052543809437031,
+              7.152327581935322e-05,
+              3.0437283463571707e-05,
+              5.276865626924354e-05,
+              2.8365450973177364e-05
+            ],
+            "joint_undercoverage_pvalue": 0.8664757758264041,
+            "marginal_coverage": [
+              0.9462890625,
+              0.9482421875,
+              0.9462890625,
+              0.947265625,
+              0.9404296875,
+              0.9619140625,
+              0.9521484375
+            ],
+            "marginal_undercoverage_pvalues": [
+              0.3121426125710412,
+              0.41795869027063265,
+              0.3121426125710412,
+              0.36359349461725937,
+              0.09362133209722248,
+              0.9698306060578599,
+              0.6438086202536526
+            ],
+            "maximum_replicate_mass_share": 0.015726473241018744,
+            "passed": true,
+            "precision_fraction": 1.0,
+            "simultaneous_coverage": 0.95703125,
+            "simultaneous_coverage_one_sided_95_lower": 0.9450945590666826,
+            "trials": 1024,
+            "wrong_endpoint_rejections": 1024
+          }
+        }
+      ],
+      "store": "data/derived/integration-controls-offline",
+      "terminal_error": "stored object exceeds size limit",
+      "unattempted_targets": [
+        3,
+        4
+      ],
+      "unsaved_target": 2
+    }
+  ],
+  "calibration_completed": false,
+  "kernel_sha256": "8dc48b0ac62582f4be7df453850f6b637c9ee5d5f2a216b6eec57e34afa3424d",
+  "nfl_data_used": false,
+  "plan_sha256": "27e2f79434940d308552469bf27f8a9083d14413fe67f7b6e316c43e3a581e0f",
+  "producer_revision": "cc8384349645297df61946a949f4a9397e683d4c",
+  "ranking_ready": false,
+  "status": "packaging_failed_no_complete_control_certificate",
+  "unchanged_limit_bytes": 134217728,
+  "unchanged_numerical_functions": [
+    "known",
+    "validate_known",
+    "archive",
+    "validate_archive",
+    "authorize",
+    "validate_fit"
+  ],
+  "unchanged_numerical_modules": {
+    "src/nfl_value/control_variates.py": "6e00e4f1c00dfdea719e0bddd0dfe42077fd371a7488577f2ff5e085ed13a385",
+    "src/nfl_value/integration_controls.py": "99d97736568962f1e1363d6cafa9fc383e7cdfd64ef75ca08241dc8c6ca1b970"
+  }
+}

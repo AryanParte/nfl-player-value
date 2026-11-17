@@ -23,6 +23,7 @@ from nfl_value.replicated_reference import (
 from nfl_value.two_level_reference import combine, restore_proposal, sampling_hash
 from nfl_value.control_variates import integrate_controlled
 from nfl_value.variance_reference import BudgetExceeded
+from nfl_value.study_blocks import put_case, read_case
 
 
 PLAN_HASHES = {
@@ -243,7 +244,7 @@ def save(output, result, revision, *, expected_kernel=None):
                 storage_format="coarse-control-case-index-v1",
                 header={k: v for k, v in result.items() if k != "cases"},
                 case_kind="list" if isinstance(cases, list) else "mapping",
-                cases=[[str(k), output.put(json_bytes(v))] for k, v in entries],
+                cases=[[str(k), put_case(output, v)] for k, v in entries],
                 logical_sha256=sha256(body),
             )
         )
@@ -289,7 +290,7 @@ def load(output, rid):
             raise ValueError("invalid study case index names")
         if index["case_kind"] == "list" and names != [str(i) for i in range(5)]:
             raise ValueError("study case index order differs")
-        values = [json.loads(output.read(digest)) for _, digest in index["cases"]]
+        values = [read_case(output, digest) for _, digest in index["cases"]]
         cases = values if index["case_kind"] == "list" else dict(zip(names, values))
         result = dict(index["header"], cases=cases)
         if sha256(json_bytes(result)) != index["logical_sha256"]:

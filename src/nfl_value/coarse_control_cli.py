@@ -9,6 +9,7 @@ import sys
 import numpy as np
 
 from nfl_value.ingest_cli import committed_revision
+from nfl_value.study_blocks import checkpoint
 from nfl_value.ingestion import SnapshotStore, json_bytes
 from nfl_value.coarse_control_study import (
     archive,
@@ -58,9 +59,7 @@ def main(argv=None):
             result, timings = known(
                 plan,
                 progress,
-                lambda name, r: output.put(
-                    json_bytes(dict(code_revision=revision, case=name, record=r))
-                ),
+                lambda name, r: checkpoint(output, revision, name, r),
             )
             validate_known(result)
         else:
@@ -69,9 +68,7 @@ def main(argv=None):
                 controls,
                 control_id,
                 progress,
-                lambda name, r: output.put(
-                    json_bytes(dict(code_revision=revision, case=name, record=r))
-                ),
+                lambda name, r: checkpoint(output, revision, name, r),
             )
             validate_archive(result)
         rid, manifest = save(output, result, revision, expected_kernel=executing_kernel)
