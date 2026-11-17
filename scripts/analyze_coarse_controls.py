@@ -56,6 +56,42 @@ def delta_variance(raw):
     return variance.mean(axis=0)
 
 
+def integration_diagnostics(fits):
+    """Descriptive training evidence, never validation or selection."""
+    records = [fit["integration_fit"] for fit in fits]
+    alpha = np.asarray([r["alpha"] for r in records], float)
+    f = np.asarray([r["function_means"] for r in records], float)
+    h = np.asarray([r["control_means"] for r in records], float)
+    if (
+        alpha.ndim != 2
+        or f.ndim != 3
+        or f.shape != h.shape
+        or alpha.shape != (f.shape[0], f.shape[2])
+        or f.shape[1] < 2
+        or not all(np.isfinite(x).all() for x in (alpha, f, h))
+    ):
+        raise ValueError("complete finite integration training records required")
+    fc, hc = f - f.mean(axis=1, keepdims=True), h - h.mean(axis=1, keepdims=True)
+    residual = fc - alpha[:, None, :] * hc
+    before, after = np.sum(fc * fc, axis=1), np.sum(residual * residual, axis=1)
+    valid = before > 0
+    relative = after[valid] / before[valid]
+    return dict(
+        fits=len(fits),
+        functionals_per_fit=alpha.shape[1],
+        training_replicates=f.shape[1],
+        alpha_quantiles=np.quantile(alpha, [0, 0.05, 0.5, 0.95, 1], axis=0).tolist(),
+        negative_alpha_count=int(np.count_nonzero(alpha < 0)),
+        zero_alpha_count=int(np.count_nonzero(alpha == 0)),
+        defined_training_variance_ratios=int(valid.sum()),
+        undefined_training_variance_ratios=int((~valid).sum()),
+        training_variance_ratio_quantiles=(
+            np.quantile(relative, [0, 0.05, 0.5, 0.95, 1]).tolist() if relative.size else None
+        ),
+        caveat="correlated training diagnostics; not held-out variance, independent evidence counts or gates",
+    )
+
+
 def summary(result):
     output = {}
     for case in result["cases"]:
@@ -109,6 +145,8 @@ def summary(result):
                 ).tolist(),
             )
             item.update(stats)
+            if result["plan"]["plan_version"] == 2:
+                item["integration_fit"] = integration_diagnostics([r["fit"] for r in paired])
         output[str(case["target"])] = item
     return output
 
@@ -179,10 +217,16 @@ def archive_summary(result):
                 adjusted_checks=r["reference"]["checks"],
                 adjusted_diagnosis=r["diagnosis"],
                 influence=influence_diagnostics(r),
-                fit={k: v for k, v in r["fit"].items() if k != "coefficients"},
+                fit={
+                    k: v
+                    for k, v in r["fit"].items()
+                    if k not in ("coefficients", "integration_fit")
+                },
                 plain_status=r["plain_reference"]["status"],
                 maximum_relative_mass_correction=r["maximum_relative_mass_correction"],
             )
+            if result["plan"]["plan_version"] == 2:
+                item["fit"]["integration_fit"] = integration_diagnostics([r["fit"]])
             if r["plain_reference"]["status"] == "complete":
                 reference = r["plain_reference"]["reference"]
                 item.update(

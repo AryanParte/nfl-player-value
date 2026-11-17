@@ -436,3 +436,21 @@ certification or player calibration; its passing team control is not an individu
 CAVAA module. The paired plain comparison prevents attributing a seed-to-seed
 improvement to the new method. All priors, primary artifacts and admission rules
 remain unchanged.
+
+## Integration-aware control acceptance (November 17)
+
+Design 471fe97 freezes [one two-stage candidate](INTEGRATION_CONTROL_DESIGN.md).
+Use fresh root 2026111701, 1,024 trials for each of all five known targets, and the
+same coverage/precision/admission rules. Training-net size equals evaluation-net
+size; entropy domains for pointwise fit, integration fit, evaluation and paired
+correction are disjoint. Test exact signed covariance slopes and zero variance
+against analytical answers, both-stage work accounting and altered raw training
+arrays. Recompute the stored slopes and coefficient product during artifact load.
+
+Keep 88,065 evaluations within the original 90,000 work cap and original time
+caps. Retain timeouts as failures in the full requested five-case denominator.
+Known-answer failure blocks archived NFL comparison. If controls pass, compare
+all saved benchmark/prior contrasts without reading Week 10. Passing software
+checks or numerical coverage does not complete the 192-fit player-calibration
+study or establish observational attribution. Training variance, learned scales
+and paired plain comparisons are descriptive diagnostics, not new gates.
