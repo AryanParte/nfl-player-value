@@ -25,7 +25,10 @@ from nfl_value.control_variates import integrate_controlled
 from nfl_value.variance_reference import BudgetExceeded
 
 
-PLAN_HASHES = {1: "740aca9f2eb5b8d6e9e5cac44dc4fbea50b05a4d431975f2d9791e7850c5216e"}
+PLAN_HASHES = {
+    1: "740aca9f2eb5b8d6e9e5cac44dc4fbea50b05a4d431975f2d9791e7850c5216e",
+    2: "27e2f79434940d308552469bf27f8a9083d14413fe67f7b6e316c43e3a581e0f",
+}
 
 
 def validate_plan(plan):
@@ -69,7 +72,7 @@ def plain_reference(total, contrasts, shifts, plan, sampling):
         return dict(status="failed", error=str(exc))
 
 
-def validate_fit(fit, sampling, entropy, plan, columns):
+def validate_point_fit(fit, sampling, entropy, plan, columns):
     dimension = len(sampling.mean)
     width = len(sampling.components("stabilized-mixture")) * (
         1 + dimension + dimension * (dimension + 1) // 2
@@ -86,6 +89,27 @@ def validate_fit(fit, sampling, entropy, plan, columns):
         or fit["feature_count"] != width
     ):
         raise ValueError("fitted control provenance or dimensions differ")
+
+
+def validate_fit(fit, sampling, entropy, plan, columns):
+    validate_point_fit(fit, sampling, entropy, plan, columns)
+    if plan["plan_version"] == 2:
+        from nfl_value.integration_controls import validate_integration_fit
+
+        validate_integration_fit(fit, sampling, entropy, plan, columns, validate_point_fit)
+    elif "integration_fit" in fit:
+        raise ValueError("integration fit is not part of this frozen design")
+
+
+def fitting_evaluations(plan):
+    return (
+        plan["training_nodes"]
+        + plan.get("integration_fit_replicates", 0) * plan["nodes_per_replicate"]
+    )
+
+
+def experiment_name(plan, kind):
+    return f"coarse-control-{kind}-v{plan['plan_version']}"
 
 
 def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
@@ -142,7 +166,7 @@ def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
             f"Known {index}: passed={decision['passed']}; coverage={decision['simultaneous_coverage']}"
         )
     result = dict(
-        experiment="coarse-control-controls-v1",
+        experiment=experiment_name(plan, "controls"),
         plan=plan,
         cases=cases,
         controls_passed=all(c["decision"]["passed"] for c in cases),
@@ -157,7 +181,7 @@ def validate_known(result):
     plan = result["plan"]
     certificate, density = known_parents(plan)
     if (
-        result["experiment"] != "coarse-control-controls-v1"
+        result["experiment"] != experiment_name(result["plan"], "controls")
         or result["nfl_data_used"] is not False
         or result["ranking_ready"] is not False
         or result["calibration_completed"] is not False
@@ -274,9 +298,9 @@ def load(output, rid):
         manifest["plan"]
     ):
         raise ValueError("study and manifest disagree")
-    if result["experiment"] == "coarse-control-controls-v1":
+    if result["experiment"] == experiment_name(result["plan"], "controls"):
         validate_known(result)
-    elif result["experiment"] == "coarse-control-archive-v1":
+    elif result["experiment"] == experiment_name(result["plan"], "archive"):
         validate_archive(result)
     else:
         raise ValueError("unsupported coarse-control experiment")
@@ -330,7 +354,7 @@ def validate_archive(result):
                 "fine": p["replicates"] * p["correction_nodes_per_replicate"] + 1,
                 "coarse": p["replicates"]
                 * (p["nodes_per_replicate"] + p["correction_nodes_per_replicate"])
-                + p["training_nodes"],
+                + fitting_evaluations(p),
             }
             if r["evaluations"] != expected:
                 raise ValueError("incomplete archived work labeled complete")
@@ -349,7 +373,7 @@ def validate_archive(result):
 def authorize(controls, control_id):
     certificate, result = load(controls, control_id)
     if (
-        result["experiment"] != "coarse-control-controls-v1"
+        result["experiment"] != experiment_name(result["plan"], "controls")
         or result["controls_passed"] is not True
     ):
         raise ValueError("new complete numerical coverage required before NFL access")
@@ -432,7 +456,7 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
             n, correction = plan["nodes_per_replicate"], plan["correction_nodes_per_replicate"]
             reps = plan["replicates"]
             if (
-                reps * (n + 2 * correction) + 1 + plan["training_nodes"]
+                reps * (n + 2 * correction) + 1 + fitting_evaluations(plan)
                 > plan["maximum_target_evaluations_per_case"]
             ):
                 raise BudgetExceeded("declared combined evaluation budget cannot complete design")
@@ -445,7 +469,7 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
             )
             coarse = SquareRootTarget(
                 *args,
-                evaluation_limit=reps * (n + correction) + plan["training_nodes"],
+                evaluation_limit=reps * (n + correction) + fitting_evaluations(plan),
                 deadline=deadline,
                 original_residual=False,
             )
@@ -510,7 +534,7 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
         )
         del fine, coarse
     return dict(
-        experiment="coarse-control-archive-v1",
+        experiment=experiment_name(plan, "archive"),
         plan=plan,
         cases=cases,
         control_report=control_id,

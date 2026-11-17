@@ -224,7 +224,7 @@ def main():
     args = parser.parse_args()
     output = SnapshotStore(args.store)
     manifest, result = load(output, args.report)
-    archived = result["experiment"] == "coarse-control-archive-v1"
+    archived = result["experiment"] == f"coarse-control-archive-v{result['plan']['plan_version']}"
     audit = dict(
         report_id=args.report,
         manifest=manifest,
