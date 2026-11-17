@@ -7,6 +7,51 @@ import numpy as np
 
 
 class CoarseDiagnosticTests(unittest.TestCase):
+    def test_archived_influence_uses_ratio_covariance_and_separate_levels(self):
+        helper = runpy.run_path("scripts/analyze_coarse_controls.py")["influence_diagnostics"]
+        noise = np.array([-2, -1, 1, 2], float)
+        mass = 2 + 0.1 * noise
+        truth = np.array([-3, 0.025, 0.975])
+        scale = np.array([1, 0.1, 0.2])
+        base = np.column_stack((mass, mass[:, None] * truth + noise[:, None] * scale))
+        plain = np.column_stack((mass, mass[:, None] * truth + 2 * noise[:, None] * scale))
+        correction = np.column_stack((np.zeros(4), 0.1 * noise[:, None] * scale))
+        record = dict(
+            contrasts=1, shifts=[0.0], coarse=base, plain_coarse=plain, correction=correction
+        )
+        result = helper(record)["0.0"]
+        for i, label in enumerate(("mean_sd", "lower_cdf", "upper_cdf")):
+            row = result[label]
+            self.assertAlmostEqual(row["adjusted_to_plain_variance"][0], (1.1 / 2.1) ** 2)
+            self.assertAlmostEqual(row["correction_to_coarse_standard_error"][0], 0.1)
+            self.assertAlmostEqual(row["coarse_fraction_of_separate_variance"][0], 1 / 1.01)
+            self.assertAlmostEqual(
+                row["adjusted_standard_error"][0],
+                1.1 * scale[i] * np.sqrt(noise.var(ddof=1) / 4) / 2,
+            )
+        with self.assertRaises(ValueError):
+            helper({**record, "correction": correction[:-1]})
+
+    def test_archived_influence_preserves_declared_shift_order_and_zero_variance(self):
+        helper = runpy.run_path("scripts/analyze_coarse_controls.py")["influence_diagnostics"]
+        constant = np.tile([2, -6, 0.05, 1.95], (4, 1))
+        variable = constant.copy()
+        variable[:, 1] += [-2, -1, 1, 2]
+        raw = np.column_stack((variable, constant, 2 * variable))
+        result = helper(
+            dict(
+                contrasts=1,
+                shifts=[0.0, 1.0, -1.0],
+                coarse=raw,
+                plain_coarse=raw,
+                correction=np.zeros_like(raw),
+            )
+        )
+        self.assertEqual(list(result), ["0.0", "1.0", "-1.0"])
+        self.assertEqual(result["1.0"]["mean_sd"]["adjusted_to_plain_variance"], [None])
+        self.assertEqual(result["0.0"]["mean_sd"]["adjusted_to_plain_variance"], [1.0])
+        self.assertEqual(result["0.0"]["mean_sd"], result["-1.0"]["mean_sd"])
+
     def test_paired_variance_and_bias_have_independent_closed_answers(self):
         helper = runpy.run_path("scripts/analyze_coarse_controls.py")["paired_errors"]
         noise = np.array([-2, -1, 1, 2])[:, None]
