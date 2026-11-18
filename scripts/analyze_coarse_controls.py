@@ -151,6 +151,73 @@ def summary(result):
     return output
 
 
+def fixed_ratio_variance(adjusted, plain, anchors):
+    """Local ratio influence around fixed anchors; diagnostic, not a new estimator."""
+    adjusted, plain, anchors = (np.asarray(v, float) for v in (adjusted, plain, anchors))
+    if (
+        adjusted.ndim != 2
+        or adjusted.shape != plain.shape
+        or len(adjusted) < 2
+        or anchors.shape != (adjusted.shape[1] - 1,)
+        or anchors.size == 0
+        or not all(np.isfinite(v).all() for v in (adjusted, plain, anchors))
+    ):
+        raise ValueError("finite paired integrals and fixed ratio anchors required")
+    ah = adjusted[:, 1:] - adjusted[:, [0]] * anchors
+    ph = plain[:, 1:] - plain[:, [0]] * anchors
+    return dict(
+        unnormalized=ratios(adjusted.var(axis=0, ddof=1), plain.var(axis=0, ddof=1)),
+        fixed_ratio_influence=ratios(ah.var(axis=0, ddof=1), ph.var(axis=0, ddof=1)),
+    )
+
+
+def ratio_objective_diagnostics(record):
+    """Post-result failure diagnosis only: no refitting, selection or new gates."""
+    n = record["contrasts"]
+    anchors = np.r_[np.zeros(n), np.full(n, 0.025), np.full(n, 0.975)]
+    fit = record["fit"]["integration_fit"]
+    f, h, alpha = (
+        np.asarray(fit[key], float) for key in ("function_means", "control_means", "alpha")
+    )
+    phases = dict(
+        training=(f - h * alpha, f),
+        evaluation=(
+            np.asarray(record["coarse"]) + np.asarray(record["correction"]),
+            np.asarray(record["plain_coarse"]) + np.asarray(record["correction"]),
+        ),
+    )
+
+    def describe(values):
+        defined = [v for v in values if v is not None]
+        return dict(
+            defined=len(defined),
+            undefined=len(values) - len(defined),
+            worse=sum(v > 1 for v in defined),
+            quantiles=np.quantile(defined, [0, 0.5, 1]).tolist() if defined else None,
+        )
+
+    output = {}
+    width = 1 + 3 * n
+    for phase, (a, p) in phases.items():
+        output[phase] = {}
+        for k, shift in enumerate(record["shifts"]):
+            sl = slice(k * width, (k + 1) * width)
+            raw = fixed_ratio_variance(a[:, sl], p[:, sl], anchors)
+            groups = {"mass_variance_ratio": raw["unnormalized"][0]}
+            for j, name in enumerate(("mean_sd", "lower_cdf", "upper_cdf")):
+                start, end = j * n, (j + 1) * n
+                groups[name] = dict(
+                    unnormalized=describe(raw["unnormalized"][start + 1 : end + 1]),
+                    fixed_ratio_influence=describe(raw["fixed_ratio_influence"][start:end]),
+                )
+            output[phase][str(shift)] = groups
+    return dict(
+        phases=output,
+        anchors="fixed primary standardized means 0 and endpoint CDFs 0.025/0.975",
+        caveat="post-result covariance diagnosis, no fitting or new evidence; common unknown normalization cancels in variance ratios; anchors are not known true NFL ratios",
+    )
+
+
 def influence_diagnostics(record):
     """Conditional delta-method variance, not repeated-trial or player uncertainty."""
     n, shifts = record["contrasts"], record["shifts"]
@@ -227,6 +294,7 @@ def archive_summary(result):
             )
             if result["plan"]["plan_version"] == 2:
                 item["fit"]["integration_fit"] = integration_diagnostics([r["fit"]])
+                item["ratio_objective"] = ratio_objective_diagnostics(r)
             if r["plain_reference"]["status"] == "complete":
                 reference = r["plain_reference"]["reference"]
                 item.update(
