@@ -245,6 +245,41 @@
   "plan_sha256": "27e2f79434940d308552469bf27f8a9083d14413fe67f7b6e316c43e3a581e0f",
   "producer_revision": "cc8384349645297df61946a949f4a9397e683d4c",
   "ranking_ready": false,
+  "recomputed_source_revision": "8a990d5290b90b8ee9143ce73b74f7478a223522",
+  "recomputed_target2_packaging_diagnosis": {
+    "case_bytes": 129521656,
+    "corrected_checkpoint_bytes": 216,
+    "explanation": "Embedding the already large case increases indentation; a reference checkpoint avoids that overhead. Real corrected cases fit individually; trial splitting is exercised by bounded-size regression fixtures.",
+    "limit_bytes": 134217728,
+    "old_embedded_checkpoint_bytes": 138176740,
+    "real_case_needs_trial_blocks": false
+  },
+  "retained_original_cases_recomputed": [
+    {
+      "byte_equal": true,
+      "case_sha256": "447cb9d5c0a646400c345bd0b9d8e3277a55eb7faf1443e3f52ead9d798e9fe6",
+      "rebuilt_store": "data/derived/integration-controls-blocks",
+      "target": 0
+    },
+    {
+      "byte_equal": true,
+      "case_sha256": "4739c083e19e9d4d234a7de83251d4cf7ef71f3628d10091fb74001beb204950",
+      "rebuilt_store": "data/derived/integration-controls-blocks",
+      "target": 1
+    },
+    {
+      "byte_equal": true,
+      "case_sha256": "447cb9d5c0a646400c345bd0b9d8e3277a55eb7faf1443e3f52ead9d798e9fe6",
+      "rebuilt_store": "data/derived/integration-controls-blocks-offline",
+      "target": 0
+    },
+    {
+      "byte_equal": true,
+      "case_sha256": "4739c083e19e9d4d234a7de83251d4cf7ef71f3628d10091fb74001beb204950",
+      "rebuilt_store": "data/derived/integration-controls-blocks-offline",
+      "target": 1
+    }
+  ],
   "status": "packaging_failed_no_complete_control_certificate",
   "unchanged_limit_bytes": 134217728,
   "unchanged_numerical_functions": [
