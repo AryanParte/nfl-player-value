@@ -350,3 +350,33 @@ coarse integration error prevents certification. This is numerical imprecision,
 not demonstrated primary-estimate bias or evidence to widen player intervals.
 See the [results](REPAIRED_FUNCTIONAL_RESULTS.md) for retained failures, exact
 replay, packaging recovery and the proposed next variance-reduction study.
+
+## Independently fitted coarse controls (November 16)
+
+The [frozen study](COARSE_CONTROL_VARIATES.md) adds zero-mean controls to the
+coarse integration step. Each uses a normalized Gaussian density g, the complete
+sampling density q, and Gaussian first/second-moment identities. For example,
+g/q minus one has expectation zero under q. The fixed basis changes neither the
+football posterior nor the average positional benchmark.
+
+A separate 4,096-point sample fits the numerical approximation before evaluation.
+Conditional on its fitted coefficients, subtracting these controls preserves each
+unnormalized expectation. The paired repaired-minus-coarse correction remains;
+only the sum is normalized. Randomized-net replicates are independent conditional
+on the fit. Fresh fitting draws in every known-answer trial test the complete
+procedure, including fitting variability. No control coefficients are football
+player effects, and their small numerical ridge is not a player-prior adjustment.
+
+Pointwise regression does not necessarily minimize randomized-integration error;
+[Owen's QMC notes](https://artowen.su.domains/mc/practicalqmc.pdf) distinguish these
+objectives. The paired unadjusted calculation is retained as a diagnostic, never
+selected after observing a favorable result. Numerical confidence remains separate
+from player uncertainty, observational identification and position admission.
+
+The [completed results](COARSE_CONTROL_RESULTS.md) pass all known-answer numerical
+coverage gates but fail four of five archived comparisons. Independent offline
+reconstruction is exact. The tested pointwise-fit candidate is not adopted for
+certification or player calibration; its passing team control is not an individual
+CAVAA module. The paired plain comparison prevents attributing a seed-to-seed
+improvement to the new method. All priors, primary artifacts and admission rules
+remain unchanged.

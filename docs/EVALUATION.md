@@ -406,3 +406,33 @@ The [results](REPAIRED_FUNCTIONAL_RESULTS.md) distinguish raw agreement from
 agreement certified with numerical error. Post-result influence diagnostics are
 descriptive, not new acceptance rules. The next candidate requires a new frozen
 design and fresh numerical draws; it cannot inherit player calibration or admission.
+
+## Independently fitted control-variate acceptance (November 16)
+
+Design d60052d freezes [one candidate](COARSE_CONTROL_VARIATES.md) before new trials.
+It preserves the five known targets, 1,024 trials each, all numerical coverage and
+precision rules, and every archived comparison. Separate fitting and evaluation
+entropy domains are mandatory. All controls must pass before archived use; the
+previous reference's passing certificate cannot authorize this changed estimator.
+
+The unadjusted calculation uses exactly the same evaluation points. Report paired
+actual-error variance and RMSE, measured coverage, first-order variance diagnostics,
+fit rank and residuals. A fitting residual or a lower point estimate is not an
+acceptance criterion. Every requested trial stays in its denominator, including
+failed fitting or unbounded mass/ratio sets. Any paired complete subset is labeled
+and cannot replace the full acceptance denominator.
+
+New regression tests use independent Gaussian quadrature, exact signed functions,
+collinear bases, source and artifact corruption, and omitted fitting evaluations.
+The study retains raw adjusted/unadjusted/correction vectors, coefficient hashes,
+training-draw hashes and all gates. Reconstruct independently with networking
+blocked and preserve failed artifacts. Football data still ends November 7 evening;
+these are fresh numerical draws on consumed targets, not new football validation.
+
+The [completed results](COARSE_CONTROL_RESULTS.md) pass all known-answer numerical
+coverage gates but fail four of five archived comparisons. Independent offline
+reconstruction is exact. The tested pointwise-fit candidate is not adopted for
+certification or player calibration; its passing team control is not an individual
+CAVAA module. The paired plain comparison prevents attributing a seed-to-seed
+improvement to the new method. All priors, primary artifacts and admission rules
+remain unchanged.

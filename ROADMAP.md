@@ -97,24 +97,33 @@ uncertainty prevents certification. Coarse integration dominates the measured
 numerical error; all manifests and objects reproduce in independent offline builds.
 No player calibration, primary-model change or contribution admission is claimed.
 
-Next substantial unit: freeze a coarse-integral variance-reduction study with an
-independently fitted zero-mean control variate, analytically known expectations,
-fresh numerical evaluation draws and declared work. This candidate is not yet
-implemented or validated. Do not add another allocation retry or increase fine
-work when coarse error dominates. Retain all cases and accuracy limits before
-the unfinished 192-fit player calibration, prospective evidence and observational
-admission. Week 10 stays sealed; the archive still ends November 7 evening.
-Defense remains mandatory. Its November 15 metadata check is not all-provider
-absence or game-level coverage. The owner merged #27/#28 during this run; #29
-now targets main without an agent merge or history rewrite.
+November 16 implements the [coarse control-variate study](docs/COARSE_CONTROL_RESULTS.md),
+frozen before new draws. All five known-answer gates pass on 5,120 completed
+trials; both complete offline reconstructions match the manifest and all 11 objects.
+The real-QB reference fails at 0.013312 SD / 0.001137 CDF; the paired plain
+calculation is almost identical and slightly better. All five archived cases
+complete within their original limits; only the team control passes. Both full
+offline executions reproduce the manifest and all six objects. All original limits, priors, primary artifacts and benchmark contrasts
+remain unchanged. Smaller regression residuals do not guarantee smaller integration
+variance, as the paired known-answer errors demonstrate.
 
-PRs #18–#28 are merged; source 558c878 passes hosted Python/dashboard CI.
-Authenticated Pages/bootstrap access remains unavailable, so deployment cannot
-hold up modeling. Produce the first admitted,
-reproducible contribution module, then connect its honest estimates/explanations
-and history to the existing dashboard. Cross-position coverage remains the goal;
-unsupported modules stay explicitly unavailable. Update milestone evidence each
-run, using multiple reviewable commits where useful; never merge as an agent.
+The pointwise-fitted candidate is rejected for certification. Next freeze an
+integration-aware fitting objective using independent replicate means before new
+results. The concrete question is whether matching the fitting objective to
+randomized integration improves certification within a declared work budget.
+This candidate is not implemented or validated; do not repeat pointwise fitting
+with favorable seeds, grow the basis blindly or add fine work to address coarse
+imprecision. Numerical success would still precede the unfinished 192-fit player
+calibration, prospective evidence and observational admission. Week 10 stays sealed.
+
+Defense remains mandatory. Its November 16 metadata check is not all-provider
+absence or game-level coverage. PR #29 remains open; #30 is explicitly stacked on
+it, with no agent merge. Source 892e567 passes the hosted Python matrix and
+existing dashboard/browser checks. November 16 metadata still reports no Pages
+site; authenticated bootstrap/remote replay remains unfinished and did not hold
+up modeling. Produce the first admitted contribution module before scored UI and
+ranked history. Unsupported positions remain unavailable. No completion percentage
+is justified and no automation or other-project change is part of this run.
 
 ## October 18: bootstrap
 
