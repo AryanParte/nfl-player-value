@@ -1,0 +1,88 @@
+{
+  "recorded_at_utc": "2026-11-19T03:38:59.472079+00:00",
+  "local_run_date": "2026-11-18",
+  "design_commit": "4d5f6bb",
+  "producer_revision": "e363a2eeaab1c0203e71d2326567dd35becc6db5",
+  "plan_sha256": "6300d5ab107a1044afc156f7bbc066c546a22c57bb19e5e1c8043311e90ad8b5",
+  "kernel_sha256": "952226898867036fe94b78e4e621b3c6c509950715b9c9b09f88e49bab0d4d5b",
+  "report_id": "0302e878d5b0204c418d09375ecd278ef2bf46b30aac51be17812c49a7ef7fbd",
+  "independent_reconstruction_identical": {
+    "objects": 15,
+    "manifests": 1
+  },
+  "executions": {
+    "known.log": {
+      "log_sha256": "d7d423334264634cac44f8ee2c29a22234cf068c3ff9b208913df57cae81e8c4",
+      "report_id": "0302e878d5b0204c418d09375ecd278ef2bf46b30aac51be17812c49a7ef7fbd",
+      "controls_passed": false,
+      "numerical_pilot_passed": null,
+      "timings": {
+        "0": 510.3880503328983,
+        "1": 580.3374476660974,
+        "2": 652.8760479169432,
+        "3": 648.5316051249392,
+        "4": 542.570952875074,
+        "5": 624.9108018330298,
+        "6": 617.2464978750795
+      },
+      "ranking_ready": false,
+      "measured_case_seconds_total": 4176.8614036240615
+    },
+    "known-offline.log": {
+      "log_sha256": "d0eea042220c2c8e55899d2e523448cf78def0c407e4c43b1ca2a6631660fb9d",
+      "report_id": "0302e878d5b0204c418d09375ecd278ef2bf46b30aac51be17812c49a7ef7fbd",
+      "controls_passed": false,
+      "numerical_pilot_passed": null,
+      "timings": {
+        "0": 508.0621821670793,
+        "1": 578.1612778750714,
+        "2": 649.7474938330706,
+        "3": 647.2406575840432,
+        "4": 541.0567486251239,
+        "5": 622.4168049169239,
+        "6": 614.9575634589419
+      },
+      "ranking_ready": false,
+      "measured_case_seconds_total": 4161.642728460254
+    }
+  },
+  "complete_trials": 7168,
+  "independent_statistical_trials": 7168,
+  "controls_passed": false,
+  "nfl_reference_status": "unattempted_due_to_failed_known_precision_gates",
+  "authorization_check": {
+    "invoked": "coarse_control_study.archive with actual saved certificate",
+    "blocked_before_archive_inputs": true,
+    "error": "new complete numerical coverage required before NFL access"
+  },
+  "source_changed_after_start": false,
+  "analysis_sources_sha256": {
+    "scripts/analyze_coarse_controls.py": "60a4c2854cf68c55b0cb9dfb733e9c5eb084698f18454cb18711a57e0b1c6f7c",
+    "tests/test_coarse_diagnostics.py": "5249773532dcf9f0f3ea4f048617814c570eaa34ca01476264359be7a713a401"
+  },
+  "primary_model_objects_unchanged": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "scope": "numerical coverage and precision only; no fresh football outcomes, calibration completion, ranking admission, or production release",
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/32",
+  "base": "main",
+  "owner_merged_prs": [
+    29,
+    30,
+    31
+  ],
+  "agent_merged_prs": [],
+  "recurring_cost_added_usd": 0,
+  "original_primary_objects_hash_verified": true,
+  "software_verification": {
+    "local_make_check": "passed",
+    "python_unittests": 500,
+    "frontend_contracts": 27,
+    "lint_format_typescript_build_compile_whitespace": "passed",
+    "log_sha256": "9f2c75133a12a854f8eb8b1d04d9d1ea77cb5537ed5e0056c321732a6bed45ba",
+    "initial_implementation_hosted_run": 44436684935,
+    "initial_implementation_hosted_conclusion": "all four jobs passed",
+    "final_head_hosted_ci": "inspected separately in PR"
+  }
+}

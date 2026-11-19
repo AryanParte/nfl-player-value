@@ -49,6 +49,15 @@ canonical repository visibly shows **Sign in**; no authenticated settings or
 bootstrap action is available through that session. No Pages setting, workflow,
 schedule or release was changed. Model experiments continued independently.
 
+November 18 recheck: the owner has merged PRs #29–#31; main is bab8852.
+The latest returned scheduled [run 44200134216](https://github.com/AryanParte/nfl-player-value/actions/runs/44200134216)
+failed November 17 with the same explicit first-bootstrap prerequisite. Its offline
+regression step passed, and capture/publish were skipped. Repository metadata
+still reports `has_pages=false`; the connector still lacks Pages configuration
+and workflow dispatch. No deployment or settings change was made. The
+[metadata audit](audits/2026-11-18-operational-metadata.json) records this separately
+from model validation. The new numerical study continued on a main-based PR.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed

@@ -45,30 +45,37 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read the [integration-aware results](INTEGRATION_CONTROL_RESULTS.md)
-and [frozen design](INTEGRATION_CONTROL_DESIGN.md). The pointwise-fit and preceding
-reference failures remain immutable history. The new candidate passes all five
-known-answer gates, with both full control executions byte-identical. A nested
-checkpoint exceeded the fixed object cap; reference checkpoints and tested bounded
-trial blocks repair storage, and all five targets were recomputed under the new
-source fingerprint. Never reuse a partial old certificate after a source change.
+For active recovery evidence, read [joint ratio-control results](JOINT_RATIO_RESULTS.md)
+and the [frozen design](JOINT_RATIO_DESIGN.md). The November 18 study completes all
+7,168 trials twice offline, with identical manifest/all 15 objects. Original five
+targets pass; added broad-tail/displaced-mass targets fail precision (6.0547%/0%
+versus the required 90%). Numerical coverage passes the finite declared checks;
+it is neither universal coverage nor player calibration. The saved certificate
+is explicitly blocked before NFL inputs. No new archived pilot was attempted.
+Do not rerun this consumed study as though implementation were unfinished.
 
-All five archived cases complete within their original budgets; only the team
-control passes. The QB fails at 0.011896 SD / 0.001095 CDF. The candidate is rejected
-for certification. Both full offline NFL executions reproduce the manifest and all 11 objects.
-The execution audit retains their separate timings and producer revision. Do not rerun this
-consumed study as though its implementation or first execution were unfinished.
+The joint fit fixes the algebraic numerator/mass objective mismatch, but held-out
+variance gains are inconsistent. Broad-tail failure is endpoint precision;
+displaced mass fails means and endpoints. Both plain diagnostics also fail.
+Their maximum mass shares remain below the previous NFL hierarchy concentration,
+so that stronger regime is still unvalidated. A mass-only diagnostic cannot
+certify every functional. The full-vector wrong-endpoint gate can reject because
+of nuisance failures; inspect the new isolated endpoint diagnostic too. It does
+not alter the frozen gate or admit this rejected candidate.
 
-Failure analysis isolates an objective mismatch: unnormalized-integral variance
-can improve while ratio-influence variance worsens because of shared-mass
-covariance. It also records weak mean-contrast gains and a hierarchy stress case
-with 10.3866% mass in one replicate. Next freeze one bounded joint mass/numerator
-fit using existing zero-mean composite directions, and analytic tail-stress
-controls before any new draws. Preserve all original cases and gates. This is a
-proposed candidate, not an admitted method. Mean accuracy cannot be bypassed by
-better endpoint diagnostics, and known-answer coverage is not player calibration.
-Do not select the paired plain result after evaluation, retry favorable seeds,
-change football priors, or add fine work to solve the measured coarse error.
+Next freeze one bounded proposal-level alternative targeting required mean and
+endpoint functionals as well as mass, with explicit support, independent fitting,
+work limits, retained original/tail cases and a stop rule before new draws.
+This is a hypothesis, not an adopted fix. Stop coefficient-only tuning on these
+consumed draws. Do not select plain results, enlarge samples automatically,
+change football priors, widen intervals or relax precision. A complete numerical
+certificate only enables the unchanged archived pilot and the unfinished
+192-fit player-calibration study. Week 10 remains sealed.
+
+PRs #29–#31 were merged by the owner during the run; #32 targets main directly.
+Inspect actual current PR state on every run. Deployment remains a separate
+first-bootstrap access blocker and must not displace scoring work. Defense,
+qualification and the original cross-position objective remain required.
 
 No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
 selection is permitted. Preserve negative season values and benchmark covariance.

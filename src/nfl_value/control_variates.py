@@ -186,7 +186,9 @@ def controlled_integrals(f, fitted, sampling, *, entropy, replicates, nodes, pro
     return controlled, np.asarray(plain)
 
 
-def integrate_controlled(fine, coarse, sampling, *, entropy, plan, progress=lambda _: None):
+def integrate_controlled(
+    fine, coarse, sampling, *, entropy, plan, progress=lambda _: None, layout=None
+):
     fitted = fit_control(
         coarse,
         sampling,
@@ -205,6 +207,19 @@ def integrate_controlled(fine, coarse, sampling, *, entropy, plan, progress=lamb
             replicates=plan["integration_fit_replicates"],
             nodes=plan["nodes_per_replicate"],
             ridge=plan["integration_scale_ridge"],
+        )
+    if plan.get("plan_version") == 3:
+        from nfl_value.joint_controls import fit_joint_control
+
+        fitted = fit_joint_control(
+            coarse,
+            fitted,
+            sampling,
+            entropy=[*entropy, 3],
+            replicates=plan["integration_fit_replicates"],
+            nodes=plan["nodes_per_replicate"],
+            ridge=plan["integration_scale_ridge"],
+            layout=layout,
         )
     controlled, plain = controlled_integrals(
         coarse,
