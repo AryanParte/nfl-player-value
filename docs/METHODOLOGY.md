@@ -454,3 +454,11 @@ separately, never subtracted from error or treated as a covariance/precision bou
 Point probes of the density ratio do not bound integration variance. This is never
 a substituted oracle model.
 The implementation and software tests alone admit no CAVAA contribution.
+
+The [complete November 19 results](FUNCTIONAL_PROPOSAL_RESULTS.md) reject this
+candidate. All 8,192 requested trials are retained and the two full executions
+reproduce the manifest/all 17 objects. Broad-tail precision passes, displaced
+precision is 33.5938%, and remote precision/coverage fail at 0%/30.9570%, with
+47 failed confidence constructions retained. The actual saved certificate blocks
+before NFL inputs. These findings support a bounded mode-resolving proposal
+hypothesis, not an adopted fix, changed football model or player admission.

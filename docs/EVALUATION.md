@@ -520,3 +520,11 @@ Gaussian box masses and the fixed 2,048-point allocation per stratum yield expec
 counts and a Markov bound on any point in that box. This uses no iid discovery
 assumption or extra draws. It is an initial-allocation diagnostic, not a final
 precision result, surrogate correction or new admission gate.
+
+The [complete November 19 results](FUNCTIONAL_PROPOSAL_RESULTS.md) reject this
+candidate. All 8,192 requested trials are retained and the two full executions
+reproduce the manifest/all 17 objects. Broad-tail precision passes, displaced
+precision is 33.5938%, and remote precision/coverage fail at 0%/30.9570%, with
+47 failed confidence constructions retained. The actual saved certificate blocks
+before NFL inputs. These findings support a bounded mode-resolving proposal
+hypothesis, not an adopted fix, changed football model or player admission.

@@ -45,37 +45,43 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read [joint ratio-control results](JOINT_RATIO_RESULTS.md)
-and the [frozen design](JOINT_RATIO_DESIGN.md). The November 18 study completes all
-7,168 trials twice offline, with identical manifest/all 15 objects. Original five
-targets pass; added broad-tail/displaced-mass targets fail precision (6.0547%/0%
-versus the required 90%). Numerical coverage passes the finite declared checks;
-it is neither universal coverage nor player calibration. The saved certificate
-is explicitly blocked before NFL inputs. No new archived pilot was attempted.
-Do not rerun this consumed study as though implementation were unfinished.
+For active recovery evidence, read [functional proposal results](FUNCTIONAL_PROPOSAL_RESULTS.md)
+and the [frozen design](FUNCTIONAL_PROPOSAL_DESIGN.md). The November 19 unit
+implements independent proposal adaptation and fully retains its eight controls.
+All 8,192 requested trials were attempted twice offline, reproducing the manifest
+and all 17 objects. Six controls pass; displaced precision fails and the remote
+case has 0% precision / 30.9570% joint coverage, with 47 failed confidence sets
+retained in the denominator. The actual saved certificate blocks before NFL
+inputs. Do not rerun this consumed study as unfinished implementation.
+The remote median pilot mass remains near .9004 despite true coarse mass in
+[.999,1.001], while the fitted density ratio at the remote center barely changes.
+Initial concentration exceeds the earlier hierarchy proxy in 8/32 trials; that
+is descriptive numerical stress evidence, not matching NFL posteriors.
 
-The joint fit fixes the algebraic numerator/mass objective mismatch, but held-out
-variance gains are inconsistent. Broad-tail failure is endpoint precision;
-displaced mass fails means and endpoints. Both plain diagnostics also fail.
-Their maximum mass shares remain below the previous NFL hierarchy concentration,
-so that stronger regime is still unvalidated. A mass-only diagnostic cannot
-certify every functional. The full-vector wrong-endpoint gate can reject because
-of nuisance failures; inspect the new isolated endpoint diagnostic too. It does
-not alter the frozen gate or admit this rejected candidate.
+The broad-tail case now passes precision in all trials. The first displaced case
+improves to 33.5938%, below 90%; its point discrepancies pass but numerical
+uncertainty produces 680 endpoint-precision failures. The paired plain reference
+also fails. Fitted geometry is close to the fine-target moment approximation, so
+larger pilots alone are not supported as a fix. That diagnostic includes surrogate
+tilt and finite-pilot shrinkage; it is not an oracle precision experiment. The
+remote-target first-pilot box calculation is an initial-allocation diagnostic,
+not an iid discovery probability or a final precision gate.
 
-Next freeze one bounded proposal-level alternative targeting required mean and
-endpoint functionals as well as mass, with explicit support, independent fitting,
-work limits, retained original/tail cases and a stop rule before new draws.
-This is a hypothesis, not an adopted fix. Stop coefficient-only tuning on these
-consumed draws. Do not select plain results, enlarge samples automatically,
-change football priors, widen intervals or relax precision. A complete numerical
-certificate only enables the unchanged archived pilot and the unfinished
-192-fit player-calibration study. Week 10 remains sealed.
+Next freeze one bounded mode-resolving proposal hypothesis, with an explicit
+preflight for separated mass and functional precision before another full
+certification campaign. Specify support, independent fitting/evaluation, fresh
+random domains, original/tail case retention, all mode-search/fitting work and a
+stop rule inside declared caps. Do not merely retune moment/variance multipliers,
+select the plain result, grow samples automatically or tune coefficients on these
+consumed draws. This is a hypothesis, not an adopted or validated remedy. A new
+passing numerical certificate still only enables the unchanged archived pilot,
+then the unfinished 192-fit player-calibration study and observational admission.
+Week 10 remains sealed.
 
-PRs #29–#31 were merged by the owner during the run; #32 targets main directly.
-Inspect actual current PR state on every run. Deployment remains a separate
-first-bootstrap access blocker and must not displace scoring work. Defense,
-qualification and the original cross-position objective remain required.
+PR #32 was merged by the owner; #33 targets main directly. Inspect actual current
+PR state on every run. Deployment remains a separate first-bootstrap access
+blocker and must not displace scoring. Defense, qualification and the original
+cross-position objective remain required; unsupported contributions stay missing.
 
 No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
 selection is permitted. Preserve negative season values and benchmark covariance.
