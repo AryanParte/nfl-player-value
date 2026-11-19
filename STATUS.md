@@ -1,94 +1,95 @@
 # Project status
 
-Updated: November 16, 2026, America/New_York.
+Updated for the November 17, 2026 run, finalized November 18 (America/New_York).
+Times and producer revisions are retained in the execution audit.
 
 ## Current scoring milestone
 
-The November 7 target was missed. There is no admitted MVP ranking or measured
-completion percentage. Scoring remains the critical path; optional infrastructure
-is paused. Track implementation, evidence and blockers separately in
-[M1–M6](docs/MILESTONES.md).
+The November 7 target was missed. No CAVAA module or MVP ranking is admitted, and
+there is no measured completion percentage. Scoring remains the critical path;
+optional infrastructure is paused. Track implementation, scientific evidence and
+blockers separately in [M1–M6](docs/MILESTONES.md).
 
-The [coarse control-variate study](docs/COARSE_CONTROL_RESULTS.md) implements one
-candidate frozen in d60052d: independently fitted zero-mean Gaussian controls,
-separate fitting/evaluation draws, unchanged posterior and numerical limits.
-All five known-answer gates pass on 5,120 complete trials. Joint coverage ranges
-from 94.9219% to 96.1914%; every deliberately incorrect endpoint is rejected.
-Two complete network-disabled executions reproduce the same manifest and all 11
-objects. This is numerical-error evidence on the controls, not player calibration.
+The [integration-aware study](docs/INTEGRATION_CONTROL_RESULTS.md) completes the
+candidate frozen in 471fe97. All five known-answer gates pass on 5,120 trials:
+joint numerical coverage 94.9219%–96.4844%. Two complete offline executions match
+the manifest and all 11 objects. A checkpoint-size failure was diagnosed and
+repaired without changing numerical calculations or the 128 MiB limit; the whole
+study was recomputed under the corrected source fingerprint.
 
-The archived real-QB comparison fails at **0.013312 posterior SD / 0.001137 CDF**
-including numerical error, against **0.01 / 0.001** limits. Its paired plain
-calculation is nearly identical and slightly better. Improvement over yesterday's
-seed cannot be credited to the new method. All five cases complete within their
-original budgets; only the team control passes. Both full offline executions match the manifest and all six objects.
-The [NFL audit](docs/audits/2026-11-16-coarse-nfl.json) retains every failed comparison.
+All five archived cases complete within the original work/time caps, using 88,065
+evaluations each. Only the team control passes. The primary QB fails at
+**0.011896 posterior SD / 0.001095 CDF**, including numerical error, against
+**0.01 / 0.001**. Both prior sensitivities and all three stress cases fail. The
+paired plain QB result is only slightly worse. Both full independent NFL executions reproduce the manifest and all 11 objects
+byte-for-byte, including every failed comparison.
 
-Known-target adjusted/plain empirical variance ranges from 0.442 to 1.778 despite
-smaller regression residuals. The QB's conditional variance changes are modest
-and insufficient for certification. No primary estimate, player interval, prior,
-benchmark, admission rule or sealed Week 10 outcome changed. All 17 modules remain
-unadmitted; the original 192-fit player calibration remains unfinished.
+**Decision: reject this candidate for numerical certification.** The failure
+analysis identifies a ratio-objective mismatch: reducing numerator variance can
+worsen the normalized estimate by disrupting covariance with its shared mass.
+For the QB's upper-CDF contrasts, this occurs for 164/171 during fitting and all
+171 during evaluation. An independent analytical regression protects the diagnosis.
+Mean precision remains insufficient; a separate hierarchy stress case concentrates
+10.3866% of mass in one replicate. Fixing cancellation alone is not a complete fix.
+No player interval, prior, benchmark, admission rule or sealed Week 10 outcome changed.
+
+Next freeze a bounded joint mass/numerator fit targeting normalized functional
+variance, with analytic tail-stress controls, fresh numerical draws and unchanged
+original gates. It is not implemented or adopted. Do not select the paired plain
+result, retry favorable seeds, widen intervals or treat numerical coverage as
+player calibration. The original 192-fit player-calibration study remains unfinished.
 
 The unchanged archive has 57 QBs / 122 completed 2026 games / 8,996 dropbacks,
 37 first-unit members, 57 sensitivity members and 38 negative first-unit estimates.
 Training uses 48,776 dropbacks across 2024–26 without adding historical points.
 The cohort ends November 7 at 20:41:17 Eastern; evidence cutoff remains
-2026-11-08T02:47:32.067979Z. This is not November 16 live coverage.
-Original model/prediction objects and nonduplicated season accounting remain intact.
-
-Decision: reject this pointwise-fitted candidate for numerical certification.
-Next freeze a bounded candidate fitting coefficients to independent
-integration-replicate means, addressing the measured mismatch between pointwise
-regression and randomized integration. It needs a fresh frozen design, matching
-training/evaluation net sizes, bounded work and known-answer validation; it is
-not an adopted method. Do not select the paired plain calculation after results,
-retry favorable seeds, widen player intervals or add fine work to fix coarse error.
-Numerical certification still precedes fresh calibration and observational admission.
+2026-11-08T02:47:32.067979Z. This is not November 17 live coverage. Original
+model/prediction objects and nonduplicated season accounting remain intact.
 
 ## Other product milestones
 
 Twenty-three narrow QB participation denominators remain proven; 34 are unresolved,
 not automatically ineligible (32 lack full-team-game participation evidence; two
-lack one-team windows). Resolve stint/missed-game evidence without changing
-benchmark membership or the model observation population.
+lack one-team windows). Resolve stint/missed-game evidence independently of
+benchmark membership and the model observation population.
 
 The required defensive information-loss experiment and Defense Explorer remain:
-131 games / 15,803 plays / 895 defenders, residualized rank 856 versus 193 after
-aggregation. The November 16 metadata check finds no 2026-named asset among 46 in
-the checked participation release. This is not all-provider absence or a game-level
-coverage audit. Live lineups, defensive uncertainty and cross-position comparability
-remain unfinished. No event-count CAVAA is invented.
+131 games / 15,803 plays / 895 defenders; residualized rank 856 versus 193 after
+aggregation. The November 17 metadata audit finds no 2026-named asset among 46 in
+the checked participation release. This is not all-provider absence or game-level
+coverage. Live lineups, defensive uncertainty and comparability remain unfinished.
+No event-count CAVAA is invented or unsupported contribution converted to zero.
 
-The React/TypeScript dashboard has explanation/provenance and availability views,
-but no admitted leaderboard or ranked history. Its next scored input must be a
-validated contribution module with scope, uncertainty and sensitivities preserved.
+The React/TypeScript dashboard has explanations, provenance and availability views,
+but no admitted leaderboard or ranked history. Its next scored input must retain
+validated scope, uncertainty and the three benchmark comparisons.
 
 ## Deployment and execution state
 
-Inspected main remains 0a586a1. PR #29 is open; [PR #30](https://github.com/AryanParte/nfl-player-value/pull/30)
-is explicitly stacked on it. No agent merge or history rewrite occurred. Pending
-review did not block the new numerical implementation and experiments.
+Inspected main remains 0a586a1. PRs #29 and #30 are open;
+[PR #31](https://github.com/AryanParte/nfl-player-value/pull/31) is explicitly stacked
+on #30 at c49fafc. No agent merge or history rewrite occurred. Pending review did
+not prevent independent modeling work.
 
-November 16 repository metadata still reports no Pages site. The last inspected
-Explorer failure remains [43515405405](https://github.com/AryanParte/nfl-player-value/actions/runs/43515405405),
-which requires the first manual bootstrap. This model unit made no new deployment
-attempt or settings change. Authenticated Pages/bootstrap, actual remote retention/
-replay and live-site verification remain open; see the [runbook](docs/PRODUCTION_REFRESH.md).
-An Explorer deployment would still not be an admitted CAVAA leaderboard.
+November 17 repository metadata reports no Pages site. The latest returned
+scheduled Explorer run remains [43515405405](https://github.com/AryanParte/nfl-player-value/actions/runs/43515405405),
+requiring the first manual bootstrap. No deployment or settings change was made.
+Authenticated Pages/bootstrap, actual remote retention/replay and live-site
+verification remain open; see the [runbook](docs/PRODUCTION_REFRESH.md). An Explorer
+deployment would still not be an admitted CAVAA leaderboard.
 
-Local make check passes 477 Python tests and 27 frontend contracts for the final
-changes, plus Ruff/format, TypeScript/build, syntax and whitespace. Hosted
-[run 43999147468](https://github.com/AryanParte/nfl-player-value/actions/runs/43999147468)
-passes Python 3.11–3.13 and dashboard checks, including 12 Chromium scenarios.
-Final reporting-head CI is inspected separately. The
-[learning report](docs/learning/2026-11-16.md) explains the numerical/scientific
-limits and review focus. Exact replay and software checks are not attribution.
+Final local make check passes 487 Python tests and 27 frontend contracts, plus
+Ruff/format, TypeScript/build, syntax and whitespace. Diagnostic source 53a4c71
+passes hosted Python 3.11–3.13 and dashboard/browser checks in
+[run 44238231094](https://github.com/AryanParte/nfl-player-value/actions/runs/44238231094).
+The final reporting-head CI is inspected separately. See the
+[learning report](docs/learning/2026-11-17.md) for review focus and limitations.
+These are software checks, not scientific admission.
 
 No new dependency, purchase, paid service, main push, other-repository edit or
 7:30 PM America/New_York automation change. Added recurring service cost is zero.
-Production refresh remains independent. Local immutable research/replay stores
-are not durable remote research retention.
+Production refresh remains independent. Local immutable study stores are not
+durable remote research retention.
 
 ## Earlier measured evidence (unchanged archives)
 

@@ -1,0 +1,399 @@
+{
+  "added_recurring_service_cost_usd": 0,
+  "archive_manifest": {
+    "code_revision": "62cd9394e476fb413a577d413de862d3579ef921",
+    "environment": {
+      "linear_algebra_build": {
+        "numpy": {
+          "blas": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          }
+        },
+        "scipy": {
+          "blas": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "pybind11": {
+            "detection method": "config-tool",
+            "include directory": "unknown",
+            "name": "pybind11",
+            "version": "2.13.6"
+          }
+        }
+      },
+      "machine": "arm64",
+      "numpy": "2.2.6",
+      "python": "3.13.2",
+      "scipy": "1.15.3",
+      "system": "Darwin"
+    },
+    "experiment": "coarse-control-archive-v2",
+    "kernel_sha256": "e5b8ac8f9debc7d32ecbd0482d6a99eff9033edc0ae5cbff7b7ccdce88e6c714",
+    "objects": {
+      "study": "8a2412c23f60efbfd304505cb3d1eeccd7d4c747ebc6ef5f8ca28f3efea227b9"
+    },
+    "plan": {
+      "base_seed": 2026111701,
+      "basis": "gaussian_hermite_2",
+      "cases": [
+        "real_evolving",
+        "real_team",
+        "continuous_prior_0",
+        "continuous_hierarchy_0",
+        "fixed_year_changes_0"
+      ],
+      "conditional_archive": "7dfc4bacdf9599469d354f992088a502114b5118dc85f24dfa7cdab438d5a3e7",
+      "conditional_controls": "0ec177df0cbf4f043361b279d95efed468e12b58fc944181d3bc9b42bd7f901c",
+      "correction_nodes_per_replicate": 32,
+      "coverage_lower_bound": 0.9,
+      "coverage_trials": 1024,
+      "density_archive": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+      "density_controls": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+      "failure_policy": "retain_all_no_retry_no_calibration_or_admission",
+      "future_test": {
+        "fitting_update_allowed": false,
+        "season": 2026,
+        "weeks": [
+          10
+        ]
+      },
+      "integration_fit_replicates": 16,
+      "integration_scale_ridge": 1e-06,
+      "joint_undercoverage_alpha": 0.002,
+      "known_surrogate_amplitude": 0.001,
+      "marginal_undercoverage_alpha": 0.00028571428571428574,
+      "maximum_seconds_per_case": 1800,
+      "maximum_seconds_total": 7200,
+      "maximum_target_evaluations_per_case": 90000,
+      "minimum_precision_fraction": 0.9,
+      "nodes_per_replicate": 1024,
+      "parent_control_report": "9563320e56ac493885a0154551754157db8916ca4e8e7069c8ddc9d6b440a700",
+      "parent_functional_report": "fc9b04f4012293f7ed3c4f1584550c9cc12a9e901d59e0f6c49ceea496e6d4ab",
+      "plan_version": 2,
+      "preceding_control_report": "413cd13dffb1a5a3d4f2d9f2659a8f733216dec2a381931dfac8a746caa6244a",
+      "preceding_nfl_report": "386f7ac8b89a6873c5ac0e41bf3ca150fcb063bbfd6f665367346c77f4e839fb",
+      "primary_pilot": "00e774dff2fedec35cb7d3326e0df34c76bf57e892eb31979ad138f88774d761",
+      "reference_endpoint_cdf_tolerance": 0.001,
+      "reference_mean_tolerance_sd": 0.01,
+      "relative_ridge": 1e-06,
+      "replicates": 64,
+      "training_nodes": 2048
+    },
+    "plan_sha256": "27e2f79434940d308552469bf27f8a9083d14413fe67f7b6e316c43e3a581e0f",
+    "ranking_ready": false
+  },
+  "archive_producer": "62cd9394e476fb413a577d413de862d3579ef921",
+  "archive_reconstruction": {
+    "manifests": 1,
+    "objects": 11
+  },
+  "archive_reconstruction_started": {
+    "current_time": "2026-11-18 04:26:38 UTC"
+  },
+  "archive_started": {
+    "current_time": "2026-11-18 03:22:02 UTC"
+  },
+  "automation_changed": false,
+  "automation_id": "daily-nfl-player-value-engineering",
+  "calibration_completed": false,
+  "completion_local_date": "2026-11-18",
+  "decision": "reject_numerical_certification",
+  "design_revision": "471fe97",
+  "diagnostic_hosted_ci": {
+    "chromium_scenarios": 12,
+    "jobs": [
+      {
+        "conclusion": "success",
+        "id": 134579460220,
+        "name": "dashboard",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "id": 134579460344,
+        "name": "contracts (3.11)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "id": 134579460378,
+        "name": "contracts (3.12)",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "id": 134579460455,
+        "name": "contracts (3.13)",
+        "status": "completed"
+      }
+    ],
+    "run_id": 44238231094,
+    "sha": "53a4c71275fd50e69a24d5edc02b572f704e12d4"
+  },
+  "diagnostic_revision": "53a4c71275fd50e69a24d5edc02b572f704e12d4",
+  "finalized_at": "2026-11-19T00:41:50.600403+00:00",
+  "known_manifest": {
+    "code_revision": "8a990d5290b90b8ee9143ce73b74f7478a223522",
+    "environment": {
+      "linear_algebra_build": {
+        "numpy": {
+          "blas": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          }
+        },
+        "scipy": {
+          "blas": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "pybind11": {
+            "detection method": "config-tool",
+            "include directory": "unknown",
+            "name": "pybind11",
+            "version": "2.13.6"
+          }
+        }
+      },
+      "machine": "arm64",
+      "numpy": "2.2.6",
+      "python": "3.13.2",
+      "scipy": "1.15.3",
+      "system": "Darwin"
+    },
+    "experiment": "coarse-control-controls-v2",
+    "kernel_sha256": "e5b8ac8f9debc7d32ecbd0482d6a99eff9033edc0ae5cbff7b7ccdce88e6c714",
+    "objects": {
+      "study": "f2af527260e6ed0488feb48a13db846ef8c61f23ae3bcd57839ca88dc8917d12"
+    },
+    "plan": {
+      "base_seed": 2026111701,
+      "basis": "gaussian_hermite_2",
+      "cases": [
+        "real_evolving",
+        "real_team",
+        "continuous_prior_0",
+        "continuous_hierarchy_0",
+        "fixed_year_changes_0"
+      ],
+      "conditional_archive": "7dfc4bacdf9599469d354f992088a502114b5118dc85f24dfa7cdab438d5a3e7",
+      "conditional_controls": "0ec177df0cbf4f043361b279d95efed468e12b58fc944181d3bc9b42bd7f901c",
+      "correction_nodes_per_replicate": 32,
+      "coverage_lower_bound": 0.9,
+      "coverage_trials": 1024,
+      "density_archive": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+      "density_controls": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+      "failure_policy": "retain_all_no_retry_no_calibration_or_admission",
+      "future_test": {
+        "fitting_update_allowed": false,
+        "season": 2026,
+        "weeks": [
+          10
+        ]
+      },
+      "integration_fit_replicates": 16,
+      "integration_scale_ridge": 1e-06,
+      "joint_undercoverage_alpha": 0.002,
+      "known_surrogate_amplitude": 0.001,
+      "marginal_undercoverage_alpha": 0.00028571428571428574,
+      "maximum_seconds_per_case": 1800,
+      "maximum_seconds_total": 7200,
+      "maximum_target_evaluations_per_case": 90000,
+      "minimum_precision_fraction": 0.9,
+      "nodes_per_replicate": 1024,
+      "parent_control_report": "9563320e56ac493885a0154551754157db8916ca4e8e7069c8ddc9d6b440a700",
+      "parent_functional_report": "fc9b04f4012293f7ed3c4f1584550c9cc12a9e901d59e0f6c49ceea496e6d4ab",
+      "plan_version": 2,
+      "preceding_control_report": "413cd13dffb1a5a3d4f2d9f2659a8f733216dec2a381931dfac8a746caa6244a",
+      "preceding_nfl_report": "386f7ac8b89a6873c5ac0e41bf3ca150fcb063bbfd6f665367346c77f4e839fb",
+      "primary_pilot": "00e774dff2fedec35cb7d3326e0df34c76bf57e892eb31979ad138f88774d761",
+      "reference_endpoint_cdf_tolerance": 0.001,
+      "reference_mean_tolerance_sd": 0.01,
+      "relative_ridge": 1e-06,
+      "replicates": 64,
+      "training_nodes": 2048
+    },
+    "plan_sha256": "27e2f79434940d308552469bf27f8a9083d14413fe67f7b6e316c43e3a581e0f",
+    "ranking_ready": false
+  },
+  "known_producer": "8a990d5290b90b8ee9143ce73b74f7478a223522",
+  "known_reconstruction": {
+    "manifests": 1,
+    "objects": 11
+  },
+  "local_verification": {
+    "command": "OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 make check PYTHON=.venv/bin/python",
+    "exit_code": 0,
+    "frontend_contracts": 27,
+    "log": "work/2026-11-17/check-final.log",
+    "log_sha256": "71e2d995e5965f231634517e4271065874acaaa48abea189a7e73636d4e43a82",
+    "python": "3.13.2",
+    "python_tests": 487
+  },
+  "original_failure_audit": "docs/audits/2026-11-17-integration-storage-failure.json",
+  "primary_objects": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "ranking_ready": false,
+  "repository": "/Users/aryanparte/Documents/Codex/projects/nfl-player-value",
+  "repository_metadata": {
+    "checked_at": "2026-11-17 19:57:35 UTC",
+    "default_branch": "main",
+    "has_pages": false,
+    "url": "https://api.github.com/repos/AryanParte/nfl-player-value"
+  },
+  "run_date": "2026-11-17",
+  "runs": {
+    "archive": {
+      "controls_passed": null,
+      "exit_code": 0,
+      "log_bytes": 41958,
+      "log_sha256": "0b55ff04241390b6e66e2247afd6b17b1615313636d401ae486813ffdc3f697c",
+      "numerical_pilot_passed": false,
+      "ranking_ready": false,
+      "report_id": "a7a101c9163d0be23c2c96aec8501c8b97ae8fd4e9d3aa18e2c218285b32531f",
+      "timings": {
+        "continuous_hierarchy_0": 841.3498892500065,
+        "continuous_prior_0": 840.989572665887,
+        "fixed_year_changes_0": 840.0276472081896,
+        "real_evolving": 922.1050590828527,
+        "real_team": 343.01131366589107
+      }
+    },
+    "archive-offline": {
+      "controls_passed": null,
+      "exit_code": 0,
+      "log_bytes": 41959,
+      "log_sha256": "17ab1cb2031e6aa8d4080d6bc18abc54ca1525725a2c1dfadf0a58f03eaaed5f",
+      "numerical_pilot_passed": false,
+      "ranking_ready": false,
+      "report_id": "a7a101c9163d0be23c2c96aec8501c8b97ae8fd4e9d3aa18e2c218285b32531f",
+      "timings": {
+        "continuous_hierarchy_0": 841.3833680828102,
+        "continuous_prior_0": 837.6520831249654,
+        "fixed_year_changes_0": 992.1540965840686,
+        "real_evolving": 887.9765429580584,
+        "real_team": 329.80923358304426
+      }
+    },
+    "known-blocks": {
+      "controls_passed": true,
+      "exit_code": 0,
+      "log_bytes": 1272,
+      "log_sha256": "ec3dac46a3968bcf92104f46b327062fc1afd440f493c366cd4dc501bdb5d631",
+      "numerical_pilot_passed": null,
+      "ranking_ready": false,
+      "report_id": "983b683508242a3d0dd5c10f47329208f6b681c8fb0b55eccbc1eb4928b181fd",
+      "timings": {
+        "0": 924.8089584999252,
+        "1": 1074.100128625054,
+        "2": 1296.8683017080184,
+        "3": 1306.4176477920264,
+        "4": 871.7073097920511
+      }
+    },
+    "known-blocks-offline": {
+      "controls_passed": true,
+      "exit_code": 0,
+      "log_bytes": 1272,
+      "log_sha256": "814dbf1540a79cfb4e4d4ae5465004056745771d44cd938fad9b1e488eaf7a4f",
+      "numerical_pilot_passed": null,
+      "ranking_ready": false,
+      "report_id": "983b683508242a3d0dd5c10f47329208f6b681c8fb0b55eccbc1eb4928b181fd",
+      "timings": {
+        "0": 925.5426012920216,
+        "1": 1073.3169323329348,
+        "2": 1295.0948803750798,
+        "3": 1303.984863749938,
+        "4": 872.3241646669339
+      }
+    }
+  },
+  "scheduled_production_runs_returned_during_november_17_audit": [
+    {
+      "conclusion": "failure",
+      "created_at": "2026-11-13T21:58:59Z",
+      "event": "schedule",
+      "html_url": "https://github.com/AryanParte/nfl-player-value/actions/runs/43515405405",
+      "id": 43515405405,
+      "name": "Refresh and publish Defense Explorer",
+      "status": "completed"
+    },
+    {
+      "conclusion": "failure",
+      "created_at": "2026-11-10T21:49:36Z",
+      "event": "schedule",
+      "html_url": "https://github.com/AryanParte/nfl-player-value/actions/runs/42908770888",
+      "id": 42908770888,
+      "name": "Refresh and publish Defense Explorer",
+      "status": "completed"
+    }
+  ]
+}

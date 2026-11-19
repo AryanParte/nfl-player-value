@@ -8,22 +8,22 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-The November 14 [conditional-solver study](docs/CONDITIONAL_SOLVER_RESULTS.md)
-repairs the observed factorization failure without changing the model. Hosted CI
-then exposed a near-alias residual error; a separately frozen compensated-residual
-repair passes 144 independent known-answer cases and all 85 archived coordinate
-comparisons, and completes the formerly blocked fit under its original runtime
-cap. Original failures remain recorded, with unchanged acceptance limits.
-Full numerical integration and player calibration remain unfinished; no new
-posterior fit or admitted ranking follows from this arithmetic milestone.
-Signed season accounting, the first-unit and both sensitivity benchmarks, and
-separate qualification remain intact for 57 QBs / 122 archived games ending
-November 7. **All 17 modules remain unadmitted.** Defense Explorer and defensive
-coverage remain required. November 14 metadata still finds no Pages site; the
-latest inspected Explorer run requires first bootstrap. PRs #18–#26 are merged;
-the solver branch is stacked on open PR #27.
-See the [milestones](docs/MILESTONES.md), [results](docs/CONDITIONAL_SOLVER_RESULTS.md)
-and [learning report](docs/learning/2026-11-14.md). Week 10 stays sealed.
+The November 17 [integration-aware study](docs/INTEGRATION_CONTROL_RESULTS.md)
+passes all five known-answer numerical-coverage gates, but only the team control
+passes the five-case archived comparison. The QB still fails at 0.011896 posterior
+SD / 0.001095 CDF against unchanged 0.01 / 0.001 limits. The candidate is rejected
+for certification. Failure analysis identifies lost numerator/mass cancellation
+and a separate concentration problem in the hierarchy stress case. Neither more
+precise-looking point estimates nor passing software tests authorize scores.
+
+First-unit/equal-player/opportunity-weighted benchmarks, signed cumulative
+accounting and independent qualification remain intact for 57 QBs / 122 archived
+2026 games ending November 7 evening. **All 17 modules remain unadmitted.**
+Player calibration, participation gaps, defense/comparability and scored history
+remain unfinished. Defense Explorer is implemented; hosted Pages/bootstrap is
+still unverified. PR #31 is stacked on #30, which depends on #29.
+See the [milestones](docs/MILESTONES.md), [results](docs/INTEGRATION_CONTROL_RESULTS.md)
+and [learning report](docs/learning/2026-11-17.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit

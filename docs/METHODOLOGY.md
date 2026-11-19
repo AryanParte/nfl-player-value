@@ -404,3 +404,12 @@ recorded source revisions. The complete package source hash prevents an old
 certificate from authorizing a changed numerical kernel. The existing per-object
 size cap, complete denominators and independent offline reconstruction remain.
 Results and the retain/reject decision are recorded separately from this rationale.
+
+The completed [November 17 study](INTEGRATION_CONTROL_RESULTS.md) rejects this
+candidate for certification. Known-answer coverage passes; archived QB precision
+does not. Post-result fixed-anchor covariance diagnostics show smaller numerator
+variance alongside larger normalized-error variance, including within fitting.
+This diagnoses an objective mismatch without changing the estimator or its gates.
+The primary anchors are not known true NFL ratios. Weak mean-contrast improvement
+and hierarchy-tail concentration are separate limitations; a future joint
+mass/numerator fit requires a new frozen design and stronger analytic tail controls.

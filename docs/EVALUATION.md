@@ -454,3 +454,14 @@ all saved benchmark/prior contrasts without reading Week 10. Passing software
 checks or numerical coverage does not complete the 192-fit player-calibration
 study or establish observational attribution. Training variance, learned scales
 and paired plain comparisons are descriptive diagnostics, not new gates.
+
+The [recorded result](INTEGRATION_CONTROL_RESULTS.md) passes all five known-answer
+gates but fails four of five archived cases. All complete within their original
+caps. Retain point failures in the hierarchy/fixed-year stress cases and distinguish
+them from confidence sets that exclude the tolerance region; none excludes it
+here. Large uncertainty is not proof of agreement. Fixed-anchor ratio-influence
+diagnostics and their analytical test explain the failure after results; they
+are neither preregistered acceptance gates nor new held-out evidence. The current
+known targets do not certify the stronger mass concentration seen in the hierarchy
+case. Future tail controls and any changed fitting objective must be frozen before
+new draws, with all original cases/limits retained and no selected plain fallback.
