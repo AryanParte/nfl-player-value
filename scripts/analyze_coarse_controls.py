@@ -306,6 +306,7 @@ def summary(result):
                 item["integration_fit"] = integration_diagnostics([r["fit"] for r in paired])
         if result["plan"]["plan_version"] == 3:
             item["joint_objective"] = joint_known_diagnostics(records)
+        if result["plan"]["plan_version"] in (3, 4):
             item["all_retained_point_errors"] = raw_estimator_diagnostics(records)
             item["gate_decomposition"] = known_gate_decomposition(records, result["plan"])
             item["isolated_wrong_endpoints"] = isolated_wrong_endpoint_diagnostics(

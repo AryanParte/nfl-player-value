@@ -82,6 +82,10 @@ def combine(base, correction):
 
 def restore_proposal(geometry, model_plan):
     """Restore the declared saved geometry without fitting or selecting a trial."""
+    if geometry.get("kind") == "functional-moment-proposal-v1":
+        from nfl_value.functional_proposal import restore_functional
+
+        return restore_functional(geometry)
     initial = geometry["pilot_initial_geometry"]
     mean = np.asarray(initial["mode"], float)
     covariance = np.asarray(initial["covariance"], float)
