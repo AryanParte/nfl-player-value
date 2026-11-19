@@ -152,3 +152,17 @@ it is not a covariance bound, a precision allowance or an admission criterion.
 Verify the bound against independently known sine-tilted normal means. Do not
 subtract it from observed errors or treat it as numerical quadrature uncertainty.
 The numerical candidate, source fingerprint, draws and gates stay unchanged.
+
+Before complete tail-case results, also calculate the Gaussian mass of the box
+within one component standard deviation of the second target component's first
+two coordinates, leaving the other coordinates unrestricted. Report its target
+mass and expected first-pilot point count under each of the four original strata
+(2,048 points each). The expectation uses allocation counts, not mixture masses;
+importance quadrature continues to use mixture masses. Under the declared Gaussian
+point marginals, the probability of any point in the box is at most the expected
+count (capped at one), without an independence assumption. Do not use an iid
+binomial/Poisson discovery probability for scrambled Sobol points. This analytic
+initial-allocation diagnostic says nothing by itself about the second round,
+final precision, unseen regions or player calibration. No new draws or gate.
+Reported analytic moment bounds inherit the quadrature estimates; they are not
+certified floating-point-error-inclusive bounds on the final proposal.
