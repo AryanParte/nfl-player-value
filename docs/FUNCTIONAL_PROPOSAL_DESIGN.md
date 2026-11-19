@@ -115,3 +115,21 @@ record the concrete reason and the next bounded hypothesis; do not automatically
 continue tuning this family. NFL numerical success would still precede the
 unfinished 192-fit player-calibration study and observational admission. Defense,
 qualification and cross-position comparability remain required product work.
+
+## Analytic diagnostic addendum (before complete case results)
+
+With the frozen candidate already executing, add a deterministic diagnostic for
+targets 5–7 only. This is not an alternative estimator, acceptance test, or new
+randomized study. No candidate draw, fitting parameter, prior or gate changes.
+For X normal and L=a'X, use the normal conditional moments of X given L and
+one-dimensional quadrature to calculate each pilot envelope's population mass,
+mean and covariance. Split at the absolute-value cusp. Report integration error,
+the population-moment Gaussian geometry (same eigenvalue bounds/inflation, no
+finite-pilot shrinkage), and density ratios at the two analytic component centers.
+
+Compare learned geometry with those population moments to separate finite-pilot
+error from moment-family limitations. These center probes are not variance bounds
+or evidence of adequate precision; no Monte Carlo results for an oracle proposal
+will be generated or selected. Tests independently check normal absolute/linear/
+quadratic moments. All candidate outcomes, including failed intervals, remain in
+their original denominator. This diagnostic does not consume new NFL outcomes.
