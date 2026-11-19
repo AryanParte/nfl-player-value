@@ -488,3 +488,25 @@ point estimates whose confidence construction failed whenever they are defined,
 and report their denominator explicitly. Isolated wrong-endpoint diagnostics
 cannot count a mean/lower-endpoint failure as detection of an altered endpoint.
 These post-result diagnostics do not change the frozen gate or its rejection.
+
+## Functional proposal validation (November 19)
+
+[FUNCTIONAL_PROPOSAL_DESIGN.md](FUNCTIONAL_PROPOSAL_DESIGN.md), committed as
+ba3f5da before fresh study draws, fixes all eight cases, independent pilot/control/
+evaluation entropy domains and the original archived work caps. The added target
+has a separate declared undercoverage family; none of the first seven gates is
+weakened. Every case requires all 1,024 requested trials, including failed intervals.
+A separate 32-trial initial-proposal concentration diagnostic does not select the
+candidate or replace the finite coverage/precision decision.
+
+Analytical software checks cover Gaussian moments, per-prior normalization,
+signed contributions, zero-envelope behavior, original defensive support,
+independent samples, exact work, zero-mean controls, saved geometry corruption
+and reverse Student-noise convolution. Retained failed-confidence records undergo
+the same proposal provenance checks. Eight-case storage cannot accept an old
+seven-case certificate; archived references must bind the actual fitted proposal.
+
+Population-envelope moments are an explicitly declared analytic diagnostic, with
+independent normal absolute/linear/quadratic-moment tests. No oracle proposal is
+evaluated or selected. Exact offline reproduction does not supply additional
+independent trials, validate attribution, or resolve the 192-fit player study.
