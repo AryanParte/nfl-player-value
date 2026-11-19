@@ -507,6 +507,10 @@ the same proposal provenance checks. Eight-case storage cannot accept an old
 seven-case certificate; archived references must bind the actual fitted proposal.
 
 Population-envelope moments are an explicitly declared analytic diagnostic, with
-independent normal absolute/linear/quadratic-moment tests. No oracle proposal is
-evaluated or selected. Exact offline reproduction does not supply additional
+independent normal absolute/linear/quadratic-moment tests. They refer to unperturbed
+fine-target envelopes, not the exact coarse-pilot population. Source-review
+clarification d267f8d precedes complete tail results and adds a deterministic
+mean-displacement bound for the .001 surrogate tilt, verified against an independent
+sine-tilted Gaussian identity. It changes no candidate, gate or error allowance.
+No oracle proposal is evaluated or selected. Exact offline reproduction does not supply additional
 independent trials, validate attribution, or resolve the 192-fit player study.

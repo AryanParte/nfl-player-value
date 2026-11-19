@@ -40,6 +40,25 @@ class PopulationMomentTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             helper(mu, cov, [0.0, 0.0], lambda _: 1)
 
+    def test_surrogate_tilt_bound_against_gaussian_characteristic_function(self):
+        helpers = runpy.run_path("scripts/functional_population_diagnostic.py")
+        mu, cov = np.array([0.3, -0.4]), np.array([[2.0, 0.3], [0.3, 0.5]])
+        a, epsilon = np.array([0.4, 1.2]), 0.001
+        attenuation = np.exp(-0.5 * (a @ cov @ a))
+        mass = 1 + epsilon * attenuation * np.sin(a @ mu)
+        movement = epsilon * attenuation * (cov @ a) * np.cos(a @ mu) / mass
+        z, first, _, _ = helpers["projection_moments"](
+            mu, cov, a, lambda x: 1 + epsilon * np.sin(x)
+        )
+        self.assertAlmostEqual(z, mass, places=12)
+        np.testing.assert_allclose(first / z - mu, movement, atol=1e-12)
+        bound = helpers["tilted_mean_displacement_bound"]
+        self.assertLess(np.linalg.norm(movement), bound(cov, epsilon))
+        self.assertEqual(bound(cov, 0), 0)
+        for amplitude in (-0.001, 1, np.nan):
+            with self.assertRaises(ValueError):
+                bound(cov, amplitude)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,6 @@
 {
   "diagnostic": "population_moments_not_a_candidate",
-  "source_sha256": "2f5c003788777f28a6efa56772f32282e097ce5316110da9d6eb8cba79d2b995",
+  "source_sha256": "ef9eb388b20d675d102edb2f06a9a1f46866804361e254b92003fb5b65f0db14",
   "cases": {
     "5": {
       "target": 5,
@@ -67,7 +67,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 2.101037451252757e-11
+          "estimated_univariate_quadrature_error": 2.101037451252757e-11,
+          "coarse_surrogate_mean_displacement_bound": 0.0022105696258558545
         },
         {
           "family": "lower",
@@ -131,7 +132,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 7.73384424631395e-12
+          "estimated_univariate_quadrature_error": 7.73384424631395e-12,
+          "coarse_surrogate_mean_displacement_bound": 0.002545788517527722
         },
         {
           "family": "upper",
@@ -195,7 +197,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 5.670625924313818e-12
+          "estimated_univariate_quadrature_error": 5.670625924313818e-12,
+          "coarse_surrogate_mean_displacement_bound": 0.002506083774320513
         }
       ],
       "component_means": [
@@ -298,6 +301,8 @@
           ]
         ]
       ],
+      "population_target": "unperturbed_fine_target_envelopes",
+      "coarse_surrogate_amplitude": 0.001,
       "probe_points": [
         [
           0.0,
@@ -316,7 +321,7 @@
         1.5442270939970748,
         1.5442270939970748
       ],
-      "caveat": "population envelope moments only; no finite-pilot shrinkage, candidate draws, oracle precision test or admission; point probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry"
+      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy"
     },
     "6": {
       "target": 6,
@@ -383,7 +388,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 1.2460983369320453e-11
+          "estimated_univariate_quadrature_error": 1.2460983369320453e-11,
+          "coarse_surrogate_mean_displacement_bound": 0.002848406692233448
         },
         {
           "family": "lower",
@@ -447,7 +453,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 4.53396403937455e-12
+          "estimated_univariate_quadrature_error": 4.53396403937455e-12,
+          "coarse_surrogate_mean_displacement_bound": 0.002759440425319417
         },
         {
           "family": "upper",
@@ -511,7 +518,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 8.693294358299575e-12
+          "estimated_univariate_quadrature_error": 8.693294358299575e-12,
+          "coarse_surrogate_mean_displacement_bound": 0.003495465312883603
         }
       ],
       "component_means": [
@@ -614,6 +622,8 @@
           ]
         ]
       ],
+      "population_target": "unperturbed_fine_target_envelopes",
+      "coarse_surrogate_amplitude": 0.001,
       "probe_points": [
         [
           0.0,
@@ -632,7 +642,7 @@
         1.9488601741812484,
         1.7838018128722677
       ],
-      "caveat": "population envelope moments only; no finite-pilot shrinkage, candidate draws, oracle precision test or admission; point probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry"
+      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy"
     },
     "7": {
       "target": 7,
@@ -699,7 +709,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 5.964624356499417e-12
+          "estimated_univariate_quadrature_error": 5.964624356499417e-12,
+          "coarse_surrogate_mean_displacement_bound": 0.004564884839073346
         },
         {
           "family": "lower",
@@ -763,7 +774,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 4.309264715915967e-12
+          "estimated_univariate_quadrature_error": 4.309264715915967e-12,
+          "coarse_surrogate_mean_displacement_bound": 0.003615936841417913
         },
         {
           "family": "upper",
@@ -827,7 +839,8 @@
             ]
           ],
           "clipped_eigenvalues": 0,
-          "estimated_univariate_quadrature_error": 5.738747289298401e-12
+          "estimated_univariate_quadrature_error": 5.738747289298401e-12,
+          "coarse_surrogate_mean_displacement_bound": 0.005722425922168284
         }
       ],
       "component_means": [
@@ -930,6 +943,8 @@
           ]
         ]
       ],
+      "population_target": "unperturbed_fine_target_envelopes",
+      "coarse_surrogate_amplitude": 0.001,
       "probe_points": [
         [
           0.0,
@@ -948,7 +963,7 @@
         2.508247454599567,
         3.2548776835580497
       ],
-      "caveat": "population envelope moments only; no finite-pilot shrinkage, candidate draws, oracle precision test or admission; point probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry"
+      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy"
     }
   },
   "ranking_ready": false

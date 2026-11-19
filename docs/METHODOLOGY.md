@@ -447,7 +447,10 @@ changed football priors. Full support and a finite variance do not imply adequat
 finite-work accuracy. The more remote narrow-mode fixture tests that limitation.
 
 An independent analytic population-moment diagnostic conditions multivariate
-normal moments on each scalar contrast. It can reveal whether a fitted component
-differs from its intended moment approximation, but point probes of the density
-ratio do not bound integration variance. It is never a substituted oracle model.
+normal moments on each scalar contrast. It uses unperturbed fine-target envelopes;
+comparisons with fitted geometry also include the bounded .001 coarse-surrogate
+tilt and finite-pilot covariance shrinkage. The mean-displacement bound is reported
+separately, never subtracted from error or treated as a covariance/precision bound.
+Point probes of the density ratio do not bound integration variance. This is never
+a substituted oracle model.
 The implementation and software tests alone admit no CAVAA contribution.

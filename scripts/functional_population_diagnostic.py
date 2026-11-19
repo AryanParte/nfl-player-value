@@ -51,6 +51,25 @@ def projection_moments(mean, covariance, contrast, function, *, cusp=None):
     return float(m0), first, second, float(error)
 
 
+def tilted_mean_displacement_bound(covariance, amplitude):
+    """Bound mean movement under any positive multiplicative 1+amplitude*h tilt.
+
+    Requires |h|<=1; this does not bound covariance or estimator error.
+    """
+    cov = np.asarray(covariance, float)
+    if (
+        cov.ndim != 2
+        or cov.shape[0] != cov.shape[1]
+        or not np.isfinite(cov).all()
+        or not np.allclose(cov, cov.T, rtol=0, atol=1e-12)
+        or not np.isfinite(amplitude)
+        or not 0 <= amplitude < 1
+    ):
+        raise ValueError("finite covariance and bounded positive tilt required")
+    np.linalg.cholesky(cov)
+    return float(amplitude * np.sqrt(np.trace(cov)) / (1 - amplitude))
+
+
 def population_geometry(index):
     target = TailTarget(index)
     truth = json.loads(tail_truth_bytes(index))
@@ -109,6 +128,9 @@ def population_geometry(index):
                 proposal_covariance=final.tolist(),
                 clipped_eigenvalues=clipped,
                 estimated_univariate_quadrature_error=float(error),
+                coarse_surrogate_mean_displacement_bound=tilted_mean_displacement_bound(
+                    covariance, 0.001
+                ),
             )
         )
     sampling = new_proposal(tail_proposal(), means, covariances, {})
@@ -117,11 +139,13 @@ def population_geometry(index):
         components=components,
         component_means=np.asarray(means).tolist(),
         component_covariances=np.asarray(covariances).tolist(),
+        population_target="unperturbed_fine_target_envelopes",
+        coarse_surrogate_amplitude=0.001,
         probe_points=target.means.tolist(),
         population_log_density_ratios_at_centers=(
             target.logpdf(target.means) - sampling.logpdf(target.means, "stabilized-mixture")
         ).tolist(),
-        caveat="population envelope moments only; no finite-pilot shrinkage, candidate draws, oracle precision test or admission; point probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry",
+        caveat="unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy",
     )
 
 

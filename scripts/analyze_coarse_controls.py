@@ -87,7 +87,7 @@ def proposal_diagnostics(records, target_index):
             ]
         )
     result["caveat"] = (
-        "descriptive retained fitting evidence; effective weights are not independent observations; center probes are not global density-ratio bounds; no selection or admission"
+        "descriptive retained fitting evidence; effective weights are not independent observations; center probes are not global density-ratio bounds; population comparisons use unperturbed fine-target envelope moments, so gaps also include coarse-surrogate tilt and finite-pilot covariance shrinkage; no selection or admission"
     )
     return result
 
