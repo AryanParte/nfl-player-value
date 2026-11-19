@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 
-from nfl_value.coarse_control_study import load
+from nfl_value.coarse_control_study import assessment_plan, load
 from nfl_value.density_holdout import coverage_summary
 from nfl_value.ingestion import SnapshotStore
 from nfl_value.replicated_reference import diagnose_reference
@@ -92,6 +92,61 @@ def integration_diagnostics(fits):
     )
 
 
+def training_integrals(fit):
+    if "joint_fit" in fit:
+        stage = fit["joint_fit"]
+        f, h = (np.asarray(stage[k], float) for k in ("function_means", "control_means"))
+        adjustment = h * np.asarray(stage["numerator_slopes"])
+        adjustment += h[:, stage["layout"]["mass_columns"]] * np.asarray(stage["mass_slopes"])
+        return f - adjustment, f
+    stage = fit["integration_fit"]
+    f, h = (np.asarray(stage[k], float) for k in ("function_means", "control_means"))
+    return f - h * np.asarray(stage["alpha"]), f
+
+
+def joint_known_diagnostics(records):
+    # Include retained arrays even when Fieller construction failed. Every
+    # requested trial remains in the actual coverage/precision denominator.
+    usable = [
+        r for r in records if all(k in r for k in ("fit", "coarse", "plain_coarse", "correction"))
+    ]
+    result = dict(retained_trials=len(usable), requested_trials=len(records), phases={})
+    for phase in ("training", "evaluation"):
+        rows = []
+        for r in usable:
+            if phase == "training":
+                adjusted, plain = training_integrals(r["fit"])
+            else:
+                adjusted = np.asarray(r["coarse"]) + r["correction"]
+                plain = np.asarray(r["plain_coarse"]) + r["correction"]
+            rows.append(
+                fixed_ratio_variance(
+                    adjusted, plain, r["fit"]["joint_fit"]["layout"]["anchors"][1:]
+                )
+            )
+        stats = {}
+        for kind in ("unnormalized", "fixed_ratio_influence"):
+            columns = list(zip(*(row[kind] for row in rows))) if rows else []
+            stats[kind] = [
+                dict(
+                    defined=len([v for v in column if v is not None]),
+                    undefined=sum(v is None for v in column),
+                    worse=sum(v > 1 for v in column if v is not None),
+                    quantiles=np.quantile(
+                        [v for v in column if v is not None], [0, 0.05, 0.5, 0.95, 1]
+                    ).tolist()
+                    if any(v is not None for v in column)
+                    else None,
+                )
+                for column in columns
+            ]
+        result["phases"][phase] = stats
+    result["caveat"] = (
+        "descriptive correlated per-trial ratios, including retained failed trials; no selection or admission"
+    )
+    return result
+
+
 def summary(result):
     output = {}
     for case in result["cases"]:
@@ -105,7 +160,7 @@ def summary(result):
         ]
         item = dict(
             adjusted_decision=case["decision"],
-            plain_decision=coverage_summary(plain, result["plan"]),
+            plain_decision=coverage_summary(plain, assessment_plan(result["plan"], case["target"])),
             requested_trials=len(records),
             paired_complete_trials=len(paired),
             paired_subset_is_not_an_acceptance_gate=True,
@@ -147,6 +202,8 @@ def summary(result):
             item.update(stats)
             if result["plan"]["plan_version"] == 2:
                 item["integration_fit"] = integration_diagnostics([r["fit"] for r in paired])
+        if result["plan"]["plan_version"] == 3:
+            item["joint_objective"] = joint_known_diagnostics(records)
         output[str(case["target"])] = item
     return output
 
@@ -175,12 +232,9 @@ def ratio_objective_diagnostics(record):
     """Post-result failure diagnosis only: no refitting, selection or new gates."""
     n = record["contrasts"]
     anchors = np.r_[np.zeros(n), np.full(n, 0.025), np.full(n, 0.975)]
-    fit = record["fit"]["integration_fit"]
-    f, h, alpha = (
-        np.asarray(fit[key], float) for key in ("function_means", "control_means", "alpha")
-    )
+    adjusted_training, plain_training = training_integrals(record["fit"])
     phases = dict(
-        training=(f - h * alpha, f),
+        training=(adjusted_training, plain_training),
         evaluation=(
             np.asarray(record["coarse"]) + np.asarray(record["correction"]),
             np.asarray(record["plain_coarse"]) + np.asarray(record["correction"]),
@@ -287,13 +341,14 @@ def archive_summary(result):
                 fit={
                     k: v
                     for k, v in r["fit"].items()
-                    if k not in ("coefficients", "integration_fit")
+                    if k not in ("coefficients", "integration_fit", "joint_fit")
                 },
                 plain_status=r["plain_reference"]["status"],
                 maximum_relative_mass_correction=r["maximum_relative_mass_correction"],
             )
             if result["plan"]["plan_version"] == 2:
                 item["fit"]["integration_fit"] = integration_diagnostics([r["fit"]])
+            if result["plan"]["plan_version"] in (2, 3):
                 item["ratio_objective"] = ratio_objective_diagnostics(r)
             if r["plain_reference"]["status"] == "complete":
                 reference = r["plain_reference"]["reference"]

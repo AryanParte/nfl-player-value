@@ -7,6 +7,40 @@ import numpy as np
 
 
 class CoarseDiagnosticTests(unittest.TestCase):
+    def test_joint_diagnosis_retains_failed_trials_and_uses_both_controls(self):
+        helpers = runpy.run_path("scripts/analyze_coarse_controls.py")
+        x = np.array([-1, -1, 1, 1.0])
+        y = np.array([-1, 1, -1, 1.0])
+        r = 0.975
+        plain = np.column_stack([10 + x, r * (10 + x) + y])
+        h = np.column_stack([x, y])
+        fit = dict(
+            joint_fit=dict(
+                function_means=plain,
+                control_means=h,
+                numerator_slopes=[1, 0.5],
+                mass_slopes=[0, r],
+                layout=dict(anchors=[0, r], mass_columns=[0, 0]),
+            )
+        )
+        adjusted, before = helpers["training_integrals"](fit)
+        np.testing.assert_array_equal(before, plain)
+        np.testing.assert_allclose(adjusted, np.column_stack([np.full(4, 10), 10 * r + 0.5 * y]))
+        retained = dict(
+            status="failed",
+            fit=fit,
+            coarse=adjusted,
+            plain_coarse=plain,
+            correction=np.zeros_like(plain),
+        )
+        result = helpers["joint_known_diagnostics"]([retained, {"status": "failed"}])
+        self.assertEqual(result["requested_trials"], 2)
+        self.assertEqual(result["retained_trials"], 1)
+        for phase in ("training", "evaluation"):
+            influence = result["phases"][phase]["fixed_ratio_influence"][0]
+            self.assertEqual(influence["defined"], 1)
+            np.testing.assert_allclose(influence["quantiles"], [0.25] * 5)
+
     def test_reducing_mass_variance_can_destroy_ratio_cancellation(self):
         helper = runpy.run_path("scripts/analyze_coarse_controls.py")["fixed_ratio_variance"]
         x = np.array([-3.0, -1.0, 1.0, 3.0])

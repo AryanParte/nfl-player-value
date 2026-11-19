@@ -465,3 +465,16 @@ are neither preregistered acceptance gates nor new held-out evidence. The curren
 known targets do not certify the stronger mass concentration seen in the hierarchy
 case. Future tail controls and any changed fitting objective must be frozen before
 new draws, with all original cases/limits retained and no selected plain fallback.
+
+## Joint ratio-control and tail stress study (November 18)
+
+Follow [JOINT_RATIO_DESIGN.md](JOINT_RATIO_DESIGN.md), frozen at 4d5f6bb before
+implementation/results. Seven targets each require 1,024 trials: the original
+five retain their original gates, while two additional targets use a separately
+specified stress family. All seven must pass before archived NFL evaluation.
+Tests independently verify covariance cancellation, signed/collinear directions,
+per-prior mass ownership, complete work, separate entropy, corrupted coefficients,
+seven-case storage and tail moments/CDFs. The CDF check integrates Student noise
+against a normal CDF, independently of the fixture's normal-density convolution.
+Numerical error and player uncertainty remain separate; the original player
+calibration and observational attribution decisions are still required.

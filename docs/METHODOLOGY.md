@@ -413,3 +413,14 @@ This diagnoses an objective mismatch without changing the estimator or its gates
 The primary anchors are not known true NFL ratios. Weak mean-contrast improvement
 and hierarchy-tail concentration are separate limitations; a future joint
 mass/numerator fit requires a new frozen design and stronger analytic tail controls.
+
+## Joint mass/numerator numerical controls (November 18)
+
+The [frozen joint design](JOINT_RATIO_DESIGN.md) targets the integration error of
+N-rZ using two existing zero-mean composite directions. It preserves the shared
+mass adjustment algebraically and uses independent fitting/evaluation draws.
+Centered means, .025/.975 endpoint anchors and each prior's own mass are fixed;
+no evaluated ratio is a fitting input. The two added finite-variance analytic
+mixtures challenge broad tails and displaced mass. Implementation and analytical
+tests do not certify coverage, admit a player module or change the football
+model. Complete new study results and a decision must precede adoption.

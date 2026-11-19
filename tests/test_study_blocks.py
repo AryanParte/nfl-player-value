@@ -39,6 +39,25 @@ class StudyBlockTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "source changed"):
                 save(output, result, "a" * 40, expected_kernel="0" * 64)
 
+    def test_seven_case_index_does_not_accept_a_five_case_certificate(self):
+        plan = json.loads(Path("config/coarse-control-v3.json").read_text())
+        result = dict(
+            experiment="coarse-control-controls-v3", plan=plan, cases=[case(i) for i in range(7)]
+        )
+        with (
+            tempfile.TemporaryDirectory() as path,
+            patch("nfl_value.ingestion.MAX_DOWNLOAD_BYTES", 12000),
+            patch("nfl_value.coarse_control_study.validate_known"),
+        ):
+            output = SnapshotStore(path)
+            rid, manifest = save(output, result, "a" * 40)
+            self.assertEqual(json_bytes(load(output, rid)[1]), json_bytes(result))
+            index = json.loads(output.read(manifest["objects"]["study"]))
+            index["cases"] = index["cases"][:5]
+            manifest["objects"]["study"] = output.put(json_bytes(index))
+            with self.assertRaisesRegex(ValueError, "complete study case index"):
+                load(output, output.put(json_bytes(manifest), manifest=True))
+
     def test_omitted_reordered_changed_and_corrupt_trials_fail(self):
         with (
             tempfile.TemporaryDirectory() as path,

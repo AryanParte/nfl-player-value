@@ -23,12 +23,15 @@ from nfl_value.replicated_reference import (
 from nfl_value.two_level_reference import combine, restore_proposal, sampling_hash
 from nfl_value.control_variates import integrate_controlled
 from nfl_value.variance_reference import BudgetExceeded
+from nfl_value.joint_controls import ratio_layout
+from nfl_value.tail_controls import TailTarget, tail_proposal, tail_truth_bytes
 from nfl_value.study_blocks import put_case, read_case
 
 
 PLAN_HASHES = {
     1: "740aca9f2eb5b8d6e9e5cac44dc4fbea50b05a4d431975f2d9791e7850c5216e",
     2: "27e2f79434940d308552469bf27f8a9083d14413fe67f7b6e316c43e3a581e0f",
+    3: "6300d5ab107a1044afc156f7bbc066c546a22c57bb19e5e1c8043311e90ad8b5",
 }
 
 
@@ -92,13 +95,17 @@ def validate_point_fit(fit, sampling, entropy, plan, columns):
         raise ValueError("fitted control provenance or dimensions differ")
 
 
-def validate_fit(fit, sampling, entropy, plan, columns):
+def validate_fit(fit, sampling, entropy, plan, columns, layout=None):
     validate_point_fit(fit, sampling, entropy, plan, columns)
     if plan["plan_version"] == 2:
         from nfl_value.integration_controls import validate_integration_fit
 
         validate_integration_fit(fit, sampling, entropy, plan, columns, validate_point_fit)
-    elif "integration_fit" in fit:
+    elif plan["plan_version"] == 3:
+        from nfl_value.joint_controls import validate_joint_fit
+
+        validate_joint_fit(fit, sampling, entropy, plan, columns, validate_point_fit, layout)
+    elif "integration_fit" in fit or "joint_fit" in fit:
         raise ValueError("integration fit is not part of this frozen design")
 
 
@@ -113,15 +120,45 @@ def experiment_name(plan, kind):
     return f"coarse-control-{kind}-v{plan['plan_version']}"
 
 
-def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
-    certificate, density = known_parents(plan)
-    cases, timings = [], {}
-    for index in range(5):
-        begin = perf_counter()
+def known_case_count(plan):
+    return 7 if plan["plan_version"] == 3 else 5
+
+
+def known_inputs(index, plan, certificate, density):
+    if index < 5:
         geometry = density["cases"][index]["density"][0]["geometries"]["stabilized-mixture"]
         target = known_target(index, certificate["model_plan"])
         sampling = restore_proposal(geometry, target.plan)
-        truth = json.loads(known_truth_bytes(index))
+        truth = known_truth_bytes(index)
+    elif plan["plan_version"] == 3 and index in (5, 6):
+        target, sampling = TailTarget(index), tail_proposal()
+        geometry, truth = sampling.diagnostics, tail_truth_bytes(index)
+    else:
+        raise ValueError("unknown analytic case for this plan")
+    return target, sampling, geometry, truth
+
+
+def assessment_plan(plan, index):
+    # Coarse v3 is not randomized_controls' older v3 proposal experiment.
+    if plan["plan_version"] != 3:
+        return plan
+    p = {**plan, "plan_version": 2}
+    if index >= 5:
+        p.update(
+            marginal_undercoverage_alpha=plan["tail_marginal_undercoverage_alpha"],
+            joint_undercoverage_alpha=plan["tail_joint_undercoverage_alpha"],
+        )
+    return p
+
+
+def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
+    certificate, density = known_parents(plan)
+    cases, timings = [], {}
+    for index in range(known_case_count(plan)):
+        begin = perf_counter()
+        target, sampling, geometry, truth_bytes = known_inputs(index, plan, certificate, density)
+        truth = json.loads(truth_bytes)
+        rules = assessment_plan(plan, index)
         fine = target.integrand({k: np.asarray(v) for k, v in truth.items()})
 
         def coarse(points, logq):
@@ -134,23 +171,30 @@ def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
             entropy = [plan["base_seed"], 0, index, trial]
             record = dict(trial=trial, entropy=entropy, status="failed")
             try:
-                out = integrate_controlled(fine, coarse, sampling, entropy=entropy, plan=plan)
+                out = integrate_controlled(
+                    fine,
+                    coarse,
+                    sampling,
+                    entropy=entropy,
+                    plan=plan,
+                    layout=ratio_layout(2, wrong_endpoints=True),
+                )
                 record.update(
                     coarse=out["coarse"].tolist(),
                     plain_coarse=out["plain_coarse"].tolist(),
                     correction=out["correction"].tolist(),
                     fit=out["fit"],
                     plain_assessment=plain_assessment(
-                        combine(out["plain_coarse"], out["correction"]), plan
+                        combine(out["plain_coarse"], out["correction"]), rules
                     ),
                 )
-                record.update(**assess_trial(out["total"], plan))
+                record.update(**assess_trial(out["total"], rules))
             except (ValueError, np.linalg.LinAlgError, FloatingPointError) as exc:
                 record["error"] = str(exc)
             records.append(record)
             if (trial + 1) % 128 == 0:
                 progress(f"Known {index}: {trial + 1}/{plan['coverage_trials']}")
-        decision = coverage_summary(records, plan)
+        decision = coverage_summary(records, rules)
         cases.append(
             dict(
                 target=index,
@@ -186,14 +230,14 @@ def validate_known(result):
         or result["nfl_data_used"] is not False
         or result["ranking_ready"] is not False
         or result["calibration_completed"] is not False
-        or [c["target"] for c in result["cases"]] != list(range(5))
+        or [c["target"] for c in result["cases"]] != list(range(known_case_count(plan)))
     ):
         raise ValueError("invalid known-answer scope or complete case denominator")
     for index, case in enumerate(result["cases"]):
-        geometry = density["cases"][index]["density"][0]["geometries"]["stabilized-mixture"]
-        sampling = restore_proposal(geometry, known_target(index, certificate["model_plan"]).plan)
+        _, sampling, geometry, truth_bytes = known_inputs(index, plan, certificate, density)
+        rules = assessment_plan(plan, index)
         if (
-            json_bytes(case["truth"]) != known_truth_bytes(index)
+            json_bytes(case["truth"]) != truth_bytes
             or case["geometry_sha256"] != sha256(json_bytes(geometry))
             or case["sampling_sha256"] != sampling_hash(sampling)
             or [r["trial"] for r in case["records"]] != list(range(plan["coverage_trials"]))
@@ -206,19 +250,26 @@ def validate_known(result):
                 total = combine(r["coarse"], r["correction"])
                 if total.shape != (plan["replicates"], 9):
                     raise ValueError("known replicate shape differs")
-                validate_fit(r["fit"], sampling, [*r["entropy"], 2], plan, total.shape[1])
+                validate_fit(
+                    r["fit"],
+                    sampling,
+                    [*r["entropy"], 2],
+                    plan,
+                    total.shape[1],
+                    ratio_layout(2, wrong_endpoints=True),
+                )
                 if np.asarray(r["plain_coarse"]).shape != total.shape:
                     raise ValueError("paired plain dimensions differ")
                 if json_bytes(r["plain_assessment"]) != json_bytes(
-                    plain_assessment(combine(r["plain_coarse"], r["correction"]), plan)
+                    plain_assessment(combine(r["plain_coarse"], r["correction"]), rules)
                 ):
                     raise ValueError("paired plain assessment differs")
-                actual = assess_trial(total, plan)
+                actual = assess_trial(total, rules)
                 if json_bytes(actual) != json_bytes({k: r[k] for k in actual}):
                     raise ValueError("known numerical decisions do not reproduce")
             elif r["status"] != "failed" or not r.get("error"):
                 raise ValueError("unexplained known failure")
-        if json_bytes(case["decision"]) != json_bytes(coverage_summary(case["records"], plan)):
+        if json_bytes(case["decision"]) != json_bytes(coverage_summary(case["records"], rules)):
             raise ValueError("known coverage decision does not reproduce")
     passed = all(c["decision"]["passed"] for c in result["cases"])
     if result["controls_passed"] is not passed:
@@ -274,6 +325,11 @@ def load(output, rid):
     result = json.loads(output.read(manifest["objects"]["study"]))
     if "storage_format" in result:
         index = result
+        expected_cases = (
+            known_case_count(manifest["plan"])
+            if manifest["experiment"] == experiment_name(manifest["plan"], "controls")
+            else len(CASES)
+        )
         if (
             set(index) != {"storage_format", "header", "case_kind", "cases", "logical_sha256"}
             or index["storage_format"] != "coarse-control-case-index-v1"
@@ -281,14 +337,14 @@ def load(output, rid):
             or not isinstance(index["header"], dict)
             or "cases" in index["header"]
             or not isinstance(index["cases"], list)
-            or len(index["cases"]) != 5
+            or len(index["cases"]) != expected_cases
             or any(not isinstance(x, list) or len(x) != 2 for x in index["cases"])
         ):
             raise ValueError("invalid complete study case index")
         names = [x[0] for x in index["cases"]]
         if any(not isinstance(k, str) for k in names) or len(set(names)) != len(names):
             raise ValueError("invalid study case index names")
-        if index["case_kind"] == "list" and names != [str(i) for i in range(5)]:
+        if index["case_kind"] == "list" and names != [str(i) for i in range(expected_cases)]:
             raise ValueError("study case index order differs")
         values = [read_case(output, digest) for _, digest in index["cases"]]
         cases = values if index["case_kind"] == "list" else dict(zip(names, values))
@@ -332,7 +388,14 @@ def validate_archive(result):
             ):
                 raise ValueError("archived entropy, levels or geometry disagree")
             sampling = restore_proposal(r["reference"]["geometry"], result["model_plan"])
-            validate_fit(r["fit"], sampling, [*r["entropy"], 2], p, total.shape[1])
+            validate_fit(
+                r["fit"],
+                sampling,
+                [*r["entropy"], 2],
+                p,
+                total.shape[1],
+                ratio_layout(r["contrasts"], len(r["shifts"])),
+            )
             plain = plain_reference(
                 combine(r["plain_coarse"], r["correction"]),
                 r["contrasts"],
@@ -486,6 +549,7 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
                 entropy=entropy,
                 plan=plan,
                 progress=lambda s: progress(name + ": " + s),
+                layout=ratio_layout(len(contrasts), len(shifts)),
             )
             total, base, delta = out["total"], out["coarse"], out["correction"]
             record.update(
