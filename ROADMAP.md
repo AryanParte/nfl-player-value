@@ -141,6 +141,25 @@ must pass too; improving CDF cancellation alone is insufficient. Preserve the
 192-fit calibration backlog, sealed Week 10 and all-position objective. PR #31 is
 stacked on #30/#29; pending merges and deployment access did not block this work.
 
+## November 18: joint ratio controls and tail precision decision
+
+The [joint ratio study](docs/JOINT_RATIO_RESULTS.md) freezes the fit and two new
+analytic tails before trials. All 7,168 trials complete, and two full offline
+executions match the manifest/all 15 objects. Original five targets pass, while
+broad/displaced tails fail precision at 6.0547%/0%, despite passing finite coverage
+checks. The saved certificate blocks NFL evaluation before inputs. No new
+calibration, live game coverage or scoring admission is claimed.
+
+Failure analysis separates insufficient endpoint precision from mean error,
+training gains from evaluation variance, and joint-vector rejection from isolated
+wrong-endpoint detection. The coefficient-only candidate is rejected. Next freeze
+one bounded proposal-level alternative covering required functionals and stronger
+concentration, with explicit work/validation/stop rules. Do not tune consumed
+seeds, choose plain results, widen intervals or relax gates. Scoring remains M1/M2;
+participation, M4 defense, scored history and deployment remain unfinished.
+The owner merged #29–#31; [#32](https://github.com/AryanParte/nfl-player-value/pull/32)
+targets main. Pages/bootstrap remains an independent access blocker.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.

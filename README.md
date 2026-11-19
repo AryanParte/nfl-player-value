@@ -8,22 +8,22 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-The November 17 [integration-aware study](docs/INTEGRATION_CONTROL_RESULTS.md)
-passes all five known-answer numerical-coverage gates, but only the team control
-passes the five-case archived comparison. The QB still fails at 0.011896 posterior
-SD / 0.001095 CDF against unchanged 0.01 / 0.001 limits. The candidate is rejected
-for certification. Failure analysis identifies lost numerator/mass cancellation
-and a separate concentration problem in the hierarchy stress case. Neither more
-precise-looking point estimates nor passing software tests authorize scores.
+The November 18 [joint ratio-control study](docs/JOINT_RATIO_RESULTS.md) completes
+7,168 known-answer trials and exact independent replay. Original five targets
+pass, but two added tail cases fail precision (6.0547%/0% versus 90% required).
+The candidate is rejected and its certificate blocks archived NFL evaluation.
+Numerical coverage, software tests and reproducibility do not admit player scores.
 
 First-unit/equal-player/opportunity-weighted benchmarks, signed cumulative
 accounting and independent qualification remain intact for 57 QBs / 122 archived
 2026 games ending November 7 evening. **All 17 modules remain unadmitted.**
-Player calibration, participation gaps, defense/comparability and scored history
-remain unfinished. Defense Explorer is implemented; hosted Pages/bootstrap is
-still unverified. PR #31 is stacked on #30, which depends on #29.
-See the [milestones](docs/MILESTONES.md), [results](docs/INTEGRATION_CONTROL_RESULTS.md)
-and [learning report](docs/learning/2026-11-17.md). Week 10 stays sealed.
+The next scoring action is a frozen proposal-level alternative addressing
+functional precision, before the unfinished player-calibration/admission work.
+Defense/comparability, participation gaps and scored history remain required.
+Defense Explorer is implemented; authenticated Pages/bootstrap is still blocked.
+The owner merged PRs #29–#31; PR #32 targets main directly.
+See [milestones](docs/MILESTONES.md), [results](docs/JOINT_RATIO_RESULTS.md) and the
+[learning report](docs/learning/2026-11-18.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit

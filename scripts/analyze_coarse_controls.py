@@ -9,7 +9,7 @@ import numpy as np
 from nfl_value.coarse_control_study import assessment_plan, load
 from nfl_value.density_holdout import coverage_summary
 from nfl_value.ingestion import SnapshotStore
-from nfl_value.replicated_reference import diagnose_reference
+from nfl_value.replicated_reference import confidence_sets, diagnose_reference
 
 TRUTH = np.array([1.0, 0, 0, 0.025, 0.025, 0.975, 0.975])
 
@@ -147,6 +147,108 @@ def joint_known_diagnostics(records):
     return result
 
 
+def raw_estimator_diagnostics(records):
+    """Do not condition point-error summaries on successful interval construction."""
+    output = {}
+    for label, key in (("adjusted", "coarse"), ("plain", "plain_coarse")):
+        estimates, failed_confidence = [], 0
+        for record in records:
+            if key not in record or "correction" not in record:
+                continue
+            raw = np.asarray(record[key], float) + np.asarray(record["correction"], float)
+            if raw.ndim != 2 or raw.shape[1] != 9 or not np.isfinite(raw).all():
+                raise ValueError("malformed retained known-answer integrals")
+            average = raw.mean(axis=0)[:7]
+            if average[0] <= 0:
+                continue
+            estimate = np.r_[average[0], average[1:] / average[0]]
+            if not np.isfinite(estimate).all():
+                continue
+            estimates.append(estimate)
+            status = record if label == "adjusted" else record.get("plain_assessment", {})
+            failed_confidence += status.get("status") != "complete"
+        matrix = np.asarray(estimates)
+        output[label] = dict(
+            requested_trials=len(records),
+            defined_estimates=len(estimates),
+            unavailable_estimates=len(records) - len(estimates),
+            included_failed_confidence_trials=failed_confidence,
+            bias=(matrix.mean(axis=0) - TRUTH).tolist() if len(matrix) else None,
+            rmse=np.sqrt(np.mean((matrix - TRUTH) ** 2, axis=0)).tolist() if len(matrix) else None,
+            empirical_sd=matrix.std(axis=0, ddof=1).tolist() if len(matrix) > 1 else None,
+            caveat="finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission",
+        )
+    return output
+
+
+def isolated_wrong_endpoint_diagnostics(records, tolerance):
+    """A failing joint vector alone does not identify which endpoints are wrong."""
+    available, any_excluded, both_excluded = 0, 0, 0
+    for r in records:
+        if "coarse" not in r or "correction" not in r:
+            continue
+        raw = np.asarray(r["coarse"]) + np.asarray(r["correction"])
+        try:
+            bounds = confidence_sets(raw[:, [0, 1, 2, 3, 4, 7, 8]], [-1, 0, 0, 0, 0, 0, 0])
+        except (ValueError, np.linalg.LinAlgError, FloatingPointError):
+            continue
+        available += 1
+        # Use the original seven-functional joint critical value, then inspect
+        # only the two deliberately shifted endpoints, excluding nuisance failures.
+        excluded = (bounds["high"][-2:] < 0.975 - tolerance) | (
+            bounds["low"][-2:] > 0.975 + tolerance
+        )
+        any_excluded += bool(excluded.any())
+        both_excluded += bool(excluded.all())
+    return dict(
+        requested_trials=len(records),
+        available_confidence_trials=available,
+        at_least_one_wrong_endpoint_excluded_trials=any_excluded,
+        both_wrong_endpoints_excluded_trials=both_excluded,
+        caveat="diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here",
+    )
+
+
+def known_gate_decomposition(records, plan):
+    complete = [r for r in records if r["status"] == "complete"]
+    out = dict(
+        requested_trials=len(records),
+        complete_confidence_trials=len(complete),
+        failed_confidence_trials=len(records) - len(complete),
+        groups={},
+    )
+    if not complete:
+        return out
+    estimate, low, high = (
+        np.asarray([r["bounds"][k] for r in complete]) for k in ("estimate", "low", "high")
+    )
+    gap = np.abs(estimate - TRUTH)
+    radius = np.maximum(np.abs(low - estimate), np.abs(high - estimate))
+    for name, indices, tol in (
+        ("mean_sd", slice(1, 3), plan["reference_mean_tolerance_sd"]),
+        ("endpoint_cdf", slice(3, 7), plan["reference_endpoint_cdf_tolerance"]),
+    ):
+        g, e = gap[:, indices], radius[:, indices]
+        out["groups"][name] = dict(
+            point_only_failed_trials=int(np.any(g > tol, axis=1).sum()),
+            error_only_failed_trials=int(np.any(e > tol, axis=1).sum()),
+            discrepancy_plus_error_failed_trials=int(np.any(g + e > tol, axis=1).sum()),
+            interval_excludes_tolerance_trials=int(
+                np.any(
+                    (high[:, indices] < TRUTH[indices] - tol)
+                    | (low[:, indices] > TRUTH[indices] + tol),
+                    axis=1,
+                ).sum()
+            ),
+            maximum_point_gap_quantiles=np.quantile(g.max(axis=1), [0, 0.5, 0.95, 1]).tolist(),
+            maximum_error_allowance_quantiles=np.quantile(
+                e.max(axis=1), [0, 0.5, 0.95, 1]
+            ).tolist(),
+            maximum_combined_quantiles=np.quantile((g + e).max(axis=1), [0, 0.5, 0.95, 1]).tolist(),
+        )
+    return out
+
+
 def summary(result):
     output = {}
     for case in result["cases"]:
@@ -204,6 +306,11 @@ def summary(result):
                 item["integration_fit"] = integration_diagnostics([r["fit"] for r in paired])
         if result["plan"]["plan_version"] == 3:
             item["joint_objective"] = joint_known_diagnostics(records)
+            item["all_retained_point_errors"] = raw_estimator_diagnostics(records)
+            item["gate_decomposition"] = known_gate_decomposition(records, result["plan"])
+            item["isolated_wrong_endpoints"] = isolated_wrong_endpoint_diagnostics(
+                records, result["plan"]["reference_endpoint_cdf_tolerance"]
+            )
         output[str(case["target"])] = item
     return output
 

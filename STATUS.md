@@ -1,50 +1,43 @@
 # Project status
 
-Updated for the November 17, 2026 run, finalized November 18 (America/New_York).
-Times and producer revisions are retained in the execution audit.
+Updated for the November 18, 2026 run (America/New_York).
 
 ## Current scoring milestone
 
-The November 7 target was missed. No CAVAA module or MVP ranking is admitted, and
-there is no measured completion percentage. Scoring remains the critical path;
+The November 7 target was missed. **No CAVAA module or MVP ranking is admitted.**
+There is no measured completion percentage. Scoring remains the critical path;
 optional infrastructure is paused. Track implementation, scientific evidence and
 blockers separately in [M1–M6](docs/MILESTONES.md).
 
-The [integration-aware study](docs/INTEGRATION_CONTROL_RESULTS.md) completes the
-candidate frozen in 471fe97. All five known-answer gates pass on 5,120 trials:
-joint numerical coverage 94.9219%–96.4844%. Two complete offline executions match
-the manifest and all 11 objects. A checkpoint-size failure was diagnosed and
-repaired without changing numerical calculations or the 128 MiB limit; the whole
-study was recomputed under the corrected source fingerprint.
+The [joint ratio-control study](docs/JOINT_RATIO_RESULTS.md), frozen at 4d5f6bb,
+completes all 7,168 known-answer trials. Both complete offline executions match
+the manifest and all 15 objects. Original five targets pass. Added broad-tail and
+displaced-mass targets pass the finite coverage checks but fail precision:
+**6.0547% and 0%**, versus 90% required. The actual saved certificate is blocked
+before NFL inputs; no new archived comparison or player calibration was attempted.
 
-All five archived cases complete within the original work/time caps, using 88,065
-evaluations each. Only the team control passes. The primary QB fails at
-**0.011896 posterior SD / 0.001095 CDF**, including numerical error, against
-**0.01 / 0.001**. Both prior sensitivities and all three stress cases fail. The
-paired plain QB result is only slightly worse. Both full independent NFL executions reproduce the manifest and all 11 objects
-byte-for-byte, including every failed comparison.
+**Decision: reject this candidate for numerical certification.** The joint fit
+repairs the algebraic shared-mass objective, but held-out variance improvement
+is inconsistent. Broad-tail failure is endpoint precision (962/1,024 failures,
+with all mean checks passing). Displaced mass fails both means and endpoints in
+every trial. Both paired plain references also fail. Maximum mass concentration
+is still below the previous NFL hierarchy case, so that stronger regime remains
+unvalidated. No gate, interval, prior, source cohort or admission rule changed.
 
-**Decision: reject this candidate for numerical certification.** The failure
-analysis identifies a ratio-objective mismatch: reducing numerator variance can
-worsen the normalized estimate by disrupting covariance with its shared mass.
-For the QB's upper-CDF contrasts, this occurs for 164/171 during fitting and all
-171 during evaluation. An independent analytical regression protects the diagnosis.
-Mean precision remains insufficient; a separate hierarchy stress case concentrates
-10.3866% of mass in one replicate. Fixing cancellation alone is not a complete fix.
-No player interval, prior, benchmark, admission rule or sealed Week 10 outcome changed.
-
-Next freeze a bounded joint mass/numerator fit targeting normalized functional
-variance, with analytic tail-stress controls, fresh numerical draws and unchanged
-original gates. It is not implemented or adopted. Do not select the paired plain
-result, retry favorable seeds, widen intervals or treat numerical coverage as
-player calibration. The original 192-fit player-calibration study remains unfinished.
+Next freeze one bounded proposal-level alternative covering required means and
+endpoint probabilities as well as mass, with independent fitting/validation,
+retained original/tail cases, explicit work limits and a stop rule. It is a
+hypothesis, not an adopted fix. Stop coefficient-only tuning on these consumed
+draws; do not select plain results or enlarge samples automatically. A numerical
+certificate must precede the unchanged archived pilot, unfinished 192-fit player
+calibration and observational admission. Week 10 stays sealed.
 
 The unchanged archive has 57 QBs / 122 completed 2026 games / 8,996 dropbacks,
 37 first-unit members, 57 sensitivity members and 38 negative first-unit estimates.
 Training uses 48,776 dropbacks across 2024–26 without adding historical points.
 The cohort ends November 7 at 20:41:17 Eastern; evidence cutoff remains
-2026-11-08T02:47:32.067979Z. This is not November 17 live coverage. Original
-model/prediction objects and nonduplicated season accounting remain intact.
+2026-11-08T02:47:32.067979Z. This is not November 18 live coverage. The original
+model/prediction objects and nonduplicated cumulative accounting remain intact.
 
 ## Other product milestones
 
@@ -55,41 +48,42 @@ benchmark membership and the model observation population.
 
 The required defensive information-loss experiment and Defense Explorer remain:
 131 games / 15,803 plays / 895 defenders; residualized rank 856 versus 193 after
-aggregation. The November 17 metadata audit finds no 2026-named asset among 46 in
-the checked participation release. This is not all-provider absence or game-level
-coverage. Live lineups, defensive uncertainty and comparability remain unfinished.
-No event-count CAVAA is invented or unsupported contribution converted to zero.
+aggregation. The November 18 metadata check still finds no 2026-named asset among
+46 in the checked participation release. This is not all-provider absence or
+verified game coverage. No new defensive model was validated in this unit;
+live lineups, defensive uncertainty and comparability remain unfinished.
+Unsupported contributions stay unavailable, never event-count CAVAA or zero.
 
-The React/TypeScript dashboard has explanations, provenance and availability views,
-but no admitted leaderboard or ranked history. Its next scored input must retain
-validated scope, uncertainty and the three benchmark comparisons.
+React/TypeScript explanations, provenance and availability views are implemented;
+there is no admitted leaderboard or ranked history. A validated module's scope,
+uncertainty and three benchmark comparisons must accompany any scored input.
 
 ## Deployment and execution state
 
-Inspected main remains 0a586a1. PRs #29 and #30 are open;
-[PR #31](https://github.com/AryanParte/nfl-player-value/pull/31) is explicitly stacked
-on #30 at c49fafc. No agent merge or history rewrite occurred. Pending review did
-not prevent independent modeling work.
+The owner merged PRs #29–#31 during this run; fetched main is bab8852.
+[PR #32](https://github.com/AryanParte/nfl-player-value/pull/32) targets main directly.
+No agent merge or history rewrite occurred. Pending review did not block modeling.
 
-November 17 repository metadata reports no Pages site. The latest returned
-scheduled Explorer run remains [43515405405](https://github.com/AryanParte/nfl-player-value/actions/runs/43515405405),
-requiring the first manual bootstrap. No deployment or settings change was made.
-Authenticated Pages/bootstrap, actual remote retention/replay and live-site
-verification remain open; see the [runbook](docs/PRODUCTION_REFRESH.md). An Explorer
-deployment would still not be an admitted CAVAA leaderboard.
+November 18 metadata reports no Pages site. The latest returned scheduled Explorer
+[run 44200134216](https://github.com/AryanParte/nfl-player-value/actions/runs/44200134216)
+failed November 17 at the explicit first-bootstrap prerequisite. Offline regression
+passed; capture and publication were skipped. The connector still lacks Pages
+configuration/workflow dispatch. Authenticated bootstrap, remote retention/replay
+and live-site verification remain open; see the [runbook](docs/PRODUCTION_REFRESH.md).
+An Explorer deployment would still not be an admitted CAVAA leaderboard.
 
-Final local make check passes 487 Python tests and 27 frontend contracts, plus
-Ruff/format, TypeScript/build, syntax and whitespace. Diagnostic source 53a4c71
-passes hosted Python 3.11–3.13 and dashboard/browser checks in
-[run 44238231094](https://github.com/AryanParte/nfl-player-value/actions/runs/44238231094).
-The final reporting-head CI is inspected separately. See the
-[learning report](docs/learning/2026-11-17.md) for review focus and limitations.
-These are software checks, not scientific admission.
+Final local make check passes 500 Python tests, 27 frontend contracts, Ruff/format,
+TypeScript/build, compilation and whitespace. Implementation e363a2e passes hosted
+Python 3.11–3.13 and dashboard/browser [CI 44436684935](https://github.com/AryanParte/nfl-player-value/actions/runs/44436684935).
+Final reporting/diagnostic-head CI is inspected separately. Self-review adds
+failure-inclusive point diagnostics and isolated wrong-endpoint detection;
+these do not alter the estimator or gates. See the [learning report](docs/learning/2026-11-18.md).
+Software verification, numerical coverage and player validation remain distinct.
 
 No new dependency, purchase, paid service, main push, other-repository edit or
 7:30 PM America/New_York automation change. Added recurring service cost is zero.
-Production refresh remains independent. Local immutable study stores are not
-durable remote research retention.
+Production refresh remains independent. Immutable local research stores are not
+yet durable remote research retention.
 
 ## Earlier measured evidence (unchanged archives)
 

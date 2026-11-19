@@ -423,4 +423,8 @@ Centered means, .025/.975 endpoint anchors and each prior's own mass are fixed;
 no evaluated ratio is a fitting input. The two added finite-variance analytic
 mixtures challenge broad tails and displaced mass. Implementation and analytical
 tests do not certify coverage, admit a player module or change the football
-model. Complete new study results and a decision must precede adoption.
+model. The [completed study](JOINT_RATIO_RESULTS.md) rejects this candidate:
+all seven targets complete, but the two added tails fail precision. No football
+reference or admission follows. Better training covariance does not guarantee
+held-out variance reduction; the next hypothesis concerns proposal coverage of
+required functionals, with a new freeze required before fresh draws.

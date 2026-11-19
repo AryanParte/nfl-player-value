@@ -7,6 +7,73 @@ import numpy as np
 
 
 class CoarseDiagnosticTests(unittest.TestCase):
+    def test_wrong_endpoint_diagnostic_cannot_borrow_a_mean_failure(self):
+        helper = runpy.run_path("scripts/analyze_coarse_controls.py")[
+            "isolated_wrong_endpoint_diagnostics"
+        ]
+        # Mean failure alone cannot count as wrong-endpoint detection.
+        raw = np.tile([1, 2, -2, 0.025, 0.025, 0.975, 0.975, 0.975, 0.975], (8, 1))
+        nuisance_only = dict(coarse=raw, correction=np.zeros_like(raw))
+        one_wrong = raw.copy()
+        one_wrong[:, 7] = 0.9
+        both_wrong = one_wrong.copy()
+        both_wrong[:, 8] = 0.92
+        result = helper(
+            [
+                nuisance_only,
+                dict(coarse=one_wrong, correction=np.zeros_like(raw)),
+                dict(coarse=both_wrong, correction=np.zeros_like(raw)),
+                {"status": "failed"},
+            ],
+            0.001,
+        )
+        self.assertEqual(result["requested_trials"], 4)
+        self.assertEqual(result["available_confidence_trials"], 3)
+        self.assertEqual(result["at_least_one_wrong_endpoint_excluded_trials"], 2)
+        self.assertEqual(result["both_wrong_endpoints_excluded_trials"], 1)
+
+    def test_known_gap_error_and_disagreement_are_distinguished(self):
+        helpers = runpy.run_path("scripts/analyze_coarse_controls.py")
+        truth = helpers["TRUTH"]
+        a, b = truth.copy(), truth.copy()
+        a[1] = 0.02  # inaccurate point, but its wide interval still includes truth
+        b[3] += 0.003  # small-error interval excludes the CDF tolerance region
+        records = [
+            dict(status="complete", bounds=dict(estimate=a, low=a - 0.03, high=a + 0.03)),
+            dict(status="complete", bounds=dict(estimate=b, low=b - 0.0001, high=b + 0.0001)),
+            dict(status="failed"),
+        ]
+        result = helpers["known_gate_decomposition"](
+            records, dict(reference_mean_tolerance_sd=0.01, reference_endpoint_cdf_tolerance=0.001)
+        )
+        self.assertEqual(result["failed_confidence_trials"], 1)
+        means, cdfs = (result["groups"][k] for k in ("mean_sd", "endpoint_cdf"))
+        self.assertEqual(means["point_only_failed_trials"], 1)
+        self.assertEqual(means["interval_excludes_tolerance_trials"], 0)
+        self.assertEqual(cdfs["discrepancy_plus_error_failed_trials"], 2)
+        self.assertEqual(cdfs["point_only_failed_trials"], 1)
+        self.assertEqual(cdfs["error_only_failed_trials"], 1)
+        self.assertEqual(cdfs["interval_excludes_tolerance_trials"], 1)
+
+    def test_point_error_diagnosis_does_not_drop_failed_confidence_trials(self):
+        helpers = runpy.run_path("scripts/analyze_coarse_controls.py")
+        raw = np.tile([1, 2, -2, 0.025, 0.025, 0.975, 0.975, 0.9, 0.9], (4, 1))
+        valid = dict(
+            status="failed",
+            coarse=raw,
+            plain_coarse=raw,
+            correction=np.zeros_like(raw),
+            plain_assessment={"status": "failed"},
+        )
+        unavailable = {**valid, "coarse": -raw, "plain_coarse": -raw}
+        result = helpers["raw_estimator_diagnostics"]([valid, unavailable, {"status": "failed"}])
+        for side in ("adjusted", "plain"):
+            self.assertEqual(result[side]["defined_estimates"], 1)
+            self.assertEqual(result[side]["unavailable_estimates"], 2)
+            self.assertEqual(result[side]["included_failed_confidence_trials"], 1)
+            np.testing.assert_allclose(result[side]["bias"], [0, 2, -2, 0, 0, 0, 0])
+            self.assertIsNone(result[side]["empirical_sd"])
+
     def test_joint_diagnosis_retains_failed_trials_and_uses_both_controls(self):
         helpers = runpy.run_path("scripts/analyze_coarse_controls.py")
         x = np.array([-1, -1, 1, 1.0])

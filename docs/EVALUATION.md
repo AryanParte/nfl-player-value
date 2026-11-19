@@ -478,3 +478,13 @@ seven-case storage and tail moments/CDFs. The CDF check integrates Student noise
 against a normal CDF, independently of the fixture's normal-density convolution.
 Numerical error and player uncertainty remain separate; the original player
 calibration and observational attribution decisions are still required.
+
+The completed [result](JOINT_RATIO_RESULTS.md) fails the combined certificate:
+all finite coverage checks pass, but precision is only 6.0547%/0% for the added
+tails. All 7,168 trials and two full executions remain in the audit; replay is
+not extra independent evidence. The actual failed certificate is blocked before
+NFL inputs. Diagnose point gaps separately from numerical allowances. Retain
+point estimates whose confidence construction failed whenever they are defined,
+and report their denominator explicitly. Isolated wrong-endpoint diagnostics
+cannot count a mean/lower-endpoint failure as detection of an altered endpoint.
+These post-result diagnostics do not change the frozen gate or its rejection.

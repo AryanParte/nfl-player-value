@@ -97,3 +97,11 @@ coverage, accuracy, concentration or ineffective controls; do not reinterpret
 an inconclusive numerical interval as proven model bias. End with a decision
 and the next concrete scoring action. A pass only enables subsequent player
 calibration and observational validation; no score is admitted by this study.
+
+## Repository base update (no design change)
+
+After this freeze, GitHub confirmed the owner merged PRs #29–#31. PR #31 merged
+at 2026-11-19T01:18:36Z; refreshed main is bab8852 and has the same file tree as
+21731dc. PR #32 therefore targets main directly. The experimental source is
+committed as e363a2e. Both offline executions started from that same revision,
+with unchanged design, seeds and source fingerprint. No agent merge occurred.

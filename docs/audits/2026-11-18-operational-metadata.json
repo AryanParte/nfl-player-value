@@ -1,0 +1,260 @@
+{
+  "checked_at_utc": "2026-11-19 01:25:51 UTC",
+  "scope": "metadata-only check; not game-level coverage or an audit of every provider",
+  "source_url": "https://api.github.com/repos/nflverse/nflverse-data/releases/tags/pbp_participation",
+  "release_id": 71636554,
+  "asset_count": 46,
+  "assets": [
+    {
+      "name": "pbp_participation_2016.csv",
+      "id": 141398930,
+      "updated_at": "2023-12-19T05:50:03Z"
+    },
+    {
+      "name": "pbp_participation_2016.parquet",
+      "id": 141398933,
+      "updated_at": "2023-12-19T05:50:06Z"
+    },
+    {
+      "name": "pbp_participation_2016.qs",
+      "id": 141398937,
+      "updated_at": "2023-12-19T05:50:09Z"
+    },
+    {
+      "name": "pbp_participation_2016.rds",
+      "id": 141398928,
+      "updated_at": "2023-12-19T05:49:59Z"
+    },
+    {
+      "name": "pbp_participation_2017.csv",
+      "id": 141399377,
+      "updated_at": "2023-12-19T05:57:29Z"
+    },
+    {
+      "name": "pbp_participation_2017.parquet",
+      "id": 141399384,
+      "updated_at": "2023-12-19T05:57:32Z"
+    },
+    {
+      "name": "pbp_participation_2017.qs",
+      "id": 141399385,
+      "updated_at": "2023-12-19T05:57:35Z"
+    },
+    {
+      "name": "pbp_participation_2017.rds",
+      "id": 141399376,
+      "updated_at": "2023-12-19T05:57:25Z"
+    },
+    {
+      "name": "pbp_participation_2018.csv",
+      "id": 141399858,
+      "updated_at": "2023-12-19T06:04:51Z"
+    },
+    {
+      "name": "pbp_participation_2018.parquet",
+      "id": 141399862,
+      "updated_at": "2023-12-19T06:04:53Z"
+    },
+    {
+      "name": "pbp_participation_2018.qs",
+      "id": 141399866,
+      "updated_at": "2023-12-19T06:04:56Z"
+    },
+    {
+      "name": "pbp_participation_2018.rds",
+      "id": 141399856,
+      "updated_at": "2023-12-19T06:04:48Z"
+    },
+    {
+      "name": "pbp_participation_2019.csv",
+      "id": 141400567,
+      "updated_at": "2023-12-19T06:12:02Z"
+    },
+    {
+      "name": "pbp_participation_2019.parquet",
+      "id": 141400568,
+      "updated_at": "2023-12-19T06:12:05Z"
+    },
+    {
+      "name": "pbp_participation_2019.qs",
+      "id": 141400575,
+      "updated_at": "2023-12-19T06:12:08Z"
+    },
+    {
+      "name": "pbp_participation_2019.rds",
+      "id": 141400565,
+      "updated_at": "2023-12-19T06:11:58Z"
+    },
+    {
+      "name": "pbp_participation_2020.csv",
+      "id": 141401404,
+      "updated_at": "2023-12-19T06:19:27Z"
+    },
+    {
+      "name": "pbp_participation_2020.parquet",
+      "id": 141401408,
+      "updated_at": "2023-12-19T06:19:31Z"
+    },
+    {
+      "name": "pbp_participation_2020.qs",
+      "id": 141401412,
+      "updated_at": "2023-12-19T06:19:34Z"
+    },
+    {
+      "name": "pbp_participation_2020.rds",
+      "id": 141401402,
+      "updated_at": "2023-12-19T06:19:24Z"
+    },
+    {
+      "name": "pbp_participation_2021.csv",
+      "id": 141402206,
+      "updated_at": "2023-12-19T06:27:12Z"
+    },
+    {
+      "name": "pbp_participation_2021.parquet",
+      "id": 141402215,
+      "updated_at": "2023-12-19T06:27:15Z"
+    },
+    {
+      "name": "pbp_participation_2021.qs",
+      "id": 141402224,
+      "updated_at": "2023-12-19T06:27:17Z"
+    },
+    {
+      "name": "pbp_participation_2021.rds",
+      "id": 141402201,
+      "updated_at": "2023-12-19T06:27:08Z"
+    },
+    {
+      "name": "pbp_participation_2022.csv",
+      "id": 141402925,
+      "updated_at": "2023-12-19T06:34:53Z"
+    },
+    {
+      "name": "pbp_participation_2022.parquet",
+      "id": 141402929,
+      "updated_at": "2023-12-19T06:34:57Z"
+    },
+    {
+      "name": "pbp_participation_2022.qs",
+      "id": 141402931,
+      "updated_at": "2023-12-19T06:35:00Z"
+    },
+    {
+      "name": "pbp_participation_2022.rds",
+      "id": 141402924,
+      "updated_at": "2023-12-19T06:34:50Z"
+    },
+    {
+      "name": "pbp_participation_2023.csv",
+      "id": 289571108,
+      "updated_at": "2025-09-04T10:25:30Z"
+    },
+    {
+      "name": "pbp_participation_2023.parquet",
+      "id": 289571109,
+      "updated_at": "2025-09-04T10:25:29Z"
+    },
+    {
+      "name": "pbp_participation_2023.qs",
+      "id": 289571103,
+      "updated_at": "2025-09-04T10:25:29Z"
+    },
+    {
+      "name": "pbp_participation_2023.rds",
+      "id": 289571105,
+      "updated_at": "2025-09-04T10:25:29Z"
+    },
+    {
+      "name": "pbp_participation_2024.csv",
+      "id": 289570937,
+      "updated_at": "2025-09-04T10:24:49Z"
+    },
+    {
+      "name": "pbp_participation_2024.parquet",
+      "id": 289570938,
+      "updated_at": "2025-09-04T10:24:48Z"
+    },
+    {
+      "name": "pbp_participation_2024.qs",
+      "id": 289570940,
+      "updated_at": "2025-09-04T10:24:48Z"
+    },
+    {
+      "name": "pbp_participation_2024.rds",
+      "id": 289570939,
+      "updated_at": "2025-09-04T10:24:48Z"
+    },
+    {
+      "name": "pbp_participation_2025.csv",
+      "id": 353763509,
+      "updated_at": "2026-02-10T18:54:08Z"
+    },
+    {
+      "name": "pbp_participation_2025.parquet",
+      "id": 353763511,
+      "updated_at": "2026-02-10T18:54:07Z"
+    },
+    {
+      "name": "pbp_participation_2025.qs",
+      "id": 353763512,
+      "updated_at": "2026-02-10T18:54:07Z"
+    },
+    {
+      "name": "pbp_participation_2025.rds",
+      "id": 353763510,
+      "updated_at": "2026-02-10T18:54:07Z"
+    },
+    {
+      "name": "pbp_participation_old_2023.csv",
+      "id": 288188076,
+      "updated_at": "2025-08-31T20:48:55Z"
+    },
+    {
+      "name": "pbp_participation_old_2023.parquet",
+      "id": 288188074,
+      "updated_at": "2025-08-31T20:47:31Z"
+    },
+    {
+      "name": "pbp_participation_old_2023.qs",
+      "id": 288188077,
+      "updated_at": "2025-08-31T20:47:22Z"
+    },
+    {
+      "name": "pbp_participation_old_2023.rds",
+      "id": 288188073,
+      "updated_at": "2025-08-31T20:47:22Z"
+    },
+    {
+      "name": "timestamp.json",
+      "id": 353763516,
+      "updated_at": "2026-02-10T18:54:08Z"
+    },
+    {
+      "name": "timestamp.txt",
+      "id": 353763513,
+      "updated_at": "2026-02-10T18:54:07Z"
+    }
+  ],
+  "named_2026_assets": [],
+  "pages_metadata": {
+    "has_pages": false,
+    "source": "https://api.github.com/repos/AryanParte/nfl-player-value"
+  },
+  "latest_returned_scheduled_run": {
+    "id": 44200134216,
+    "created_at": "2026-11-17T23:31:37Z",
+    "conclusion": "failure",
+    "failed_step": "Restore last retained candidate (not necessarily last deployed)",
+    "failure": "no retained Explorer; first manual run requires bootstrap",
+    "publish": "skipped"
+  },
+  "parent_prs": {
+    "29": "merged",
+    "30": "merged",
+    "31": "merged"
+  },
+  "origin_main": "bab8852468f31c23cefa2301dc43055f26578454",
+  "new_pr": 32,
+  "changes_to_automation_deployment_or_other_repository": false
+}
