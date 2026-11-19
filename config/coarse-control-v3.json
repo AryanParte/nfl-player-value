@@ -1,0 +1,96 @@
+{
+  "plan_version": 3,
+  "base_seed": 2026111801,
+  "replicates": 64,
+  "nodes_per_replicate": 1024,
+  "correction_nodes_per_replicate": 32,
+  "coverage_trials": 1024,
+  "known_surrogate_amplitude": 0.001,
+  "reference_mean_tolerance_sd": 0.01,
+  "reference_endpoint_cdf_tolerance": 0.001,
+  "coverage_lower_bound": 0.9,
+  "minimum_precision_fraction": 0.9,
+  "marginal_undercoverage_alpha": 0.00028571428571428574,
+  "joint_undercoverage_alpha": 0.002,
+  "maximum_seconds_per_case": 1800,
+  "maximum_seconds_total": 7200,
+  "maximum_target_evaluations_per_case": 90000,
+  "cases": [
+    "real_evolving",
+    "real_team",
+    "continuous_prior_0",
+    "continuous_hierarchy_0",
+    "fixed_year_changes_0"
+  ],
+  "conditional_controls": "0ec177df0cbf4f043361b279d95efed468e12b58fc944181d3bc9b42bd7f901c",
+  "conditional_archive": "7dfc4bacdf9599469d354f992088a502114b5118dc85f24dfa7cdab438d5a3e7",
+  "density_controls": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+  "density_archive": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+  "primary_pilot": "00e774dff2fedec35cb7d3326e0df34c76bf57e892eb31979ad138f88774d761",
+  "failure_policy": "retain_all_no_retry_no_calibration_or_admission",
+  "future_test": {
+    "season": 2026,
+    "weeks": [
+      10
+    ],
+    "fitting_update_allowed": false
+  },
+  "training_nodes": 2048,
+  "basis": "gaussian_hermite_2",
+  "relative_ridge": 1e-06,
+  "parent_functional_report": "fc9b04f4012293f7ed3c4f1584550c9cc12a9e901d59e0f6c49ceea496e6d4ab",
+  "parent_control_report": "9563320e56ac493885a0154551754157db8916ca4e8e7069c8ddc9d6b440a700",
+  "integration_fit_replicates": 16,
+  "integration_scale_ridge": 1e-06,
+  "preceding_control_report": "983b683508242a3d0dd5c10f47329208f6b681c8fb0b55eccbc1eb4928b181fd",
+  "preceding_nfl_report": "a7a101c9163d0be23c2c96aec8501c8b97ae8fd4e9d3aa18e2c218285b32531f",
+  "integration_objective": "fixed_anchor_joint_mass_numerator",
+  "known_targets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "tail_marginal_undercoverage_alpha": 0.0007142857142857143,
+  "tail_joint_undercoverage_alpha": 0.005,
+  "tail_controls": {
+    "dimension": 4,
+    "component_probabilities": [
+      0.9,
+      0.1
+    ],
+    "proposal_central_covariance_diagonal": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "proposal_defensive_covariance_diagonal": [
+      9,
+      9,
+      9,
+      9
+    ],
+    "wide_covariance_diagonal": [
+      4,
+      1,
+      1,
+      1
+    ],
+    "displaced_mean": [
+      4,
+      4,
+      0,
+      0
+    ],
+    "displaced_covariance_diagonal": [
+      0.5,
+      0.5,
+      1,
+      1
+    ]
+  }
+}
