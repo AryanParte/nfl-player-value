@@ -374,3 +374,35 @@ platform failure is never grounds for skipping this gate. Archived equivalence,
 failed-fit completion, offline replay and hosted Python portability must be reported
 separately for this amended candidate. Original results cannot authorize it by
 inheritance. No new football outcomes or post-result coverage tuning are used.
+
+## Two-level reference acceptance (November 15)
+
+The [frozen repaired-target experiment](REPAIRED_FUNCTIONAL.md) retains the
+0.01 posterior-SD mean and 0.001 endpoint-CDF limits and simultaneous family
+adjustment. Both numerical levels use independent replicate randomizations;
+each correction pairs fine/coarse calculations at identical points. Raw levels
+must reconstruct the combined integrals, confidence sets and reported decisions.
+Known-answer authorization includes independent analytic truth, all 5,120 trial
+outcomes, the complete saved sampling components and the executing source hash.
+
+The source-restoration defect and its [pre-result correction](REPAIRED_FUNCTIONAL_CORRECTION.md)
+are recorded separately. No failed study may be overwritten or silently excluded.
+Fresh numerical draws on consumed football targets are not fresh football
+validation. Keep prediction, player calibration, participation and cross-position
+admission gates separate even if numerical comparisons pass. The previous
+192-fit calibration denominator remains unchanged by this experiment.
+
+The corrected 32-replicate study completes and reproduces independently, but one
+marginal numerical coverage test fails. Its descriptive error decomposition is
+not a replacement acceptance rule. The single frozen equal-work alternative uses
+fresh entropy, 64 independent replicates and half as many points per net, with
+the original 5,120-trial denominator and all original gates. If it fails, stop
+this bounded family of alternatives; no further replicate increase or favorable
+seed is selected within the unit. Preserve the failure and diagnose it separately.
+
+The final alternative passes all five controls; all archived cases complete,
+but only one passes the unchanged numerical limits. This ends the bounded family.
+The [results](REPAIRED_FUNCTIONAL_RESULTS.md) distinguish raw agreement from
+agreement certified with numerical error. Post-result influence diagnostics are
+descriptive, not new acceptance rules. The next candidate requires a new frozen
+design and fresh numerical draws; it cannot inherit player calibration or admission.

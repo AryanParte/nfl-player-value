@@ -1,0 +1,73 @@
+{
+  "checkpoint": "cdd40329e00697745f7112edd910f9e5588db883dba494a24f90c629e4a982ac",
+  "plan_sha256": "08212be5992c526863cb10fde04d80c5a8fc500acb6aa0cfd83edf080b430f10",
+  "analysis": "consumed_control_0_upper_endpoint_influence_not_admission",
+  "independent_sine_moment": 0.006208927189093265,
+  "quadrature_error": 6.937848333400455e-13,
+  "tensor_crosschecks": [
+    0.0062089271890932605,
+    0.006208927189093187
+  ],
+  "coarse": {
+    "trials": 1024,
+    "replicates": 32,
+    "true_mean": 6.208927189093265e-06,
+    "empirical_bias": -1.0479867442237592e-06,
+    "empirical_trial_variance": 1.1041869925989904e-09,
+    "mean_estimated_variance": 9.494050403782264e-10,
+    "estimated_to_empirical_variance_ratio": 0.8598226991820973,
+    "centered_student_coverage": 0.919921875,
+    "pooled_replicate_skewness": -1.6587861786928089,
+    "pooled_replicate_excess_kurtosis": 5.261822835722551,
+    "standardized_trial_error_quantiles": [
+      -2.446488218088551,
+      -1.9081445716862342,
+      0.05484555904595821,
+      2.723179676580061,
+      3.8649968970846977
+    ]
+  },
+  "correction": {
+    "trials": 1024,
+    "replicates": 32,
+    "true_mean": -6.208927189093265e-06,
+    "empirical_bias": 2.799743881292781e-08,
+    "empirical_trial_variance": 1.0770375800256356e-12,
+    "mean_estimated_variance": 1.0980171550925723e-12,
+    "estimated_to_empirical_variance_ratio": 1.0194789629034462,
+    "centered_student_coverage": 0.9501953125,
+    "pooled_replicate_skewness": -0.04628992767389913,
+    "pooled_replicate_excess_kurtosis": -0.09232048658969472,
+    "standardized_trial_error_quantiles": [
+      -2.685422674006207,
+      -1.9712154460974984,
+      0.04064970832522768,
+      2.0698931399144156,
+      3.0769629026551404
+    ]
+  },
+  "combined": {
+    "trials": 1024,
+    "replicates": 32,
+    "true_mean": 0.0,
+    "empirical_bias": -1.019989305410831e-06,
+    "empirical_trial_variance": 1.1071324909612314e-09,
+    "mean_estimated_variance": 9.501904040897362e-10,
+    "estimated_to_empirical_variance_ratio": 0.8582445297624357,
+    "centered_student_coverage": 0.921875,
+    "pooled_replicate_skewness": -1.654264212023924,
+    "pooled_replicate_excess_kurtosis": 5.245547904199206,
+    "standardized_trial_error_quantiles": [
+      -2.4421767101120015,
+      -1.9108273774240365,
+      0.05405884499149133,
+      2.7308896942551573,
+      3.911560338998828
+    ]
+  },
+  "coarse_fraction_of_separate_empirical_variance": 0.9990255381966504,
+  "ranking_ready": false,
+  "design_commit": "6d06059",
+  "implementation_commit": "84a6cfb",
+  "scope": "Consumed-control diagnosis; no new football outcome or admission."
+}

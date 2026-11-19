@@ -1,0 +1,40 @@
+{
+  "plan_version": 2,
+  "base_seed": 2026111502,
+  "replicates": 64,
+  "nodes_per_replicate": 1024,
+  "correction_nodes_per_replicate": 32,
+  "coverage_trials": 1024,
+  "known_surrogate_amplitude": 0.001,
+  "reference_mean_tolerance_sd": 0.01,
+  "reference_endpoint_cdf_tolerance": 0.001,
+  "coverage_lower_bound": 0.9,
+  "minimum_precision_fraction": 0.9,
+  "marginal_undercoverage_alpha": 0.00028571428571428574,
+  "joint_undercoverage_alpha": 0.002,
+  "maximum_seconds_per_case": 1800,
+  "maximum_seconds_total": 7200,
+  "maximum_target_evaluations_per_case": 90000,
+  "cases": [
+    "real_evolving",
+    "real_team",
+    "continuous_prior_0",
+    "continuous_hierarchy_0",
+    "fixed_year_changes_0"
+  ],
+  "conditional_controls": "0ec177df0cbf4f043361b279d95efed468e12b58fc944181d3bc9b42bd7f901c",
+  "conditional_archive": "7dfc4bacdf9599469d354f992088a502114b5118dc85f24dfa7cdab438d5a3e7",
+  "density_controls": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+  "density_archive": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+  "primary_pilot": "00e774dff2fedec35cb7d3326e0df34c76bf57e892eb31979ad138f88774d761",
+  "failure_policy": "retain_all_no_retry_no_calibration_or_admission",
+  "future_test": {
+    "season": 2026,
+    "weeks": [
+      10
+    ],
+    "fitting_update_allowed": false
+  },
+  "preceding_design_sha256": "08212be5992c526863cb10fde04d80c5a8fc500acb6aa0cfd83edf080b430f10",
+  "failed_control_checkpoint_sha256": "cdd40329e00697745f7112edd910f9e5588db883dba494a24f90c629e4a982ac"
+}

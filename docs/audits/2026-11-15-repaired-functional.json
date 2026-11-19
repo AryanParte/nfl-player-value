@@ -1,0 +1,1116 @@
+{
+  "calibration_completed": false,
+  "cases": {
+    "continuous_hierarchy_0": {
+      "checks": {
+        "0.0": {
+          "maximum_endpoint_cdf_difference_plus_error": 0.0017195976000664581,
+          "maximum_mean_difference_plus_error_sd": 0.03389526965687355,
+          "valid": false
+        }
+      },
+      "correction_diagnostic": {
+        "maximum_correction_to_coarse_influence_sd_ratio": 8.652269400531744e-10,
+        "maximum_point_shift_endpoint_cdf": 6.217248937900877e-14,
+        "maximum_point_shift_mean_sd": 1.251623804598978e-12,
+        "minimum_coarse_fraction_of_separate_influence_variances": 1.0
+      },
+      "diagnosis": {
+        "0.0": {
+          "lower_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.0013795845098970583,
+            "maximum_numerical_error": 0.0012657532431522775,
+            "maximum_point_discrepancy": 0.00030494776792391876,
+            "numerical_error_exceeds_tolerance": 2,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 3,
+            "worst_numerical_error": 0.0012657532431522775,
+            "worst_point_discrepancy": 0.00011383126674478078
+          },
+          "maximum_mass_replicate_share": 0.02206725451027001,
+          "mean_sd": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.03389526965687355,
+            "maximum_numerical_error": 0.026544688833809657,
+            "maximum_point_discrepancy": 0.007350580823063889,
+            "numerical_error_exceeds_tolerance": 16,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 10,
+            "worst_numerical_error": 0.026544688833809657,
+            "worst_point_discrepancy": 0.007350580823063889
+          },
+          "upper_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.0017195976000664581,
+            "maximum_numerical_error": 0.0014266435807126499,
+            "maximum_point_discrepancy": 0.00029295401935380827,
+            "numerical_error_exceeds_tolerance": 2,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 10,
+            "worst_numerical_error": 0.0014266435807126499,
+            "worst_point_discrepancy": 0.00029295401935380827
+          }
+        }
+      },
+      "evaluations": {
+        "coarse": 67584,
+        "fine": 2049
+      },
+      "maximum_relative_mass_correction": 1.17122045982982e-10,
+      "numerical_valid": false,
+      "primary_qmc_valid": true,
+      "status": "complete"
+    },
+    "continuous_prior_0": {
+      "checks": {
+        "0.0": {
+          "maximum_endpoint_cdf_difference_plus_error": 0.001167637233857044,
+          "maximum_mean_difference_plus_error_sd": 0.004392160820099621,
+          "valid": false
+        }
+      },
+      "correction_diagnostic": {
+        "maximum_correction_to_coarse_influence_sd_ratio": 2.2725076561320746e-10,
+        "maximum_point_shift_endpoint_cdf": 4.96269692007445e-14,
+        "maximum_point_shift_mean_sd": 1.4434463281760845e-13,
+        "minimum_coarse_fraction_of_separate_influence_variances": 1.0
+      },
+      "diagnosis": {
+        "0.0": {
+          "lower_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.001127351105636644,
+            "maximum_numerical_error": 0.0009717534855747632,
+            "maximum_point_discrepancy": 0.0001555976200618807,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 1,
+            "worst_numerical_error": 0.0009717534855747632,
+            "worst_point_discrepancy": 0.0001555976200618807
+          },
+          "maximum_mass_replicate_share": 0.020466650735618888,
+          "mean_sd": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.004392160820099621,
+            "maximum_numerical_error": 0.004167257492148609,
+            "maximum_point_discrepancy": 0.0007149641512544042,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 19,
+            "worst_numerical_error": 0.004167257492148609,
+            "worst_point_discrepancy": 0.00022490332795101222
+          },
+          "upper_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.001167637233857044,
+            "maximum_numerical_error": 0.0010077288121410621,
+            "maximum_point_discrepancy": 0.00015990842171598185,
+            "numerical_error_exceeds_tolerance": 1,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 11,
+            "worst_numerical_error": 0.0010077288121410621,
+            "worst_point_discrepancy": 0.00015990842171598185
+          }
+        }
+      },
+      "evaluations": {
+        "coarse": 67584,
+        "fine": 2049
+      },
+      "maximum_relative_mass_correction": 3.6859317255959624e-11,
+      "numerical_valid": false,
+      "primary_qmc_valid": true,
+      "status": "complete"
+    },
+    "fixed_year_changes_0": {
+      "checks": {
+        "0.0": {
+          "maximum_endpoint_cdf_difference_plus_error": 0.0024621971216188566,
+          "maximum_mean_difference_plus_error_sd": 0.028953108234801718,
+          "valid": false
+        }
+      },
+      "correction_diagnostic": {
+        "maximum_correction_to_coarse_influence_sd_ratio": 2.1369134455649976e-10,
+        "maximum_point_shift_endpoint_cdf": 4.181377466494496e-14,
+        "maximum_point_shift_mean_sd": 3.539547127617837e-13,
+        "minimum_coarse_fraction_of_separate_influence_variances": 1.0
+      },
+      "diagnosis": {
+        "0.0": {
+          "lower_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.0024621971216188566,
+            "maximum_numerical_error": 0.0018977431957459753,
+            "maximum_point_discrepancy": 0.000685945998600411,
+            "numerical_error_exceeds_tolerance": 6,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 49,
+            "worst_numerical_error": 0.0018977431957459753,
+            "worst_point_discrepancy": 0.0005644539258728813
+          },
+          "maximum_mass_replicate_share": 0.022391595909349662,
+          "mean_sd": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.028953108234801718,
+            "maximum_numerical_error": 0.022451439643216657,
+            "maximum_point_discrepancy": 0.00679431009415301,
+            "numerical_error_exceeds_tolerance": 14,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 4,
+            "worst_numerical_error": 0.022451439643216657,
+            "worst_point_discrepancy": 0.006501668591585059
+          },
+          "upper_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 57,
+            "maximum_difference_plus_error": 0.002442880693683591,
+            "maximum_numerical_error": 0.0017280877578288445,
+            "maximum_point_discrepancy": 0.0007147929358547467,
+            "numerical_error_exceeds_tolerance": 7,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 4,
+            "worst_numerical_error": 0.0017280877578288445,
+            "worst_point_discrepancy": 0.0007147929358547467
+          }
+        }
+      },
+      "evaluations": {
+        "coarse": 67584,
+        "fine": 2049
+      },
+      "maximum_relative_mass_correction": 9.292276696242875e-11,
+      "numerical_valid": false,
+      "primary_qmc_valid": true,
+      "status": "complete"
+    },
+    "real_evolving": {
+      "checks": {
+        "-1.3862943611198906": {
+          "maximum_endpoint_cdf_difference_plus_error": 0.0011199875433787199,
+          "maximum_mean_difference_plus_error_sd": 0.014764420156869865,
+          "valid": false
+        },
+        "0.0": {
+          "maximum_endpoint_cdf_difference_plus_error": 0.0012422620333763582,
+          "maximum_mean_difference_plus_error_sd": 0.015976992330359666,
+          "valid": false
+        },
+        "1.3862943611198906": {
+          "maximum_endpoint_cdf_difference_plus_error": 0.0013847779314627821,
+          "maximum_mean_difference_plus_error_sd": 0.017348092143226055,
+          "valid": false
+        }
+      },
+      "correction_diagnostic": {
+        "maximum_correction_to_coarse_influence_sd_ratio": 7.595847772163905e-10,
+        "maximum_point_shift_endpoint_cdf": 9.481998519689228e-15,
+        "maximum_point_shift_mean_sd": 1.1488379692004003e-13,
+        "minimum_coarse_fraction_of_separate_influence_variances": 1.0
+      },
+      "diagnosis": {
+        "-1.3862943611198906": {
+          "lower_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.0011181464277743546,
+            "maximum_numerical_error": 0.00047027273876141737,
+            "maximum_point_discrepancy": 0.0006478736890129372,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 18,
+            "worst_numerical_error": 0.00047027273876141737,
+            "worst_point_discrepancy": 0.0006478736890129372
+          },
+          "maximum_mass_replicate_share": 0.021261207536662795,
+          "mean_sd": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.014764420156869865,
+            "maximum_numerical_error": 0.009838468512624491,
+            "maximum_point_discrepancy": 0.005280485074772098,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 84,
+            "worst_numerical_error": 0.009838468512624491,
+            "worst_point_discrepancy": 0.0049259516442453745
+          },
+          "upper_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.0011199875433787199,
+            "maximum_numerical_error": 0.0005302807995768433,
+            "maximum_point_discrepancy": 0.0005897067438018766,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 80,
+            "worst_numerical_error": 0.0005302807995768433,
+            "worst_point_discrepancy": 0.0005897067438018766
+          }
+        },
+        "0.0": {
+          "lower_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.0012422620333763582,
+            "maximum_numerical_error": 0.0004831018160155187,
+            "maximum_point_discrepancy": 0.0007591602173608394,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 18,
+            "worst_numerical_error": 0.0004831018160155187,
+            "worst_point_discrepancy": 0.0007591602173608394
+          },
+          "maximum_mass_replicate_share": 0.02110952836810042,
+          "mean_sd": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.015976992330359666,
+            "maximum_numerical_error": 0.010022164700879813,
+            "maximum_point_discrepancy": 0.006364712511824761,
+            "numerical_error_exceeds_tolerance": 1,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 84,
+            "worst_numerical_error": 0.010022164700879813,
+            "worst_point_discrepancy": 0.005954827629479853
+          },
+          "upper_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.0012217380576934334,
+            "maximum_numerical_error": 0.0005299901978298438,
+            "maximum_point_discrepancy": 0.0006917478598635896,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 80,
+            "worst_numerical_error": 0.0005299901978298438,
+            "worst_point_discrepancy": 0.0006917478598635896
+          }
+        },
+        "1.3862943611198906": {
+          "lower_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.0013847779314627821,
+            "maximum_numerical_error": 0.0005065196706175272,
+            "maximum_point_discrepancy": 0.0008782582608452549,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 18,
+            "worst_numerical_error": 0.0005065196706175272,
+            "worst_point_discrepancy": 0.0008782582608452549
+          },
+          "maximum_mass_replicate_share": 0.020950646430510877,
+          "mean_sd": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.017348092143226055,
+            "maximum_numerical_error": 0.010203352086153774,
+            "maximum_point_discrepancy": 0.007619564380719531,
+            "numerical_error_exceeds_tolerance": 1,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 84,
+            "worst_numerical_error": 0.010203352086153774,
+            "worst_point_discrepancy": 0.00714474005707228
+          },
+          "upper_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 171,
+            "maximum_difference_plus_error": 0.0013409738821374972,
+            "maximum_numerical_error": 0.0005330812005953645,
+            "maximum_point_discrepancy": 0.0008078926815421328,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 80,
+            "worst_numerical_error": 0.0005330812005953645,
+            "worst_point_discrepancy": 0.0008078926815421328
+          }
+        }
+      },
+      "evaluations": {
+        "coarse": 67584,
+        "fine": 2049
+      },
+      "maximum_relative_mass_correction": 4.8479479281507696e-11,
+      "numerical_valid": false,
+      "primary_qmc_valid": true,
+      "status": "complete"
+    },
+    "real_team": {
+      "checks": {
+        "0.0": {
+          "maximum_endpoint_cdf_difference_plus_error": 0.0002199783432733013,
+          "maximum_mean_difference_plus_error_sd": 0.0022145834375560287,
+          "valid": true
+        }
+      },
+      "correction_diagnostic": {
+        "maximum_correction_to_coarse_influence_sd_ratio": 1.3562381471156916e-09,
+        "maximum_point_shift_endpoint_cdf": 3.019806626980426e-14,
+        "maximum_point_shift_mean_sd": 5.057558104953896e-13,
+        "minimum_coarse_fraction_of_separate_influence_variances": 1.0
+      },
+      "diagnosis": {
+        "0.0": {
+          "lower_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 211,
+            "maximum_difference_plus_error": 0.0002199783432733013,
+            "maximum_numerical_error": 0.00013647652740346114,
+            "maximum_point_discrepancy": 8.887582404267652e-05,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 75,
+            "worst_numerical_error": 0.00013647652740346114,
+            "worst_point_discrepancy": 8.350181586984015e-05
+          },
+          "maximum_mass_replicate_share": 0.01580534188631672,
+          "mean_sd": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 211,
+            "maximum_difference_plus_error": 0.0022145834375560287,
+            "maximum_numerical_error": 0.001198401457293549,
+            "maximum_point_discrepancy": 0.001045308577130077,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 59,
+            "worst_numerical_error": 0.0011692748604259517,
+            "worst_point_discrepancy": 0.001045308577130077
+          },
+          "upper_cdf": {
+            "confidence_sets_outside_tolerance": 0,
+            "contrasts": 211,
+            "maximum_difference_plus_error": 0.00016346142211243198,
+            "maximum_numerical_error": 8.500548995316048e-05,
+            "maximum_point_discrepancy": 7.845593215927149e-05,
+            "numerical_error_exceeds_tolerance": 0,
+            "point_tolerance_failures": 0,
+            "worst_contrast_index": 75,
+            "worst_numerical_error": 8.500548995316048e-05,
+            "worst_point_discrepancy": 7.845593215927149e-05
+          }
+        }
+      },
+      "evaluations": {
+        "coarse": 67584,
+        "fine": 2049
+      },
+      "maximum_relative_mass_correction": 1.0946716425298934e-11,
+      "numerical_valid": true,
+      "primary_qmc_valid": true,
+      "status": "complete"
+    }
+  },
+  "control_decisions": {
+    "0": {
+      "bias": [
+        -6.25560193645569e-06,
+        1.6279535707948532e-06,
+        3.748301532991086e-06,
+        -3.655259462435889e-07,
+        1.7856936106869226e-07,
+        -9.718739168995683e-08,
+        9.5817116896324e-07
+      ],
+      "complete": 1024,
+      "empirical_sd": [
+        0.00018616303475010678,
+        0.00024050568186538183,
+        0.00023225565607071095,
+        4.798938240384422e-05,
+        3.300911816848098e-05,
+        3.86626862413988e-05,
+        3.733930105469187e-05
+      ],
+      "joint_undercoverage_pvalue": 0.3121426125710412,
+      "marginal_coverage": [
+        0.9404296875,
+        0.951171875,
+        0.9541015625,
+        0.9453125,
+        0.9521484375,
+        0.951171875,
+        0.9541015625
+      ],
+      "marginal_undercoverage_pvalues": [
+        0.09362133209722248,
+        0.5883700431522605,
+        0.7460553278968169,
+        0.2643843775616285,
+        0.6438086202536526,
+        0.5883700431522605,
+        0.7460553278968169
+      ],
+      "maximum_replicate_mass_share": 0.015737500822124346,
+      "passed": true,
+      "precision_fraction": 1.0,
+      "simultaneous_coverage": 0.9462890625,
+      "simultaneous_coverage_one_sided_95_lower": 0.9332215624844679,
+      "trials": 1024,
+      "wrong_endpoint_rejections": 1024
+    },
+    "1": {
+      "bias": [
+        -1.738911858906178e-05,
+        -3.3835667695534904e-06,
+        -7.721176796827093e-06,
+        5.011919541990373e-07,
+        8.003956892335684e-07,
+        4.481506439280025e-07,
+        -8.022269157859085e-07
+      ],
+      "complete": 1024,
+      "empirical_sd": [
+        0.0002740111770215771,
+        0.00032271093960583685,
+        0.0003068509315987503,
+        7.171192034426657e-05,
+        3.105117317904254e-05,
+        5.228215061974749e-05,
+        3.2566559613673536e-05
+      ],
+      "joint_undercoverage_pvalue": 0.6438086202536526,
+      "marginal_coverage": [
+        0.9609375,
+        0.94140625,
+        0.947265625,
+        0.9501953125,
+        0.9560546875,
+        0.9580078125,
+        0.9453125
+      ],
+      "marginal_undercoverage_pvalues": [
+        0.957487895909818,
+        0.1185051018075781,
+        0.36359349461725937,
+        0.5314725561271472,
+        0.8313687857146526,
+        0.896393659346713,
+        0.2643843775616285
+      ],
+      "maximum_replicate_mass_share": 0.01579742035765938,
+      "passed": true,
+      "precision_fraction": 1.0,
+      "simultaneous_coverage": 0.9521484375,
+      "simultaneous_coverage_one_sided_95_lower": 0.9396793769491434,
+      "trials": 1024,
+      "wrong_endpoint_rejections": 1024
+    },
+    "2": {
+      "bias": [
+        9.163803848855068e-06,
+        3.307955305954639e-06,
+        1.906602083639666e-05,
+        6.962942380034365e-07,
+        -3.6027464329208003e-07,
+        4.095646921387086e-06,
+        -3.2461375760739486e-06
+      ],
+      "complete": 1024,
+      "empirical_sd": [
+        0.00047167020246540885,
+        0.0005425995469809467,
+        0.0005998402916464215,
+        0.00011016753723260209,
+        7.0189482710999e-05,
+        8.216623381761677e-05,
+        7.785665596146056e-05
+      ],
+      "joint_undercoverage_pvalue": 0.8313687857146526,
+      "marginal_coverage": [
+        0.9482421875,
+        0.9482421875,
+        0.9521484375,
+        0.951171875,
+        0.9521484375,
+        0.9560546875,
+        0.9609375
+      ],
+      "marginal_undercoverage_pvalues": [
+        0.41795869027063265,
+        0.41795869027063265,
+        0.6438086202536526,
+        0.5883700431522605,
+        0.6438086202536526,
+        0.8313687857146526,
+        0.957487895909818
+      ],
+      "maximum_replicate_mass_share": 0.015911696783598585,
+      "passed": true,
+      "precision_fraction": 1.0,
+      "simultaneous_coverage": 0.9560546875,
+      "simultaneous_coverage_one_sided_95_lower": 0.9440088283242832,
+      "trials": 1024,
+      "wrong_endpoint_rejections": 1024
+    },
+    "3": {
+      "bias": [
+        5.902106368083082e-07,
+        -3.603969768291994e-05,
+        1.218767391098225e-05,
+        -3.80980278531437e-06,
+        -6.144160961760875e-06,
+        4.6276557330582335e-07,
+        8.634108583649436e-07
+      ],
+      "complete": 1024,
+      "empirical_sd": [
+        0.00030629073833137154,
+        0.0005111575800200524,
+        0.00045813031128942995,
+        0.00018588133835381607,
+        0.00011572699909569067,
+        0.00013382660468331514,
+        9.570672832799227e-05
+      ],
+      "joint_undercoverage_pvalue": 0.04240669751247171,
+      "marginal_coverage": [
+        0.9482421875,
+        0.9365234375,
+        0.939453125,
+        0.9423828125,
+        0.9443359375,
+        0.9541015625,
+        0.951171875
+      ],
+      "marginal_undercoverage_pvalues": [
+        0.41795869027063265,
+        0.03166033461192741,
+        0.07292421906807504,
+        0.14790147224260838,
+        0.2208902706780578,
+        0.7460553278968169,
+        0.5883700431522605
+      ],
+      "maximum_replicate_mass_share": 0.015803079748696065,
+      "passed": true,
+      "precision_fraction": 0.9912109375,
+      "simultaneous_coverage": 0.9375,
+      "simultaneous_coverage_one_sided_95_lower": 0.9236041766834663,
+      "trials": 1024,
+      "wrong_endpoint_rejections": 1024
+    },
+    "4": {
+      "bias": [
+        -9.908769945998763e-06,
+        -3.29470379784686e-06,
+        -8.111842334536044e-06,
+        -6.41145600001336e-06,
+        5.235236820652633e-07,
+        5.2658011301387475e-06,
+        -1.6748618530959547e-06
+      ],
+      "complete": 1024,
+      "empirical_sd": [
+        0.0003524310534766611,
+        0.0004354039587658951,
+        0.0004340409087020446,
+        0.00013562044448494338,
+        9.794094627217667e-05,
+        0.00014017962913517664,
+        9.267448077777196e-05
+      ],
+      "joint_undercoverage_pvalue": 0.9414910939416319,
+      "marginal_coverage": [
+        0.958984375,
+        0.9619140625,
+        0.951171875,
+        0.955078125,
+        0.9462890625,
+        0.9599609375,
+        0.9521484375
+      ],
+      "marginal_undercoverage_pvalues": [
+        0.921284607244976,
+        0.9698306060578599,
+        0.5883700431522605,
+        0.7911291947093705,
+        0.3121426125710412,
+        0.9414910939416319,
+        0.6438086202536526
+      ],
+      "maximum_replicate_mass_share": 0.01580322817992917,
+      "passed": true,
+      "precision_fraction": 1.0,
+      "simultaneous_coverage": 0.9599609375,
+      "simultaneous_coverage_one_sided_95_lower": 0.9483605403861017,
+      "trials": 1024,
+      "wrong_endpoint_rejections": 1024
+    }
+  },
+  "control_manifest": {
+    "code_revision": "558c8789721cdb081c3101c6a9df2f281a740973",
+    "environment": {
+      "linear_algebra_build": {
+        "numpy": {
+          "blas": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          }
+        },
+        "scipy": {
+          "blas": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "pybind11": {
+            "detection method": "config-tool",
+            "include directory": "unknown",
+            "name": "pybind11",
+            "version": "2.13.6"
+          }
+        }
+      },
+      "machine": "arm64",
+      "numpy": "2.2.6",
+      "python": "3.13.2",
+      "scipy": "1.15.3",
+      "system": "Darwin"
+    },
+    "experiment": "repaired-functional-controls-v1",
+    "kernel_sha256": "f655254e7dbb6311a0824e12d8fd197cbeea45b0bb43dd5b78a46b081a6f7183",
+    "objects": {
+      "study": "60bb24a2a875b797c9ac2dc33e766f28b26e77c4b61d772764d227d36785bfdd"
+    },
+    "plan": {
+      "base_seed": 2026111502,
+      "cases": [
+        "real_evolving",
+        "real_team",
+        "continuous_prior_0",
+        "continuous_hierarchy_0",
+        "fixed_year_changes_0"
+      ],
+      "conditional_archive": "7dfc4bacdf9599469d354f992088a502114b5118dc85f24dfa7cdab438d5a3e7",
+      "conditional_controls": "0ec177df0cbf4f043361b279d95efed468e12b58fc944181d3bc9b42bd7f901c",
+      "correction_nodes_per_replicate": 32,
+      "coverage_lower_bound": 0.9,
+      "coverage_trials": 1024,
+      "density_archive": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+      "density_controls": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+      "failed_control_checkpoint_sha256": "cdd40329e00697745f7112edd910f9e5588db883dba494a24f90c629e4a982ac",
+      "failure_policy": "retain_all_no_retry_no_calibration_or_admission",
+      "future_test": {
+        "fitting_update_allowed": false,
+        "season": 2026,
+        "weeks": [
+          10
+        ]
+      },
+      "joint_undercoverage_alpha": 0.002,
+      "known_surrogate_amplitude": 0.001,
+      "marginal_undercoverage_alpha": 0.00028571428571428574,
+      "maximum_seconds_per_case": 1800,
+      "maximum_seconds_total": 7200,
+      "maximum_target_evaluations_per_case": 90000,
+      "minimum_precision_fraction": 0.9,
+      "nodes_per_replicate": 1024,
+      "plan_version": 2,
+      "preceding_design_sha256": "08212be5992c526863cb10fde04d80c5a8fc500acb6aa0cfd83edf080b430f10",
+      "primary_pilot": "00e774dff2fedec35cb7d3326e0df34c76bf57e892eb31979ad138f88774d761",
+      "reference_endpoint_cdf_tolerance": 0.001,
+      "reference_mean_tolerance_sd": 0.01,
+      "replicates": 64
+    },
+    "plan_sha256": "cc8a57194b5c66719d8b18763b9e8d078066d3cbdce034b91090eabda1a811e3",
+    "ranking_ready": false
+  },
+  "control_recovery_receipt": {
+    "checkpoints": [
+      "3890b042ae5d962f52cdf454090625d12e3866ac9b101b949992e34d0aa029ea",
+      "7523ed09f2f45c64b8b3e77086b31db3e61bda2e892ae64f89d7fbede8e19a0b",
+      "9deae104e8115db70eac934c002f7faf2d7e35a3b12ada6843387ad3f6ab7ae1",
+      "ca4d094c9808acaa44fd5e52f8cbf8c2ccf090b300a965dc9a204226896d2861",
+      "346627611dfab8b16a125fc40914fca5be5a112f8f924989321df2f019c5370f"
+    ],
+    "computation_check": "all_modules_unchanged_except_save_load_syntax",
+    "kind": "repaired-functional-storage-recovery-v1",
+    "logical_study_sha256": "92731beff910bf67666854db0e26403e63ddc7c8fdd4d0964f7e517d6c38fcdb",
+    "packaging_kernel_sha256": "f655254e7dbb6311a0824e12d8fd197cbeea45b0bb43dd5b78a46b081a6f7183",
+    "packaging_revision": "558c8789721cdb081c3101c6a9df2f281a740973",
+    "producing_kernel_sha256": "0bf3bd28b50d3f4176b3a4effe4388dd1d62a0a15bbd4edb31678fb47419170d",
+    "producing_revision": "3774295badc90b699fc0b4433dd23f16df80ec27",
+    "ranking_ready": false,
+    "report_id": "9563320e56ac493885a0154551754157db8916ca4e8e7069c8ddc9d6b440a700",
+    "same_declared_draws": true
+  },
+  "control_recovery_receipt_id": "6abfdad60a19dcb37c49d257f7a82bfc4d3507751035342c54b51fa30ad33048",
+  "control_report": "9563320e56ac493885a0154551754157db8916ca4e8e7069c8ddc9d6b440a700",
+  "correction_diagnostic_formula": "For each functional r=mean(B+D)_j/mean(B+D)_mass: compare var(B_j-r*B_mass)/R and var(D_j-r*D_mass)/R; descriptive first-order influence variances, not new acceptance rules.",
+  "evidence_cutoff": "2026-11-08T02:47:32.067979+00:00",
+  "manifest": {
+    "code_revision": "558c8789721cdb081c3101c6a9df2f281a740973",
+    "environment": {
+      "linear_algebra_build": {
+        "numpy": {
+          "blas": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          }
+        },
+        "scipy": {
+          "blas": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "pybind11": {
+            "detection method": "config-tool",
+            "include directory": "unknown",
+            "name": "pybind11",
+            "version": "2.13.6"
+          }
+        }
+      },
+      "machine": "arm64",
+      "numpy": "2.2.6",
+      "python": "3.13.2",
+      "scipy": "1.15.3",
+      "system": "Darwin"
+    },
+    "experiment": "repaired-functional-archive-v1",
+    "kernel_sha256": "f655254e7dbb6311a0824e12d8fd197cbeea45b0bb43dd5b78a46b081a6f7183",
+    "objects": {
+      "study": "834c581fe8927db3ac61022b48027ffaee61facfe93954e19378a462e52add25"
+    },
+    "plan": {
+      "base_seed": 2026111502,
+      "cases": [
+        "real_evolving",
+        "real_team",
+        "continuous_prior_0",
+        "continuous_hierarchy_0",
+        "fixed_year_changes_0"
+      ],
+      "conditional_archive": "7dfc4bacdf9599469d354f992088a502114b5118dc85f24dfa7cdab438d5a3e7",
+      "conditional_controls": "0ec177df0cbf4f043361b279d95efed468e12b58fc944181d3bc9b42bd7f901c",
+      "correction_nodes_per_replicate": 32,
+      "coverage_lower_bound": 0.9,
+      "coverage_trials": 1024,
+      "density_archive": "d29590d4c9adb157b9343720c28614da9918fb5571ea927cb880aa4bf4421b30",
+      "density_controls": "fa15a47bfca458c0f666c7db5a475b3f4a169408e0e18e0ad6c1095464f08bd8",
+      "failed_control_checkpoint_sha256": "cdd40329e00697745f7112edd910f9e5588db883dba494a24f90c629e4a982ac",
+      "failure_policy": "retain_all_no_retry_no_calibration_or_admission",
+      "future_test": {
+        "fitting_update_allowed": false,
+        "season": 2026,
+        "weeks": [
+          10
+        ]
+      },
+      "joint_undercoverage_alpha": 0.002,
+      "known_surrogate_amplitude": 0.001,
+      "marginal_undercoverage_alpha": 0.00028571428571428574,
+      "maximum_seconds_per_case": 1800,
+      "maximum_seconds_total": 7200,
+      "maximum_target_evaluations_per_case": 90000,
+      "minimum_precision_fraction": 0.9,
+      "nodes_per_replicate": 1024,
+      "plan_version": 2,
+      "preceding_design_sha256": "08212be5992c526863cb10fde04d80c5a8fc500acb6aa0cfd83edf080b430f10",
+      "primary_pilot": "00e774dff2fedec35cb7d3326e0df34c76bf57e892eb31979ad138f88774d761",
+      "reference_endpoint_cdf_tolerance": 0.001,
+      "reference_mean_tolerance_sd": 0.01,
+      "replicates": 64
+    },
+    "plan_sha256": "cc8a57194b5c66719d8b18763b9e8d078066d3cbdce034b91090eabda1a811e3",
+    "ranking_ready": false
+  },
+  "offline_reconstruction": {
+    "archived": {
+      "manifest_identical": true,
+      "objects_identical": 6
+    },
+    "controls": {
+      "manifest_and_recovery_receipt_identical": true,
+      "objects_identical": 11
+    },
+    "same_declared_draws_not_extra_trials": true
+  },
+  "primary_objects": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "ranking_ready": false,
+  "report_id": "fc9b04f4012293f7ed3c4f1584550c9cc12a9e901d59e0f6c49ceea496e6d4ab",
+  "source_provenance": {
+    "defense": {
+      "attribution": "FTN Data via nflverse; PBP and schedules via nflverse",
+      "cutoff": "2026-10-22T00:14:02.583978+00:00",
+      "derived_participation_license": "CC-BY-SA-4.0",
+      "historical_availability": "retrospectively_retrieved_postseason_participation",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+      "source_receipts": {
+        "participation": "bf73e29f9d74265943a9baabb25db9e33efe601fb3f36d0be04017cebe72e3dd",
+        "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+        "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+      }
+    },
+    "depth_charts": "30dffcecbebac4561482ec51b05b68f929cf343f4757f3110b40871d461ca040",
+    "seasons": {
+      "2024": {
+        "game_cohort_cutoff": "2026-11-08T02:47:26.367479+00:00",
+        "offensive": "ec01a8b923a756585025fbe3f7080eeb61c7a42dd6377e40781bae58afb9201d",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "conflicting_secondary_identity": 9,
+            "primary_position_unreviewed": 26
+          },
+          "actor_role_counts": {
+            "P": 9,
+            "QB": 646,
+            "RB": 1409,
+            "TE": 1088,
+            "WR": 2117
+          },
+          "actor_rows_with_resolved_role": 5269,
+          "all_player_game_issue_counts": {
+            "conflicting_secondary_identity": 64,
+            "primary_position_unreviewed": 29020
+          },
+          "completed_team_games": 544,
+          "observed_offensive_player_games": 5304,
+          "observed_offensive_players": 597,
+          "player_game_rows": 44466,
+          "player_games_without_observed_offensive_participation": 39162,
+          "team_games_with_retrospective_roster_retrieval": 544,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 46579
+        },
+        "roster_integrity_policy": "retrospective-2024-weekly-roster-local-hash-v1",
+        "roster_retrieval": {
+          "after": "2026-11-08T02:43:36.729160+00:00",
+          "before": "2026-11-08T02:43:36.136466+00:00",
+          "data": "2026-11-08T02:43:36.533455+00:00",
+          "license": "2026-11-08T02:43:37.349842+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "114f88bc9bf7c5990eb2fb1b885a2bbf230b54f66adbe0e509381379dc07b97d",
+          "schedules": "19dfe7aefa63c1b36628fa61b663cf896f930178c04da3b4c92d07e4ce84c492"
+        },
+        "weekly_rosters": "d284c552293c1bc76a89d5ad69b3f7c828026f469f04cae6c481dea461d4f426"
+      },
+      "2025": {
+        "game_cohort_cutoff": "2026-10-22T00:14:02.583978+00:00",
+        "offensive": "97363672ae959a88782a4fd459e5711eabfd1cccdcf9a83dae11047579b5e293",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "primary_position_unreviewed": 24
+          },
+          "actor_role_counts": {
+            "K": 1,
+            "P": 6,
+            "QB": 652,
+            "RB": 1410,
+            "TE": 1123,
+            "WR": 2131
+          },
+          "actor_rows_with_resolved_role": 5323,
+          "all_player_game_issue_counts": {
+            "primary_position_unreviewed": 29102
+          },
+          "completed_team_games": 544,
+          "observed_offensive_player_games": 5347,
+          "observed_offensive_players": 601,
+          "player_game_rows": 44669,
+          "player_games_without_observed_offensive_participation": 39322,
+          "team_games_with_retrospective_roster_retrieval": 544,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 46849
+        },
+        "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+        "roster_retrieval": {
+          "data": "2026-10-26T20:49:45.882775+00:00",
+          "license": "2026-10-26T20:49:46.970669+00:00",
+          "metadata": "2026-10-26T20:49:45.668629+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "916108b2e4268a0b4c30bb9b4276248c975e58272d20a520b2d85604428b96f7",
+          "schedules": "dbd0b44edb05ad2f64496059f9b394a934afc952ffb2cc549473f5325b9f672b"
+        },
+        "weekly_rosters": "6d3845dabb7e41a567115c47c2648b2ca4f4145fb970935aa3a35ed0fa9d9835"
+      },
+      "2026": {
+        "game_cohort_cutoff": "2026-11-08T01:41:17.891273+00:00",
+        "offensive": "7deaba0748cafefb7f74aab5e64f72758f1623287e958e4e2d00a764a6bba608",
+        "roster_audit": {
+          "actor_issue_counts": {
+            "primary_position_unreviewed": 5
+          },
+          "actor_role_counts": {
+            "P": 4,
+            "QB": 272,
+            "RB": 622,
+            "TE": 519,
+            "WR": 947
+          },
+          "actor_rows_with_resolved_role": 2364,
+          "all_player_game_issue_counts": {
+            "primary_position_unreviewed": 12968
+          },
+          "completed_team_games": 244,
+          "observed_offensive_player_games": 2369,
+          "observed_offensive_players": 504,
+          "player_game_rows": 20021,
+          "player_games_without_observed_offensive_participation": 17652,
+          "team_games_with_retrospective_roster_retrieval": 244,
+          "team_games_with_roster_retrieved_before_kickoff": 0,
+          "team_games_without_roster_rows": 0,
+          "weekly_observations": 22285
+        },
+        "roster_integrity_policy": "upstream-sha256-source-receipt-v1",
+        "roster_retrieval": {
+          "data": "2026-11-08T02:43:38.393326+00:00",
+          "license": "2026-11-08T02:43:38.669743+00:00",
+          "metadata": "2026-11-08T02:43:38.053864+00:00"
+        },
+        "source_attribution": {
+          "pbp": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "schedules": {
+            "attribution": "Lee Sharpe (nfldata) via nflverse",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          },
+          "weekly_rosters": {
+            "attribution": "nflverse contributors; source-specific upstream credits retained with source metadata",
+            "license_id": "CC-BY-4.0",
+            "license_url": "https://raw.githubusercontent.com/nflverse/nflverse-data/main/LICENSE.md"
+          }
+        },
+        "source_receipts": {
+          "pbp": "d44259bc0a7eb99c4a25f8f8585fafca3159292a9330d7ae95733ce569488510",
+          "schedules": "efb6387ff638d527066b0104964b39d754c16419ef812d34aeb215c10b043db5"
+        },
+        "weekly_rosters": "3b4dd39a5fb8d1e9b8b7fd8d33b3e961e3100fa69d6ab0a9d0db93fc3ae6b238"
+      }
+    }
+  },
+  "timings_seconds": {
+    "independent_reconstruction": {
+      "continuous_hierarchy_0": 749.1458701670635,
+      "continuous_prior_0": 760.092211375013,
+      "fixed_year_changes_0": 744.7381132498849,
+      "real_evolving": 842.038109832909,
+      "real_team": 309.47014908399433
+    },
+    "original": {
+      "continuous_hierarchy_0": 749.9093259167857,
+      "continuous_prior_0": 759.9574638749473,
+      "fixed_year_changes_0": 745.0485630831681,
+      "real_evolving": 841.9383950000629,
+      "real_team": 308.9703558329493
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "checkpoint": "3890b042ae5d962f52cdf454090625d12e3866ac9b101b949992e34d0aa029ea",
+  "plan_sha256": "cc8a57194b5c66719d8b18763b9e8d078066d3cbdce034b91090eabda1a811e3",
+  "analysis": "consumed_control_0_upper_endpoint_influence_not_admission",
+  "independent_sine_moment": 0.006208927189093265,
+  "quadrature_error": 6.937848333400455e-13,
+  "tensor_crosschecks": [
+    0.0062089271890932605,
+    0.006208927189093187
+  ],
+  "coarse": {
+    "trials": 1024,
+    "replicates": 64,
+    "true_mean": 6.208927189093265e-06,
+    "empirical_bias": -3.9548804701991905e-08,
+    "empirical_trial_variance": 1.4978106561537157e-09,
+    "mean_estimated_variance": 1.5544555764731386e-09,
+    "estimated_to_empirical_variance_ratio": 1.0378184786486186,
+    "centered_student_coverage": 0.947265625,
+    "pooled_replicate_skewness": -1.4285244177032355,
+    "pooled_replicate_excess_kurtosis": 5.526961919299087,
+    "standardized_trial_error_quantiles": [
+      -2.162744883601401,
+      -1.698982761820913,
+      -0.0023442025644461392,
+      2.2652912774364373,
+      2.927269813350492
+    ]
+  },
+  "correction": {
+    "trials": 1024,
+    "replicates": 64,
+    "true_mean": -6.208927189093265e-06,
+    "empirical_bias": -5.7496950489145466e-08,
+    "empirical_trial_variance": 1.2285698159990863e-12,
+    "mean_estimated_variance": 1.1867817628670258e-12,
+    "estimated_to_empirical_variance_ratio": 0.9659864237360594,
+    "centered_student_coverage": 0.947265625,
+    "pooled_replicate_skewness": 0.04888338524042545,
+    "pooled_replicate_excess_kurtosis": 0.008398549757357987,
+    "standardized_trial_error_quantiles": [
+      -2.594141754722804,
+      -2.1916226782478856,
+      -0.05732949737416444,
+      1.9018547646933075,
+      2.394671828269207
+    ]
+  },
+  "combined": {
+    "trials": 1024,
+    "replicates": 64,
+    "true_mean": 0.0,
+    "empirical_bias": -9.7045755191138e-08,
+    "empirical_trial_variance": 1.4947936593677285e-09,
+    "mean_estimated_variance": 1.5547769141743905e-09,
+    "estimated_to_empirical_variance_ratio": 1.0401281169683538,
+    "centered_student_coverage": 0.951171875,
+    "pooled_replicate_skewness": -1.427059015336469,
+    "pooled_replicate_excess_kurtosis": 5.516071163792118,
+    "standardized_trial_error_quantiles": [
+      -2.1175892109710963,
+      -1.6948246597876717,
+      -0.004766714152540876,
+      2.2534526779528963,
+      2.9159089211528415
+    ]
+  },
+  "coarse_fraction_of_separate_empirical_variance": 0.9991804285073299,
+  "ranking_ready": false
+}

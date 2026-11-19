@@ -316,3 +316,37 @@ products/summation, including game penalties. No Decimal truth is substituted in
 production calculations. Original and fresh-response controls retain the exact
 same tolerances; the failed earlier candidate remains archived. This corrects
 arithmetic only, not attribution or uncertainty calibration.
+
+## Repaired-target functional comparison (November 15)
+
+The [frozen functional study](REPAIRED_FUNCTIONAL.md) estimates unnormalized
+posterior integrals as a fast coarse integral plus an independent paired
+fine-minus-coarse correction. The fine target uses the repaired conditional
+kernel. This control-variate identity preserves that target in expectation;
+normalizing the two levels separately would not. Both levels' variation and
+mass/numerator covariance enter the replicate-based numerical confidence sets.
+These approximate sets measure integration error, not player uncertainty or
+unmeasured confounding. No prior, positional benchmark or admission rule changes.
+
+An implementation [correction](REPAIRED_FUNCTIONAL_CORRECTION.md) restores the
+synthetic controls' defensive proposal using their own zero-centered policy,
+instead of the NFL model's policy. The failed attempt remains evidence of that
+defect, not permission to select new seeds or change known answers. Numerical
+coverage must pass before the archived targets, and every unsuccessful case
+remains in its declared denominator. A reference pass does not finish the
+outstanding player-calibration or observational-attribution work.
+
+The corrected 32-replicate controls still under-cover one known endpoint. A
+separately [frozen allocation alternative](REPAIRED_ALLOCATION.md) trades points
+within each randomized net for more independent replicates, keeping total work
+and the Student/Fieller construction unchanged. This tests the finite-replicate
+approximation; it is not a multiplier applied to player intervals. Independent
+quadrature and retained raw levels separate coarse error from correction error.
+All controls must pass before the repaired NFL comparison is authorized.
+
+The completed alternative passes all five known-answer controls but only the
+team control in the five-case NFL pilot. Point discrepancies alone meet limits;
+coarse integration error prevents certification. This is numerical imprecision,
+not demonstrated primary-estimate bias or evidence to widen player intervals.
+See the [results](REPAIRED_FUNCTIONAL_RESULTS.md) for retained failures, exact
+replay, packaging recovery and the proposed next variance-reduction study.

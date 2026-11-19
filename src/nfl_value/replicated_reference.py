@@ -276,16 +276,27 @@ def reference_integral(
     else:
         sampling = fit_proposal(target)
     offset = target.log_target(sampling.mean) - sampling.logpdf(sampling.mean, method)[0]
-    n = len(contrasts)
-    width = 1 + 3 * n
-    shifts = list(summaries)
-    den = [k * width if j else -1 for k in range(len(shifts)) for j in range(width)]
     if isinstance(target, BoundedTarget) and (
         target.evaluation_limit - target.evaluations
         < plan["replicates"] * plan["nodes_per_replicate"]
     ):
         raise BudgetExceeded("budget cannot retain all predeclared randomized replicates")
 
+    f = conditional_integrand(target, contrasts, summaries, offset)
+
+    replicas = replicate_integrals(
+        f,
+        sampling,
+        method,
+        entropy=[plan["base_seed"], 2, case_index, 0],
+        replicates=plan["replicates"],
+        nodes=plan["nodes_per_replicate"],
+        progress=progress,
+    )
+    return summarize_integrals(replicas, summaries, plan, sampling, method)
+
+
+def conditional_integrand(target, contrasts, summaries, offset):
     def f(points, log_q):
         values = []
         for point, log_density in zip(points, log_q):
@@ -312,15 +323,14 @@ def reference_integral(
             values.append(row)
         return values
 
-    replicas = replicate_integrals(
-        f,
-        sampling,
-        method,
-        entropy=[plan["base_seed"], 2, case_index, 0],
-        replicates=plan["replicates"],
-        nodes=plan["nodes_per_replicate"],
-        progress=progress,
-    )
+    return f
+
+
+def summarize_integrals(replicas, summaries, plan, sampling, method):
+    n = len(next(iter(summaries.values()))["mean"])
+    width = 1 + 3 * n
+    shifts = list(summaries)
+    den = [k * width if j else -1 for k in range(len(shifts)) for j in range(width)]
     bounds = confidence_sets(replicas, den)
     checks = {}
     for k, shift in enumerate(shifts):

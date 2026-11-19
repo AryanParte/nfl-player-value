@@ -83,18 +83,34 @@ throughput repair completes the same fit in 4,938 evaluations / 621.6 seconds,
 inside the original cap. Both attempts remain visible. This is arithmetic repair, not
 full numerical integration, player calibration or scoring admission.
 
-Next substantial unit: freeze a repaired-kernel functional comparison with
-independent randomizations and bounded work. Diagnose primary/reference
-agreement and reference imprecision before the unfinished 192-fit calibration,
-prospective evidence and observational admission. Do not automatically enlarge
-primary nets or select a favorable proposal. The latest integrated QB accuracy
-result remains a failure at 0.014228 SD / 0.001308 CDF. Week 10 stays sealed.
-Defense remains mandatory; its latest participation metadata check is November 13,
-not a newly refreshed or all-provider coverage claim. PR #27 remains open and the
-conditional-solver branch is explicitly stacked on it; modeling continued.
+November 15 completes the [repaired functional study](docs/REPAIRED_FUNCTIONAL_RESULTS.md),
+finalized November 16 after an interrupted browser check. Correcting a proposal
+restoration defect leaves a real coverage failure. One separately frozen
+equal-work allocation passes all five known-answer controls on 5,120 completed
+trials. Both numerical executions then hit the aggregate-object size limit;
+verified staged recovery preserves every result without raising the 128 MiB bound.
 
-PRs #18–#26 are merged; main CI passed. Authenticated Pages/bootstrap access remains
-unavailable, so deployment cannot hold up modeling. Produce the first admitted,
+All five archived NFL comparisons complete; only the team control passes.
+The primary QB comparison is 0.015977 SD / 0.001242 CDF including numerical error
+against unchanged 0.01 / 0.001 limits. All point discrepancies pass, but reference
+uncertainty prevents certification. Coarse integration dominates the measured
+numerical error; all manifests and objects reproduce in independent offline builds.
+No player calibration, primary-model change or contribution admission is claimed.
+
+Next substantial unit: freeze a coarse-integral variance-reduction study with an
+independently fitted zero-mean control variate, analytically known expectations,
+fresh numerical evaluation draws and declared work. This candidate is not yet
+implemented or validated. Do not add another allocation retry or increase fine
+work when coarse error dominates. Retain all cases and accuracy limits before
+the unfinished 192-fit player calibration, prospective evidence and observational
+admission. Week 10 stays sealed; the archive still ends November 7 evening.
+Defense remains mandatory. Its November 15 metadata check is not all-provider
+absence or game-level coverage. The owner merged #27/#28 during this run; #29
+now targets main without an agent merge or history rewrite.
+
+PRs #18–#28 are merged; source 558c878 passes hosted Python/dashboard CI.
+Authenticated Pages/bootstrap access remains unavailable, so deployment cannot
+hold up modeling. Produce the first admitted,
 reproducible contribution module, then connect its honest estimates/explanations
 and history to the existing dashboard. Cross-position coverage remains the goal;
 unsupported modules stay explicitly unavailable. Update milestone evidence each
