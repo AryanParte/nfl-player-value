@@ -380,3 +380,36 @@ certification or player calibration; its passing team control is not an individu
 CAVAA module. The paired plain comparison prevents attributing a seed-to-seed
 improvement to the new method. All priors, primary artifacts and admission rules
 remain unchanged.
+
+## Integration-aware control fitting (November 17)
+
+The [new frozen design](INTEGRATION_CONTROL_DESIGN.md), committed as 471fe97 before
+new trials, learns a scalar rescaling of each pointwise composite control from
+16 independent integration replicates. Their 1,024-point nets match evaluation.
+Both fitting stages are independent of evaluation; the control's expected
+integral remains zero conditional on their fitted coefficients. The numerical
+ridge and scale are not player effects or football-prior modifications.
+
+The centered covariance slope targets variance of an **unnormalized** integral.
+A normalized mean or endpoint probability additionally depends on covariance
+with the mass integral. Therefore neither training improvement nor improvement
+of one raw integral proves improved final precision. All original signed ratios,
+joint numerical confidence sets and known-answer requirements remain mandatory.
+Raw fitting arrays reconstruct the scale and final coefficient product; paired
+unadjusted evaluation remains a diagnostic, never a selected fallback.
+
+The software reuses the existing study runner with an exact versioned plan hash;
+it does not create another modeling pipeline. Historical experiments retain their
+recorded source revisions. The complete package source hash prevents an old
+certificate from authorizing a changed numerical kernel. The existing per-object
+size cap, complete denominators and independent offline reconstruction remain.
+Results and the retain/reject decision are recorded separately from this rationale.
+
+The completed [November 17 study](INTEGRATION_CONTROL_RESULTS.md) rejects this
+candidate for certification. Known-answer coverage passes; archived QB precision
+does not. Post-result fixed-anchor covariance diagnostics show smaller numerator
+variance alongside larger normalized-error variance, including within fitting.
+This diagnoses an objective mismatch without changing the estimator or its gates.
+The primary anchors are not known true NFL ratios. Weak mean-contrast improvement
+and hierarchy-tail concentration are separate limitations; a future joint
+mass/numerator fit requires a new frozen design and stronger analytic tail controls.

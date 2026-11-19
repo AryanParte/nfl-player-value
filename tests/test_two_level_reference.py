@@ -99,6 +99,12 @@ class TwoLevelTests(unittest.TestCase):
                 "integrate_controlled",
                 json.loads(Path("config/coarse-control-v1.json").read_text()),
             ),
+            (
+                "coarse_control_study",
+                controlled_known,
+                "integrate_controlled",
+                json.loads(Path("config/coarse-control-v2.json").read_text()),
+            ),
         ):
             with (
                 self.subTest(runner=module),

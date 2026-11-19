@@ -125,6 +125,22 @@ up modeling. Produce the first admitted contribution module before scored UI and
 ranked history. Unsupported positions remain unavailable. No completion percentage
 is justified and no automation or other-project change is part of this run.
 
+November 17 implements the [integration-aware fit](docs/INTEGRATION_CONTROL_RESULTS.md)
+frozen before new trials. All five known-answer gates pass on 5,120 complete trials.
+A nested-checkpoint size failure is repaired without changing numerical results,
+and both complete control executions reproduce the manifest and all 11 objects.
+All five NFL cases finish within their original caps; only the team control passes.
+The QB fails at 0.011896 SD / 0.001095 CDF, and the hierarchy stress case exposes a
+separate mass-concentration limitation. Both independent NFL executions match the manifest and all 11 objects.
+
+Reject this candidate for numerical certification. Diagnosing the shared mass
+shows that smaller numerator variance can produce larger normalized-error variance,
+even within training. Next freeze one joint mass/numerator candidate with analytic
+tail-stress controls, fresh draws and unchanged original gates. Mean precision
+must pass too; improving CDF cancellation alone is insufficient. Preserve the
+192-fit calibration backlog, sealed Week 10 and all-position objective. PR #31 is
+stacked on #30/#29; pending merges and deployment access did not block this work.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.

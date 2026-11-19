@@ -1,0 +1,10 @@
+{
+  "url": "https://api.github.com/repos/nflverse/nflverse-data/releases/71636554",
+  "id": 71636554,
+  "tag": "pbp_participation",
+  "updated_at": "2026-02-10T18:54:08Z",
+  "assets": 46,
+  "current_season_named_assets": [],
+  "checked_at": "2026-11-17 19:51:52 UTC",
+  "scope": "release metadata filenames only; not all-provider absence or game-level coverage"
+}

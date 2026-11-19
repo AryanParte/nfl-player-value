@@ -43,7 +43,9 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  scripts/recover_repaired_controls.py tests/test_repaired_storage.py \
  src/nfl_value/control_variates.py src/nfl_value/coarse_control_study.py \
  src/nfl_value/coarse_control_cli.py tests/test_control_variates.py \
- scripts/analyze_coarse_controls.py tests/test_coarse_diagnostics.py
+ scripts/analyze_coarse_controls.py tests/test_coarse_diagnostics.py \
+ src/nfl_value/integration_controls.py tests/test_integration_controls.py \
+ src/nfl_value/study_blocks.py tests/test_study_blocks.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests

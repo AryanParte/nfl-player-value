@@ -45,28 +45,30 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read the [coarse-control results](COARSE_CONTROL_RESULTS.md)
-and [frozen design](COARSE_CONTROL_VARIATES.md). The preceding conditional repair
-and repaired functional studies remain immutable history. The new pointwise-fitted
-zero-mean controls pass all five fresh known-answer gates; two complete executions
-match the manifest and all objects. The real-QB comparison still fails at
-0.013312 SD / 0.001137 CDF, against unchanged 0.01 / 0.001. Its same-draw plain
-comparison is almost identical and slightly better. A better result than a previous
-seed does not establish a method improvement. All five archived cases complete
-within their original work/time limits; only the team control passes. Both full
-offline executions reproduce the manifest and all six objects. The bounded
-candidate is rejected for numerical certification; do not repeat this study as
-though its existing checks or experiments were unfinished.
+For active recovery evidence, read the [integration-aware results](INTEGRATION_CONTROL_RESULTS.md)
+and [frozen design](INTEGRATION_CONTROL_DESIGN.md). The pointwise-fit and preceding
+reference failures remain immutable history. The new candidate passes all five
+known-answer gates, with both full control executions byte-identical. A nested
+checkpoint exceeded the fixed object cap; reference checkpoints and tested bounded
+trial blocks repair storage, and all five targets were recomputed under the new
+source fingerprint. Never reuse a partial old certificate after a source change.
 
-Paired measurements show that smaller pointwise regression error is insufficient
-for better randomized integration. The proposed next candidate fits using independent integration-
-replicate means, with matching net sizes and fixed work. Freeze that design,
-separate fitting/evaluation entropy and fresh known-answer coverage before results.
-It is not implemented or admitted. Do not select the paired plain comparator after
-seeing results, repeat favorable seeds, add basis complexity blindly, or allocate
-more fine work as though it fixes coarse imprecision. Preserve the whole failure
-sequence and unchanged primary artifacts. Known-answer coverage, numerical
-agreement, player calibration and observational admission are different decisions.
+All five archived cases complete within their original budgets; only the team
+control passes. The QB fails at 0.011896 SD / 0.001095 CDF. The candidate is rejected
+for certification. Both full offline NFL executions reproduce the manifest and all 11 objects.
+The execution audit retains their separate timings and producer revision. Do not rerun this
+consumed study as though its implementation or first execution were unfinished.
+
+Failure analysis isolates an objective mismatch: unnormalized-integral variance
+can improve while ratio-influence variance worsens because of shared-mass
+covariance. It also records weak mean-contrast gains and a hierarchy stress case
+with 10.3866% mass in one replicate. Next freeze one bounded joint mass/numerator
+fit using existing zero-mean composite directions, and analytic tail-stress
+controls before any new draws. Preserve all original cases and gates. This is a
+proposed candidate, not an admitted method. Mean accuracy cannot be bypassed by
+better endpoint diagnostics, and known-answer coverage is not player calibration.
+Do not select the paired plain result after evaluation, retry favorable seeds,
+change football priors, or add fine work to solve the measured coarse error.
 
 No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
 selection is permitted. Preserve negative season values and benchmark covariance.

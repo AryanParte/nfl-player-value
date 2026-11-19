@@ -1,6 +1,6 @@
 # Data sources and provenance
 
-November 9 [participation-release metadata audit](audits/2026-11-09-defense-availability.json):
+November 17 [participation-release metadata audit](audits/2026-11-17-defense-availability.json):
 the public `pbp_participation` release still lists no 2026 asset. This check
 retrieved metadata only; no reserved game outcomes were downloaded. It does not
 establish absence from every provider. Historical FTN/nflverse participation

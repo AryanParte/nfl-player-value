@@ -56,6 +56,42 @@ def delta_variance(raw):
     return variance.mean(axis=0)
 
 
+def integration_diagnostics(fits):
+    """Descriptive training evidence, never validation or selection."""
+    records = [fit["integration_fit"] for fit in fits]
+    alpha = np.asarray([r["alpha"] for r in records], float)
+    f = np.asarray([r["function_means"] for r in records], float)
+    h = np.asarray([r["control_means"] for r in records], float)
+    if (
+        alpha.ndim != 2
+        or f.ndim != 3
+        or f.shape != h.shape
+        or alpha.shape != (f.shape[0], f.shape[2])
+        or f.shape[1] < 2
+        or not all(np.isfinite(x).all() for x in (alpha, f, h))
+    ):
+        raise ValueError("complete finite integration training records required")
+    fc, hc = f - f.mean(axis=1, keepdims=True), h - h.mean(axis=1, keepdims=True)
+    residual = fc - alpha[:, None, :] * hc
+    before, after = np.sum(fc * fc, axis=1), np.sum(residual * residual, axis=1)
+    valid = before > 0
+    relative = after[valid] / before[valid]
+    return dict(
+        fits=len(fits),
+        functionals_per_fit=alpha.shape[1],
+        training_replicates=f.shape[1],
+        alpha_quantiles=np.quantile(alpha, [0, 0.05, 0.5, 0.95, 1], axis=0).tolist(),
+        negative_alpha_count=int(np.count_nonzero(alpha < 0)),
+        zero_alpha_count=int(np.count_nonzero(alpha == 0)),
+        defined_training_variance_ratios=int(valid.sum()),
+        undefined_training_variance_ratios=int((~valid).sum()),
+        training_variance_ratio_quantiles=(
+            np.quantile(relative, [0, 0.05, 0.5, 0.95, 1]).tolist() if relative.size else None
+        ),
+        caveat="correlated training diagnostics; not held-out variance, independent evidence counts or gates",
+    )
+
+
 def summary(result):
     output = {}
     for case in result["cases"]:
@@ -109,8 +145,77 @@ def summary(result):
                 ).tolist(),
             )
             item.update(stats)
+            if result["plan"]["plan_version"] == 2:
+                item["integration_fit"] = integration_diagnostics([r["fit"] for r in paired])
         output[str(case["target"])] = item
     return output
+
+
+def fixed_ratio_variance(adjusted, plain, anchors):
+    """Local ratio influence around fixed anchors; diagnostic, not a new estimator."""
+    adjusted, plain, anchors = (np.asarray(v, float) for v in (adjusted, plain, anchors))
+    if (
+        adjusted.ndim != 2
+        or adjusted.shape != plain.shape
+        or len(adjusted) < 2
+        or anchors.shape != (adjusted.shape[1] - 1,)
+        or anchors.size == 0
+        or not all(np.isfinite(v).all() for v in (adjusted, plain, anchors))
+    ):
+        raise ValueError("finite paired integrals and fixed ratio anchors required")
+    ah = adjusted[:, 1:] - adjusted[:, [0]] * anchors
+    ph = plain[:, 1:] - plain[:, [0]] * anchors
+    return dict(
+        unnormalized=ratios(adjusted.var(axis=0, ddof=1), plain.var(axis=0, ddof=1)),
+        fixed_ratio_influence=ratios(ah.var(axis=0, ddof=1), ph.var(axis=0, ddof=1)),
+    )
+
+
+def ratio_objective_diagnostics(record):
+    """Post-result failure diagnosis only: no refitting, selection or new gates."""
+    n = record["contrasts"]
+    anchors = np.r_[np.zeros(n), np.full(n, 0.025), np.full(n, 0.975)]
+    fit = record["fit"]["integration_fit"]
+    f, h, alpha = (
+        np.asarray(fit[key], float) for key in ("function_means", "control_means", "alpha")
+    )
+    phases = dict(
+        training=(f - h * alpha, f),
+        evaluation=(
+            np.asarray(record["coarse"]) + np.asarray(record["correction"]),
+            np.asarray(record["plain_coarse"]) + np.asarray(record["correction"]),
+        ),
+    )
+
+    def describe(values):
+        defined = [v for v in values if v is not None]
+        return dict(
+            defined=len(defined),
+            undefined=len(values) - len(defined),
+            worse=sum(v > 1 for v in defined),
+            quantiles=np.quantile(defined, [0, 0.5, 1]).tolist() if defined else None,
+        )
+
+    output = {}
+    width = 1 + 3 * n
+    for phase, (a, p) in phases.items():
+        output[phase] = {}
+        for k, shift in enumerate(record["shifts"]):
+            sl = slice(k * width, (k + 1) * width)
+            raw = fixed_ratio_variance(a[:, sl], p[:, sl], anchors)
+            groups = {"mass_variance_ratio": raw["unnormalized"][0]}
+            for j, name in enumerate(("mean_sd", "lower_cdf", "upper_cdf")):
+                start, end = j * n, (j + 1) * n
+                groups[name] = dict(
+                    unnormalized=describe(raw["unnormalized"][start + 1 : end + 1]),
+                    fixed_ratio_influence=describe(raw["fixed_ratio_influence"][start:end]),
+                )
+            output[phase][str(shift)] = groups
+    return dict(
+        phases=output,
+        anchors="fixed primary standardized means 0 and endpoint CDFs 0.025/0.975",
+        caveat="post-result covariance diagnosis, no fitting or new evidence; common unknown normalization cancels in variance ratios; anchors are not known true NFL ratios",
+    )
 
 
 def influence_diagnostics(record):
@@ -179,10 +284,17 @@ def archive_summary(result):
                 adjusted_checks=r["reference"]["checks"],
                 adjusted_diagnosis=r["diagnosis"],
                 influence=influence_diagnostics(r),
-                fit={k: v for k, v in r["fit"].items() if k != "coefficients"},
+                fit={
+                    k: v
+                    for k, v in r["fit"].items()
+                    if k not in ("coefficients", "integration_fit")
+                },
                 plain_status=r["plain_reference"]["status"],
                 maximum_relative_mass_correction=r["maximum_relative_mass_correction"],
             )
+            if result["plan"]["plan_version"] == 2:
+                item["fit"]["integration_fit"] = integration_diagnostics([r["fit"]])
+                item["ratio_objective"] = ratio_objective_diagnostics(r)
             if r["plain_reference"]["status"] == "complete":
                 reference = r["plain_reference"]["reference"]
                 item.update(
@@ -224,7 +336,7 @@ def main():
     args = parser.parse_args()
     output = SnapshotStore(args.store)
     manifest, result = load(output, args.report)
-    archived = result["experiment"] == "coarse-control-archive-v1"
+    archived = result["experiment"] == f"coarse-control-archive-v{result['plan']['plan_version']}"
     audit = dict(
         report_id=args.report,
         manifest=manifest,

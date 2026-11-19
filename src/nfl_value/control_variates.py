@@ -194,6 +194,18 @@ def integrate_controlled(fine, coarse, sampling, *, entropy, plan, progress=lamb
         nodes=plan["training_nodes"],
         relative_ridge=plan["relative_ridge"],
     )
+    if plan.get("plan_version") == 2:
+        from nfl_value.integration_controls import fit_integration_control
+
+        fitted = fit_integration_control(
+            coarse,
+            fitted,
+            sampling,
+            entropy=[*entropy, 3],
+            replicates=plan["integration_fit_replicates"],
+            nodes=plan["nodes_per_replicate"],
+            ridge=plan["integration_scale_ridge"],
+        )
     controlled, plain = controlled_integrals(
         coarse,
         fitted,
