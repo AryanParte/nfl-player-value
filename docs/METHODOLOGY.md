@@ -428,3 +428,37 @@ all seven targets complete, but the two added tails fail precision. No football
 reference or admission follows. Better training covariance does not guarantee
 held-out variance reduction; the next hypothesis concerns proposal coverage of
 required functionals, with a new freeze required before fresh draws.
+
+## Functional proposal adaptation (November 19)
+
+The [frozen proposal study](FUNCTIONAL_PROPOSAL_DESIGN.md) changes where numerical
+integration evaluates the same target. Independent pilots fit three Gaussian
+components to mass/mean, lower-CDF and upper-CDF absolute influences, retaining
+the original defensive Gaussian. Each prior block has its own pilot normalizer.
+Signed football contributions are never made positive: absolute values are used
+only to choose a sampling distribution, and full importance ratios preserve the
+original signed integrands. The paired fine correction remains exact in expectation.
+
+Two fixed fitting rounds replace the preceding coefficient-refit allocation,
+keeping 88,065 target evaluations per archived case. There is no fitting on
+evaluation replicas or after-the-fact plain-estimator fallback. Proposal covariance
+shrinkage/eigenvalue bounds are sampling choices, not wider player intervals or
+changed football priors. Full support and a finite variance do not imply adequate
+finite-work accuracy. The more remote narrow-mode fixture tests that limitation.
+
+An independent analytic population-moment diagnostic conditions multivariate
+normal moments on each scalar contrast. It uses unperturbed fine-target envelopes;
+comparisons with fitted geometry also include the bounded .001 coarse-surrogate
+tilt and finite-pilot covariance shrinkage. The mean-displacement bound is reported
+separately, never subtracted from error or treated as a covariance/precision bound.
+Point probes of the density ratio do not bound integration variance. This is never
+a substituted oracle model.
+The implementation and software tests alone admit no CAVAA contribution.
+
+The [complete November 19 results](FUNCTIONAL_PROPOSAL_RESULTS.md) reject this
+candidate. All 8,192 requested trials are retained and the two full executions
+reproduce the manifest/all 17 objects. Broad-tail precision passes, displaced
+precision is 33.5938%, and remote precision/coverage fail at 0%/30.9570%, with
+47 failed confidence constructions retained. The actual saved certificate blocks
+before NFL inputs. These findings support a bounded mode-resolving proposal
+hypothesis, not an adopted fix, changed football model or player admission.

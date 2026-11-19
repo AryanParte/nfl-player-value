@@ -7,6 +7,47 @@ import numpy as np
 
 
 class CoarseDiagnosticTests(unittest.TestCase):
+    def test_proposal_diagnostics_retain_failed_confidence_fits_and_zero_envelopes(self):
+        helper = runpy.run_path("scripts/analyze_coarse_controls.py")["proposal_diagnostics"]
+        stage = dict(
+            prior_mass_estimates=[1],
+            component_means=[[0], [1], [2]],
+            moments=[
+                dict(active=True, effective_weights=3, maximum_weight=0.5),
+                dict(active=False),
+                dict(active=True, effective_weights=2, maximum_weight=0.7),
+            ],
+        )
+        fit = dict(proposal_fit=dict(stages=[stage, stage]))
+        value = helper(
+            [
+                dict(status="complete", fit=fit),
+                dict(status="failed", fit=fit),
+                dict(status="failed"),
+            ],
+            0,
+        )
+        self.assertEqual(value["requested"], 3)
+        self.assertEqual(value["retained_fits"], 2)
+        for stage in value["rounds"]:
+            self.assertEqual(stage["components"][0]["active"], 2)
+            self.assertEqual(stage["components"][1]["inactive"], 2)
+            self.assertIsNone(stage["components"][1]["effective_weight_quantiles"])
+            self.assertEqual(stage["components"][2]["maximum_weight_quantiles"], [0.7] * 5)
+
+    def test_initial_concentration_diagnostic_counts_failed_confidence_trials(self):
+        helper = runpy.run_path("scripts/analyze_coarse_controls.py")["initial_stress_diagnostics"]
+        first = np.ones((64, 9))
+        second = first.copy()
+        second[0, 0] = 100
+        value = helper([dict(raw=first, status="complete"), dict(raw=second, status="failed")])
+        self.assertEqual(value["trials"], 2)
+        self.assertEqual(value["trials_reaching_previous_hierarchy_share"], 1)
+        self.assertAlmostEqual(value["replicate_mass_maximum_share_quantiles"][0], 1 / 64)
+        self.assertAlmostEqual(value["replicate_mass_maximum_share_quantiles"][-1], 100 / 163)
+        with self.assertRaises(ValueError):
+            helper([dict(raw=first * 0)])
+
     def test_wrong_endpoint_diagnostic_cannot_borrow_a_mean_failure(self):
         helper = runpy.run_path("scripts/analyze_coarse_controls.py")[
             "isolated_wrong_endpoint_diagnostics"

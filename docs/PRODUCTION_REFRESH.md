@@ -58,6 +58,15 @@ and workflow dispatch. No deployment or settings change was made. The
 [metadata audit](audits/2026-11-18-operational-metadata.json) records this separately
 from model validation. The new numerical study continued on a main-based PR.
 
+November 19 recheck: PR #32 is owner-merged and main's CI passes. Repository
+metadata still reports `has_pages=false`; the latest returned production run is
+the same failed November 17 bootstrap attempt. Browser access is now disabled
+in Work settings, so authenticated browser configuration/dispatch cannot be
+verified through that session. The connector exposes no fresh workflow dispatch
+or Pages configuration action. No retry, setting, workflow or schedule change
+was made. [Recorded metadata](audits/2026-11-19-operations.json) distinguishes
+this access limitation from numerical/model evidence.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed
