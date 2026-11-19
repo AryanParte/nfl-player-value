@@ -133,3 +133,22 @@ or evidence of adequate precision; no Monte Carlo results for an oracle proposal
 will be generated or selected. Tests independently check normal absolute/linear/
 quadratic moments. All candidate outcomes, including failed intervals, remain in
 their original denominator. This diagnostic does not consume new NFL outcomes.
+
+### Diagnostic clarification from source review
+
+Before the tail cases finish, source review identifies a scope distinction: the
+analytic calculation uses the **unperturbed fine target**, whereas proposal fitting
+uses the coarse target multiplied by `1 + .001 sin(sum(x))`. Therefore these are
+fine-target envelope moments, not the exact population limit of the implemented
+pilot. Keep that distinction explicit in every comparison; mean/covariance gaps
+also include the surrogate perturbation and finite-pilot covariance shrinkage.
+
+For each of these single-prior analytic cases, the normalized envelope is tilted
+by a factor between `1-epsilon` and `1+epsilon`. If its fine-target envelope mean
+and covariance are mu and C, the Euclidean mean displacement is at most
+`epsilon * sqrt(trace(C)) / (1-epsilon)`, by centering the normalized expectation
+and applying Cauchy–Schwarz. Report this deterministic bound with epsilon=.001;
+it is not a covariance bound, a precision allowance or an admission criterion.
+Verify the bound against independently known sine-tilted normal means. Do not
+subtract it from observed errors or treat it as numerical quadrature uncertainty.
+The numerical candidate, source fingerprint, draws and gates stay unchanged.
