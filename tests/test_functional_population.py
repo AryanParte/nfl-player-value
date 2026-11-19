@@ -2,6 +2,7 @@
 
 import runpy
 import unittest
+from math import erf, sqrt
 
 import numpy as np
 
@@ -58,6 +59,20 @@ class PopulationMomentTests(unittest.TestCase):
         for amplitude in (-0.001, 1, np.nan):
             with self.assertRaises(ValueError):
                 bound(cov, amplitude)
+
+    def test_initial_box_uses_allocation_counts_not_mixture_masses(self):
+        box = runpy.run_path("scripts/functional_population_diagnostic.py")["initial_pilot_box"](7)
+        unit = ((erf(8.5 / sqrt(2)) - erf(7.5 / sqrt(2))) / 2) ** 2
+        defensive = ((erf(8.5 / (3 * sqrt(2))) - erf(7.5 / (3 * sqrt(2)))) / 2) ** 2
+        target = 0.9 * unit + 0.1 * erf(1 / sqrt(2)) ** 2
+        self.assertAlmostEqual(box["target_probability"], target, places=13)
+        self.assertAlmostEqual(box["proposal_probability"], 0.9 * unit + 0.1 * defensive, places=13)
+        expected = 2048 * (3 * unit + defensive)
+        self.assertAlmostEqual(box["expected_total_points"], expected, places=12)
+        self.assertAlmostEqual(box["any_point_probability_upper_bound"], expected, places=12)
+        self.assertGreater(target, 0.04)
+        self.assertLess(expected, 0.04)
+        self.assertNotAlmostEqual(expected, 8192 * box["proposal_probability"], places=5)
 
 
 if __name__ == "__main__":

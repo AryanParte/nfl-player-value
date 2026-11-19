@@ -1,6 +1,6 @@
 {
   "diagnostic": "population_moments_not_a_candidate",
-  "source_sha256": "ef9eb388b20d675d102edb2f06a9a1f46866804361e254b92003fb5b65f0db14",
+  "source_sha256": "2ddd9fd82e7dfe26bc797f8fdff4e49d5f271890dbc6dd02c471c545d89e5c48",
   "cases": {
     "5": {
       "target": 5,
@@ -303,6 +303,39 @@
       ],
       "population_target": "unperturbed_fine_target_envelopes",
       "coarse_surrogate_amplitude": 0.001,
+      "initial_pilot_box": {
+        "coordinates": [
+          0,
+          1
+        ],
+        "lower": [
+          -2.0,
+          -1.0
+        ],
+        "upper": [
+          2.0,
+          1.0
+        ],
+        "other_coordinates": "unrestricted",
+        "first_round_nodes_per_stratum": 2048,
+        "target_probability": 0.633070740344459,
+        "proposal_probability": 0.5993899431141743,
+        "stratum_probabilities": [
+          0.6516269400855775,
+          0.6516269400855775,
+          0.6516269400855775,
+          0.12925697037154477
+        ],
+        "expected_points_by_stratum": [
+          1334.5319732952628,
+          1334.5319732952628,
+          1334.5319732952628,
+          264.7182753209237
+        ],
+        "expected_total_points": 4268.314195206712,
+        "any_point_probability_upper_bound": 1.0,
+        "caveat": "initial allocation only, using declared Gaussian point marginals and Markov's inequality; no iid independence assumption, actual discovery frequency, second-round or precision conclusion"
+      },
       "probe_points": [
         [
           0.0,
@@ -321,7 +354,7 @@
         1.5442270939970748,
         1.5442270939970748
       ],
-      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy"
+      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors and evaluated tilt bounds are not certified floating-point-error-inclusive bounds; tilt bounds concern means only, not covariance or numerical accuracy"
     },
     "6": {
       "target": 6,
@@ -624,6 +657,39 @@
       ],
       "population_target": "unperturbed_fine_target_envelopes",
       "coarse_surrogate_amplitude": 0.001,
+      "initial_pilot_box": {
+        "coordinates": [
+          0,
+          1
+        ],
+        "lower": [
+          3.2928932188134525,
+          3.2928932188134525
+        ],
+        "upper": [
+          4.707106781186548,
+          4.707106781186548
+        ],
+        "other_coordinates": "unrestricted",
+        "first_round_nodes_per_stratum": 2048,
+        "target_probability": 0.04660671439304504,
+        "proposal_probability": 0.0006064845937926426,
+        "stratum_probabilities": [
+          2.4458400645414774e-07,
+          2.4458400645414774e-07,
+          2.4458400645414774e-07,
+          0.006062644681868338
+        ],
+        "expected_points_by_stratum": [
+          0.0005009080452180946,
+          0.0005009080452180946,
+          0.0005009080452180946,
+          12.416296308466356
+        ],
+        "expected_total_points": 12.41779903260201,
+        "any_point_probability_upper_bound": 1.0,
+        "caveat": "initial allocation only, using declared Gaussian point marginals and Markov's inequality; no iid independence assumption, actual discovery frequency, second-round or precision conclusion"
+      },
       "probe_points": [
         [
           0.0,
@@ -642,7 +708,7 @@
         1.9488601741812484,
         1.7838018128722677
       ],
-      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy"
+      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors and evaluated tilt bounds are not certified floating-point-error-inclusive bounds; tilt bounds concern means only, not covariance or numerical accuracy"
     },
     "7": {
       "target": 7,
@@ -945,6 +1011,39 @@
       ],
       "population_target": "unperturbed_fine_target_envelopes",
       "coarse_surrogate_amplitude": 0.001,
+      "initial_pilot_box": {
+        "coordinates": [
+          0,
+          1
+        ],
+        "lower": [
+          7.5,
+          7.5
+        ],
+        "upper": [
+          8.5,
+          8.5
+        ],
+        "other_coordinates": "unrestricted",
+        "first_round_nodes_per_stratum": 2048,
+        "target_probability": 0.04660649426743922,
+        "proposal_probability": 1.5259954663510839e-06,
+        "stratum_probabilities": [
+          1.017574093312238e-27,
+          1.017574093312238e-27,
+          1.017574093312238e-27,
+          1.525995466351084e-05
+        ],
+        "expected_points_by_stratum": [
+          2.0839917431034634e-24,
+          2.0839917431034634e-24,
+          2.0839917431034634e-24,
+          0.0312523871508702
+        ],
+        "expected_total_points": 0.0312523871508702,
+        "any_point_probability_upper_bound": 0.0312523871508702,
+        "caveat": "initial allocation only, using declared Gaussian point marginals and Markov's inequality; no iid independence assumption, actual discovery frequency, second-round or precision conclusion"
+      },
       "probe_points": [
         [
           0.0,
@@ -963,7 +1062,7 @@
         2.508247454599567,
         3.2548776835580497
       ],
-      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy"
+      "caveat": "unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors and evaluated tilt bounds are not certified floating-point-error-inclusive bounds; tilt bounds concern means only, not covariance or numerical accuracy"
     }
   },
   "ranking_ready": false

@@ -70,6 +70,43 @@ def tilted_mean_displacement_bound(covariance, amplitude):
     return float(amplitude * np.sqrt(np.trace(cov)) / (1 - amplitude))
 
 
+def initial_pilot_box(index):
+    """Gaussian allocation calculation, not an iid/QMC discovery experiment."""
+    target, initial = TailTarget(index), tail_proposal()
+    center = target.means[1, :2]
+    radius = np.sqrt(np.diag(target.covariances[1])[:2])
+    low, high = center - radius, center + radius
+
+    def probability(mean, covariance):
+        c = np.asarray(covariance)[:2, :2]
+        if c[0, 1] != 0 or c[1, 0] != 0:
+            raise ValueError("independent first two coordinates required for box formula")
+        sd, mu = np.sqrt(np.diag(c)), np.asarray(mean)[:2]
+        return float(np.prod(norm.sf((low - mu) / sd) - norm.sf((high - mu) / sd)))
+
+    components = initial.components("stabilized-mixture")
+    probabilities = [probability(m, c) for _, m, c, _ in components]
+    # Equal point allocation differs from the proposal mixture's probability mass.
+    counts = [2048 * p for p in probabilities]
+    return dict(
+        coordinates=[0, 1],
+        lower=low.tolist(),
+        upper=high.tolist(),
+        other_coordinates="unrestricted",
+        first_round_nodes_per_stratum=2048,
+        target_probability=sum(
+            p * probability(m, c)
+            for p, m, c in zip(target.probabilities, target.means, target.covariances)
+        ),
+        proposal_probability=sum(p * q for (p, _, _, _), q in zip(components, probabilities)),
+        stratum_probabilities=probabilities,
+        expected_points_by_stratum=counts,
+        expected_total_points=sum(counts),
+        any_point_probability_upper_bound=min(1.0, sum(counts)),
+        caveat="initial allocation only, using declared Gaussian point marginals and Markov's inequality; no iid independence assumption, actual discovery frequency, second-round or precision conclusion",
+    )
+
+
 def population_geometry(index):
     target = TailTarget(index)
     truth = json.loads(tail_truth_bytes(index))
@@ -141,11 +178,12 @@ def population_geometry(index):
         component_covariances=np.asarray(covariances).tolist(),
         population_target="unperturbed_fine_target_envelopes",
         coarse_surrogate_amplitude=0.001,
+        initial_pilot_box=initial_pilot_box(index),
         probe_points=target.means.tolist(),
         population_log_density_ratios_at_centers=(
             target.logpdf(target.means) - sampling.logpdf(target.means, "stabilized-mixture")
         ).tolist(),
-        caveat="unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors are estimates for univariate moments, not certified bounds on final geometry; tilt bounds concern means only, not covariance or numerical accuracy",
+        caveat="unperturbed fine-target envelope moments, not exact coarse-pilot population moments; comparison gaps also include bounded surrogate tilt and finite-pilot covariance shrinkage; no candidate draws, oracle precision test or admission; center probes are not global bounds; quadrature errors and evaluated tilt bounds are not certified floating-point-error-inclusive bounds; tilt bounds concern means only, not covariance or numerical accuracy",
     )
 
 

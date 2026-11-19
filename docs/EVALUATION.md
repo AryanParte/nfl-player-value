@@ -514,3 +514,9 @@ mean-displacement bound for the .001 surrogate tilt, verified against an indepen
 sine-tilted Gaussian identity. It changes no candidate, gate or error allowance.
 No oracle proposal is evaluated or selected. Exact offline reproduction does not supply additional
 independent trials, validate attribution, or resolve the 192-fit player study.
+
+Initial-pilot box calculation a660aba is declared before complete tail results.
+Gaussian box masses and the fixed 2,048-point allocation per stratum yield expected
+counts and a Markov bound on any point in that box. This uses no iid discovery
+assumption or extra draws. It is an initial-allocation diagnostic, not a final
+precision result, surrogate correction or new admission gate.
