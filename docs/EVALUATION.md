@@ -528,3 +528,13 @@ precision is 33.5938%, and remote precision/coverage fail at 0%/30.9570%, with
 47 failed confidence constructions retained. The actual saved certificate blocks
 before NFL inputs. These findings support a bounded mode-resolving proposal
 hypothesis, not an adopted fix, changed football model or player admission.
+
+## November 20 bounded feasibility screen
+
+The [mode-discovery design](MODE_PREFLIGHT_DESIGN.md) freezes 32 independent trials
+per retained case plus two geometry extensions and four diagnostic oracle cases.
+The smaller study is a feasibility screen: unchanged .01-SD/.001-CDF precision,
+complete work accounting and severe-undercoverage checks may stop a poor candidate
+before another full coverage campaign. It cannot replace the full certificate's
+coverage lower-bound requirement, authorize NFL inputs or validate player effects.
+Oracle truth is unavailable to the candidate; plain estimates are not selectable.
