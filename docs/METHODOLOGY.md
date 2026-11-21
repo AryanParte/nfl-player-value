@@ -462,3 +462,20 @@ precision is 33.5938%, and remote precision/coverage fail at 0%/30.9570%, with
 47 failed confidence constructions retained. The actual saved certificate blocks
 before NFL inputs. These findings support a bounded mode-resolving proposal
 hypothesis, not an adopted fix, changed football model or player admission.
+
+## November 20 mode-discovery feasibility design
+
+The [frozen preflight](MODE_PREFLIGHT_DESIGN.md) tests bounded multi-start search,
+local curvature proposals and independent mass fitting. It receives only a
+log-density callable and initial geometry; analytic mixture parameters enter a
+separate unavailable-to-NFL oracle diagnostic. Full importance weights preserve
+the target. There is no football prior, likelihood, benchmark or ledger change.
+A preflight report cannot serve as a numerical certificate or admit any score.
+
+The [complete preflight results](MODE_PREFLIGHT_RESULTS.md) reject progression:
+original case 3 fails precision and remote case 7 fails precision/coverage. All
+448 candidate/diagnostic trials retain raw evidence and reproduce exactly; one
+confidence construction fails. The post-result derivative diagnosis distinguishes
+nonmodal tail mass from a missed density peak. Oracle results do not authorize NFL
+work. The next bounded hypothesis must preserve both tail shape and mode coverage;
+no new method, player calibration or scoring admission is claimed.

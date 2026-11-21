@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-20",
+  "repository": "AryanParte/nfl-player-value",
+  "has_pages": false,
+  "open_prs": [
+    {
+      "number": 33,
+      "base": "main",
+      "head": "codex/functional-proposal-reference",
+      "head_sha": "c149649eb8a08ac7e019e352a43110f32c2da3a9",
+      "draft": false,
+      "reviews": []
+    }
+  ],
+  "new_branch": "codex/mode-discovery-preflight",
+  "new_branch_base": "codex/functional-proposal-reference",
+  "stack_required": true,
+  "main": "3bd386325ab0574cfbf7bde45fb05bda8ac3a5c2",
+  "returned_main_runs": [
+    {
+      "id": 44454749988,
+      "name": "Contracts and dashboard",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-19T03:55:22Z"
+    },
+    {
+      "id": 44435922559,
+      "name": "Contracts and dashboard",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-19T01:18:39Z"
+    },
+    {
+      "id": 44435891252,
+      "name": "Contracts and dashboard",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "created_at": "2026-11-19T01:18:23Z"
+    },
+    {
+      "id": 44435852253,
+      "name": "Contracts and dashboard",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "created_at": "2026-11-19T01:18:05Z"
+    },
+    {
+      "id": 44200134216,
+      "name": "Refresh and publish Defense Explorer",
+      "event": "schedule",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-17T23:31:37Z"
+    }
+  ],
+  "participation_release": {
+    "id": 71636554,
+    "tag": "pbp_participation",
+    "asset_count": 46,
+    "current_2026_assets": [],
+    "scope": "single release metadata; not game coverage or all-provider absence"
+  },
+  "no_nfl_outcomes_downloaded": true,
+  "automation_modified": false,
+  "other_repository_modified": false
+}
