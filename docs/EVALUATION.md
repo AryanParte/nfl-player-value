@@ -488,3 +488,43 @@ point estimates whose confidence construction failed whenever they are defined,
 and report their denominator explicitly. Isolated wrong-endpoint diagnostics
 cannot count a mean/lower-endpoint failure as detection of an altered endpoint.
 These post-result diagnostics do not change the frozen gate or its rejection.
+
+## Functional proposal validation (November 19)
+
+[FUNCTIONAL_PROPOSAL_DESIGN.md](FUNCTIONAL_PROPOSAL_DESIGN.md), committed as
+ba3f5da before fresh study draws, fixes all eight cases, independent pilot/control/
+evaluation entropy domains and the original archived work caps. The added target
+has a separate declared undercoverage family; none of the first seven gates is
+weakened. Every case requires all 1,024 requested trials, including failed intervals.
+A separate 32-trial initial-proposal concentration diagnostic does not select the
+candidate or replace the finite coverage/precision decision.
+
+Analytical software checks cover Gaussian moments, per-prior normalization,
+signed contributions, zero-envelope behavior, original defensive support,
+independent samples, exact work, zero-mean controls, saved geometry corruption
+and reverse Student-noise convolution. Retained failed-confidence records undergo
+the same proposal provenance checks. Eight-case storage cannot accept an old
+seven-case certificate; archived references must bind the actual fitted proposal.
+
+Population-envelope moments are an explicitly declared analytic diagnostic, with
+independent normal absolute/linear/quadratic-moment tests. They refer to unperturbed
+fine-target envelopes, not the exact coarse-pilot population. Source-review
+clarification d267f8d precedes complete tail results and adds a deterministic
+mean-displacement bound for the .001 surrogate tilt, verified against an independent
+sine-tilted Gaussian identity. It changes no candidate, gate or error allowance.
+No oracle proposal is evaluated or selected. Exact offline reproduction does not supply additional
+independent trials, validate attribution, or resolve the 192-fit player study.
+
+Initial-pilot box calculation a660aba is declared before complete tail results.
+Gaussian box masses and the fixed 2,048-point allocation per stratum yield expected
+counts and a Markov bound on any point in that box. This uses no iid discovery
+assumption or extra draws. It is an initial-allocation diagnostic, not a final
+precision result, surrogate correction or new admission gate.
+
+The [complete November 19 results](FUNCTIONAL_PROPOSAL_RESULTS.md) reject this
+candidate. All 8,192 requested trials are retained and the two full executions
+reproduce the manifest/all 17 objects. Broad-tail precision passes, displaced
+precision is 33.5938%, and remote precision/coverage fail at 0%/30.9570%, with
+47 failed confidence constructions retained. The actual saved certificate blocks
+before NFL inputs. These findings support a bounded mode-resolving proposal
+hypothesis, not an adopted fix, changed football model or player admission.

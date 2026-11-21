@@ -3,6 +3,7 @@
 import argparse
 import json
 from pathlib import Path
+import runpy
 
 import numpy as np
 
@@ -12,6 +13,107 @@ from nfl_value.ingestion import SnapshotStore
 from nfl_value.replicated_reference import confidence_sets, diagnose_reference
 
 TRUTH = np.array([1.0, 0, 0, 0.025, 0.025, 0.975, 0.975])
+
+
+def proposal_diagnostics(records, target_index):
+    """Describe all retained fits, including failed numerical intervals.
+
+    Point probes at analytic mixture centers are diagnostics, not bounds on the
+    density ratio, a variance theorem, or a basis for changing this candidate.
+    """
+    from nfl_value.functional_proposal import restore_functional
+    from nfl_value.tail_controls import TailTarget, tail_proposal
+
+    fits = [r["fit"]["proposal_fit"] for r in records if "proposal_fit" in r.get("fit", {})]
+    result = dict(requested=len(records), retained_fits=len(fits), rounds=[])
+
+    def quantiles(values):
+        return (
+            np.quantile(values, [0, 0.05, 0.5, 0.95, 1], axis=0).tolist() if len(values) else None
+        )
+
+    for iteration in range(2):
+        stages = [fit["stages"][iteration] for fit in fits]
+        parts = []
+        for j in range(3):
+            moments = [s["moments"][j] for s in stages if s["moments"][j]["active"]]
+            parts.append(
+                dict(
+                    active=len(moments),
+                    inactive=len(stages) - len(moments),
+                    effective_weight_quantiles=quantiles([m["effective_weights"] for m in moments]),
+                    maximum_weight_quantiles=quantiles([m["maximum_weight"] for m in moments]),
+                    mean_coordinate_quantiles=quantiles([s["component_means"][j] for s in stages]),
+                )
+            )
+        result["rounds"].append(
+            dict(
+                prior_mass_quantiles=quantiles([s["prior_mass_estimates"] for s in stages]),
+                components=parts,
+            )
+        )
+    if target_index in (5, 6, 7):
+        target = TailTarget(target_index)
+        logp = target.logpdf(target.means)
+        probes = [
+            (logp - restore_functional(g).logpdf(target.means, "stabilized-mixture")).tolist()
+            for g in fits
+        ]
+        result["center_probes"] = dict(
+            points=target.means.tolist(),
+            initial_log_density_ratios=(
+                logp - tail_proposal().logpdf(target.means, "stabilized-mixture")
+            ).tolist(),
+            fitted_log_density_ratio_quantiles=quantiles(probes),
+        )
+        helper = Path(__file__).with_name("functional_population_diagnostic.py")
+        population = runpy.run_path(str(helper))["population_geometry"](target_index)
+        result["population_moment_reference"] = population
+        result["population_mean_gap_quantiles"] = quantiles(
+            [
+                np.linalg.norm(
+                    np.asarray(g["component_means"]) - population["component_means"], axis=1
+                )
+                for g in fits
+            ]
+        )
+        result["population_covariance_gap_quantiles"] = quantiles(
+            [
+                np.linalg.norm(
+                    np.asarray(g["component_covariances"]) - population["component_covariances"],
+                    axis=(1, 2),
+                )
+                for g in fits
+            ]
+        )
+    result["caveat"] = (
+        "descriptive retained fitting evidence; effective weights are not independent observations; center probes are not global density-ratio bounds; population comparisons use unperturbed fine-target envelope moments, so gaps also include coarse-surrogate tilt and finite-pilot covariance shrinkage; no selection or admission"
+    )
+    return result
+
+
+def initial_stress_diagnostics(records):
+    shares = []
+    for r in records:
+        raw = np.asarray(r["raw"], float)
+        if (
+            raw.ndim != 2
+            or raw.shape[1] != 9
+            or np.any(raw[:, 0] < 0)
+            or not np.isfinite(raw).all()
+            or raw[:, 0].sum() <= 0
+        ):
+            raise ValueError("finite nonnegative initial-stress mass replicates required")
+        shares.append(float(raw[:, 0].max() / raw[:, 0].sum()))
+    return dict(
+        trials=len(records),
+        replicate_mass_maximum_share_quantiles=np.quantile(
+            shares, [0, 0.05, 0.5, 0.95, 1]
+        ).tolist(),
+        trials_reaching_previous_hierarchy_share=sum(s >= 0.103866 for s in shares),
+        comparison_share=0.103866,
+        caveat="fixed initial proposal only; descriptive stress check, not a new acceptance gate or independent player evidence",
+    )
 
 
 def ratios(a, b):
@@ -306,11 +408,14 @@ def summary(result):
                 item["integration_fit"] = integration_diagnostics([r["fit"] for r in paired])
         if result["plan"]["plan_version"] == 3:
             item["joint_objective"] = joint_known_diagnostics(records)
+        if result["plan"]["plan_version"] in (3, 4):
             item["all_retained_point_errors"] = raw_estimator_diagnostics(records)
             item["gate_decomposition"] = known_gate_decomposition(records, result["plan"])
             item["isolated_wrong_endpoints"] = isolated_wrong_endpoint_diagnostics(
                 records, result["plan"]["reference_endpoint_cdf_tolerance"]
             )
+        if result["plan"]["plan_version"] == 4:
+            item["proposal_fit"] = proposal_diagnostics(records, case["target"])
         output[str(case["target"])] = item
     return output
 
@@ -528,6 +633,8 @@ def main():
                 )
             }
         )
+    if "initial_stress" in result:
+        audit["initial_stress"] = initial_stress_diagnostics(result["initial_stress"])
     if args.reconstruction:
         audit["independent_reconstruction_identical"] = verify_reconstruction(
             output, SnapshotStore(args.reconstruction)

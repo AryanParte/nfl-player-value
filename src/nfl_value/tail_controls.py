@@ -11,7 +11,7 @@ from nfl_value.randomized_controls import KnownTarget
 
 class TailTarget(KnownTarget):
     def __init__(self, index):
-        if type(index) is not int or index not in (5, 6):
+        if type(index) is not int or index not in (5, 6, 7):
             raise ValueError("unknown tail fixture")
         super().__init__(2, {})
         self.means = np.zeros((2, 4))
@@ -20,6 +20,9 @@ class TailTarget(KnownTarget):
         if index == 6:
             self.means[1] = [4, 4, 0, 0]
             self.covariances[1] = np.diag([0.5, 0.5, 1, 1])
+        if index == 7:
+            self.means[1] = [8, 8, 0, 0]
+            self.covariances[1] = np.diag([0.25, 0.25, 1, 1])
 
 
 def tail_proposal():
@@ -47,6 +50,6 @@ def tail_proposal():
     )
 
 
-@lru_cache(maxsize=2)
+@lru_cache(maxsize=3)
 def tail_truth_bytes(index):
     return json_bytes({k: v.tolist() for k, v in TailTarget(index).exact().items()})

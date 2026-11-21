@@ -18,6 +18,7 @@ from nfl_value.reference_pilot import CASES, prepare_case
 from nfl_value.replicated_reference import (
     conditional_integrand,
     diagnose_reference,
+    replicate_integrals,
     summarize_integrals,
 )
 from nfl_value.two_level_reference import combine, restore_proposal, sampling_hash
@@ -29,6 +30,7 @@ from nfl_value.study_blocks import put_case, read_case
 
 
 PLAN_HASHES = {
+    4: "f267cfe3b774c42b29270f2861bf9fcaf25152ef1ee49efd06c2041cd31bab8b",
     1: "740aca9f2eb5b8d6e9e5cac44dc4fbea50b05a4d431975f2d9791e7850c5216e",
     2: "27e2f79434940d308552469bf27f8a9083d14413fe67f7b6e316c43e3a581e0f",
     3: "6300d5ab107a1044afc156f7bbc066c546a22c57bb19e5e1c8043311e90ad8b5",
@@ -96,6 +98,12 @@ def validate_point_fit(fit, sampling, entropy, plan, columns):
 
 
 def validate_fit(fit, sampling, entropy, plan, columns, layout=None):
+    if plan["plan_version"] == 4:
+        from nfl_value.functional_proposal import validate_functional_fit
+
+        sampling = validate_functional_fit(
+            fit["proposal_fit"], sampling, entropy=[*entropy[:-1], 4], plan=plan, layout=layout
+        )
     validate_point_fit(fit, sampling, entropy, plan, columns)
     if plan["plan_version"] == 2:
         from nfl_value.integration_controls import validate_integration_fit
@@ -113,6 +121,7 @@ def fitting_evaluations(plan):
     return (
         plan["training_nodes"]
         + plan.get("integration_fit_replicates", 0) * plan["nodes_per_replicate"]
+        + plan.get("proposal_rounds", 0) * plan.get("proposal_nodes", 0)
     )
 
 
@@ -121,7 +130,7 @@ def experiment_name(plan, kind):
 
 
 def known_case_count(plan):
-    return 7 if plan["plan_version"] == 3 else 5
+    return {3: 7, 4: 8}.get(plan["plan_version"], 5)
 
 
 def known_inputs(index, plan, certificate, density):
@@ -130,7 +139,7 @@ def known_inputs(index, plan, certificate, density):
         target = known_target(index, certificate["model_plan"])
         sampling = restore_proposal(geometry, target.plan)
         truth = known_truth_bytes(index)
-    elif plan["plan_version"] == 3 and index in (5, 6):
+    elif plan["plan_version"] in (3, 4) and index in range(5, known_case_count(plan)):
         target, sampling = TailTarget(index), tail_proposal()
         geometry, truth = sampling.diagnostics, tail_truth_bytes(index)
     else:
@@ -140,7 +149,7 @@ def known_inputs(index, plan, certificate, density):
 
 def assessment_plan(plan, index):
     # Coarse v3 is not randomized_controls' older v3 proposal experiment.
-    if plan["plan_version"] != 3:
+    if plan["plan_version"] not in (3, 4):
         return plan
     p = {**plan, "plan_version": 2}
     if index >= 5:
@@ -148,12 +157,45 @@ def assessment_plan(plan, index):
             marginal_undercoverage_alpha=plan["tail_marginal_undercoverage_alpha"],
             joint_undercoverage_alpha=plan["tail_joint_undercoverage_alpha"],
         )
+    if index == 7:
+        p.update(
+            marginal_undercoverage_alpha=plan["stress_marginal_undercoverage_alpha"],
+            joint_undercoverage_alpha=plan["stress_joint_undercoverage_alpha"],
+        )
     return p
+
+
+def initial_stress(plan):
+    """Declared diagnostic of the initial geometry, never a candidate selector."""
+    target, sampling = TailTarget(7), tail_proposal()
+    f = target.integrand({k: np.asarray(v) for k, v in json.loads(tail_truth_bytes(7)).items()})
+    records = []
+    for trial in range(plan["initial_stress_trials"]):
+        entropy = [plan["base_seed"], 9, 7, trial]
+        raw = replicate_integrals(
+            f,
+            sampling,
+            "stabilized-mixture",
+            entropy=entropy,
+            replicates=plan["replicates"],
+            nodes=plan["nodes_per_replicate"],
+        )
+        records.append(
+            dict(
+                entropy=entropy,
+                raw=raw.tolist(),
+                assessment=plain_assessment(raw, assessment_plan(plan, 7)),
+            )
+        )
+    return records
 
 
 def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
     certificate, density = known_parents(plan)
     cases, timings = [], {}
+    stress = initial_stress(plan) if plan["plan_version"] == 4 else None
+    if stress is not None:
+        progress("Initial remote-tail concentration diagnostic complete; fixed candidate unchanged")
     for index in range(known_case_count(plan)):
         begin = perf_counter()
         target, sampling, geometry, truth_bytes = known_inputs(index, plan, certificate, density)
@@ -219,6 +261,8 @@ def known(plan, progress=lambda _: None, checkpoint=lambda *_: None):
         calibration_completed=False,
         ranking_ready=False,
     )
+    if stress is not None:
+        result["initial_stress"] = stress
     return result, timings
 
 
@@ -233,6 +277,20 @@ def validate_known(result):
         or [c["target"] for c in result["cases"]] != list(range(known_case_count(plan)))
     ):
         raise ValueError("invalid known-answer scope or complete case denominator")
+    if plan["plan_version"] == 4:
+        stress = result["initial_stress"]
+        if len(stress) != plan["initial_stress_trials"]:
+            raise ValueError("incomplete initial stress diagnostic")
+        for trial, r in enumerate(stress):
+            raw = np.asarray(r["raw"], float)
+            if (
+                r["entropy"] != [plan["base_seed"], 9, 7, trial]
+                or raw.shape != (plan["replicates"], 9)
+                or not np.isfinite(raw).all()
+                or json_bytes(r["assessment"])
+                != json_bytes(plain_assessment(raw, assessment_plan(plan, 7)))
+            ):
+                raise ValueError("initial stress provenance or assessment differs")
     for index, case in enumerate(result["cases"]):
         _, sampling, geometry, truth_bytes = known_inputs(index, plan, certificate, density)
         rules = assessment_plan(plan, index)
@@ -246,7 +304,7 @@ def validate_known(result):
         for r in case["records"]:
             if r["entropy"] != [plan["base_seed"], 0, index, r["trial"]]:
                 raise ValueError("known independent entropy differs")
-            if r["status"] == "complete":
+            if r["status"] == "complete" or (plan["plan_version"] == 4 and "coarse" in r):
                 total = combine(r["coarse"], r["correction"])
                 if total.shape != (plan["replicates"], 9):
                     raise ValueError("known replicate shape differs")
@@ -264,7 +322,7 @@ def validate_known(result):
                     plain_assessment(combine(r["plain_coarse"], r["correction"]), rules)
                 ):
                     raise ValueError("paired plain assessment differs")
-                actual = assess_trial(total, rules)
+                actual = plain_assessment(total, rules)
                 if json_bytes(actual) != json_bytes({k: r[k] for k in actual}):
                     raise ValueError("known numerical decisions do not reproduce")
             elif r["status"] != "failed" or not r.get("error"):
@@ -388,9 +446,20 @@ def validate_archive(result):
             ):
                 raise ValueError("archived entropy, levels or geometry disagree")
             sampling = restore_proposal(r["reference"]["geometry"], result["model_plan"])
+            if p["plan_version"] == 4 and json_bytes(r["fit"]["proposal_fit"]) != json_bytes(
+                r["reference"]["geometry"]
+            ):
+                raise ValueError("reference geometry differs from functional fit")
+            fitting_sampling = (
+                restore_proposal(
+                    r["reference"]["geometry"]["initial_geometry"], result["model_plan"]
+                )
+                if p["plan_version"] == 4
+                else sampling
+            )
             validate_fit(
                 r["fit"],
-                sampling,
+                fitting_sampling,
                 [*r["entropy"], 2],
                 p,
                 total.shape[1],
@@ -551,6 +620,9 @@ def archive(controls, control_id, progress=lambda _: None, checkpoint=lambda *_:
                 progress=lambda s: progress(name + ": " + s),
                 layout=ratio_layout(len(contrasts), len(shifts)),
             )
+            if plan["plan_version"] == 4:
+                sampling = out["sampling"]
+                geometry = sampling.diagnostics
             total, base, delta = out["total"], out["coarse"], out["correction"]
             record.update(
                 plain_coarse=out["plain_coarse"].tolist(),

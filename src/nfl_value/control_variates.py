@@ -189,6 +189,14 @@ def controlled_integrals(f, fitted, sampling, *, entropy, replicates, nodes, pro
 def integrate_controlled(
     fine, coarse, sampling, *, entropy, plan, progress=lambda _: None, layout=None
 ):
+    adapted = None
+    if plan.get("plan_version") == 4:
+        from nfl_value.functional_proposal import fit_functional_proposal
+
+        sampling = fit_functional_proposal(
+            coarse, sampling, entropy=[*entropy, 4], plan=plan, layout=layout
+        )
+        adapted = sampling.diagnostics
     fitted = fit_control(
         coarse,
         sampling,
@@ -246,10 +254,14 @@ def integrate_controlled(
         nodes=plan["correction_nodes_per_replicate"],
         progress=lambda s: progress("correction " + s),
     )
+    record = fitted.record()
+    if adapted is not None:
+        record["proposal_fit"] = adapted
     return dict(
         total=combine(controlled, correction),
         coarse=controlled,
         plain_coarse=plain,
         correction=correction,
-        fit=fitted.record(),
+        fit=record,
+        sampling=sampling,
     )

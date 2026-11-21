@@ -1,0 +1,105 @@
+{
+  "recorded_at_utc": "2026-11-19T22:23:02.996713+00:00",
+  "local_run_date": "2026-11-19",
+  "design_commit": "ba3f5da",
+  "population_diagnostic_freeze": "0180f9c",
+  "surrogate_scope_clarification": "d267f8d",
+  "initial_allocation_diagnostic_freeze": "a660aba",
+  "producer_revision": "22abc971878ad7385dda3c6e4c4e63575d9eb057",
+  "plan_sha256": "f267cfe3b774c42b29270f2861bf9fcaf25152ef1ee49efd06c2041cd31bab8b",
+  "kernel_sha256": "62bb2c314943612145d93e5c7f003348840a453f943723ee8650c0153680f8ac",
+  "report_id": "657b4167f5f000854f8ccdbaf84ae4f4ba4e8b9b855c67476860b4f8f97bf09d",
+  "independent_reconstruction_identical": {
+    "objects": 17,
+    "manifests": 1
+  },
+  "executions": {
+    "known.log": {
+      "log_sha256": "7fc07998109c5b00b0e299394cbaa30b9e5e7a87a326858ee9bb146eaca5ac90",
+      "report_id": "657b4167f5f000854f8ccdbaf84ae4f4ba4e8b9b855c67476860b4f8f97bf09d",
+      "controls_passed": false,
+      "numerical_pilot_passed": null,
+      "timings": {
+        "0": 560.869299583137,
+        "1": 774.2951264169533,
+        "2": 883.3902337499894,
+        "3": 868.1319621668663,
+        "4": 730.8986835000105,
+        "5": 914.7717231658753,
+        "6": 977.9751753329765,
+        "7": 916.0423297088128
+      },
+      "ranking_ready": false,
+      "measured_case_seconds_total": 6626.374533624621
+    },
+    "known-offline.log": {
+      "log_sha256": "46379d553ba67ef3feb3e284888d795d61b345267c7f4ccc2320397a02e46070",
+      "report_id": "657b4167f5f000854f8ccdbaf84ae4f4ba4e8b9b855c67476860b4f8f97bf09d",
+      "controls_passed": false,
+      "numerical_pilot_passed": null,
+      "timings": {
+        "0": 557.2264833748341,
+        "1": 768.7000354169868,
+        "2": 878.1254893750884,
+        "3": 866.9747274999972,
+        "4": 724.0385310410056,
+        "5": 910.1637630001642,
+        "6": 972.5641972499434,
+        "7": 920.1383203340229
+      },
+      "ranking_ready": false,
+      "measured_case_seconds_total": 6597.9315472920425
+    }
+  },
+  "requested_trials": 8192,
+  "attempted_trials": 8192,
+  "confidence_constructions_completed": 8145,
+  "independent_statistical_trials": 8192,
+  "controls_passed": false,
+  "nfl_reference_status": "unattempted_due_to_failed_known_gates",
+  "authorization_check": {
+    "invoked": "coarse_control_study.archive with actual saved certificate",
+    "blocked_before_archive_inputs": true,
+    "error": "new complete numerical coverage required before NFL access"
+  },
+  "source_changed_after_start": false,
+  "analysis_sources_sha256": {
+    "scripts/analyze_coarse_controls.py": "e77d5ce52bc543cff0d5d0b55a41234715140963aaeae39eb0fee1f6098a3482",
+    "scripts/functional_population_diagnostic.py": "2ddd9fd82e7dfe26bc797f8fdff4e49d5f271890dbc6dd02c471c545d89e5c48",
+    "tests/test_functional_population.py": "88160b52937284ddbc5e35bcaafc3db88befe6b448499f1bd2a7a75164eed47d",
+    "tests/test_coarse_diagnostics.py": "aac0e4a2e0372c74c3c83f12a621ffc6b8674d3bda8c49dedaa2f81c1405e476"
+  },
+  "primary_model_objects_unchanged": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "original_primary_objects_hash_verified": true,
+  "scope": "Numerical known-answer study only; no fresh football outcomes, completed player calibration, ranking admission or production release",
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/33",
+  "base": "main",
+  "fetched_main": "3bd386325ab0574cfbf7bde45fb05bda8ac3a5c2",
+  "owner_merged_prs": [
+    32
+  ],
+  "agent_merged_prs": [],
+  "recurring_cost_added_usd": 0,
+  "software_verification": {
+    "local_make_check": "passed",
+    "python_unittests": 517,
+    "frontend_contracts": 27,
+    "lint_format_typescript_build_compile_whitespace": "passed",
+    "log_sha256": "736979e9eec93264b1751550102362385b3f2469d0d0634190c24c495574203a",
+    "command": "OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 make check PYTHON=.venv/bin/python",
+    "initial_unqualified_make_invocation": "system Python lacked Ruff; corrected to existing project virtual environment",
+    "hosted_code_revision": "e0ea552387a17f2c2752790a092b9e8bf64e941e",
+    "hosted_run": 44615405507,
+    "hosted_conclusion": "all four jobs passed",
+    "hosted_python_versions": [
+      "3.11",
+      "3.12",
+      "3.13"
+    ],
+    "hosted_chromium_scenarios": 12,
+    "final_reporting_head_ci": "inspected separately in PR"
+  }
+}

@@ -160,6 +160,38 @@ participation, M4 defense, scored history and deployment remain unfinished.
 The owner merged #29–#31; [#32](https://github.com/AryanParte/nfl-player-value/pull/32)
 targets main. Pages/bootstrap remains an independent access blocker.
 
+## November 19: functional proposals and a bounded rejection decision
+
+The [frozen functional proposal study](docs/FUNCTIONAL_PROPOSAL_DESIGN.md) replaces
+coefficient-refit work with independently fitted mean/mass and endpoint proposals,
+retaining the original target, support and work caps. The broad-tail control now
+passes precision in all trials. Displaced mass improves to 33.5938% but fails the
+90% requirement, principally because endpoint discrepancy plus numerical
+uncertainty remains too large. The paired plain estimator also fails. Accurate
+fitting of the declared moments does not establish adequate integration precision.
+
+All 8,192 requested trials finish; 47 remote-case confidence constructions fail
+and remain in the denominator. The new remote target has 0% precision and 30.9570%
+joint coverage, supporting a separate missed-mass diagnosis. Both complete offline
+executions match the manifest and all 17 objects. The actual failed certificate
+blocks before NFL inputs. No new football pilot, player calibration or admission
+follows. Initial-proposal stress exceeds the prior hierarchy concentration proxy
+in 8/32 trials, without claiming distributional equivalence.
+
+The [results](docs/FUNCTIONAL_PROPOSAL_RESULTS.md) separate point error, numerical
+allowance, pilot discovery, approximation geometry and player uncertainty. Source
+review corrects the fine-target versus coarse-surrogate diagnostic scope, with
+independent analytic checks. No oracle proposal is sampled or selected.
+
+Next freeze a bounded mode-resolving proposal hypothesis and a work-feasibility
+preflight before a full fresh certification campaign. Count discovery/optimization
+as work, preserve original/tail cases and support, and declare a stop rule. This
+is not a validated remedy or permission to enlarge samples, relax gates or change
+football priors. The next product milestone remains an admitted contribution
+module; 192-fit player calibration, sealed Week 10, participation and M4 remain.
+The owner merged #32; [#33](https://github.com/AryanParte/nfl-player-value/pull/33)
+targets main. Production bootstrap remains an independent access blocker.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.
