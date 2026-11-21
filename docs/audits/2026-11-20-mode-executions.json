@@ -1,0 +1,139 @@
+{
+  "recorded_at_utc": "2026-11-21T09:04:17.247970+00:00",
+  "run_date": "2026-11-20",
+  "finalized_date": "2026-11-21",
+  "design_commit": "e586379",
+  "producer": "ac85ca66bb3a4f82afa43e67a9ebdada7ed65910",
+  "kernel_sha256": "d46398aefa3a69b44c4dca7d4631609c2da1f736eaf59e686c067fe4b2ad1caf",
+  "plan_sha256": "cbd0c022a598659f408c557079933e1e9e5eb0ca907da779fe60a10bf3d9a433",
+  "report_id": "9400cb219b91193c3b0c4f39aca058695148d058adfa14234c6adf0ce17a8fd8",
+  "independent_reconstruction_identical": {
+    "objects": 14,
+    "manifests": 1
+  },
+  "executions": {
+    "study.log": {
+      "report_id": "9400cb219b91193c3b0c4f39aca058695148d058adfa14234c6adf0ce17a8fd8",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 20.91138216597028,
+        "candidate-1": 25.386167834047228,
+        "candidate-2": 39.77482720883563,
+        "candidate-3": 59.75702799996361,
+        "candidate-4": 40.989006041083485,
+        "candidate-5": 51.888927541906014,
+        "candidate-6": 33.68506200006232,
+        "candidate-7": 33.76766229211353,
+        "candidate-8": 53.78396904096007,
+        "candidate-9": 52.994262292049825,
+        "oracle-6": 22.790957166114822,
+        "oracle-7": 22.963904249947518,
+        "oracle-8": 29.19858687510714,
+        "oracle-9": 26.369373166002333
+      },
+      "log_sha256": "d5d8f99ca15a13dd8ea62a7ead9c2342eea0275409b967186d3af373f8afc0c0",
+      "case_loop_seconds": 514.2611158741638
+    },
+    "study-offline.log": {
+      "report_id": "9400cb219b91193c3b0c4f39aca058695148d058adfa14234c6adf0ce17a8fd8",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 20.907847916940227,
+        "candidate-1": 25.380792875075713,
+        "candidate-2": 39.896057332865894,
+        "candidate-3": 59.912259416189045,
+        "candidate-4": 40.84007408306934,
+        "candidate-5": 51.97251933300868,
+        "candidate-6": 33.715338208014145,
+        "candidate-7": 34.401975334156305,
+        "candidate-8": 53.782838832819834,
+        "candidate-9": 53.254685249878094,
+        "oracle-6": 22.028183415997773,
+        "oracle-7": 22.943260125117376,
+        "oracle-8": 29.19847158389166,
+        "oracle-9": 27.342376332962885
+      },
+      "log_sha256": "d67b47655b81db90fbf2b2cefe544501812c5596279a6ea8a8eafc6f8e122d85",
+      "case_loop_seconds": 515.576680039987
+    }
+  },
+  "requested_trials": 448,
+  "candidate_trials": 320,
+  "diagnostic_trials": 128,
+  "raw_integral_trials": 448,
+  "completed_confidence_constructions": 447,
+  "trials_unattempted": 0,
+  "screen_passed": false,
+  "numerical_certified": false,
+  "ranking_ready": false,
+  "actual_archive_gate": {
+    "blocked_before_inputs": true,
+    "error": "coarse control study differs from frozen design"
+  },
+  "discovery_strata": {
+    "3": [
+      {
+        "modes": 1,
+        "trials": 32,
+        "complete": 32,
+        "precise": 0,
+        "joint_covered": 31
+      }
+    ],
+    "7": [
+      {
+        "modes": 1,
+        "trials": 10,
+        "complete": 9,
+        "precise": 0,
+        "joint_covered": 4
+      },
+      {
+        "modes": 2,
+        "trials": 22,
+        "complete": 22,
+        "precise": 22,
+        "joint_covered": 20
+      }
+    ]
+  },
+  "discovery_strata_scope": "Descriptive grouping of already inspected trials, not new validation or selectable subcohort",
+  "analytic_diagnostic_declared": "635b9ea",
+  "analytic_scope": "Post-result fine-target mode-count mechanism check, not a changed candidate or coarse-target theorem",
+  "analysis_source_sha256": {
+    "scripts/analyze_mode_preflight.py": "17f9fb0f9b73940333178982ae34bb6e38765b04b181432d99160bdb857ca085",
+    "scripts/analyze_coarse_controls.py": "e77d5ce52bc543cff0d5d0b55a41234715140963aaeae39eb0fee1f6098a3482",
+    "scripts/mode_tail_geometry.py": "ec62182c7a5f6befce93b2a9a2286dda589c21909a996b986c519d25029a20e2"
+  },
+  "primary_artifacts_unchanged": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "primary_artifact_hashes_verified": true,
+  "nfl_outcomes_used": false,
+  "sealed_week_10_used": false,
+  "raw_research_store_retention": "local only; no verified durable remote retention",
+  "new_dependencies": [],
+  "new_recurring_cost_usd": 0,
+  "automation_changed": false,
+  "other_repository_changed": false,
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/34",
+  "stacked_on": 33,
+  "software_verification": {
+    "initial_make_check_python_tests": 526,
+    "initial_frontend_contracts": 27,
+    "subsequent_targeted_tests": 10,
+    "analytic_tests": 2,
+    "source_hosted_run": 44826832617,
+    "source_hosted_jobs": "all four passed; Python 3.11-3.13 and dashboard/browser",
+    "final_reporting_ci": "inspect separately in PR",
+    "final_local_make_check_python_tests": 529,
+    "final_local_frontend_contracts": 27,
+    "final_local_make_check": "passed",
+    "final_local_log_sha256": "91cc1058e7278f030775cde41758a9810565d2214131327d6dc0b9c7792b4553"
+  }
+}

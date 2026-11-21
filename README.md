@@ -8,25 +8,23 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-The November 19 [functional proposal study](docs/FUNCTIONAL_PROPOSAL_RESULTS.md)
-completes 8,192 requested numerical trials and exact independent reconstruction
-of the manifest/all 17 objects. Broad-tail precision improves to 100%, but
-displaced mass reaches only 33.59% versus 90% required. The remote case has 0%
-precision and 30.96% joint numerical coverage; 47 failed confidence constructions
-remain in the denominator. The numerical candidate is rejected, and its actual
-saved certificate blocks archived NFL access. No new scoring module is admitted.
+The November 20 [mode-discovery preflight](docs/MODE_PREFLIGHT_RESULTS.md), finalized
+November 21, completes 320 candidate and 128 diagnostic trials with exact replay
+of all 14 objects and the manifest. Eight of ten candidate screens pass; an
+original tail case has 0% precision, and the remote case has 68.75% precision /
+75% joint numerical coverage. One failed confidence construction remains counted.
+The candidate stops before full certification. **No scoring module is admitted.**
 
 First-unit/equal-player/opportunity-weighted benchmarks, signed cumulative
 accounting and independent qualification remain intact for 57 QBs / 122 archived
 2026 games ending November 7 evening. **All 17 modules remain unadmitted.**
-Next freeze a mode-resolving proposal hypothesis and a bounded feasibility
-preflight, before full fresh certification and the unfinished player-calibration/
-admission work. Defense/comparability, participation gaps and scored history
-remain required. Explorer is implemented; authenticated Pages/bootstrap remains
-blocked. The owner merged #32; [PR #33](https://github.com/AryanParte/nfl-player-value/pull/33)
-targets main directly. See [milestones](docs/MILESTONES.md),
-[results](docs/FUNCTIONAL_PROPOSAL_RESULTS.md) and the
-[learning report](docs/learning/2026-11-19.md). Week 10 stays sealed.
+The next bounded hypothesis must retain broad nonmodal tails alongside separated
+modes; simply adding local searches cannot resolve both observed failures.
+Player calibration, defense/comparability, participation and scored history remain
+required. Explorer is implemented; authenticated Pages/bootstrap remains blocked.
+[PR #34](https://github.com/AryanParte/nfl-player-value/pull/34) is stacked on open #33.
+See [milestones](docs/MILESTONES.md), [results](docs/MODE_PREFLIGHT_RESULTS.md) and
+[learning report](docs/learning/2026-11-20.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit

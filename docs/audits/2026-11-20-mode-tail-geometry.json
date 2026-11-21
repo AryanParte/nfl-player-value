@@ -1,0 +1,20 @@
+{
+  "remote_mass": 0.05,
+  "critical_ratio_points": [
+    0.7833230724615207,
+    3.715720390315246
+  ],
+  "critical_log_derivative_ratios": [
+    -4.597900433771637,
+    -0.7010629307429533
+  ],
+  "stationary_points": [
+    {
+      "x": 0.0035710217842803036,
+      "kind": "mode",
+      "direct_derivative": -4.0332320816460765e-17
+    }
+  ],
+  "fine_target_modes": 1,
+  "caveat": "Unperturbed fine-target first-coordinate marginal only; other coordinates factor as standard normals. Monotonic intervals use analytic derivative roots evaluated in floating point, without interval-arithmetic certification. Not the exact sine-tilted coarse target, a fresh integration trial or an oracle candidate."
+}

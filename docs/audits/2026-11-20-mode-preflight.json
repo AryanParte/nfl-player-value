@@ -1,0 +1,4873 @@
+{
+  "report_id": "9400cb219b91193c3b0c4f39aca058695148d058adfa14234c6adf0ce17a8fd8",
+  "manifest": {
+    "cases": [
+      {
+        "arm": "candidate",
+        "object": "4354cfb029427c11fef3b71006a4315364019b9d144ec5726b843cbd3ca5a2bd",
+        "target": 0
+      },
+      {
+        "arm": "candidate",
+        "object": "2e6d8c54a160d08ec00984244ccbe3862e122ccdd7371ba17441069617ebf9f7",
+        "target": 1
+      },
+      {
+        "arm": "candidate",
+        "object": "550f0dd4d70eaed4906fc042ef544d00647c3359dddc34d4ec0e7ea456ffad32",
+        "target": 2
+      },
+      {
+        "arm": "candidate",
+        "object": "82024ab6d776708c691754967b837f362abb288159034373945a9713086545dd",
+        "target": 3
+      },
+      {
+        "arm": "candidate",
+        "object": "a92fc9895e91fbfd97cb6ca1d94dea4fa7d8d228a701dee479653e92cb1d08c7",
+        "target": 4
+      },
+      {
+        "arm": "candidate",
+        "object": "941b105231fc01cae56ceea658508c59d77b162b07dfc49a8e2d706b212730ad",
+        "target": 5
+      },
+      {
+        "arm": "candidate",
+        "object": "4a0f4353826b53ed7d2696fab0e1de4e84c45dff874da13d8c4a2848e2f26686",
+        "target": 6
+      },
+      {
+        "arm": "candidate",
+        "object": "65f9c2366828ebd74b8fec1a32e65188605b23ae494add288d4feae16fbe337c",
+        "target": 7
+      },
+      {
+        "arm": "candidate",
+        "object": "cf46ed6adab45114696eb20edbe9603d988671ddbaf42e459b2cebea8ac5290d",
+        "target": 8
+      },
+      {
+        "arm": "candidate",
+        "object": "caefd24bb01d04062882a88dead4e50adf09a16030b82ecf756e16a8d5e808e8",
+        "target": 9
+      },
+      {
+        "arm": "oracle",
+        "object": "2d69e01e8d3210158fcdb63d0526df86f7050f58dcd506b5e69174d7c4d7a585",
+        "target": 6
+      },
+      {
+        "arm": "oracle",
+        "object": "b0af3640664f07d238c10dd1f869386b4d022fae2b107c63f02a49083bc51eda",
+        "target": 7
+      },
+      {
+        "arm": "oracle",
+        "object": "889107ccc7ad617f4682026a30cddea63d449e4eb351ac41b586b8a275207aef",
+        "target": 8
+      },
+      {
+        "arm": "oracle",
+        "object": "3e7bae38d97fd179e15be971670dcf9b3a18e23cf495fd5559e203dcc3c88c2a",
+        "target": 9
+      }
+    ],
+    "code_revision": "ac85ca66bb3a4f82afa43e67a9ebdada7ed65910",
+    "environment": {
+      "linear_algebra_build": {
+        "numpy": {
+          "blas": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "system",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          }
+        },
+        "scipy": {
+          "blas": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "lapack": {
+            "detection method": "extraframeworks",
+            "found": true,
+            "include directory": "unknown",
+            "lib directory": "unknown",
+            "name": "Accelerate",
+            "openblas configuration": "unknown",
+            "pc file directory": "unknown",
+            "version": "unknown"
+          },
+          "pybind11": {
+            "detection method": "config-tool",
+            "include directory": "unknown",
+            "name": "pybind11",
+            "version": "2.13.6"
+          }
+        }
+      },
+      "machine": "arm64",
+      "numpy": "2.2.6",
+      "python": "3.13.2",
+      "scipy": "1.15.3",
+      "system": "Darwin"
+    },
+    "experiment": "mode-preflight-report-v1",
+    "kernel_sha256": "d46398aefa3a69b44c4dca7d4631609c2da1f736eaf59e686c067fe4b2ad1caf",
+    "nfl_data_used": false,
+    "numerical_certified": false,
+    "plan": {
+      "accept_gradient": 0.0001,
+      "base_seed": 2026112001,
+      "correction_nodes_per_replicate": 32,
+      "covariance_bounds": [
+        1e-06,
+        36
+      ],
+      "covariance_inflation": 1.5,
+      "experiment": "mode-discovery-preflight-v1",
+      "failure_policy": "retain_all_no_retry_no_nfl_access",
+      "hessian_step": 0.001,
+      "joint_undercoverage_alpha": 0.001,
+      "known_surrogate_amplitude": 0.001,
+      "known_targets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "marginal_undercoverage_alpha": 0.00014285714285714287,
+      "mass_pilot_nodes": 4096,
+      "maximum_modes": 3,
+      "maximum_seconds_per_trial": 180,
+      "maximum_seconds_total": 3600,
+      "maximum_target_evaluations": 90000,
+      "minimum_component_mass": 0.01,
+      "minimum_precision_fraction": 0.9,
+      "mode_distance": 0.1,
+      "nodes_per_replicate": 1024,
+      "optimizer_calls_per_start": 384,
+      "optimizer_ftol": 1e-12,
+      "optimizer_gtol": 1e-06,
+      "optimizer_maxiter": 100,
+      "oracle_targets": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "parent_plan": "config/coarse-control-v4.json",
+      "parent_report": "657b4167f5f000854f8ccdbaf84ae4f4ba4e8b9b855c67476860b4f8f97bf09d",
+      "parent_source": "c149649eb8a08ac7e019e352a43110f32c2da3a9",
+      "ranking_ready": false,
+      "ratio_starts": 12,
+      "reference_endpoint_cdf_tolerance": 0.001,
+      "reference_mean_tolerance_sd": 0.01,
+      "relative_ridge": 1e-06,
+      "replicates": 64,
+      "search_nodes": 256,
+      "start_spacing": 0.5,
+      "starts": 24,
+      "training_nodes": 2048,
+      "trials": 32
+    },
+    "plan_sha256": "cbd0c022a598659f408c557079933e1e9e5eb0ca907da779fe60a10bf3d9a433",
+    "ranking_ready": false,
+    "screen_passed": false
+  },
+  "screen_passed": false,
+  "numerical_certified": false,
+  "ranking_ready": false,
+  "cases": {
+    "candidate-0": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.96875,
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "marginal_coverage": [
+          0.9375,
+          0.90625,
+          0.9375,
+          1.0,
+          0.9375,
+          0.875,
+          0.96875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.21388552705899158,
+          0.48003759434823434,
+          1.0,
+          0.48003759434823434,
+          0.07380549164360053,
+          0.806288515541499
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 1.0,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 1.0,
+        "joint_coverage": 0.9375,
+        "marginal_coverage": [
+          1.0,
+          0.90625,
+          0.96875,
+          0.9375,
+          1.0,
+          0.9375,
+          0.96875
+        ],
+        "marginal_undercoverage_pvalues": [
+          1.0,
+          0.21388552705899158,
+          0.806288515541499,
+          0.48003759434823434,
+          1.0,
+          0.48003759434823434,
+          0.806288515541499
+        ],
+        "joint_undercoverage_pvalue": 0.48003759434823434,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        76581.0,
+        76593.3,
+        76611.0,
+        76634.4,
+        76641.0
+      ],
+      "mode_count_frequencies": {
+        "2": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.999497168556365,
+        0.9996938274799057,
+        0.9999377527136443,
+        1.0002407708267158,
+        1.0002828965357446
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0005780393323082673,
+        0.0005780815656037655,
+        0.0005783331194432863,
+        0.0005785123059416961,
+        0.0005786593826685802
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -9.552596864081941e-06,
+            2.373210293743197e-05,
+            -2.4169291831083928e-05,
+            -7.610325612156937e-06,
+            3.5553207729938086e-07,
+            -3.868444947707772e-06,
+            -4.286315195889401e-06
+          ],
+          "rmse": [
+            9.585384658474116e-05,
+            0.0001757292998651032,
+            0.00018517464587951675,
+            3.671394781454716e-05,
+            2.5915310687012336e-05,
+            4.841363264527389e-05,
+            2.0524147017970828e-05
+          ],
+          "empirical_sd": [
+            9.690278626173611e-05,
+            0.00017690551258573654,
+            0.00018652819849847022,
+            3.6491227873240656e-05,
+            2.6327504076771095e-05,
+            4.9031023328267946e-05,
+            2.0392740336508004e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            1.194816888538952e-05,
+            7.153370527812749e-05,
+            -5.8214456578453066e-05,
+            -1.049230197408546e-05,
+            2.666015729360649e-06,
+            -8.405613985851268e-06,
+            -3.1703644632896655e-06
+          ],
+          "rmse": [
+            9.100798445986811e-05,
+            0.00019773982905761775,
+            0.00018089798559312183,
+            3.643582566037154e-05,
+            2.0330029457033906e-05,
+            3.6764048829634735e-05,
+            2.6462281046721257e-05
+          ],
+          "empirical_sd": [
+            9.166387121391436e-05,
+            0.00018729715980119038,
+            0.00017401567074238543,
+            3.545073442380495e-05,
+            2.0476956877102587e-05,
+            3.636291538570444e-05,
+            2.6692052360486682e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              6.709714188823369e-06,
+              0.00016752998454071277,
+              0.0004279112784471672,
+              0.0004947864170195509
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0004740079853362393,
+              0.0005664428071471868,
+              0.0006396287582844479,
+              0.0006829829821127066
+            ],
+            "maximum_combined_quantiles": [
+              0.0005114686745813816,
+              0.0007109631183376537,
+              0.0009537849605173942,
+              0.0011177144712926424
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              1.0257197142093943e-05,
+              4.621747636006021e-05,
+              8.713272828582071e-05,
+              0.00011630480763424877
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0001009737954757485,
+              0.00011624502450885595,
+              0.00013315292726473314,
+              0.0001368526493155109
+            ],
+            "maximum_combined_quantiles": [
+              0.00011436929667194007,
+              0.0001587453245092442,
+              0.0001974121836802699,
+              0.0002108295081653111
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          -9.552596864081941e-06,
+          2.373210293743197e-05,
+          -2.4169291831083928e-05,
+          -7.610325612156937e-06,
+          3.5553207729938086e-07,
+          -3.868444947707772e-06,
+          -4.286315195889401e-06
+        ],
+        "plain_bias": [
+          1.194816888538952e-05,
+          7.153370527812749e-05,
+          -5.8214456578453066e-05,
+          -1.049230197408546e-05,
+          2.666015729360649e-06,
+          -8.405613985851268e-06,
+          -3.1703644632896655e-06
+        ],
+        "adjusted_variance": [
+          9.390149985287713e-09,
+          3.129556038322219e-08,
+          3.479276883508471e-08,
+          1.3316097116967758e-09,
+          6.931374709123987e-10,
+          2.4040412486171553e-09,
+          4.1586385843224063e-10
+        ],
+        "plain_variance": [
+          8.402265285921077e-09,
+          3.508022606959265e-08,
+          3.02814536639223e-08,
+          1.256754571187149e-09,
+          4.193057629467189e-10,
+          1.3222616153479006e-09,
+          7.124656592149626e-10
+        ],
+        "adjusted_to_plain_variance": [
+          1.1175736144658448,
+          0.8921139881236118,
+          1.1489794783708567,
+          1.059562258396178,
+          1.653059729113419,
+          1.8181282892225736,
+          0.5836967060145248
+        ],
+        "adjusted_rmse": [
+          9.585384658474116e-05,
+          0.0001757292998651032,
+          0.00018517464587951675,
+          3.671394781454716e-05,
+          2.5915310687012336e-05,
+          4.841363264527389e-05,
+          2.0524147017970828e-05
+        ],
+        "plain_rmse": [
+          9.100798445986811e-05,
+          0.00019773982905761775,
+          0.00018089798559312183,
+          3.643582566037154e-05,
+          2.0330029457033906e-05,
+          3.6764048829634735e-05,
+          2.6462281046721257e-05
+        ],
+        "adjusted_to_plain_mse": [
+          1.1093283166113237,
+          0.7897689379731847,
+          1.0478414741665727,
+          1.0153246773432343,
+          1.6249381074959264,
+          1.7341580350173307,
+          0.6015554677500955
+        ]
+      }
+    },
+    "candidate-1": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.9375,
+        "joint_undercoverage_pvalue": 0.48003759434823434,
+        "marginal_coverage": [
+          0.96875,
+          0.96875,
+          0.9375,
+          0.9375,
+          0.96875,
+          1.0,
+          0.90625
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.806288515541499,
+          0.806288515541499,
+          0.48003759434823434,
+          0.48003759434823434,
+          0.806288515541499,
+          1.0,
+          0.21388552705899158
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 1.0,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 1.0,
+        "joint_coverage": 0.9375,
+        "marginal_coverage": [
+          0.96875,
+          0.9375,
+          0.96875,
+          0.96875,
+          0.96875,
+          0.96875,
+          0.9375
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.806288515541499,
+          0.48003759434823434,
+          0.806288515541499,
+          0.806288515541499,
+          0.806288515541499,
+          0.806288515541499,
+          0.48003759434823434
+        ],
+        "joint_undercoverage_pvalue": 0.48003759434823434,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        77037.0,
+        77049.0,
+        77077.0,
+        77110.8,
+        77129.0
+      ],
+      "mode_count_frequencies": {
+        "2": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.999123682938672,
+        0.9993288804697995,
+        1.0001232292317446,
+        1.0006323404988076,
+        1.00084422309274
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0007081229817593282,
+        0.0007118593553226675,
+        0.0007138874784259389,
+        0.0007155379316958456,
+        0.0007157652386219766
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -7.939374783105801e-05,
+            2.082451455650145e-05,
+            -4.992297613511614e-05,
+            4.715996427175767e-06,
+            6.156400319985711e-06,
+            -6.074693796875863e-06,
+            -3.6052637004679866e-06
+          ],
+          "rmse": [
+            0.00023812493057858523,
+            0.0002167951229948253,
+            0.00033555218048547935,
+            6.150773782761966e-05,
+            2.206696235384186e-05,
+            5.693288371948312e-05,
+            2.611622481365268e-05
+          ],
+          "empirical_sd": [
+            0.00022809192344650257,
+            0.00021924554494539352,
+            0.0003371270839655189,
+            6.230796513361433e-05,
+            2.1529863733617588e-05,
+            5.751365700492783e-05,
+            2.628006524596034e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            2.477421846602823e-05,
+            0.00013454973896333822,
+            -5.263794334589321e-05,
+            -4.733907379868979e-06,
+            6.118742125402199e-07,
+            -1.0054498496003816e-06,
+            3.4799197339285826e-06
+          ],
+          "rmse": [
+            0.0001947344587184719,
+            0.00023586171429513492,
+            0.00022066854819144776,
+            4.968950900220237e-05,
+            1.9068415954471128e-05,
+            5.601235184215547e-05,
+            2.344961872941358e-05
+          ],
+          "empirical_sd": [
+            0.00019624276607804278,
+            0.00019681887141394228,
+            0.0002177275126420079,
+            5.025496208065201e-05,
+            1.936355331189813e-05,
+            5.68994370808584e-05,
+            2.356103458377261e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              4.3927317885994425e-05,
+              0.0002727711811255015,
+              0.0005474474387956154,
+              0.0009383866363517711
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.000743547569235476,
+              0.0008537424448969051,
+              0.0009552086244871942,
+              0.0009848915947678703
+            ],
+            "maximum_combined_quantiles": [
+              0.0008298628808110836,
+              0.0011162178490153288,
+              0.0014349446295849903,
+              0.0017015538676604346
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              2.1259963931770376e-05,
+              6.337009861156172e-05,
+              0.00012028408707067463,
+              0.0001293671442978324
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.00013402153454460108,
+              0.0001693096066276347,
+              0.00018810618267338947,
+              0.00021101757823542913
+            ],
+            "maximum_combined_quantiles": [
+              0.0001705733962899976,
+              0.00021299422006715828,
+              0.00028667496201399413,
+              0.000325998681014409
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          -7.939374783105801e-05,
+          2.082451455650145e-05,
+          -4.992297613511614e-05,
+          4.715996427175767e-06,
+          6.156400319985711e-06,
+          -6.074693796875863e-06,
+          -3.6052637004679866e-06
+        ],
+        "plain_bias": [
+          2.477421846602823e-05,
+          0.00013454973896333822,
+          -5.263794334589321e-05,
+          -4.733907379868979e-06,
+          6.118742125402199e-07,
+          -1.0054498496003816e-06,
+          3.4799197339285826e-06
+        ],
+        "adjusted_variance": [
+          5.202592554152519e-08,
+          4.806860897840257e-08,
+          1.1365467074309404e-07,
+          3.8822825190916995e-09,
+          4.635350323881418e-10,
+          3.3078207420804836e-09,
+          6.906418293319325e-10
+        ],
+        "plain_variance": [
+          3.8511223237961414e-08,
+          3.873766814465795e-08,
+          4.74052697612757e-08,
+          2.5255612137277717e-09,
+          3.7494719686272114e-10,
+          3.237545940118564e-09,
+          5.551223506577289e-10
+        ],
+        "adjusted_to_plain_variance": [
+          1.3509289284335693,
+          1.2408751295741427,
+          2.397511317105424,
+          1.5371959697470108,
+          1.2362674965079288,
+          1.0217061945256432,
+          1.2441254230056407
+        ],
+        "adjusted_rmse": [
+          0.00023812493057858523,
+          0.0002167951229948253,
+          0.00033555218048547935,
+          6.150773782761966e-05,
+          2.206696235384186e-05,
+          5.693288371948312e-05,
+          2.611622481365268e-05
+        ],
+        "plain_rmse": [
+          0.0001947344587184719,
+          0.00023586171429513492,
+          0.00022066854819144776,
+          4.968950900220237e-05,
+          1.9068415954471128e-05,
+          5.601235184215547e-05,
+          2.344961872941358e-05
+        ],
+        "adjusted_to_plain_mse": [
+          1.4952854841940972,
+          0.8448587663431547,
+          2.3122737830945392,
+          1.5322516523656238,
+          1.3392321737460484,
+          1.0331389795908703,
+          1.2403642064215994
+        ]
+      }
+    },
+    "candidate-2": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 1.0,
+        "joint_undercoverage_pvalue": 1.0,
+        "marginal_coverage": [
+          0.9375,
+          0.9375,
+          0.875,
+          0.96875,
+          0.96875,
+          0.9375,
+          0.9375
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.48003759434823434,
+          0.07380549164360053,
+          0.806288515541499,
+          0.806288515541499,
+          0.48003759434823434,
+          0.48003759434823434
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 1.0,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 1.0,
+        "joint_coverage": 0.96875,
+        "marginal_coverage": [
+          0.9375,
+          0.90625,
+          0.9375,
+          0.9375,
+          0.9375,
+          0.875,
+          1.0
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.21388552705899158,
+          0.48003759434823434,
+          0.48003759434823434,
+          0.48003759434823434,
+          0.07380549164360053,
+          1.0
+        ],
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        77541.0,
+        77543.75,
+        77586.0,
+        77623.25,
+        77641.0
+      ],
+      "mode_count_frequencies": {
+        "2": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.9985803979880514,
+        0.9990497547406063,
+        1.0000406772527577,
+        1.0006576996839405,
+        1.0011105556856468
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0008535467912620404,
+        0.0008593800564297648,
+        0.0008676497353829688,
+        0.0008778118020864732,
+        0.0008791554915056322
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            5.6925633367121975e-06,
+            -5.728777388471655e-05,
+            6.92195075410295e-05,
+            1.0331979331368313e-05,
+            -6.093797077867669e-06,
+            -2.297628502789806e-06,
+            2.3489339140425614e-08
+          ],
+          "rmse": [
+            0.00032867090188842086,
+            0.000378014793413242,
+            0.0005350625854344909,
+            8.151457394423283e-05,
+            4.357676133392737e-05,
+            6.712709093397203e-05,
+            6.0049544199369345e-05
+          ],
+          "empirical_sd": [
+            0.00033387988022861643,
+            0.0003796273826795065,
+            0.0005390559299321006,
+            8.215092935075846e-05,
+            4.383899887634676e-05,
+            6.816123003979853e-05,
+            6.101039324936175e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -5.2666475093832155e-05,
+            -6.300555906842022e-06,
+            5.0682300717375006e-05,
+            1.2674423318086159e-05,
+            -3.1643839820787167e-06,
+            -6.157394348949019e-06,
+            -2.3243803559669374e-06
+          ],
+          "rmse": [
+            0.000304656710803618,
+            0.00033521245246442843,
+            0.000456081509133152,
+            8.505948444974657e-05,
+            4.3032397004885784e-05,
+            7.228392487279178e-05,
+            4.556277256795304e-05
+          ],
+          "empirical_sd": [
+            0.00030487133842815086,
+            0.0003405160278089999,
+            0.000460509280343227,
+            8.545574150271363e-05,
+            4.360259081973914e-05,
+            7.317360560517717e-05,
+            4.623154627533907e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              6.025129839399953e-05,
+              0.0004957234260605041,
+              0.0010429069328795866,
+              0.0013586826984735847
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0011567988954458383,
+              0.0013428851520179642,
+              0.0015095109080517529,
+              0.0015442516111147996
+            ],
+            "maximum_combined_quantiles": [
+              0.0012321956505446639,
+              0.0017006234464152128,
+              0.002391360252859405,
+              0.002740615229467565
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              2.9517959381664127e-05,
+              9.428298422264891e-05,
+              0.00016426363563415858,
+              0.00017767362458101163
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.00020147332427435452,
+              0.00023153999634058925,
+              0.0002623025757720361,
+              0.0002755611797648945
+            ],
+            "maximum_combined_quantiles": [
+              0.00021141102746134038,
+              0.0002889212284439384,
+              0.00039946000948647175,
+              0.0004123765185199621
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          5.6925633367121975e-06,
+          -5.728777388471655e-05,
+          6.92195075410295e-05,
+          1.0331979331368313e-05,
+          -6.093797077867669e-06,
+          -2.297628502789806e-06,
+          2.3489339140425614e-08
+        ],
+        "plain_bias": [
+          -5.2666475093832155e-05,
+          -6.300555906842022e-06,
+          5.0682300717375006e-05,
+          1.2674423318086159e-05,
+          -3.1643839820787167e-06,
+          -6.157394348949019e-06,
+          -2.3243803559669374e-06
+        ],
+        "adjusted_variance": [
+          1.1147577442147524e-07,
+          1.441169496800925e-07,
+          2.9058129559496175e-07,
+          6.748775193193309e-09,
+          1.9218578224803325e-09,
+          4.645953280538333e-09,
+          3.722268084441766e-09
+        ],
+        "plain_variance": [
+          9.294653299497211e-08,
+          1.1595116519481958e-07,
+          2.1206879728223685e-07,
+          7.302683755778613e-09,
+          1.9011859261936e-09,
+          5.354376557262016e-09,
+          2.137355871008818e-09
+        ],
+        "adjusted_to_plain_variance": [
+          1.199353766401437,
+          1.2429107498656795,
+          1.3702218304573806,
+          0.9241500000397804,
+          1.0108731586963302,
+          0.8676926680169953,
+          1.741529398510918
+        ],
+        "adjusted_rmse": [
+          0.00032867090188842086,
+          0.000378014793413242,
+          0.0005350625854344909,
+          8.151457394423283e-05,
+          4.357676133392737e-05,
+          6.712709093397203e-05,
+          6.0049544199369345e-05
+        ],
+        "plain_rmse": [
+          0.000304656710803618,
+          0.00033521245246442843,
+          0.000456081509133152,
+          8.505948444974657e-05,
+          4.3032397004885784e-05,
+          7.228392487279178e-05,
+          4.556277256795304e-05
+        ],
+        "adjusted_to_plain_mse": [
+          1.1638607308492221,
+          1.2716784310587403,
+          1.3763352641015754,
+          0.9183855327090689,
+          1.0254602346165909,
+          0.8624068585399158,
+          1.7369972988899745
+        ]
+      }
+    },
+    "candidate-3": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.96875,
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "marginal_coverage": [
+          0.96875,
+          0.9375,
+          0.90625,
+          1.0,
+          0.96875,
+          0.875,
+          0.90625
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.806288515541499,
+          0.48003759434823434,
+          0.21388552705899158,
+          1.0,
+          0.806288515541499,
+          0.07380549164360053,
+          0.21388552705899158
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.0,
+        "requested": 32,
+        "screen_passed": false,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.0,
+        "joint_coverage": 0.96875,
+        "marginal_coverage": [
+          0.90625,
+          0.90625,
+          0.90625,
+          1.0,
+          0.96875,
+          0.875,
+          0.875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.21388552705899158,
+          0.21388552705899158,
+          0.21388552705899158,
+          1.0,
+          0.806288515541499,
+          0.07380549164360053,
+          0.07380549164360053
+        ],
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": false,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        76942.0,
+        76960.75,
+        77077.0,
+        77233.5,
+        77317.0
+      ],
+      "mode_count_frequencies": {
+        "1": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.9844551961218239,
+        0.9932985248651607,
+        0.999510843684593,
+        1.0070424660316277,
+        1.0089562820081084
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.002043262019219198,
+        0.0028928653976013565,
+        0.005050727977508073,
+        0.008059741454668043,
+        0.008579205903108162
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -0.0004942308530625494,
+            -0.0021994930751511547,
+            -0.001703526887898712,
+            1.1612421622741315e-05,
+            -3.0709345545006095e-06,
+            0.0006988737763639064,
+            0.0005190758013482455
+          ],
+          "rmse": [
+            0.001512646086810954,
+            0.005277258748577026,
+            0.0037987676598955277,
+            0.00013061295951703446,
+            7.816645266095413e-05,
+            0.0016665729512150697,
+            0.0011285502325466543
+          ],
+          "empirical_sd": [
+            0.0014525027292231216,
+            0.004873807823052353,
+            0.003449713499251116,
+            0.00013217738563242856,
+            7.935588232397093e-05,
+            0.001537166508136596,
+            0.0010181252549020007
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -0.000602358662413427,
+            -0.002079552883707728,
+            -0.0017037573898338247,
+            5.860770024505857e-06,
+            5.392027220888634e-06,
+            0.0007042841576938574,
+            0.0005088750579439472
+          ],
+          "rmse": [
+            0.0015380870561169679,
+            0.00525763069632679,
+            0.0038171432533577907,
+            0.0001266168130506293,
+            8.587500639699392e-05,
+            0.0016731311994275806,
+            0.0011246989322716901
+          ],
+          "empirical_sd": [
+            0.001437875075199954,
+            0.004906153118115603,
+            0.0034704716977143647,
+            0.00012850492636448253,
+            8.707693456238819e-05,
+            0.0015419641720349829,
+            0.0010190413527489338
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 1,
+            "error_only_failed_trials": 32,
+            "discrepancy_plus_error_failed_trials": 32,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              0.0006927330070593769,
+              0.0035013763899242696,
+              0.009197997861537764,
+              0.011788134095236847
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.010484051577001111,
+              0.013364626086149398,
+              0.016439122232919847,
+              0.017277936563597822
+            ],
+            "maximum_combined_quantiles": [
+              0.01369494386967795,
+              0.017461042996050585,
+              0.023449863955298807,
+              0.025055173707926703
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 23,
+            "error_only_failed_trials": 32,
+            "discrepancy_plus_error_failed_trials": 32,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              0.0003392997693897337,
+              0.001397294852256814,
+              0.0029201488226565098,
+              0.0035621157949923266
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0031340286233753067,
+              0.003808029789173828,
+              0.004617894295295693,
+              0.005296044794665944
+            ],
+            "maximum_combined_quantiles": [
+              0.004023774310708994,
+              0.005289058602284458,
+              0.0068200535032046814,
+              0.007149324724768147
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          -0.0004942308530625494,
+          -0.0021994930751511547,
+          -0.001703526887898712,
+          1.1612421622741315e-05,
+          -3.0709345545006095e-06,
+          0.0006988737763639064,
+          0.0005190758013482455
+        ],
+        "plain_bias": [
+          -0.000602358662413427,
+          -0.002079552883707728,
+          -0.0017037573898338247,
+          5.860770024505857e-06,
+          5.392027220888634e-06,
+          0.0007042841576938574,
+          0.0005088750579439472
+        ],
+        "adjusted_variance": [
+          2.109764178400617e-06,
+          2.3754002696046318e-05,
+          1.1900523226915378e-05,
+          1.7470861272623728e-08,
+          6.29735605941592e-09,
+          2.3628808737368554e-06,
+          1.0365790346692637e-06
+        ],
+        "plain_variance": [
+          2.0674847318812737e-06,
+          2.4070338418395458e-05,
+          1.2044173804636426e-05,
+          1.6513516099941076e-08,
+          7.582392532782434e-09,
+          2.37765350783953e-06,
+          1.038445278612377e-06
+        ],
+        "adjusted_to_plain_variance": [
+          1.0204497019336494,
+          0.9868578614537723,
+          0.9880730235173334,
+          1.057973430182205,
+          0.8305236153614225,
+          0.9937868852404411,
+          0.9982028480637832
+        ],
+        "adjusted_rmse": [
+          0.001512646086810954,
+          0.005277258748577026,
+          0.0037987676598955277,
+          0.00013061295951703446,
+          7.816645266095413e-05,
+          0.0016665729512150697,
+          0.0011285502325466543
+        ],
+        "plain_rmse": [
+          0.0015380870561169679,
+          0.00525763069632679,
+          0.0038171432533577907,
+          0.0001266168130506293,
+          8.587500639699392e-05,
+          0.0016731311994275806,
+          0.0011246989322716901
+        ],
+        "adjusted_to_plain_mse": [
+          0.9671922807731073,
+          1.0074804380922324,
+          0.9903952445507026,
+          1.0641179864044883,
+          0.828528098929457,
+          0.9921758737350252,
+          1.0068603146269333
+        ]
+      }
+    },
+    "candidate-4": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.96875,
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "marginal_coverage": [
+          0.90625,
+          0.9375,
+          1.0,
+          0.96875,
+          0.9375,
+          0.875,
+          0.96875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.21388552705899158,
+          0.48003759434823434,
+          1.0,
+          0.806288515541499,
+          0.48003759434823434,
+          0.07380549164360053,
+          0.806288515541499
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.9375,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.9375,
+        "joint_coverage": 0.96875,
+        "marginal_coverage": [
+          0.9375,
+          0.96875,
+          0.9375,
+          0.9375,
+          0.90625,
+          0.96875,
+          0.96875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.806288515541499,
+          0.48003759434823434,
+          0.48003759434823434,
+          0.21388552705899158,
+          0.806288515541499,
+          0.806288515541499
+        ],
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        77397.0,
+        77399.75,
+        77439.5,
+        77462.0,
+        77467.0
+      ],
+      "mode_count_frequencies": {
+        "1": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.9981056889855633,
+        0.9984672547198116,
+        1.0003011880768122,
+        1.0014685962553989,
+        1.002397473445038
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0007135655393697345,
+        0.0007158471002023758,
+        0.0007218746202131223,
+        0.000727096012691201,
+        0.0007274529185260439
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -0.00012187809911523573,
+            7.984210613378779e-05,
+            3.451250988562276e-05,
+            8.221828485328181e-06,
+            3.5234542516818235e-05,
+            3.976007754413757e-05,
+            -1.1935342263069693e-05
+          ],
+          "rmse": [
+            0.0005826112749054764,
+            0.0007270901230126912,
+            0.00045428625004668635,
+            0.00017763192023068861,
+            0.00011020492235656129,
+            0.00021753970502848198,
+            9.668142509141743e-05
+          ],
+          "empirical_sd": [
+            0.0005788367659838915,
+            0.0007342569015626397,
+            0.0004602214150353735,
+            0.0001802807863627204,
+            0.00010609138811662545,
+            0.00021729755902625514,
+            9.747705404245851e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            4.263080281674547e-06,
+            6.197892952768645e-05,
+            7.417355360249908e-05,
+            -3.300605946693347e-06,
+            2.6565306472502853e-05,
+            5.2614576514620204e-05,
+            -7.734748195153962e-06
+          ],
+          "rmse": [
+            0.0005460161227305793,
+            0.00066371369676092,
+            0.0005042073648351084,
+            0.0002066814574294102,
+            0.00011347963274991722,
+            0.0002374563221783028,
+            8.782498168907926e-05
+          ],
+          "empirical_sd": [
+            0.0005547360266656317,
+            0.0006713871887562049,
+            0.0005067017708608169,
+            0.0002099617927652363,
+            0.00011209172069717899,
+            0.0002352590035286461,
+            8.888354732355938e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              0.00010945682796503707,
+              0.0006115309247172434,
+              0.0013457232889934221,
+              0.0020345496736392864
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0015610242504507067,
+              0.001998547359404525,
+              0.0022471192525600646,
+              0.0023857294768490646
+            ],
+            "maximum_combined_quantiles": [
+              0.0021834516557381225,
+              0.00254985667719727,
+              0.003136474604910107,
+              0.00393583808428956
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 2,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              5.0404295866272875e-05,
+              0.00022092681939511402,
+              0.00044778634008377227,
+              0.0004905390803504606
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.00047603147100411594,
+              0.0005416592823563396,
+              0.0006010384863179243,
+              0.0006508241176599316
+            ],
+            "maximum_combined_quantiles": [
+              0.0005557379506964631,
+              0.0007260209965583159,
+              0.0010057214720010088,
+              0.0010649381468355035
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          -0.00012187809911523573,
+          7.984210613378779e-05,
+          3.451250988562276e-05,
+          8.221828485328181e-06,
+          3.5234542516818235e-05,
+          3.976007754413757e-05,
+          -1.1935342263069693e-05
+        ],
+        "plain_bias": [
+          4.263080281674547e-06,
+          6.197892952768645e-05,
+          7.417355360249908e-05,
+          -3.300605946693347e-06,
+          2.6565306472502853e-05,
+          5.2614576514620204e-05,
+          -7.734748195153962e-06
+        ],
+        "adjusted_variance": [
+          3.3505200165469043e-07,
+          5.39133197492368e-07,
+          2.118037508571615e-07,
+          3.250116193156084e-08,
+          1.1255382632512456e-08,
+          4.721822915876884e-08,
+          9.501776064796377e-09
+        ],
+        "plain_variance": [
+          3.077320592807725e-07,
+          4.5076075722595984e-07,
+          2.567466845934878e-07,
+          4.408395442119203e-08,
+          1.2564553848854383e-08,
+          5.5346798741291526e-08,
+          7.90028498481942e-09
+        ],
+        "adjusted_to_plain_variance": [
+          1.0887783432047013,
+          1.1960517610500603,
+          0.824952233336585,
+          0.7372560460668858,
+          0.8958044008493549,
+          0.8531338800547761,
+          1.2027130771933239
+        ],
+        "adjusted_rmse": [
+          0.0005826112749054764,
+          0.0007270901230126912,
+          0.00045428625004668635,
+          0.00017763192023068861,
+          0.00011020492235656129,
+          0.00021753970502848198,
+          9.668142509141743e-05
+        ],
+        "plain_rmse": [
+          0.0005460161227305793,
+          0.00066371369676092,
+          0.0005042073648351084,
+          0.0002066814574294102,
+          0.00011347963274991722,
+          0.0002374563221783028,
+          8.782498168907926e-05
+        ],
+        "adjusted_to_plain_mse": [
+          1.1385361814133061,
+          1.2000930760129855,
+          0.811784611236659,
+          0.7386504905041319,
+          0.9431182364072211,
+          0.8392852615611623,
+          1.2118530237005412
+        ]
+      }
+    },
+    "candidate-5": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 1.0,
+        "joint_undercoverage_pvalue": 1.0,
+        "marginal_coverage": [
+          1.0,
+          0.96875,
+          0.90625,
+          0.9375,
+          0.96875,
+          0.96875,
+          0.90625
+        ],
+        "marginal_undercoverage_pvalues": [
+          1.0,
+          0.806288515541499,
+          0.21388552705899158,
+          0.48003759434823434,
+          0.806288515541499,
+          0.806288515541499,
+          0.21388552705899158
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.90625,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.90625,
+        "joint_coverage": 1.0,
+        "marginal_coverage": [
+          1.0,
+          1.0,
+          0.96875,
+          0.9375,
+          0.96875,
+          0.96875,
+          0.9375
+        ],
+        "marginal_undercoverage_pvalues": [
+          1.0,
+          1.0,
+          0.806288515541499,
+          0.48003759434823434,
+          0.806288515541499,
+          0.806288515541499,
+          0.48003759434823434
+        ],
+        "joint_undercoverage_pvalue": 1.0,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        76912.0,
+        76922.0,
+        76954.5,
+        76984.25,
+        77002.0
+      ],
+      "mode_count_frequencies": {
+        "1": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.9985736407208312,
+        0.9987688869210058,
+        1.0001161283478084,
+        1.0011051915377616,
+        1.001714441212467
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0006901259708643574,
+        0.0006960579980566945,
+        0.0007345218561481511,
+        0.0011031641708951934,
+        0.0012276372569880816
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            4.469324494049687e-06,
+            -8.41693747165077e-06,
+            -0.0001129559827839538,
+            3.540069665631043e-05,
+            2.26945488235597e-05,
+            3.556207062049843e-06,
+            -1.5436179533478978e-05
+          ],
+          "rmse": [
+            0.0002706331645393047,
+            0.0006056492661387758,
+            0.0006739017517977992,
+            0.00021417182020854632,
+            0.00011919485837718152,
+            0.00018423297483097115,
+            0.00012699357315850446
+          ],
+          "empirical_sd": [
+            0.00027492607313591837,
+            0.0006152808443361494,
+            0.0006749983164839823,
+            0.00021460567709819973,
+            0.00011888675757831638,
+            0.00018714601484168443,
+            0.00012806890075007526
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            4.2147023866956346e-05,
+            -1.1201923792713044e-05,
+            -5.143750188991222e-05,
+            1.9938454186810284e-05,
+            2.102274870060053e-05,
+            2.003039284104169e-05,
+            -1.9637371946656934e-05
+          ],
+          "rmse": [
+            0.00021653161898580294,
+            0.0005851310307493135,
+            0.0005515958396995962,
+            0.00022068414956231402,
+            0.00011720483539320383,
+            0.00019999567913716598,
+            0.0001393696017783346
+          ],
+          "empirical_sd": [
+            0.00021578859523158731,
+            0.0005943847695257918,
+            0.0005579799083197291,
+            0.00022329832939336084,
+            0.00011714900344485825,
+            0.00020217413136247486,
+            0.0001401870069829729
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              0.0003100900729873719,
+              0.0006723111401252967,
+              0.001305815472731236,
+              0.0015064280235655041
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.001572161947587043,
+              0.0019532037545122644,
+              0.002228147519383082,
+              0.0023225526199491652
+            ],
+            "maximum_combined_quantiles": [
+              0.0019234271702288053,
+              0.002613334690623496,
+              0.0030908551021981826,
+              0.0034637336204114575
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 3,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              0.00012089815821725303,
+              0.00024773864313231905,
+              0.00046524958759953174,
+              0.0005053929550374071
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.00048558136525023166,
+              0.0006143952344315751,
+              0.0006794086624030948,
+              0.0006950224689378226
+            ],
+            "maximum_combined_quantiles": [
+              0.0006116948239197617,
+              0.0007964150004335056,
+              0.0010478418925440969,
+              0.001172945504485847
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          4.469324494049687e-06,
+          -8.41693747165077e-06,
+          -0.0001129559827839538,
+          3.540069665631043e-05,
+          2.26945488235597e-05,
+          3.556207062049843e-06,
+          -1.5436179533478978e-05
+        ],
+        "plain_bias": [
+          4.2147023866956346e-05,
+          -1.1201923792713044e-05,
+          -5.143750188991222e-05,
+          1.9938454186810284e-05,
+          2.102274870060053e-05,
+          2.003039284104169e-05,
+          -1.9637371946656934e-05
+        ],
+        "adjusted_variance": [
+          7.558434568993633e-08,
+          3.7857051740700495e-07,
+          4.556227272562103e-07,
+          4.605559664277677e-08,
+          1.4134061127485368e-08,
+          3.5023630871123965e-08,
+          1.6401643339332627e-08
+        ],
+        "plain_variance": [
+          4.656471783202182e-08,
+          3.532932542442287e-07,
+          3.113415780884933e-07,
+          4.986214390986588e-08,
+          1.372388900812341e-08,
+          4.087437939217124e-08,
+          1.9652396926844094e-08
+        ],
+        "adjusted_to_plain_variance": [
+          1.6232106455063315,
+          1.0715475397820708,
+          1.4634175430520484,
+          0.9236585720427489,
+          1.029887455306522,
+          0.8568602482031107,
+          0.834587424647875
+        ],
+        "adjusted_rmse": [
+          0.0002706331645393047,
+          0.0006056492661387758,
+          0.0006739017517977992,
+          0.00021417182020854632,
+          0.00011919485837718152,
+          0.00018423297483097115,
+          0.00012699357315850446
+        ],
+        "plain_rmse": [
+          0.00021653161898580294,
+          0.0005851310307493135,
+          0.0005515958396995962,
+          0.00022068414956231402,
+          0.00011720483539320383,
+          0.00019999567913716598,
+          0.0001393696017783346
+        ],
+        "adjusted_to_plain_mse": [
+          1.5621379584600885,
+          1.071361732846277,
+          1.4926267026564517,
+          0.9418513669360311,
+          1.0342463226036371,
+          0.8485813910186,
+          0.8302853356283187
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.8819813518008259,
+            0.8819813518008259
+          ],
+          [
+            0.8819813518008259,
+            0.8819813518008259
+          ],
+          [
+            0.8819813518008259,
+            0.8819813518008259
+          ],
+          [
+            0.8819813518008259,
+            0.8819813518008259
+          ],
+          [
+            0.8819813518008259,
+            0.8819813518008259
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": [
+          [
+            0.002020825927868254,
+            0.002020825927868254
+          ],
+          [
+            0.002020825927868254,
+            0.002020825927868254
+          ],
+          [
+            0.002020825927868254,
+            0.002020825927868254
+          ],
+          [
+            0.002020825927868254,
+            0.002020825927868254
+          ],
+          [
+            0.002020825927868254,
+            0.002020825927868254
+          ]
+        ],
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "candidate-6": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.90625,
+        "joint_undercoverage_pvalue": 0.21388552705899158,
+        "marginal_coverage": [
+          0.90625,
+          0.90625,
+          0.90625,
+          0.90625,
+          0.9375,
+          0.96875,
+          0.96875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.21388552705899158,
+          0.21388552705899158,
+          0.21388552705899158,
+          0.21388552705899158,
+          0.48003759434823434,
+          0.806288515541499,
+          0.806288515541499
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.9375,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.9375,
+        "joint_coverage": 0.875,
+        "marginal_coverage": [
+          1.0,
+          0.90625,
+          0.9375,
+          0.90625,
+          0.90625,
+          0.9375,
+          0.90625
+        ],
+        "marginal_undercoverage_pvalues": [
+          1.0,
+          0.21388552705899158,
+          0.48003759434823434,
+          0.21388552705899158,
+          0.21388552705899158,
+          0.48003759434823434,
+          0.21388552705899158
+        ],
+        "joint_undercoverage_pvalue": 0.07380549164360053,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        76671.0,
+        76701.0,
+        76751.0,
+        76787.75,
+        76806.0
+      ],
+      "mode_count_frequencies": {
+        "2": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.9983220492169496,
+        0.9983721942656021,
+        0.9999099806307062,
+        1.000841185169382,
+        1.0013072130686824
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0009526318810304398,
+        0.000955615169256148,
+        0.0009733660391810222,
+        0.0009798952565389584,
+        0.0009830599180419913
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -4.921213441944072e-05,
+            -8.141600855321121e-05,
+            -0.0001725443368245156,
+            -3.634996675445923e-06,
+            1.1394639086625274e-05,
+            -1.5442685001310075e-05,
+            -1.2555227517418999e-05
+          ],
+          "rmse": [
+            0.00034286996400534857,
+            0.0007051102179611373,
+            0.0004779041023385122,
+            0.00018944783203139778,
+            0.00011289148288672826,
+            0.00016893400596371192,
+            5.184966931954901e-05
+          ],
+          "empirical_sd": [
+            0.0003447493384574795,
+            0.0007116010865280041,
+            0.00045280007165366727,
+            0.00019244375563232701,
+            0.00011411210835506736,
+            0.00017091849587794745,
+            5.111156142704152e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            2.3535043211175832e-05,
+            -8.731224216035634e-05,
+            -0.00010900070130774497,
+            -7.64435390814e-06,
+            6.61250301180194e-06,
+            -9.093242602564722e-06,
+            -1.608631063099164e-05
+          ],
+          "rmse": [
+            0.00030262380354122083,
+            0.0005130455805782522,
+            0.00032163292539493876,
+            0.0001898603861372745,
+            0.00011301632697767424,
+            0.00015692997565647322,
+            5.1946136688156616e-05
+          ],
+          "empirical_sd": [
+            0.00030653487844203435,
+            0.000513650907053828,
+            0.0003074416150185074,
+            0.00019274192694534155,
+            0.00011462799283153684,
+            0.0001591731220575792,
+            5.0182960502062694e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              0.00016408561766026255,
+              0.0006186513961825575,
+              0.0012434481951662884,
+              0.001329959778169357
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0013490888989841107,
+              0.001663658182387387,
+              0.0017942015718870785,
+              0.0019616407227636373
+            ],
+            "maximum_combined_quantiles": [
+              0.001551860565259785,
+              0.002088622650856607,
+              0.002998474377085829,
+              0.003159288801972627
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 2,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              3.19163162710856e-05,
+              0.00018433541087485399,
+              0.0004499514686748806,
+              0.0005362086512825139
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.000407566828289907,
+              0.0005081641771051328,
+              0.0005594848604824169,
+              0.0005666950075046452
+            ],
+            "maximum_combined_quantiles": [
+              0.0005009251161826045,
+              0.0006597043439472983,
+              0.0009411519055724823,
+              0.0010554582545207539
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          -4.921213441944072e-05,
+          -8.141600855321121e-05,
+          -0.0001725443368245156,
+          -3.634996675445923e-06,
+          1.1394639086625274e-05,
+          -1.5442685001310075e-05,
+          -1.2555227517418999e-05
+        ],
+        "plain_bias": [
+          2.3535043211175832e-05,
+          -8.731224216035634e-05,
+          -0.00010900070130774497,
+          -7.64435390814e-06,
+          6.61250301180194e-06,
+          -9.093242602564722e-06,
+          -1.608631063099164e-05
+        ],
+        "adjusted_variance": [
+          1.1885210636686974e-07,
+          5.06376106347836e-07,
+          2.050279048895662e-07,
+          3.7034599081874795e-08,
+          1.3021573273238633e-08,
+          2.9213132233179936e-08,
+          2.612391711510239e-09
+        ],
+        "plain_variance": [
+          9.396363170147278e-08,
+          2.6383725431722025e-07,
+          9.452034664518813e-08,
+          3.714945040260338e-08,
+          1.3139576740586862e-08,
+          2.5336082785557e-08,
+          2.518329524751584e-09
+        ],
+        "adjusted_to_plain_variance": [
+          1.2648734857808488,
+          1.9192744696281718,
+          2.1691404249627118,
+          0.9969083978501999,
+          0.9910192337486999,
+          1.1530248176262305,
+          1.037351024095202
+        ],
+        "adjusted_rmse": [
+          0.00034286996400534857,
+          0.0007051102179611373,
+          0.0004779041023385122,
+          0.00018944783203139778,
+          0.00011289148288672826,
+          0.00016893400596371192,
+          5.184966931954901e-05
+        ],
+        "plain_rmse": [
+          0.00030262380354122083,
+          0.0005130455805782522,
+          0.00032163292539493876,
+          0.0001898603861372745,
+          0.00011301632697767424,
+          0.00015692997565647322,
+          5.1946136688156616e-05
+        ],
+        "adjusted_to_plain_mse": [
+          1.2836679936354929,
+          1.8888701984744536,
+          2.207803997518992,
+          0.99565885345732,
+          0.9977919095508431,
+          1.1588369825781752,
+          0.9962893180648204
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.9119153879077628,
+            0.9110771271215148
+          ],
+          [
+            0.9120579711218353,
+            0.9131484186729717
+          ],
+          [
+            0.9123784602200851,
+            0.9164438505387933
+          ],
+          [
+            0.9127432739227546,
+            0.9193489052341819
+          ],
+          [
+            0.912973250601357,
+            0.9206443485265261
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": [
+          [
+            0.0019999558046206035,
+            0.00022907768459511213
+          ],
+          [
+            0.0019999558046206035,
+            0.00022943480707424162
+          ],
+          [
+            0.0019999558046206035,
+            0.00022977859723725887
+          ],
+          [
+            0.0019999558046206035,
+            0.00023020255505221476
+          ],
+          [
+            0.0019999558046206035,
+            0.00023043491148770255
+          ]
+        ],
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "candidate-7": {
+      "decision": {
+        "complete": 31,
+        "failed": 1,
+        "joint_coverage": 0.75,
+        "joint_undercoverage_pvalue": 0.0001390820306657349,
+        "marginal_coverage": [
+          0.78125,
+          0.9375,
+          0.84375,
+          0.78125,
+          0.75,
+          0.8125,
+          0.71875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.0008684987174075856,
+          0.48003759434823434,
+          0.020353899182464427,
+          0.0008684987174075856,
+          0.0001390820306657349,
+          0.0045997456149716644,
+          1.9112180872667273e-05
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.6875,
+        "requested": 32,
+        "screen_passed": false,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 31
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.6875,
+        "joint_coverage": 0.8125,
+        "marginal_coverage": [
+          0.875,
+          1.0,
+          0.875,
+          0.84375,
+          0.8125,
+          0.84375,
+          0.78125
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.07380549164360053,
+          1.0,
+          0.07380549164360053,
+          0.020353899182464427,
+          0.0045997456149716644,
+          0.020353899182464427,
+          0.0008684987174075856
+        ],
+        "joint_undercoverage_pvalue": 0.0045997456149716644,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": false,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {
+        "positive bounded normalizing mass required": 1
+      },
+      "target_evaluation_quantiles": [
+        76577.0,
+        76584.75,
+        76656.0,
+        76720.5,
+        76756.0
+      ],
+      "mode_count_frequencies": {
+        "1": 10,
+        "2": 22
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.8997384649303735,
+        0.8998594738683917,
+        0.9994714575313597,
+        1.0011216320013838,
+        2.425728716167176
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0007155237787519183,
+        0.0007196805531202764,
+        0.0009684301100049662,
+        0.01198841470391111,
+        0.6291107358282011
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 1,
+          "bias": [
+            -0.010788527948856097,
+            -0.0007745225691473812,
+            -0.035925848230016225,
+            0.0005166368626033369,
+            0.00030251150386524303,
+            -0.0003717580476341187,
+            0.0040587032412334745
+          ],
+          "rmse": [
+            0.04432876723448471,
+            0.031859611687750956,
+            0.12202600998338743,
+            0.0020218975907368565,
+            0.0011780269464163756,
+            0.0012524708859380244,
+            0.0131497031573571
+          ],
+          "empirical_sd": [
+            0.04368387634017993,
+            0.03235983127966158,
+            0.11848366939677159,
+            0.0019860562236467057,
+            0.001156740370797195,
+            0.0012151640905063155,
+            0.012707797804242329
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -0.00951041046302803,
+            -0.0010418318235371406,
+            -0.03150071972425255,
+            0.0004855293164820647,
+            0.00026569406340228724,
+            -0.00033376096774873076,
+            0.0031852133160238383
+          ],
+          "rmse": [
+            0.043112363945906576,
+            0.031992693715667035,
+            0.11800652852820036,
+            0.0019920335573861674,
+            0.0011506309381083659,
+            0.0012288617702877586,
+            0.011845874178315282
+          ],
+          "empirical_sd": [
+            0.0427231509992813,
+            0.03248736985568903,
+            0.11554413398214412,
+            0.001962870571143105,
+            0.0011374485178418246,
+            0.0012015924345288537,
+            0.01159217316284206
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 31,
+        "at_least_one_wrong_endpoint_excluded_trials": 31,
+        "both_wrong_endpoints_excluded_trials": 26,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 31,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 9,
+            "error_only_failed_trials": 5,
+            "discrepancy_plus_error_failed_trials": 9,
+            "interval_excludes_tolerance_trials": 4,
+            "maximum_point_gap_quantiles": [
+              6.0077934285411833e-05,
+              0.0004310024402528531,
+              0.2978519256740092,
+              0.2985036514620066
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.001273178193206285,
+              0.0016359504819845922,
+              1.4032052054426774,
+              2.2971288359686532
+            ],
+            "maximum_combined_quantiles": [
+              0.0013071627117283654,
+              0.0020208088133371427,
+              1.4858657798154535,
+              2.530901302521337
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 9,
+            "error_only_failed_trials": 5,
+            "discrepancy_plus_error_failed_trials": 9,
+            "interval_excludes_tolerance_trials": 5,
+            "maximum_point_gap_quantiles": [
+              9.651763770353664e-05,
+              0.00029404895711437895,
+              0.02499122659563069,
+              0.028714187092537258
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0004112080241501781,
+              0.0004973888964152767,
+              0.09177524812305898,
+              0.2000297174228347
+            ],
+            "maximum_combined_quantiles": [
+              0.0005025499622343388,
+              0.0007464341722796426,
+              0.1078185614013244,
+              0.22874390451537197
+            ]
+          }
+        },
+        "incomplete_trials": 1,
+        "failed_confidence_with_raw": 1,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 31,
+        "adjusted_bias": [
+          -0.00917713941676579,
+          -0.00029433906007083846,
+          -0.031226673427879506,
+          0.0004702053921066089,
+          0.00026054527363362015,
+          -0.0003404547962921889,
+          0.0031374645435768844
+        ],
+        "plain_bias": [
+          -0.0092431717687681,
+          -0.00036363838109120384,
+          -0.0311919071970677,
+          0.0004754308940773111,
+          0.00025977353769561506,
+          -0.00033709093927847267,
+          0.0031400003859662906
+        ],
+        "adjusted_variance": [
+          0.0018860304065962197,
+          0.0010744395833707707,
+          0.013776139715165305,
+          4.004612154239719e-06,
+          1.324414056145941e-06,
+          1.493442745877501e-06,
+          0.00013880801946277723
+        ],
+        "plain_variance": [
+          0.001883748379432567,
+          0.0010754012809912213,
+          0.013792308385755434,
+          3.977917498028837e-06,
+          1.335756361643709e-06,
+          1.4915851913173646e-06,
+          0.00013879016607949216
+        ],
+        "adjusted_to_plain_variance": [
+          1.00121142886628,
+          0.9991057313791144,
+          0.9988277038086802,
+          1.0067107113770235,
+          0.9915087018684973,
+          1.0012453559950512,
+          1.0001286357945192
+        ],
+        "adjusted_rmse": [
+          0.04369680313175794,
+          0.032246966949683764,
+          0.11961125885476556,
+          0.002023987210377652,
+          0.0011617120390568106,
+          0.0012494705445700368,
+          0.012007248859659437
+        ],
+        "plain_rmse": [
+          0.04368544983199356,
+          0.03226210082992862,
+          0.11966758243823541,
+          0.0020188194851894848,
+          0.0011662545766850693,
+          0.0012478380669495028,
+          0.012007192276788377
+        ],
+        "adjusted_to_plain_mse": [
+          1.0005198424234183,
+          0.9990620368625943,
+          0.9990588875032627,
+          1.0051261039780632,
+          0.9922252119331403,
+          1.0026182010373819,
+          1.000009424851885
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            8.0,
+            8.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.8078399103522478,
+            0.9154056747438624
+          ],
+          [
+            0.8078399103522478,
+            0.915839126670287
+          ],
+          [
+            0.9127826012021774,
+            0.9173279433491439
+          ],
+          [
+            0.912947475389158,
+            12.891854626903324
+          ],
+          [
+            0.9129955228933802,
+            12.891854626903324
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": [
+          [
+            0.001999955804568526,
+            0.0013969696879307858
+          ],
+          [
+            0.001999955804568526,
+            0.0013971374536113652
+          ],
+          [
+            0.001999955804568526,
+            0.0013976039493647685
+          ],
+          [
+            0.001999955804568526,
+            11.312294405068766
+          ],
+          [
+            0.001999955804568526,
+            11.312294405068766
+          ]
+        ],
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "candidate-8": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.90625,
+        "joint_undercoverage_pvalue": 0.21388552705899158,
+        "marginal_coverage": [
+          0.9375,
+          0.96875,
+          0.9375,
+          0.90625,
+          0.8125,
+          0.9375,
+          0.8125
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.806288515541499,
+          0.48003759434823434,
+          0.21388552705899158,
+          0.0045997456149716644,
+          0.48003759434823434,
+          0.0045997456149716644
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.9375,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.9375,
+        "joint_coverage": 0.9375,
+        "marginal_coverage": [
+          0.96875,
+          0.96875,
+          0.96875,
+          0.875,
+          0.875,
+          0.9375,
+          0.90625
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.806288515541499,
+          0.806288515541499,
+          0.806288515541499,
+          0.07380549164360053,
+          0.07380549164360053,
+          0.48003759434823434,
+          0.21388552705899158
+        ],
+        "joint_undercoverage_pvalue": 0.48003759434823434,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        76592.0,
+        76621.2,
+        76678.5,
+        76719.5,
+        76746.0
+      ],
+      "mode_count_frequencies": {
+        "1": 2,
+        "2": 30
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.9311423043787608,
+        0.9989126677643065,
+        0.9999757151156544,
+        1.0009370497726302,
+        1.1089040007886175
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.000985267429687022,
+        0.0009871709377777915,
+        0.0010020373030498113,
+        0.0014335750228089655,
+        0.160650454004186
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            0.00029042833471826235,
+            0.0016396588533184888,
+            -0.0008578246404499552,
+            -0.0006072741886713057,
+            0.0008745834985729659,
+            -2.156583624624009e-05,
+            1.390759289643384e-05
+          ],
+          "rmse": [
+            0.016171064423032348,
+            0.02389942575924466,
+            0.05303456292714567,
+            0.002894644896795669,
+            0.009771125563056562,
+            0.0004082209931552634,
+            0.0004027663868629584
+          ],
+          "empirical_sd": [
+            0.0164271679284164,
+            0.024224627734364106,
+            0.05387612076711859,
+            0.0028755139143834744,
+            0.009887626596615953,
+            0.0004141737755404943,
+            0.00040896702761197156
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            0.0002430842208640538,
+            0.001753368900747154,
+            -0.0006408750479397039,
+            -0.0006847653466131066,
+            0.0008598819078455382,
+            -2.0745269531108335e-06,
+            4.302595903893369e-06
+          ],
+          "rmse": [
+            0.016328428215143072,
+            0.02460139880025354,
+            0.05365088949673742,
+            0.0032279382121661562,
+            0.009809041858930704,
+            0.0004145781941144233,
+            0.0004096530379990442
+          ],
+          "empirical_sd": [
+            0.016587861182820983,
+            0.024931483305163017,
+            0.054505469135127334,
+            0.003204944812027938,
+            0.009927630015450798,
+            0.00042120659293690924,
+            0.0004161849455017319
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 2,
+            "error_only_failed_trials": 2,
+            "discrepancy_plus_error_failed_trials": 2,
+            "interval_excludes_tolerance_trials": 1,
+            "maximum_point_gap_quantiles": [
+              0.00010401037871958091,
+              0.000393005367518477,
+              0.08945240699559427,
+              0.2257706741084345
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0012096434725013497,
+              0.0014977060094144884,
+              0.044542165267841854,
+              1.0088314576754362
+            ],
+            "maximum_combined_quantiles": [
+              0.0012667903152137222,
+              0.0017415279702933657,
+              0.13386565110715326,
+              1.2346021317838707
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 2,
+            "error_only_failed_trials": 2,
+            "discrepancy_plus_error_failed_trials": 2,
+            "interval_excludes_tolerance_trials": 1,
+            "maximum_point_gap_quantiles": [
+              5.63076042859878e-05,
+              0.0001805503949421916,
+              0.010389072486418014,
+              0.05043675569479989
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0004195050606523587,
+              0.0004984935659329004,
+              0.013770414532835049,
+              0.22627052778098705
+            ],
+            "maximum_combined_quantiles": [
+              0.00045682064626684227,
+              0.0006373765096005513,
+              0.02119778125907016,
+              0.27670728347578694
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          0.00029042833471826235,
+          0.0016396588533184888,
+          -0.0008578246404499552,
+          -0.0006072741886713057,
+          0.0008745834985729659,
+          -2.156583624624009e-05,
+          1.390759289643384e-05
+        ],
+        "plain_bias": [
+          0.0002430842208640538,
+          0.001753368900747154,
+          -0.0006408750479397039,
+          -0.0006847653466131066,
+          0.0008598819078455382,
+          -2.0745269531108335e-06,
+          4.302595903893369e-06
+        ],
+        "adjusted_variance": [
+          0.00026985184614839234,
+          0.0005868325888685227,
+          0.002902636388913147,
+          8.26858027181297e-06,
+          9.776515971410716e-05,
+          1.7153991634546776e-07,
+          1.672540296737711e-07
+        ],
+        "plain_variance": [
+          0.00027515713862053914,
+          0.0006215788597956223,
+          0.0029708461656403184,
+          1.0271671248144793e-05,
+          9.855783772367962e-05,
+          1.7741499393351917e-07,
+          1.7320990886227958e-07
+        ],
+        "adjusted_to_plain_variance": [
+          0.9807190447656778,
+          0.9440999796252331,
+          0.9770402865297908,
+          0.8049887960838302,
+          0.9919572301109644,
+          0.9668851123696292,
+          0.9656146739662335
+        ],
+        "adjusted_rmse": [
+          0.016171064423032348,
+          0.02389942575924466,
+          0.05303456292714567,
+          0.002894644896795669,
+          0.009771125563056562,
+          0.0004082209931552634,
+          0.0004027663868629584
+        ],
+        "plain_rmse": [
+          0.016328428215143072,
+          0.02460139880025354,
+          0.05365088949673742,
+          0.0032279382121661562,
+          0.009809041858930704,
+          0.0004145781941144233,
+          0.0004096530379990442
+        ],
+        "adjusted_to_plain_mse": [
+          0.9808180554566549,
+          0.9437464475953143,
+          0.9771565213246436,
+          0.8041557314301088,
+          0.9922840549013806,
+          0.9695668516234615,
+          0.9666607349352061
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -7.0,
+            0.0,
+            7.0,
+            0.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.8406297331752386,
+            0.9121043377146059
+          ],
+          [
+            0.8803473444686353,
+            0.9133523778376647
+          ],
+          [
+            0.9129570240227958,
+            0.9163757622038995
+          ],
+          [
+            0.913184189230817,
+            5.231580646785589
+          ],
+          [
+            0.9132781699457606,
+            10.503869902222501
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": [
+          [
+            0.001999955804568497,
+            0.0015023107371472226
+          ],
+          [
+            0.001999955804568497,
+            0.0015026729901867148
+          ],
+          [
+            0.001999955804568497,
+            0.0015030363517404767
+          ],
+          [
+            0.001999955804568497,
+            4.455600068490406
+          ],
+          [
+            0.001999955804568497,
+            9.899495138633243
+          ]
+        ],
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "candidate-9": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.90625,
+        "joint_undercoverage_pvalue": 0.21388552705899158,
+        "marginal_coverage": [
+          0.9375,
+          0.9375,
+          0.875,
+          0.875,
+          0.96875,
+          0.96875,
+          1.0
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.48003759434823434,
+          0.07380549164360053,
+          0.07380549164360053,
+          0.806288515541499,
+          0.806288515541499,
+          1.0
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.96875,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 1.0,
+        "joint_coverage": 0.90625,
+        "marginal_coverage": [
+          0.9375,
+          0.90625,
+          0.875,
+          0.875,
+          1.0,
+          0.9375,
+          0.9375
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.21388552705899158,
+          0.07380549164360053,
+          0.07380549164360053,
+          1.0,
+          0.48003759434823434,
+          0.48003759434823434
+        ],
+        "joint_undercoverage_pvalue": 0.21388552705899158,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        76666.0,
+        76695.75,
+        76761.0,
+        76838.25,
+        76851.0
+      ],
+      "mode_count_frequencies": {
+        "2": 32
+      },
+      "optimizer_usable_counts": [
+        24.0,
+        24.0,
+        24.0,
+        24.0,
+        24.0
+      ],
+      "pilot_mass_quantiles": [
+        0.9986729327727645,
+        0.9988731800724051,
+        0.9999995174620909,
+        1.0009472408349922,
+        1.0018811670630126
+      ],
+      "pilot_maximum_weight_quantiles": [
+        0.0009840859551967307,
+        0.0009881302178717571,
+        0.0009958755535958673,
+        0.00100490159390259,
+        0.0010058638983697428
+      ],
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            4.187672009825505e-06,
+            5.0849832824473915e-05,
+            1.9604252251665137e-05,
+            4.67487174402835e-05,
+            8.234868085339048e-06,
+            -1.2535570669713891e-05,
+            9.860265166028448e-06
+          ],
+          "rmse": [
+            0.00033117658650438805,
+            0.00029656560540430415,
+            0.0005076972307946398,
+            0.00019547297719906865,
+            4.044868287581781e-05,
+            5.05518119272743e-05,
+            7.688278491461924e-05
+          ],
+          "empirical_sd": [
+            0.00033644884744018724,
+            0.00029684874447225744,
+            0.0005154362025666556,
+            0.00019283753411316118,
+            4.023521672341278e-05,
+            4.975651846668489e-05,
+            7.746791410441108e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            3.099932777517189e-05,
+            -1.6090386920589715e-05,
+            -3.6692918682099925e-06,
+            4.095189346260686e-05,
+            2.1559934145244652e-06,
+            -9.061715233182888e-06,
+            1.8021565065473588e-05
+          ],
+          "rmse": [
+            0.0003602723874178602,
+            0.00022865087200379418,
+            0.00034887688386680887,
+            0.00018367417867692324,
+            2.868902033033514e-05,
+            4.902293961767848e-05,
+            8.75906579760801e-05
+          ],
+          "empirical_sd": [
+            0.00036467959927835195,
+            0.00023173359725081686,
+            0.00035443966339441905,
+            0.0001819156737207074,
+            2.9065649028645803e-05,
+            4.894904711759285e-05,
+            8.708821812708069e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              9.338157521447972e-05,
+              0.00048353067963428605,
+              0.000876576214761322,
+              0.0010598913712113966
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0008047003753250013,
+              0.001143100877130156,
+              0.001274174334996133,
+              0.0013870668845078413
+            ],
+            "maximum_combined_quantiles": [
+              0.0011140840726074778,
+              0.0015665311288786047,
+              0.002008655738051371,
+              0.00228211322858144
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 1,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              3.737050138001574e-05,
+              0.00012342434547467536,
+              0.0003776438435430754,
+              0.0005281721994700415
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0003991734900846075,
+              0.00044565823228066327,
+              0.0005336382865273607,
+              0.0005422551758426791
+            ],
+            "maximum_combined_quantiles": [
+              0.0004430094730419505,
+              0.0005881356657855101,
+              0.0007954286842638625,
+              0.0010308076863944117
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          4.187672009825505e-06,
+          5.0849832824473915e-05,
+          1.9604252251665137e-05,
+          4.67487174402835e-05,
+          8.234868085339048e-06,
+          -1.2535570669713891e-05,
+          9.860265166028448e-06
+        ],
+        "plain_bias": [
+          3.099932777517189e-05,
+          -1.6090386920589715e-05,
+          -3.6692918682099925e-06,
+          4.095189346260686e-05,
+          2.1559934145244652e-06,
+          -9.061715233182888e-06,
+          1.8021565065473588e-05
+        ],
+        "adjusted_variance": [
+          1.131978269438304e-07,
+          8.811917709475561e-08,
+          2.656744789163344e-07,
+          3.71863145628446e-08,
+          1.6188726647799954e-09,
+          2.4757111299255548e-09,
+          6.001277715688414e-09
+        ],
+        "plain_variance": [
+          1.3299121012981936e-07,
+          5.37004600948038e-08,
+          1.2562747498714907e-07,
+          3.309331234525887e-08,
+          8.448119534564187e-10,
+          2.396009213720325e-09,
+          7.584357736549986e-09
+        ],
+        "adjusted_to_plain_variance": [
+          0.851167733817388,
+          1.6409389591669858,
+          2.11478005860988,
+          1.123680645046464,
+          1.9162520820836233,
+          1.033264444789624,
+          0.7912703915280119
+        ],
+        "adjusted_rmse": [
+          0.00033117658650438805,
+          0.00029656560540430415,
+          0.0005076972307946398,
+          0.00019547297719906865,
+          4.044868287581781e-05,
+          5.05518119272743e-05,
+          7.688278491461924e-05
+        ],
+        "plain_rmse": [
+          0.0003602723874178602,
+          0.00022865087200379418,
+          0.00034887688386680887,
+          0.00018367417867692324,
+          2.868902033033514e-05,
+          4.902293961767848e-05,
+          8.75906579760801e-05
+        ],
+        "adjusted_to_plain_mse": [
+          0.8450011421673752,
+          1.6822705395081023,
+          2.1177037221020116,
+          1.1326017863186115,
+          1.9878212645369464,
+          1.0633463719971123,
+          0.7704467635958184
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.5,
+            -0.4,
+            0.2,
+            0.0
+          ],
+          [
+            5.0,
+            -6.0,
+            4.0,
+            -3.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.9134987458649193,
+            0.913515609841772
+          ],
+          [
+            0.913593782418979,
+            0.914542637714312
+          ],
+          [
+            0.9137170964308305,
+            0.9162438277345588
+          ],
+          [
+            0.9138648621304333,
+            0.9176659649034555
+          ],
+          [
+            0.9139541956497914,
+            0.9187634871345809
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": [
+          [
+            0.0015266354163534174,
+            0.0026396787749541953
+          ],
+          [
+            0.0015266354163534174,
+            0.0026397633118518133
+          ],
+          [
+            0.0015266354163534174,
+            0.002640167048588633
+          ],
+          [
+            0.0015266354163534174,
+            0.0026403933674750565
+          ],
+          [
+            0.0015266354163534174,
+            0.0026415014917641412
+          ]
+        ],
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "oracle-6": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.9375,
+        "joint_undercoverage_pvalue": 0.48003759434823434,
+        "marginal_coverage": [
+          0.96875,
+          0.96875,
+          0.90625,
+          0.90625,
+          1.0,
+          0.8125,
+          0.96875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.806288515541499,
+          0.806288515541499,
+          0.21388552705899158,
+          0.21388552705899158,
+          1.0,
+          0.0045997456149716644,
+          0.806288515541499
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.875,
+        "requested": 32,
+        "screen_passed": false,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.78125,
+        "joint_coverage": 0.875,
+        "marginal_coverage": [
+          0.875,
+          0.96875,
+          0.9375,
+          0.90625,
+          1.0,
+          0.875,
+          0.90625
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.07380549164360053,
+          0.806288515541499,
+          0.48003759434823434,
+          0.21388552705899158,
+          1.0,
+          0.07380549164360053,
+          0.21388552705899158
+        ],
+        "joint_undercoverage_pvalue": 0.07380549164360053,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": false,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0
+      ],
+      "mode_count_frequencies": null,
+      "optimizer_usable_counts": null,
+      "pilot_mass_quantiles": null,
+      "pilot_maximum_weight_quantiles": null,
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            1.8069843294998833e-06,
+            4.2547694384064435e-06,
+            6.156880753304704e-07,
+            4.1120011784204213e-05,
+            2.1207158396353842e-06,
+            3.288411300517158e-05,
+            -3.276852168943023e-06
+          ],
+          "rmse": [
+            1.7457197469623873e-05,
+            1.5962420828621063e-05,
+            1.516587599695198e-05,
+            0.00022741031118013788,
+            8.15391915930653e-05,
+            0.00024341877355781458,
+            3.0648157225925566e-05
+          ],
+          "empirical_sd": [
+            1.7641258125751028e-05,
+            1.5631096078992913e-05,
+            1.5395842688083085e-05,
+            0.00022724060123800087,
+            8.281587711250136e-05,
+            0.0002450465855533618,
+            3.096006636999512e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            4.477437223426861e-06,
+            1.2538903672661153e-05,
+            1.060337462849121e-05,
+            5.214105322920437e-05,
+            9.2692239578758e-06,
+            1.8294541299868072e-05,
+            -1.016537935727424e-05
+          ],
+          "rmse": [
+            0.0002146442974136408,
+            0.0005020191298490108,
+            0.00031949741562449556,
+            0.0002600423152268307,
+            0.00010034211277804384,
+            0.00028152338075054605,
+            5.0089454464285636e-05
+          ],
+          "empirical_sd": [
+            0.00021803137263006243,
+            0.0005098928237836964,
+            0.00032443088359767567,
+            0.00025883773225796026,
+            0.0001015117782276887,
+            0.00028542346340758475,
+            4.98319085343923e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              1.413262248603797e-06,
+              1.832903914310185e-05,
+              3.3460082487168844e-05,
+              3.918921708955817e-05
+            ],
+            "maximum_error_allowance_quantiles": [
+              3.517944368236893e-05,
+              4.63720195342298e-05,
+              5.076658431139196e-05,
+              5.2419321390805896e-05
+            ],
+            "maximum_combined_quantiles": [
+              4.484609630284766e-05,
+              6.19556456656716e-05,
+              8.021242854776475e-05,
+              8.598633679505403e-05
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 4,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              7.272843264285317e-05,
+              0.00024707552512884083,
+              0.0005094553118582257,
+              0.0005653514935790027
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.00048823239599460333,
+              0.0005815553902620962,
+              0.0006545886266812324,
+              0.0007026827703836142
+            ],
+            "maximum_combined_quantiles": [
+              0.0005783461638908527,
+              0.0008440871476270827,
+              0.00104881911357389,
+              0.0010827609050038378
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          1.8069843294998833e-06,
+          4.2547694384064435e-06,
+          6.156880753304704e-07,
+          4.1120011784204213e-05,
+          2.1207158396353842e-06,
+          3.288411300517158e-05,
+          -3.276852168943023e-06
+        ],
+        "plain_bias": [
+          4.477437223426861e-06,
+          1.2538903672661153e-05,
+          1.060337462849121e-05,
+          5.214105322920437e-05,
+          9.2692239578758e-06,
+          1.8294541299868072e-05,
+          -1.016537935727424e-05
+        ],
+        "adjusted_variance": [
+          3.112139882593767e-10,
+          2.4433116463070764e-10,
+          2.370319720762014e-10,
+          5.163829085100813e-08,
+          6.858469501912928e-09,
+          6.004782909136105e-08,
+          9.585257096345027e-10
+        ],
+        "plain_variance": [
+          4.7537679450949137e-08,
+          2.599906917461116e-07,
+          1.0525539823196856e-07,
+          6.69969716404435e-08,
+          1.0304641118947454e-08,
+          8.146655346358087e-08,
+          2.4832191081800405e-09
+        ],
+        "adjusted_to_plain_variance": [
+          0.006546680272445714,
+          0.0009397688932237006,
+          0.002251969742718708,
+          0.7707555966579849,
+          0.6655709231156098,
+          0.7370856693747952,
+          0.3860012620219443
+        ],
+        "adjusted_rmse": [
+          1.7457197469623873e-05,
+          1.5962420828621063e-05,
+          1.516587599695198e-05,
+          0.00022741031118013788,
+          8.15391915930653e-05,
+          0.00024341877355781458,
+          3.0648157225925566e-05
+        ],
+        "plain_rmse": [
+          0.0002146442974136408,
+          0.0005020191298490108,
+          0.00031949741562449556,
+          0.0002600423152268307,
+          0.00010034211277804384,
+          0.00028152338075054605,
+          5.0089454464285636e-05
+        ],
+        "adjusted_to_plain_mse": [
+          0.0066147028522442084,
+          0.0010110135570910467,
+          0.00225320290374566,
+          0.7647724892094311,
+          0.6603380462236055,
+          0.7476170572809271,
+          0.3743830089376478
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            4.0,
+            4.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.10383751810483588,
+            0.10420197420169508
+          ],
+          [
+            0.10383751810483588,
+            0.10420197420169508
+          ],
+          [
+            0.10383751810483588,
+            0.10420197420169508
+          ],
+          [
+            0.10383751810483588,
+            0.10420197420169508
+          ],
+          [
+            0.10383751810483588,
+            0.10420197420169508
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": null,
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "oracle-7": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.96875,
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "marginal_coverage": [
+          0.9375,
+          0.9375,
+          0.90625,
+          0.90625,
+          1.0,
+          0.9375,
+          0.9375
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.48003759434823434,
+          0.21388552705899158,
+          0.21388552705899158,
+          1.0,
+          0.48003759434823434,
+          0.48003759434823434
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.90625,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.75,
+        "joint_coverage": 0.90625,
+        "marginal_coverage": [
+          0.9375,
+          0.90625,
+          0.96875,
+          1.0,
+          0.90625,
+          0.9375,
+          0.84375
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.21388552705899158,
+          0.806288515541499,
+          1.0,
+          0.21388552705899158,
+          0.48003759434823434,
+          0.020353899182464427
+        ],
+        "joint_undercoverage_pvalue": 0.21388552705899158,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": false,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0
+      ],
+      "mode_count_frequencies": null,
+      "optimizer_usable_counts": null,
+      "pilot_mass_quantiles": null,
+      "pilot_maximum_weight_quantiles": null,
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            2.088652803600155e-06,
+            -4.349652559004157e-06,
+            3.4145399086221834e-06,
+            1.2409887343738102e-05,
+            -1.713539807739889e-05,
+            2.8892218642107004e-05,
+            6.167508797338961e-06
+          ],
+          "rmse": [
+            1.8088603949197775e-05,
+            1.7397710479181756e-05,
+            1.2369370842400497e-05,
+            0.00023324162470067357,
+            9.152944258917353e-05,
+            0.00022585995840706364,
+            2.6006076309291874e-05
+          ],
+          "empirical_sd": [
+            1.825511321522103e-05,
+            1.71147430135995e-05,
+            1.2078976767142384e-05,
+            0.00023663806622936824,
+            9.134983160978902e-05,
+            0.0002275886737101071,
+            2.5668413429522627e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -5.114267606975975e-05,
+            5.121100859282827e-06,
+            3.465546688495496e-05,
+            7.504918190601867e-06,
+            -3.773364950057645e-05,
+            3.230648061947061e-05,
+            6.913993662704954e-06
+          ],
+          "rmse": [
+            0.00020431636107052777,
+            0.00045547057133792925,
+            0.00017162179451056604,
+            0.0002491360713221197,
+            0.00012730805109616798,
+            0.00024260047023562725,
+            3.100924390722679e-05
+          ],
+          "empirical_sd": [
+            0.0002009772308349916,
+            0.0004627293120029505,
+            0.00017077595650370425,
+            0.0002530076285715082,
+            0.0001235329876561247,
+            0.00024428704315086465,
+            3.0712315895993446e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              3.243773060360764e-06,
+              1.696441682222662e-05,
+              3.1549828958492106e-05,
+              3.513619325472537e-05
+            ],
+            "maximum_error_allowance_quantiles": [
+              3.8844024007003155e-05,
+              4.590211490225183e-05,
+              5.339107945246528e-05,
+              5.678948803240357e-05
+            ],
+            "maximum_combined_quantiles": [
+              4.621528248148011e-05,
+              6.0480930793958826e-05,
+              7.683603663253398e-05,
+              8.23642973496413e-05
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 3,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              4.8706856475955185e-05,
+              0.000235737841553443,
+              0.00046050107800152444,
+              0.0005914467773008303
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0005101984372493651,
+              0.0005918653490787126,
+              0.0006491284908701777,
+              0.0006587240362483371
+            ],
+            "maximum_combined_quantiles": [
+              0.0005428460649603423,
+              0.0008285681208854614,
+              0.0010231287309289626,
+              0.001146019708731516
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          2.088652803600155e-06,
+          -4.349652559004157e-06,
+          3.4145399086221834e-06,
+          1.2409887343738102e-05,
+          -1.713539807739889e-05,
+          2.8892218642107004e-05,
+          6.167508797338961e-06
+        ],
+        "plain_bias": [
+          -5.114267606975975e-05,
+          5.121100859282827e-06,
+          3.465546688495496e-05,
+          7.504918190601867e-06,
+          -3.773364950057645e-05,
+          3.230648061947061e-05,
+          6.913993662704954e-06
+        ],
+        "adjusted_variance": [
+          3.332491585005375e-10,
+          2.9291442842155287e-10,
+          1.4590167974116546e-10,
+          5.5997574388774874e-08,
+          8.344791735136809e-09,
+          5.17966044011256e-08,
+          6.588674479888975e-10
+        ],
+        "plain_variance": [
+          4.03918473141015e-08,
+          2.141184161867239e-07,
+          2.9164427319755086e-08,
+          6.401286011537824e-08,
+          1.5260399039248258e-08,
+          5.967615945139241e-08,
+          9.432463476952915e-10
+        ],
+        "adjusted_to_plain_variance": [
+          0.008250406472104939,
+          0.0013680020319509286,
+          0.005002727402856841,
+          0.8747863208712058,
+          0.5468265746966916,
+          0.8679614250865978,
+          0.6985104682342641
+        ],
+        "adjusted_rmse": [
+          1.8088603949197775e-05,
+          1.7397710479181756e-05,
+          1.2369370842400497e-05,
+          0.00023324162470067357,
+          9.152944258917353e-05,
+          0.00022585995840706364,
+          2.6006076309291874e-05
+        ],
+        "plain_rmse": [
+          0.00020431636107052777,
+          0.00045547057133792925,
+          0.00017162179451056604,
+          0.0002491360713221197,
+          0.00012730805109616798,
+          0.00024260047023562725,
+          3.100924390722679e-05
+        ],
+        "adjusted_to_plain_mse": [
+          0.00783797384217707,
+          0.0014590277603523684,
+          0.0051945788494003,
+          0.8764737072392885,
+          0.5169040031161235,
+          0.8667527155764447,
+          0.7033432291898934
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            8.0,
+            8.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.10383751810483632,
+            0.10535771734955013
+          ],
+          [
+            0.10383751810483632,
+            0.10535771734955013
+          ],
+          [
+            0.10383751810483632,
+            0.10535771734955013
+          ],
+          [
+            0.10383751810483632,
+            0.10535771734955013
+          ],
+          [
+            0.10383751810483632,
+            0.10535771734955013
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": null,
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "oracle-8": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.96875,
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "marginal_coverage": [
+          0.90625,
+          0.9375,
+          0.96875,
+          0.90625,
+          1.0,
+          0.96875,
+          0.90625
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.21388552705899158,
+          0.48003759434823434,
+          0.806288515541499,
+          0.21388552705899158,
+          1.0,
+          0.806288515541499,
+          0.21388552705899158
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.96875,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.875,
+        "joint_coverage": 0.96875,
+        "marginal_coverage": [
+          0.90625,
+          0.9375,
+          1.0,
+          0.875,
+          1.0,
+          0.96875,
+          0.875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.21388552705899158,
+          0.48003759434823434,
+          1.0,
+          0.07380549164360053,
+          1.0,
+          0.806288515541499,
+          0.07380549164360053
+        ],
+        "joint_undercoverage_pvalue": 0.806288515541499,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": false,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0
+      ],
+      "mode_count_frequencies": null,
+      "optimizer_usable_counts": null,
+      "pilot_mass_quantiles": null,
+      "pilot_maximum_weight_quantiles": null,
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -1.1619915458727093e-06,
+            -6.6715509705213424e-06,
+            8.020772805911352e-07,
+            2.2969495380182475e-05,
+            -2.6940363128565015e-06,
+            5.491669031709723e-05,
+            1.7513685627967845e-05
+          ],
+          "rmse": [
+            1.5310701079581173e-05,
+            1.4784764508372284e-05,
+            9.66989487393445e-06,
+            0.00011682344440729795,
+            1.6055905726402144e-05,
+            0.00017540453727728412,
+            0.00012863723309791146
+          ],
+          "empirical_sd": [
+            1.5510823465863225e-05,
+            1.3405041679020213e-05,
+            9.790767944253543e-06,
+            0.0001163758957202302,
+            1.608154308244069e-05,
+            0.00016925158619412824,
+            0.00012947859129975196
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            -3.785388184240901e-06,
+            0.00014412021511446983,
+            -7.25362040331103e-05,
+            2.2834255837558826e-05,
+            4.6159347390530014e-06,
+            4.122627641200971e-05,
+            1.7437234135719848e-05
+          ],
+          "rmse": [
+            0.00022704522606181412,
+            0.0003770266521779217,
+            0.0001922906011177308,
+            0.00012459852022976144,
+            2.1039831292492277e-05,
+            0.00021221740582334737,
+            0.00015492559056528882
+          ],
+          "empirical_sd": [
+            0.00023064611745717505,
+            0.0003539687758022485,
+            0.0001809342760949337,
+            0.0001244482553593176,
+            2.085569831132265e-05,
+            0.00021150550110763438,
+            0.0001564043773917651
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              9.5738481389748e-07,
+              1.2351835229414711e-05,
+              3.0441853388172837e-05,
+              3.266997098891397e-05
+            ],
+            "maximum_error_allowance_quantiles": [
+              3.61600044626344e-05,
+              4.162785431479011e-05,
+              4.602892359153788e-05,
+              4.7511170846087785e-05
+            ],
+            "maximum_combined_quantiles": [
+              3.7259393935125165e-05,
+              5.113017906134734e-05,
+              6.91381371738706e-05,
+              7.677496356717578e-05
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 1,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              3.727948658049929e-05,
+              0.00017584660166958255,
+              0.00037267229632584884,
+              0.00042075664936069845
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.00047895507151884953,
+              0.0005805419402049594,
+              0.0006609007390083133,
+              0.0006687902382883637
+            ],
+            "maximum_combined_quantiles": [
+              0.0004811442272604216,
+              0.0006712289813459726,
+              0.0009000792000466385,
+              0.0010801067592348668
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          -1.1619915458727093e-06,
+          -6.6715509705213424e-06,
+          8.020772805911352e-07,
+          2.2969495380182475e-05,
+          -2.6940363128565015e-06,
+          5.491669031709723e-05,
+          1.7513685627967845e-05
+        ],
+        "plain_bias": [
+          -3.785388184240901e-06,
+          0.00014412021511446983,
+          -7.25362040331103e-05,
+          2.2834255837558826e-05,
+          4.6159347390530014e-06,
+          4.122627641200971e-05,
+          1.7437234135719848e-05
+        ],
+        "adjusted_variance": [
+          2.405856445891733e-10,
+          1.7969514241626904e-10,
+          9.585913693822274e-11,
+          1.3543349104685895e-08,
+          2.58616027912396e-10,
+          2.8646099429228423e-08,
+          1.6764705604968203e-08
+        ],
+        "plain_variance": [
+          5.3197631498068994e-08,
+          1.2529389424294244e-07,
+          3.273721226599769e-08,
+          1.5487368261977923e-08,
+          4.349601520529063e-10,
+          4.4734576998791526e-08,
+          2.446232926730568e-08
+        ],
+        "adjusted_to_plain_variance": [
+          0.004522487896813719,
+          0.0014341891398781462,
+          0.002928139884341534,
+          0.8744771142257481,
+          0.5945740700424881,
+          0.6403569978990139,
+          0.6853274445690059
+        ],
+        "adjusted_rmse": [
+          1.5310701079581173e-05,
+          1.4784764508372284e-05,
+          9.66989487393445e-06,
+          0.00011682344440729795,
+          1.6055905726402144e-05,
+          0.00017540453727728412,
+          0.00012863723309791146
+        ],
+        "plain_rmse": [
+          0.00022704522606181412,
+          0.0003770266521779217,
+          0.0001922906011177308,
+          0.00012459852022976144,
+          2.1039831292492277e-05,
+          0.00021221740582334737,
+          0.00015492559056528882
+        ],
+        "adjusted_to_plain_mse": [
+          0.004547423541551108,
+          0.001537746401652864,
+          0.0025288751637222175,
+          0.8790918311991063,
+          0.5823513850913065,
+          0.6831556175657623,
+          0.6894250504753348
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -7.0,
+            0.0,
+            7.0,
+            0.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.10388661087053563,
+            0.10533003824237941
+          ],
+          [
+            0.10388661087053563,
+            0.10533003824237941
+          ],
+          [
+            0.10388661087053563,
+            0.10533003824237941
+          ],
+          [
+            0.10388661087053563,
+            0.10533003824237941
+          ],
+          [
+            0.10388661087053563,
+            0.10533003824237941
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": null,
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    },
+    "oracle-9": {
+      "decision": {
+        "complete": 32,
+        "failed": 0,
+        "joint_coverage": 0.9375,
+        "joint_undercoverage_pvalue": 0.48003759434823434,
+        "marginal_coverage": [
+          0.9375,
+          0.90625,
+          0.9375,
+          0.96875,
+          0.96875,
+          1.0,
+          0.96875
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.48003759434823434,
+          0.21388552705899158,
+          0.48003759434823434,
+          0.806288515541499,
+          0.806288515541499,
+          1.0,
+          0.806288515541499
+        ],
+        "numerical_certified": false,
+        "precision_fraction": 0.96875,
+        "requested": 32,
+        "screen_passed": true,
+        "unattempted": 0,
+        "wrong_endpoint_rejections": 32
+      },
+      "plain_decision": {
+        "requested": 32,
+        "complete": 32,
+        "failed": 0,
+        "unattempted": 0,
+        "precision_fraction": 0.96875,
+        "joint_coverage": 0.9375,
+        "marginal_coverage": [
+          0.90625,
+          0.90625,
+          0.90625,
+          0.96875,
+          0.96875,
+          0.96875,
+          1.0
+        ],
+        "marginal_undercoverage_pvalues": [
+          0.21388552705899158,
+          0.21388552705899158,
+          0.21388552705899158,
+          0.806288515541499,
+          0.806288515541499,
+          0.806288515541499,
+          1.0
+        ],
+        "joint_undercoverage_pvalue": 0.48003759434823434,
+        "wrong_endpoint_rejections": 32,
+        "screen_passed": true,
+        "numerical_certified": false
+      },
+      "retained_fits": 32,
+      "raw_integral_trials": 32,
+      "failure_reasons": {},
+      "target_evaluation_quantiles": [
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0,
+        71680.0
+      ],
+      "mode_count_frequencies": null,
+      "optimizer_usable_counts": null,
+      "pilot_mass_quantiles": null,
+      "pilot_maximum_weight_quantiles": null,
+      "raw_errors": {
+        "adjusted": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            3.880502235098504e-07,
+            1.760470502054545e-06,
+            -1.3035833824701697e-06,
+            2.7212602170416378e-05,
+            -2.034544218088713e-06,
+            4.94240596282669e-06,
+            2.9142918563929143e-06
+          ],
+          "rmse": [
+            1.7549283676848516e-05,
+            1.0809410743834122e-05,
+            1.4035976218052032e-05,
+            0.00017466664693940344,
+            1.6247703034779015e-05,
+            2.6110359053976112e-05,
+            7.564221275041068e-05
+          ],
+          "empirical_sd": [
+            1.782573057546959e-05,
+            1.0835740348182291e-05,
+            1.419892949199435e-05,
+            0.00017529451519283348,
+            1.6377749933481382e-05,
+            2.604855958077015e-05,
+            7.679550559936309e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        },
+        "plain": {
+          "requested_trials": 32,
+          "defined_estimates": 32,
+          "unavailable_estimates": 0,
+          "included_failed_confidence_trials": 0,
+          "bias": [
+            2.044640794029995e-05,
+            1.6532769831334808e-05,
+            -6.61688306726197e-06,
+            4.219085221189578e-05,
+            -1.460577409257563e-06,
+            6.663173389154231e-06,
+            -2.294112593115294e-06
+          ],
+          "rmse": [
+            0.00021928346287548698,
+            0.00016398329648728482,
+            0.0002959667519810039,
+            0.00019811082620173196,
+            1.8455721221459516e-05,
+            2.8931638906417272e-05,
+            8.76909429032369e-05
+          ],
+          "empirical_sd": [
+            0.00022182162317704063,
+            0.00016575828199552113,
+            0.0003006273614687263,
+            0.0001966633447597551,
+            1.869221979080913e-05,
+            2.8604386763898827e-05,
+            8.906359316827646e-05
+          ],
+          "caveat": "finite positive average masses only; failed confidence trials retained when estimates exist; not coverage or admission"
+        }
+      },
+      "isolated_wrong_endpoints": {
+        "requested_trials": 32,
+        "available_confidence_trials": 32,
+        "at_least_one_wrong_endpoint_excluded_trials": 32,
+        "both_wrong_endpoints_excluded_trials": 32,
+        "caveat": "diagnostic only; original joint-vector rejection gate unchanged; no mean or lower-endpoint failure counted here"
+      },
+      "precision_decomposition": {
+        "requested_trials": 32,
+        "complete_confidence_trials": 32,
+        "groups": {
+          "mean_sd": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 0,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              2.7376064602273695e-06,
+              1.1624864857386762e-05,
+              2.768511490353538e-05,
+              3.1269771100845375e-05
+            ],
+            "maximum_error_allowance_quantiles": [
+              3.1538158173615626e-05,
+              3.6915921367978855e-05,
+              4.174420623420505e-05,
+              4.2561159673835e-05
+            ],
+            "maximum_combined_quantiles": [
+              3.3937653275052486e-05,
+              4.768827455902034e-05,
+              6.844718510618429e-05,
+              6.896819650370085e-05
+            ]
+          },
+          "endpoint_cdf": {
+            "point_only_failed_trials": 0,
+            "error_only_failed_trials": 0,
+            "discrepancy_plus_error_failed_trials": 1,
+            "interval_excludes_tolerance_trials": 0,
+            "maximum_point_gap_quantiles": [
+              2.2187546969601457e-05,
+              0.00011138097195695709,
+              0.0002856581013129182,
+              0.0005403908543623742
+            ],
+            "maximum_error_allowance_quantiles": [
+              0.0004679533132628949,
+              0.000520605164417421,
+              0.0005844922045162343,
+              0.0006351576303405063
+            ],
+            "maximum_combined_quantiles": [
+              0.0004851209040432798,
+              0.0006467113423605994,
+              0.0008162113904212328,
+              0.0010138844500618
+            ]
+          }
+        },
+        "incomplete_trials": 0,
+        "failed_confidence_with_raw": 0,
+        "without_raw_integrals": 0
+      },
+      "paired_complete_errors": {
+        "paired_complete_trials": 32,
+        "adjusted_bias": [
+          3.880502235098504e-07,
+          1.760470502054545e-06,
+          -1.3035833824701697e-06,
+          2.7212602170416378e-05,
+          -2.034544218088713e-06,
+          4.94240596282669e-06,
+          2.9142918563929143e-06
+        ],
+        "plain_bias": [
+          2.044640794029995e-05,
+          1.6532769831334808e-05,
+          -6.61688306726197e-06,
+          4.219085221189578e-05,
+          -1.460577409257563e-06,
+          6.663173389154231e-06,
+          -2.294112593115294e-06
+        ],
+        "adjusted_variance": [
+          3.1775667054923143e-10,
+          1.1741326889322567e-10,
+          2.0160959871862694e-10,
+          3.0728167056690525e-08,
+          2.682306928836494e-10,
+          6.785274562329323e-10,
+          5.897549680261807e-09
+        ],
+        "plain_variance": [
+          4.920483250889701e-08,
+          2.74758080501067e-08,
+          9.037681046364823e-08,
+          3.8676471172094294e-08,
+          3.493990807079165e-10,
+          8.182109421387104e-10,
+          7.932323628044262e-09
+        ],
+        "adjusted_to_plain_variance": [
+          0.006457834613943173,
+          0.004273332696134107,
+          0.0022307669155874807,
+          0.7944925202706031,
+          0.7676914671331933,
+          0.8292818163239649,
+          0.7434832410784865
+        ],
+        "adjusted_rmse": [
+          1.7549283676848516e-05,
+          1.0809410743834122e-05,
+          1.4035976218052032e-05,
+          0.00017466664693940344,
+          1.6247703034779015e-05,
+          2.6110359053976112e-05,
+          7.564221275041068e-05
+        ],
+        "plain_rmse": [
+          0.00021928346287548698,
+          0.00016398329648728482,
+          0.0002959667519810039,
+          0.00019811082620173196,
+          1.8455721221459516e-05,
+          2.8931638906417272e-05,
+          8.76909429032369e-05
+        ],
+        "adjusted_to_plain_mse": [
+          0.0064048214421779425,
+          0.004345150409682713,
+          0.002249051470040895,
+          0.7773266333767289,
+          0.7750360479042436,
+          0.8144784836930383,
+          0.7440788662785495
+        ]
+      },
+      "component_centers": {
+        "points": [
+          [
+            0.5,
+            -0.4,
+            0.2,
+            0.0
+          ],
+          [
+            5.0,
+            -6.0,
+            4.0,
+            -3.0
+          ]
+        ],
+        "fitted_log_density_ratio_quantiles": [
+          [
+            0.1044302537523838,
+            0.10531843212531466
+          ],
+          [
+            0.1044302537523838,
+            0.10531843212531466
+          ],
+          [
+            0.1044302537523838,
+            0.10531843212531466
+          ],
+          [
+            0.1044302537523838,
+            0.10531843212531466
+          ],
+          [
+            0.1044302537523838,
+            0.10531843212531466
+          ]
+        ],
+        "minimum_discovered_distance_quantiles": null,
+        "caveat": "Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound"
+      }
+    }
+  },
+  "independent_reconstruction_identical": {
+    "objects": 14,
+    "manifests": 1
+  }
+}

@@ -1,6 +1,6 @@
 # Project status
 
-Updated for the November 19, 2026 run (America/New_York).
+Updated for the November 20 run, finalized November 21, 2026 (America/New_York).
 
 ## Current scoring milestone
 
@@ -9,35 +9,33 @@ There is no measured completion percentage. Scoring remains the critical path;
 optional infrastructure is paused. Track implementation, scientific evidence and
 blockers separately in [M1–M6](docs/MILESTONES.md).
 
-The [functional proposal study](docs/FUNCTIONAL_PROPOSAL_RESULTS.md) attempts all
-8,192 known-answer trials. Both full offline executions match the manifest and
-all 17 objects. Six controls pass. Broad-tail precision improves to 100%, but
-displaced mass reaches only 33.5938% versus 90% required. The remote narrow case
-has 0% precision, 30.9570% joint numerical coverage and 47 failed confidence
-constructions, retained in the denominator.
+The [mode-discovery preflight](docs/MODE_PREFLIGHT_RESULTS.md), frozen at e586379,
+completes all 320 candidate and 128 diagnostic trials. Both complete offline
+executions reproduce all 14 objects and the manifest. Eight of ten candidate
+screens pass, but original case 3 has 0% precision and remote case 7 has 68.75%
+precision / 75% joint coverage. Its one failed confidence construction remains
+in the denominator; all 448 trials retain raw integrals.
 
-**Decision: reject the numerical candidate.** The actual saved certificate blocks
-before NFL input access; no new archived pilot or player calibration was attempted.
-Target 6 fits its moment approximation closely but lacks sufficient precision;
-target 7 shows missed mass and unstable pilot weights. An initial diagnostic
-exceeds the prior hierarchy concentration proxy in 8/32 trials. These are finite
-numerical findings, not player uncertainty calibration.
+**Decision: stop this candidate before full certification.** Case 3 finds one
+mode in all trials; a separately declared post-result derivative analysis shows
+the unperturbed mixture has only one density peak despite its important tail.
+In case 7, all 22 two-mode trials pass precision and all ten one-mode trials fail.
+This grouping is explanatory, never a selectable subset. Even the known-component
+oracle misses one endpoint-precision screen; it is unavailable to NFL inference.
 
-Next freeze a bounded mode-resolving proposal hypothesis and a feasibility
-preflight, including all discovery/fitting work, original/tail cases, independent
-randomness and a stop rule before new draws. Do not retune this moment family,
-select plain results, enlarge samples automatically or change football priors.
-See the [frozen design](docs/FUNCTIONAL_PROPOSAL_DESIGN.md) and
-[result report](docs/FUNCTIONAL_PROPOSAL_RESULTS.md). No candidate/gate changes
-follow inspected results; numerical certification still precedes the unchanged
-archived pilot, unfinished 192-fit player calibration and observational admission.
+Next freeze one bounded proposal that preserves broad nonmodal mass alongside
+separated modes. Retain all original/remote controls and complete search/fitting
+costs; do not simply add starts, retune consumed seeds, select oracle/plain results,
+widen intervals or change priors. The preflight schema is blocked before NFL
+inputs even if a screen passes. Full certification, the unchanged archived pilot,
+192-fit player calibration and observational admission remain unfinished.
 Week 10 stays sealed.
 
 The unchanged archive has 57 QBs / 122 completed 2026 games / 8,996 dropbacks,
 37 first-unit members, 57 sensitivity members and 38 negative first-unit estimates.
 Training uses 48,776 dropbacks across 2024–26 without adding historical points.
 The cohort ends November 7 at 20:41:17 Eastern; evidence cutoff remains
-2026-11-08T02:47:32.067979Z. This is not November 19 live coverage. Original model/
+2026-11-08T02:47:32.067979Z. This is not November 21 live coverage. Original model/
 prediction object hashes and nonduplicated cumulative accounting remain intact.
 
 ## Other product milestones
@@ -49,7 +47,7 @@ benchmark membership and the model observation population.
 
 The required defensive information-loss experiment and Defense Explorer remain:
 131 games / 15,803 plays / 895 defenders; residualized rank 856 versus 193 after
-aggregation. The November 19 metadata check finds no 2026-named asset among 46 in
+aggregation. The November 20 metadata check finds no 2026-named asset among 46 in
 the checked participation release. This is not all-provider absence or verified
 game coverage. No new defensive model was validated in this unit; live lineups,
 defensive uncertainty and comparability remain unfinished. Unsupported
@@ -61,26 +59,27 @@ uncertainty and three benchmark comparisons must accompany any scored input.
 
 ## Deployment and execution state
 
-The owner merged PR #32; fetched main is 3bd3863. [PR #33](https://github.com/AryanParte/nfl-player-value/pull/33)
-targets main directly. No agent merge or history rewrite occurred. Pending review
-and deployment access did not block modeling.
+PR #33 remains open and its CI passes. [PR #34](https://github.com/AryanParte/nfl-player-value/pull/34)
+is explicitly stacked on `codex/functional-proposal-reference`; main remains
+3bd3863. No agent merge or history rewrite occurred. Pending review and deployment
+access did not block modeling.
 
-November 19 metadata reports no Pages site. The latest returned scheduled Explorer
+November 20 metadata reports no Pages site. The latest returned scheduled Explorer
 [run 44200134216](https://github.com/AryanParte/nfl-player-value/actions/runs/44200134216)
 failed November 17 at the explicit first-bootstrap prerequisite. The connector
-lacks Pages configuration/fresh workflow dispatch, and browser access is disabled
-in Work settings. Authenticated bootstrap, remote retention/replay and live-site
+lacks Pages configuration/fresh workflow dispatch, and the last browser check (November 19) found browser access disabled
+in Work settings; no new browser access is claimed. Authenticated bootstrap, remote retention/replay and live-site
 verification remain open; see the [runbook](docs/PRODUCTION_REFRESH.md). An Explorer
 deployment would still not be an admitted CAVAA leaderboard.
 
-Final local make check passes 517 Python tests, 27 frontend contracts, Ruff/format,
-TypeScript/build, compilation and whitespace. Implementation/diagnostics e0ea552
-passes hosted Python 3.11–3.13 and dashboard/Chromium
-[CI 44615405507](https://github.com/AryanParte/nfl-player-value/actions/runs/44615405507).
-Final reporting-head CI is inspected separately. Self-review
-corrects the analytic diagnostic's fine-target versus coarse-surrogate scope,
-with an independent Gaussian test and separate mean-displacement bound. It changes
-no running candidate or gate. See the [learning report](docs/learning/2026-11-19.md).
+Final local make check passes 529 Python tests, 27 frontend contracts, Ruff/format,
+TypeScript/build, compilation and whitespace. Numerical producer ac85ca6 passes
+hosted Python 3.11–3.13 and dashboard/Chromium
+[CI 44826832617](https://github.com/AryanParte/nfl-player-value/actions/runs/44826832617).
+Final reporting/analytical-head CI is inspected separately. Self-review protects
+search-response provenance, explicit diagnostic-arm selection and the distinction
+between a density component and a mode. See the [learning report](docs/learning/2026-11-20.md).
+
 Software verification, numerical coverage and player validation remain distinct.
 
 No new dependency, purchase, paid service, main push, other-repository edit or

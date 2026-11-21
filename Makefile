@@ -50,7 +50,8 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  src/nfl_value/functional_proposal.py tests/test_functional_proposal.py \
  scripts/functional_population_diagnostic.py tests/test_functional_population.py \
  src/nfl_value/mode_proposal.py src/nfl_value/mode_preflight.py src/nfl_value/mode_preflight_cli.py \
- tests/test_mode_preflight.py scripts/analyze_mode_preflight.py
+ tests/test_mode_preflight.py scripts/analyze_mode_preflight.py \
+ scripts/mode_tail_geometry.py tests/test_mode_tail_geometry.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests

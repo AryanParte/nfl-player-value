@@ -192,6 +192,29 @@ module; 192-fit player calibration, sealed Week 10, participation and M4 remain.
 The owner merged #32; [#33](https://github.com/AryanParte/nfl-player-value/pull/33)
 targets main. Production bootstrap remains an independent access blocker.
 
+## November 20: bounded mode discovery and tail-shape diagnosis
+
+Finalized November 21. The [frozen preflight](docs/MODE_PREFLIGHT_DESIGN.md) tests
+multi-start density search and local curvature without changing football priors
+or score definitions. All 320 candidate and 128 diagnostic trials are attempted;
+447 confidence constructions finish and all raw evidence is retained. Both offline
+builds reproduce 14 objects and the manifest. Eight candidate screens pass, but
+case 3 has 0% precision and case 7 has 68.75% precision / 75% joint coverage.
+
+Reject progression to full certification. The [failure analysis](docs/MODE_PREFLIGHT_RESULTS.md)
+finds that case 3's broad component creates no second fine-target density mode;
+case 7 fails whenever the remote mode is missed. All 22 two-mode trials pass
+precision, but selection on that subset is forbidden. A true-component oracle
+still misses a precision screen and cannot be used for NFL inference.
+
+Next freeze a bounded tail-preserving proposal that covers broad nonmodal mass
+alongside separated modes, retaining every original/remote control and all search/
+fitting costs. Do not merely add starts, retune consumed seeds, enlarge samples or
+relax limits. A small feasibility screen never replaces full numerical certification
+or player calibration. M3 participation, M4 defense/comparability, scored history
+and deployment remain open. PR #34 is explicitly stacked on open PR #33. No agent
+merge or schedule change occurred.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.

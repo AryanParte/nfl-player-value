@@ -471,3 +471,11 @@ log-density callable and initial geometry; analytic mixture parameters enter a
 separate unavailable-to-NFL oracle diagnostic. Full importance weights preserve
 the target. There is no football prior, likelihood, benchmark or ledger change.
 A preflight report cannot serve as a numerical certificate or admit any score.
+
+The [complete preflight results](MODE_PREFLIGHT_RESULTS.md) reject progression:
+original case 3 fails precision and remote case 7 fails precision/coverage. All
+448 candidate/diagnostic trials retain raw evidence and reproduce exactly; one
+confidence construction fails. The post-result derivative diagnosis distinguishes
+nonmodal tail mass from a missed density peak. Oracle results do not authorize NFL
+work. The next bounded hypothesis must preserve both tail shape and mode coverage;
+no new method, player calibration or scoring admission is claimed.
