@@ -130,3 +130,20 @@ The next product milestone remains a defensibly validated cumulative 2026 CAVAA
 module with first-unit/equal-player/opportunity-weighted contrasts. The unfinished
 192-fit calibration, participation, defensive work and cross-position comparability
 are not removed by this experiment. Deployment access does not block it.
+
+## Post-result analytical diagnosis — declared November 20
+
+After the complete candidate summaries, case 3 has 0% precision while the search
+can only recover density modes. Before calculating a further diagnostic, ask
+whether its .95 N(0,1)+.05 N(4,4) first-coordinate marginal even has a second mode.
+The remaining coordinates factor as standard normals. This is explicitly a
+post-result mechanism analysis, not fresh validation or a candidate amendment.
+
+For 0<x<4, the density derivative is positive iff
+`g(x)=log(.05/.95/8)+log((4-x)/x)+x²/2-(x-4)²/8 > 0`.
+Its derivative vanishes at roots of `3x³-8x²-16x+16=0`. Compute the real roots in
+(0,4), evaluate g there and bracket all crossings between these stationary points;
+outside [0,4] the marginal derivative has a fixed sign. Validate the algebra against
+an independently evaluated Gaussian-mixture derivative, including a stronger
+second component as a distinct control. Report finite-precision arithmetic limits.
+No new integration trial, oracle fallback, proposal parameter or gate is selected.
