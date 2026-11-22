@@ -479,3 +479,13 @@ confidence construction fails. The post-result derivative diagnosis distinguishe
 nonmodal tail mass from a missed density peak. Oracle results do not authorize NFL
 work. The next bounded hypothesis must preserve both tail shape and mode coverage;
 no new method, player calibration or scoring admission is claimed.
+
+## November 22 tail-mixture result
+
+The [frozen tail-mixture study](TAIL_MIXTURE_DESIGN.md) changes only the sampling
+proposal: a broad component plus independent target-weighted mixture adaptation,
+with original defensive support and full importance weights. The [complete result](TAIL_MIXTURE_RESULTS.md)
+improves one broad-tail screen but fails four retained cases. Matched initial fits
+show that better mean accuracy need not improve endpoint precision. All failed
+intervals and signed integrals remain; no football prior, benchmark, ledger or
+admission rule changes. A protective coverage hypothesis must be frozen separately.

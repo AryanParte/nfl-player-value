@@ -547,3 +547,19 @@ preflight report is rejected before archived NFL access. A post-result fine-targ
 mode-count calculation explains a limitation of local-peak search without changing
 the candidate or gates. A separately frozen tail-preserving hypothesis is required
 before new draws; the failed candidate does not proceed to full certification.
+
+## November 22 tail-mixture comparison
+
+Design a3dd981 freezes all ten cases, 32 candidate trials each and four 32-trial
+matched mode-only diagnostics. Initial fits must reproduce exactly; evaluation
+randomness is separate. Independent finite-sum/Gaussian tests verify adaptation,
+and the full suite passes after repairing zero-count work validation, before draws.
+
+All 448 trials retain raw integrals; 446 confidence sets finish and two complete
+offline builds match every object. Six candidate screens pass, four fail. Case 3
+improves 0/32 to 30/32 precision against the matched diagnostic, but case 6 falls
+31/32 to 10/32 despite better means. The [failure analysis](TAIL_MIXTURE_RESULTS.md)
+keeps failed-confidence point estimates, separate endpoint allowances and complete
+denominators. No conditional subgroup, plain result or diagnostic arm is selected.
+The actual saved preflight blocks NFL access; neither this screen nor exact replay
+substitutes for full numerical certification, player calibration or attribution.

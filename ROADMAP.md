@@ -215,6 +215,23 @@ or player calibration. M3 participation, M4 defense/comparability, scored histor
 and deployment remain open. PR #34 is explicitly stacked on open PR #33. No agent
 merge or schedule change occurred.
 
+## November 22: tail-mixture adaptation and matched failure analysis
+
+The [frozen study](docs/TAIL_MIXTURE_DESIGN.md) adds two independent weighted
+mixture pilots and a matched mode-only diagnostic. All 448 trials are attempted;
+446 confidence constructions finish and all raw integrals remain available.
+Both offline builds reproduce 14 objects and one manifest. Broad displaced
+precision improves to 30/32 versus 0/32, but four candidate screens fail.
+Displaced case 6 falls to 10/32 versus 31/32 despite more accurate means; remote
+case 7 has 11/32 precision, 25/32 coverage and two failed intervals.
+
+The [results](docs/TAIL_MIXTURE_RESULTS.md) reject progression. Next freeze
+protective mode coverage plus broad/endpoint-tail sampling, keeping discovery
+diagnostics, all cases and original work/accuracy limits. No parameter retry,
+selected diagnostic arm or changed football prior is permitted. Full numerical
+certification, player calibration and M3–M6 remain unfinished. The owner merged
+#33/#34; #35 targets main. No agent merge or schedule change occurred.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.
