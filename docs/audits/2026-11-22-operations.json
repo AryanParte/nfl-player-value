@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-22",
+  "repository": "AryanParte/nfl-player-value",
+  "branch": "codex/tail-mixture-preflight",
+  "base": "579e1503baaf7f682354ce158209b07b39c5f176",
+  "owner_merged_prs": [
+    33,
+    34
+  ],
+  "open_prs_at_start": [],
+  "main_ci": 44960707182,
+  "main_ci_conclusion": "success",
+  "has_pages": false,
+  "latest_returned_production_run": 44830945857,
+  "production_failed_step": "Restore last retained candidate (not necessarily last deployed)",
+  "participation_release": {
+    "id": 71636554,
+    "asset_count": 46,
+    "current_2026_assets": [],
+    "scope": "single release metadata, not verified game coverage or all-provider absence"
+  },
+  "no_nfl_outcomes_downloaded": true,
+  "automation_modified": false,
+  "other_repository_modified": false
+}
