@@ -9,9 +9,9 @@ import runpy
 import numpy as np
 
 from nfl_value.ingestion import SnapshotStore
-from nfl_value.mode_preflight import inputs, load, summarize
-from nfl_value.mode_proposal import restore_modes
-from nfl_value.tail_mixture import KIND as TAIL_KIND, restore_tail_mixture
+from nfl_value.mode_preflight import inputs, load, mode_geometry, restore_proposal, summarize
+from nfl_value.protective_mixture import KIND as PROTECTIVE_KIND
+from nfl_value.tail_mixture import KIND as TAIL_KIND
 
 HELPERS = runpy.run_path(str(Path(__file__).with_name("analyze_coarse_controls.py")))
 
@@ -56,7 +56,8 @@ def matched_comparison(candidate, baseline):
         precision_cross_tab=dict(cross),
         initial_mode_groups=groups,
         paired_point_errors=error,
-        caveat="Matched initial mode fits, separate evaluation randomness; adjusted labels denote tail candidate, plain labels denote mode-only diagnostic. All defined point estimates include failed confidence sets. Groups and comparisons are descriptive, never selectable validation subsets or NFL causal effects.",
+        diagnostic_arm=baseline.get("arm", "baseline"),
+        caveat="Matched fitting geometry, separate evaluation randomness; adjusted labels denote candidate, plain labels denote the named diagnostic. All defined point estimates include failed confidence sets. Groups and comparisons are descriptive, never selectable validation subsets or NFL causal effects.",
     )
 
 
@@ -70,7 +71,7 @@ def case_summary(case, plan, target, initial):
     ]
     work = [r["work"]["total"] for r in records if "work" in r]
     g = [r["geometry"] for r in fitted]
-    base_geometry = [x.get("mode_geometry", x) for x in g]
+    base_geometry = [mode_geometry(x) for x in g]
     modes = [r.get("fit_trace", {}).get("discovered_modes", []) for r in records]
     mode_counts = Counter(len(m) for m in modes)
     result = dict(
@@ -81,6 +82,12 @@ def case_summary(case, plan, target, initial):
         retained_fits=len(fitted),
         raw_integral_trials=sum("coarse" in r for r in records),
         failure_reasons=dict(Counter(r.get("error") for r in records if r["status"] != "complete")),
+        control_feature_counts=dict(
+            Counter(str(r["fit"]["feature_count"]) for r in records if "fit" in r)
+        ),
+        control_rank_quantiles=quantiles(
+            [r["fit"]["numerical_rank"] for r in records if "fit" in r]
+        ),
         target_evaluation_quantiles=quantiles(work),
         mode_count_frequencies={str(k): v for k, v in sorted(mode_counts.items())}
         if case["arm"] == "candidate"
@@ -101,7 +108,7 @@ def case_summary(case, plan, target, initial):
             records, plan["reference_endpoint_cdf_tolerance"]
         ),
     )
-    adapted = [x for x in g if x["kind"] == TAIL_KIND]
+    adapted = [x.get("tail_geometry", x) for x in g if x["kind"] in (TAIL_KIND, PROTECTIVE_KIND)]
     if adapted:
         result["tail_adaptation"] = dict(
             broad_slot_available=sum(x["broad_slot_available"] for x in adapted),
@@ -145,11 +152,7 @@ def case_summary(case, plan, target, initial):
             fitted_log_density_ratio_quantiles=quantiles(
                 [
                     target.logpdf(centers)
-                    - (
-                        restore_tail_mixture(x, initial, plan)
-                        if x["kind"] == TAIL_KIND
-                        else restore_modes(x, initial)
-                    ).logpdf(centers, "stabilized-mixture")
+                    - restore_proposal(x, initial, plan).logpdf(centers, "stabilized-mixture")
                     for x in g
                 ]
             ),
@@ -165,6 +168,20 @@ def case_summary(case, plan, target, initial):
             ),
             caveat="Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound",
         )
+        protected = [restore_proposal(x, initial, plan) for x in g if x["kind"] == PROTECTIVE_KIND]
+        if protected:
+            result["protective_density_probes"] = {
+                name: quantiles(
+                    [
+                        np.exp(
+                            getattr(q, name).logpdf(centers, "stabilized-mixture")
+                            - q.logpdf(centers, "stabilized-mixture")
+                        )
+                        for q in protected
+                    ]
+                )
+                for name in ("mode", "tail")
+            }
     return result
 
 
@@ -194,6 +211,10 @@ def main():
     audit["matched_comparisons"] = {
         str(i): matched_comparison(by_key[("candidate", i)], by_key[("baseline", i)])
         for i in result["plan"].get("baseline_targets", [])
+    }
+    audit["tail_comparisons"] = {
+        str(i): matched_comparison(by_key[("candidate", i)], by_key[("tail", i)])
+        for i in result["plan"].get("tail_targets", [])
     }
     if args.reconstruction:
         replica = SnapshotStore(args.reconstruction)
