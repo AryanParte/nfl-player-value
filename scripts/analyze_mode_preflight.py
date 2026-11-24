@@ -11,12 +11,53 @@ import numpy as np
 from nfl_value.ingestion import SnapshotStore
 from nfl_value.mode_preflight import inputs, load, summarize
 from nfl_value.mode_proposal import restore_modes
+from nfl_value.tail_mixture import KIND as TAIL_KIND, restore_tail_mixture
 
 HELPERS = runpy.run_path(str(Path(__file__).with_name("analyze_coarse_controls.py")))
 
 
 def quantiles(values):
     return np.quantile(values, [0, 0.05, 0.5, 0.95, 1], axis=0).tolist() if len(values) else None
+
+
+def matched_comparison(candidate, baseline):
+    a, b = candidate["records"], baseline["records"]
+    if len(a) != len(b) or any(x["trial"] != y["trial"] for x, y in zip(a, b)):
+        raise ValueError("matched trial denominator differs")
+    cross, groups, points = Counter(), {}, []
+    failed_ci_pairs = 0
+    for x, y in zip(a, b):
+        flags = (bool(x.get("precision_passed", False)), bool(y.get("precision_passed", False)))
+        cross[str(flags)] += 1
+        modes = str(len(x.get("fit_trace", {}).get("discovered_modes", [])))
+        group = groups.setdefault(modes, dict(trials=0, candidate_precise=0, baseline_precise=0))
+        group["trials"] += 1
+        group["candidate_precise"] += flags[0]
+        group["baseline_precise"] += flags[1]
+        estimates = []
+        for r in (x, y):
+            if "coarse" not in r or "correction" not in r:
+                continue
+            average = (np.asarray(r["coarse"]) + np.asarray(r["correction"])).mean(axis=0)[:7]
+            if np.isfinite(average).all() and average[0] > 0:
+                estimates.append(np.r_[average[0], average[1:] / average[0]])
+        if len(estimates) == 2:
+            points.append(estimates)
+            failed_ci_pairs += x["status"] != "complete" or y["status"] != "complete"
+    error = (
+        HELPERS["paired_errors"]([p[0] for p in points], [p[1] for p in points], HELPERS["TRUTH"])
+        if len(points) > 1
+        else None
+    )
+    return dict(
+        requested_pairs=len(a),
+        defined_point_pairs=len(points),
+        included_failed_confidence_pairs=failed_ci_pairs,
+        precision_cross_tab=dict(cross),
+        initial_mode_groups=groups,
+        paired_point_errors=error,
+        caveat="Matched initial mode fits, separate evaluation randomness; adjusted labels denote tail candidate, plain labels denote mode-only diagnostic. All defined point estimates include failed confidence sets. Groups and comparisons are descriptive, never selectable validation subsets or NFL causal effects.",
+    )
 
 
 def case_summary(case, plan, target, initial):
@@ -29,6 +70,7 @@ def case_summary(case, plan, target, initial):
     ]
     work = [r["work"]["total"] for r in records if "work" in r]
     g = [r["geometry"] for r in fitted]
+    base_geometry = [x.get("mode_geometry", x) for x in g]
     modes = [r.get("fit_trace", {}).get("discovered_modes", []) for r in records]
     mode_counts = Counter(len(m) for m in modes)
     result = dict(
@@ -48,15 +90,41 @@ def case_summary(case, plan, target, initial):
         )
         if case["arm"] == "candidate"
         else None,
-        pilot_mass_quantiles=quantiles([x["pilot_mass"] for x in g if "pilot_mass" in x]),
+        pilot_mass_quantiles=quantiles(
+            [x["pilot_mass"] for x in base_geometry if "pilot_mass" in x]
+        ),
         pilot_maximum_weight_quantiles=quantiles(
-            [x["pilot_maximum_weight"] for x in g if "pilot_maximum_weight" in x]
+            [x["pilot_maximum_weight"] for x in base_geometry if "pilot_maximum_weight" in x]
         ),
         raw_errors=HELPERS["raw_estimator_diagnostics"](records),
         isolated_wrong_endpoints=HELPERS["isolated_wrong_endpoint_diagnostics"](
             records, plan["reference_endpoint_cdf_tolerance"]
         ),
     )
+    adapted = [x for x in g if x["kind"] == TAIL_KIND]
+    if adapted:
+        result["tail_adaptation"] = dict(
+            broad_slot_available=sum(x["broad_slot_available"] for x in adapted),
+            rounds=[
+                dict(
+                    log_mass_quantiles=quantiles([x["stages"][k]["log_mass"] for x in adapted]),
+                    maximum_weight_quantiles=quantiles(
+                        [x["stages"][k]["maximum_weight"] for x in adapted]
+                    ),
+                    effective_weight_quantiles=quantiles(
+                        [x["stages"][k]["effective_weights"] for x in adapted]
+                    ),
+                    objective_decreases=sum(
+                        s["objective_after"] < s["objective_before"]
+                        for x in adapted
+                        for s in x["stages"][k]["steps"]
+                    ),
+                )
+                for k in range(plan["em_rounds"])
+            ],
+            fitted_means_quantiles=quantiles([x["component_means"] for x in adapted]),
+            fitted_masses_quantiles=quantiles([x["component_masses"] for x in adapted]),
+        )
     decomposition = HELPERS["known_gate_decomposition"](records, plan)
     decomposition["incomplete_trials"] = decomposition.pop("failed_confidence_trials")
     decomposition["failed_confidence_with_raw"] = sum(
@@ -77,7 +145,11 @@ def case_summary(case, plan, target, initial):
             fitted_log_density_ratio_quantiles=quantiles(
                 [
                     target.logpdf(centers)
-                    - restore_modes(x, initial).logpdf(centers, "stabilized-mixture")
+                    - (
+                        restore_tail_mixture(x, initial, plan)
+                        if x["kind"] == TAIL_KIND
+                        else restore_modes(x, initial)
+                    ).logpdf(centers, "stabilized-mixture")
                     for x in g
                 ]
             ),
@@ -118,6 +190,11 @@ def main():
         audit["cases"][f"{c['arm']}-{c['target']}"] = case_summary(
             c, result["plan"], target, initial
         )
+    by_key = {(c["arm"], c["target"]): c for c in result["cases"]}
+    audit["matched_comparisons"] = {
+        str(i): matched_comparison(by_key[("candidate", i)], by_key[("baseline", i)])
+        for i in result["plan"].get("baseline_targets", [])
+    }
     if args.reconstruction:
         replica = SnapshotStore(args.reconstruction)
         load(replica, args.report_id)

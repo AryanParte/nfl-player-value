@@ -1,0 +1,104 @@
+{
+  "recorded_at_utc": "2026-11-22T20:17:06.395378+00:00",
+  "run_date": "2026-11-22",
+  "design_commit": "a3dd981",
+  "producer": "273e9ac4847b6008be2d5ac3ad9e05654758f29b",
+  "kernel_sha256": "a0588b36f713632e0e6acaadd0b396f2530d45790adb93e522fa89bc6be2aecf",
+  "plan_sha256": "3443c16fa5d36f25772a0ab5642c1ba7032c25a7693d0a7c736ade8eb56e6aa1",
+  "report_id": "849bcc3300e7efed79a911a4605bc1cf9e4be0ffb119763fe2900d4097d7586f",
+  "independent_reconstruction_identical": {
+    "objects": 14,
+    "manifests": 1
+  },
+  "executions": {
+    "study.log": {
+      "report_id": "849bcc3300e7efed79a911a4605bc1cf9e4be0ffb119763fe2900d4097d7586f",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 20.597531833918765,
+        "candidate-1": 20.806954041821882,
+        "candidate-2": 24.563456166069955,
+        "candidate-3": 22.295638625044376,
+        "candidate-4": 16.960564375156537,
+        "candidate-5": 21.825896458001807,
+        "candidate-6": 20.72456600004807,
+        "candidate-7": 21.089991666842252,
+        "candidate-8": 21.936579042114317,
+        "candidate-9": 23.287349208956584,
+        "baseline-3": 23.710370833054185,
+        "baseline-5": 23.34347129194066,
+        "baseline-6": 23.30447075003758,
+        "baseline-7": 22.87245833291672
+      },
+      "log_sha256": "89bfece979a4dda7cb69a20debb041f05ad64518aa32360bedbf36c17e3ab608",
+      "case_loop_seconds": 307.3192986259237
+    },
+    "study-offline.log": {
+      "report_id": "849bcc3300e7efed79a911a4605bc1cf9e4be0ffb119763fe2900d4097d7586f",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 20.61905145808123,
+        "candidate-1": 20.815165541134775,
+        "candidate-2": 24.517554917139933,
+        "candidate-3": 22.30456225015223,
+        "candidate-4": 16.94316183286719,
+        "candidate-5": 21.828054832993075,
+        "candidate-6": 20.735879000043496,
+        "candidate-7": 21.091602709144354,
+        "candidate-8": 21.963229125132784,
+        "candidate-9": 23.31195512507111,
+        "baseline-3": 23.71683920896612,
+        "baseline-5": 23.34282216685824,
+        "baseline-6": 23.303641208913177,
+        "baseline-7": 22.87262525013648
+      },
+      "log_sha256": "62d5d6feaad4c3c24a457480008c060576a9209720ec27b95a23381da081e9b4",
+      "case_loop_seconds": 307.3661446266342
+    }
+  },
+  "requested_trials": 448,
+  "candidate_trials": 320,
+  "diagnostic_trials": 128,
+  "raw_integral_trials": 448,
+  "completed_confidence_constructions": 446,
+  "trials_unattempted": 0,
+  "screen_passed": false,
+  "numerical_certified": false,
+  "ranking_ready": false,
+  "actual_archive_gate": {
+    "blocked_before_inputs": true,
+    "error": "coarse control study differs from frozen design"
+  },
+  "analysis_source_sha256": {
+    "scripts/analyze_mode_preflight.py": "0a10d3a4f73569f9083033f5095c265fe3da71ed3ee7053e54fe0a25472b2888",
+    "scripts/analyze_coarse_controls.py": "e77d5ce52bc543cff0d5d0b55a41234715140963aaeae39eb0fee1f6098a3482"
+  },
+  "primary_artifacts_unchanged": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "primary_artifact_hashes_verified": true,
+  "nfl_outcomes_used": false,
+  "sealed_week_10_used": false,
+  "raw_research_store_retention": "local only; no verified durable remote retention",
+  "new_dependencies": [],
+  "new_recurring_cost_usd": 0,
+  "automation_changed": false,
+  "other_repository_changed": false,
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/35",
+  "base": "main",
+  "software_verification": {
+    "initial_check": "failed on new zero-work corruption test",
+    "corrected_make_check_python_tests": 537,
+    "frontend_contracts": 27,
+    "corrected_make_check": "passed",
+    "corrected_log_sha256": "b496500d404d6e32643b6fb5387afcc3a3fd1872008a324f0b7ad066d7d1ee64",
+    "source_hosted_run": 45062740010,
+    "source_hosted_jobs": "all four passed; Python 3.11-3.13 and dashboard/browser",
+    "final_reporting_ci": "inspect separately in PR"
+  }
+}

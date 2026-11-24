@@ -27,14 +27,36 @@ from nfl_value.mode_proposal import (
     restore_modes,
 )
 from nfl_value.tail_controls import TailTarget, tail_proposal
+from nfl_value.tail_mixture import (
+    KIND as TAIL_KIND,
+    fit_tail_mixture,
+    restore_tail_mixture,
+)
 from nfl_value.two_level_reference import combine, sampling_hash
 
 PLAN_HASH = "cbd0c022a598659f408c557079933e1e9e5eb0ca907da779fe60a10bf3d9a433"
 EXPERIMENT = "mode-preflight-report-v1"
+TAIL_PLAN_HASH = "3443c16fa5d36f25772a0ab5642c1ba7032c25a7693d0a7c736ade8eb56e6aa1"
+
+
+def tail_plan(plan):
+    return plan["experiment"] == "tail-mixture-preflight-v1"
+
+
+def experiment_kind(plan):
+    return "tail-mixture-preflight-report-v1" if tail_plan(plan) else EXPERIMENT
+
+
+def arms(plan):
+    return [
+        ("candidate", plan["known_targets"]),
+        ("oracle", plan["oracle_targets"]),
+        ("baseline", plan.get("baseline_targets", [])),
+    ]
 
 
 def validate_plan(plan):
-    if sha256(json_bytes(plan)) != PLAN_HASH:
+    if sha256(json_bytes(plan)) != (TAIL_PLAN_HASH if tail_plan(plan) else PLAN_HASH):
         raise ValueError("mode preflight differs from frozen design")
 
 
@@ -120,7 +142,9 @@ def summarize(records, plan):
 
 
 def trial(target, initial, truth, plan, entropy, arm):
-    if arm not in ("candidate", "oracle"):
+    if arm not in ("candidate", "oracle", "baseline") or (
+        arm == "baseline" and not tail_plan(plan)
+    ):
         raise ValueError("explicit candidate or diagnostic arm required")
     record = dict(entropy=entropy, status="failed")
     work = Work(plan)
@@ -142,11 +166,12 @@ def trial(target, initial, truth, plan, entropy, arm):
         )
 
     try:
-        sampling = (
-            fit_modes(log_density, initial, entropy=entropy, plan=plan, work=work)
-            if arm == "candidate"
-            else oracle_proposal(target, initial)
-        )
+        fitting_entropy = [entropy[0], 0, *entropy[2:]] if arm == "baseline" else entropy
+        if arm == "oracle":
+            sampling = oracle_proposal(target, initial)
+        else:
+            fitter = fit_tail_mixture if arm == "candidate" and tail_plan(plan) else fit_modes
+            sampling = fitter(log_density, initial, entropy=fitting_entropy, plan=plan, work=work)
         record.update(geometry=sampling.diagnostics, geometry_sha256=geometry_hash(sampling))
         out = integrate_controlled(fine, coarse, sampling, entropy=entropy, plan=plan)
         record.update(
@@ -171,9 +196,7 @@ def experiment(plan, progress=lambda _: None, checkpoint=lambda *_: None):
     fixtures = inputs(plan)
     cases, timings = [], {}
     start = perf_counter()
-    for stage, (arm, indices) in enumerate(
-        [("candidate", plan["known_targets"]), ("oracle", plan["oracle_targets"])]
-    ):
+    for stage, (arm, indices) in enumerate(arms(plan)):
         for i in indices:
             target, initial, truth = fixtures[i]
             records, begin = [], perf_counter()
@@ -203,7 +226,7 @@ def experiment(plan, progress=lambda _: None, checkpoint=lambda *_: None):
             checkpoint(key, case)
             progress(f"{key}: {json.dumps(case['decision'], sort_keys=True)}")
     return dict(
-        experiment=EXPERIMENT,
+        experiment=experiment_kind(plan),
         plan=plan,
         cases=cases,
         screen_passed=all(c["decision"]["screen_passed"] for c in cases if c["arm"] == "candidate"),
@@ -216,14 +239,15 @@ def experiment(plan, progress=lambda _: None, checkpoint=lambda *_: None):
 def validate_case(case, initial, truth, plan):
     arm, i = case["arm"], case["target"]
     if (
-        arm not in ("candidate", "oracle")
+        arm not in ("candidate", "oracle", "baseline")
         or case["truth"] != truth
         or case["initial_sampling_sha256"] != sampling_hash(initial)
         or [r["trial"] for r in case["records"]] != list(range(plan["trials"]))
     ):
         raise ValueError("preflight case truth, geometry or trial denominator differs")
     for j, r in enumerate(case["records"]):
-        entropy = [plan["base_seed"], int(arm == "oracle"), i, j]
+        entropy = [plan["base_seed"], {"candidate": 0, "oracle": 1, "baseline": 2}[arm], i, j]
+        fitting_entropy = [plan["base_seed"], 0, i, j] if arm == "baseline" else entropy
         if r["entropy"] != entropy or r["status"] not in ("complete", "failed", "unattempted"):
             raise ValueError("preflight entropy or trial status differs")
         if r["status"] == "unattempted":
@@ -232,23 +256,43 @@ def validate_case(case, initial, truth, plan):
             continue
         w = r["work"]
         if (
-            any(type(v) is not int or v < 0 for v in w["counts"].values())
+            any(type(v) is not int or v <= 0 for v in w["counts"].values())
             or sum(w["counts"].values()) != w["total"]
             or not 0 <= w["total"] <= plan["maximum_target_evaluations"]
         ):
             raise ValueError("preflight work accounting differs")
         if "geometry" in r:
-            sampling = restore_modes(r["geometry"], initial)
+            adapted = arm == "candidate" and tail_plan(plan)
+            sampling = (
+                restore_tail_mixture(r["geometry"], initial, plan)
+                if adapted
+                else restore_modes(r["geometry"], initial)
+            )
             if geometry_hash(sampling) != r["geometry_sha256"] or r["geometry"]["kind"] != (
-                KIND if arm == "candidate" else "known-component-oracle-diagnostic-v1"
+                TAIL_KIND
+                if adapted
+                else (
+                    KIND
+                    if arm in ("candidate", "baseline")
+                    else "known-component-oracle-diagnostic-v1"
+                )
             ):
                 raise ValueError("preflight proposal source/arm differs")
-            if arm == "candidate" and (
-                r["geometry"]["entropy"] != entropy
-                or r["geometry"]["search_entropy"] != [*entropy, 10]
-                or r["geometry"]["pilot_entropy"] != [*entropy, 11]
+            if arm in ("candidate", "baseline") and (
+                r["geometry"]["entropy"] != fitting_entropy
+                or r["geometry"]["search_entropy"] != [*fitting_entropy, 10]
+                or r["geometry"]["pilot_entropy"] != [*fitting_entropy, 11]
             ):
                 raise ValueError("preflight fitting random domains differ")
+            if adapted and any(
+                w["counts"].get(f"em_pilot_{k}") != plan["em_nodes"]
+                for k in range(plan["em_rounds"])
+            ):
+                raise ValueError("tail pilot calls differ")
+            if adapted and any(
+                w["counts"].get(k) != v for k, v in r["geometry"]["fit_work"]["counts"].items()
+            ):
+                raise ValueError("tail fitting calls differ from trial work")
         if "coarse" in r:
             if "geometry" not in r:
                 raise ValueError("preflight evaluated without fitted geometry")
@@ -282,23 +326,31 @@ def validate(result):
     p = result["plan"]
     validate_plan(p)
     if (
-        result["experiment"] != EXPERIMENT
+        result["experiment"] != experiment_kind(p)
         or any(
             result[k] is not False
             for k in ("numerical_certified", "ranking_ready", "nfl_data_used")
         )
         or [(c["arm"], c["target"]) for c in result["cases"]]
-        != [
-            (a, i)
-            for a, ids in [("candidate", p["known_targets"]), ("oracle", p["oracle_targets"])]
-            for i in ids
-        ]
+        != [(a, i) for a, ids in arms(p) for i in ids]
     ):
         raise ValueError("preflight scope cannot certify or publish")
     fixtures = inputs(p)
     for c in result["cases"]:
         _target, initial, truth = fixtures[c["target"]]
         validate_case(c, initial, truth, p)
+    by_key = {(c["arm"], c["target"]): c for c in result["cases"]}
+    for i in p.get("baseline_targets", []):
+        for candidate, baseline in zip(
+            by_key[("candidate", i)]["records"], by_key[("baseline", i)]["records"]
+        ):
+            if (
+                "geometry" in candidate
+                and "geometry" in baseline
+                and json_bytes(candidate["geometry"]["mode_geometry"])
+                != json_bytes(baseline["geometry"])
+            ):
+                raise ValueError("matched diagnostic initial mode geometry differs")
     passed = all(c["decision"]["screen_passed"] for c in result["cases"] if c["arm"] == "candidate")
     if result["screen_passed"] is not passed:
         raise ValueError("preflight screen flag differs")
@@ -313,9 +365,9 @@ def save(output, result, revision, expected_kernel):
         for c in result["cases"]
     ]
     manifest = dict(
-        experiment=EXPERIMENT,
+        experiment=experiment_kind(result["plan"]),
         plan=result["plan"],
-        plan_sha256=PLAN_HASH,
+        plan_sha256=sha256(json_bytes(result["plan"])),
         code_revision=revision,
         kernel_sha256=expected_kernel,
         environment=environment({"plan_version": 2}),
@@ -332,8 +384,8 @@ def load(output, rid):
     m = json.loads(output.read(rid, manifest=True))
     validate_plan(m["plan"])
     if (
-        m["experiment"] != EXPERIMENT
-        or m["plan_sha256"] != PLAN_HASH
+        m["experiment"] != experiment_kind(m["plan"])
+        or m["plan_sha256"] != sha256(json_bytes(m["plan"]))
         or m["kernel_sha256"] != kernel_hash()
         or m["environment"] != environment({"plan_version": 2})
     ):

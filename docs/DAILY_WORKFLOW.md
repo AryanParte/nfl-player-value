@@ -45,36 +45,36 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read [mode preflight results](MODE_PREFLIGHT_RESULTS.md)
-and the [frozen design](MODE_PREFLIGHT_DESIGN.md). The November 20 unit, finalized
-November 21, completes all 320 candidate and 128 diagnostic trials with exact
-reconstruction of 14 objects and one manifest. Eight of ten candidate screens
-pass, but original case 3 has 0% precision and remote case 7 has 68.75% precision /
-75% joint coverage. The one failed confidence construction remains counted.
-The preflight cannot authorize NFL access; do not rerun it as unfinished work.
+For active recovery evidence, read [tail-mixture results](TAIL_MIXTURE_RESULTS.md)
+and the [frozen design](TAIL_MIXTURE_DESIGN.md). The November 22 unit completes
+all 320 candidate and 128 matched mode-only trials. Every trial retains raw
+integrals; 446 confidence constructions finish. Both offline builds reproduce
+all 14 objects and the manifest exactly. Six candidate screens pass; four fail.
+This completed preflight must not be rerun as unfinished work.
 
-The failure mechanisms are distinct. Case 3's weak broad component has no second
-fine-target density peak, established by separately declared post-result derivative
-analysis. Finding local peaks alone does not establish adequate tail coverage. In case 7, all 22
-trials finding both modes pass precision; all ten finding one fail. Those subsets
-are descriptive, never selectable validation populations. The true-component oracle
-also misses an endpoint screen and is unavailable to real inference.
+Case 3's broad nonmodal mass improves: precision is 30/32 versus 0/32 for mode-only.
+Case 6's means improve but endpoint precision falls to 10/32 versus 31/32. Remote
+case 7 has both missed modes and post-discovery integration failures: among 23
+two-mode trials, adaptation passes ten and mode-only 23. These subgroups are
+descriptive and cannot be selected. Two failed intervals stay in the denominator.
 
-Next freeze one bounded tail-preserving proposal hypothesis that covers broad
-nonmodal mass alongside separated modes. Retain every original/remote case,
-independent random domains, complete search/fitting/evaluation work and a stop
-rule before fresh draws. Do not merely add starts, retune moment/covariance values
-on consumed draws, choose successful-mode trials or the plain/oracle diagnostic,
-grow samples automatically, change priors or relax gates. No new alternative is
-validated. Full numerical certification still precedes the unchanged archived
-pilot, unfinished 192-fit player study and observational admission. Week 10 stays
-sealed. A 32-trial feasibility screen is not a substitute for full coverage gates.
+Next freeze one bounded protective proposal retaining mode coverage while adding
+broad/endpoint-tail sampling. Any pointwise proposal-density guarantee is not a
+controlled-variance or coverage guarantee. Keep global discovery diagnostics
+separate, all retained cases and full work accounting. Do not tune the consumed
+EM steps/covariances, select a diagnostic/plain arm or successful-search subset,
+grow samples automatically, change priors, widen intervals or relax gates.
 
-PR #33 remains open; #34 is explicitly stacked on its branch. Inspect actual current
-PR/review/CI state every run. Deployment remains an independent first-bootstrap
-access blocker. Defense, qualification and the cross-position objective remain
-required; unsupported contributions stay missing. The last model archive still
-ends November 7 evening and is not current game coverage.
+The candidate is rejected before full certification. A small screen cannot replace
+full coverage requirements or authorize NFL inputs. The unchanged archived pilot,
+unfinished 192-fit player calibration and observational admission remain required.
+Week 10 stays sealed. The archive still ends November 7 evening.
+
+The owner merged #33/#34; #35 targets main directly. Inspect actual current
+PR/review/CI state each run. Deployment still needs its first authenticated
+bootstrap; the latest returned Nov 20 production failure explicitly requires it.
+No new deployment/browser access was established here. Defense, qualification and
+the cross-position objective remain mandatory, with unsupported scores unavailable.
 
 No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
 selection is permitted. Preserve negative season values and benchmark covariance.
