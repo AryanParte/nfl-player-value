@@ -45,36 +45,41 @@ If the owning run is conclusively stopped and its token is available, release no
 6. Update the roadmap, project status/next task, and a dated learning report. Commit only reviewed files, push the feature branch, and open or update a reviewable PR. Never merge or push directly to `main`. The initial empty-repository bootstrap is a one-time exception handled during repository creation, not permission for future direct pushes.
 7. Report the PR link, verification evidence, unresolved uncertainties, and next priority. Release the lease even after a recoverable failure. If a tool failure prevents release, report the held lease and run ID so recovery can be deliberate.
 
-For active recovery evidence, read [tail-mixture results](TAIL_MIXTURE_RESULTS.md)
-and the [frozen design](TAIL_MIXTURE_DESIGN.md). The November 22 unit completes
-all 320 candidate and 128 matched mode-only trials. Every trial retains raw
-integrals; 446 confidence constructions finish. Both offline builds reproduce
-all 14 objects and the manifest exactly. Six candidate screens pass; four fail.
-This completed preflight must not be rerun as unfinished work.
+For active recovery evidence, read [protective-mixture results](PROTECTIVE_MIXTURE_RESULTS.md)
+and the [frozen design](PROTECTIVE_MIXTURE_DESIGN.md). The November 23 unit completes
+all 320 candidate, 128 mode-only and 128 tail-only diagnostic trials. All 576 retain
+raw integrals; 574 confidence constructions finish. Both offline builds reproduce
+all 18 objects and the manifest exactly. Six candidate screens pass, four fail.
+This completed fixed-mixture preflight must not be rerun as unfinished work.
 
-Case 3's broad nonmodal mass improves: precision is 30/32 versus 0/32 for mode-only.
-Case 6's means improve but endpoint precision falls to 10/32 versus 31/32. Remote
-case 7 has both missed modes and post-discovery integration failures: among 23
-two-mode trials, adaptation passes ten and mode-only 23. These subgroups are
-descriptive and cannot be selected. Two failed intervals stay in the denominator.
+Case 3 passes precision 32/32 versus mode-only 0/32 and tail-only 30/32. Case 6
+always finds both modes, but passes only 21/32 versus 32/32 and 11/32. Eleven
+combined endpoint checks fail. Remote case 7 misses a mode in 12 trials; among
+20 finding both, protected precision passes 15, mode-only 20 and tail-only four.
+Some remote point-error RMSEs worsen despite better precision counts. Both failed
+confidence constructions remain counted; no conditional subset can be selected.
 
-Next freeze one bounded protective proposal retaining mode coverage while adding
-broad/endpoint-tail sampling. Any pointwise proposal-density guarantee is not a
-controlled-variance or coverage guarantee. Keep global discovery diagnostics
-separate, all retained cases and full work accounting. Do not tune the consumed
-EM steps/covariances, select a diagnostic/plain arm or successful-search subset,
-grow samples automatically, change priors, widen intervals or relax gates.
+Next freeze component-level ratio-residual variance diagnostics and a justified
+bounded allocation/discovery alternative. Any allocation must use independent
+pilot information, never known-answer errors or evaluation draws. Keep discovery
+separate from integration after discovery, all retained cases, an unchanged
+comparator, fresh random domains and explicit full-work limits. The density floor
+has not certified controlled variance or coverage. Do not retune the half mixture,
+select a diagnostic/plain winner, grow samples automatically, change priors,
+widen intervals or relax gates. A proposed allocation is not automatically
+optimal for QMC and is not yet a validated fix.
 
-The candidate is rejected before full certification. A small screen cannot replace
+The candidate is rejected before full certification. Small screens cannot replace
 full coverage requirements or authorize NFL inputs. The unchanged archived pilot,
 unfinished 192-fit player calibration and observational admission remain required.
-Week 10 stays sealed. The archive still ends November 7 evening.
+Week 10 stays sealed; the archive still ends November 7 evening.
 
-The owner merged #33/#34; #35 targets main directly. Inspect actual current
-PR/review/CI state each run. Deployment still needs its first authenticated
-bootstrap; the latest returned Nov 20 production failure explicitly requires it.
-No new deployment/browser access was established here. Defense, qualification and
-the cross-position objective remain mandatory, with unsupported scores unavailable.
+At the November 23 audit, #35 remains open, main is 579e150, and #36 is explicitly
+stacked on #35's codex/tail-mixture-preflight at d46a2d9. Inspect actual PR/review/CI
+state each run. Deployment still needs its first authenticated bootstrap; latest
+returned production run 44830945857 failed November 20 with that exact requirement.
+No new deployment/browser session was established. Defense, qualification and the
+cross-position objective remain mandatory; unsupported scores stay unavailable.
 
 No zero-likelihood substitution, arbitrary jitter, changed prior or favorable seed
 selection is permitted. Preserve negative season values and benchmark covariance.

@@ -8,22 +8,24 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-The November 22 [tail-mixture study](docs/TAIL_MIXTURE_RESULTS.md) completes all
-320 candidate and 128 matched diagnostic trials, with exact reconstruction of
-14 objects and the manifest. Broad nonmodal precision improves to 30/32 versus
-0/32 for mode-only, but four candidate cases fail. Remote precision is 11/32 with
-two failed confidence constructions retained. **No CAVAA module is admitted.**
+The November 23 [protective-mixture study](docs/PROTECTIVE_MIXTURE_RESULTS.md)
+completes all 576 numerical trials and reconstructs all 18 objects and the manifest
+exactly. It improves broad-tail precision but fails four of ten candidate screens.
+The displaced case passes 21/32 versus 32/32 for matched mode-only and 11/32 for
+tail-only; remote discovery and endpoint precision remain unresolved.
+**No CAVAA module is admitted.**
 
-First-unit/equal-player/opportunity-weighted benchmarks, negative values and
-cumulative accounting remain intact for 57 QBs / 122 archived games ending
-November 7 evening. All 17 modules remain unadmitted. Next freeze a proposal
-retaining mode coverage while adding broad/endpoint-tail sampling before full
-numerical and player validation. Participation, defense/comparability and ranked
-history remain required; Explorer deployment still needs authenticated bootstrap.
+First-unit/equal-player/opportunity-weighted benchmarks, negative contributions
+and cumulative accounting remain intact for 57 QBs / 122 archived games ending
+November 7 evening. All 17 modules remain unadmitted. Next freeze a bounded
+component-allocation/discovery study informed by separate residual-variance and
+discovery diagnostics. Full numerical/player validation, participation,
+defense/comparability and scored history remain required. Explorer deployment
+still needs its authenticated bootstrap.
 
-[PR #35](https://github.com/AryanParte/nfl-player-value/pull/35) targets main after
-the owner merged #33/#34. See [milestones](docs/MILESTONES.md) and the
-[learning report](docs/learning/2026-11-22.md). Week 10 stays sealed.
+[PR #36](https://github.com/AryanParte/nfl-player-value/pull/36) is stacked on open
+#35. See [milestones](docs/MILESTONES.md) and the
+[learning report](docs/learning/2026-11-23.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit

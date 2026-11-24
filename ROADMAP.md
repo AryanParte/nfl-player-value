@@ -232,6 +232,30 @@ selected diagnostic arm or changed football prior is permitted. Full numerical
 certification, player calibration and M3–M6 remain unfinished. The owner merged
 #33/#34; #35 targets main. No agent merge or schedule change occurred.
 
+## November 23: protective mixture and matched three-arm diagnosis
+
+The [frozen protective candidate](docs/PROTECTIVE_MIXTURE_DESIGN.md) retains half
+of both mode and tail proposals within the previous target-call budget. All 576
+trials retain raw integrals; 574 confidence constructions finish. Two offline
+builds reproduce all 18 objects and the manifest. The [measured result](docs/PROTECTIVE_MIXTURE_RESULTS.md)
+rejects progression after four failed candidate screens. The broad nonmodal case
+passes 32/32; displaced precision is 21/32 versus 32/32 mode-only and 11/32 tail-only.
+Every displaced trial finds both modes, so endpoint integration remains a blocker.
+Remote discovery also fails, and some outlier errors worsen despite improved
+precision counts. Failed confidence trials and both diagnostics remain visible.
+
+Next freeze component ratio-residual variance/discovery diagnostics and one
+justified bounded allocation/discovery alternative, with independent pilots,
+all retained cases and unchanged precision rules. Do not retune the fixed mixture
+or adopt a diagnostic winner. Full numerical certification, archived comparison,
+player calibration and admission remain required. No new NFL outcomes were read.
+
+PR #36 is explicitly stacked on still-open #35; pending review did not block work.
+All six [milestones](docs/MILESTONES.md) remain explicit. Defense and qualification
+are required, scored history is unavailable, and authenticated Explorer bootstrap
+and durable retention remain unfinished. Neither successful software checks nor
+exact numerical replay is a validated CAVAA module.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.

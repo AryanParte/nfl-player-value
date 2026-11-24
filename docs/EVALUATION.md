@@ -563,3 +563,19 @@ keeps failed-confidence point estimates, separate endpoint allowances and comple
 denominators. No conditional subgroup, plain result or diagnostic arm is selected.
 The actual saved preflight blocks NFL access; neither this screen nor exact replay
 substitutes for full numerical certification, player calibration or attribution.
+
+## November 23 protected proposal and matched diagnostics
+
+Design 0b85e56 freezes 320 candidate, 128 mode-only and 128 tail-only trials
+before numerical producer 1bc5718 and all study draws. Initial mode fits match
+all arms; adaptation matches candidate versus tail-only. Evaluation and control
+training use separate random domains. All ten retained synthetic cases remain,
+with unchanged work, precision and severe-undercoverage rules.
+
+The [results](PROTECTIVE_MIXTURE_RESULTS.md) reject progression after four failed
+candidate screens. Independent Gaussian density and signed-integral tests verify
+the implementation, but cannot validate numerical-error coverage. The known-answer
+experiment supplies that separate evidence, retaining failed confidence sets and
+defined point errors. The remote case has only 21/32 joint coverage. Full numerical
+certification, the archived NFL comparison and unfinished player-calibration study
+remain required. No new NFL outcomes or sealed Week 10 data enter this experiment.
