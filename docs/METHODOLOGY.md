@@ -489,3 +489,19 @@ improves one broad-tail screen but fails four retained cases. Matched initial fi
 show that better mean accuracy need not improve endpoint precision. All failed
 intervals and signed integrals remain; no football prior, benchmark, ledger or
 admission rule changes. A protective coverage hypothesis must be frozen separately.
+
+## November 23 protective-mixture result
+
+The [frozen protective mixture](PROTECTIVE_MIXTURE_DESIGN.md) preserves half the
+original mode proposal and half the adapted tail proposal. Full mixture weights,
+original defensive mass and signed integrals preserve the numerical target.
+The pointwise density floor bounds an unnormalized second moment; it does not
+certify finite fitted-control variance, ratio uncertainty or QMC coverage.
+
+The [completed study](PROTECTIVE_MIXTURE_RESULTS.md) rejects progression: six of
+ten candidate screens pass. The broad nonmodal case reaches 32/32 precision;
+the displaced case reaches 21/32 versus 32/32 for matched mode-only and 11/32 for
+tail-only. Every displaced-case trial finds both modes, yet 11 combined endpoint
+checks fail. Density protection alone is insufficient. Remote discovery and
+post-discovery precision must remain separate diagnostics. No control/diagnostic
+fallback, football prior, benchmark, qualification or admission rule changes.

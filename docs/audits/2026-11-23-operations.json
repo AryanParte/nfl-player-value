@@ -1,0 +1,30 @@
+{
+  "checked_at_utc": "2026-11-23 22:14:24 UTC",
+  "repository": "AryanParte/nfl-player-value",
+  "main": "579e1503baaf7f682354ce158209b07b39c5f176",
+  "pr35": {
+    "state": "open",
+    "head": "d46a2d99334dfeb7a7574ab5f8323201c851cd11",
+    "reviews": [],
+    "ci_run": 45066379321,
+    "ci": "success"
+  },
+  "stack_base": "codex/tail-mixture-preflight",
+  "has_pages": false,
+  "latest_returned_production": [
+    {
+      "id": 44830945857,
+      "conclusion": "failure",
+      "created_at": "2026-11-20T22:41:01Z"
+    }
+  ],
+  "production_failure": "Explorer production step failed: no retained Explorer; first manual run requires bootstrap",
+  "participation_release": {
+    "repository": "nflverse/nflverse-data",
+    "tag": "pbp_participation",
+    "id": 71636554,
+    "assets": 46,
+    "assets_named_2026": []
+  },
+  "limits": "One release metadata check only, not a universal availability or game-coverage audit. No fresh NFL outcome data, new browser session, authenticated deployment or schedule change."
+}

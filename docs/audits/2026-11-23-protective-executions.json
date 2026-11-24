@@ -1,0 +1,112 @@
+{
+  "recorded_at_utc": "2026-11-24T01:27:15.273327+00:00",
+  "run_date": "2026-11-23",
+  "design_commit": "0b85e56",
+  "producer": "1bc5718b9dd595c9a46667ee14c1b45387711967",
+  "kernel_sha256": "da647619e4018fee0f2a7ef4c8f214f27244ff205a7a0aebe8f572c466fba445",
+  "plan_sha256": "168ffd8a171a516b9d8d0094f882d11c78060e74663237814a712d1ff9d70b5c",
+  "report_id": "4163d5718c8c79c78372243273ea3cc82600d7824238f4a28e5941ae2bbcb9fc",
+  "independent_reconstruction_identical": {
+    "objects": 18,
+    "manifests": 1
+  },
+  "executions": {
+    "study.log": {
+      "report_id": "4163d5718c8c79c78372243273ea3cc82600d7824238f4a28e5941ae2bbcb9fc",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 49.762361832894385,
+        "candidate-1": 92.71983416704461,
+        "candidate-2": 110.0317368330434,
+        "candidate-3": 92.70151904202066,
+        "candidate-4": 90.61263033398427,
+        "candidate-5": 100.36741608288139,
+        "candidate-6": 99.48857025010511,
+        "candidate-7": 84.57500687497668,
+        "candidate-8": 41.86018458311446,
+        "candidate-9": 41.08317954116501,
+        "baseline-3": 20.744057500036433,
+        "baseline-5": 21.342590457992628,
+        "baseline-6": 20.405738916015252,
+        "baseline-7": 19.418196333106607,
+        "tail-3": 23.267594500212,
+        "tail-5": 22.104365667095408,
+        "tail-6": 20.9803319578059,
+        "tail-7": 24.19040520908311
+      },
+      "log_sha256": "04e770e3b4ed3fb3b0599a8dbaaa82ced668d194cc7797e74dafd61db3fb2b18",
+      "case_loop_seconds": 975.6557200825773
+    },
+    "study-offline.log": {
+      "report_id": "4163d5718c8c79c78372243273ea3cc82600d7824238f4a28e5941ae2bbcb9fc",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 49.74016279098578,
+        "candidate-1": 92.50904199993238,
+        "candidate-2": 109.77583916694857,
+        "candidate-3": 92.51918470789678,
+        "candidate-4": 90.46393666695803,
+        "candidate-5": 100.1712007089518,
+        "candidate-6": 99.23118091700599,
+        "candidate-7": 85.33805716596544,
+        "candidate-8": 41.76842762506567,
+        "candidate-9": 40.9926460001152,
+        "baseline-3": 20.714809875003994,
+        "baseline-5": 21.30485683400184,
+        "baseline-6": 20.389324124902487,
+        "baseline-7": 19.379592374898493,
+        "tail-3": 23.233275499893352,
+        "tail-5": 21.978892459068447,
+        "tail-6": 20.779671374941245,
+        "tail-7": 24.148940165992826
+      },
+      "log_sha256": "7f73288c09eb29e40f009ad47c8a8ad62bf2ec378b063c01f91161948cd756bd",
+      "case_loop_seconds": 974.4390404585283
+    }
+  },
+  "requested_trials": 576,
+  "candidate_trials": 320,
+  "diagnostic_trials": 256,
+  "raw_integral_trials": 576,
+  "completed_confidence_constructions": 574,
+  "trials_unattempted": 0,
+  "screen_passed": false,
+  "numerical_certified": false,
+  "ranking_ready": false,
+  "actual_archive_gate": {
+    "blocked_before_inputs": true,
+    "error": "coarse control study differs from frozen design"
+  },
+  "analysis_source_sha256": {
+    "scripts/analyze_mode_preflight.py": "35e8dfa617864d202ee5dd3c81ff528106e72bae306477b70955bb8a81a39391",
+    "scripts/analyze_coarse_controls.py": "e77d5ce52bc543cff0d5d0b55a41234715140963aaeae39eb0fee1f6098a3482"
+  },
+  "primary_artifacts_unchanged": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "primary_artifact_hashes_verified": true,
+  "nfl_outcomes_used": false,
+  "sealed_week_10_used": false,
+  "raw_research_store_retention": "local only; no verified durable remote retention",
+  "new_dependencies": [],
+  "new_recurring_cost_usd": 0,
+  "automation_changed": false,
+  "other_repository_changed": false,
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/36",
+  "base": "codex/tail-mixture-preflight",
+  "software_verification": {
+    "initial_check": "passed before scientific draws",
+    "make_check_python_tests": 543,
+    "frontend_contracts": 27,
+    "make_check": "passed",
+    "make_check_log_sha256": "617eadda30b4069d649ed3eaf808fba271cbfc4989e9c9d8400aab09967df8cb",
+    "source_hosted_run": 45287372251,
+    "source_hosted_jobs": "all four passed; Python 3.11-3.13 and dashboard/browser",
+    "final_reporting_ci": "inspect separately in PR"
+  }
+}
