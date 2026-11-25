@@ -288,6 +288,10 @@ def main():
         )
         for i in result["plan"].get("previous_targets", [])
     }
+    audit["endpoint_comparisons"] = {
+        str(i): matched_comparison(by_key[("candidate", i)], by_key[("polynomial", i)])
+        for i in result["plan"].get("polynomial_targets", [])
+    }
     if args.reconstruction:
         replica = SnapshotStore(args.reconstruction)
         load(replica, args.report_id)

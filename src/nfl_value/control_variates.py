@@ -101,7 +101,7 @@ class FittedControl:
         return dict(coefficients=self.coefficients.tolist(), **self.diagnostics)
 
 
-def fit_control(f, sampling, *, entropy, nodes, relative_ridge):
+def fit_control(f, sampling, *, entropy, nodes, relative_ridge, endpoint_settings=None):
     if not np.isfinite(relative_ridge) or relative_ridge <= 0:
         raise ValueError("positive fixed numerical ridge required")
     points, weights = training_points(sampling, entropy, nodes)
@@ -111,7 +111,13 @@ def fit_control(f, sampling, *, entropy, nodes, relative_ridge):
         raise ValueError("complete finite training responses required")
     if np.any(weights <= 0) or not np.isclose(weights.sum(), 1, rtol=0, atol=1e-14):
         raise ValueError("normalized positive mixture fitting weights required")
-    basis = GaussianControls(sampling)
+    extra = {}
+    if endpoint_settings is None:
+        basis = GaussianControls(sampling)
+    else:
+        from nfl_value.endpoint_controls import fit_endpoint_basis
+
+        basis, extra = fit_endpoint_basis(sampling, points, weights, logq, y, endpoint_settings)
     h = basis.features(points, logq)
     hmean, ymean = weights @ h, weights @ y
     centered = h - hmean
@@ -149,7 +155,7 @@ def fit_control(f, sampling, *, entropy, nodes, relative_ridge):
         training_residual_rms=np.sqrt(weights @ (residual * residual)).tolist(),
         training_response_rms=np.sqrt(weights @ ((y - ymean) ** 2)).tolist(),
     )
-    return FittedControl(basis, coefficients, diagnostics)
+    return FittedControl(basis, coefficients, {**diagnostics, **extra})
 
 
 def controlled_integrals(f, fitted, sampling, *, entropy, replicates, nodes, progress=None):
