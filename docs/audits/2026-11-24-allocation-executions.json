@@ -1,0 +1,115 @@
+{
+  "recorded_at_utc": "2026-11-25T02:23:30.524844+00:00",
+  "run_date": "2026-11-24",
+  "design_commit": "13703f1",
+  "producer": "1e2a39b90e2e0f276f576474637025d809f80b99",
+  "kernel_sha256": "5b7b910cd86b4c306de4ae5200abebb05b32ca1733caab4548da5fb15c1b2c15",
+  "plan_sha256": "d0adbccfbbd77616e291045df541cad157ef7020d15284b804af0ac0128568fe",
+  "report_id": "a99b4289cf5791daa2db0c41a7d6edc4e26bd9a546bb817d2c4ed4c00970802f",
+  "independent_reconstruction_identical": {
+    "objects": 18,
+    "manifests": 1
+  },
+  "executions": {
+    "study.log": {
+      "report_id": "a99b4289cf5791daa2db0c41a7d6edc4e26bd9a546bb817d2c4ed4c00970802f",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 34.291545832995325,
+        "candidate-1": 39.55087891709991,
+        "candidate-2": 48.42826208402403,
+        "candidate-3": 44.248309209011495,
+        "candidate-4": 35.866649416973814,
+        "candidate-5": 43.39167645899579,
+        "candidate-6": 43.08248308394104,
+        "candidate-7": 42.431058457819745,
+        "candidate-8": 42.492492666933686,
+        "candidate-9": 44.86820983304642,
+        "equal-3": 45.01445604185574,
+        "equal-6": 52.8167124169413,
+        "equal-7": 42.88931837514974,
+        "equal-9": 43.74704304197803,
+        "previous-3": 44.86915249982849,
+        "previous-6": 48.465714749880135,
+        "previous-7": 50.41124033299275,
+        "previous-9": 51.447628958150744
+      },
+      "log_sha256": "43a24c48da1023561c3105b8c743bc396d7a3b4508d5f6ff0213469a469c0650",
+      "case_loop_seconds": 798.3128323776182
+    },
+    "study-offline.log": {
+      "report_id": "a99b4289cf5791daa2db0c41a7d6edc4e26bd9a546bb817d2c4ed4c00970802f",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 34.26442958298139,
+        "candidate-1": 39.48611650010571,
+        "candidate-2": 48.42203808296472,
+        "candidate-3": 44.208765499992296,
+        "candidate-4": 35.79638945800252,
+        "candidate-5": 43.33820970891975,
+        "candidate-6": 42.98423520801589,
+        "candidate-7": 42.38241441687569,
+        "candidate-8": 42.406644750153646,
+        "candidate-9": 44.734429583884776,
+        "equal-3": 44.98560249991715,
+        "equal-6": 52.60671650012955,
+        "equal-7": 42.88871379196644,
+        "equal-9": 43.69214295898564,
+        "previous-3": 44.69650875008665,
+        "previous-6": 48.028265208005905,
+        "previous-7": 50.43705337494612,
+        "previous-9": 51.44971991702914
+      },
+      "log_sha256": "1f8455e586b080721abcd5be882398b0cfb0eb04e6c430fe3ae8a5ac8b36ae83",
+      "case_loop_seconds": 796.808395792963
+    }
+  },
+  "requested_trials": 576,
+  "candidate_trials": 320,
+  "diagnostic_trials": 256,
+  "raw_integral_trials": 576,
+  "completed_confidence_constructions": 576,
+  "trials_unattempted": 0,
+  "screen_passed": false,
+  "numerical_certified": false,
+  "ranking_ready": false,
+  "actual_archive_gate": {
+    "blocked_before_inputs": true,
+    "error": "coarse control study differs from frozen design"
+  },
+  "analysis_source_sha256": {
+    "scripts/analyze_mode_preflight.py": "cf50dae608c5ca2717d37b8a4a4dbc613d73df672d697f285c9f315a5c91f510",
+    "scripts/analyze_coarse_controls.py": "e77d5ce52bc543cff0d5d0b55a41234715140963aaeae39eb0fee1f6098a3482"
+  },
+  "primary_artifacts_unchanged": {
+    "models": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+    "predictions": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13"
+  },
+  "primary_artifact_hashes_verified": true,
+  "nfl_outcomes_used": false,
+  "sealed_week_10_used": false,
+  "raw_research_store_retention": "local only; no verified durable remote retention",
+  "new_dependencies": [],
+  "new_recurring_cost_usd": 0,
+  "automation_changed": false,
+  "other_repository_changed": false,
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/37",
+  "base": "main",
+  "software_verification": {
+    "initial_check": "passed before scientific draws; affected checks rerun after review fixes",
+    "make_check_python_tests": 549,
+    "frontend_contracts": 27,
+    "make_check": "passed",
+    "make_check_log_sha256": "3dbd0b812e4e7bb20504a8e025d76d90a39e80625f344a42691b35ad6333b821",
+    "targeted_log_sha256": "98c75dcc849405d732fdb8c54385ed78712fd8ff761d8f32d6892f3ec1f6522c",
+    "source_hosted_run": 45527815564,
+    "final_reporting_ci": "inspect separately in PR",
+    "source_hosted_jobs": "All four passed: Python 3.11, 3.12, 3.13 and dashboard/Chromium"
+  },
+  "analysis_json_semantic_sha256": "060ecfdc9eceb7be0c04a3aac629f3b2a0f48c0991672888de9c5e7ba70dd764",
+  "analysis_json_format": "Numeric vectors inline; identical parsed content to analyze_mode_preflight.py output"
+}

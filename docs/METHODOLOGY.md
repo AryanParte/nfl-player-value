@@ -505,3 +505,20 @@ tail-only. Every displaced-case trial finds both modes, yet 11 combined endpoint
 checks fail. Density protection alone is insufficient. Remote discovery and
 post-discovery precision must remain separate diagnostics. No control/diagnostic
 fallback, football prior, benchmark, qualification or admission rule changes.
+
+## November 24 independent allocation and discovery
+
+The [frozen allocation/discovery design](ALLOCATION_DISCOVERY_DESIGN.md) allocates
+computer samples, not player value. An independent pilot estimates ratio residuals
+including numerator/mass covariance, then an exact finite optimizer allocates the
+unchanged integration budget across all components. Final integration uses the
+original mixture masses and full proposal density; unequal sample counts never
+change the target. Fitting, pilot, coarse evaluation and correction use disjoint
+random domains. Known answers do not enter the allocator.
+
+The [results](ALLOCATION_DISCOVERY_RESULTS.md) improve displaced/remote precision
+and mode discovery but reject progression on curved-endpoint precision. Rare
+remote errors and imperfect numerical coverage remain explicit. Smooth CDF
+controls with analytically known integrals are a next hypothesis to freeze and
+validate, not an implemented change. No likelihood, prior, CAVAA benchmark,
+cumulative ledger, qualification or position-admission rule changes.
