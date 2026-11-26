@@ -1,0 +1,102 @@
+{
+  "run_date": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:56:44.187Z",
+  "main_sha": "9c8d2fd7ff5594d92e5b0d33d3f87c8a5d19f1bf",
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/38",
+  "base": "main",
+  "parent_head": "b977164d586debeb797ca36f6f3534f5c4de9f43",
+  "parent_ci": {
+    "run": 45533513097,
+    "conclusion": "success"
+  },
+  "producer": "55187bd21bda0224095e011a6eef48035eaf8d14",
+  "producer_ci": {
+    "run": 45724338274,
+    "jobs": [
+      {
+        "name": "dashboard",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "contracts (3.11)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "contracts (3.12)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "contracts (3.13)",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "has_pages": false,
+  "latest_returned_production": 45520666532,
+  "production_status": "failure; same November 24 first-bootstrap failure already diagnosed",
+  "access": {
+    "github_connector_dispatch": false,
+    "github_connector_pages_configuration": false,
+    "browser": "Not rechecked November 25; last verified November 24 signed out."
+  },
+  "participation_feed": {
+    "url": "https://api.github.com/repos/nflverse/nflverse-data/releases/71636554",
+    "id": 71636554,
+    "updated_at": "2026-02-10T18:54:08Z",
+    "asset_count": 46,
+    "assets_named_2026": [],
+    "first_tag_request": "ReadTimeout; successful metadata retry by known release ID",
+    "limitation": "This release's metadata only; not universal absence or verified completed-game coverage."
+  },
+  "admission": {
+    "modules": 17,
+    "admitted": 0
+  },
+  "original_model_sha256": "d5179596e957d1a7b2bc1d7c17cdee953f46b4cf2297bfdabe426c9096e89a21",
+  "original_predictions_sha256": "0c8c27b6d1001db0d881635d05989fe551730daadf76ba416be84492824d4a13",
+  "original_artifact_hashes_verified": true,
+  "deployment_performed": false,
+  "automation_changed": false,
+  "other_repository_changed": false,
+  "purchases": 0,
+  "repair_producer": "671c349312633bf5e2e85c837a7f2c84ce6debde",
+  "repair_producer_ci": {
+    "run": 45727731668,
+    "conclusion": "success",
+    "jobs": [
+      "contracts (3.11)",
+      "contracts (3.12)",
+      "contracts (3.13)",
+      "dashboard"
+    ]
+  },
+  "runtime_diagnostic": {
+    "time_utc": "2026-11-26T00:55:21Z",
+    "study_elapsed": "37:16",
+    "study_cpu_time": "10:17.25",
+    "reconstruction_elapsed": "37:15",
+    "reconstruction_cpu_time": "10:16.99",
+    "sample_seconds": 1,
+    "sample_physical_footprint_mb": 393.7,
+    "interpretation": "Elapsed time substantially exceeds process CPU time. The pause/contention cause is unverified; the one-second stack includes ordinary Python/NumPy/Sobol work. No numerical settings or machine power settings changed."
+  },
+  "initial_main_sha": "da12cbf1561ba50b9e41de264ad6cf85c5c85066",
+  "initial_stack_parent_pr": 37,
+  "owner_merged_parent_pr": 37,
+  "current_pr_rechecked_at_utc": "2026-11-26T01:17:07Z",
+  "final_evidence": {
+    "v1_manifest": "d58b6bd9a06d8d5772f0471cf022416545def1e55274f6f8bf0a7bfc757ff298",
+    "v2_manifest": "4ada200017eb0d90c0e0be0a6532a4ded10ee67a702406f673678e6e39f205fa",
+    "v1_complete_arm_trials": 768,
+    "v2_complete_arm_trials": 896,
+    "independent_reconstructions": "all 24/28 objects and respective manifests exact",
+    "actual_saved_report_archive_gates": "both reject before mocked NFL inputs",
+    "numerical_certified": false,
+    "ranking_ready": false,
+    "reporting_head_ci": "inspect after final report commit; producer CI is not that check"
+  }
+}

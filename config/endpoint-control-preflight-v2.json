@@ -1,0 +1,302 @@
+{
+  "experiment": "endpoint-control-preflight-v2",
+  "base_seed": 2026112502,
+  "trials": 32,
+  "known_targets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "oracle_targets": [],
+  "search_nodes": 1024,
+  "starts": 16,
+  "ratio_starts": 12,
+  "start_spacing": 0.5,
+  "optimizer_calls_per_start": 384,
+  "optimizer_maxiter": 100,
+  "optimizer_ftol": 1e-12,
+  "optimizer_gtol": 1e-06,
+  "accept_gradient": 0.0001,
+  "mode_distance": 0.1,
+  "maximum_modes": 3,
+  "hessian_step": 0.001,
+  "covariance_bounds": [
+    1e-06,
+    36
+  ],
+  "covariance_inflation": 1.5,
+  "minimum_component_mass": 0.01,
+  "mass_pilot_nodes": 4096,
+  "training_nodes": 2048,
+  "relative_ridge": 1e-06,
+  "replicates": 64,
+  "nodes_per_replicate": 1024,
+  "correction_nodes_per_replicate": 32,
+  "known_surrogate_amplitude": 0.001,
+  "reference_mean_tolerance_sd": 0.01,
+  "reference_endpoint_cdf_tolerance": 0.001,
+  "minimum_precision_fraction": 0.9,
+  "marginal_undercoverage_alpha": 0.00010204081632653062,
+  "joint_undercoverage_alpha": 0.0007142857142857143,
+  "maximum_target_evaluations": 90000,
+  "maximum_seconds_per_trial": 180,
+  "maximum_seconds_total": 3600,
+  "parent_plan": "config/coarse-control-v4.json",
+  "parent_source": "c149649eb8a08ac7e019e352a43110f32c2da3a9",
+  "parent_report": "657b4167f5f000854f8ccdbaf84ae4f4ba4e8b9b855c67476860b4f8f97bf09d",
+  "failure_policy": "retain_all_no_retry_no_nfl_access",
+  "ranking_ready": false,
+  "baseline_targets": [],
+  "tail_initial_mass": 0.2,
+  "em_rounds": 2,
+  "em_nodes": 2048,
+  "em_steps": 12,
+  "em_pseudo_count": "dimensions_plus_two",
+  "em_covariance_inflation": 1,
+  "design_parent": "55187bd21bda0224095e011a6eef48035eaf8d14",
+  "protective_mode_mass": 0.5,
+  "tail_targets": [],
+  "equal_targets": [],
+  "previous_targets": [],
+  "allocation_replicates": 8,
+  "allocation_component_nodes": 32,
+  "allocation_minimum_nodes": 32,
+  "allocation_ratio_columns": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "allocation_tolerances": [
+    0.01,
+    0.01,
+    0.001,
+    0.001,
+    0.001,
+    0.001
+  ],
+  "allocation_objective": "sum_scaled_ratio_residual_variance_inverse_count",
+  "previous_search_nodes": 256,
+  "previous_starts": 24,
+  "polynomial_targets": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "endpoint_control": {
+    "kind": "gaussian-affine-probit-v2",
+    "columns": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "probability_clip": 1e-08,
+    "direction_ridge": 1e-06,
+    "direction_fit": "component_gaussian_weighted_affine_probit",
+    "training": "same_independent_point_fit_no_extra_evaluations",
+    "arithmetic": "stable_normal_increment_v1"
+  },
+  "fresh_targets": {
+    "10": {
+      "kind": "curved",
+      "curvature": -0.8,
+      "contrasts": [
+        [
+          0.75,
+          -0.5,
+          1,
+          -0.25
+        ],
+        [
+          -0.5,
+          0.75,
+          0.25,
+          1
+        ]
+      ],
+      "noise": [
+        0.3,
+        0.6
+      ]
+    },
+    "11": {
+      "kind": "mixture",
+      "means": [
+        [
+          0.2,
+          -0.3,
+          0.5,
+          -0.1
+        ],
+        [
+          -6,
+          3,
+          -4,
+          2
+        ]
+      ],
+      "base_covariance_scale": 0.9,
+      "second_cholesky": [
+        [
+          0.7,
+          0,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0.6,
+          0,
+          0
+        ],
+        [
+          -0.3,
+          0.1,
+          1,
+          0
+        ],
+        [
+          0.1,
+          -0.2,
+          0.25,
+          0.8
+        ]
+      ],
+      "probabilities": [
+        0.88,
+        0.12
+      ],
+      "contrasts": [
+        [
+          1,
+          0.5,
+          -0.5,
+          0.25
+        ],
+        [
+          -0.25,
+          1,
+          0.5,
+          -0.5
+        ]
+      ],
+      "noise": [
+        0.35,
+        0.5
+      ]
+    },
+    "12": {
+      "kind": "curved",
+      "curvature": 1.1,
+      "contrasts": [
+        [
+          0.5,
+          1,
+          -0.75,
+          0.25
+        ],
+        [
+          1,
+          -0.25,
+          0.5,
+          -0.5
+        ]
+      ],
+      "noise": [
+        0.45,
+        0.25
+      ]
+    },
+    "13": {
+      "kind": "mixture",
+      "means": [
+        [
+          -0.3,
+          0.2,
+          -0.4,
+          0.6
+        ],
+        [
+          4,
+          -3,
+          5,
+          2
+        ]
+      ],
+      "base_covariance_scale": 1.2,
+      "second_cholesky": [
+        [
+          0.9,
+          0,
+          0,
+          0
+        ],
+        [
+          -0.25,
+          0.5,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0.15,
+          0.7,
+          0
+        ],
+        [
+          -0.1,
+          0.2,
+          0.3,
+          1.1
+        ]
+      ],
+      "probabilities": [
+        0.85,
+        0.15
+      ],
+      "contrasts": [
+        [
+          0.5,
+          -1,
+          0.25,
+          0.75
+        ],
+        [
+          1,
+          0.5,
+          -0.75,
+          0.25
+        ]
+      ],
+      "noise": [
+        0.4,
+        0.3
+      ]
+    }
+  }
+}

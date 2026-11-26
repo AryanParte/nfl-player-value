@@ -169,13 +169,16 @@ def pilot_allocation(plain, controlled, masses, plan):
     )
 
 
-def integrate_allocated(fine, coarse, sampling, *, entropy, fitting_entropy, plan, adaptive):
+def integrate_allocated(
+    fine, coarse, sampling, *, entropy, fitting_entropy, plan, adaptive, endpoint_settings=None
+):
     fitted = fit_control(
         coarse,
         sampling,
         entropy=[*fitting_entropy, 2],
         nodes=plan["training_nodes"],
         relative_ridge=plan["relative_ridge"],
+        endpoint_settings=endpoint_settings,
     )
     parts = sampling.components(METHOD)
     masses = [part[0] for part in parts]

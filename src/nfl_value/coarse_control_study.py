@@ -78,11 +78,28 @@ def plain_reference(total, contrasts, shifts, plan, sampling):
         return dict(status="failed", error=str(exc))
 
 
-def validate_point_fit(fit, sampling, entropy, plan, columns):
+def validate_point_fit(fit, sampling, entropy, plan, columns, endpoint_settings=None):
     dimension = len(sampling.mean)
     width = len(sampling.components("stabilized-mixture")) * (
         1 + dimension + dimension * (dimension + 1) // 2
     )
+    if endpoint_settings is not None:
+        from nfl_value.endpoint_controls import EndpointControls, STABLE_KIND
+
+        evidence = fit["endpoint_basis"]
+        basis = EndpointControls(
+            sampling, evidence["directions"], stable=endpoint_settings["kind"] == STABLE_KIND
+        )
+        if (
+            evidence["settings"] != endpoint_settings
+            or fit["endpoint_basis_sha256"] != sha256(json_bytes(evidence))
+            or basis.directions.shape[1] != len(endpoint_settings["columns"])
+            or not np.array_equal(basis.centers, evidence["centers"])
+        ):
+            raise ValueError("endpoint basis or analytic integral differs")
+        width = basis.width
+    elif "endpoint_basis" in fit or "endpoint_basis_sha256" in fit:
+        raise ValueError("endpoint controls not part of this arm")
     coefficients = np.asarray(fit["coefficients"], float)
     if (
         coefficients.shape != (width, columns)

@@ -602,3 +602,43 @@ checks, independent fitting and fresh known-answer geometry checks. Consumed
 geometries remain regressions, not fresh validation. The actual saved preflight
 is rejected before NFL archive access; full numerical and player/attribution
 validation remain mandatory before a contribution module or leaderboard is admitted.
+
+## November 25 endpoint-control evaluation contract
+
+Design e2910c5 freezes one candidate and the unchanged polynomial comparator
+before producer 55187bd and all draws. Each arm requests 32 trials on ten consumed
+regressions and two new geometries. Common fitting/proposal/pilot coordinates
+support the comparison; arm evaluation domains are separate. Each method has
+its own fitted control and resulting allocation. The larger twelve-case family
+uses the same .01 undercoverage family error budget, divided by twelve (joint)
+or 84 (marginal); precision requirements are unchanged.
+
+Independent Gaussian quadrature, signed integrals and normal-equation references
+check the implementation before scientific draws. Complete endpoint fitting is
+reconstructed from declared training responses when validating saved reports;
+hashes alone cannot make altered parameters valid. Saved-array diagnostics retain
+failed confidence constructions and represent undefined variance ratios as null.
+They cannot select an estimator or turn a descriptive subgroup into a pass.
+
+See [results](ENDPOINT_CONTROL_RESULTS.md) for the actual decision. Replay repeats
+the same randomizations and cannot double the study sample size. Neither this
+small preflight nor passing software checks certifies numerical coverage, player
+uncertainty, attribution or position admission. Full numerical certification,
+archived comparison and the unfinished player-calibration campaign remain required.
+
+After v1's correlated-case coverage failure (2/32 despite both modes being found),
+recovery design d61178d precedes repaired producer 671c349. It adds fresh seeds and
+two more frozen geometries, retaining cases 0–11 as regressions. The v2 denominator
+is 896 arm-trials, not 896 unconditionally independent fits: matched methods share
+fitting evidence. Its fourteen-case family keeps the same .01 error budget divided
+by 14/98. No failing case, prior, interval, precision tolerance or target-evaluation
+budget is removed. Decimal-series, independent-quadrature and constant-direction
+regressions verify the arithmetic correction; the complete study supplies separate
+numerical-coverage evidence. Neither can establish causal player contribution.
+
+Interpretation correction: the original design calls the larger Bonferroni family
+"stricter." A smaller per-test alpha controls false undercoverage flags across
+more tests but makes each individual flag harder to trigger, reducing power. It
+does not strengthen evidence of nominal coverage. Preserve the frozen arithmetic
+and results; interpret every small-screen pass only as absence of a severe flag
+at the declared low-powered threshold, never proof of 95% numerical coverage.

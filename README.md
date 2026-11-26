@@ -8,22 +8,23 @@ not yet constitute an admitted player-value ranking.
 
 ## Current status
 
-The November 24 [allocation/discovery study](docs/ALLOCATION_DISCOVERY_RESULTS.md)
-completes all 576 trials and reproduces all 18 objects and the manifest exactly.
-Nine of ten numerical feasibility screens pass. Matched comparisons improve
-integration precision and remote-mode discovery, but the curved case fails and
-some rare-error RMSEs worsen. **No CAVAA module is admitted.**
+The November 25 [endpoint-control recovery](docs/ENDPOINT_CONTROL_RESULTS.md)
+identifies and repairs floating-point cancellation in the numerical reference.
+Independent high-precision tests verify the arithmetic correction. The repaired
+correlated case passes 32/32 precision checks, but a stronger fresh curved case
+passes only 23/32; progression to full numerical certification remains blocked.
+**No CAVAA module or MVP ranking is admitted.**
 
 First-unit/equal-player/opportunity-weighted benchmarks, negative contributions and
 cumulative accounting remain intact for 57 QBs / 122 archived games ending November 7
-evening. All 17 modules remain unadmitted. Next freeze an endpoint-focused numerical
-control comparison with fresh geometry checks, then require full numerical/player
-validation. Participation, defense/comparability and scored history remain unfinished.
-Explorer deployment still needs authenticated bootstrap; the fresh browser is signed out.
+evening. All 17 modules remain unadmitted. Next freeze a bounded coarse-integration
+work/precision comparison with the repaired method and unchanged accuracy/coverage
+rules. Full numerical and player validation, participation, defense/comparability
+and scored history remain unfinished. Explorer still needs authenticated bootstrap.
 
-The owner merged #35/#36; [PR #37](https://github.com/AryanParte/nfl-player-value/pull/37)
-targets main. See [milestones](docs/MILESTONES.md) and the
-[learning report](docs/learning/2026-11-24.md). Week 10 stays sealed.
+The owner merged #37; [PR #38](https://github.com/AryanParte/nfl-player-value/pull/38)
+now targets main. See [milestones](docs/MILESTONES.md) and the
+[learning report](docs/learning/2026-11-25.md). Week 10 stays sealed.
 The summaries below describe historical snapshots, not current source freshness.
 
 Benchmark/qualification contracts, immutable source capture, pregame first-unit

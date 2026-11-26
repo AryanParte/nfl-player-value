@@ -1,6 +1,6 @@
 # Project status
 
-Updated for the November 24, 2026 run (America/New_York).
+Updated for the November 25, 2026 run (America/New_York).
 
 ## Current scoring milestone
 
@@ -9,35 +9,38 @@ All 17 registry modules remain unavailable. Scoring remains critical; optional
 infrastructure is paused. No unmeasured completion percentage is justified.
 See the concrete [M1–M6 backlog](docs/MILESTONES.md).
 
-The [allocation/discovery study](docs/ALLOCATION_DISCOVERY_RESULTS.md), frozen
-at 13703f1 before producer 1e2a39b, completes all 576 candidate/diagnostic trials.
-Every trial retains raw estimates and finishes its confidence calculation.
-Two offline builds match all 18 objects and the manifest byte-for-byte. Nine of
-ten candidate screens pass, but the curved case passes precision in only 28/32.
-**Reject progression to full numerical certification.**
+The [endpoint-control unit](docs/ENDPOINT_CONTROL_RESULTS.md) implements and tests
+an analytically centered control, diagnoses a floating-point cancellation defect,
+then freezes and evaluates one arithmetic repair. All 768 original and 896 repaired
+arm-trials finish; independent builds reproduce every object/manifest exactly.
+Both numerical candidates are rejected for progression. The first version's correlated-mixture case passes joint
+numerical coverage in only 2/32 trials, despite finding both modes in every trial.
+Direct subtraction of near-one CDFs creates tiny quantized features and enormous
+coefficients; independent high-precision/zero-integral checks verify the defect.
 
-With identical proposal/control/pilot fits, adaptive allocation passes displaced
-precision 32/32 versus 17/32 for equal allocation; remote precision is 31/32 versus
-23/32. New search finds the remote mode in 31/32 versus 24/32 with previous search.
-One discovery miss remains. Remote second-mean and upper-endpoint RMSEs worsen
-against equal allocation despite better pass counts. Preserve these adverse
-outcomes. Case 1 has 26/32 joint coverage; a small-screen pass is not calibration.
+The stable increment repair passes those checks and the correlated-case screen:
+32/32 precision and 30/32 joint coverage under newly frozen randomizations. It
+passes 13/14 small screens, but a fresh stronger-curvature case passes precision
+in only 23/32. All its means pass; nine endpoint discrepancy-plus-allowance sums
+exceed .001, reaching .00130947. Coefficient norms remain modest, and coarse
+integration dominates endpoint variance. This is a remaining precision failure,
+not grounds to widen intervals, relax gates or silently raise work limits.
 
-The four curved-case failures all concern the first contrast's upper endpoint.
-Polynomial controls only modestly reduce its coarse variance; the paired correction
-is a small fraction. Next freeze one endpoint-focused, analytically centered CDF
-control comparison with independent fitting, unchanged comparator, fresh geometry
-checks and all prior regressions. Prove zero-integral and signed-accounting identities
-before new draws. This is a hypothesis, not an adopted fix. Do not select diagnostic
-winners, tune consumed outcomes, widen intervals, grow samples automatically or
-relax gates. Full numerical coverage, archived comparison, unfinished 192-fit player
-calibration and observational admission remain required.
+Next freeze a bounded work/precision/convergence comparison of the unchanged
+repaired coarse integrator, with fixed alternatives, work caps, fresh randomizations
+and representative known answers. Quantify whether additional coarse computation
+is useful before adopting it; no automatic top-ups or diagnostic winner selection.
+Keep consumed cases as regressions. Full numerical coverage, archived comparison,
+unfinished 192-fit player calibration and observational admission remain required.
+The small severe-undercoverage screens are not certification of 95% coverage.
+Remote mode misses remain, and some mean/endpoint RMSEs worsen versus polynomial
+controls despite improved precision counts; see the complete matched comparisons.
 
 Original model/prediction hashes are verified unchanged: 57 QBs / 122 archived
 completed 2026 games / 8,996 dropbacks, 37 first-unit members, 57 sensitivity members
 and 38 negative first-unit estimates. Training uses 48,776 dropbacks across 2024–26
 without adding historical-season points. The archive ends November 7 at 20:41:17
-Eastern; evidence cutoff is 2026-11-08T02:47:32.067979Z. This is not November 24 live
+Eastern; evidence cutoff is 2026-11-08T02:47:32.067979Z. This is not November 25 live
 coverage. Cumulative nonduplicated accounting, all three benchmarks and negative
 values remain intact. No new NFL outcomes were read; Week 10 stays sealed.
 
@@ -49,7 +52,7 @@ not ineligibility; qualification remains independent of benchmark membership.
 
 M4 retains the required defensive information-loss experiment and Defense Explorer:
 131 games / 15,803 plays / 895 defenders; residualized rank 856 versus 193 after
-aggregation. November 24 metadata has no 2026-named asset among 46 in the checked
+aggregation. November 25 metadata has no 2026-named asset among 46 in the checked
 participation release. That is one feed's metadata, not universal absence or
 verified game coverage. Permitted lineups, roles, calibrated uncertainty and
 cross-position comparability remain unfinished. No defensive score is invented.
@@ -60,24 +63,27 @@ replace the cross-position objective; unsupported contributions remain unavailab
 
 ## Deployment and execution state
 
-The owner merged #35/#36. Main is da12cbf and its CI passes. [PR #37](https://github.com/AryanParte/nfl-player-value/pull/37)
-targets main directly. No agent merge, history rewrite or lost unfinished work.
+The owner merged #37 during this run; its final PR CI passed. Origin main is 9c8d2fd;
+[PR #38](https://github.com/AryanParte/nfl-player-value/pull/38) now targets main.
+It initially stacked on #37; no agent merge, rebase or history rewrite occurred.
 
 The latest returned [production run 45520666532](https://github.com/AryanParte/nfl-player-value/actions/runs/45520666532)
-failed November 24 Eastern: `no retained Explorer; first manual run requires bootstrap`.
-Offline gates passed; source capture and publish were skipped. Pages metadata is
-false; a fresh in-app repository view shows Sign in and No releases published.
-The connector lacks dispatch/Pages configuration and local gh is absent.
-Authenticated bootstrap, remote retention/replay and live verification remain
-blocked. See the [runbook](docs/PRODUCTION_REFRESH.md). An Explorer deployment
-would not be an admitted CAVAA leaderboard and does not block modeling.
+remains the November 24 failure: `no retained Explorer; first manual run requires bootstrap`.
+November 25 repository metadata still reports no Pages site. The connector lacks
+dispatch/Pages configuration; no new bootstrap was attempted. Browser sign-in was
+last checked November 24, not reverified today. Authenticated bootstrap, remote
+retention/replay and live verification remain blocked. See the
+[runbook](docs/PRODUCTION_REFRESH.md). Explorer deployment would not be an admitted
+CAVAA leaderboard and does not block modeling.
 
-Local make check passes 549 Python tests, 27 frontend contracts, Ruff/format,
-TypeScript/build, compilation and whitespace. Affected tests were rerun after
-review fixes before draws. All four producer jobs pass in [CI 45527815564](https://github.com/AryanParte/nfl-player-value/actions/runs/45527815564),
-including Python 3.11–3.13 and dashboard/browser. Final reporting-head CI is
-inspected separately in the PR. No numerical source changed after study draws.
-See the [learning report](docs/learning/2026-11-24.md).
+Before repaired-study draws, local make check passes 560 Python tests, 27 frontend
+contracts, Ruff/format, TypeScript/build, compilation and whitespace. Both numerical
+producer CI runs pass all four jobs, including Python 3.11–3.13 and dashboard/browser:
+[original](https://github.com/AryanParte/nfl-player-value/actions/runs/45724338274),
+[repair](https://github.com/AryanParte/nfl-player-value/actions/runs/45727731668).
+Final reporting-head CI is inspected separately in the PR. Numerical source remains
+unchanged after the respective frozen producer starts its study. See the
+[learning report](docs/learning/2026-11-25.md).
 
 Software verification, numerical coverage and player validation remain distinct.
 Raw research stores and required parents remain local; replay is not durable remote

@@ -16,7 +16,9 @@ from nfl_value.coarse_control_study import (
 )
 from nfl_value.conditional_cli import environment
 from nfl_value.component_allocation import integrate_allocated, validate_components
-from nfl_value.control_variates import integrate_controlled
+from nfl_value.control_variates import fit_control, integrate_controlled
+from nfl_value.density_holdout import CurvedTarget
+from nfl_value.randomized_controls import KnownTarget
 from nfl_value.ingestion import json_bytes, sha256
 from nfl_value.mode_proposal import (
     KIND,
@@ -46,9 +48,17 @@ TAIL_PLAN_HASH = "3443c16fa5d36f25772a0ab5642c1ba7032c25a7693d0a7c736ade8eb56e6a
 PROTECTIVE_PLAN_HASH = "168ffd8a171a516b9d8d0094f882d11c78060e74663237814a712d1ff9d70b5c"
 ALLOCATION_PLAN_HASH = "d0adbccfbbd77616e291045df541cad157ef7020d15284b804af0ac0128568fe"
 
+ENDPOINT_PLAN_HASH = "0dbab8e1f87cddf352b85ef627e33ea56e986e586dfb2755579efd3ff57cc6fc"
+
+ENDPOINT_REPAIR_PLAN_HASH = "98b684b106f66f79f06ed7b8b8f9b04a8c1a2d33aea5df52f76cd145f7302cbc"
+
+
+def endpoint_plan(plan):
+    return plan["experiment"] in ("endpoint-control-preflight-v1", "endpoint-control-preflight-v2")
+
 
 def allocation_plan(plan):
-    return plan["experiment"] == "allocation-discovery-preflight-v1"
+    return plan["experiment"] == "allocation-discovery-preflight-v1" or endpoint_plan(plan)
 
 
 def fitting_plan(plan, arm):
@@ -70,6 +80,8 @@ def tail_plan(plan):
 
 
 def experiment_kind(plan):
+    if endpoint_plan(plan):
+        return plan["experiment"].replace("preflight-", "preflight-report-")
     if allocation_plan(plan):
         return "allocation-discovery-preflight-report-v1"
     if protective_plan(plan):
@@ -85,12 +97,17 @@ def arms(plan):
         ("tail", plan.get("tail_targets", [])),
         ("equal", plan.get("equal_targets", [])),
         ("previous", plan.get("previous_targets", [])),
+        ("polynomial", plan.get("polynomial_targets", [])),
     ]
 
 
 def validate_plan(plan):
     expected = (
-        ALLOCATION_PLAN_HASH
+        ENDPOINT_REPAIR_PLAN_HASH
+        if plan["experiment"] == "endpoint-control-preflight-v2"
+        else ENDPOINT_PLAN_HASH
+        if endpoint_plan(plan)
+        else ALLOCATION_PLAN_HASH
         if allocation_plan(plan)
         else (
             PROTECTIVE_PLAN_HASH
@@ -132,6 +149,33 @@ class ExtendedTarget(TailTarget):
             self.probabilities = np.array([0.92, 0.08])
 
 
+class FreshCurvedTarget(CurvedTarget):
+    def __init__(self, specification):
+        super().__init__({})
+        self.curvature = specification["curvature"]
+        self.contrasts = np.array(specification["contrasts"])
+        self.noise = np.array(specification["noise"])
+
+    def inverse(self, points):
+        z = np.atleast_2d(points).astype(float).copy()
+        z[:, 1] -= self.curvature * np.sin(z[:, 0])
+        z[:, 3] -= self.curvature * np.sin(z[:, 2])
+        return z
+
+
+class FreshMixtureTarget(KnownTarget):
+    def __init__(self, specification):
+        super().__init__(2, {})
+        self.means = np.array(specification["means"])
+        factor = np.array(specification["second_cholesky"])
+        self.covariances = np.array(
+            [specification["base_covariance_scale"] * np.eye(4), factor @ factor.T]
+        )
+        self.probabilities = np.array(specification["probabilities"])
+        self.contrasts = np.array(specification["contrasts"])
+        self.noise = np.array(specification["noise"])
+
+
 def inputs(plan):
     parent_plan = json.loads(Path(plan["parent_plan"]).read_text())
     certificate, density = known_parents(parent_plan)
@@ -142,8 +186,13 @@ def inputs(plan):
                 i, parent_plan, certificate, density
             )
             truth = json.loads(truth_bytes)
-        else:
+        elif i < 10:
             target, sampling = ExtendedTarget(i), tail_proposal()
+            truth = {k: v.tolist() for k, v in target.exact().items()}
+        else:
+            spec = plan["fresh_targets"][str(i)]
+            target = (FreshCurvedTarget if spec["kind"] == "curved" else FreshMixtureTarget)(spec)
+            sampling = tail_proposal()
             truth = {k: v.tolist() for k, v in target.exact().items()}
         result[i] = (target, sampling, truth)
     return result
@@ -198,10 +247,11 @@ def summarize(records, plan):
 
 def trial(target, initial, truth, plan, entropy, arm):
     if (
-        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous")
+        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous", "polynomial")
         or (arm == "baseline" and not tail_plan(plan))
         or (arm == "tail" and not protective_plan(plan))
         or (arm in ("equal", "previous") and not allocation_plan(plan))
+        or (arm == "polynomial" and not endpoint_plan(plan))
     ):
         raise ValueError("explicit candidate or diagnostic arm required")
     record = dict(entropy=entropy, status="failed")
@@ -254,7 +304,10 @@ def trial(target, initial, truth, plan, entropy, arm):
                 entropy=entropy,
                 fitting_entropy=fitting_entropy,
                 plan=plan,
-                adaptive=arm == "candidate",
+                adaptive=arm in ("candidate", "polynomial"),
+                endpoint_settings=(
+                    plan["endpoint_control"] if endpoint_plan(plan) and arm == "candidate" else None
+                ),
             )
             record["components"] = out["components"]
         else:
@@ -321,10 +374,10 @@ def experiment(plan, progress=lambda _: None, checkpoint=lambda *_: None):
     ), timings
 
 
-def validate_case(case, initial, truth, plan):
+def validate_case(case, initial, truth, plan, target=None):
     arm, i = case["arm"], case["target"]
     if (
-        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous")
+        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous", "polynomial")
         or case["truth"] != truth
         or case["initial_sampling_sha256"] != sampling_hash(initial)
         or [r["trial"] for r in case["records"]] != list(range(plan["trials"]))
@@ -333,7 +386,15 @@ def validate_case(case, initial, truth, plan):
     for j, r in enumerate(case["records"]):
         entropy = [
             plan["base_seed"],
-            {"candidate": 0, "oracle": 1, "baseline": 2, "tail": 3, "equal": 4, "previous": 5}[arm],
+            {
+                "candidate": 0,
+                "oracle": 1,
+                "baseline": 2,
+                "tail": 3,
+                "equal": 4,
+                "previous": 5,
+                "polynomial": 6,
+            }[arm],
             i,
             j,
         ]
@@ -375,7 +436,7 @@ def validate_case(case, initial, truth, plan):
                 )
             ):
                 raise ValueError("preflight proposal source/arm differs")
-            if arm in ("candidate", "baseline", "tail", "equal", "previous") and (
+            if arm in ("candidate", "baseline", "tail", "equal", "previous", "polynomial") and (
                 r["geometry"]["entropy"] != fitting_entropy
                 or r["geometry"]["search_entropy"] != [*fitting_entropy, 10]
                 or r["geometry"]["pilot_entropy"] != [*fitting_entropy, 11]
@@ -402,15 +463,41 @@ def validate_case(case, initial, truth, plan):
             plain = combine(r["plain_coarse"], r["correction"])
             if total.shape != (plan["replicates"], 9) or plain.shape != total.shape:
                 raise ValueError("preflight raw replicate dimensions differ")
+            endpoint_settings = (
+                plan["endpoint_control"] if endpoint_plan(plan) and arm == "candidate" else None
+            )
             validate_point_fit(
                 r["fit"],
                 sampling,
                 [*(fitting_entropy if allocation_plan(plan) else entropy), 2],
                 plan,
                 9,
+                endpoint_settings=endpoint_settings,
             )
+            if endpoint_settings is not None:
+                if target is None:
+                    raise ValueError("endpoint fit replay requires declared target callable")
+                fine = target.integrand({k: np.array(v) for k, v in truth.items()})
+
+                def coarse(x, logq):
+                    return fine(x, logq) * (
+                        1 + plan["known_surrogate_amplitude"] * np.sin(x.sum(axis=1))[:, None]
+                    )
+
+                replay = fit_control(
+                    coarse,
+                    sampling,
+                    entropy=[*fitting_entropy, 2],
+                    nodes=plan["training_nodes"],
+                    relative_ridge=plan["relative_ridge"],
+                    endpoint_settings=endpoint_settings,
+                ).record()
+                if json_bytes(replay) != json_bytes(r["fit"]):
+                    raise ValueError("endpoint fitting evidence does not reconstruct")
             if allocation_plan(plan):
-                validate_components(r, sampling, entropy, fitting_entropy, plan, arm == "candidate")
+                validate_components(
+                    r, sampling, entropy, fitting_entropy, plan, arm in ("candidate", "polynomial")
+                )
             actual = plain_assessment(total, plan)
             if json_bytes(actual) != json_bytes({k: r[k] for k in actual}) or json_bytes(
                 r["plain_assessment"]
@@ -453,8 +540,8 @@ def validate(result):
         raise ValueError("preflight scope cannot certify or publish")
     fixtures = inputs(p)
     for c in result["cases"]:
-        _target, initial, truth = fixtures[c["target"]]
-        validate_case(c, initial, truth, p)
+        target, initial, truth = fixtures[c["target"]]
+        validate_case(c, initial, truth, p, target=target)
     by_key = {(c["arm"], c["target"]): c for c in result["cases"]}
     for i in p.get("baseline_targets", []):
         for candidate, baseline in zip(
@@ -495,6 +582,31 @@ def validate(result):
                         equal["components"][key]
                     ):
                         raise ValueError("matched allocation pilot evidence differs")
+    for i in p.get("polynomial_targets", []):
+        for candidate, polynomial in zip(
+            by_key[("candidate", i)]["records"], by_key[("polynomial", i)]["records"]
+        ):
+            if (
+                "geometry" in candidate
+                and "geometry" in polynomial
+                and (json_bytes(candidate["geometry"]) != json_bytes(polynomial["geometry"]))
+            ):
+                raise ValueError("matched endpoint proposal geometry differs")
+            if "fit" in candidate and "fit" in polynomial:
+                for key in (
+                    "training_entropy",
+                    "points_sha256",
+                    "weights_sha256",
+                    "responses_sha256",
+                ):
+                    if candidate["fit"][key] != polynomial["fit"][key]:
+                        raise ValueError("matched endpoint training evidence differs")
+            if "components" in candidate and "components" in polynomial:
+                for key in ("pilot_entropy", "pilot_plain"):
+                    if json_bytes(candidate["components"][key]) != json_bytes(
+                        polynomial["components"][key]
+                    ):
+                        raise ValueError("matched endpoint pilot coordinates differ")
     passed = all(c["decision"]["screen_passed"] for c in result["cases"] if c["arm"] == "candidate")
     if result["screen_passed"] is not passed:
         raise ValueError("preflight screen flag differs")

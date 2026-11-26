@@ -78,6 +78,13 @@ authenticated bootstrap is available in that session. No settings, workflow or
 schedule changed. The [operational audit](audits/2026-11-24-operations.json) is
 separate from numerical model evidence; modeling proceeds on main-based PR #37.
 
+November 25 metadata recheck: Pages remains absent and the latest returned production
+run is still 45520666532, the previously diagnosed first-bootstrap failure. The
+connector still has no dispatch/Pages configuration operation. Browser authentication
+was not rechecked today; its last verified state is November 24 signed out. Neither
+numerical-study PR deploys Explorer or publishes player rankings. No retry, workflow,
+schedule, service or other-project change was made.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed

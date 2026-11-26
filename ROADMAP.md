@@ -270,8 +270,9 @@ exact numerical replay is a validated CAVAA module.
   is 31/32 versus 24/32 with previous search. Preserve worsened rare-error RMSEs.
 - [x] Verify actual saved-report rejection before NFL inputs, unchanged primary
   artifacts, software tests/hosted producer CI and fresh deployment/data metadata.
-- [ ] Freeze one endpoint-focused control comparison, analytically centered smooth
-  CDF controls with independent fitting and fresh geometry checks. Keep the unchanged
+- [x] Freeze one endpoint-focused control comparison (completed November 25):
+  analytically centered CDF controls, independent fitting and fresh geometry checks.
+  Keep the unchanged
   candidate comparator and all old regressions; prove identities before draws.
 - [ ] Full numerical coverage, archived pilot, 192-fit player calibration and
   contribution admission. No module is admitted by this small screen.
@@ -280,6 +281,35 @@ See [decision](docs/ALLOCATION_DISCOVERY_RESULTS.md), [learning](docs/learning/2
 and [M1–M6](docs/MILESTONES.md). #35/#36 are owner-merged; #37 targets main.
 November 24 production fails on first bootstrap; a fresh browser is signed out.
 No schedule or other-project changes. Deployment access does not block modeling.
+
+## November 25: endpoint controls and bounded arithmetic recovery
+
+- [x] Freeze the endpoint-control study at e2910c5 before producer 55187bd;
+  prove Gaussian zero-integral identities, preserve signed accounting, independent
+  fitting/pilots and all old cases; add two fresh known-answer geometries.
+- [x] Complete all 768 first-version arm-trials and exact independent offline replay.
+  Reject the correlated case's 2/32 joint coverage; diagnose CDF cancellation from
+  saved raw fits rather than deleting outliers or selecting the polynomial arm.
+- [x] Separately freeze one arithmetic repair at d61178d before producer 671c349.
+  Verify against 80-digit series, independent quadrature and a zero-integral
+  regression that reproduces the original rounding defect. Preserve model,
+  priors, benchmarks, intervals, sample counts and precision requirements.
+- [x] Evaluate the repaired method with new randomizations and two additional
+  fresh geometries. Correlated precision passes 32/32, but stronger-curvature
+  precision is 23/32. All 896 arm-trials complete; all 28 objects/manifest match
+  in a second offline build. Retain adverse RMSEs and rare discovery misses.
+  Reject progression; retain the bounded two-version decision.
+- [ ] Freeze a work/precision/convergence comparison of the unchanged repaired
+  coarse integrator, including fixed alternatives, work caps and fresh checks.
+  Do not assume a sample increase will pass or top up failed trials automatically.
+- [ ] Full numerical certification, archived comparison, unfinished 192-fit player
+  calibration and contribution admission. Neither small screen admits a module.
+
+See [results](docs/ENDPOINT_CONTROL_RESULTS.md), [learning](docs/learning/2026-11-25.md)
+and [M1–M6](docs/MILESTONES.md). #37 was owner-merged during this run; #38 now targets
+main. Deployment remains at the independently blocked first-bootstrap step.
+Defense/participation and cross-position comparability remain required. No new NFL
+outcomes or sealed Week 10 evidence were read; no automation was changed.
 
 ## October 18: bootstrap
 

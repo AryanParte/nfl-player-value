@@ -1,0 +1,91 @@
+{
+  "run_date": "2026-11-25",
+  "design_commit": "e2910c5",
+  "producer": "55187bd21bda0224095e011a6eef48035eaf8d14",
+  "kernel": "19ca09e6932e20f11d018f68b4a8d7aec62346a42d00af368a9c3659abbc08cd",
+  "plan_sha256": "0dbab8e1f87cddf352b85ef627e33ea56e986e586dfb2755579efd3ff57cc6fc",
+  "report_id": "d58b6bd9a06d8d5772f0471cf022416545def1e55274f6f8bf0a7bfc757ff298",
+  "stores": [
+    "data/derived/endpoint-control-preflight",
+    "data/derived/endpoint-control-preflight-offline"
+  ],
+  "executions": [
+    {
+      "report_id": "d58b6bd9a06d8d5772f0471cf022416545def1e55274f6f8bf0a7bfc757ff298",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 36.79125679191202,
+        "candidate-1": 42.24272237508558,
+        "candidate-2": 48.430471665924415,
+        "candidate-3": 46.292458708863705,
+        "candidate-4": 38.65557783306576,
+        "candidate-5": 45.59617174998857,
+        "candidate-6": 45.12762075010687,
+        "candidate-7": 44.84649050002918,
+        "candidate-8": 45.67114908318035,
+        "candidate-9": 45.93726108293049,
+        "candidate-10": 38.79286795784719,
+        "candidate-11": 45.78758875001222,
+        "polynomial-0": 33.63415554095991,
+        "polynomial-1": 39.11833075014874,
+        "polynomial-2": 44.61046366696246,
+        "polynomial-3": 42.95005179103464,
+        "polynomial-4": 35.68581791687757,
+        "polynomial-5": 42.25328666600399,
+        "polynomial-6": 42.173153874929994,
+        "polynomial-7": 42.395510625094175,
+        "polynomial-8": 45.659531167009845,
+        "polynomial-9": 42.983979125041515,
+        "polynomial-10": 36.52638537506573,
+        "polynomial-11": 42.94816195801832
+      }
+    },
+    {
+      "report_id": "d58b6bd9a06d8d5772f0471cf022416545def1e55274f6f8bf0a7bfc757ff298",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 36.55499454191886,
+        "candidate-1": 42.02426008391194,
+        "candidate-2": 48.28795162495226,
+        "candidate-3": 46.114528791978955,
+        "candidate-4": 38.51347666699439,
+        "candidate-5": 45.43241733312607,
+        "candidate-6": 44.94292191718705,
+        "candidate-7": 44.72236020909622,
+        "candidate-8": 45.460980207892135,
+        "candidate-9": 45.67170787486248,
+        "candidate-10": 38.64143625018187,
+        "candidate-11": 45.54390937509015,
+        "polynomial-0": 33.45341320801526,
+        "polynomial-1": 39.01357275014743,
+        "polynomial-2": 44.39761175005697,
+        "polynomial-3": 42.765928459120914,
+        "polynomial-4": 35.46047404105775,
+        "polynomial-5": 42.11339000007138,
+        "polynomial-6": 41.884612125111744,
+        "polynomial-7": 42.24402054119855,
+        "polynomial-8": 45.474004458868876,
+        "polynomial-9": 42.81883362494409,
+        "polynomial-10": 36.429404041031376,
+        "polynomial-11": 42.718467582948506
+      }
+    }
+  ],
+  "independent_reconstruction": {
+    "objects": 24,
+    "manifests": 1
+  },
+  "audit_semantic_sha256": "1911241ed225c7cd593c855dded8e5d50aacbdbf8f1ef813a19519f83f6ae8ee",
+  "archive_gate": "actual saved report rejects coarse-control frozen design before mocked NFL inputs; access.assert_not_called passes",
+  "numerical_certified": false,
+  "ranking_ready": false,
+  "limitations": [
+    "Two builds repeat the same randomizations, not extra coverage trials.",
+    "Trial-loop timings exclude preparation, semantic replay validation and reporting.",
+    "Raw research stores and parents remain local; durable remote retention is unverified."
+  ]
+}

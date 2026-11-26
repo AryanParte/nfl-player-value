@@ -1,0 +1,101 @@
+{
+  "run_date": "2026-11-25",
+  "design_commit": "d61178d",
+  "producer": "671c349312633bf5e2e85c837a7f2c84ce6debde",
+  "kernel": "adc96485a68512b4cc25e5880b31c676637f20e48d70818ac200c37d427ff572",
+  "plan_sha256": "98b684b106f66f79f06ed7b8b8f9b04a8c1a2d33aea5df52f76cd145f7302cbc",
+  "report_id": "4ada200017eb0d90c0e0be0a6532a4ded10ee67a702406f673678e6e39f205fa",
+  "stores": [
+    "data/derived/endpoint-control-preflight-v2",
+    "data/derived/endpoint-control-preflight-v2-offline"
+  ],
+  "executions": [
+    {
+      "report_id": "4ada200017eb0d90c0e0be0a6532a4ded10ee67a702406f673678e6e39f205fa",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 46.83931595785543,
+        "candidate-1": 52.15217154100537,
+        "candidate-2": 59.960374457994476,
+        "candidate-3": 61.00883449986577,
+        "candidate-4": 49.2392459588591,
+        "candidate-5": 55.20088454103097,
+        "candidate-6": 56.981346500106156,
+        "candidate-7": 57.04066662513651,
+        "candidate-8": 142.39819908281788,
+        "candidate-9": 137.03829512489028,
+        "candidate-10": 48.30260329111479,
+        "candidate-11": 54.614355666097254,
+        "candidate-12": 48.14820654201321,
+        "candidate-13": 55.08450129115954,
+        "polynomial-0": 33.41917891707271,
+        "polynomial-1": 39.54156104219146,
+        "polynomial-2": 44.76050620805472,
+        "polynomial-3": 43.02867308398709,
+        "polynomial-4": 35.427150416886434,
+        "polynomial-5": 42.19525608303957,
+        "polynomial-6": 42.275768582941964,
+        "polynomial-7": 41.298489291919395,
+        "polynomial-8": 41.65019924985245,
+        "polynomial-9": 42.413078790996224,
+        "polynomial-10": 35.23709020786919,
+        "polynomial-11": 42.90935912495479,
+        "polynomial-12": 35.86604862497188,
+        "polynomial-13": 42.03200558293611
+      }
+    },
+    {
+      "report_id": "4ada200017eb0d90c0e0be0a6532a4ded10ee67a702406f673678e6e39f205fa",
+      "screen_passed": false,
+      "numerical_certified": false,
+      "ranking_ready": false,
+      "timings": {
+        "candidate-0": 46.785572124877945,
+        "candidate-1": 52.05313874990679,
+        "candidate-2": 59.95494554191828,
+        "candidate-3": 60.99010766716674,
+        "candidate-4": 49.07130016689189,
+        "candidate-5": 55.66103695798665,
+        "candidate-6": 56.56989150005393,
+        "candidate-7": 57.06401408300735,
+        "candidate-8": 141.90922204195522,
+        "candidate-9": 134.47925791703165,
+        "candidate-10": 48.339311874937266,
+        "candidate-11": 54.58683175011538,
+        "candidate-12": 48.19429641705938,
+        "candidate-13": 55.0205324171111,
+        "polynomial-0": 33.43714833306149,
+        "polynomial-1": 39.595205165911466,
+        "polynomial-2": 44.79079045797698,
+        "polynomial-3": 43.01356604206376,
+        "polynomial-4": 35.47803308418952,
+        "polynomial-5": 42.21393712493591,
+        "polynomial-6": 42.42521116696298,
+        "polynomial-7": 41.3024802908767,
+        "polynomial-8": 41.65374437510036,
+        "polynomial-9": 42.47936858306639,
+        "polynomial-10": 35.2310627088882,
+        "polynomial-11": 42.98038933402859,
+        "polynomial-12": 35.858427334111184,
+        "polynomial-13": 42.065991166979074
+      }
+    }
+  ],
+  "independent_reconstruction": {
+    "objects": 28,
+    "manifests": 1
+  },
+  "audit_semantic_sha256": "1b0851d6bf41290d6b53d284f266d4bb20a0f278febe131a792a646b8a8c424f",
+  "archive_gate": "actual saved report rejects coarse-control frozen design before mocked NFL inputs; access.assert_not_called passes",
+  "numerical_certified": false,
+  "ranking_ready": false,
+  "limitations": [
+    "Two builds repeat the same randomizations, not extra coverage trials.",
+    "Trial-loop timings exclude preparation, semantic replay validation and reporting.",
+    "Raw research stores and parents remain local; durable remote retention is unverified.",
+    "Candidate and polynomial arms share proposal fitting but use independent evaluation randomness; comparisons include different controls and allocations.",
+    "V2 uses new randomizations and two new geometries, not a paired coverage test against v1."
+  ]
+}
