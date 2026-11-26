@@ -14,6 +14,13 @@ from nfl_value.coarse_control_study import (
     plain_assessment,
     validate_point_fit,
 )
+from nfl_value.coarse_work import (
+    PLAN_HASH as WORK_PLAN_HASH,
+    budget_decision,
+    execution_plan,
+    validate_matched_work,
+    work_plan,
+)
 from nfl_value.conditional_cli import environment
 from nfl_value.component_allocation import integrate_allocated, validate_components
 from nfl_value.control_variates import fit_control, integrate_controlled
@@ -54,7 +61,10 @@ ENDPOINT_REPAIR_PLAN_HASH = "98b684b106f66f79f06ed7b8b8f9b04a8c1a2d33aea5df52f76
 
 
 def endpoint_plan(plan):
-    return plan["experiment"] in ("endpoint-control-preflight-v1", "endpoint-control-preflight-v2")
+    return work_plan(plan) or plan["experiment"] in (
+        "endpoint-control-preflight-v1",
+        "endpoint-control-preflight-v2",
+    )
 
 
 def allocation_plan(plan):
@@ -62,6 +72,7 @@ def allocation_plan(plan):
 
 
 def fitting_plan(plan, arm):
+    plan = execution_plan(plan, arm)
     if allocation_plan(plan) and arm == "previous":
         return {
             **plan,
@@ -98,12 +109,16 @@ def arms(plan):
         ("equal", plan.get("equal_targets", [])),
         ("previous", plan.get("previous_targets", [])),
         ("polynomial", plan.get("polynomial_targets", [])),
+        ("double", plan.get("double_targets", [])),
+        ("quadruple", plan.get("quadruple_targets", [])),
     ]
 
 
 def validate_plan(plan):
     expected = (
-        ENDPOINT_REPAIR_PLAN_HASH
+        WORK_PLAN_HASH
+        if work_plan(plan)
+        else ENDPOINT_REPAIR_PLAN_HASH
         if plan["experiment"] == "endpoint-control-preflight-v2"
         else ENDPOINT_PLAN_HASH
         if endpoint_plan(plan)
@@ -246,12 +261,25 @@ def summarize(records, plan):
 
 
 def trial(target, initial, truth, plan, entropy, arm):
+    plan = execution_plan(plan, arm)
     if (
-        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous", "polynomial")
+        arm
+        not in (
+            "candidate",
+            "oracle",
+            "baseline",
+            "tail",
+            "equal",
+            "previous",
+            "polynomial",
+            "double",
+            "quadruple",
+        )
         or (arm == "baseline" and not tail_plan(plan))
         or (arm == "tail" and not protective_plan(plan))
         or (arm in ("equal", "previous") and not allocation_plan(plan))
         or (arm == "polynomial" and not endpoint_plan(plan))
+        or (arm in ("double", "quadruple") and not work_plan(plan))
     ):
         raise ValueError("explicit candidate or diagnostic arm required")
     record = dict(entropy=entropy, status="failed")
@@ -304,9 +332,11 @@ def trial(target, initial, truth, plan, entropy, arm):
                 entropy=entropy,
                 fitting_entropy=fitting_entropy,
                 plan=plan,
-                adaptive=arm in ("candidate", "polynomial"),
+                adaptive=arm in ("candidate", "polynomial", "double", "quadruple"),
                 endpoint_settings=(
-                    plan["endpoint_control"] if endpoint_plan(plan) and arm == "candidate" else None
+                    plan["endpoint_control"]
+                    if endpoint_plan(plan) and (arm == "candidate" or work_plan(plan))
+                    else None
                 ),
             )
             record["components"] = out["components"]
@@ -363,7 +393,7 @@ def experiment(plan, progress=lambda _: None, checkpoint=lambda *_: None):
             timings[key] = perf_counter() - begin
             checkpoint(key, case)
             progress(f"{key}: {json.dumps(case['decision'], sort_keys=True)}")
-    return dict(
+    result = dict(
         experiment=experiment_kind(plan),
         plan=plan,
         cases=cases,
@@ -371,13 +401,29 @@ def experiment(plan, progress=lambda _: None, checkpoint=lambda *_: None):
         numerical_certified=False,
         ranking_ready=False,
         nfl_data_used=False,
-    ), timings
+    )
+    if work_plan(plan):
+        result["work_decision"] = budget_decision(cases, plan)
+        result["screen_passed"] = result["work_decision"]["selected_arm"] is not None
+    return result, timings
 
 
 def validate_case(case, initial, truth, plan, target=None):
     arm, i = case["arm"], case["target"]
+    plan = execution_plan(plan, arm)
     if (
-        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous", "polynomial")
+        arm
+        not in (
+            "candidate",
+            "oracle",
+            "baseline",
+            "tail",
+            "equal",
+            "previous",
+            "polynomial",
+            "double",
+            "quadruple",
+        )
         or case["truth"] != truth
         or case["initial_sampling_sha256"] != sampling_hash(initial)
         or [r["trial"] for r in case["records"]] != list(range(plan["trials"]))
@@ -394,6 +440,8 @@ def validate_case(case, initial, truth, plan, target=None):
                 "equal": 4,
                 "previous": 5,
                 "polynomial": 6,
+                "double": 7,
+                "quadruple": 8,
             }[arm],
             i,
             j,
@@ -436,7 +484,16 @@ def validate_case(case, initial, truth, plan, target=None):
                 )
             ):
                 raise ValueError("preflight proposal source/arm differs")
-            if arm in ("candidate", "baseline", "tail", "equal", "previous", "polynomial") and (
+            if arm in (
+                "candidate",
+                "baseline",
+                "tail",
+                "equal",
+                "previous",
+                "polynomial",
+                "double",
+                "quadruple",
+            ) and (
                 r["geometry"]["entropy"] != fitting_entropy
                 or r["geometry"]["search_entropy"] != [*fitting_entropy, 10]
                 or r["geometry"]["pilot_entropy"] != [*fitting_entropy, 11]
@@ -464,7 +521,9 @@ def validate_case(case, initial, truth, plan, target=None):
             if total.shape != (plan["replicates"], 9) or plain.shape != total.shape:
                 raise ValueError("preflight raw replicate dimensions differ")
             endpoint_settings = (
-                plan["endpoint_control"] if endpoint_plan(plan) and arm == "candidate" else None
+                plan["endpoint_control"]
+                if endpoint_plan(plan) and (arm == "candidate" or work_plan(plan))
+                else None
             )
             validate_point_fit(
                 r["fit"],
@@ -496,7 +555,12 @@ def validate_case(case, initial, truth, plan, target=None):
                     raise ValueError("endpoint fitting evidence does not reconstruct")
             if allocation_plan(plan):
                 validate_components(
-                    r, sampling, entropy, fitting_entropy, plan, arm in ("candidate", "polynomial")
+                    r,
+                    sampling,
+                    entropy,
+                    fitting_entropy,
+                    plan,
+                    arm in ("candidate", "polynomial", "double", "quadruple"),
                 )
             actual = plain_assessment(total, plan)
             if json_bytes(actual) != json_bytes({k: r[k] for k in actual}) or json_bytes(
@@ -608,6 +672,12 @@ def validate(result):
                     ):
                         raise ValueError("matched endpoint pilot coordinates differ")
     passed = all(c["decision"]["screen_passed"] for c in result["cases"] if c["arm"] == "candidate")
+    if work_plan(p):
+        decision = budget_decision(result["cases"], p)
+        validate_matched_work(result["cases"], p)
+        if json_bytes(result["work_decision"]) != json_bytes(decision):
+            raise ValueError("computation-budget selection does not reconstruct")
+        passed = decision["selected_arm"] is not None
     if result["screen_passed"] is not passed:
         raise ValueError("preflight screen flag differs")
 
@@ -633,6 +703,8 @@ def save(output, result, revision, expected_kernel):
         ranking_ready=False,
         nfl_data_used=False,
     )
+    if work_plan(result["plan"]):
+        manifest["work_decision"] = result["work_decision"]
     return output.put(json_bytes(manifest), manifest=True), manifest
 
 
@@ -657,6 +729,8 @@ def load(output, rid):
             "nfl_data_used",
         )
     }
+    if work_plan(m["plan"]):
+        result["work_decision"] = m["work_decision"]
     result["cases"] = []
     for entry in m["cases"]:
         case = json.loads(output.read(entry["object"]))
