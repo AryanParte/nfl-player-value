@@ -8,6 +8,7 @@ import runpy
 
 import numpy as np
 
+from nfl_value.coarse_work import execution_plan, work_plan
 from nfl_value.ingestion import SnapshotStore
 from nfl_value.mode_preflight import (
     fitting_plan,
@@ -164,6 +165,7 @@ def endpoint_diagnostics(records):
 
 
 def case_summary(case, plan, target, initial):
+    plan = execution_plan(plan, case["arm"])
     fit_plan = fitting_plan(plan, case["arm"])
     records = case["records"]
     fitted = [r for r in records if "geometry" in r]
@@ -334,6 +336,15 @@ def main():
         str(i): matched_comparison(by_key[("candidate", i)], by_key[("polynomial", i)])
         for i in result["plan"].get("polynomial_targets", [])
     }
+    if work_plan(result["plan"]):
+        audit["work_decision"] = result["work_decision"]
+        audit["work_comparisons"] = {
+            arm: {
+                str(i): matched_comparison(by_key[(arm, i)], by_key[("candidate", i)])
+                for i in result["plan"]["known_targets"]
+            }
+            for arm in result["plan"]["work_budget_order"][1:]
+        }
     if args.reconstruction:
         replica = SnapshotStore(args.reconstruction)
         load(replica, args.report_id)
