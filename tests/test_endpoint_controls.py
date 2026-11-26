@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 import json
+import runpy
 from pathlib import Path
 import tempfile
 import unittest
@@ -34,8 +35,8 @@ from nfl_value.tail_controls import tail_proposal
 from nfl_value.two_level_reference import sampling_hash
 
 
-def plan():
-    return json.loads(Path("config/endpoint-control-preflight-v1.json").read_text())
+def plan(version=1):
+    return json.loads(Path(f"config/endpoint-control-preflight-v{version}.json").read_text())
 
 
 class AnalyticProposal(SamplingProposal):
@@ -163,8 +164,13 @@ class EndpointControlTests(unittest.TestCase):
         self.assertEqual(evidence["endpoint_basis"]["clipped_high"], [0, 0, 8, 0])
 
     def test_matched_methods_separate_evaluation_count_work_and_reconstruct_fit(self):
+        for version in (1, 2):
+            with self.subTest(version=version):
+                self.check_matched_methods(version)
+
+    def check_matched_methods(self, version):
         p = {
-            **plan(),
+            **plan(version),
             "search_nodes": 64,
             "starts": 4,
             "ratio_starts": 2,
@@ -240,6 +246,30 @@ class EndpointControlTests(unittest.TestCase):
             records["candidate"]["components"]["coarse_entropy"],
             records["polynomial"]["components"]["coarse_entropy"],
         )
+
+    def test_diagnostics_retain_failed_confidence_and_explicit_zero_variance(self):
+        analyze = runpy.run_path("scripts/analyze_mode_preflight.py")["endpoint_diagnostics"]
+        r = np.arange(4.0)
+        coarse, plain, correction = (np.zeros((4, 9)) for _ in range(3))
+        coarse[:, 3] = r
+        plain[:, 3] = 2 * r
+        correction[:, 3] = 0.5 * r
+        record = dict(
+            trial=0,
+            status="failed",
+            coarse=coarse,
+            plain_coarse=plain,
+            correction=correction,
+            fit=dict(coefficient_norm=2),
+        )
+        out = analyze([record, dict(trial=1, status="unattempted")])
+        self.assertEqual((out["requested"], out["retained_raw_trials"]), (2, 1))
+        row = out["trials"][0]
+        self.assertEqual(row["status"], "failed")
+        self.assertEqual(row["controlled_plain_variance_ratio"], [0.25, None, None, None])
+        self.assertAlmostEqual(row["correction_variance_fraction"][0], 0.2, places=15)
+        self.assertEqual(row["correction_variance_fraction"][1:], [None, None, None])
+        self.assertAlmostEqual(row["residual_variances"]["coarse"][0], 5 / 3)
 
     def test_frozen_fresh_geometries_and_gate_precede_nfl_access(self):
         p = plan()

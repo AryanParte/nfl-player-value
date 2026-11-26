@@ -50,9 +50,11 @@ ALLOCATION_PLAN_HASH = "d0adbccfbbd77616e291045df541cad157ef7020d15284b804af0ac0
 
 ENDPOINT_PLAN_HASH = "0dbab8e1f87cddf352b85ef627e33ea56e986e586dfb2755579efd3ff57cc6fc"
 
+ENDPOINT_REPAIR_PLAN_HASH = "98b684b106f66f79f06ed7b8b8f9b04a8c1a2d33aea5df52f76cd145f7302cbc"
+
 
 def endpoint_plan(plan):
-    return plan["experiment"] == "endpoint-control-preflight-v1"
+    return plan["experiment"] in ("endpoint-control-preflight-v1", "endpoint-control-preflight-v2")
 
 
 def allocation_plan(plan):
@@ -79,7 +81,7 @@ def tail_plan(plan):
 
 def experiment_kind(plan):
     if endpoint_plan(plan):
-        return "endpoint-control-preflight-report-v1"
+        return plan["experiment"].replace("preflight-", "preflight-report-")
     if allocation_plan(plan):
         return "allocation-discovery-preflight-report-v1"
     if protective_plan(plan):
@@ -101,7 +103,9 @@ def arms(plan):
 
 def validate_plan(plan):
     expected = (
-        ENDPOINT_PLAN_HASH
+        ENDPOINT_REPAIR_PLAN_HASH
+        if plan["experiment"] == "endpoint-control-preflight-v2"
+        else ENDPOINT_PLAN_HASH
         if endpoint_plan(plan)
         else ALLOCATION_PLAN_HASH
         if allocation_plan(plan)

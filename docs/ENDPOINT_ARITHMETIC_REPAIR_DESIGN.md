@@ -67,3 +67,14 @@ numerical-coverage study. Otherwise analyze the saved v2 failures and stop this
 specific two-version unit with an explicit next hypothesis; do not keep tuning
 new variants in this run. Full numerical coverage, archived NFL comparison,
 player calibration and observational admission remain required before scoring.
+
+### Pre-study implementation verification
+
+Boundary unit tests exposed one additional rounding loss in forming `c + Delta`
+for the log-CDF branch (relative discrepancy 6.61e-13 at c=-20). Preserve the
+rounded sum's residual with TwoSum and add its density-times-residual correction;
+the omitted Taylor term is second order in the endpoint's ulp. The original test
+assertion remains unchanged. This implements the declared signed increment more
+accurately; no scientific draws, gates or settings were consulted or changed.
+The 80-digit small-increment, branch-boundary, signed-tail, exact-zero-slope and
+normalized near-constant-integral checks all pass before the repaired study.

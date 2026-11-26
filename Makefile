@@ -55,7 +55,8 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  src/nfl_value/tail_mixture.py tests/test_tail_mixture.py \
  src/nfl_value/protective_mixture.py tests/test_protective_mixture.py \
  src/nfl_value/component_allocation.py tests/test_component_allocation.py \
- src/nfl_value/endpoint_controls.py tests/test_endpoint_controls.py
+ src/nfl_value/endpoint_controls.py tests/test_endpoint_controls.py \
+ src/nfl_value/cdf_increment.py tests/test_cdf_increment.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests

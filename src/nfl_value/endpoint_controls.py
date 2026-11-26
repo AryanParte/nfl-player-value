@@ -7,13 +7,15 @@ from nfl_value.control_variates import GaussianControls
 from nfl_value.ingestion import json_bytes, sha256
 
 KIND = "gaussian-affine-probit-v1"
+STABLE_KIND = "gaussian-affine-probit-v2"
 
 
 class EndpointControls(GaussianControls):
     """Gaussian kernels define the controls even for Student-t sampling strata."""
 
-    def __init__(self, sampling, directions):
+    def __init__(self, sampling, directions, *, stable=False):
         super().__init__(sampling)
+        self.stable = stable
         self.directions = np.asarray(directions, float)
         if (
             self.directions.ndim != 3
@@ -34,8 +36,14 @@ class EndpointControls(GaussianControls):
         for j, (mean, inverse, normalizer) in enumerate(self.parts):
             z = np.einsum("ij,kj->ik", points - mean, inverse, optimize=False)
             ratio = np.exp(-0.5 * np.sum(z * z, axis=1) - normalizer - logq)
-            affine = self.directions[j, :, 0] + z @ self.directions[j, :, 1:].T
-            columns.append(ratio[:, None] * (ndtr(affine) - self.centers[j]))
+            if self.stable:
+                from nfl_value.cdf_increment import centered_probit
+
+                centered = centered_probit(self.directions[j, :, 0], self.directions[j, :, 1:], z)
+            else:
+                affine = self.directions[j, :, 0] + z @ self.directions[j, :, 1:].T
+                centered = ndtr(affine) - self.centers[j]
+            columns.append(ratio[:, None] * centered)
         result = np.column_stack(columns)
         if not np.isfinite(result).all():
             raise ValueError("nonfinite endpoint controls")
@@ -47,8 +55,10 @@ def fit_endpoint_basis(sampling, points, weights, logq, responses, settings):
     columns = settings["columns"]
     clip, ridge = settings["probability_clip"], settings["direction_ridge"]
     y, points, weights, logq = (np.asarray(x, float) for x in (responses, points, weights, logq))
+    stable = settings["kind"] == STABLE_KIND
     if (
-        settings["kind"] != KIND
+        settings["kind"] not in (KIND, STABLE_KIND)
+        or (stable and settings.get("arithmetic") != "stable_normal_increment_v1")
         or settings["direction_fit"] != "component_gaussian_weighted_affine_probit"
         or settings["training"] != "same_independent_point_fit_no_extra_evaluations"
         or not np.isfinite([clip, ridge]).all()
@@ -85,10 +95,18 @@ def fit_endpoint_basis(sampling, points, weights, logq, responses, settings):
         if not np.isfinite(w).all() or w.sum() <= 0:
             raise ValueError("positive finite Gaussian-kernel fitting weights required")
         w /= w.sum()
-        zmean, ymean = w @ z, w @ response
+        zmean = w @ z
+        if stable:
+            deviation = response - response[0]
+            mean_deviation = w @ deviation
+            ymean = response[0] + mean_deviation
+            residual_response = deviation - mean_deviation
+        else:
+            ymean = w @ response
+            residual_response = response - ymean
         centered = z - zmean
         design = np.sqrt(w)[:, None] * centered
-        rhs = np.sqrt(w)[:, None] * (response - ymean)
+        rhs = np.sqrt(w)[:, None] * residual_response
         # Independent augmented least-squares reference protects collinear fits.
         augmented = np.vstack([design, np.sqrt(ridge) * np.eye(basis.dimension)])
         slopes = np.linalg.lstsq(
@@ -96,7 +114,7 @@ def fit_endpoint_basis(sampling, points, weights, logq, responses, settings):
         )[0]
         directions.append(np.column_stack([ymean - zmean @ slopes, slopes.T]))
         weight_hashes.append(sha256(w.astype("<f8").tobytes()))
-    fitted = EndpointControls(sampling, directions)
+    fitted = EndpointControls(sampling, directions, stable=stable)
     record = dict(
         settings=settings,
         directions=fitted.directions.tolist(),

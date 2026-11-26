@@ -84,10 +84,12 @@ def validate_point_fit(fit, sampling, entropy, plan, columns, endpoint_settings=
         1 + dimension + dimension * (dimension + 1) // 2
     )
     if endpoint_settings is not None:
-        from nfl_value.endpoint_controls import EndpointControls
+        from nfl_value.endpoint_controls import EndpointControls, STABLE_KIND
 
         evidence = fit["endpoint_basis"]
-        basis = EndpointControls(sampling, evidence["directions"])
+        basis = EndpointControls(
+            sampling, evidence["directions"], stable=endpoint_settings["kind"] == STABLE_KIND
+        )
         if (
             evidence["settings"] != endpoint_settings
             or fit["endpoint_basis_sha256"] != sha256(json_bytes(evidence))

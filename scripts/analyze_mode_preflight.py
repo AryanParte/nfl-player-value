@@ -122,6 +122,47 @@ def allocation_diagnostics(records, plan):
     )
 
 
+def endpoint_diagnostics(records):
+    """Saved-array diagnostics only; oracle probabilities never enter fitting."""
+    rows = []
+    truth = np.array([0.025, 0.025, 0.975, 0.975])
+    for r in records:
+        if "coarse" not in r or "correction" not in r or "plain_coarse" not in r:
+            continue
+        variances = {}
+        for name in ("coarse", "plain_coarse", "correction"):
+            raw = np.asarray(r[name])
+            residual = raw[:, 3:7] - raw[:, 0, None] * truth
+            variances[name] = np.var(residual, axis=0, ddof=1)
+        c, p, d = (variances[k] for k in ("coarse", "plain_coarse", "correction"))
+        row = dict(
+            trial=r["trial"],
+            status=r["status"],
+            residual_variances={k: v.tolist() for k, v in variances.items()},
+            controlled_plain_variance_ratio=[float(a / b) if b > 0 else None for a, b in zip(c, p)],
+            correction_variance_fraction=[
+                float(b / (a + b)) if a + b > 0 else None for a, b in zip(c, d)
+            ],
+            coefficient_norm=r["fit"]["coefficient_norm"],
+        )
+        e = r["fit"].get("endpoint_basis")
+        if e is not None:
+            row["auxiliary_fit"] = dict(
+                positive_mass_rows=e["positive_mass_rows"],
+                zero_mass_rows=e["zero_mass_rows"],
+                clipped_low=e["clipped_low"],
+                clipped_high=e["clipped_high"],
+                largest_absolute_direction=float(np.max(np.abs(e["directions"]))),
+            )
+        rows.append(row)
+    return dict(
+        retained_raw_trials=len(rows),
+        requested=len(records),
+        trials=rows,
+        caveat="Conditional-on-fit residual variance at known endpoint probabilities; diagnostic only, not ratio confidence coverage. Null ratios denote zero denominator variance. Retains raw evidence from failed confidence constructions; clipping describes auxiliary fitting, never target clipping.",
+    )
+
+
 def case_summary(case, plan, target, initial):
     fit_plan = fitting_plan(plan, case["arm"])
     records = case["records"]
@@ -166,6 +207,7 @@ def case_summary(case, plan, target, initial):
             records, plan["reference_endpoint_cdf_tolerance"]
         ),
     )
+    result["endpoint_residuals"] = endpoint_diagnostics(records)
     if any("components" in r for r in records):
         result["allocation"] = allocation_diagnostics(records, plan)
     adapted = [x.get("tail_geometry", x) for x in g if x["kind"] in (TAIL_KIND, PROTECTIVE_KIND)]
