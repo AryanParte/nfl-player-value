@@ -522,3 +522,29 @@ remote errors and imperfect numerical coverage remain explicit. Smooth CDF
 controls with analytically known integrals are a next hypothesis to freeze and
 validate, not an implemented change. No likelihood, prior, CAVAA benchmark,
 cumulative ledger, qualification or position-admission rule changes.
+
+## November 25 analytically centered endpoint controls
+
+The [frozen endpoint design](ENDPOINT_CONTROL_DESIGN.md) appends smooth CDF
+features whose integrals under the complete proposal are exactly zero. For a
+Gaussian control kernel, the expectation of an affine normal CDF has a closed
+form. Subtracting that expectation preserves the original target, including when
+sampling from Student-t strata. The component Gaussian is a control kernel,
+not an assertion that the Student-t distribution has Gaussian moments.
+
+Directions and coefficients are fitted on independent coarse training responses;
+validation truth is not a fitter input. Auxiliary probability clipping permits
+finite inverse-normal regression and is recorded. It never clips target
+integrals, confidence bounds or negative CAVAA. The fixed weighted regression
+retains the original polynomial basis, full-mixture weights and signed correction.
+No football likelihood, prior, first-unit/sensitivity benchmark, cumulative ledger,
+qualification or position-admission rule changes. See the completed study's
+[decision and limits](ENDPOINT_CONTROL_RESULTS.md) before using the candidate.
+
+The first implementation failed on near-constant endpoint controls: subtraction
+near one produced rounded differences that scaled regression coefficients
+amplified. The [frozen repair](ENDPOINT_ARITHMETIC_REPAIR_DESIGN.md) evaluates the
+same signed CDF increment directly and uses stable centering. It preserves exactly
+zero directions for constant auxiliary responses. Large coefficients are neither
+silently capped nor used as a score/admission rule. Independent high-precision
+arithmetic checks precede new randomizations; the rejected version remains archived.
