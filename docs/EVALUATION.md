@@ -579,3 +579,26 @@ experiment supplies that separate evidence, retaining failed confidence sets and
 defined point errors. The remote case has only 21/32 joint coverage. Full numerical
 certification, the archived NFL comparison and unfinished player-calibration study
 remain required. No new NFL outcomes or sealed Week 10 data enter this experiment.
+
+## November 24 allocation and search comparison
+
+Design 13703f1 precedes producer 1e2a39b and 576 independent trial randomizations.
+All ten retained known geometries remain. The candidate/equal diagnostic shares
+proposal, control fitting and independent allocation-pilot bytes; previous-search
+geometry intentionally differs. Numerical precision and coverage gates are
+unchanged. Two complete offline builds match all 18 objects and the manifest.
+All confidence constructions finish; no failed or unattempted trial is omitted.
+
+The [decision](ALLOCATION_DISCOVERY_RESULTS.md) rejects progression: curved-target
+precision is 28/32, while nine other small screens pass. Case 1 still has only
+26/32 joint coverage. Neither that pass nor exact replay substitutes for full
+numerical coverage. Matched improvements coexist with worsened remote RMSEs; all
+defined errors and mode groups remain descriptive rather than selectable subsets.
+Post-result saved-array diagnostics identify one upper endpoint and coarse residual
+variance as the remaining precision problem, without changing estimators or gates.
+
+The next control hypothesis requires a new frozen design, exact zero-integral
+checks, independent fitting and fresh known-answer geometry checks. Consumed
+geometries remain regressions, not fresh validation. The actual saved preflight
+is rejected before NFL archive access; full numerical and player/attribution
+validation remain mandatory before a contribution module or leaderboard is admitted.

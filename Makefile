@@ -53,7 +53,8 @@ PYTHON_FORMAT_FILES = src/nfl_value/baseline_cli.py tests/test_release_reliabili
  tests/test_mode_preflight.py scripts/analyze_mode_preflight.py \
  scripts/mode_tail_geometry.py tests/test_mode_tail_geometry.py \
  src/nfl_value/tail_mixture.py tests/test_tail_mixture.py \
- src/nfl_value/protective_mixture.py tests/test_protective_mixture.py
+ src/nfl_value/protective_mixture.py tests/test_protective_mixture.py \
+ src/nfl_value/component_allocation.py tests/test_component_allocation.py
 
 python-quality:
 	$(PYTHON) -m ruff check src scripts tests

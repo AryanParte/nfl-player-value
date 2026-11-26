@@ -256,6 +256,31 @@ are required, scored history is unavailable, and authenticated Explorer bootstra
 and durable retention remain unfinished. Neither successful software checks nor
 exact numerical replay is a validated CAVAA module.
 
+## November 24: independent allocation and bounded discovery
+
+- [x] Freeze 13703f1 before producer 1e2a39b and every study draw; retain all cases,
+  precision/coverage rules, fixed total budgets and independent random domains.
+- [x] Implement exact finite component allocation from a separate ratio-residual
+  pilot. Reconstruct allocation and raw estimates; never replace mixture mass by
+  sample fractions or use truth/evaluation draws in allocation.
+- [x] Complete all 576 candidate/equal/previous trials and two full offline builds.
+  Every confidence calculation finishes; all 18 objects and the manifest match.
+- [x] Diagnose nine passing screens and the curved-target failure (28/32 precision).
+  Matched displaced precision is 32 versus 17; remote 31 versus 23. Remote discovery
+  is 31/32 versus 24/32 with previous search. Preserve worsened rare-error RMSEs.
+- [x] Verify actual saved-report rejection before NFL inputs, unchanged primary
+  artifacts, software tests/hosted producer CI and fresh deployment/data metadata.
+- [ ] Freeze one endpoint-focused control comparison, analytically centered smooth
+  CDF controls with independent fitting and fresh geometry checks. Keep the unchanged
+  candidate comparator and all old regressions; prove identities before draws.
+- [ ] Full numerical coverage, archived pilot, 192-fit player calibration and
+  contribution admission. No module is admitted by this small screen.
+
+See [decision](docs/ALLOCATION_DISCOVERY_RESULTS.md), [learning](docs/learning/2026-11-24.md)
+and [M1–M6](docs/MILESTONES.md). #35/#36 are owner-merged; #37 targets main.
+November 24 production fails on first bootstrap; a fresh browser is signed out.
+No schedule or other-project changes. Deployment access does not block modeling.
+
 ## October 18: bootstrap
 
 - Establish an independent canonical repository and stable local clone.

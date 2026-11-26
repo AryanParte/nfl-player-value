@@ -9,7 +9,14 @@ import runpy
 import numpy as np
 
 from nfl_value.ingestion import SnapshotStore
-from nfl_value.mode_preflight import inputs, load, mode_geometry, restore_proposal, summarize
+from nfl_value.mode_preflight import (
+    fitting_plan,
+    inputs,
+    load,
+    mode_geometry,
+    restore_proposal,
+    summarize,
+)
 from nfl_value.protective_mixture import KIND as PROTECTIVE_KIND
 from nfl_value.tail_mixture import KIND as TAIL_KIND
 
@@ -20,7 +27,7 @@ def quantiles(values):
     return np.quantile(values, [0, 0.05, 0.5, 0.95, 1], axis=0).tolist() if len(values) else None
 
 
-def matched_comparison(candidate, baseline):
+def matched_comparison(candidate, baseline, *, matched_geometry=True):
     a, b = candidate["records"], baseline["records"]
     if len(a) != len(b) or any(x["trial"] != y["trial"] for x, y in zip(a, b)):
         raise ValueError("matched trial denominator differs")
@@ -57,11 +64,66 @@ def matched_comparison(candidate, baseline):
         initial_mode_groups=groups,
         paired_point_errors=error,
         diagnostic_arm=baseline.get("arm", "baseline"),
-        caveat="Matched fitting geometry, separate evaluation randomness; adjusted labels denote candidate, plain labels denote the named diagnostic. All defined point estimates include failed confidence sets. Groups and comparisons are descriptive, never selectable validation subsets or NFL causal effects.",
+        caveat=(
+            "Matched fitting geometry"
+            if matched_geometry
+            else "Common fitting entropy but changed search and geometry"
+        )
+        + "; separate evaluation randomness; adjusted labels denote the first named arm, plain labels denote the named diagnostic. All defined point estimates include failed confidence sets. Groups and comparisons are descriptive, never selectable validation subsets or NFL causal effects.",
+    )
+
+
+def allocation_diagnostics(records, plan):
+    available = [r for r in records if "components" in r]
+    counts, rows = Counter(), []
+    for r in available:
+        e = r["components"]
+        n = e["applied_counts"]
+        counts[str(n)] += 1
+        anchors = np.asarray(e["allocation"]["anchors"])
+        c = np.asarray(e["coarse_components"])
+        columns = plan["allocation_ratio_columns"]
+        residual = c[:, :, columns] - c[:, :, 0, None] * anchors
+        # Saved masses have been checked against the reconstructed proposal.
+        # Both pilot and evaluation variance remain descriptive.
+        masses = np.asarray(e["mixture_masses"])
+        scales = np.asarray(plan["allocation_tolerances"])
+        pilot_var = np.asarray(e["allocation"]["residual_variances"])
+        observed_var = np.var(residual, axis=0, ddof=1)
+        predicted_var = pilot_var * plan["allocation_component_nodes"] / np.asarray(n)[:, None]
+        total = np.asarray(r["coarse"])
+        total_residual = total[:, columns] - total[:, 0, None] * anchors
+        rows.append(
+            dict(
+                trial=r["trial"],
+                predicted_component_variance=predicted_var.tolist(),
+                observed_component_variance=observed_var.tolist(),
+                observed_total_residual_variance=np.var(total_residual, axis=0, ddof=1).tolist(),
+                observed_component_loss=float(
+                    np.sum(masses[:, None] ** 2 * observed_var / scales**2)
+                ),
+                observed_total_loss=float(
+                    np.sum(np.var(total_residual, axis=0, ddof=1) / scales**2)
+                ),
+                pilot_allocation_loss=e["allocation"]["predicted_loss"],
+                applied_predicted_loss=float(
+                    sum(s / count for s, count in zip(e["allocation"]["scores"], n))
+                ),
+            )
+        )
+    return dict(
+        retained=len(available),
+        counts_frequencies=dict(counts),
+        pilot_score_quantiles=quantiles(
+            [r["components"]["allocation"]["scores"] for r in available]
+        ),
+        component_variance_comparisons=rows,
+        caveat="Pilot anchors are reused only for diagnosis. Independent pilot and evaluation nets; inverse-count prediction is a heuristic, not QMC optimality or a coverage certificate. All raw confidence failures are retained; no diagnostic estimator selection.",
     )
 
 
 def case_summary(case, plan, target, initial):
+    fit_plan = fitting_plan(plan, case["arm"])
     records = case["records"]
     fitted = [r for r in records if "geometry" in r]
     complete_pairs = [
@@ -89,14 +151,10 @@ def case_summary(case, plan, target, initial):
             [r["fit"]["numerical_rank"] for r in records if "fit" in r]
         ),
         target_evaluation_quantiles=quantiles(work),
-        mode_count_frequencies={str(k): v for k, v in sorted(mode_counts.items())}
-        if case["arm"] == "candidate"
-        else None,
+        mode_count_frequencies={str(k): v for k, v in sorted(mode_counts.items())},
         optimizer_usable_counts=quantiles(
             [sum(a["usable"] for a in r.get("fit_trace", {}).get("attempts", [])) for r in records]
-        )
-        if case["arm"] == "candidate"
-        else None,
+        ),
         pilot_mass_quantiles=quantiles(
             [x["pilot_mass"] for x in base_geometry if "pilot_mass" in x]
         ),
@@ -108,6 +166,8 @@ def case_summary(case, plan, target, initial):
             records, plan["reference_endpoint_cdf_tolerance"]
         ),
     )
+    if any("components" in r for r in records):
+        result["allocation"] = allocation_diagnostics(records, plan)
     adapted = [x.get("tail_geometry", x) for x in g if x["kind"] in (TAIL_KIND, PROTECTIVE_KIND)]
     if adapted:
         result["tail_adaptation"] = dict(
@@ -152,7 +212,7 @@ def case_summary(case, plan, target, initial):
             fitted_log_density_ratio_quantiles=quantiles(
                 [
                     target.logpdf(centers)
-                    - restore_proposal(x, initial, plan).logpdf(centers, "stabilized-mixture")
+                    - restore_proposal(x, initial, fit_plan).logpdf(centers, "stabilized-mixture")
                     for x in g
                 ]
             ),
@@ -168,7 +228,9 @@ def case_summary(case, plan, target, initial):
             ),
             caveat="Fine-target component means are diagnostic probes, not necessarily density modes; distances are latent coordinates; no oracle selection or global variance bound",
         )
-        protected = [restore_proposal(x, initial, plan) for x in g if x["kind"] == PROTECTIVE_KIND]
+        protected = [
+            restore_proposal(x, initial, fit_plan) for x in g if x["kind"] == PROTECTIVE_KIND
+        ]
         if protected:
             result["protective_density_probes"] = {
                 name: quantiles(
@@ -215,6 +277,16 @@ def main():
     audit["tail_comparisons"] = {
         str(i): matched_comparison(by_key[("candidate", i)], by_key[("tail", i)])
         for i in result["plan"].get("tail_targets", [])
+    }
+    audit["allocation_comparisons"] = {
+        str(i): matched_comparison(by_key[("candidate", i)], by_key[("equal", i)])
+        for i in result["plan"].get("equal_targets", [])
+    }
+    audit["discovery_comparisons"] = {
+        str(i): matched_comparison(
+            by_key[("equal", i)], by_key[("previous", i)], matched_geometry=False
+        )
+        for i in result["plan"].get("previous_targets", [])
     }
     if args.reconstruction:
         replica = SnapshotStore(args.reconstruction)

@@ -1,0 +1,41 @@
+{
+  "run_date": "2026-11-24",
+  "audited_at_utc": "2026-11-25T01:45:30.760Z",
+  "main_sha": "da12cbf1561ba50b9e41de264ad6cf85c5c85066",
+  "owner_merged_prs": [
+    35,
+    36
+  ],
+  "main_ci": {
+    "run": 45314657454,
+    "conclusion": "success"
+  },
+  "pr": "https://github.com/AryanParte/nfl-player-value/pull/37",
+  "base": "main",
+  "has_pages": false,
+  "latest_returned_production": 45520666532,
+  "production_failure": {
+    "job": 138891375591,
+    "step": "Restore last retained candidate (not necessarily last deployed)",
+    "error": "no retained Explorer; first manual run requires bootstrap",
+    "capture_and_publish": "skipped"
+  },
+  "access": {
+    "github_connector_dispatch": false,
+    "github_connector_pages_configuration": false,
+    "local_gh_available": false,
+    "browser": "Fresh in-app repository view shows Sign in and No releases published; no authenticated setup/dispatch available."
+  },
+  "participation_feed": {
+    "url": "https://api.github.com/repos/nflverse/nflverse-data/releases/tags/pbp_participation",
+    "id": 71636554,
+    "updated_at": "2026-02-10T18:54:08Z",
+    "asset_count": 46,
+    "assets_named_2026": [],
+    "limitation": "Only this release's metadata; not an all-provider search or verified 2026 game coverage."
+  },
+  "deployment_performed": false,
+  "automation_changed": false,
+  "other_repository_changed": false,
+  "purchases": 0
+}

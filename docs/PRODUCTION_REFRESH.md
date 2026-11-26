@@ -67,6 +67,17 @@ or Pages configuration action. No retry, setting, workflow or schedule change
 was made. [Recorded metadata](audits/2026-11-19-operations.json) distinguishes
 this access limitation from numerical/model evidence.
 
+November 24 recheck: the owner merged #35 and #36, and da12cbf main CI passes.
+The latest returned [production run 45520666532](https://github.com/AryanParte/nfl-player-value/actions/runs/45520666532)
+failed on November 24 Eastern at the same explicit first-bootstrap prerequisite.
+Offline regression gates passed; capture and publish were skipped. Repository
+metadata still reports `has_pages=false`, local `gh` is absent and the connector
+lacks dispatch/Pages configuration. Browser access is available again, but a fresh
+in-app repository view shows **Sign in** and **No releases published**. No
+authenticated bootstrap is available in that session. No settings, workflow or
+schedule changed. The [operational audit](audits/2026-11-24-operations.json) is
+separate from numerical model evidence; modeling proceeds on main-based PR #37.
+
 Run the workflow on **main**, setting `bootstrap=true` for the first release only.
 Bootstrap fails if any public managed Explorer release already exists. All later
 manual runs use the default `false`. Scheduled runs use `false` and fail closed

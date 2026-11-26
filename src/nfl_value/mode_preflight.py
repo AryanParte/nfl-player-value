@@ -15,6 +15,7 @@ from nfl_value.coarse_control_study import (
     validate_point_fit,
 )
 from nfl_value.conditional_cli import environment
+from nfl_value.component_allocation import integrate_allocated, validate_components
 from nfl_value.control_variates import integrate_controlled
 from nfl_value.ingestion import json_bytes, sha256
 from nfl_value.mode_proposal import (
@@ -43,10 +44,25 @@ PLAN_HASH = "cbd0c022a598659f408c557079933e1e9e5eb0ca907da779fe60a10bf3d9a433"
 EXPERIMENT = "mode-preflight-report-v1"
 TAIL_PLAN_HASH = "3443c16fa5d36f25772a0ab5642c1ba7032c25a7693d0a7c736ade8eb56e6aa1"
 PROTECTIVE_PLAN_HASH = "168ffd8a171a516b9d8d0094f882d11c78060e74663237814a712d1ff9d70b5c"
+ALLOCATION_PLAN_HASH = "d0adbccfbbd77616e291045df541cad157ef7020d15284b804af0ac0128568fe"
+
+
+def allocation_plan(plan):
+    return plan["experiment"] == "allocation-discovery-preflight-v1"
+
+
+def fitting_plan(plan, arm):
+    if allocation_plan(plan) and arm == "previous":
+        return {
+            **plan,
+            "search_nodes": plan["previous_search_nodes"],
+            "starts": plan["previous_starts"],
+        }
+    return plan
 
 
 def protective_plan(plan):
-    return plan["experiment"] == "protective-mixture-preflight-v1"
+    return plan["experiment"] == "protective-mixture-preflight-v1" or allocation_plan(plan)
 
 
 def tail_plan(plan):
@@ -54,6 +70,8 @@ def tail_plan(plan):
 
 
 def experiment_kind(plan):
+    if allocation_plan(plan):
+        return "allocation-discovery-preflight-report-v1"
     if protective_plan(plan):
         return "protective-mixture-preflight-report-v1"
     return "tail-mixture-preflight-report-v1" if tail_plan(plan) else EXPERIMENT
@@ -65,14 +83,20 @@ def arms(plan):
         ("oracle", plan["oracle_targets"]),
         ("baseline", plan.get("baseline_targets", [])),
         ("tail", plan.get("tail_targets", [])),
+        ("equal", plan.get("equal_targets", [])),
+        ("previous", plan.get("previous_targets", [])),
     ]
 
 
 def validate_plan(plan):
     expected = (
-        PROTECTIVE_PLAN_HASH
-        if protective_plan(plan)
-        else (TAIL_PLAN_HASH if tail_plan(plan) else PLAN_HASH)
+        ALLOCATION_PLAN_HASH
+        if allocation_plan(plan)
+        else (
+            PROTECTIVE_PLAN_HASH
+            if protective_plan(plan)
+            else (TAIL_PLAN_HASH if tail_plan(plan) else PLAN_HASH)
+        )
     )
     if sha256(json_bytes(plan)) != expected:
         raise ValueError("mode preflight differs from frozen design")
@@ -174,9 +198,10 @@ def summarize(records, plan):
 
 def trial(target, initial, truth, plan, entropy, arm):
     if (
-        arm not in ("candidate", "oracle", "baseline", "tail")
+        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous")
         or (arm == "baseline" and not tail_plan(plan))
         or (arm == "tail" and not protective_plan(plan))
+        or (arm in ("equal", "previous") and not allocation_plan(plan))
     ):
         raise ValueError("explicit candidate or diagnostic arm required")
     record = dict(entropy=entropy, status="failed")
@@ -199,22 +224,41 @@ def trial(target, initial, truth, plan, entropy, arm):
         )
 
     try:
-        fitting_entropy = [entropy[0], 0, *entropy[2:]] if arm in ("baseline", "tail") else entropy
+        fitting_entropy = (
+            [entropy[0], 0, *entropy[2:]]
+            if arm in ("baseline", "tail") or allocation_plan(plan)
+            else entropy
+        )
+        fit_plan = fitting_plan(plan, arm)
         if arm == "oracle":
             sampling = oracle_proposal(target, initial)
         else:
             fitter = (
                 fit_protective_mixture
-                if arm == "candidate" and protective_plan(plan)
+                if (arm == "candidate" and protective_plan(plan)) or allocation_plan(plan)
                 else (
                     fit_tail_mixture
                     if (arm == "candidate" and tail_plan(plan)) or arm == "tail"
                     else fit_modes
                 )
             )
-            sampling = fitter(log_density, initial, entropy=fitting_entropy, plan=plan, work=work)
+            sampling = fitter(
+                log_density, initial, entropy=fitting_entropy, plan=fit_plan, work=work
+            )
         record.update(geometry=sampling.diagnostics, geometry_sha256=geometry_hash(sampling))
-        out = integrate_controlled(fine, coarse, sampling, entropy=entropy, plan=plan)
+        if allocation_plan(plan):
+            out = integrate_allocated(
+                fine,
+                coarse,
+                sampling,
+                entropy=entropy,
+                fitting_entropy=fitting_entropy,
+                plan=plan,
+                adaptive=arm == "candidate",
+            )
+            record["components"] = out["components"]
+        else:
+            out = integrate_controlled(fine, coarse, sampling, entropy=entropy, plan=plan)
         record.update(
             coarse=out["coarse"].tolist(),
             correction=out["correction"].tolist(),
@@ -280,7 +324,7 @@ def experiment(plan, progress=lambda _: None, checkpoint=lambda *_: None):
 def validate_case(case, initial, truth, plan):
     arm, i = case["arm"], case["target"]
     if (
-        arm not in ("candidate", "oracle", "baseline", "tail")
+        arm not in ("candidate", "oracle", "baseline", "tail", "equal", "previous")
         or case["truth"] != truth
         or case["initial_sampling_sha256"] != sampling_hash(initial)
         or [r["trial"] for r in case["records"]] != list(range(plan["trials"]))
@@ -289,11 +333,16 @@ def validate_case(case, initial, truth, plan):
     for j, r in enumerate(case["records"]):
         entropy = [
             plan["base_seed"],
-            {"candidate": 0, "oracle": 1, "baseline": 2, "tail": 3}[arm],
+            {"candidate": 0, "oracle": 1, "baseline": 2, "tail": 3, "equal": 4, "previous": 5}[arm],
             i,
             j,
         ]
-        fitting_entropy = [plan["base_seed"], 0, i, j] if arm in ("baseline", "tail") else entropy
+        fitting_entropy = (
+            [plan["base_seed"], 0, i, j]
+            if arm in ("baseline", "tail") or allocation_plan(plan)
+            else entropy
+        )
+        fit_plan = fitting_plan(plan, arm)
         if r["entropy"] != entropy or r["status"] not in ("complete", "failed", "unattempted"):
             raise ValueError("preflight entropy or trial status differs")
         if r["status"] == "unattempted":
@@ -308,11 +357,13 @@ def validate_case(case, initial, truth, plan):
         ):
             raise ValueError("preflight work accounting differs")
         if "geometry" in r:
-            adapted = (arm == "candidate" and tail_plan(plan)) or arm == "tail"
-            sampling = restore_proposal(r["geometry"], initial, plan)
+            adapted = (
+                (arm == "candidate" and tail_plan(plan)) or arm == "tail" or allocation_plan(plan)
+            )
+            sampling = restore_proposal(r["geometry"], initial, fit_plan)
             if geometry_hash(sampling) != r["geometry_sha256"] or r["geometry"]["kind"] != (
                 PROTECTIVE_KIND
-                if arm == "candidate" and protective_plan(plan)
+                if (arm == "candidate" and protective_plan(plan)) or allocation_plan(plan)
                 else (
                     TAIL_KIND
                     if adapted
@@ -324,12 +375,17 @@ def validate_case(case, initial, truth, plan):
                 )
             ):
                 raise ValueError("preflight proposal source/arm differs")
-            if arm in ("candidate", "baseline", "tail") and (
+            if arm in ("candidate", "baseline", "tail", "equal", "previous") and (
                 r["geometry"]["entropy"] != fitting_entropy
                 or r["geometry"]["search_entropy"] != [*fitting_entropy, 10]
                 or r["geometry"]["pilot_entropy"] != [*fitting_entropy, 11]
             ):
                 raise ValueError("preflight fitting random domains differ")
+            if allocation_plan(plan) and (
+                w["counts"].get("search_cloud") != fit_plan["search_nodes"]
+                or len(r["fit_trace"].get("attempts", [])) != fit_plan["starts"]
+            ):
+                raise ValueError("allocation study search settings differ")
             if adapted and any(
                 w["counts"].get(f"em_pilot_{k}") != plan["em_nodes"]
                 for k in range(plan["em_rounds"])
@@ -346,7 +402,15 @@ def validate_case(case, initial, truth, plan):
             plain = combine(r["plain_coarse"], r["correction"])
             if total.shape != (plan["replicates"], 9) or plain.shape != total.shape:
                 raise ValueError("preflight raw replicate dimensions differ")
-            validate_point_fit(r["fit"], sampling, [*entropy, 2], plan, 9)
+            validate_point_fit(
+                r["fit"],
+                sampling,
+                [*(fitting_entropy if allocation_plan(plan) else entropy), 2],
+                plan,
+                9,
+            )
+            if allocation_plan(plan):
+                validate_components(r, sampling, entropy, fitting_entropy, plan, arm == "candidate")
             actual = plain_assessment(total, plan)
             if json_bytes(actual) != json_bytes({k: r[k] for k in actual}) or json_bytes(
                 r["plain_assessment"]
@@ -358,6 +422,12 @@ def validate_case(case, initial, truth, plan):
                 * (plan["nodes_per_replicate"] + plan["correction_nodes_per_replicate"]),
                 fine_evaluation=plan["replicates"] * plan["correction_nodes_per_replicate"],
             )
+            if allocation_plan(plan):
+                expected_eval["coarse_evaluation"] += (
+                    plan["allocation_replicates"]
+                    * plan["allocation_component_nodes"]
+                    * len(sampling.components("stabilized-mixture"))
+                )
             if any(w["counts"].get(k) != v for k, v in expected_eval.items()):
                 raise ValueError("preflight evaluation calls disagree with complete replicates")
         elif r["status"] == "complete":
@@ -408,6 +478,23 @@ def validate(result):
                 != json_bytes(tail["geometry"])
             ):
                 raise ValueError("matched diagnostic tail geometry differs")
+    for i in p.get("equal_targets", []):
+        for candidate, equal in zip(
+            by_key[("candidate", i)]["records"], by_key[("equal", i)]["records"]
+        ):
+            for key in ("geometry", "fit"):
+                if (
+                    key in candidate
+                    and key in equal
+                    and json_bytes(candidate[key]) != json_bytes(equal[key])
+                ):
+                    raise ValueError("matched allocation fitting evidence differs")
+            if "components" in candidate and "components" in equal:
+                for key in ("pilot_entropy", "pilot_plain", "pilot_controlled", "allocation"):
+                    if json_bytes(candidate["components"][key]) != json_bytes(
+                        equal["components"][key]
+                    ):
+                        raise ValueError("matched allocation pilot evidence differs")
     passed = all(c["decision"]["screen_passed"] for c in result["cases"] if c["arm"] == "candidate")
     if result["screen_passed"] is not passed:
         raise ValueError("preflight screen flag differs")
